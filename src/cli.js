@@ -47,7 +47,7 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
       await step('account', async () => { me = await ig.me(); return `@${me.username} (${me.account_type}), ${me.followers_count} followers, ${me.media_count} posts`; });
       await step('user id matches', async () => { if (!me) throw new Error('account not readable'); if (String(me.user_id) !== String(process.env.IG_USER_ID)) throw new Error(`IG_USER_ID is ${process.env.IG_USER_ID} but the token belongs to ${me.user_id}: update the IG_USER_ID secret to ${me.user_id}`); return me.user_id; });
       let media = [];
-      await step('read posts', async () => { media = await ig.recentMedia(5); return `${media.length} recent: ${media.map((m) => m.media_product_type || m.media_type).join(', ') || 'none'}`; });
+      await step('read posts', async () => { media = await ig.recentMedia(5); return `${media.length} recent: ${media.map((m) => `${m.media_product_type || m.media_type} ${m.id} ${m.timestamp} "${(m.caption || '').split('\n')[0].slice(0, 50)}"`).join(' | ') || 'none'}`; });
       if (media[0]) await step('read comments', async () => `${(await ig.comments(media[0].id)).length} on the latest post`);
       if (media[0]) await step('read insights', async () => JSON.stringify(await ig.mediaInsights(media[0].id, 'reel')));
       await step('read DMs', async () => `${(await ig.conversations()).length} conversations visible`);

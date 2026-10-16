@@ -55,7 +55,7 @@ async function run() {
     const list = await ig.comments(m.id);
     const replies = list.reduce((n, c) => n + (c.replies?.data?.length || 0), 0);
     if ((m.comments_count || 0) > list.length + replies) {
-      log(`WARNING: ${m.comments_count - list.length - replies} comment(s) on post ${m.id} are hidden from the agent. Instagram only shares comments from accounts with a role on the Meta app until it passes App Review (advanced access) and is set to Live. See docs/APP-REVIEW.md.`);
+      log(`WARNING: ${m.comments_count - list.length - replies} comment(s) on post ${m.id} are hidden from the agent. Usual causes: the Meta app is not published (Live), or the comments come from private or teen accounts, which Instagram never shares with apps.`);
     }
     st.sent ||= {}; // "<post>:<person>" -> true, so a person gets each post's tool once
     for (const c of list) {

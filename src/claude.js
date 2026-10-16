@@ -1,34 +1,62 @@
-// The agent's brain: one helper around the Anthropic SDK.
-// Streams (long outputs never time out), uses adaptive thinking with an effort level,
-// and turns on server-side fallbacks so a policy decline is retried on another model.
-const Anthropic = require('@anthropic-ai/sdk').default;
+// The agent's brain. Two ways to reach Claude, picked automatically:
+//  1. CLAUDE_CODE_OAUTH_TOKEN (a Claude Pro/Max/Team subscription, made with `claude setup-token`):
+//     runs Claude Code in print mode. Usage counts against the subscription, no API bill.
+//  2. ANTHROPIC_API_KEY: the Anthropic SDK, streaming, adaptive thinking, server-side fallbacks.
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { spawn } = require('child_process');
 const { config } = require('./util');
 
-let client;
-const getClient = () => (client ||= new Anthropic()); // reads ANTHROPIC_API_KEY
+const useClaudeCode = () => !process.env.ANTHROPIC_API_KEY && !!process.env.CLAUDE_CODE_OAUTH_TOKEN;
+const hasClaude = () => !!(process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_CODE_OAUTH_TOKEN);
 
-/**
- * ask({ system, prompt, effort, model, maxTokens, tools }) -> { text, message }
- * `tools` may include server tools such as web search.
- */
-async function ask({ system, prompt, messages, effort, model, maxTokens = 32000, tools }) {
-  const cfg = config();
-  const stream = getClient().beta.messages.stream({
-    model: model || cfg.models.writer,
-    max_tokens: maxTokens,
-    betas: ['server-side-fallback-2026-07-01'],
-    fallbacks: 'default',
-    thinking: { type: 'adaptive' },
-    output_config: { effort: effort || cfg.models.writer_effort },
-    system,
-    messages: messages || [{ role: 'user', content: prompt }],
-    ...(tools ? { tools } : {}),
+// ---------- 1. Claude Code (subscription) ----------
+function claudeCode({ system, prompt, effort, model, web }) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'tep-')); // empty folder: nothing for file tools to touch
+  const sysFile = path.join(dir, 'system.md'); fs.writeFileSync(sysFile, system || 'You are a helpful assistant.');
+  const args = ['-p', '--output-format', 'json', '--no-session-persistence', '--model', model, '--system-prompt-file', sysFile, '--tools', web ? 'WebSearch' : ''];
+  if (web) args.push('--allowedTools', 'WebSearch');
+  if (effort) args.push('--effort', effort);
+  return new Promise((resolve, reject) => {
+    const p = spawn('claude', args, { cwd: dir, shell: process.platform === 'win32', env: process.env });
+    let out = '', err = '';
+    p.stdout.on('data', (d) => (out += d)); p.stderr.on('data', (d) => (err += d));
+    p.on('error', (e) => reject(new Error(`could not start Claude Code (install with: npm i -g @anthropic-ai/claude-code): ${e.message}`)));
+    p.on('close', () => {
+      fs.rmSync(dir, { recursive: true, force: true });
+      let r; try { r = JSON.parse(out.trim().split('\n').filter(Boolean).pop()); } catch { return reject(new Error(`Claude Code gave no result: ${(err || out).slice(-400)}`)); }
+      if (r.is_error || r.subtype !== 'success') return reject(new Error(`Claude Code: ${r.result || r.terminal_reason || r.subtype || 'error'}`));
+      resolve(r.result || '');
+    });
+    p.stdin.end(prompt);
+  });
+}
+
+// ---------- 2. Anthropic API ----------
+let client;
+async function viaApi({ system, messages, effort, model, maxTokens, tools }) {
+  const Anthropic = require('@anthropic-ai/sdk').default;
+  client ||= new Anthropic();
+  const stream = client.beta.messages.stream({
+    model, max_tokens: maxTokens,
+    betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default',
+    thinking: { type: 'adaptive' }, output_config: { effort },
+    system, messages, ...(tools ? { tools } : {}),
   });
   const message = await stream.finalMessage();
   if (message.stop_reason === 'refusal') throw new Error(`Claude declined: ${message.stop_details?.category || 'no category'}`);
   if (message.stop_reason === 'max_tokens') throw new Error('Claude ran out of output tokens; raise maxTokens');
-  const text = message.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n');
-  return { text, message };
+  return message.content.filter((b) => b.type === 'text').map((b) => b.text).join('\n');
+}
+
+/** ask({ system, prompt, effort, model, web }) -> text. `web: true` lets Claude search the web. */
+async function ask({ system, prompt, effort, model, maxTokens = 32000, web = false }) {
+  const cfg = config();
+  model = model || cfg.models.writer; effort = effort || cfg.models.writer_effort;
+  if (!hasClaude()) throw new Error('no Claude connection: set CLAUDE_CODE_OAUTH_TOKEN (subscription) or ANTHROPIC_API_KEY');
+  if (useClaudeCode()) return claudeCode({ system, prompt, effort, model, web });
+  return viaApi({ system, messages: [{ role: 'user', content: prompt }], effort, model, maxTokens, tools: web ? [{ type: 'web_search_20260209', name: 'web_search', max_uses: 8 }] : undefined });
 }
 
 /** Pull the first JSON object or array out of a reply (inside ```json fences or bare). */
@@ -38,20 +66,17 @@ function parseJSON(text) {
   return JSON.parse(raw.trim());
 }
 
-/** Ask for JSON, validate it, and on failure show Claude the errors and try again. */
-async function askJSON({ system, prompt, validate, effort, retries = 2, maxTokens }) {
-  const messages = [{ role: 'user', content: prompt }];
+/** Ask for JSON, validate it, and on failure show Claude its answer and the problems, then try again. */
+async function askJSON({ system, prompt, validate, effort, model, retries = 2, maxTokens }) {
+  let current = prompt;
   for (let attempt = 0; attempt <= retries; attempt++) {
-    const { text, message } = await ask({ system, messages, effort, maxTokens });
+    const text = await ask({ system, prompt: current, effort, model, maxTokens });
     let value, errors;
     try { value = parseJSON(text); errors = validate ? validate(value) : []; } catch (e) { errors = [`not valid JSON: ${e.message}`]; }
     if (!errors.length) return value;
-    messages.push({ role: 'assistant', content: message.content });
-    messages.push({ role: 'user', content: `That JSON has problems:\n- ${errors.join('\n- ')}\nReturn the full corrected JSON only.` });
+    current = `${prompt}\n\nYour previous answer was:\n${text}\n\nIt has these problems:\n- ${errors.join('\n- ')}\nReturn the full corrected JSON only.`;
   }
   throw new Error('Claude could not produce valid JSON after retries');
 }
 
-const WEB_SEARCH = { type: 'web_search_20260209', name: 'web_search', max_uses: 8 };
-
-module.exports = { ask, askJSON, parseJSON, WEB_SEARCH };
+module.exports = { ask, askJSON, parseJSON, hasClaude, useClaudeCode };

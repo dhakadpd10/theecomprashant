@@ -19,7 +19,7 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
 (async () => {
   const cmd = args[0];
   if (NEEDS_IG.includes(cmd) && (!process.env.IG_ACCESS_TOKEN || !process.env.IG_USER_ID)) { console.log('Instagram not connected yet (add the IG_ACCESS_TOKEN and IG_USER_ID secrets). Skipping.'); return; }
-  if (NEEDS_CLAUDE.includes(cmd) && !process.env.ANTHROPIC_API_KEY) { console.log('Claude not connected yet (add the ANTHROPIC_API_KEY secret). Skipping.'); return; }
+  if (NEEDS_CLAUDE.includes(cmd) && !require('./claude').hasClaude()) { console.log('Claude not connected yet (add the CLAUDE_CODE_OAUTH_TOKEN secret). Skipping.'); return; }
   if (cmd === 'plan') {
     const r = await require('./plan').run({ start: flag('start'), days: Number(flag('days', 7)) });
     if (process.env.GITHUB_OUTPUT && r.week) require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `week=${r.week}\nskipped=${!!r.skipped}\n`);
@@ -38,7 +38,9 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
   else if (cmd === 'refresh-token') { const t = await require('./ig').refreshToken(); process.stdout.write(t.access_token); }
   else if (cmd === 'check') {
     const ok = (b) => (b ? 'yes' : 'NO');
-    console.log('ANTHROPIC_API_KEY set:', ok(process.env.ANTHROPIC_API_KEY));
+    const claude = require('./claude');
+    console.log('Claude connected:     ', claude.hasClaude() ? (claude.useClaudeCode() ? 'yes (subscription via Claude Code)' : 'yes (API key)') : 'NO');
+    if (claude.hasClaude()) { try { const r = await claude.ask({ system: 'Reply with one word.', prompt: 'Say OK.', effort: 'low' }); console.log(`OK   Claude replied: ${r.trim().slice(0, 40)}`); } catch (e) { console.log(`FAIL Claude: ${e.message}`); } }
     console.log('IG_ACCESS_TOKEN set:  ', ok(process.env.IG_ACCESS_TOKEN));
     console.log('IG_USER_ID set:       ', ok(process.env.IG_USER_ID));
     if (process.env.IG_ACCESS_TOKEN) { // read-only: nothing is posted, replied or sent

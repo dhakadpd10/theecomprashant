@@ -14,9 +14,15 @@ You'll create four things: a GitHub repository, a Claude API key, an Instagram a
 5. Repository → **Settings → Actions → General** → Workflow permissions: **Read and write**, and tick **Allow GitHub Actions to create and approve pull requests**.
 6. In `config/agent.json`, set `site_url` to `https://<your-github-username>.github.io/theecomprashant`.
 
-## 3. Claude API key
-1. console.anthropic.com → sign in → **API keys** → Create key. Add a little credit under Billing.
-2. Repository → **Settings → Secrets and variables → Actions → New repository secret**: name `ANTHROPIC_API_KEY`, value = the key.
+## 3. Connect Claude (pick one)
+**Your Claude subscription (Pro, Max, Team or Enterprise), no API bill:**
+1. Install Claude Code on your computer: `npm install -g @anthropic-ai/claude-code`
+2. Run `claude setup-token` in a terminal, sign in to Claude in the browser that opens, and copy the long token it prints.
+3. Repository → **Settings → Secrets and variables → Actions → New repository secret**: name `CLAUDE_CODE_OAUTH_TOKEN`, value = the token.
+
+Every agent run then counts against your plan's usage limits, the same as using Claude yourself. A weekly plan writes 14 posts, so on a Pro plan it can take a good share of a session's limit; Max has more room.
+
+**Or an API key (pay per use):** console.anthropic.com → API keys → Create key, add credit under Billing, save it as `ANTHROPIC_API_KEY`. If both are set, the API key is used.
 
 ## 4. Instagram API token (official, no password sharing)
 1. developers.facebook.com → **My Apps → Create app** → use case **"Manage messaging & content on Instagram"** (Instagram API with Instagram Login).

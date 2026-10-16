@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { P, readJSON, writeJSON, readText, config, log, localDay, addDays, isoWeek, python } = require('./util');
-const { ask, askJSON, WEB_SEARCH } = require('./claude');
+const { ask, askJSON } = require('./claude');
 const { validateReel, validateCarousel, validateCaption, WORLDS } = require('./validate');
 const { WORLD_NOTES } = require('../engine/themes');
 
@@ -28,7 +28,7 @@ function nextMonday(from = localDay()) { let d = from; do d = addDays(d, 1); whi
 async function learn() {
   const logCsv = readText(P('content/analytics/log.csv'));
   if (logCsv.split('\n').filter(Boolean).length < 3) { log('no analytics yet, skipping the weekly learning step'); return; }
-  const { text } = await ask({
+  const text = await ask({
     system: SYSTEM(), effort: 'high',
     prompt: `Here is the per-post metrics log (latest snapshot per post counts):\n\n${logCsv.slice(-20000)}\n\nWrite this week's entry for learnings.md: a "## Week of ${localDay()}" heading, then 3 to 5 bullet points: what over-performed and why you think so, what to stop, and one experiment for next week. Use views, saves, shares, comments and keyword comments; say plainly when a sample is too small to conclude anything. Markdown only, no preamble.`,
   });
@@ -40,8 +40,8 @@ async function learn() {
 
 // ---------- 2. research ----------
 async function research() {
-  const { text } = await ask({
-    system: SYSTEM(), effort: 'medium', tools: [WEB_SEARCH], maxTokens: 16000,
+  const text = await ask({
+    system: SYSTEM(), effort: 'medium', web: true, maxTokens: 16000,
     prompt: `Search the web for what changed in the last 14 days that a small D2C or Shopify brand owner could use: new AI features or tools (Claude, ChatGPT, Gemini, Meta Ads, Shopify, WhatsApp Business, Instagram), festival or sale dates coming up in India, and ecommerce problems people are discussing. Return 6 to 10 short bullets, each with what it is, why a D2C owner should care, and a source link. Skip pure model news with no practical use.`,
   });
   return text;
@@ -83,7 +83,7 @@ const example = (id, file) => readText(P('content/posts', id, file));
 
 async function writeTool(keyword, nt) {
   const id = keyword.toLowerCase();
-  const { text } = await ask({
+  const text = await ask({
     system: SYSTEM(), effort: 'high',
     prompt: `Write the free tool "${nt.title}" (${nt.what}) as a Markdown file in exactly this shape: a "# Title" line, one short paragraph telling the reader what to paste and where, a line with only "---", then the full prompt they paste into Claude. The prompt must be safe, honest (never invent facts; mark unknowns as [CHECK: ...]) and genuinely useful for a D2C store owner. Model it on this example:\n\n${readText(P('tools/store.md'))}\n\nReturn the Markdown only.`,
   });
@@ -112,13 +112,13 @@ function lintCaption(file) {
 
 async function writeCaption(dir, kind, spec) {
   const kw = spec.keyword, tool = config().keywords[kw].title;
-  let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${SCENES_DOC().split('## Caption')[1]}\n\nModel caption:\n${example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt')}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).text.trim();
+  let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${SCENES_DOC().split('## Caption')[1]}\n\nModel caption:\n${example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt')}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).trim();
   const f = path.join(dir, 'caption.txt');
   for (let i = 0; i < 2; i++) {
     const errs = validateCaption(caption, kw); fs.writeFileSync(f, caption + '\n');
     const lint = lintCaption(f);
     if (!errs.length && lint.verdict !== 'FAIL' && lint.human >= 70) break;
-    caption = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `Revise this caption. Problems: ${[...errs, lint.notes, lint.human < 70 ? `it reads machine-written (human score ${lint.human}/100): use contractions, "you", varied sentence lengths, concrete numbers` : ''].filter(Boolean).join('; ')}.\n\n${caption}\n\nReturn the caption only.` })).text.trim();
+    caption = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `Revise this caption. Problems: ${[...errs, lint.notes, lint.human < 70 ? `it reads machine-written (human score ${lint.human}/100): use contractions, "you", varied sentence lengths, concrete numbers` : ''].filter(Boolean).join('; ')}.\n\n${caption}\n\nReturn the caption only.` })).trim();
   }
   fs.writeFileSync(f, caption + '\n');
 }

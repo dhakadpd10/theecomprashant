@@ -4,7 +4,7 @@ An open-source Instagram agent that runs a whole page about **practical AI for D
 
 Every week it researches what's new, plans 14 posts (a carousel at 1 pm and a reel at 7:30 pm, every day), writes them, records a voiceover, renders the videos and slides, and asks you to approve the week. After you approve, it posts on time, sends the free tool by DM to everyone who comments the keyword, answers comments and DMs, escalates anything sensitive to you, and reads the numbers to plan a better next week.
 
-It runs entirely on **GitHub Actions** (free for public repositories) with **Claude** as the brain and **Instagram's official API**.
+It runs entirely on **GitHub Actions** (free for public repositories) with **Claude** as the brain (your Claude subscription through Claude Code, or an API key) and **Instagram's official API**.
 
 ```
 Saturday 06:00 IST   research → plan → write → voice → render → pull request "Approve 2026-W44"
@@ -42,7 +42,7 @@ Monday               refresh the Instagram token
 
 ## Make it yours
 
-Fork it, then change `brand/voice.md`, `brand/pillars.md`, `config/agent.json` and the tools in `tools/`. Follow [docs/SETUP.md](docs/SETUP.md). Costs: GitHub Actions is free for public repos; you pay for Claude API usage (a weekly run plus replies is typically a few dollars a week, depending on volume).
+Fork it, then change `brand/voice.md`, `brand/pillars.md`, `config/agent.json` and the tools in `tools/`. Follow [docs/SETUP.md](docs/SETUP.md). Costs: GitHub Actions is free for public repos. Claude runs either on your Claude subscription (through Claude Code, set `CLAUDE_CODE_OAUTH_TOKEN`) or on a pay-per-use API key (`ANTHROPIC_API_KEY`).
 
 ## Credits
 

@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Install Claude Code (runs Claude on your subscription)
+        run: npm install -g @anthropic-ai/claude-code
       - run: npm ci
       - name: Cache the voice and speech-check models
         uses: actions/cache@v4
@@ -35,6 +37,7 @@ jobs:
         id: plan
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           START: ${{ inputs.start }}
         run: node src/cli.js plan ${START:+--start "$START"}
       - name: Open the approval pull request

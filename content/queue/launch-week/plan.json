@@ -15,14 +15,15 @@
       "error": "slides not on the site yet: https://YOUR-GITHUB-USERNAME.github.io/theecomprashant/media/posts/c01-leaky-page/slide-01.jpg"
     },
     {
-      "day": "DAY1",
-      "time": "19:30",
+      "day": "2026-10-16",
+      "time": "20:55",
       "format": "reel",
       "post": "01-store-shoppers",
       "keyword": "STORE",
       "pillar": "Sell more",
       "topic": "7 AI shoppers reject your store",
-      "status": "made"
+      "status": "made",
+      "note": "test post, published early on request"
     },
     {
       "day": "DAY2",

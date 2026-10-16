@@ -52,7 +52,12 @@ async function run() {
   for (const m of await ig.recentMedia(12)) {
     if (Date.now() - new Date(m.timestamp) > 7 * DAY) continue; // private replies only work within 7 days
     const kw = posts[m.id]?.keyword || keywordIn(m.caption);
-    for (const c of await ig.comments(m.id)) {
+    const list = await ig.comments(m.id);
+    const replies = list.reduce((n, c) => n + (c.replies?.data?.length || 0), 0);
+    if ((m.comments_count || 0) > list.length + replies) {
+      log(`WARNING: ${m.comments_count - list.length - replies} comment(s) on post ${m.id} are hidden from the agent. Instagram only shares comments from accounts with a role on the Meta app until it passes App Review (advanced access) and is set to Live. See docs/APP-REVIEW.md.`);
+    }
+    for (const c of list) {
       if (st.comments[c.id] || (c.username || '').toLowerCase() === me) continue;
       if ((c.replies?.data || []).some((r) => (r.username || '').toLowerCase() === me)) { st.comments[c.id] = 'already'; continue; }
       if (cfg.replies.keyword_dm && kw && new RegExp(`\\b${kw}\\b`, 'i').test(c.text || '') && budget-- > 0) {
@@ -86,7 +91,11 @@ async function run() {
         if (x.kind === 'dm') await ig.sendMessage(x.from, d.text); else await ig.replyToComment(x.id, d.text);
         book[x.id] = 'replied'; log('replied', x.kind, '@' + x.username);
       } else if (d.action === 'escalate' || (d.action === 'reply' && !cfg.replies.auto_reply_questions)) {
-        escalations.push(`- **@${x.username}** (${x.kind} on "${x.context}"): ${x.text}\n  - ${d.summary || 'Suggested reply: ' + d.text}`); book[x.id] = 'escalated';
+        // the repo is public: DM contents never go into an issue, only that a DM is waiting
+        escalations.push(x.kind === 'dm'
+          ? `- A **direct message** from @${x.username} needs your reply. Open the Instagram inbox to read it.`
+          : `- **@${x.username}** commented on "${x.context}": ${x.text}\n  - ${d.summary || 'Suggested reply: ' + d.text}`);
+        book[x.id] = 'escalated';
       } else book[x.id] = 'ignored';
     } catch (e) { log('reply failed', x.id, e.message); book[x.id] = 'failed'; }
   }

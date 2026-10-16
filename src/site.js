@@ -28,6 +28,7 @@ code { font:500 .9em var(--mono); background:var(--code); padding:1px 5px; borde
 .copy { font:700 16px/1 var(--body); background:var(--ink); color:var(--bg); border:0; border-radius:10px; padding:14px 18px; cursor:pointer } .done { color:var(--good); font-weight:600; font-size:14px }
 details { border-top:1px solid var(--line); padding-top:10px } summary { cursor:pointer; font-weight:600; color:var(--muted) }
 pre { white-space:pre-wrap; word-break:break-word; font:500 13px/1.6 var(--mono); background:var(--code); padding:16px; border-radius:10px; margin:12px 0 0; max-height:460px; overflow:auto }
+h2 { font:400 24px/1.15 var(--display); margin:28px 0 8px } .legal { max-width:68ch } .legal ul, .legal ol { padding-left:22px } .legal li { margin:6px 0 } .legal a { color:inherit }
 footer { color:var(--muted); font-size:13px; max-width:64ch } @media (prefers-reduced-motion:no-preference) { html { scroll-behavior:smooth } }`;
 
 const page = (title, body) => `<!doctype html>
@@ -60,7 +61,12 @@ function build(out = P('_site')) {
   fs.rmSync(out, { recursive: true, force: true }); fs.mkdirSync(path.join(out, 'tools'), { recursive: true });
   fs.writeFileSync(path.join(out, 'tools', 'index.html'), toolsPage());
   fs.writeFileSync(path.join(out, 'index.html'), page(cfg.name, `<div class="wrap"><header><span class="sticker">OPEN-SOURCE INSTAGRAM AGENT</span><h1>${esc(cfg.name)}</h1>
-<p class="lede">Practical AI for D2C and ecommerce brands, posted daily on Instagram at ${esc(cfg.handle)}. The free tools from every post are on <a href="tools/">the tools page</a>.</p></header></div>`));
+<p class="lede">Practical AI for D2C and ecommerce brands, posted daily on Instagram at ${esc(cfg.handle)}. The free tools from every post are on <a href="tools/">the tools page</a>.</p></header><footer><a href="privacy/">Privacy</a> · <a href="data-deletion/">Data deletion</a> · <a href="terms/">Terms</a></footer></div>`));
+  const legal = require('./legal');
+  for (const [dir, title, html] of [['privacy', 'Privacy Policy', legal.privacy(cfg.handle)], ['data-deletion', 'Data Deletion', legal.deletion(cfg.handle)], ['terms', 'Terms of Use', legal.terms(cfg.handle)]]) {
+    fs.mkdirSync(path.join(out, dir), { recursive: true });
+    fs.writeFileSync(path.join(out, dir, 'index.html'), page(`${title} · ${cfg.name}`, html));
+  }
   fs.writeFileSync(path.join(out, '.nojekyll'), '');
   // media Instagram needs to fetch: reels, JPEG covers and JPEG slides
   let n = 0; const posts = P('content/posts');

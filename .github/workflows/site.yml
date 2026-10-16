@@ -4,7 +4,7 @@ name: Site - free tools page and media
 on:
   push:
     branches: [main]
-    paths: ["content/posts/**", "tools/**", "config/**", "src/site.js"]
+    paths: ["content/posts/**", "tools/**", "config/**", "src/site.js", "src/legal.js"]
   workflow_dispatch:
 permissions:
   contents: read

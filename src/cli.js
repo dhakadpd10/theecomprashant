@@ -41,6 +41,17 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
     console.log('ANTHROPIC_API_KEY set:', ok(process.env.ANTHROPIC_API_KEY));
     console.log('IG_ACCESS_TOKEN set:  ', ok(process.env.IG_ACCESS_TOKEN));
     console.log('IG_USER_ID set:       ', ok(process.env.IG_USER_ID));
-    if (process.env.IG_ACCESS_TOKEN) { const me = await require('./ig').me(); console.log('Instagram account:', me.username, me.account_type, me.followers_count, 'followers'); }
+    if (process.env.IG_ACCESS_TOKEN) { // read-only: nothing is posted, replied or sent
+      const ig = require('./ig'); const step = async (name, fn) => { try { console.log(`OK   ${name}: ${await fn()}`); } catch (e) { console.log(`FAIL ${name}: ${e.message}`); } };
+      let me;
+      await step('account', async () => { me = await ig.me(); return `@${me.username} (${me.account_type}), ${me.followers_count} followers, ${me.media_count} posts`; });
+      await step('user id matches', async () => { if (!me) throw new Error('account not readable'); if (String(me.user_id) !== String(process.env.IG_USER_ID)) throw new Error(`IG_USER_ID is ${process.env.IG_USER_ID} but the token belongs to ${me.user_id}: update the IG_USER_ID secret to ${me.user_id}`); return me.user_id; });
+      let media = [];
+      await step('read posts', async () => { media = await ig.recentMedia(5); return `${media.length} recent: ${media.map((m) => m.media_product_type || m.media_type).join(', ') || 'none'}`; });
+      if (media[0]) await step('read comments', async () => `${(await ig.comments(media[0].id)).length} on the latest post`);
+      if (media[0]) await step('read insights', async () => JSON.stringify(await ig.mediaInsights(media[0].id, 'reel')));
+      await step('read DMs', async () => `${(await ig.conversations()).length} conversations visible`);
+      await step('posting limit', async () => JSON.stringify((await ig.publishingLimit()).data?.[0] || {}));
+    }
   } else { console.log(require('fs').readFileSync(__filename, 'utf8').split('\n').slice(1, 12).join('\n')); process.exit(cmd ? 1 : 0); }
 })().catch((e) => { console.error('ERROR:', e.message); process.exit(1); });

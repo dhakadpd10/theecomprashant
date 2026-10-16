@@ -12,8 +12,14 @@
 const args = process.argv.slice(2);
 const flag = (name, def) => { const i = args.indexOf(`--${name}`); return i < 0 ? def : args[i + 1] ?? true; };
 
+// jobs that need a connected account skip quietly until the secrets exist
+const NEEDS_IG = ['publish', 'engage', 'analytics', 'refresh-token'];
+const NEEDS_CLAUDE = ['plan', 'engage'];
+
 (async () => {
   const cmd = args[0];
+  if (NEEDS_IG.includes(cmd) && (!process.env.IG_ACCESS_TOKEN || !process.env.IG_USER_ID)) { console.log('Instagram not connected yet (add the IG_ACCESS_TOKEN and IG_USER_ID secrets). Skipping.'); return; }
+  if (NEEDS_CLAUDE.includes(cmd) && !process.env.ANTHROPIC_API_KEY) { console.log('Claude not connected yet (add the ANTHROPIC_API_KEY secret). Skipping.'); return; }
   if (cmd === 'plan') {
     const r = await require('./plan').run({ start: flag('start'), days: Number(flag('days', 7)) });
     if (process.env.GITHUB_OUTPUT && r.week) require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `week=${r.week}\nskipped=${!!r.skipped}\n`);

@@ -1,9 +1,9 @@
 {
   "week": "launch-week",
-  "start": null,
+  "start": "2026-10-17",
   "slots": [
     {
-      "day": "DAY1",
+      "day": "2026-10-17",
       "time": "13:00",
       "format": "carousel",
       "post": "c01-leaky-page",
@@ -28,7 +28,7 @@
       "published_at": "2026-10-16T15:28:37.548Z"
     },
     {
-      "day": "DAY2",
+      "day": "2026-10-18",
       "time": "13:00",
       "format": "carousel",
       "post": "c02-launch-questions",
@@ -38,7 +38,7 @@
       "status": "made"
     },
     {
-      "day": "DAY2",
+      "day": "2026-10-18",
       "time": "19:30",
       "format": "reel",
       "post": "02-launch-trial",
@@ -51,7 +51,7 @@
       "note": "posted by hand before the agent went live"
     },
     {
-      "day": "DAY3",
+      "day": "2026-10-19",
       "time": "13:00",
       "format": "carousel",
       "post": "c03-checkout-leaks",
@@ -61,7 +61,7 @@
       "status": "made"
     },
     {
-      "day": "DAY3",
+      "day": "2026-10-19",
       "time": "19:30",
       "format": "reel",
       "post": "03-store-audit",
@@ -71,7 +71,7 @@
       "status": "made"
     },
     {
-      "day": "DAY4",
+      "day": "2026-10-20",
       "time": "13:00",
       "format": "carousel",
       "post": "c04-ad-hook-formula",
@@ -81,7 +81,7 @@
       "status": "made"
     },
     {
-      "day": "DAY4",
+      "day": "2026-10-20",
       "time": "19:30",
       "format": "reel",
       "post": "04-ad-roast",
@@ -91,7 +91,7 @@
       "status": "made"
     },
     {
-      "day": "DAY5",
+      "day": "2026-10-21",
       "time": "13:00",
       "format": "carousel",
       "post": "c05-jobs-for-ai",
@@ -101,7 +101,7 @@
       "status": "made"
     },
     {
-      "day": "DAY5",
+      "day": "2026-10-21",
       "time": "19:30",
       "format": "reel",
       "post": "05-agent-team",
@@ -111,7 +111,7 @@
       "status": "made"
     },
     {
-      "day": "DAY6",
+      "day": "2026-10-22",
       "time": "13:00",
       "format": "carousel",
       "post": "c06-best-ad-copy",
@@ -121,7 +121,7 @@
       "status": "made"
     },
     {
-      "day": "DAY6",
+      "day": "2026-10-22",
       "time": "19:30",
       "format": "reel",
       "post": "06-review-hooks",
@@ -131,7 +131,7 @@
       "status": "made"
     },
     {
-      "day": "DAY7",
+      "day": "2026-10-23",
       "time": "13:00",
       "format": "carousel",
       "post": "c07-price-feel-fair",
@@ -141,7 +141,7 @@
       "status": "made"
     },
     {
-      "day": "DAY7",
+      "day": "2026-10-23",
       "time": "19:30",
       "format": "reel",
       "post": "07-price-test",
@@ -150,6 +150,5 @@
       "topic": "₹999 or ₹1,299? Ask 100 AI shoppers",
       "status": "made"
     }
-  ],
-  "note": "Run the \"Launch\" workflow with your start date to schedule these."
+  ]
 }

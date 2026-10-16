@@ -1,0 +1,144 @@
+{
+  "id": "06-review-hooks",
+  "keyword": "REVIEWS",
+  "world": "notebook",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(REVIEWS|reviews|200|10|ten|exact|buyers)",
+  "cast": [
+    {
+      "name": "Happy buyer",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#7DD3C0",
+      "prop": "cart"
+    },
+    {
+      "name": "Student",
+      "col": "#FFC857",
+      "prop": "phone"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop writing ad copy.",
+      "card": "STOP WRITING AD COPY",
+      "scene": {
+        "type": "page",
+        "who": 0,
+        "whoAt": 0.3,
+        "say": [
+          "\"Finally, no dry",
+          "skin by noon!\""
+        ]
+      }
+    },
+    {
+      "say": "Your reviews already wrote it.",
+      "card": "YOUR REVIEWS WROTE IT",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "big": "★★★★★",
+        "bigSize": 110
+      }
+    },
+    {
+      "say": "Paste two hundred reviews from your store into Claude.",
+      "show": "Paste 200 reviews from your store into Claude.",
+      "card": "PASTE 200 REVIEWS",
+      "scene": {
+        "type": "stat",
+        "big": "200",
+        "label": "reviews pasted into Claude"
+      }
+    },
+    {
+      "say": "It pulls out the exact words your buyers use.",
+      "card": "THEIR EXACT WORDS",
+      "scene": {
+        "type": "chat",
+        "text": "Pull the exact words my buyers use from these 200 reviews",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "say": "The problem they had. The moment it worked. The doubt they almost left on.",
+      "card": "PROBLEM. MOMENT. DOUBT.",
+      "scene": {
+        "type": "list",
+        "title": "What your buyers said",
+        "items": [
+          "Problem: \"dry skin by noon\"",
+          "Moment: \"day 3, it clicked\"",
+          "Doubt: \"almost didn't, the price\""
+        ]
+      }
+    },
+    {
+      "say": "Then it turns those words into ten ad hooks.",
+      "show": "Then it turns those words into 10 ad hooks.",
+      "card": "10 AD HOOKS",
+      "scene": {
+        "type": "stat",
+        "big": "10",
+        "label": "ad hooks, ready to test"
+      }
+    },
+    {
+      "say": "Written like your buyers talk, not like an ad.",
+      "card": "IN YOUR BUYERS' WORDS",
+      "scene": {
+        "type": "list",
+        "title": "Hooks in their words",
+        "items": [
+          "\"Dry skin by noon? Not now.\"",
+          "\"Day 3 is when it clicks.\"",
+          "\"Worth it, even at ₹1,299.\""
+        ],
+        "who": 0
+      }
+    },
+    {
+      "say": "Comment REVIEWS and I'll send you the free review miner.",
+      "card": "COMMENT \"REVIEWS\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free review miner in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "YOUR REVIEWS",
+      "WROTE YOUR NEXT AD"
+    ],
+    "line": 6,
+    "lt": 3,
+    "shift": 120
+  }
+}

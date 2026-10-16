@@ -1,0 +1,275 @@
+{
+  "id": "02-launch-trial",
+  "keyword": "LAUNCH",
+  "world": "courtroom",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(LAUNCH|12|twelve|3|judge|alone|flop|sell)",
+  "page": {
+    "title": "Glow Night Cream",
+    "price": "₹1,299",
+    "label": "NEW",
+    "url": "yourstore.com/products/new-launch"
+  },
+  "cast": [
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Gym regular",
+      "col": "#7FA8F8",
+      "prop": "none"
+    },
+    {
+      "name": "Premium buyer",
+      "col": "#E8CF8E",
+      "prop": "heart"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Office worker",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Reseller",
+      "col": "#C9B6FF",
+      "prop": "tag"
+    },
+    {
+      "name": "Rival brand",
+      "col": "#5D6577",
+      "prop": "shades"
+    },
+    {
+      "name": "Prosecutor",
+      "col": "#FF7B7B",
+      "prop": "none"
+    },
+    {
+      "name": "Defender",
+      "col": "#45D69B",
+      "prop": "none"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    },
+    {
+      "name": "Your team",
+      "col": "#FFC857",
+      "prop": "heart"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop asking your team if the launch is good.",
+      "card": "STOP ASKING YOUR TEAM",
+      "scene": {
+        "type": "page",
+        "who": 15,
+        "whoAt": 0.5,
+        "say": [
+          "Looks great!",
+          "Ship it!"
+        ]
+      }
+    },
+    {
+      "say": "Ask twelve AI customers.",
+      "show": "Ask 12 AI customers.",
+      "card": "ASK 12 AI CUSTOMERS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "big": "×12",
+        "step": 0.06
+      }
+    },
+    {
+      "say": "Your team wants it to work. Customers just don't buy.",
+      "card": "CUSTOMERS DON'T PRETEND",
+      "scene": {
+        "type": "page",
+        "ghosts": true
+      }
+    },
+    {
+      "say": "One AI argues it will flop.",
+      "card": "PROSECUTOR VS DEFENDER",
+      "scene": {
+        "type": "versus",
+        "gap": "@line4-0.1",
+        "left": {
+          "who": 12,
+          "tag": "IT FLOPS",
+          "say": [
+            "Too pricey",
+            "for 50 ml."
+          ],
+          "mood": "angry"
+        },
+        "right": {
+          "who": 13,
+          "tag": "IT SELLS",
+          "say": [
+            "Gifting season",
+            "is coming."
+          ],
+          "mood": "happy"
+        }
+      }
+    },
+    {
+      "say": "Another argues it will sell."
+    },
+    {
+      "say": "Twelve customers hear both sides.",
+      "show": "12 customers hear both sides.",
+      "card": "12 JURORS. BLIND VOTE.",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "SKIP",
+          "BUY",
+          "BUY",
+          "SKIP",
+          "SKIP",
+          "BUY",
+          "BUY",
+          "SKIP",
+          "BUY",
+          "SKIP",
+          "SKIP",
+          "SKIP"
+        ],
+        "voteAt": "@line7+0.1",
+        "voteStep": 0.12,
+        "tally": "@line7+1.8"
+      }
+    },
+    {
+      "say": "A student. A busy mom. A gift buyer. A bargain hunter."
+    },
+    {
+      "say": "Each one votes alone, so nobody just agrees."
+    },
+    {
+      "say": "Then a judge reads every vote and makes the call.",
+      "card": "THE VERDICT",
+      "scene": {
+        "type": "verdict",
+        "who": 14,
+        "stamp": "FIX 3 THINGS",
+        "sub": "then launch"
+      }
+    },
+    {
+      "say": "Plus the three fixes to make before you order stock.",
+      "show": "Plus the 3 fixes to make before you order stock.",
+      "card": "FIX BEFORE YOU ORDER STOCK",
+      "scene": {
+        "type": "list",
+        "title": "Before you order stock",
+        "items": [
+          "Show the size in photo 1",
+          "Say why it costs ₹1,299",
+          "Add a gift-ready bundle"
+        ],
+        "who": 14
+      }
+    },
+    {
+      "say": "Comment LAUNCH and I'll send you the free trial.",
+      "card": "COMMENT \"LAUNCH\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 12-customer trial in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          11
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "12 AI CUSTOMERS",
+      "JUDGE YOUR LAUNCH"
+    ],
+    "line": 5,
+    "lt": 4,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

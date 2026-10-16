@@ -1,0 +1,272 @@
+{
+  "id": "c03-checkout-leaks",
+  "keyword": "AUDIT",
+  "cast": [
+    {
+      "name": "First-time buyer",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Midnight scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Loyal fan",
+      "col": "#FF9F68",
+      "prop": "heart"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "7 CHECKOUT LEAKS",
+        "LOSING YOU ORDERS"
+      ],
+      "sub": "Try your own checkout tonight",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown"
+          },
+          {
+            "who": 1,
+            "mood": "frown"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "frown"
+          },
+          {
+            "who": 4,
+            "mood": "frown"
+          }
+        ],
+        "y": 1150
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Surprise fees at the last step",
+      "body": "Extra costs are the top reason carts get dropped. Show delivery and COD fees on the product page.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹79 extra?",
+          "Bye."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "No COD or UPI",
+      "body": "Plenty of Indian shoppers want cash on delivery from a brand they don't know yet. UPI should be one tap.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Where's",
+          "UPI?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Forced sign-up",
+      "body": "Making a stranger create an account before paying is a wall. Let them pay with just a phone number.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Another",
+          "password?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Too many steps",
+      "body": "Every extra screen loses people. Count the taps from cart to paid, and cut one this week.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Still",
+          "not done?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "No delivery date",
+      "body": "\"Ships in 3 to 5 days\" makes them guess. \"Arrives by Thursday\" lets them decide.",
+      "art": {
+        "cast": [
+          {
+            "who": 5,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "When will",
+          "it come?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "Nothing says it's safe",
+      "body": "A new brand asking for money needs trust signals: payment badges, a return line, a real phone number.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Is this",
+          "legit?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 7,
+      "title": "The OTP is slow",
+      "body": "If the OTP takes 40 seconds, people switch apps and forget you. Test it on a cheap phone on mobile data.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Still waiting",
+          "for OTP..."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "FIX THESE 7",
+      "items": [
+        "Show every fee early",
+        "COD + UPI",
+        "Checkout with just a phone number",
+        "Fewer steps",
+        "A delivery date",
+        "Trust signals",
+        "A fast OTP"
+      ],
+      "foot": "Screenshot this. Buy from your own store on your phone tonight."
+    },
+    {
+      "type": "cta",
+      "body": "and an AI walks your whole store in 5 minutes and lists every leak it finds. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "id": "05-agent-team",
+  "keyword": "TEAM",
+  "world": "arcade",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(TEAM|4|four|approve|ads|emails|WhatsApp|numbers)",
+  "cast": [
+    {
+      "name": "Ads agent",
+      "col": "#FF9F68",
+      "prop": "tag"
+    },
+    {
+      "name": "Messages agent",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Support agent",
+      "col": "#F59FB0",
+      "prop": "question"
+    },
+    {
+      "name": "Numbers agent",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Ad writer",
+      "col": "#8F9AB0",
+      "prop": "none"
+    },
+    {
+      "name": "Email marketer",
+      "col": "#8F9AB0",
+      "prop": "none"
+    },
+    {
+      "name": "Support rep",
+      "col": "#8F9AB0",
+      "prop": "none"
+    },
+    {
+      "name": "Analyst",
+      "col": "#8F9AB0",
+      "prop": "none"
+    }
+  ],
+  "lines": [
+    {
+      "say": "You don't need a marketing team of four.",
+      "card": "SKIP THE 4 HIRES",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "reveal": [
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    },
+    {
+      "say": "You need four agents inside Claude.",
+      "show": "You need 4 agents inside Claude.",
+      "card": "4 AGENTS INSIDE CLAUDE",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "big": "×4"
+      }
+    },
+    {
+      "say": "One writes your ads.",
+      "card": "MEET THE TEAM",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          0
+        ]
+      }
+    },
+    {
+      "say": "One writes your emails and WhatsApp messages.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "shown": [
+          0
+        ],
+        "reveal": [
+          1
+        ]
+      }
+    },
+    {
+      "say": "One drafts replies to every customer question.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "shown": [
+          0,
+          1
+        ],
+        "reveal": [
+          2
+        ]
+      }
+    },
+    {
+      "say": "One reads your numbers and tells you what to change.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "shown": [
+          0,
+          1,
+          2
+        ],
+        "reveal": [
+          3
+        ]
+      }
+    },
+    {
+      "say": "They pass work to each other. You just approve it.",
+      "card": "YOU JUST APPROVE",
+      "scene": {
+        "type": "list",
+        "title": "Waiting for your OK",
+        "items": [
+          "3 new ad hooks",
+          "Diwali email + WhatsApp",
+          "12 customer replies"
+        ],
+        "who": 0
+      }
+    },
+    {
+      "say": "Comment TEAM and I'll send you the free setup.",
+      "card": "COMMENT \"TEAM\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 4-agent setup in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "A 4-AGENT",
+      "MARKETING TEAM IN CLAUDE"
+    ],
+    "line": 5,
+    "lt": 3,
+    "shift": 120
+  }
+}

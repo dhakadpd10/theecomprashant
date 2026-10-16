@@ -1,0 +1,197 @@
+{
+  "id": "01-store-shoppers",
+  "keyword": "STORE",
+  "world": "bazaar",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(STORE|97|100|7|seven|Seven|shipping|checkout)",
+  "cast": [
+    {
+      "name": "First-time buyer",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Midnight scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Loyal fan",
+      "col": "#FF9F68",
+      "prop": "heart"
+    },
+    {
+      "name": "Your competitor",
+      "col": "#596071",
+      "prop": "shades"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Nobody tells you why they left your store.",
+      "card": "WHY DID THEY LEAVE?",
+      "scene": {
+        "type": "page",
+        "ghosts": true
+      }
+    },
+    {
+      "say": "Seven AI shoppers will.",
+      "card": "7 AI SHOPPERS TELL YOU",
+      "scene": {
+        "type": "drop",
+        "big": "×7"
+      }
+    },
+    {
+      "say": "Ninety-seven of every hundred visitors leave without saying a single word.",
+      "show": "97 of every 100 visitors leave without saying a single word.",
+      "card": "97 OF 100 LEAVE SILENTLY",
+      "scene": {
+        "type": "grid",
+        "leave": 97
+      }
+    },
+    {
+      "say": "Paste one product page into Claude, and seven shoppers open it alone.",
+      "card": "PASTE 1 PRODUCT PAGE",
+      "scene": {
+        "type": "chat",
+        "text": "Run the 7-Shopper Test on yourstore.com/products/bestseller"
+      }
+    },
+    {
+      "say": "First-time buyer. Bargain hunter. Gift buyer.",
+      "card": "7 SHOPPERS. EACH ALONE.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "reveal": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "say": "Review sceptic. Midnight scroller. Loyal fan. Your competitor.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "shown": [
+          0,
+          1,
+          2
+        ],
+        "reveal": [
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "say": "Each one marks where they'd leave.",
+      "card": "WHERE THEY'D LEAVE",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": "TOO PRICEY?",
+            "at": 0.3
+          },
+          {
+            "x": 700,
+            "y": 262,
+            "label": "ONLY 12?",
+            "at": 0.8
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "LEAVES HERE",
+            "at": 1.3
+          }
+        ],
+        "who": 2,
+        "whoAt": "@line7+0",
+        "say": [
+          "Shipping cost only shows",
+          "up at checkout. Bye."
+        ],
+        "fixAt": "@line8+0.1",
+        "fixes": 7
+      }
+    },
+    {
+      "say": "Like: shipping cost only shows up at checkout.",
+      "show": "Like: \"shipping cost only shows up at checkout.\""
+    },
+    {
+      "say": "Then it rewrites your page with all seven fixes in.",
+      "show": "Then it rewrites your page with all 7 fixes in.",
+      "card": "REWRITTEN. 7 FIXES IN."
+    },
+    {
+      "say": "Comment STORE, for the free seven shopper test.",
+      "show": "Comment STORE for the free 7-shopper test.",
+      "card": "COMMENT \"STORE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 7-Shopper Test in your DMs"
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "7 AI SHOPPERS",
+      "REJECT YOUR STORE"
+    ],
+    "line": 6,
+    "lt": 1.6,
+    "shift": 120
+  }
+}

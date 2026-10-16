@@ -1,0 +1,247 @@
+{
+  "id": "c06-best-ad-copy",
+  "keyword": "REVIEWS",
+  "cast": [
+    {
+      "name": "Happy buyer",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Support agent",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Rival brand",
+      "col": "#5D6577",
+      "prop": "shades"
+    },
+    {
+      "name": "Scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "YOUR BEST AD COPY",
+        "IS ALREADY WRITTEN"
+      ],
+      "sub": "5 places it's hiding",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "frown"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1150
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Your customers describe your product better than you do.",
+      "hot": [
+        "better"
+      ],
+      "body": "They use the words other buyers trust. Here's where to find them.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          },
+          {
+            "who": 4,
+            "mood": "neutral"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Your 5-star reviews",
+      "body": "Find the line about what changed for them. Example: \"My son finally finishes his lunch\" is a hook.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Finally!"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Support chats",
+      "body": "The questions people ask before buying are the doubts your ad should answer first.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Does it",
+          "really work?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Return reasons",
+      "body": "Each return reason is a promise your page made by accident. Fix the page, then say the fix in your ad.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Not what",
+          "I expected"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Rivals' 1-star reviews",
+      "body": "What people hate about the other brand is your angle. If you fix it, say so in the first line.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "1 star?!"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "Comments and DMs",
+      "body": "They're unfiltered. Save the exact words people use when they're excited.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Need this!"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "MINE THESE 5",
+      "items": [
+        "5-star reviews",
+        "Pre-purchase questions",
+        "Return reasons",
+        "Rivals' 1-star reviews",
+        "Comments and DMs"
+      ],
+      "foot": "Copy their exact words. Don't polish them."
+    },
+    {
+      "type": "cta",
+      "body": "and the review miner turns 200 of your reviews into 10 ad hooks. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "id": "c05-jobs-for-ai",
+  "keyword": "TEAM",
+  "cast": [
+    {
+      "name": "Ads agent",
+      "col": "#FF9F68",
+      "prop": "tag"
+    },
+    {
+      "name": "Messages agent",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Numbers agent",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Content agent",
+      "col": "#F59FB0",
+      "prop": "question"
+    },
+    {
+      "name": "You",
+      "col": "#FFC857",
+      "prop": "heart"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "7 JOBS TO GIVE AI",
+        "3 TO KEEP"
+      ],
+      "sub": "Your marketing week, split in two",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          },
+          {
+            "who": 4,
+            "mood": "neutral"
+          }
+        ],
+        "y": 1120
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Most founders spend the week on work AI can draft in minutes.",
+      "hot": [
+        "minutes"
+      ],
+      "body": "Hand off the first drafts. Keep the decisions. This is the split I'd use.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "recap",
+      "title": "GIVE THESE 7 TO AI",
+      "items": [
+        "Product descriptions",
+        "Ad copy variations",
+        "Reel and UGC scripts",
+        "Replies to common DMs",
+        "The weekly ad report",
+        "Review summaries",
+        "Festival sale calendar"
+      ],
+      "foot": "AI writes the first draft. You check it before it goes out."
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Keep: the offer",
+      "body": "What you sell, at what price, with what bonus. AI can help you test it. Only you can decide it.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "My call."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Keep: the final yes",
+      "body": "Nothing goes live without a human read. One wrong claim in an ad costs more than the time you saved.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Let me read",
+          "it first"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Keep: talking to customers",
+      "body": "Read 10 reviews and 10 support chats yourself every week. That's where your next idea comes from.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "What did",
+          "they say?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Rule of thumb: AI drafts, you decide.",
+      "hot": [
+        "drafts",
+        "decide"
+      ],
+      "body": "Start with one job from the list this week. Add the next one once it works.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "cta",
+      "body": "and get the free setup for a 4-agent marketing team inside Claude. In your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

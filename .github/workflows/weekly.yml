@@ -1,0 +1,54 @@
+name: Weekly - research, plan and make next week
+# Saturday 06:00 IST: learns from last week, researches, writes and renders 14 posts,
+# then opens a pull request. Merging it = approving the week. Nothing is posted before that.
+on:
+  schedule:
+    - cron: "30 0 * * 6"
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "First day of the week to plan (YYYY-MM-DD, a Monday). Empty = next Monday."
+        required: false
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: weekly
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Cache the voice and speech-check models
+        uses: actions/cache@v4
+        with:
+          path: node_modules/@huggingface/transformers/.cache
+          key: hf-models-v1
+      - name: Plan and make the week
+        id: plan
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          START: ${{ inputs.start }}
+        run: node src/cli.js plan ${START:+--start "$START"}
+      - name: Open the approval pull request
+        if: steps.plan.outputs.skipped == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEEK: ${{ steps.plan.outputs.week }}
+        run: |
+          BRANCH="week/$WEEK"
+          git config user.name "theecomprashant-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add -A content brand config tools
+          git commit -m "Week $WEEK: posts ready for approval"
+          git push -u origin "$BRANCH"
+          node src/cli.js review "$WEEK" "$BRANCH" > pr.md
+          gh pr create --base main --head "$BRANCH" --title "Approve $WEEK" --body-file pr.md

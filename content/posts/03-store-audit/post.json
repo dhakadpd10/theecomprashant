@@ -1,0 +1,157 @@
+{
+  "id": "03-store-audit",
+  "keyword": "AUDIT",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(AUDIT|5|five|4|leak|red|today|agency)",
+  "cast": [
+    {
+      "name": "Home page",
+      "col": "#7DD3C0",
+      "prop": "glass"
+    },
+    {
+      "name": "Product page",
+      "col": "#FFC857",
+      "prop": "glass"
+    },
+    {
+      "name": "Cart",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Checkout",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop paying an agency for a store audit.",
+      "card": "STOP PAYING FOR AUDITS",
+      "scene": {
+        "type": "page",
+        "ghosts": true
+      }
+    },
+    {
+      "say": "Claude can do it in five minutes.",
+      "show": "Claude can do it in 5 minutes.",
+      "card": "CLAUDE: 5 MINUTES",
+      "scene": {
+        "type": "stat",
+        "big": "5 MIN",
+        "label": "full store audit, free"
+      }
+    },
+    {
+      "say": "Paste your store link, and it walks every page like a shopper.",
+      "card": "PASTE YOUR STORE LINK",
+      "scene": {
+        "type": "chat",
+        "text": "Audit my store like a shopper: yourstore.com",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "say": "Home page. Product page. Cart. Checkout.",
+      "card": "4 PAGES, 4 INSPECTORS",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "say": "Every leak gets a red flag and a reason.",
+      "card": "EVERY LEAK FLAGGED",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": "NO PROOF",
+            "at": 0.3
+          },
+          {
+            "x": 690,
+            "y": 262,
+            "label": "FEW REVIEWS",
+            "at": 0.8
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "HIDDEN FEE",
+            "at": 1.3
+          }
+        ]
+      }
+    },
+    {
+      "say": "Like: no reviews above the fold."
+    },
+    {
+      "say": "Then it ranks every fix by how many sales it loses.",
+      "card": "RANKED BY SALES LOST",
+      "scene": {
+        "type": "list",
+        "title": "Fix first: most sales lost",
+        "items": [
+          "Move reviews above the fold",
+          "Show delivery fee on the page",
+          "Add COD and UPI at checkout"
+        ],
+        "who": 1
+      }
+    },
+    {
+      "say": "So you fix the biggest leak today."
+    },
+    {
+      "say": "Comment AUDIT and I'll send you the free store audit.",
+      "card": "COMMENT \"AUDIT\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free store audit in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "CLAUDE AUDITS",
+      "YOUR STORE IN 5 MIN"
+    ],
+    "line": 4,
+    "lt": 3,
+    "shift": 120
+  }
+}

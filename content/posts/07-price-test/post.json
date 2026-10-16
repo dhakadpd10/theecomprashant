@@ -1,0 +1,198 @@
+{
+  "id": "07-price-test",
+  "keyword": "PRICE",
+  "world": "studio",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(PRICE|100|₹999|₹1,299|alone|money|fair)",
+  "cast": [
+    {
+      "name": "₹999 shopper",
+      "col": "#7DD3C0",
+      "prop": "tag"
+    },
+    {
+      "name": "₹1,299 shopper",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Student",
+      "col": "#FFC857",
+      "prop": "phone"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#E8CF8E",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFD166",
+      "prop": "tag"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Premium buyer",
+      "col": "#9FE3A8",
+      "prop": "heart"
+    },
+    {
+      "name": "Scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "First-timer",
+      "col": "#F7A8D8",
+      "prop": "question"
+    },
+    {
+      "name": "Analyst",
+      "col": "#5E6E94",
+      "prop": "glass"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop guessing your price.",
+      "card": "STOP GUESSING YOUR PRICE",
+      "scene": {
+        "type": "versus",
+        "gap": 0.6,
+        "left": {
+          "who": 0,
+          "tag": "₹999",
+          "say": [
+            "More orders?"
+          ],
+          "mood": "happy"
+        },
+        "right": {
+          "who": 1,
+          "tag": "₹1,299",
+          "say": [
+            "More profit?"
+          ],
+          "mood": "neutral"
+        }
+      }
+    },
+    {
+      "say": "Ask a hundred AI shoppers first.",
+      "show": "Ask 100 AI shoppers first.",
+      "card": "ASK 100 AI SHOPPERS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "big": "×100"
+      }
+    },
+    {
+      "say": "Half see nine ninety-nine. Half see twelve ninety-nine.",
+      "show": "Half see ₹999. Half see ₹1,299.",
+      "card": "HALF ₹999, HALF ₹1,299",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "BUY",
+          "WAIT",
+          "BUY",
+          "LEAVE",
+          "BUY",
+          "BUY",
+          "WAIT",
+          "LEAVE"
+        ],
+        "voteAt": "@line3+0.1",
+        "voteStep": 0.15,
+        "tally": "@line3+1.6",
+        "noLabel": "NO SALE"
+      }
+    },
+    {
+      "say": "Each one decides alone: buy, wait, or leave."
+    },
+    {
+      "say": "Then it shows which price makes more money, not just more orders.",
+      "card": "MORE MONEY, NOT MORE ORDERS",
+      "scene": {
+        "type": "verdict",
+        "who": 10,
+        "stamp": "₹1,299 WINS",
+        "sub": "in this example run",
+        "size": 76
+      }
+    },
+    {
+      "say": "Plus the one line that makes the higher price feel fair.",
+      "card": "MAKE IT FEEL FAIR",
+      "scene": {
+        "type": "list",
+        "title": "Make ₹1,299 feel fair",
+        "items": [
+          "\"Lasts 30 days: ₹43 a day\"",
+          "Free delivery over ₹999",
+          "Show the bundle saving"
+        ],
+        "who": 10
+      }
+    },
+    {
+      "say": "Comment PRICE and I'll send you the free price test.",
+      "card": "COMMENT \"PRICE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free price test in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "₹999 OR ₹1,299?",
+      "ASK 100 AI SHOPPERS"
+    ],
+    "line": 0,
+    "lt": 3,
+    "shift": 60
+  }
+}

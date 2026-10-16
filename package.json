@@ -1,0 +1,33 @@
+{
+  "name": "theecomprashant",
+  "version": "0.1.0",
+  "description": "Open-source Instagram agent for AI-for-D2C content: researches, plans, makes reels and carousels, publishes after approval, replies to comments, sends keyword DMs, and learns from the numbers. Runs on GitHub Actions.",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "plan": "node src/cli.js plan",
+    "make": "node src/cli.js make",
+    "publish": "node src/cli.js publish",
+    "engage": "node src/cli.js engage",
+    "analytics": "node src/cli.js analytics",
+    "site": "node src/cli.js site",
+    "check": "node src/cli.js check"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0",
+    "@fontsource/archivo-black": "^5.0.0",
+    "@fontsource/bebas-neue": "^5.3.0",
+    "@fontsource/inter": "^5.0.0",
+    "@fontsource/noto-sans": "^5.0.0",
+    "@fontsource/noto-sans-symbols-2": "^5.0.0",
+    "@fontsource/permanent-marker": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@fontsource/press-start-2p": "^5.3.0",
+    "@napi-rs/canvas": "^0.1.60",
+    "ffmpeg-static": "^5.2.0",
+    "kokoro-js": "^1.2.0"
+  }
+}

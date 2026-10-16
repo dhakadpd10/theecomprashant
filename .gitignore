@@ -1,0 +1,13 @@
+node_modules/
+_site/
+.env
+*.log
+content/posts/*/vo/
+content/posts/*/stills/
+content/posts/*/audio.wav
+content/posts/*/check.wav
+content/posts/*/vo-lines.txt
+content/posts/*/slide-*.png
+content/posts/*/cover.png
+content/posts/*/*.tmp.*
+.claude/

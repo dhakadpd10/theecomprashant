@@ -1,0 +1,242 @@
+{
+  "id": "c04-ad-hook-formula",
+  "keyword": "ROAST",
+  "cast": [
+    {
+      "name": "Scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#7DD3C0",
+      "prop": "cart"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "THE 4-PART",
+        "AD HOOK"
+      ],
+      "sub": "With D2C examples you can steal",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "frown"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "frown"
+          },
+          {
+            "who": 4,
+            "mood": "neutral"
+          }
+        ],
+        "y": 1150
+      }
+    },
+    {
+      "type": "stake",
+      "title": "You get about 3 seconds before they scroll.",
+      "hot": [
+        "3"
+      ],
+      "body": "The first line of your ad does most of the work. Hooks that hold people tend to have the same 4 parts.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "frown"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "frown"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Call out who it's for",
+      "body": "Make the right person stop. Example: \"Working mums with school-going kids...\"",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "That's",
+          "me!"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Name the pain",
+      "body": "Say the problem in their words. Example: \"...tired of dal leaking into the school bag?\"",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Every",
+          "single day"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Add a true number",
+      "body": "A number makes it real. Example: \"We shook this box upside down for 6 hours.\" Only use numbers you can prove.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "6 hours?",
+          "Show me."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Give a reason to keep watching",
+      "body": "Promise what's coming, then deliver it. Example: \"Watch what happens at the end.\"",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "OK, one",
+          "more second"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "stake",
+      "size": 58,
+      "title": "\"Working mums: tired of dal leaking into the school bag? We shook this box upside down for 6 hours. Watch the end.\"",
+      "hot": [
+        "6"
+      ],
+      "body": "All 4 parts in one hook, for a made-up lunchbox brand. Swap in your own buyer, pain and number.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "happy",
+            "s": 1.1
+          }
+        ],
+        "y": 1190
+      }
+    },
+    {
+      "type": "recap",
+      "title": "THE 4 PARTS",
+      "items": [
+        "Who it's for",
+        "Their pain, in their words",
+        "A true number",
+        "A reason to keep watching"
+      ],
+      "foot": "Screenshot this. Check your next ad against it."
+    },
+    {
+      "type": "cta",
+      "body": "and 5 AI critics score your Meta ad's hook before you spend a rupee. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

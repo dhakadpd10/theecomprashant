@@ -1,0 +1,214 @@
+{
+  "id": "04-ad-roast",
+  "keyword": "ROAST",
+  "world": "gameshow",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(ROAST|5|five|10|ten|alone|rupee|scroll)",
+  "page": {
+    "title": "Glow in 7 days",
+    "price": "Sponsored",
+    "label": "AD",
+    "button": "SHOP NOW",
+    "url": "instagram.com · Sponsored",
+    "line": "Glow in 7 days. Shop now!",
+    "fixedLine": "Dry skin by noon? Not after day 3."
+  },
+  "cast": [
+    {
+      "name": "Scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Designer",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Rival brand",
+      "col": "#5D6577",
+      "prop": "shades"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop boosting ads nobody stops for.",
+      "card": "STOP BOOSTING DEAD ADS",
+      "scene": {
+        "type": "page",
+        "ghosts": true
+      }
+    },
+    {
+      "say": "Five AI critics will tell you why.",
+      "show": "5 AI critics will tell you why.",
+      "card": "5 AI AD CRITICS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "big": "×5"
+      }
+    },
+    {
+      "say": "Paste your ad. The image. The headline. The caption.",
+      "show": "Paste your ad: the image, the headline, the caption.",
+      "card": "PASTE YOUR AD",
+      "scene": {
+        "type": "chat",
+        "text": "Roast this ad: image, headline and caption below",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "say": "A scroller. A sceptic. A bargain hunter. A designer. Your rival brand.",
+      "card": "5 CRITICS, EACH ALONE",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "reveal": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "say": "Each one scores it out of ten, alone.",
+      "show": "Each one scores it out of 10, alone.",
+      "card": "SCORED OUT OF 10",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cols": 3,
+        "walls": true,
+        "votes": [
+          "3/10",
+          "5/10",
+          "4/10",
+          "2/10",
+          "6/10"
+        ],
+        "voteAt": 0.4,
+        "voteStep": 0.25
+      }
+    },
+    {
+      "say": "And quotes the exact line that made them scroll past.",
+      "card": "THE LINE THEY SKIPPED",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "SEEN IT",
+            "at": 0.2
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "SO WHAT?",
+            "at": 0.6
+          }
+        ],
+        "who": 0,
+        "whoAt": 1,
+        "say": [
+          "\"Glow in 7 days?\"",
+          "Seen it 50 times."
+        ]
+      }
+    },
+    {
+      "say": "Then it rewrites your hook, headline and first line.",
+      "card": "HOOK. HEADLINE. FIRST LINE.",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "SEEN IT",
+            "at": 0
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "SO WHAT?",
+            "at": 0
+          }
+        ],
+        "fixAt": 0.2,
+        "fixes": 3
+      }
+    },
+    {
+      "say": "Before you spend a single rupee on it."
+    },
+    {
+      "say": "Comment ROAST and I'll send you the free ad roast.",
+      "card": "COMMENT \"ROAST\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free ad roast in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "5 AI CRITICS",
+      "ROAST YOUR AD"
+    ],
+    "line": 4,
+    "lt": 3,
+    "shift": 150
+  }
+}

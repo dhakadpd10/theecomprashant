@@ -1,0 +1,34 @@
+{
+  "id": "c01-leaky-page",
+  "keyword": "STORE",
+  "cast": [
+    { "name": "First-time buyer", "col": "#7DD3C0", "prop": "question" },
+    { "name": "Bargain hunter", "col": "#FFC857", "prop": "tag" },
+    { "name": "Gift buyer", "col": "#F59FB0", "prop": "gift" },
+    { "name": "Review sceptic", "col": "#B7A4F7", "prop": "glass" },
+    { "name": "Midnight scroller", "col": "#7FA8F8", "prop": "phone" },
+    { "name": "Loyal fan", "col": "#FF9F68", "prop": "heart" }
+  ],
+  "slides": [
+    { "type": "cover", "title": ["WHY SHOPPERS LEAVE", "YOUR PRODUCT PAGE"], "sub": "6 leaks to check tonight",
+      "art": { "page": true, "w": 520, "y": 640, "pins": [{ "x": 690, "y": 200, "label": "" }, { "x": 690, "y": 686, "label": "" }],
+        "cast": [{ "who": 0, "x": 190, "y": 1230, "mood": "frown", "s": 0.9 }, { "who": 3, "x": 890, "y": 1230, "mood": "frown", "s": 0.9 }] } },
+    { "type": "stake", "title": "97 of every 100 visitors leave without buying.", "hot": ["97", "100"], "body": "None of them tell you why. These are the 6 reasons that show up again and again.",
+      "art": { "cast": [{ "who": 0, "mood": "neutral" }, { "who": 1, "mood": "frown" }, { "who": 2, "mood": "neutral" }, { "who": 3, "mood": "frown" }, { "who": 4, "mood": "neutral" }], "y": 1200 } },
+    { "type": "idea", "num": 1, "title": "The delivery fee shows up late", "body": "Extra costs at checkout are the biggest reason carts get dropped. Show the fee on the product page.",
+      "art": { "page": true, "w": 470, "x": 300, "y": 760, "pins": [{ "x": 690, "y": 686, "label": "" }], "cast": [{ "who": 1, "x": 180, "y": 1230, "mood": "frown", "s": 0.85 }] } },
+    { "type": "idea", "num": 2, "title": "Reviews sit too low", "body": "If the proof is six scrolls down, most shoppers never reach it. Put the star rating right next to the price.",
+      "art": { "page": true, "w": 470, "x": 300, "y": 760, "pins": [{ "x": 690, "y": 262, "label": "" }], "cast": [{ "who": 3, "x": 180, "y": 1230, "mood": "frown", "s": 0.85 }] } },
+    { "type": "idea", "num": 3, "title": "Photo 1 has no sense of size", "body": "\"How big is it?\" is the first question. Show the product in a hand, or next to something familiar.",
+      "art": { "cast": [{ "who": 0, "mood": "frown", "s": 1.2, "y": 1180 }], "say": ["How big", "is it?"], "sayX": 600, "sayY": 930 } },
+    { "type": "idea", "num": 4, "title": "The price has no reason", "body": "₹1,499 needs a why: what's inside, how long it lasts, what it costs per day.",
+      "art": { "cast": [{ "who": 1, "mood": "frown", "s": 1.2, "y": 1180 }], "say": ["₹1,499 for", "what exactly?"], "sayX": 560, "sayY": 930 } },
+    { "type": "idea", "num": 5, "title": "Only one way to pay", "body": "In India, no COD or UPI at checkout loses buyers at the very last step.",
+      "art": { "cast": [{ "who": 4, "mood": "frown", "s": 1.2, "y": 1180 }], "say": ["No COD?", "Bye."], "sayX": 600, "sayY": 930 } },
+    { "type": "idea", "num": 6, "title": "No reason to buy today", "body": "A delivery date, stock left, a gift box. Give the scroller a reason not to save it for later.",
+      "art": { "cast": [{ "who": 2, "mood": "neutral", "s": 1.2, "y": 1180 }], "say": ["I'll buy it", "later..."], "sayX": 600, "sayY": 930 } },
+    { "type": "recap", "title": "CHECK THESE 6 TONIGHT", "items": ["Show delivery fee on the page", "Stars next to the price", "Size in photo 1", "Give the price a reason", "COD + UPI at checkout", "A reason to buy today"], "foot": "Screenshot this. Send it to whoever runs your store." },
+    { "type": "cta", "body": "and 7 AI shoppers check your page for all 6. Free, in your DMs.",
+      "art": { "cast": [{ "who": 0, "mood": "happy" }, { "who": 1, "mood": "happy" }, { "who": 2, "mood": "happy" }, { "who": 3, "mood": "happy" }, { "who": 4, "mood": "happy" }, { "who": 5, "mood": "happy" }], "y": 1100 } }
+  ]
+}

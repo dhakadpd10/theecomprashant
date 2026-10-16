@@ -51,7 +51,13 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
       await step('user id matches', async () => { if (!me) throw new Error('account not readable'); if (String(me.user_id) !== String(process.env.IG_USER_ID)) throw new Error(`IG_USER_ID is ${process.env.IG_USER_ID} but the token belongs to ${me.user_id}: update the IG_USER_ID secret to ${me.user_id}`); return me.user_id; });
       let media = [];
       await step('read posts', async () => { media = await ig.recentMedia(5); return `${media.length} recent: ${media.map((m) => `${m.media_product_type || m.media_type} ${m.id} ${m.timestamp} "${(m.caption || '').split('\n')[0].slice(0, 50)}"`).join(' | ') || 'none'}`; });
-      if (media[0]) await step('read comments', async () => `${(await ig.comments(media[0].id)).length} on the latest post`);
+      if (media[0]) await step('read comments', async () => `${(await ig.comments(media[0].id)).length} on the latest post (Instagram counts ${media[0].comments_count})`);
+      if (media[0] && process.env.DEBUG_COMMENTS) { // try other ways of asking, to find which field or route hides them
+        const tok = process.env.IG_ACCESS_TOKEN, id = media[0].id;
+        for (const q of [`${id}/comments?fields=id,text,timestamp`, `${id}/comments?fields=id`, `${id}/comments`, `${id}?fields=comments_count,comments{id,text,timestamp}`, `${id}?fields=comments_count,comments.limit(50){id}`]) {
+          await step(`comments via ${q.replace(id, 'POST')}`, async () => { const r = await fetch(`https://graph.instagram.com/v25.0/${q}${q.includes('?') ? '&' : '?'}access_token=${tok}`); const j = await r.json(); return JSON.stringify(j).replace(tok, '***').slice(0, 300); });
+        }
+      }
       if (media[0]) await step('read insights', async () => JSON.stringify(await ig.mediaInsights(media[0].id, 'reel')));
       await step('read DMs', async () => `${(await ig.conversations()).length} conversations visible`);
       await step('posting limit', async () => JSON.stringify((await ig.publishingLimit()).data?.[0] || {}));

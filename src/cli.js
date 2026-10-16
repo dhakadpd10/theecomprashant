@@ -40,6 +40,7 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
     const ok = (b) => (b ? 'yes' : 'NO');
     const claude = require('./claude');
     console.log('Claude connected:     ', claude.hasClaude() ? (claude.useClaudeCode() ? 'yes (subscription via Claude Code)' : 'yes (API key)') : 'NO');
+    if (claude.useClaudeCode()) console.log('Subscription token:   ', claude.tokenShape());
     if (claude.hasClaude()) { try { const r = await claude.ask({ system: 'Reply with one word.', prompt: 'Say OK.', effort: 'low' }); console.log(`OK   Claude replied: ${r.trim().slice(0, 40)}`); } catch (e) { console.log(`FAIL Claude: ${e.message}`); } }
     console.log('IG_ACCESS_TOKEN set:  ', ok(process.env.IG_ACCESS_TOKEN));
     console.log('IG_USER_ID set:       ', ok(process.env.IG_USER_ID));

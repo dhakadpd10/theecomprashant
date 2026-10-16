@@ -8,6 +8,10 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { config } = require('./util');
 
+// a token copied from a wrapped terminal line can pick up spaces or line breaks; tokens never contain whitespace
+const oauthToken = () => (process.env.CLAUDE_CODE_OAUTH_TOKEN || '').replace(/\s+/g, '');
+/** Describe the token's shape without revealing it. */
+const tokenShape = () => { const t = oauthToken(); return t ? `${t.slice(0, 13)}… ${t.length} characters${/^sk-ant-oat\d\d-/.test(t) ? '' : ' (expected to start with sk-ant-oat01-)'}` : 'none'; };
 const useClaudeCode = () => !process.env.ANTHROPIC_API_KEY && !!process.env.CLAUDE_CODE_OAUTH_TOKEN;
 const hasClaude = () => !!(process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_CODE_OAUTH_TOKEN);
 
@@ -19,7 +23,9 @@ function claudeCode({ system, prompt, effort, model, web }) {
   if (web) args.push('--allowedTools', 'WebSearch');
   if (effort) args.push('--effort', effort);
   return new Promise((resolve, reject) => {
-    const p = spawn('claude', args, { cwd: dir, shell: process.platform === 'win32', env: process.env });
+    const env = { ...process.env, CLAUDE_CODE_OAUTH_TOKEN: oauthToken() };
+    for (const k of ['ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN']) if (!env[k]) delete env[k]; // an empty key would win over the subscription token
+    const p = spawn('claude', args, { cwd: dir, shell: process.platform === 'win32', env });
     let out = '', err = '';
     p.stdout.on('data', (d) => (out += d)); p.stderr.on('data', (d) => (err += d));
     p.on('error', (e) => reject(new Error(`could not start Claude Code (install with: npm i -g @anthropic-ai/claude-code): ${e.message}`)));
@@ -79,4 +85,4 @@ async function askJSON({ system, prompt, validate, effort, model, retries = 2, m
   throw new Error('Claude could not produce valid JSON after retries');
 }
 
-module.exports = { ask, askJSON, parseJSON, hasClaude, useClaudeCode };
+module.exports = { ask, askJSON, parseJSON, hasClaude, useClaudeCode, tokenShape };

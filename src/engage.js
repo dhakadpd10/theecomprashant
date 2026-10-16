@@ -57,19 +57,23 @@ async function run() {
     if ((m.comments_count || 0) > list.length + replies) {
       log(`WARNING: ${m.comments_count - list.length - replies} comment(s) on post ${m.id} are hidden from the agent. Instagram only shares comments from accounts with a role on the Meta app until it passes App Review (advanced access) and is set to Live. See docs/APP-REVIEW.md.`);
     }
+    st.sent ||= {}; // "<post>:<person>" -> true, so a person gets each post's tool once
     for (const c of list) {
-      if (st.comments[c.id] || (c.username || '').toLowerCase() === me) continue;
-      if ((c.replies?.data || []).some((r) => (r.username || '').toLowerCase() === me)) { st.comments[c.id] = 'already'; continue; }
+      const who = (c.username || c.from?.username || '').toLowerCase(), whoId = c.from?.id || who;
+      if (st.comments[c.id] || who === me || (whoId && whoId === process.env.IG_USER_ID)) continue;
+      if ((c.replies?.data || []).some((r) => (r.username || r.from?.username || '').toLowerCase() === me)) { st.comments[c.id] = 'already'; continue; }
       if (cfg.replies.keyword_dm && kw && new RegExp(`\\b${kw}\\b`, 'i').test(c.text || '') && budget-- > 0) {
+        const key = `${m.id}:${whoId}`;
+        if (whoId && st.sent[key]) { st.comments[c.id] = 'keyword-repeat'; log('already sent', kw, 'to', '@' + (who || whoId)); continue; }
         const link = toolLink(kw);
         try {
           await ig.privateReply(c.id, `Here's the ${cfg.keywords[kw]?.title || 'free tool'} 👇\n${link}\nCopy the prompt, paste it into Claude, and add your own details where it says. Tell me what it finds!`);
           const pub = cfg.replies.public_keyword_replies; await ig.replyToComment(c.id, pub[Math.floor(Math.random() * pub.length)]);
-          st.comments[c.id] = 'keyword'; log('keyword DM sent', kw, '@' + c.username);
+          st.comments[c.id] = 'keyword'; if (whoId) st.sent[key] = true; log('keyword DM sent', kw, '@' + (who || whoId));
         } catch (e) { log('keyword DM failed', c.id, e.message); st.comments[c.id] = 'failed'; }
         continue;
       }
-      todo.push({ kind: 'comment', id: c.id, username: c.username, text: c.text, context: (m.caption || '').split('\n')[0].slice(0, 80) });
+      todo.push({ kind: 'comment', id: c.id, username: who || 'someone', text: c.text, context: (m.caption || '').split('\n')[0].slice(0, 80) });
     }
   }
   try {

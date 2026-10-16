@@ -54,7 +54,7 @@ async function publishCarousel({ imageUrls, caption }) {
 }
 
 // ---------- comments + DMs ----------
-const comments = (mediaId) => get(`/${mediaId}/comments`, { fields: 'id,text,username,timestamp,from,replies{id,username,text}', limit: 50 }).then((r) => r.data || []);
+const comments = (mediaId) => get(`/${mediaId}/comments`, { fields: 'id,text,username,timestamp,from{id,username},replies{id,username,text,from{id,username}}', limit: 50 }).then((r) => r.data || []);
 const replyToComment = (commentId, message) => post(`/${commentId}/replies`, { message });
 // one private DM per comment, within 7 days of the comment
 const privateReply = (commentId, text) => post(`/${userId()}/messages`, { recipient: { comment_id: commentId }, message: { text } });

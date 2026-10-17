@@ -1,0 +1,296 @@
+{
+  "id": "2026-10-31-carousel-festive-jobs-ai-vs-you",
+  "keyword": "TEAM",
+  "cast": [
+    {
+      "name": "Writer agent",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Planner agent",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Analyst agent",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Support agent",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "You, the founder",
+      "col": "#FF9F68",
+      "prop": "gavel"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "DIWALI WEEK: 7 JOBS",
+        "FOR AI, 5 FOR YOU"
+      ],
+      "sub": "A table to screenshot before the rush",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 170,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.85
+          },
+          {
+            "who": 1,
+            "x": 370,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.85
+          },
+          {
+            "who": 2,
+            "x": 570,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.85
+          },
+          {
+            "who": 3,
+            "x": 770,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.85
+          },
+          {
+            "who": 4,
+            "x": 960,
+            "y": 1200,
+            "mood": "neutral",
+            "s": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Diwali week has 12 jobs. You can't do all 12 well.",
+      "hot": [
+        "12"
+      ],
+      "body": "So split them. 7 go to AI agents. 5 stay with you. Example only: a 30-minute caption job becomes a 5-minute edit.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "frown",
+            "s": 1.2
+          }
+        ],
+        "y": 1180
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "AI: first drafts and captions",
+      "body": "Product descriptions, Diwali emails, 20 caption options. AI writes version one. You edit. The blank page is the slow part.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Version one,",
+          "done."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "AI: the offer calendar",
+      "body": "Give it your sale dates, margins and stock. It lays out which offer runs which day, Dhanteras to Bhai Dooj.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Day 1: gift box.",
+          "Day 2: combo."
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "AI: sales summary and review digest",
+      "body": "Paste the day's orders and new reviews. Get one page: what sold, what stalled, what buyers keep praising or complaining about.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Combo sold.",
+          "Mug stalled."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "AI: the FAQ update and the deck",
+      "body": "New delivery cut-off? Gift wrap? AI updates the FAQ. Then turns the week's numbers into a short deck for your team.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "FAQ updated.",
+          "Deck ready."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "You: final prices and stock calls",
+      "body": "AI can suggest a discount. It doesn't know your cash, your supplier, or what's left in the godown. Those calls are yours.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "20% off?",
+          "Not on this one."
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "You: courier, angry buyers, go-live",
+      "body": "Pick the courier yourself. Reply to angry buyers yourself. No price, post or message goes live until you approve it.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Approved.",
+          "Now post it."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "DIWALI WEEK: AI vs YOU",
+      "columns": {
+        "left": {
+          "head": "AI AGENTS (7)",
+          "items": [
+            "First drafts",
+            "Captions",
+            "Offer calendar",
+            "Sales summary",
+            "Review digest",
+            "FAQ update",
+            "The deck"
+          ]
+        },
+        "right": {
+          "head": "YOU (5)",
+          "items": [
+            "Final prices",
+            "Stock calls",
+            "Courier choice",
+            "Replying to angry buyers",
+            "Approving anything that goes live"
+          ]
+        }
+      },
+      "items": [
+        "AI: first drafts + captions",
+        "AI: offer calendar + sales summary",
+        "AI: review digest + FAQ + deck",
+        "YOU: final prices + stock calls",
+        "YOU: courier + angry buyers",
+        "YOU: approve anything going live"
+      ],
+      "foot": "Screenshot this. Send it to your team before Dhanteras."
+    },
+    {
+      "type": "cta",
+      "body": "and get the free 4-Agent Marketing Team in your DMs. It drafts the AI column. You still approve.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

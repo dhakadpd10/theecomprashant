@@ -1,0 +1,28 @@
+Comment "REVIEWS" and I'll DM you the free Review Miner: 5-star reviews write your day-3 message. Follow so the DM lands 📩
+
+👇 READ BELOW for how the Review Miner works:
+
+1. Your happiest buyers already told you why they'd order again. It's in your 5-star reviews.
+
+2. You copy your 5-star reviews from your site, Amazon, Flipkart or Meesho and paste them into Claude with the Review Miner prompt.
+
+3. It pulls the exact words buyers use for what they love and groups them by theme. Example: "still soft after washing", "my son wears it every day".
+
+4. You drop those words into your day-3 check-in, the "how's it going?" message 3 days after delivery.
+
+5. Generic says "Thanks for your order!" Yours asks "Still soft after washing?" (example). One sounds like a template. The other sounds like you read their review.
+
+What you get: your buyers' own phrases, sorted by what they love, ready to use in your after-delivery messages.
+
+Why it works: a review is a happy buyer explaining the product in their own words. A check-in that uses those words reminds the next buyer why they liked it, while they're still using it.
+
+The catch: it finds the words. You write and send the message. If you send through the WhatsApp Business API, a check-in you start is a paid template message. The normal WhatsApp Business app doesn't charge per message.
+
+It's completely free. Paste it into Claude and run it on your last 50 reviews.
+
+Comment "REVIEWS" for the Review Miner.
+
+#ecommerce #d2cbrand #customerretention
+
+---
+Note: the reel's line "service messages cost after a thousand free a month" looks outdated. Meta dropped the 1,000 free service conversations in Nov 2024. Since July 2025 pricing has been per message. Service replies inside the 24-hour window are free, and messages you start, like a day-3 check-in, are paid template messages. The caption uses the current version. Please check Meta's pricing page and re-voice that line before posting.

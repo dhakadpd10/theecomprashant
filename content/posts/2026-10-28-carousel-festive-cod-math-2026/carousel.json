@@ -1,0 +1,281 @@
+{
+  "id": "2026-10-28-carousel-festive-cod-math-2026",
+  "keyword": "RTO",
+  "cast": [
+    {
+      "name": "COD buyer",
+      "col": "#FFC857",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Founder",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Ops lead",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Prepaid buyer",
+      "col": "#FF9F68",
+      "prop": "heart"
+    },
+    {
+      "name": "Midnight scroller",
+      "col": "#7FA8F8",
+      "prop": "question"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "FESTIVE COD WILL COST YOU",
+        "5 FIXES BEFORE DHANTERAS"
+      ],
+      "sub": "Last year's numbers + this year's WhatsApp math",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 250,
+            "y": 1200,
+            "mood": "frown",
+            "s": 1
+          },
+          {
+            "who": 2,
+            "x": 830,
+            "y": 1200,
+            "mood": "frown",
+            "s": 1
+          }
+        ],
+        "say": [
+          "Order",
+          "returned?"
+        ],
+        "sayX": 560,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Last festive quarter, 58% of COD orders came back. Prepaid: under 15%.",
+      "hot": [
+        "58%",
+        "15%"
+      ],
+      "body": "Source: vendor figures from last year. Brands got COD returns down to 21% by March with prepaid nudges at checkout and dispatch changes. Not by switching couriers.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown"
+          },
+          {
+            "who": 1,
+            "mood": "frown"
+          },
+          {
+            "who": 5,
+            "mood": "frown"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "stake",
+      "title": "From 1 Oct, the WhatsApp API charges for service messages after 1,000 free a month.",
+      "hot": [
+        "1 Oct",
+        "1,000"
+      ],
+      "body": "Utility messages are about ₹0.115 each, before GST. The normal WhatsApp Business app isn't affected. Check Meta's pricing page before you budget.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Wait, I pay",
+          "per message?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Confirm every COD order on WhatsApp",
+      "body": "Send one message with Yes / No buttons before you pack. Ship only on Yes. Call or cancel the silent ones.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Did I even",
+          "order this?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Pay the buyer to prepay",
+      "body": "Free shipping or a small discount on UPI, shown right at checkout. Example: ₹30 off prepaid. Cheaper than a return.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹30 off?",
+          "UPI it is."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Ask risky orders for a small advance",
+      "body": "First-time buyer, big cart, pin code with past returns? Ask for ₹99 by UPI link before dispatch. Example amount, pick yours.",
+      "art": {
+        "cast": [
+          {
+            "who": 5,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹99 now?",
+          "Okay, fine."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Dispatch within 24 hours",
+      "body": "COD buyers cool off fast. The longer the parcel takes, the more doors stay shut. Pack confirmed orders the same day.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Packed today,",
+          "not Monday."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "Tell them before the parcel arrives",
+      "body": "Message the day before delivery: date, amount due, and UPI on delivery if your courier offers it. Cash ready, door open.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Tomorrow?",
+          "I'll be home."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "EXAMPLE: 1,000 COD ORDERS",
+      "items": [
+        "Example costs: ₹70 ship each way + ₹20 pack",
+        "Each return loses ₹160",
+        "At 58%: 580 returns = ₹92,800 lost",
+        "At 21%: 210 returns = ₹33,600 lost",
+        "1,000 confirm messages: about ₹115 + GST",
+        "Gap: ₹59,200 on 1,000 orders"
+      ],
+      "foot": "Example numbers, not real data. Swap in yours. The catch: confirming cuts fake orders, not every return."
+    },
+    {
+      "type": "cta",
+      "body": "and I'll DM you the free COD Confirm Kit: confirm-order WhatsApp scripts for the Business app or the API.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "2026-11-01-reel-reviews-write-your-second-order-message",
+  "keyword": "REVIEWS",
+  "world": "notebook",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(REVIEWS|Review|Miner|5|five|exact|words|3|three|catch|1,000|thousand)",
+  "page": {
+    "title": "Everyday Cotton Tee",
+    "price": "₹799",
+    "label": "EXAMPLE",
+    "url": "yourstore.com/products/example"
+  },
+  "cast": [
+    {
+      "name": "Happy buyer",
+      "col": "#9FE3A8",
+      "prop": "heart"
+    },
+    {
+      "name": "Repeat mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Generic message",
+      "col": "#5D6577",
+      "prop": "none"
+    },
+    {
+      "name": "Your message",
+      "col": "#FFC857",
+      "prop": "phone"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Your happiest buyers already told you why they'd order again.",
+      "card": "THEY ALREADY TOLD YOU",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 262,
+            "label": "5★ REVIEWS",
+            "at": "@line2+0.1"
+          }
+        ]
+      }
+    },
+    {
+      "say": "It's in your five-star reviews.",
+      "show": "It's in your 5-star reviews.",
+      "card": "READ YOUR 5-STAR REVIEWS"
+    },
+    {
+      "say": "This free review tool pulls their exact words.",
+      "card": "PASTE THEM IN",
+      "scene": {
+        "type": "chat",
+        "text": "Here are my 5-star reviews. Pull the exact words buyers use for what they love.",
+        "ids": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "say": "Use them in your third-day check-in message.",
+      "show": "Use them in your day-3 check-in message.",
+      "card": "DAY 3 AFTER DELIVERY",
+      "scene": {
+        "type": "stat",
+        "big": "DAY 3",
+        "label": "the \"how's it going?\" message"
+      }
+    },
+    {
+      "say": "Generic says thanks for your order.",
+      "card": "GENERIC VS THEIR WORDS",
+      "scene": {
+        "type": "versus",
+        "gap": "@line6-0.1",
+        "left": {
+          "who": 3,
+          "tag": "GENERIC",
+          "say": [
+            "Thanks for",
+            "your order!"
+          ],
+          "mood": "neutral"
+        },
+        "right": {
+          "who": 4,
+          "tag": "THEIR WORDS",
+          "say": [
+            "Still soft",
+            "after washing?"
+          ],
+          "mood": "happy"
+        }
+      }
+    },
+    {
+      "say": "Yours asks: still soft after washing?",
+      "show": "Yours asks: still soft after washing? (example)"
+    },
+    {
+      "say": "The catch: it finds the words, you send the message.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "list",
+        "title": "The catch",
+        "items": [
+          "It finds the words",
+          "You write and send it",
+          "API: charged after 1,000 free/mo",
+          "Business app: not affected"
+        ],
+        "who": 4,
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Through the WhatsApp API, service messages cost after a thousand free a month.",
+      "show": "Through the WhatsApp API, service messages cost after 1,000 free a month."
+    },
+    {
+      "say": "The normal Business app doesn't."
+    },
+    {
+      "say": "Comment REVIEWS and I'll send you the free review tool.",
+      "card": "COMMENT \"REVIEWS\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free Review Miner in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          4
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "5-STAR REVIEWS",
+      "WRITE YOUR DAY-3 MESSAGE"
+    ],
+    "line": 4,
+    "lt": 1.5,
+    "shift": 150,
+    "params": {
+      "gap": 0
+    }
+  }
+}

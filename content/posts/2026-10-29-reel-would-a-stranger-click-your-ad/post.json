@@ -1,0 +1,218 @@
+{
+  "id": "2026-10-29-reel-would-a-stranger-click-your-ad",
+  "keyword": "ROAST",
+  "world": "courtroom",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(ROAST|5|five|stranger|critics|jokes|alone|fix|catch|ROAS)",
+  "page": {
+    "title": "The OG Tin is Back",
+    "price": "₹499",
+    "label": "TIN GANG ONLY",
+    "button": "Join the gang",
+    "url": "yourbrand.com/products/og-tin"
+  },
+  "cast": [
+    {
+      "name": "Hook critic",
+      "col": "#FF7B7B",
+      "prop": "phone"
+    },
+    {
+      "name": "Offer critic",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Trust critic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Clarity critic",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Visual critic",
+      "col": "#7FA8F8",
+      "prop": "shades"
+    },
+    {
+      "name": "Past buyer",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Meta can now stop showing your ad to past buyers.",
+      "card": "PAST BUYERS OUT OF YOUR ADS",
+      "scene": {
+        "type": "page",
+        "who": 5,
+        "whoAt": 0.5,
+        "say": [
+          "OG tin's back!",
+          "Love it."
+        ]
+      }
+    },
+    {
+      "say": "Would a stranger still click?",
+      "card": "WOULD A STRANGER CLICK?",
+      "scene": {
+        "type": "page",
+        "ghosts": true
+      }
+    },
+    {
+      "say": "Customer Lifecycle Strategy is reported live for everyone.",
+      "card": "REPORTED LIVE FOR EVERYONE",
+      "scene": {
+        "type": "stat",
+        "big": "NEW",
+        "label": "Past buyers out of acquisition ads"
+      }
+    },
+    {
+      "say": "Put your ad in front of five AI critics who don't know you.",
+      "show": "Put your ad in front of 5 AI critics who don't know you.",
+      "card": "5 CRITICS. ZERO CONTEXT.",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "big": "×5",
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "They miss the inside jokes your regulars love.",
+      "card": "THEY DON'T GET THE JOKE",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "What's 'OG'?",
+            "at": 0.3
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "Why ₹499?",
+            "at": 0.8
+          },
+          {
+            "x": 690,
+            "y": 262,
+            "label": "Tin gang?",
+            "at": 1.3
+          }
+        ],
+        "who": 3,
+        "whoAt": 0.6,
+        "say": [
+          "What's a",
+          "'tin gang'?"
+        ]
+      }
+    },
+    {
+      "say": "Each critic scores it alone.",
+      "card": "EACH CRITIC VOTES ALONE",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cols": 5,
+        "walls": true,
+        "votes": [
+          "SCROLL",
+          "BUY",
+          "SCROLL",
+          "SCROLL",
+          "BUY"
+        ],
+        "noLabel": "SCROLL",
+        "voteAt": 0.3,
+        "voteStep": 0.15,
+        "tally": 1.4
+      }
+    },
+    {
+      "say": "A judge rules what to fix first.",
+      "card": "THE VERDICT",
+      "scene": {
+        "type": "verdict",
+        "who": 6,
+        "stamp": "REWRITE HOOK",
+        "sub": "say what it is, not the joke"
+      }
+    },
+    {
+      "say": "Catch: check your own Ads Manager. Critics judge the ad, not your ROAS.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "list",
+        "title": "The catch",
+        "items": [
+          "Reported live by trackers",
+          "Check your own Ads Manager",
+          "Critics judge the ad",
+          "They don't predict ROAS"
+        ],
+        "who": 6,
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Comment ROAST and I'll send you the free five-critic ad roast.",
+      "show": "Comment ROAST and I'll send you the free 5-Critic Ad Roast.",
+      "card": "COMMENT \"ROAST\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 5-Critic Ad Roast in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "WOULD A STRANGER",
+      "CLICK YOUR AD?"
+    ],
+    "line": 5,
+    "lt": 4,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

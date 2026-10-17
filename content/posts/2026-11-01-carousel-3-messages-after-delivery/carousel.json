@@ -1,0 +1,224 @@
+{
+  "id": "2026-11-01-carousel-3-messages-after-delivery",
+  "keyword": "REVIEWS",
+  "cast": [
+    {
+      "name": "New buyer",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Happy customer",
+      "col": "#FF9F68",
+      "prop": "heart"
+    },
+    {
+      "name": "Repeat buyer",
+      "col": "#FFC857",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "3 MESSAGES AFTER",
+        "EVERY DELIVERY"
+      ],
+      "sub": "Day 1, day 4, day 21. Copy them.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          },
+          {
+            "who": 1,
+            "x": 540,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          },
+          {
+            "who": 2,
+            "x": 890,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "type": "stake",
+      "title": "The parcel lands. Then most brands go silent.",
+      "hot": [
+        "silent"
+      ],
+      "body": "3 short messages fix that: a check-in, a review ask, a reorder nudge. The examples use Glowleaf, a made-up skincare brand.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          },
+          {
+            "who": 4,
+            "mood": "frown"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Day 1: Did it reach you OK? Plus one tip",
+      "body": "Hi Riya, your Glowleaf Night Cream arrived today. Tip: a pea-sized drop on damp skin, every night. Anything wrong? Just reply here.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Oh nice,",
+          "they checked."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Day 4: Ask for the review in their words",
+      "body": "Hi Riya, 4 nights in. Has your skin felt less dry in the morning? Tell us in one line, we read every reply: [review link]",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Less dry?",
+          "Yes, actually!"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Around day 21: Nudge before it runs out",
+      "body": "Hi Riya, your 50ml jar is nearly done by now. Reorder in one tap: [link]. Or pair it with the Glowleaf Day Serum.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Was about",
+          "to run out."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Send them on WhatsApp. Here's the cost.",
+      "body": "WhatsApp: utility (Day 1) about 12 paise, marketing (Day 21) under ₹1 each. Email: free on Shopify up to 10,000 a month.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Under ₹1",
+          "a message?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "COPY THESE 3 THIS WEEK",
+      "items": [
+        "Day 1: delivery check + one tip",
+        "Day 4: review ask in their words",
+        "Day 21: reorder before it runs out",
+        "No refill? Send the matching item",
+        "WhatsApp for all 3, email as backup"
+      ],
+      "foot": "Screenshot this. Rates as of Oct 2026: check Meta's rate card, your WhatsApp tool may add a fee."
+    },
+    {
+      "type": "cta",
+      "body": "and I'll send you Review Miner. It pulls the words your buyers already use, so all 3 messages sound like them. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "id": "2026-10-27-reel-diwali-offer-100-shoppers-vote",
+  "keyword": "PRICE",
+  "world": "gameshow",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(PRICE|100|hundred|₹200|200|two|20%|twenty|gift|Diwali|example|split|Catch)",
+  "page": {
+    "title": "Example: Brass Diya Set",
+    "price": "₹999",
+    "label": "EXAMPLE",
+    "button": "Add to cart",
+    "url": "yourstore.com/products/example-diya-set"
+  },
+  "cast": [
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Office worker",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Premium buyer",
+      "col": "#E8CF8E",
+      "prop": "heart"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#7FA8F8",
+      "prop": "cart"
+    },
+    {
+      "name": "Festive shopper",
+      "col": "#FFB4A2",
+      "prop": "gift"
+    },
+    {
+      "name": "Deal sceptic",
+      "col": "#5D6577",
+      "prop": "shades"
+    },
+    {
+      "name": "Host",
+      "col": "#FF7B7B",
+      "prop": "none"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Flat rupees off, a fifth off, or a free gift?",
+      "show": "₹200 off, 20% off or a free gift?",
+      "card": "WHICH DIWALI OFFER GETS TAPS?",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": "₹200 OFF",
+            "at": 0.3
+          },
+          {
+            "x": 690,
+            "y": 132,
+            "label": "20% OFF",
+            "at": 0.9
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "FREE GIFT",
+            "at": 1.5
+          }
+        ]
+      }
+    },
+    {
+      "say": "A big crowd of AI shoppers picks your Diwali offer.",
+      "show": "100 AI shoppers pick your Diwali offer.",
+      "card": "100 AI SHOPPERS VOTE",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "big": "×100",
+        "step": 0.06
+      }
+    },
+    {
+      "say": "Example product, just under a thousand rupees.",
+      "show": "Example product, ₹999.",
+      "card": "EXAMPLE: ONE ₹999 PRODUCT",
+      "scene": {
+        "type": "list",
+        "title": "Same ad, 3 headlines",
+        "items": [
+          "₹200 off this Diwali",
+          "20% off this Diwali",
+          "Free gift this Diwali"
+        ],
+        "who": 12,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Each shopper votes alone on the one to tap.",
+      "card": "VOTES COMING IN",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "₹200 OFF",
+          "₹200 OFF",
+          "GIFT",
+          "20% OFF",
+          "₹200 OFF",
+          "20% OFF",
+          "₹200 OFF",
+          "GIFT",
+          "20% OFF",
+          "₹200 OFF",
+          "GIFT",
+          "₹200 OFF"
+        ],
+        "voteAt": 0.2,
+        "voteStep": 0.12
+      }
+    },
+    {
+      "say": "In this example, flat rupees off wins.",
+      "show": "In this example, ₹200 off wins.",
+      "card": "EXAMPLE: ₹200 OFF WINS",
+      "scene": {
+        "type": "grid",
+        "leave": 54,
+        "leftLabel": "picked 20% or gift",
+        "stayLabel": "picked ₹200 off (example)"
+      }
+    },
+    {
+      "say": "Same money as a fifth off. Reads bigger.",
+      "show": "Same money as 20%. Reads bigger.",
+      "card": "SAME MONEY. READS BIGGER."
+    },
+    {
+      "say": "Losers say: a fifth off what?",
+      "show": "Losers say: 20% of what?",
+      "card": "WHY THE LOSERS LOST",
+      "scene": {
+        "type": "versus",
+        "gap": "@line8-0.1",
+        "left": {
+          "who": 3,
+          "tag": "20% OFF",
+          "say": [
+            "20% of what?",
+            "Not doing maths."
+          ],
+          "mood": "frown"
+        },
+        "right": {
+          "who": 11,
+          "tag": "FREE GIFT",
+          "say": [
+            "Probably a",
+            "cheap sample."
+          ],
+          "mood": "frown"
+        }
+      }
+    },
+    {
+      "say": "A free gift? Sounds like junk."
+    },
+    {
+      "say": "Catch: it tests the read, not what Meta delivers.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 12,
+        "stamp": "SPLIT TEST IT",
+        "sub": "winner vs runner-up on Meta"
+      }
+    },
+    {
+      "say": "So split test the top two for real."
+    },
+    {
+      "say": "Comment PRICE and I'll send you the free price test.",
+      "card": "COMMENT \"PRICE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 100-Shopper Price Test in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          9,
+          10,
+          12
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "₹200 OFF, 20% OR GIFT?",
+      "100 AI SHOPPERS PICK"
+    ],
+    "line": 3,
+    "lt": 1.5,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Festive COD returns hit 58% last year, per vendor figures. Prepaid stayed under 15%. 5 fixes before Dhanteras 👇
+
+1. Confirm every COD order on WhatsApp. Send one message with Yes / No buttons before you pack. Ship only on Yes, and call or cancel the silent ones. This cuts fake and impulse orders, not every return. On the WhatsApp API, utility messages are about ₹0.115 each before GST, so 1,000 confirms is roughly ₹115. Check Meta's pricing page before you budget.
+
+2. Pay the buyer to prepay. Show free shipping or a small UPI discount right at checkout. Example: ₹30 off prepaid. If a return costs you ₹160 (example: ₹70 shipping each way + ₹20 packing), the discount is the cheaper option.
+
+3. Ask risky orders for a small advance. First-time buyer, big cart, or a pin code with past returns? Send a UPI link for ₹99 before dispatch. That's an example amount, so pick yours.
+
+4. Dispatch within 24 hours. COD buyers cool off fast. Pack confirmed orders the same day, not Monday.
+
+5. Message them the day before delivery. Share the date, the amount due, and UPI on delivery if your courier offers it. That way the cash is ready and the door is open.
+
+Comment "RTO" and I'll DM you the free COD Confirm Kit: confirm-order WhatsApp scripts for the Business app or the API. Follow so the DM lands 📩
+
+#ecommerce #d2cbrand #shopifystore

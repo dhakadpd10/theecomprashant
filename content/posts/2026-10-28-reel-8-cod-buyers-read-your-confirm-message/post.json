@@ -1,0 +1,259 @@
+{
+  "id": "2026-10-28-reel-8-cod-buyers-read-your-confirm-message",
+  "keyword": "RTO",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(RTO|COD|8|eight|39\\.2%|thirty-nine|3|three|5|five|6|six|YES|pay-now|UPI|confirm|refuse|gut)",
+  "cast": [
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Impulse buyer",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Pay-at-door buyer",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Ordered on 3 sites",
+      "col": "#B7A4F7",
+      "prop": "cart"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#7DD3C0",
+      "prop": "tag"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "You",
+      "col": "#5E6E94",
+      "prop": "glass"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Last festive season, nearly four in ten D to C orders came back.",
+      "show": "Last festive season, D2C RTO hit 39.2%.",
+      "card": "39.2% OF ORDERS CAME BACK",
+      "scene": {
+        "type": "stat",
+        "big": "39.2%",
+        "label": "D2C RTO, festive 2025 · Unicommerce, Nov 2025"
+      }
+    },
+    {
+      "say": "Eight AI buyers read your confirm WhatsApp.",
+      "show": "8 AI COD buyers read your confirm WhatsApp.",
+      "card": "8 AI COD BUYERS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "big": "×8",
+        "step": 0.06
+      }
+    },
+    {
+      "say": "The usual: reply YES to confirm.",
+      "card": "THE USUAL CONFIRM MESSAGE",
+      "scene": {
+        "type": "chat",
+        "text": "Hi, your order #1042 is placed. Reply YES to confirm.",
+        "ids": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "say": "The door buyer decides at the door.",
+      "card": "WHO REFUSES AT THE DOOR?",
+      "scene": {
+        "type": "versus",
+        "gap": "@line4-0.1",
+        "left": {
+          "who": 2,
+          "tag": "REFUSE?",
+          "say": [
+            "I'll see",
+            "at the door."
+          ],
+          "mood": "neutral"
+        },
+        "right": {
+          "who": 3,
+          "tag": "CANCEL",
+          "say": [
+            "Amazon came",
+            "first. Cancel."
+          ],
+          "mood": "frown"
+        }
+      }
+    },
+    {
+      "say": "The three-site buyer kept the faster one.",
+      "show": "The 3-site buyer kept the faster one."
+    },
+    {
+      "say": "Example run: three confirm, five don't.",
+      "show": "Example run: 3 confirm, 5 don't.",
+      "card": "EXAMPLE RUN: WEAK MESSAGE",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "BUY",
+          "CANCEL",
+          "REFUSE",
+          "CANCEL",
+          "BUY",
+          "REFUSE",
+          "BUY",
+          "CANCEL"
+        ],
+        "voteAt": 0.3,
+        "voteStep": 0.12,
+        "tally": 1.6,
+        "noLabel": "RTO RISK"
+      }
+    },
+    {
+      "say": "Then the kit adds a pay-now nudge.",
+      "card": "THE KIT REWRITES IT",
+      "scene": {
+        "type": "list",
+        "title": "The rewrite",
+        "items": [
+          "Their name + the product",
+          "Delivery date, not 'soon'",
+          "Pay by UPI now, skip the cash",
+          "One tap: Confirm or Change"
+        ],
+        "who": 8,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Same eight. Six confirm now.",
+      "show": "Same 8. 6 confirm now.",
+      "card": "EXAMPLE RUN: NEW MESSAGE",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "BUY",
+          "BUY",
+          "BUY",
+          "CANCEL",
+          "BUY",
+          "REFUSE",
+          "BUY",
+          "BUY"
+        ],
+        "voteAt": 0.2,
+        "voteStep": 0.1,
+        "tally": 1.2,
+        "noLabel": "RTO RISK"
+      }
+    },
+    {
+      "say": "Catch: a gut check, not a forecast.",
+      "show": "Catch: a gut check, not an RTO forecast.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 8,
+        "stamp": "GUT CHECK",
+        "sub": "not an RTO forecast"
+      }
+    },
+    {
+      "say": "You send it yourself.",
+      "show": "You send it from your own WhatsApp."
+    },
+    {
+      "say": "Comment RTO and I'll send you the free C O D Confirm Kit.",
+      "show": "Comment RTO and I'll send you the free COD Confirm Kit.",
+      "card": "COMMENT \"RTO\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free COD Confirm Kit in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "8 AI COD BUYERS",
+      "READ YOUR CONFIRM"
+    ],
+    "line": 5,
+    "lt": 1,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

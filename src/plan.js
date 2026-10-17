@@ -1,9 +1,10 @@
-// Weekly run: learn from last week -> research -> plan 14 posts -> write -> render -> queue for approval.
+// Weekly run: learn from last week -> research -> plan every empty slot -> write -> render -> queue for approval.
+// Slots come from config (slots, or a slot_overrides period such as "October: reels only"); slots another queue already fills are skipped.
 // node src/cli.js plan [--start 2026-10-19] [--days 7]
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const { P, readJSON, writeJSON, readText, config, log, localDay, addDays, isoWeek, python } = require('./util');
+const { P, readJSON, writeJSON, readText, config, log, localDay, addDays, isoWeek, slotsFor, slotDate, python } = require('./util');
 const { ask, askJSON } = require('./claude');
 const { validateReel, validateCarousel, validateCaption, WORLDS } = require('./validate');
 const { WORLD_NOTES } = require('../engine/themes');
@@ -48,32 +49,52 @@ async function research() {
 }
 
 // ---------- 3. plan ----------
-async function planWeek(start, days, researchNotes) {
+// every slot from start for n days that no queue fills yet (published or waiting), and that hasn't passed
+function openSlots(start, days) {
+  const taken = new Set(); const qroot = P('content/queue');
+  if (fs.existsSync(qroot)) for (const w of fs.readdirSync(qroot)) for (const s of readJSON(path.join(qroot, w, 'plan.json'), { slots: [] }).slots) if (['made', 'published'].includes(s.status)) taken.add(`${s.day} ${s.time}`);
+  const out = [];
+  for (let i = 0; i < days; i++) { const day = addDays(start, i); for (const sl of slotsFor(day)) if (!taken.has(`${day} ${sl.time}`) && slotDate(day, sl.time) > new Date()) out.push({ day, time: sl.time, format: sl.format }); }
+  return out;
+}
+
+async function planWeek(need, researchNotes) {
   const cfg = config(); const kws = Object.keys(cfg.keywords);
+  const reels = need.filter((n) => n.format === 'reel').length, maxWorld = Math.max(1, Math.ceil(reels / WORLDS.length)), maxNew = reels > 8 ? 3 : 2;
   const validate = (v) => {
-    const e = []; if (!Array.isArray(v.days) || v.days.length !== days) e.push(`days must have exactly ${days} entries`);
-    (v.days || []).forEach((d, i) => {
-      if (!d.keyword || !/^[A-Z]+$/.test(d.keyword)) e.push(`days[${i}].keyword must be one uppercase word`);
-      if (!kws.includes(d.keyword) && !d.new_tool) e.push(`days[${i}] uses ${d.keyword} which has no free tool: pick one of ${kws.join(', ')} or add new_tool {title, what}`);
-      for (const k of ['reel', 'carousel']) if (!d[k]?.topic || !d[k]?.slug || !/^[a-z0-9-]+$/.test(d[k].slug)) e.push(`days[${i}].${k} needs topic and a lowercase-dash slug`);
-      if (!WORLDS.includes(d.reel?.world)) e.push(`days[${i}].reel.world must be one of ${WORLDS.join(', ')}`);
+    const e = []; const posts = v.posts || [], fresh = v.new_tools || {};
+    if (!Array.isArray(v.posts) || posts.length !== need.length) e.push(`posts must have exactly ${need.length} entries, one per slot, in the order given`);
+    if (Object.keys(fresh).length > maxNew) e.push(`at most ${maxNew} new tools`);
+    for (const [k, t] of Object.entries(fresh)) if (!/^[A-Z]{3,}$/.test(k) || kws.includes(k) || !t?.title || !t?.what) e.push(`new_tools.${k} needs a new uppercase keyword with title and what`);
+    posts.forEach((p, i) => {
+      const n = need[i]; if (!n) return;
+      if (p.day !== n.day || p.time !== n.time || p.format !== n.format) e.push(`posts[${i}] must be day ${n.day}, time ${n.time}, format ${n.format}`);
+      if (!p.keyword || !(kws.includes(p.keyword) || fresh[p.keyword])) e.push(`posts[${i}].keyword must be one of ${kws.join(', ')} or a key of new_tools`);
+      if (!p.topic || !p.slug || !/^[a-z0-9-]+$/.test(p.slug)) e.push(`posts[${i}] needs topic and a lowercase-dash slug`);
+      if (p.format === 'reel' && !WORLDS.includes(p.world)) e.push(`posts[${i}].world must be one of ${WORLDS.join(', ')}`);
     });
-    const used = (v.days || []).map((d) => d.reel?.world); if (new Set(used).size !== used.length) e.push('every reel this week needs a different world');
+    const rs = posts.filter((p) => p.format === 'reel'); const count = {};
+    rs.forEach((p, i) => { count[p.world] = (count[p.world] || 0) + 1; if (i && rs[i - 1].world === p.world) e.push(`reels on ${rs[i - 1].day} ${rs[i - 1].time} and ${p.day} ${p.time} follow each other, so they need different worlds`); });
+    for (const [w, c] of Object.entries(count)) if (c > maxWorld) e.push(`world ${w} is used ${c} times; at most ${maxWorld}`);
+    if (new Set(posts.map((p) => p.slug)).size !== posts.length) e.push('every slug must be different');
     return e;
   };
   return askJSON({
     system: SYSTEM(), effort: 'high', validate,
-    prompt: `Plan ${days} days of posts starting ${start}. Each day has a 13:00 carousel and a 19:30 reel that share ONE keyword, so both lead to the same free tool.
+    prompt: `Plan one post for each of these ${need.length} open slots (IST), in this order:
+${need.map((n, i) => `${i}. ${n.day} ${n.time} ${n.format}`).join('\n')}
 
 Free tools that already exist (keyword: title): ${kws.map((k) => `${k}: ${cfg.keywords[k].title}`).join('; ')}.
-You may introduce at most 2 new tools this week (give new_tool {title, what}); otherwise reuse existing ones from a fresh angle.
+You may introduce at most ${maxNew} new tools (in new_tools); otherwise reuse existing ones from a fresh angle. When a day has a carousel and a reel, they share one keyword so both lead to the same free tool. When a day has two reels, give them different keywords and different pillars.
 Do not repeat any of these recent topics: ${recentTopics().join(' | ') || 'none'}.
-Research notes from this week:\n${researchNotes || 'none'}
+Research notes from this week:
+${researchNotes || 'none'}
 
-Each reel gets its own visual world, chosen to fit the topic, all 7 different (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).
+Each reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).
 
 Rules: reels are one idea with a mechanism (panels of AI critics/shoppers/customers judging the viewer's thing work best); carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"days":[{"keyword":"STORE","pillar":"Sell more","reel":{"slug":"...","topic":"...","angle":"...","world":"courtroom"},"carousel":{"slug":"...","topic":"...","angle":"..."},"new_tool":null}]}`,
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","slug":"...","topic":"...","angle":"...","world":"courtroom"}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+(world only for reels; new_tools may be {}).`,
   });
 }
 
@@ -124,10 +145,10 @@ async function writeCaption(dir, kind, spec) {
 }
 
 async function makeReel(day, d) {
-  const cfg = config(); const id = `${day}-reel-${d.reel.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
+  const cfg = config(); const id = `${day}-reel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateReel(v, { keywords: Object.keys(cfg.keywords) }),
-    prompt: `Write the reel spec (post.json) for: ${d.reel.topic}. Angle: ${d.reel.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", world "${d.reel.world}" (${WORLD_NOTES[d.reel.world]}), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Two-line hook first.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example that rendered well:\n${example('02-launch-trial', 'post.json')}\n\nReturn post.json only.`,
+    prompt: `Write the reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", world "${d.world}" (${WORLD_NOTES[d.world]}), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Two-line hook first.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example that rendered well:\n${example('02-launch-trial', 'post.json')}\n\nReturn post.json only.`,
   });
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'post.json'), spec);
   let out = render('reel', dir);
@@ -141,10 +162,10 @@ async function makeReel(day, d) {
 }
 
 async function makeCarousel(day, d) {
-  const cfg = config(); const id = `${day}-carousel-${d.carousel.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
+  const cfg = config(); const id = `${day}-carousel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateCarousel(v, { keywords: Object.keys(cfg.keywords) }),
-    prompt: `Write the carousel spec (carousel.json) for: ${d.carousel.topic}. Angle: ${d.carousel.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}". 8 to 10 slides.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example:\n${example('c01-leaky-page', 'carousel.json')}\n\nReturn carousel.json only.`,
+    prompt: `Write the carousel spec (carousel.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}". 8 to 10 slides.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example:\n${example('c01-leaky-page', 'carousel.json')}\n\nReturn carousel.json only.`,
   });
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'carousel.json'), spec);
   render('carousel', dir);
@@ -159,23 +180,30 @@ async function run({ start, days = 7 } = {}) {
   if (launch && !launch.start) { log('launch week has no dates yet: run the Launch workflow first'); return { skipped: true }; }
   if (!start && launch?.start) { const end = addDays(launch.start, 6); start = nextMonday(end > localDay() ? end : localDay()); }
   start = start || nextMonday();
-  const week = isoWeek(start); const qdir = P('content/queue', week);
-  if (fs.existsSync(path.join(qdir, 'plan.json'))) { log(`${week} already planned`); return { week, skipped: true }; }
+  // a second run for the same week (to top up slots a first run couldn't make) gets its own folder: 2026-W43-2
+  let week = isoWeek(start);
+  for (let n = 2; fs.existsSync(P('content/queue', week, 'plan.json')); n++) week = `${isoWeek(start)}-${n}`;
+  const qdir = P('content/queue', week);
+  const need = openSlots(start, days);
+  if (!need.length) { log(`no open slots ${start} + ${days} days`); return { week, skipped: true }; }
+  log(`open slots: ${need.length} (${need.filter((n) => n.format === 'reel').length} reels)`);
   await learn();
   const notes = await research().catch((e) => { log('research skipped:', e.message); return ''; });
-  const plan = await planWeek(start, days, notes);
-  for (const d of plan.days) if (d.new_tool && !cfg.keywords[d.keyword]) await writeTool(d.keyword, d.new_tool);
+  const plan = await planWeek(need, notes);
+  for (const [kw, nt] of Object.entries(plan.new_tools || {})) if (!config().keywords[kw] && plan.posts.some((p) => p.keyword === kw)) await writeTool(kw, nt);
 
   const slots = []; const problems = [];
-  for (let i = 0; i < plan.days.length; i++) {
-    const d = plan.days[i], day = addDays(start, i);
-    for (const slot of config().slots) {
-      const kind = slot.format;
-      try {
-        const made = kind === 'reel' ? await makeReel(day, d) : await makeCarousel(day, d);
-        slots.push({ day, time: slot.time, format: kind, post: made.id, keyword: d.keyword, pillar: d.pillar, topic: d[kind].topic, status: 'made' });
-        log('made', made.id);
-      } catch (e) { problems.push(`${day} ${kind}: ${e.message.split('\n')[0]}`); log('FAILED', day, kind, e.message); }
+  for (const p of plan.posts) {
+    try {
+      const made = p.format === 'reel' ? await makeReel(p.day, p) : await makeCarousel(p.day, p);
+      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
+      log('made', made.id);
+    } catch (e) {
+      problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message);
+      if (/usage limit|session limit|hit your .*limit/i.test(e.message)) { // the Claude plan is used up: stop, keep what's made, top up later
+        for (const q of plan.posts.slice(plan.posts.indexOf(p) + 1)) problems.push(`${q.day} ${q.time} ${q.format}: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)`);
+        break;
+      }
     }
   }
   writeJSON(path.join(qdir, 'plan.json'), { week, start, research: notes, slots });

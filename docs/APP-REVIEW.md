@@ -23,7 +23,7 @@ Meta wants to see the feature working. Do the tester test first (your second acc
 
 1. Show a reel on @theecomprashant whose caption says *Comment "STORE"…*.
 2. From the second account, comment **store** on it.
-3. In GitHub → **Actions → Engage → Run workflow** (or wait up to 15 minutes).
+3. In GitHub → **Actions → Engage → Run workflow** (or wait up to 10 minutes).
 4. Show the public reply under the comment ("Sent! Check your DMs 📩").
 5. Open the second account's DMs and show the message with the free tool link, then open the link.
 6. Comment a question (e.g. "does this work for Shopify?") and show the agent's reply.

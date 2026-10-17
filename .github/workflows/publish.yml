@@ -1,7 +1,6 @@
 name: Publish - post approved posts on time
+# Runs by hand only: the Run workflow checks every minute. Kept for tests.
 on:
-  schedule:
-    - cron: "*/15 * * * *"
   workflow_dispatch:
 permissions:
   contents: write

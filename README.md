@@ -2,14 +2,15 @@
 
 An open-source Instagram agent that runs a whole page about **practical AI for D2C and ecommerce brands**, in the cloud, with your computer off.
 
-Every week it researches what's new, plans 14 posts (a carousel at 1 pm and a reel at 7:30 pm, every day), writes them, records a voiceover, renders the videos and slides, and asks you to approve the week. After you approve, it posts on time, sends the free tool by DM to everyone who comments the keyword, answers comments and DMs, escalates anything sensitive to you, and reads the numbers to plan a better next week.
+Every week it researches what's new, plans 14 posts (a carousel at 1 pm and a reel at 7:30 pm, every day; `slot_overrides` in config/agent.json switches a period to something else, such as reels only), writes them, records a voiceover, renders the videos and slides, and asks you to approve the week. After you approve, it posts on time, sends the free tool by DM to everyone who comments the keyword, answers comments and DMs, escalates anything sensitive to you, and reads the numbers to plan a better next week.
 
 It runs entirely on **GitHub Actions** (free for public repositories) with **Claude** as the brain (your Claude subscription through Claude Code, or an API key) and **Instagram's official API**.
 
 ```
 Saturday 06:00 IST   research → plan → write → voice → render → pull request "Approve 2026-W44"
 you                  open the pull request on your phone → Merge   (that's the approval)
-every 15 min         publish posts that are due · send keyword DMs · answer comments and DMs
+every minute         publish posts that are due (one long "Run" job, restarted hourly)
+every 10 min         send keyword DMs · answer comments and DMs
 daily 10:00 IST      log each post's views, reach, likes, comments, saves, shares
 Monday               refresh the Instagram token
 ```

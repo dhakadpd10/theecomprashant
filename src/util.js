@@ -24,8 +24,10 @@ function isoWeek(day) {
   const y = d.getUTCFullYear(), jan4 = new Date(Date.UTC(y, 0, 4)); const wk = 1 + Math.round(((d - jan4) / 86400000 - 3 + ((jan4.getUTCDay() + 6) % 7)) / 7);
   return `${y}-W${String(wk).padStart(2, '0')}`;
 }
+// the posting slots for one day: a matching slot_overrides entry (from..until, inclusive) wins over the default slots
+function slotsFor(day, cfg = config()) { return ((cfg.slot_overrides || []).find((o) => day >= o.from && day <= o.until) || cfg).slots; }
 // public URL of a file under content/ once the site is deployed (GitHub Pages)
 const publicUrl = (rel) => `${config().site_url.replace(/\/$/, '')}/${rel.replace(/\\/g, '/').replace(/^content\//, 'media/')}`;
 const python = () => (process.platform === 'win32' ? ['py', ['-X', 'utf8']] : ['python3', []]);
 
-module.exports = { ROOT, P, readJSON, writeJSON, readText, config, log, slotDate, localDay, addDays, isoWeek, publicUrl, python };
+module.exports = { ROOT, P, readJSON, writeJSON, readText, config, log, slotDate, localDay, addDays, isoWeek, slotsFor, publicUrl, python };

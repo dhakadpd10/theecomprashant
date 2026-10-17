@@ -1,4 +1,4 @@
-// Every 15 minutes: publish approved posts whose time has come.
+// Every minute (from .github/loop.sh): publish approved posts whose time has come.
 // A week's plan.json on the main branch = approved (it got there by merging the weekly pull request).
 // Set a slot's "status" to "skip" in plan.json to hold it back.
 const fs = require('fs');
@@ -7,6 +7,14 @@ const { P, readJSON, writeJSON, readText, config, log, slotDate, publicUrl } = r
 const ig = require('./ig');
 
 const LATE_LIMIT_H = 6; // a post more than 6 hours late is marked "missed", not posted at a strange hour
+
+// a post already on Instagram with the same first caption line (a run that posted but crashed before saving, or two runs at once)
+let live;
+async function alreadyLive(caption) {
+  live ||= await ig.recentMedia(15).catch(() => []);
+  const first = (t) => (t || '').split('\n')[0].trim();
+  return live.find((m) => first(m.caption) === first(caption) && Date.now() - new Date(m.timestamp) < 2 * 86400000);
+}
 
 async function reachable(url) { try { const r = await fetch(url, { method: 'HEAD' }); return r.ok; } catch { return false; } }
 
@@ -25,6 +33,8 @@ async function run({ dryRun = false } = {}) {
       if (postedToday >= cfg.limits.max_posts_per_day) { log('daily post limit reached'); continue; }
       const dir = `content/posts/${s.post}`; const caption = readText(P(dir, 'caption.txt')).trim();
       try {
+        const dup = await alreadyLive(caption);
+        if (dup) { Object.assign(s, { status: 'published', media_id: dup.id, published_at: new Date(dup.timestamp).toISOString(), note: 'found already live' }); changed = true; log('already live', s.post, dup.id); continue; }
         let id;
         if (s.format === 'reel') {
           const videoUrl = publicUrl(`${dir}/reel.mp4`), coverUrl = publicUrl(`${dir}/cover.jpg`);

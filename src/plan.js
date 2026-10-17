@@ -109,14 +109,12 @@ const SCENES_DOC = () => readText(P('docs/SCENES.md'));
 const example = (id, file) => readText(P('content/posts', id, file));
 
 async function writeTool(keyword, nt) {
-  const id = keyword.toLowerCase();
+  const id = keyword.toLowerCase(); // tools/<id>.md becomes keyword <ID> automatically (see config() in util.js)
   const text = await ask({
     system: SYSTEM(), effort: 'high',
     prompt: `Write the free tool "${nt.title}" (${nt.what}) as a Markdown file in exactly this shape: a "# Title" line, one short paragraph telling the reader what to paste and where, a line with only "---", then the full prompt they paste into Claude. The prompt must be safe, honest (never invent facts; mark unknowns as [CHECK: ...]) and genuinely useful for a D2C store owner. Model it on this example:\n\n${readText(P('tools/store.md'))}\n\nReturn the Markdown only.`,
   });
   fs.writeFileSync(P('tools', `${id}.md`), text.trim() + '\n');
-  const cfgFile = P('config/agent.json'); const cfg = readJSON(cfgFile);
-  cfg.keywords[keyword] = { tool: id, title: nt.title }; writeJSON(cfgFile, cfg);
   log('new free tool', keyword, nt.title);
 }
 

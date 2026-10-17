@@ -77,7 +77,7 @@ async function run({ fix = false } = {}) {
     const due = /^\d{4}-/.test(s.day) ? slotDate(s.day, s.time).getTime() : 0;
     if (s.status === 'failed' && /not on the site yet/.test(s.error || '') && now - due < 5 * H) {
       if (fix) { gh('workflow', 'run', 'site.yml'); s.status = 'made'; s.attempts = 0; changed.add(file); fixed.push(`redeployed the site and retried ${s.post} (its media wasn't online yet)`); }
-    } else if ((s.status === 'failed' && !blocked) || (s.status === 'hold' && /reschedule/i.test(s.note || '') && !blocked)) {
+    } else if (!blocked && (s.status === 'failed' || (s.status === 'missed' && now - due < 4 * 24 * H) || (s.status === 'hold' && /reschedule/i.test(s.note || '')))) { // missed = held up longer than 6 h (e.g. while Instagram was blocked)
       const slot = free(s.format, 3);
       if (slot && fix) { const was = `${s.day} ${s.time}`; Object.assign(s, slot, { status: 'made', attempts: 0, note: `rescheduled from ${was}` }); delete s.error; changed.add(file); fixed.push(`rescheduled ${s.post} from ${was} to ${slot.day} ${slot.time}`); }
       else if (s.status === 'failed') add('code', `post-failed-${s.post}`, `Post ${s.post} (${s.day} ${s.time}) failed: ${s.error}`);

@@ -1,0 +1,83 @@
+{
+  "id": "2026-10-21-reel-cart-whatsapp-3-messages-not-spammy",
+  "style": "motion",
+  "keyword": "CART",
+  "world": "notebook",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(CART|1|24|72|spam|COD|opt-?in|template|free)$",
+  "palette": {
+    "bg": "#0E1A16",
+    "ink": "#F3EFE4",
+    "accent": "#5BE38A"
+  },
+  "lines": [
+    {
+      "say": "Most abandoned cart messages feel like spam. Here's a sequence that doesn't.",
+      "show": "Most cart WhatsApps feel like spam.",
+      "cut": true
+    },
+    {
+      "say": "Three messages, three timings, three jobs.",
+      "show": "3 messages. 3 timings. 3 jobs.",
+      "cut": true
+    },
+    {
+      "say": "After one hour, a helpful reminder. No discount.",
+      "show": "1 hour: a helpful reminder. No discount.",
+      "cut": true
+    },
+    {
+      "say": "After a day, answer the doubt: size, delivery date, cash on delivery.",
+      "show": "24 hours: answer the doubt. Size, delivery, COD."
+    },
+    {
+      "say": "After three days, a small offer. Optional.",
+      "show": "72 hours: a small offer. Optional."
+    },
+    {
+      "say": "All three need an approved message template, unless the shopper messaged you within a day.",
+      "show": "All 3 need a Meta-approved template.",
+      "cut": true
+    },
+    {
+      "say": "The catch: no opt-in or no approved template means don't send it.",
+      "show": "The catch: no opt-in, no template, no send.",
+      "cut": true
+    },
+    {
+      "say": "Comment CART and I'll send the sequence free.",
+      "show": "Comment CART for the free sequence.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.8",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.5",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.0",
+    "title": [
+      "3 CART WHATSAPPS",
+      "THAT DON'T FEEL SPAMMY"
+    ]
+  }
+}

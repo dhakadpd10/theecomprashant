@@ -1,0 +1,73 @@
+{
+  "dur": 29.32,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.583,
+      "b": 4.683,
+      "say": "Most abandoned cart messages feel like spam. Here's a sequence that doesn't.",
+      "show": "Most cart WhatsApps feel like spam."
+    },
+    {
+      "a": 4.683,
+      "voice": 4.783,
+      "end": 7.066,
+      "b": 7.166,
+      "say": "Three messages, three timings, three jobs.",
+      "show": "3 messages. 3 timings. 3 jobs."
+    },
+    {
+      "a": 7.166,
+      "voice": 7.266,
+      "end": 10.08,
+      "b": 10.18,
+      "say": "After one hour, a helpful reminder. No discount.",
+      "show": "1 hour: a helpful reminder. No discount."
+    },
+    {
+      "a": 10.18,
+      "voice": 10.28,
+      "end": 14.208,
+      "b": 14.308,
+      "say": "After a day, answer the doubt: size, delivery date, cash on delivery.",
+      "show": "24 hours: answer the doubt. Size, delivery, COD."
+    },
+    {
+      "a": 14.308,
+      "voice": 14.408,
+      "end": 16.724,
+      "b": 16.824,
+      "say": "After three days, a small offer. Optional.",
+      "show": "72 hours: a small offer. Optional."
+    },
+    {
+      "a": 16.824,
+      "voice": 16.924,
+      "end": 21.723,
+      "b": 21.823,
+      "say": "All three need an approved message template, unless the shopper messaged you within a day.",
+      "show": "All 3 need a Meta-approved template."
+    },
+    {
+      "a": 21.823,
+      "voice": 21.923,
+      "end": 25.494,
+      "b": 25.594,
+      "say": "The catch: no opt-in or no approved template means don't send it.",
+      "show": "The catch: no opt-in, no template, no send."
+    },
+    {
+      "a": 25.594,
+      "voice": 25.694,
+      "end": 27.92,
+      "b": 29.32,
+      "say": "Comment CART and I'll send the sequence free.",
+      "show": "Comment CART for the free sequence."
+    }
+  ]
+}

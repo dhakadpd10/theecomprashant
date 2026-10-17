@@ -1,0 +1,258 @@
+<style>
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  .blob { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(140px); opacity: 0.45; }
+  #blobA { left: -320px; top: -240px; background: #1C6B44; }
+  #blobB { left: 460px; top: 880px; background: #2B4A7A; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(242,245,238,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(242,245,238,0.045) 2px, transparent 2px); background-size: 90px 90px; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .kicker { position: absolute; left: 90px; width: 860px; top: 10px; font-family: var(--display); font-size: 124px; line-height: 0.96; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 6px; }
+  .mask > span { display: block; }
+  .acc { color: var(--accent); }
+
+  /* 0: the parcel that comes back */
+  #parcel { position: absolute; left: 290px; top: 320px; width: 500px; height: 540px; border-radius: 26px; background: linear-gradient(160deg, #DDAE70, #B47D43); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+  #parcel .flap { position: absolute; left: 0; right: 0; top: 0; height: 70px; border-radius: 26px 26px 0 0; background: rgba(0,0,0,0.12); }
+  #parcel .tape { position: absolute; left: 205px; top: 0; width: 90px; bottom: 0; background: rgba(255,255,255,0.22); }
+  #parcel .label { position: absolute; left: 60px; top: 320px; width: 380px; height: 150px; border-radius: 18px; background: #F2F5EE; color: #0E1512; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 90px; }
+  #stamp { position: absolute; left: 110px; top: 110px; width: 280px; height: 140px; border: 10px solid #C8322F; border-radius: 18px; background: rgba(242,245,238,0.95); color: #C8322F; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 90px; }
+  #ret { position: absolute; left: 160px; top: 920px; width: 780px; height: 240px; }
+  #ret-path { fill: none; stroke: var(--accent); stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1400; }
+  #ret-head { fill: var(--accent); }
+
+  /* 1: the report, a seesaw with no numbers */
+  #report { position: absolute; left: 90px; top: 290px; width: 860px; height: 860px; border-radius: 36px; background: #16211B; border: 3px solid rgba(242,245,238,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #report .doc { position: absolute; left: 40px; top: 32px; width: 38px; height: 48px; border-radius: 6px; background: #F2F5EE; }
+  #report .src { position: absolute; left: 96px; top: 32px; height: 48px; width: 700px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(242,245,238,0.75); }
+  #beam { position: absolute; left: 80px; top: 470px; width: 700px; height: 24px; border-radius: 12px; background: #F2F5EE; }
+  .blk { position: absolute; bottom: 24px; width: 260px; height: 150px; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #0E1512; }
+  .blk .nm { font-family: var(--body); font-weight: 900; font-size: 44px; line-height: 1.05; }
+  .blk .rt { font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 1.2; }
+  #b-cod { left: 10px; background: var(--accent); }
+  #b-pre { right: 10px; background: #F2F5EE; }
+  #pivot { position: absolute; left: 370px; top: 494px; width: 0; height: 0; border-left: 60px solid transparent; border-right: 60px solid transparent; border-bottom: 110px solid rgba(242,245,238,0.45); }
+  #verdict { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font-family: var(--display); font-size: 124px; line-height: 1; color: var(--accent); }
+  #s1-foot { position: absolute; left: 40px; right: 40px; top: 790px; text-align: center; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(242,245,238,0.65); }
+
+  /* 2-4: the phone, three messages to confirmed */
+  #s2 .kicker { font-size: 110px; }
+  #phone { position: absolute; left: 110px; top: 160px; width: 840px; height: 1000px; border-radius: 48px; background: #12201A; border: 3px solid rgba(242,245,238,0.16); overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.55); }
+  .ph-head { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: #1B3326; }
+  .ph-av { position: absolute; left: 30px; top: 24px; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(140deg, #5CE08A, #1C6B44); }
+  .ph-name { position: absolute; left: 124px; top: 0; height: 120px; width: 300px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 34px; color: var(--ink); }
+  .chip { position: absolute; right: 30px; top: 32px; height: 56px; width: 230px; border-radius: 28px; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 30px; }
+  #chip-new { background: rgba(242,245,238,0.14); color: var(--ink); }
+  #chip-ok { background: var(--accent); color: #0E1512; }
+  .pill { position: absolute; left: 270px; top: 146px; width: 300px; height: 48px; border-radius: 24px; background: rgba(242,245,238,0.1); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(242,245,238,0.75); }
+  .out { position: absolute; right: 30px; width: 580px; height: 140px; box-sizing: border-box; padding: 0 28px; border-radius: 30px 30px 8px 30px; background: #D4F5DF; color: #0E1512; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; line-height: 1.25; }
+  .in { position: absolute; left: 30px; height: 80px; box-sizing: border-box; padding: 0 28px; border-radius: 30px 30px 30px 8px; background: #F2F5EE; color: #0E1512; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; }
+  #m1 { top: 220px; } #m2 { top: 488px; } #m3 { top: 756px; }
+  #r1 { top: 384px; width: 160px; font-weight: 900; } #r2 { top: 652px; width: 440px; }
+  .typing { position: absolute; left: 30px; width: 150px; height: 80px; border-radius: 30px 30px 30px 8px; background: #F2F5EE; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .typing i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #6B756F; }
+  #ty1 { top: 384px; } #ty2 { top: 652px; }
+  .badge { position: absolute; left: 140px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #0E1512; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 30px; }
+  #n1 { top: 258px; } #n2 { top: 526px; } #n3 { top: 794px; }
+
+  /* 5: no reply goes to the call list */
+  #order { position: absolute; left: 200px; top: 290px; width: 680px; height: 200px; border-radius: 30px; background: #F2F5EE; color: #0E1512; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  #order .t { position: absolute; left: 36px; top: 28px; width: 300px; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  #noreply { position: absolute; right: 36px; top: 28px; width: 220px; text-align: right; font-family: var(--body); font-weight: 900; font-size: 40px; color: #B3261E; }
+  #order .sent { position: absolute; left: 36px; top: 110px; display: flex; gap: 18px; }
+  #order .sd { display: flex; width: 60px; height: 60px; border-radius: 50%; background: #2E8B57; color: #F2F5EE; align-items: center; justify-content: center; font-family: var(--display); font-size: 30px; }
+  #calllist { position: absolute; left: 90px; top: 600px; width: 860px; height: 540px; border-radius: 36px; background: #16211B; border: 3px solid rgba(242,245,238,0.14); }
+  #calllist .ico { position: absolute; left: 40px; top: 30px; width: 56px; height: 56px; }
+  #calllist .h { position: absolute; left: 120px; top: 30px; height: 56px; width: 400px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  .crow { position: absolute; left: 40px; width: 780px; height: 110px; border-radius: 24px; background: rgba(242,245,238,0.06); }
+  #cr1 { top: 120px; } #cr2 { top: 246px; }
+  .crow .av { position: absolute; left: 24px; top: 25px; width: 60px; height: 60px; border-radius: 50%; background: rgba(242,245,238,0.18); }
+  .crow .b1 { position: absolute; left: 110px; top: 30px; width: 320px; height: 22px; border-radius: 11px; background: rgba(242,245,238,0.18); }
+  .crow .b2 { position: absolute; left: 110px; top: 64px; width: 200px; height: 18px; border-radius: 9px; background: rgba(242,245,238,0.12); }
+  #slot { position: absolute; left: 40px; top: 372px; width: 780px; height: 110px; box-sizing: border-box; border-radius: 24px; border: 4px dashed rgba(242,245,238,0.35); }
+  #slot .fill { position: absolute; inset: -4px; border-radius: 24px; background: #F2F5EE; }
+  #slot .txt { position: absolute; left: 30px; top: 0; bottom: 0; width: 700px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: #0E1512; }
+
+  /* 6: unsure buyers drop off before the truck */
+  #belt { position: absolute; left: 90px; top: 700px; width: 590px; height: 26px; border-radius: 13px; background: repeating-linear-gradient(90deg, #3A4A42 0 30px, #2A3731 30px 60px); }
+  .pk { position: absolute; top: 604px; width: 96px; height: 96px; border-radius: 12px; background: linear-gradient(160deg, #DDAE70, #B47D43); box-shadow: 0 10px 24px rgba(0,0,0,0.4); }
+  .pk .tape { position: absolute; left: 36px; top: 0; width: 24px; height: 96px; background: rgba(255,255,255,0.22); }
+  .pk .lab { position: absolute; left: 10px; top: 25px; width: 76px; height: 46px; border-radius: 8px; background: #F2F5EE; color: #0E1512; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 30px; line-height: 1; }
+  .pk .lab.q { background: #FF7A6B; font-size: 44px; }
+  #pk1 { left: 110px; } #pk2 { left: 226px; } #pk3 { left: 342px; } #pk4 { left: 458px; } #pk5 { left: 574px; }
+  #truck { position: absolute; left: 700px; top: 500px; width: 250px; height: 260px; }
+  #truck .cargo { position: absolute; left: 0; top: 0; width: 170px; height: 160px; border-radius: 14px; background: #F2F5EE; }
+  #truck .cab { position: absolute; left: 175px; top: 50px; width: 75px; height: 110px; border-radius: 0 24px 14px 0; background: var(--accent); }
+  #truck .win { position: absolute; left: 190px; top: 64px; width: 45px; height: 40px; border-radius: 6px; background: #0E1512; }
+  #truck .wh { position: absolute; top: 140px; width: 60px; height: 60px; border-radius: 50%; box-sizing: border-box; background: #0B110E; border: 12px solid #4A5A52; }
+  #truck .w1 { left: 25px; } #truck .w2 { left: 175px; }
+  #ship { position: absolute; left: 30px; top: 55px; width: 110px; height: 50px; border-radius: 12px; background: #0E1512; color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 30px; }
+  #drop-lbl { position: absolute; left: 90px; top: 880px; width: 600px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #FF7A6B; }
+  #s6-ex { position: absolute; left: 720px; top: 790px; width: 200px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(242,245,238,0.6); }
+
+  /* 7: the catch, what the kit does and doesn't */
+  #kit { position: absolute; left: 90px; top: 290px; width: 860px; height: 840px; border-radius: 36px; background: #F2F5EE; color: #0E1512; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #kit .h { position: absolute; left: 40px; top: 34px; width: 700px; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  .krow { position: absolute; left: 40px; width: 780px; height: 110px; border-radius: 24px; background: rgba(14,21,18,0.06); }
+  #k1 { top: 120px; } #k2 { top: 250px; } #k3 { top: 380px; } #k4 { top: 510px; }
+  .krow .ic { position: absolute; left: 22px; top: 20px; width: 70px; height: 70px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .krow .ic b { display: block; width: 28px; height: 14px; border-left: 8px solid #0E1512; border-bottom: 8px solid #0E1512; rotate: -45deg; margin-top: -8px; }
+  .krow .lb { position: absolute; left: 120px; top: 0; bottom: 0; width: 640px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 40px; }
+  #xic { position: absolute; left: 22px; top: 20px; width: 70px; height: 70px; border-radius: 50%; background: #B3261E; }
+  #xic i { position: absolute; left: 15px; top: 31px; width: 40px; height: 8px; border-radius: 4px; background: #F2F5EE; }
+  #xic i:nth-child(1) { rotate: 45deg; } #xic i:nth-child(2) { rotate: -45deg; }
+  #strike { position: absolute; left: 116px; top: 52px; width: 230px; height: 6px; border-radius: 3px; background: #B3261E; }
+  #you-send { position: absolute; left: 40px; top: 670px; width: 780px; height: 120px; border-radius: 26px; background: #0E1512; color: var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 40px; }
+
+  /* 8: comment the keyword */
+  #avatar { position: absolute; left: 90px; top: 330px; width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(140deg, #5CE08A, #1C6B44); }
+  #bubble { position: absolute; left: 250px; top: 280px; width: 700px; height: 320px; border-radius: 48px; background: #F2F5EE; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #bubble .ch { display: block; font-family: var(--display); font-size: 200px; line-height: 1; color: #0E1512; }
+  #sent { position: absolute; left: 876px; top: 244px; width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #sent b { display: block; width: 30px; height: 15px; border-left: 8px solid #0E1512; border-bottom: 8px solid #0E1512; rotate: -45deg; margin-top: -8px; }
+  #sticker { position: absolute; left: 560px; top: 650px; padding: 18px 32px; border-radius: 22px; background: var(--accent); color: #0E1512; font-family: var(--display); font-size: 48px; }
+  .sub { position: absolute; left: 90px; width: 860px; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #sub1 { top: 820px; color: var(--accent); } #sub2 { top: 900px; }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob" id="blobA"></div>
+  <div class="blob" id="blobB"></div>
+  <div class="grid"></div>
+</div>
+
+<!-- 0: COD orders keep coming back -->
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kicker" aria-label="Coming back">
+    <span class="mask"><span class="l">Coming</span></span>
+    <span class="mask"><span class="l acc">back</span></span>
+  </div>
+  <div id="parcel">
+    <div class="flap"></div>
+    <div class="tape"></div>
+    <div class="label">COD</div>
+    <div id="stamp" data-layout-allow-overlap>RTO</div>
+  </div>
+  <svg id="ret" viewBox="0 0 780 240" aria-hidden="true">
+    <path id="ret-path" d="M 60 50 L 620 50 Q 720 50 720 115 Q 720 180 620 180 L 120 180"></path>
+    <polygon id="ret-head" points="66,180 132,140 132,220"></polygon>
+  </svg>
+</section>
+
+<!-- 1: the report, COD came back far more -->
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="kicker" aria-label="Festive COD">
+    <span class="mask"><span class="l">Festive</span></span>
+    <span class="mask"><span class="l acc">COD</span></span>
+  </div>
+  <div id="report">
+    <div class="doc"></div>
+    <div class="src">Source: Unicommerce report</div>
+    <div id="pivot"></div>
+    <div id="beam">
+      <div class="blk" id="b-cod"><div class="nm">COD</div><div class="rt">returns</div></div>
+      <div class="blk" id="b-pre"><div class="nm">PREPAID</div><div class="rt">returns</div></div>
+    </div>
+    <div id="verdict">FAR MORE</div>
+    <div id="s1-foot">Festive season, COD vs prepaid</div>
+  </div>
+</section>
+
+<!-- 2-4: three messages take the order to confirmed -->
+<section class="scene" id="s2" data-from="@line2" data-to="@line5">
+  <div class="kicker" aria-label="3 messages">
+    <span class="mask"><span class="l"><span class="acc">3</span> messages</span></span>
+  </div>
+  <div id="phone">
+    <div class="ph-head">
+      <div class="ph-av"></div>
+      <div class="ph-name">Your Store</div>
+      <div class="chip" id="chip-new">NEW ORDER</div>
+      <div class="chip" id="chip-ok" data-layout-allow-overlap>CONFIRMED</div>
+    </div>
+    <div class="pill">EXAMPLE CHAT</div>
+    <div class="badge" id="n1">1</div>
+    <div class="out" id="m1">Confirm your COD order of ₹799? Reply YES.</div>
+    <div class="typing" id="ty1"><i></i><i></i><i></i></div>
+    <div class="in" id="r1" data-layout-allow-overlap>YES</div>
+    <div class="badge" id="n2">2</div>
+    <div class="out" id="m2">Please confirm your address and a landmark.</div>
+    <div class="typing" id="ty2"><i></i><i></i><i></i></div>
+    <div class="in" id="r2" data-layout-allow-overlap>Opp. City Park gate</div>
+    <div class="badge" id="n3">3</div>
+    <div class="out" id="m3">Pay now on UPI and get ₹50 off.</div>
+  </div>
+</section>
+
+<!-- 5: no reply goes to the call list -->
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="kicker" aria-label="No reply?">
+    <span class="mask"><span class="l">No</span></span>
+    <span class="mask"><span class="l acc">reply?</span></span>
+  </div>
+  <div id="calllist">
+    <svg class="ico" viewBox="0 0 56 56" aria-hidden="true"><path fill="#5CE08A" d="M14 6 L22 6 L26 16 L21 20 A22 22 0 0 0 32 31 L36 26 L46 30 L46 38 A4 4 0 0 1 42 42 A36 36 0 0 1 10 10 A4 4 0 0 1 14 6 Z"></path></svg>
+    <div class="h">CALL LIST</div>
+    <div class="crow" id="cr1"><div class="av"></div><div class="b1"></div><div class="b2"></div></div>
+    <div class="crow" id="cr2"><div class="av"></div><div class="b1"></div><div class="b2"></div></div>
+    <div id="slot"><div class="fill"></div><div class="txt">COD order · no reply</div></div>
+  </div>
+  <div id="order" data-layout-allow-overlap>
+    <div class="t">COD order</div>
+    <div id="noreply">No reply</div>
+    <div class="sent"><span class="sd">1</span><span class="sd">2</span><span class="sd">3</span></div>
+  </div>
+</section>
+
+<!-- 6: unsure buyers drop out before shipping -->
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="kicker" aria-label="Before you ship">
+    <span class="mask"><span class="l">Before</span></span>
+    <span class="mask"><span class="l acc">you ship</span></span>
+  </div>
+  <div id="belt"></div>
+  <div class="pk" id="pk1"><div class="tape"></div><div class="lab">YES</div></div>
+  <div class="pk" id="pk2"><div class="tape"></div><div class="lab q">?</div></div>
+  <div class="pk" id="pk3"><div class="tape"></div><div class="lab">YES</div></div>
+  <div class="pk" id="pk4"><div class="tape"></div><div class="lab q">?</div></div>
+  <div class="pk" id="pk5"><div class="tape"></div><div class="lab">YES</div></div>
+  <div id="truck">
+    <div class="cargo"></div>
+    <div class="cab"></div>
+    <div class="win"></div>
+    <div class="wh w1"></div>
+    <div class="wh w2"></div>
+    <div id="ship">SHIP</div>
+  </div>
+  <div id="s6-ex">example</div>
+  <div id="drop-lbl" data-layout-allow-overlap>Dropped before shipping</div>
+</section>
+
+<!-- 7: the catch -->
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="kicker" aria-label="The catch">
+    <span class="mask"><span class="l">The</span></span>
+    <span class="mask"><span class="l acc">catch</span></span>
+  </div>
+  <div id="kit">
+    <div class="h">COD Confirm Kit</div>
+    <div class="krow ok" id="k1"><div class="ic"><b></b></div><div class="lb">Writes the messages</div></div>
+    <div class="krow ok" id="k2"><div class="ic"><b></b></div><div class="lb">Tests on 8 AI buyers</div></div>
+    <div class="krow ok" id="k3"><div class="ic"><b></b></div><div class="lb">Builds a cost sheet</div></div>
+    <div class="krow" id="k4"><div id="xic"><i></i><i></i></div><div class="lb">Sends them</div><div id="strike" data-layout-allow-overlap></div></div>
+    <div id="you-send">You send: <span class="acc">&nbsp;WhatsApp Business</span></div>
+  </div>
+</section>
+
+<!-- 8: comment RTO -->
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="kicker" aria-label="Comment">
+    <span class="mask"><span class="l">Comment</span></span>
+  </div>
+  <div id="avatar"></div>
+  <div id="bubble"><span class="ch">R</span><span class="ch">T</span><span class="ch">O</span></div>
+  <div id="sent" data-layout-allow-overlap><b></b></div>
+  <div id="sticker">FREE KIT</div>
+  <div class="sub" id="sub1">English · Hindi · Hinglish</div>
+  <div class="sub" id="sub2">Tested on 8 AI buyers</div>
+</section>

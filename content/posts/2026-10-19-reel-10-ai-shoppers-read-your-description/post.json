@@ -1,0 +1,296 @@
+{
+  "id": "2026-10-19-reel-10-ai-shoppers-read-your-description",
+  "keyword": "DESC",
+  "world": "bazaar",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(DESC|10|ten|lost|line|words|paste|real)",
+  "page": {
+    "title": "Cotton Kurta Set",
+    "price": "₹899",
+    "label": "NEW",
+    "url": "yourstore.com/products/cotton-kurta-set"
+  },
+  "cast": [
+    {
+      "name": "Gifting auntie",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Size-worried buyer",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Meesho price-checker",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "First-time COD buyer",
+      "col": "#9FE3A8",
+      "prop": "cart"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "College student",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Premium buyer",
+      "col": "#E8CF8E",
+      "prop": "heart"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Office worker",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Rewriter",
+      "col": "#45D69B",
+      "prop": "none"
+    }
+  ],
+  "lines": [
+    {
+      "say": "A full panel of AI shoppers reads your product description.",
+      "show": "10 AI shoppers read your product description.",
+      "card": "COMMENT \"DESC\"",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "big": "×10",
+        "step": 0.06,
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Most still can't tell if it's for them.",
+      "card": "WHO IS THIS FOR?",
+      "scene": {
+        "type": "page",
+        "ghosts": true,
+        "who": 0,
+        "whoAt": 0.4,
+        "say": [
+          "Is this for",
+          "my niece?"
+        ]
+      }
+    },
+    {
+      "say": "A gift shopper. A size checker. A price hunter. A first-time C.O.D. shopper.",
+      "show": "A gifting auntie. A size worrier. A Meesho price-checker. A first-time COD buyer.",
+      "card": "10 REAL BUYER TYPES",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "reveal": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "shown": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mood": "frown"
+      }
+    },
+    {
+      "say": "Each one names the exact line that lost them.",
+      "card": "THE LINE THAT LOST THEM",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "WHO IS IT FOR?",
+            "at": 0.2
+          },
+          {
+            "x": 690,
+            "y": 262,
+            "label": "WHICH SIZE?",
+            "at": 0.6
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "WHY ₹899?",
+            "at": 1
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "COD OR NOT?",
+            "at": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "say": "Next, the free tool rewrites it in your shoppers' own words.",
+      "card": "REWRITTEN IN BUYER WORDS",
+      "scene": {
+        "type": "chat",
+        "text": "Here's my description, my reviews and my support chats. Rewrite it in my buyers' words.",
+        "ids": [
+          10
+        ]
+      }
+    },
+    {
+      "say": "Size, C.O.D., gifting, price. Answered in their words.",
+      "show": "Size, COD, gifting, price. Answered in their words.",
+      "card": "ANSWERED IN THEIR WORDS",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "WHO IS IT FOR?",
+            "at": 0
+          },
+          {
+            "x": 690,
+            "y": 262,
+            "label": "WHICH SIZE?",
+            "at": 0
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "WHY ₹899?",
+            "at": 0
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "COD OR NOT?",
+            "at": 0
+          }
+        ],
+        "fixAt": 0.4,
+        "fixes": 4
+      }
+    },
+    {
+      "say": "The catch: it only knows what you share with it.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 10,
+        "stamp": "REAL WORDS IN",
+        "sub": "real reviews, real chats"
+      }
+    },
+    {
+      "say": "So give it real reviews and support chats."
+    },
+    {
+      "say": "Comment the word DESC, and I'll send you the free rewriter.",
+      "card": "COMMENT \"DESC\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free Buyer-Words Description Rewriter in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          10
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "10 AI SHOPPERS READ",
+      "YOUR DESCRIPTION"
+    ],
+    "line": 3,
+    "lt": 2,
+    "shift": 150,
+    "params": {
+      "pins": [
+        {
+          "x": 690,
+          "y": 132,
+          "label": "WHO IS IT FOR?",
+          "at": 0
+        },
+        {
+          "x": 690,
+          "y": 262,
+          "label": "WHICH SIZE?",
+          "at": 0
+        },
+        {
+          "x": 690,
+          "y": 200,
+          "label": "WHY ₹899?",
+          "at": 0
+        },
+        {
+          "x": 690,
+          "y": 686,
+          "label": "COD OR NOT?",
+          "at": 0
+        }
+      ]
+    }
+  }
+}

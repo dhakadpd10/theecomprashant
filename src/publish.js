@@ -51,6 +51,7 @@ async function run({ dryRun = false } = {}) {
         Object.assign(s, { status: 'published', media_id: id, published_at: new Date().toISOString() });
         postedToday++; changed = true; log('published', s.post, id);
       } catch (e) {
+        if (e.blocked) { log('Instagram API blocked: not counting this as a failed attempt', s.post); break; }
         s.attempts = (s.attempts || 0) + 1; s.error = e.message; changed = true; log('publish failed', s.post, e.message);
         if (s.attempts >= 3) s.status = 'failed';
       }

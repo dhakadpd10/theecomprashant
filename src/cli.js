@@ -19,6 +19,10 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
 (async () => {
   const cmd = args[0];
   if (NEEDS_IG.includes(cmd) && (!process.env.IG_ACCESS_TOKEN || !process.env.IG_USER_ID)) { console.log('Instagram not connected yet (add the IG_ACCESS_TOKEN and IG_USER_ID secrets). Skipping.'); return; }
+  if (NEEDS_IG.includes(cmd)) { // Meta blocked the app: try again at most every 30 minutes
+    const b = require('./ig').blocked();
+    if (b && Date.now() - new Date(b.last) < 30 * 60000) { console.log(`Instagram API blocked since ${b.since} (${b.error}). Waiting; next try after ${new Date(new Date(b.last).getTime() + 30 * 60000).toISOString()}.`); return; }
+  }
   if (NEEDS_CLAUDE.includes(cmd) && !require('./claude').hasClaude()) { console.log('Claude not connected yet (add the CLAUDE_CODE_OAUTH_TOKEN secret). Skipping.'); return; }
   if (cmd === 'plan') {
     const r = await require('./plan').run({ start: flag('start'), days: Number(flag('days', 7)) });

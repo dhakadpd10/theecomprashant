@@ -48,9 +48,8 @@
       "keyword": "ROAST",
       "pillar": "Ads",
       "topic": "5 AI critics roast your Meta ad",
-      "status": "failed",
-      "attempts": 3,
-      "error": "Instagram POST /17841462809508508/media: API access blocked."
+      "status": "hold",
+      "note": "Instagram blocked the app at 19:30 on 17 Oct (API access blocked); reschedule once access is back"
     },
     {
       "day": "2026-10-18",

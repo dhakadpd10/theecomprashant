@@ -6,6 +6,15 @@ const token = () => { const t = process.env.IG_ACCESS_TOKEN; if (!t) throw new E
 const userId = () => { const u = process.env.IG_USER_ID; if (!u) throw new Error('IG_USER_ID is not set'); return u; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// When Meta blocks the app ("API access blocked"), every call fails. Note it in content/state/ig-blocked.json
+// so the jobs back off (see cli.js) instead of hammering the API every minute; the first success clears it.
+const fs = require('fs');
+const { P, readJSON, writeJSON } = require('./util');
+const BLOCK = P('content/state/ig-blocked.json');
+const blocked = () => readJSON(BLOCK, null);
+function noteBlocked(msg) { const b = blocked(); writeJSON(BLOCK, { since: b?.since || new Date().toISOString(), last: new Date().toISOString(), error: msg }); }
+function noteOk() { if (fs.existsSync(BLOCK)) fs.unlinkSync(BLOCK); }
+
 async function call(method, pathname, params = {}, body) {
   const url = new URL(BASE + pathname);
   for (const [k, v] of Object.entries(params)) if (v !== undefined) url.searchParams.set(k, String(v));
@@ -15,7 +24,13 @@ async function call(method, pathname, params = {}, body) {
     body: body ? JSON.stringify(body) : undefined,
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok || data.error) throw new Error(`Instagram ${method} ${pathname}: ${data.error?.message || res.status}`);
+  if (!res.ok || data.error) {
+    const er = data.error || {}, code = er.code ? ` (code ${er.code}${er.error_subcode ? '/' + er.error_subcode : ''})` : '';
+    const e = new Error(`Instagram ${method} ${pathname}: ${er.message || res.status}${code}`);
+    if (/API access blocked/i.test(er.message || '')) { e.blocked = true; noteBlocked(e.message); }
+    throw e;
+  }
+  noteOk();
   return data;
 }
 const get = (p, q) => call('GET', p, q);
@@ -79,4 +94,4 @@ async function refreshToken() {
   return data; // { access_token, token_type, expires_in }
 }
 
-module.exports = { me, recentMedia, publishingLimit, publishReel, publishCarousel, comments, replyToComment, privateReply, conversations, sendMessage, mediaInsights, refreshToken };
+module.exports = { blocked, me, recentMedia, publishingLimit, publishReel, publishCarousel, comments, replyToComment, privateReply, conversations, sendMessage, mediaInsights, refreshToken };

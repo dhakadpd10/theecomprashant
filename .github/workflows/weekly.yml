@@ -21,6 +21,8 @@ jobs:
     timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -56,6 +58,20 @@ jobs:
           git checkout -b "$BRANCH"
           git add -A content brand config tools
           git commit -m "Week $WEEK: posts ready for approval"
+          # main may have moved during the run (a workflow file changing there makes GitHub refuse this push)
+          git fetch origin main
+          git rebase origin/main || { git rebase --abort; git merge --no-edit origin/main; }
           git push -u origin "$BRANCH"
           node src/cli.js review "$WEEK" "$BRANCH" > pr.md
           gh pr create --base main --head "$BRANCH" --title "Approve $WEEK" --body-file pr.md
+      - name: Keep everything made if saving failed (Actions -> this run -> Artifacts, 14 days)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: week-made-posts
+          path: |
+            content/posts
+            content/queue
+            tools
+            brand
+          retention-days: 14

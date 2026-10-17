@@ -1,7 +1,6 @@
 name: Engage - keyword DMs and replies
+# Runs by hand only: the Run workflow answers every 10 minutes. Kept for tests.
 on:
-  schedule:
-    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 permissions:
   contents: write

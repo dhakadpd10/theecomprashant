@@ -9,7 +9,8 @@ It runs entirely on **GitHub Actions** (free for public repositories) with **Cla
 ```
 Saturday 06:00 IST   research → plan → write → voice → render → pull request "Approve 2026-W44"
 you                  open the pull request on your phone → Merge   (that's the approval)
-every 15 min         publish posts that are due · send keyword DMs · answer comments and DMs
+every minute         publish posts that are due (one long "Run" job, restarted hourly)
+every 10 min         send keyword DMs · answer comments and DMs
 daily 10:00 IST      log each post's views, reach, likes, comments, saves, shares
 Monday               refresh the Instagram token
 ```

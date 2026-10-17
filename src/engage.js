@@ -1,4 +1,4 @@
-// Every 15 minutes: answer the page.
+// Every 10 minutes (from .github/loop.sh): answer the page.
 //  - comment with a post's keyword  -> one private DM with the free tool link + a short public reply
 //  - other comments                 -> Claude sorts them: reply (questions, thanks), escalate to Prashant, or ignore (spam)
 //  - new DMs (inside Instagram's 24-hour window) -> same sorting

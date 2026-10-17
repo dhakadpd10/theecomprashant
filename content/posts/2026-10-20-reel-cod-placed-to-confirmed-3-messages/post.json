@@ -1,0 +1,87 @@
+{
+  "id": "2026-10-20-reel-cod-placed-to-confirmed-3-messages",
+  "style": "motion",
+  "keyword": "RTO",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(RTO|COD|1|2|3|YES|landmark|UPI|50|₹50|call|catch|free|confirmed)$",
+  "palette": {
+    "bg": "#0E1512",
+    "ink": "#F2F5EE",
+    "accent": "#5CE08A"
+  },
+  "lines": [
+    {
+      "say": "Your C O D orders keep coming back.",
+      "show": "Your COD orders keep coming back.",
+      "cut": true
+    },
+    {
+      "say": "Unicommerce's own report says festive C O D came back far more than prepaid.",
+      "show": "Unicommerce's own report: festive COD returned far more.",
+      "cut": true
+    },
+    {
+      "say": "Three messages take a new order to confirmed. One: confirm the order.",
+      "show": "1. Confirm the order. Reply YES.",
+      "cut": true
+    },
+    {
+      "say": "Two: confirm the address and a landmark.",
+      "show": "2. Confirm address and landmark."
+    },
+    {
+      "say": "Three: a small discount if they pay first on UPI.",
+      "show": "3. Prepaid nudge. Example: ₹50 off on UPI."
+    },
+    {
+      "say": "No reply? That order goes to your call list.",
+      "show": "No reply? It goes to the call list.",
+      "cut": true
+    },
+    {
+      "say": "Unsure buyers drop out before you pay for shipping.",
+      "show": "Unsure buyers drop out before you ship."
+    },
+    {
+      "say": "The catch: the kit sends nothing. You send it from your own business chat app.",
+      "show": "The catch: it won't send. You need WhatsApp Business.",
+      "cut": true
+    },
+    {
+      "say": "Type RTO below for the free C O D Confirm Kit, scripts and timing.",
+      "show": "Comment RTO for the free COD Confirm Kit.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+1.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice+0.9",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "3 WHATSAPP MESSAGES",
+      "COD TO CONFIRMED"
+    ]
+  }
+}

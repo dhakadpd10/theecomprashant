@@ -1,0 +1,205 @@
+{
+  "id": "2026-10-20-reel-meta-animated-your-static-5-critics",
+  "keyword": "ROAST",
+  "world": "courtroom",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(ROAST|5|five|Meta|hook|price|offer|frames|judge|catch)",
+  "page": {
+    "title": "Cotton Kurta Set",
+    "price": "₹899",
+    "label": "EXAMPLE AD",
+    "button": "Shop now",
+    "url": "yourstore.com/products/kurta-set"
+  },
+  "cast": [
+    {
+      "name": "Scroller",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Brand purist",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#FFC857",
+      "prop": "cart"
+    },
+    {
+      "name": "Media buyer",
+      "col": "#45D69B",
+      "prop": "shades"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    },
+    {
+      "name": "Founder",
+      "col": "#FF9F68",
+      "prop": "question"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Meta can now animate your static ad.",
+      "card": "META ANIMATED YOUR AD",
+      "scene": {
+        "type": "page",
+        "who": 6,
+        "whoAt": 0.4,
+        "say": [
+          "It moves now.",
+          "Is that my ad?"
+        ]
+      }
+    },
+    {
+      "say": "Comment ROAST. My AI critics check if it's still your ad.",
+      "show": "Comment ROAST. 5 AI critics check if it's still your ad.",
+      "card": "COMMENT \"ROAST\" FIRST",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "big": "×5",
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "It's live for every advertiser. Test the frames first.",
+      "card": "ADVANTAGE+ IS LIVE FOR ALL",
+      "scene": {
+        "type": "chat",
+        "text": "Here are 6 frames from Meta's video of my static ad. Roast it.",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "say": "A scroller, a doubter, a brand purist, a C.O.D. buyer, a media buyer.",
+      "show": "A scroller, a sceptic, a brand purist, a COD buyer, a media buyer.",
+      "card": "5 CRITICS. ONE AD.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "reveal": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "shown": [],
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Did the motion keep your hook, price and offer readable?",
+      "card": "HOOK. PRICE. OFFER.",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "HOOK LOST",
+            "at": 0.3
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "PRICE BLURS",
+            "at": 1
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "OFFER CUT OFF",
+            "at": 1.7
+          }
+        ]
+      }
+    },
+    {
+      "say": "A judge rules: run it, fix it, or stay static.",
+      "card": "THE VERDICT",
+      "scene": {
+        "type": "verdict",
+        "who": 5,
+        "stamp": "FIX THE PRICE",
+        "sub": "example verdict"
+      }
+    },
+    {
+      "say": "The catch: they judge your frames. They can't predict Meta's delivery.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "list",
+        "title": "The catch",
+        "items": [
+          "Judges the frames you upload",
+          "Can't predict Meta's delivery",
+          "Still test with real spend"
+        ],
+        "who": 1,
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Comment ROAST and I'll send you the free AI critic roast.",
+      "show": "Comment ROAST and I'll send you the free 5-critic roast.",
+      "card": "COMMENT \"ROAST\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 5-Critic Ad Roast in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "5 AI CRITICS JUDGE",
+      "META'S VIDEO AD"
+    ],
+    "line": 3,
+    "lt": 2,
+    "shift": 150
+  }
+}

@@ -180,8 +180,10 @@ async function run({ start, days = 7 } = {}) {
   if (launch && !launch.start) { log('launch week has no dates yet: run the Launch workflow first'); return { skipped: true }; }
   if (!start && launch?.start) { const end = addDays(launch.start, 6); start = nextMonday(end > localDay() ? end : localDay()); }
   start = start || nextMonday();
-  const week = isoWeek(start); const qdir = P('content/queue', week);
-  if (fs.existsSync(path.join(qdir, 'plan.json'))) { log(`${week} already planned`); return { week, skipped: true }; }
+  // a second run for the same week (to top up slots a first run couldn't make) gets its own folder: 2026-W43-2
+  let week = isoWeek(start);
+  for (let n = 2; fs.existsSync(P('content/queue', week, 'plan.json')); n++) week = `${isoWeek(start)}-${n}`;
+  const qdir = P('content/queue', week);
   const need = openSlots(start, days);
   if (!need.length) { log(`no open slots ${start} + ${days} days`); return { week, skipped: true }; }
   log(`open slots: ${need.length} (${need.filter((n) => n.format === 'reel').length} reels)`);
@@ -196,7 +198,13 @@ async function run({ start, days = 7 } = {}) {
       const made = p.format === 'reel' ? await makeReel(p.day, p) : await makeCarousel(p.day, p);
       slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
       log('made', made.id);
-    } catch (e) { problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message); }
+    } catch (e) {
+      problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message);
+      if (/usage limit|session limit|hit your .*limit/i.test(e.message)) { // the Claude plan is used up: stop, keep what's made, top up later
+        for (const q of plan.posts.slice(plan.posts.indexOf(p) + 1)) problems.push(`${q.day} ${q.time} ${q.format}: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)`);
+        break;
+      }
+    }
   }
   writeJSON(path.join(qdir, 'plan.json'), { week, start, research: notes, slots });
   fs.writeFileSync(path.join(qdir, 'problems.txt'), problems.join('\n'));

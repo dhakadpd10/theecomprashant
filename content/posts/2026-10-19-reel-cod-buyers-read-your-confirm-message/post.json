@@ -1,0 +1,290 @@
+{
+  "id": "2026-10-19-reel-cod-buyers-read-your-confirm-message",
+  "keyword": "RTO",
+  "world": "bazaar",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(RTO|58%?|fifty-eight|15%?|fifteen|10|ten|COD|confirm|confirms|quiet|prepaid|one-tap)",
+  "page": {
+    "title": "Festive Kurta Set",
+    "price": "₹1,499",
+    "label": "DIWALI",
+    "button": "Order on COD",
+    "url": "yourstore.com/products/festive-kurta-set"
+  },
+  "cast": [
+    {
+      "name": "First-time Meesho buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "1 a.m. orderer",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Office worker",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Repeat customer",
+      "col": "#45D69B",
+      "prop": "heart"
+    },
+    {
+      "name": "Small-town buyer",
+      "col": "#7FA8F8",
+      "prop": "cart"
+    },
+    {
+      "name": "Script checker",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Your biggest margin leak for three weeks? Festive C O D returns.",
+      "show": "Your biggest margin leak for 3 weeks? Festive COD returns.",
+      "card": "FESTIVE COD = MARGIN LEAK",
+      "scene": {
+        "type": "page",
+        "ghosts": true,
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": "COD",
+            "at": 0.6
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": "RETURNED",
+            "at": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "say": "Unicommerce's data, last festive quarter: more than half of C O D orders came back.",
+      "show": "Unicommerce's data, last festive quarter: 58% of COD orders returned.",
+      "card": "ONE VENDOR, LAST FESTIVE",
+      "scene": {
+        "type": "grid",
+        "leave": 58,
+        "leftLabel": "58% COD RETURNED",
+        "stayLabel": "KEPT"
+      }
+    },
+    {
+      "say": "Prepaid? Under one in six.",
+      "show": "Prepaid? Under 15%.",
+      "card": "PREPAID: UNDER 15%",
+      "scene": {
+        "type": "stat",
+        "big": "<15%",
+        "label": "prepaid returned, same data"
+      }
+    },
+    {
+      "say": "Paste your order confirm message.",
+      "card": "PASTE YOUR CONFIRM MESSAGE",
+      "scene": {
+        "type": "chat",
+        "text": "Hi Riya, your COD order #4821 is placed. Reply YES to confirm.",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    },
+    {
+      "say": "A panel of AI C O D buyers reads it.",
+      "show": "10 AI COD buyers read it.",
+      "card": "10 AI COD BUYERS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "big": "×10",
+        "step": 0.06
+      }
+    },
+    {
+      "say": "A first-time marketplace buyer. A one A M shopper.",
+      "show": "A first-time Meesho buyer. A 1 a.m. shopper.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "reveal": [
+          0,
+          1
+        ],
+        "shown": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "See who confirms and who goes quiet.",
+      "card": "EXAMPLE RUN: WHO GOES QUIET",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "cols": 5,
+        "walls": true,
+        "votes": [
+          "QUIET",
+          "QUIET",
+          "BUY",
+          "QUIET",
+          "BUY",
+          "BUY",
+          "QUIET",
+          "QUIET",
+          "BUY",
+          "QUIET"
+        ],
+        "voteAt": 0.2,
+        "voteStep": 0.1,
+        "tally": 1.4,
+        "noLabel": "QUIET"
+      }
+    },
+    {
+      "say": "It rewrites it: one-tap confirm, small prepaid nudge.",
+      "card": "THE REWRITE",
+      "scene": {
+        "type": "list",
+        "title": "Your new confirm message",
+        "items": [
+          "Rewritten in plain words",
+          "One-tap CONFIRM",
+          "Small prepaid-switch nudge"
+        ],
+        "who": 10
+      }
+    },
+    {
+      "say": "The catch: it writes the script. You still send it.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 10,
+        "stamp": "SCRIPT ONLY",
+        "sub": "send via WhatsApp Business or your shipping app"
+      }
+    },
+    {
+      "say": "Comment RTO and I'll send you the free C O D Return Reducer.",
+      "show": "Comment RTO and I'll send you the free COD Return Reducer.",
+      "card": "COMMENT \"RTO\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free COD Return Reducer in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          9
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "10 AI COD BUYERS",
+      "READ YOUR CONFIRM"
+    ],
+    "line": 6,
+    "lt": 2,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

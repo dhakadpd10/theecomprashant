@@ -3,36 +3,17 @@
   "handle": "@theecomprashant",
   "timezone_offset": "+05:30",
   "slots": [
-    {
-      "time": "13:00",
-      "format": "carousel"
-    },
-    {
-      "time": "19:30",
-      "format": "reel"
-    }
+    { "time": "13:00", "format": "carousel" },
+    { "time": "19:30", "format": "reel" }
   ],
   "slot_overrides": [
-    {
-      "from": "2026-10-17",
-      "until": "2026-10-31",
-      "note": "October: reels only, twice a day",
-      "slots": [
-        {
-          "time": "13:00",
-          "format": "reel"
-        },
-        {
-          "time": "19:30",
-          "format": "reel"
-        }
-      ]
-    }
+    { "from": "2026-10-17", "until": "2026-10-31", "note": "October: reels only, twice a day", "slots": [
+      { "time": "13:00", "format": "reel" },
+      { "time": "19:30", "format": "reel" }
+    ] }
   ],
-  "voice": {
-    "id": "am_fenrir",
-    "speed": 1.08
-  },
+  "voice": { "id": "am_fenrir", "speed": 1.08 },
+  "motion": { "share": 0.5, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
   "models": {
     "writer": "claude-opus-5-5",
     "replies": "claude-opus-5-5",
@@ -43,59 +24,17 @@
   "replies": {
     "keyword_dm": true,
     "auto_reply_questions": true,
-    "escalate": [
-      "complaint",
-      "refund",
-      "order problem",
-      "collab or paid work",
-      "anything legal or medical"
-    ],
-    "public_keyword_replies": [
-      "Sent! Check your DMs 📩",
-      "In your DMs now",
-      "Just sent it, check requests if you don't see it"
-    ]
+    "escalate": ["complaint", "refund", "order problem", "collab or paid work", "anything legal or medical"],
+    "public_keyword_replies": ["Sent! Check your DMs 📩", "In your DMs now", "Just sent it, check requests if you don't see it"]
   },
   "keywords": {
-    "STORE": {
-      "tool": "store",
-      "title": "7-Shopper Test"
-    },
-    "LAUNCH": {
-      "tool": "launch",
-      "title": "12-Customer Trial"
-    },
-    "AUDIT": {
-      "tool": "audit",
-      "title": "5-Minute Store Audit"
-    },
-    "ROAST": {
-      "tool": "roast",
-      "title": "5-Critic Ad Roast"
-    },
-    "TEAM": {
-      "tool": "team",
-      "title": "4-Agent Marketing Team"
-    },
-    "REVIEWS": {
-      "tool": "reviews",
-      "title": "Review Miner"
-    },
-    "PRICE": {
-      "tool": "price",
-      "title": "100-Shopper Price Test"
-    },
-    "SALE": {
-      "tool": "sale",
-      "title": "Diwali Sale Planner"
-    },
-    "RTO": {
-      "tool": "rto",
-      "title": "COD Confirm Kit"
-    }
+    "STORE": { "tool": "store", "title": "7-Shopper Test" },
+    "LAUNCH": { "tool": "launch", "title": "12-Customer Trial" },
+    "AUDIT": { "tool": "audit", "title": "5-Minute Store Audit" },
+    "ROAST": { "tool": "roast", "title": "5-Critic Ad Roast" },
+    "TEAM": { "tool": "team", "title": "4-Agent Marketing Team" },
+    "REVIEWS": { "tool": "reviews", "title": "Review Miner" },
+    "PRICE": { "tool": "price", "title": "100-Shopper Price Test" }
   },
-  "limits": {
-    "max_posts_per_day": 4,
-    "max_auto_replies_per_run": 40
-  }
+  "limits": { "max_posts_per_day": 4, "max_auto_replies_per_run": 40 }
 }

@@ -33,6 +33,10 @@ jobs:
         with:
           path: node_modules/@huggingface/transformers/.cache
           key: hf-models-v1
+      - name: Browser for motion reels (HyperFrames renders in Chrome; if this fails, motion reels fall back to world reels)
+        env:
+          HYPERFRAMES_NO_TELEMETRY: "1"
+        run: npx hyperframes browser ensure || echo "HyperFrames browser not ready; motion reels will fall back"
       - name: Plan and make the week
         id: plan
         env:

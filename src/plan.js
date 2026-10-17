@@ -6,7 +6,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 const { P, readJSON, writeJSON, readText, config, log, localDay, addDays, isoWeek, slotsFor, slotDate, python } = require('./util');
 const { ask, askJSON } = require('./claude');
-const { validateReel, validateCarousel, validateCaption, WORLDS } = require('./validate');
+const { validateReel, validateMotionReel, validateScene, validateCarousel, validateCaption, WORLDS } = require('./validate');
 const { WORLD_NOTES } = require('../engine/themes');
 
 const brand = () => [
@@ -61,6 +61,7 @@ function openSlots(start, days) {
 async function planWeek(need, researchNotes) {
   const cfg = config(); const kws = Object.keys(cfg.keywords);
   const reels = need.filter((n) => n.format === 'reel').length, maxWorld = Math.max(1, Math.ceil(reels / WORLDS.length)), maxNew = reels > 8 ? 3 : 2;
+  const motionCount = Math.round(reels * Math.min(1, Math.max(0, Number(cfg.motion?.share ?? 0)))); // reels made as motion graphics (docs/MOTION.md)
   const validate = (v) => {
     const e = []; const posts = v.posts || [], fresh = v.new_tools || {};
     if (!Array.isArray(v.posts) || posts.length !== need.length) e.push(`posts must have exactly ${need.length} entries, one per slot, in the order given`);
@@ -72,7 +73,10 @@ async function planWeek(need, researchNotes) {
       if (!p.keyword || !(kws.includes(p.keyword) || fresh[p.keyword])) e.push(`posts[${i}].keyword must be one of ${kws.join(', ')} or a key of new_tools`);
       if (!p.topic || !p.slug || !/^[a-z0-9-]+$/.test(p.slug)) e.push(`posts[${i}] needs topic and a lowercase-dash slug`);
       if (p.format === 'reel' && !WORLDS.includes(p.world)) e.push(`posts[${i}].world must be one of ${WORLDS.join(', ')}`);
+      if (p.format === 'reel' && !['motion', 'world'].includes(p.style)) e.push(`posts[${i}].style must be "motion" or "world"`);
     });
+    const motion = posts.filter((p) => p.format === 'reel' && p.style === 'motion').length;
+    if (motion !== motionCount) e.push(`exactly ${motionCount} reels must have style "motion" (you have ${motion})`);
     const rs = posts.filter((p) => p.format === 'reel'); const count = {};
     rs.forEach((p, i) => { count[p.world] = (count[p.world] || 0) + 1; if (i && rs[i - 1].world === p.world) e.push(`reels on ${rs[i - 1].day} ${rs[i - 1].time} and ${p.day} ${p.time} follow each other, so they need different worlds`); });
     for (const [w, c] of Object.entries(count)) if (c > maxWorld) e.push(`world ${w} is used ${c} times; at most ${maxWorld}`);
@@ -90,11 +94,13 @@ Do not repeat any of these recent topics: ${recentTopics().join(' | ') || 'none'
 Research notes from this week:
 ${researchNotes || 'none'}
 
-Each reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).
+Reel styles: exactly ${motionCount} of the ${reels} reels are "motion" (motion graphics: kinetic type, animated UI mock-ups, counters, checklists, chat, before/after; best for numbers, steps, tools, news, prompts) and the rest are "world" (character panels: shoppers, critics, juries judging the viewer's thing). Give motion to the topics that suit it and spread them out; on two-reel days make one of each where you can.
+
+Every reel, motion or not, gets a visual world that fits its topic (the look for world reels, and the backup if a motion render fails). Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).
 
 Rules: reels are one idea with a mechanism (panels of AI critics/shoppers/customers judging the viewer's thing work best); carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","slug":"...","topic":"...","angle":"...","world":"courtroom"}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
-(world only for reels; new_tools may be {}).`,
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","slug":"...","topic":"...","angle":"...","style":"motion","world":"courtroom"}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+(style and world only for reels; new_tools may be {}).`,
   });
 }
 
@@ -103,14 +109,12 @@ const SCENES_DOC = () => readText(P('docs/SCENES.md'));
 const example = (id, file) => readText(P('content/posts', id, file));
 
 async function writeTool(keyword, nt) {
-  const id = keyword.toLowerCase();
+  const id = keyword.toLowerCase(); // tools/<id>.md becomes keyword <ID> automatically (see config() in util.js)
   const text = await ask({
     system: SYSTEM(), effort: 'high',
     prompt: `Write the free tool "${nt.title}" (${nt.what}) as a Markdown file in exactly this shape: a "# Title" line, one short paragraph telling the reader what to paste and where, a line with only "---", then the full prompt they paste into Claude. The prompt must be safe, honest (never invent facts; mark unknowns as [CHECK: ...]) and genuinely useful for a D2C store owner. Model it on this example:\n\n${readText(P('tools/store.md'))}\n\nReturn the Markdown only.`,
   });
   fs.writeFileSync(P('tools', `${id}.md`), text.trim() + '\n');
-  const cfgFile = P('config/agent.json'); const cfg = readJSON(cfgFile);
-  cfg.keywords[keyword] = { tool: id, title: nt.title }; writeJSON(cfgFile, cfg);
   log('new free tool', keyword, nt.title);
 }
 
@@ -146,6 +150,13 @@ async function writeCaption(dir, kind, spec) {
 
 async function makeReel(day, d) {
   const cfg = config(); const id = `${day}-reel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
+  if (d.style === 'motion') {
+    try { await makeMotionReel(d, id, dir); return { id, style: 'motion' }; } catch (e) {
+      if (USAGE_LIMIT.test(e.message)) throw e; // out of Claude for now: the run stops and tops up later
+      log('motion reel failed, making it as a world reel instead:', e.message.split('\n')[0]);
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateReel(v, { keywords: Object.keys(cfg.keywords) }),
     prompt: `Write the reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", world "${d.world}" (${WORLD_NOTES[d.world]}), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Two-line hook first.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example that rendered well:\n${example('02-launch-trial', 'post.json')}\n\nReturn post.json only.`,
@@ -158,7 +169,67 @@ async function makeReel(day, d) {
     writeJSON(path.join(dir, 'post.json'), fixed); out = render('reel', dir);
   }
   await writeCaption(dir, 'reel', spec);
-  return { id, out };
+  return { id, out, style: 'world' };
+}
+
+// ---------- motion reels: HyperFrames picture written per reel (docs/MOTION.md, engine/motion.js) ----------
+const USAGE_LIMIT = /usage limit|session limit|hit your .*limit/i;
+const MOTION_DOC = () => readText(P('docs/MOTION.md'));
+const MOTION_EXAMPLE = 'm01-five-questions';
+function motion(dir, ...args) {
+  const r = spawnSync('node', [P('engine/motion.js'), dir, ...args], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
+  return { ok: r.status === 0, out: (r.stdout || '') + (r.stderr || '') };
+}
+const findings = (out) => { try { return JSON.parse((out.match(/MOTION FINDINGS: (.*)/) || [])[1]); } catch { return { errors: [out.slice(-1500)], warnings: [] }; } };
+const fenced = (text, langs) => (text.match(new RegExp('```(?:' + langs + ')\\s*([\\s\\S]*?)```')) || [])[1];
+
+/** Ask for scene.html + scene.js; static problems and HyperFrames checker errors go back to Claude (4 rounds max). */
+async function writeScene(dir, spec, tool) {
+  const toolText = readText(P('tools', `${config().keywords[spec.keyword].tool}.md`)).split('\n---')[0].trim();
+  const base = [
+    'Write the picture for this motion reel: scene.html and scene.js. Follow the guide exactly.',
+    `# The guide\n${MOTION_DOC()}`,
+    `# The reel (post.json)\n${JSON.stringify(spec, null, 2)}`,
+    `# The free tool it gives away ("${tool}"): the payoff must show what it really does\n${toolText}`,
+    `# Real timing in seconds (the voice is recorded; T in scene.js holds these)\n${readText(path.join(dir, 'timing.json'))}`,
+    `# A finished example that passed the checker. Match its quality, not its look: use a different palette, layout and moves that fit THIS idea.\n--- scene.html ---\n${example(MOTION_EXAMPLE, 'scene.html')}\n--- scene.js ---\n${example(MOTION_EXAMPLE, 'scene.js')}`,
+    'Reply with exactly two fenced blocks: ```html (scene.html) then ```js (scene.js).',
+  ].join('\n\n');
+  let prompt = base;
+  for (let round = 0; round < 4; round++) {
+    const text = await ask({ system: SYSTEM(), effort: 'high', prompt, maxTokens: 48000 });
+    const html = fenced(text, 'html'), js = fenced(text, 'js|javascript');
+    const errs = validateScene(html, js);
+    if (errs.length) { prompt = `${base}\n\nYour previous answer:\n${text}\n\nProblems to fix:\n- ${errs.join('\n- ')}\nReturn both blocks again, corrected.`; continue; }
+    fs.writeFileSync(path.join(dir, 'scene.html'), html.trim() + '\n'); fs.writeFileSync(path.join(dir, 'scene.js'), js.trim() + '\n');
+    const r = motion(dir, '--lint', '--skip-vo'), f = findings(r.out);
+    if (r.ok && !f.errors.length) { log('motion scene passed the checker', f.warnings.length ? `(${f.warnings.length} warnings)` : ''); return; }
+    log('motion checker found', f.errors.length, 'errors; asking for a fix');
+    prompt = `${base}\n\nYour previous answer:\n${text}\n\nThe HyperFrames checker found these errors. Fix every one (warnings are for taste):\nERRORS:\n- ${f.errors.join('\n- ')}\nWARNINGS:\n- ${(f.warnings || []).slice(0, 15).join('\n- ') || 'none'}\nReturn both blocks again, corrected.`;
+  }
+  throw new Error('the motion scene did not pass the checker after 4 tries');
+}
+
+async function makeMotionReel(d, id, dir) {
+  const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);
+  const spec = await askJSON({
+    system: SYSTEM(), effort: 'high', validate: (v) => validateMotionReel(v, { keywords: kws }),
+    prompt: `Write the motion reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${tool}). id must be "${id}", style "motion", world "${d.world}" (the backup look), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Hook first.\n\nHow motion reels work:\n${MOTION_DOC()}\n\nA finished example:\n${example(MOTION_EXAMPLE, 'post.json')}\n\nReturn post.json only.`,
+  });
+  fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'post.json'), spec);
+  let prep = motion(dir, '--prep');
+  if (!prep.ok) throw new Error(`voiceover failed: ${prep.out.slice(-600)}`);
+  const bad = (prep.out.match(/CHECK THESE WORDS: (.*)/) || [])[1];
+  if (bad) { // the voice check flagged words: reword those lines once and re-record
+    const fixed = await askJSON({ system: SYSTEM(), effort: 'medium', validate: (v) => validateMotionReel(v, { keywords: kws }), prompt: `Speech-to-text could not hear these words clearly in the voiceover: ${bad}. Reword only the "say" text of the lines containing them (simpler, common words; keep meaning and timing), then return the full post.json.\n\n${JSON.stringify(spec)}` });
+    writeJSON(path.join(dir, 'post.json'), fixed); prep = motion(dir, '--prep');
+    if (!prep.ok) throw new Error(`voiceover failed: ${prep.out.slice(-600)}`);
+  }
+  const final = readJSON(path.join(dir, 'post.json'));
+  await writeScene(dir, final, tool);
+  const r = motion(dir, '--skip-vo');
+  if (!r.ok || !fs.existsSync(path.join(dir, 'reel.mp4'))) throw new Error(`motion render failed: ${r.out.slice(-800)}`);
+  await writeCaption(dir, 'reel', final);
 }
 
 async function makeCarousel(day, d) {
@@ -196,11 +267,11 @@ async function run({ start, days = 7 } = {}) {
   for (const p of plan.posts) {
     try {
       const made = p.format === 'reel' ? await makeReel(p.day, p) : await makeCarousel(p.day, p);
-      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
+      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, ...(made.style ? { style: made.style } : {}), keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
       log('made', made.id);
     } catch (e) {
       problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message);
-      if (/usage limit|session limit|hit your .*limit/i.test(e.message)) { // the Claude plan is used up: stop, keep what's made, top up later
+      if (USAGE_LIMIT.test(e.message)) { // the Claude plan is used up: stop, keep what's made, top up later
         for (const q of plan.posts.slice(plan.posts.indexOf(p) + 1)) problems.push(`${q.day} ${q.time} ${q.format}: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)`);
         break;
       }
@@ -212,4 +283,4 @@ async function run({ start, days = 7 } = {}) {
   return { week, slots, problems };
 }
 
-module.exports = { run, nextMonday };
+module.exports = { run, nextMonday, makeReel };

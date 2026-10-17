@@ -1,0 +1,73 @@
+{
+  "dur": 22.94,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.194,
+      "b": 3.294,
+      "say": "Your product page is losing buyers, and it isn't the price.",
+      "show": "Your product page is losing buyers. It isn't the price."
+    },
+    {
+      "a": 3.294,
+      "voice": 3.394,
+      "end": 6.457,
+      "b": 6.557,
+      "say": "It's five questions every shopper asks before they buy.",
+      "show": "It's 5 questions every shopper asks."
+    },
+    {
+      "a": 6.557,
+      "voice": 6.657,
+      "end": 8.788,
+      "b": 8.888,
+      "say": "What is it? Who's it for? Why should I trust you?",
+      "show": "What is it? Who's it for? Why trust you?"
+    },
+    {
+      "a": 8.888,
+      "voice": 8.988,
+      "end": 11.005,
+      "b": 11.105,
+      "say": "What will it cost me, and what if I hate it?",
+      "show": "What will it cost me? What if I hate it?"
+    },
+    {
+      "a": 11.105,
+      "voice": 11.205,
+      "end": 13.409,
+      "b": 13.509,
+      "say": "Leave one unanswered, and they're gone. Quietly.",
+      "show": "Leave one unanswered and they're gone."
+    },
+    {
+      "a": 13.509,
+      "voice": 13.609,
+      "end": 16.325,
+      "b": 16.425,
+      "say": "So I made a five minute audit that checks all five.",
+      "show": "So I made a 5-minute audit that checks all 5."
+    },
+    {
+      "a": 16.425,
+      "voice": 16.525,
+      "end": 19.092,
+      "b": 19.192,
+      "say": "Paste your page in, and get a ranked fix list back.",
+      "show": "Paste your page in. Get a ranked fix list."
+    },
+    {
+      "a": 19.192,
+      "voice": 19.292,
+      "end": 21.543,
+      "b": 22.94,
+      "say": "Comment AUDIT and I'll send you the free audit.",
+      "show": "Comment AUDIT and I'll send it free."
+    }
+  ]
+}

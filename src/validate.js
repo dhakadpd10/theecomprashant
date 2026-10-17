@@ -57,6 +57,52 @@ function validateReel(p, { keywords } = {}) {
   return e;
 }
 
+// ---------- motion reels (docs/MOTION.md) ----------
+const FX = ['pop', 'thud', 'click', 'bloop', 'buzz', 'ding', 'whoosh'];
+const isAt = (v, n) => typeof v === 'number' || v === 'end' || (/^@line(\d+)(\.(voice|end))?([+-][\d.]+)?$/.test(v || '') && Number(v.match(/^@line(\d+)/)[1]) < n);
+
+function validateMotionReel(p, { keywords } = {}) {
+  const e = [];
+  if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) e.push('id must be lowercase-with-dashes');
+  if (p.style !== 'motion') e.push('style must be "motion"');
+  if (!p.keyword || !/^[A-Z]+$/.test(p.keyword)) e.push('keyword must be one uppercase word');
+  if (keywords && !keywords.includes(p.keyword)) e.push(`keyword ${p.keyword} has no free tool`);
+  if (!WORLDS.includes(p.world)) e.push(`world (the fallback look) must be one of ${WORLDS.join(' ')}`);
+  for (const k of ['bg', 'ink', 'accent']) if (p.palette && p.palette[k] !== undefined && !/^#[0-9a-fA-F]{6}$/.test(p.palette[k])) e.push(`palette.${k} must be a hex colour like #FFC857`);
+  const n = (p.lines || []).length;
+  if (!Array.isArray(p.lines) || n < 6 || n > 12) e.push('lines must have 6 to 12 entries');
+  (p.lines || []).forEach((l, i) => {
+    if (!l.say) e.push(`lines[${i}] needs "say"`);
+    if (words(l.say) > 16) e.push(`lines[${i}].say is ${words(l.say)} words; keep it to 16 or fewer`);
+    if (/^\s*claude\b(?!\s+can\b)/i.test(l.say || '')) e.push(`lines[${i}].say starts with "Claude"; the voice mispronounces it at the start, reword`);
+    if (/\d/.test(l.say || '')) e.push(`lines[${i}].say has digits; spell numbers as words in "say" and put digits in "show"`);
+    if (l.show && words(l.show) > 12) e.push(`lines[${i}].show is ${words(l.show)} words; captions are 4 to 9 words`);
+  });
+  if (n && (p.lines || []).filter((l) => l.cut).length < 3) e.push('mark at least 3 lines with "cut": true (new beats)');
+  const last = (p.lines || []).at(-1);
+  if (last && !new RegExp(`\\b${p.keyword}\\b`).test(last.say || '')) e.push(`the last line must say the keyword ${p.keyword}`);
+  (p.sfx || []).forEach((s, i) => { if (!FX.includes(s.fx)) e.push(`sfx[${i}].fx must be one of ${FX.join(' ')}`); if (!isAt(s.at, n)) e.push(`sfx[${i}].at must be seconds or "@lineN", "@lineN.voice+0.3" with N under ${n}`); });
+  if (!p.cover || !Array.isArray(p.cover.title) || p.cover.title.length !== 2 || p.cover.title.some((t) => words(t) > 6) || !isAt(p.cover.at, n)) e.push('cover needs at ("@lineN+x") and title [2 lines of 6 words max]');
+  return e;
+}
+
+/** Static checks on scene.html + scene.js before HyperFrames sees them. */
+function validateScene(html, js) {
+  const e = [];
+  if (!html || !js) return ['reply with two fenced blocks: ```html (scene.html) then ```js (scene.js)'];
+  if (html.length + js.length > 80000) e.push('scene is too big: keep html + js under 80 KB');
+  if (/<script/i.test(html)) e.push('no <script> in scene.html; all animation goes in scene.js');
+  if (/https?:\/\//i.test(html + js)) e.push('no http links anywhere: draw with CSS or inline SVG, use the house fonts');
+  if (/<img|url\(/i.test(html)) e.push('no images or url(): draw with CSS gradients or inline SVG');
+  if (!/data-from="/.test(html)) e.push('time each beat with <section data-from="@lineN" data-to="@lineM">');
+  for (const [re, why] of [[/\bDate\b|performance\.now/, 'Date / performance.now'], [/Math\.random/, 'Math.random (use T.rand(seed))'], [/setTimeout|setInterval|requestAnimationFrame/, 'timers'], [/\bfetch\s*\(|XMLHttpRequest|import\s*\(/, 'network calls'], [/__timelines|gsap\.timeline|\.play\s*\(/, 'creating, registering or playing timelines (use the tl you are given)'], [/repeat\s*:\s*-1/, 'repeat: -1'], [/addEventListener|\bon(click|scroll|load)\b/, 'event listeners'], [/autoAlpha|visibility|display\s*:/, 'tweening autoAlpha, visibility or display']]) if (re.test(js)) e.push(`scene.js must not use ${why}`);
+  const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
+  for (const m of js.matchAll(/['"`]#([A-Za-z][\w-]*)(?!\$\{)/g)) if (!ids.has(m[1]) && !/^[0-9a-f]{3,8}$/i.test(m[1])) e.push(`scene.js animates #${m[1]}, which is not in scene.html`);
+  const dup = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]).filter((id, i, a) => a.indexOf(id) !== i);
+  if (dup.length) e.push(`duplicate ids: ${[...new Set(dup)].join(', ')}`);
+  return [...new Set(e)];
+}
+
 function validateCarousel(c, { keywords } = {}) {
   const e = [];
   if (!c.id || !/^[a-z0-9-]+$/.test(c.id)) e.push('id must be lowercase-with-dashes');
@@ -87,4 +133,4 @@ function validateCaption(text, keyword) {
   return e;
 }
 
-module.exports = { WORLDS, validateReel, validateCarousel, validateCaption, SCENES, PROPS };
+module.exports = { WORLDS, validateReel, validateMotionReel, validateScene, validateCarousel, validateCaption, SCENES, PROPS };

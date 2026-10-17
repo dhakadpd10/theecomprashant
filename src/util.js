@@ -7,7 +7,17 @@ const P = (...p) => path.join(ROOT, ...p);
 const readJSON = (f, fallback) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch { if (fallback !== undefined) return fallback; throw new Error(`cannot read ${f}`); } };
 const writeJSON = (f, v) => { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, JSON.stringify(v, null, 2) + '\n'); };
 const readText = (f, fallback = '') => { try { return fs.readFileSync(f, 'utf8'); } catch { return fallback; } };
-const config = () => readJSON(P('config/agent.json'));
+// settings, plus every free tool in tools/<name>.md as keyword NAME (titled by its "# " heading).
+// New tools only add a file, so weekly pull requests never edit config/agent.json and never conflict there.
+const config = () => {
+  const c = readJSON(P('config/agent.json')); c.keywords ||= {};
+  const dir = P('tools');
+  if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).filter((x) => /^[a-z0-9-]+.md$/.test(x))) {
+    const id = f.slice(0, -3), kw = id.replace(/-/g, '').toUpperCase();
+    if (!Object.values(c.keywords).some((k) => k.tool === id)) c.keywords[kw] = { tool: id, title: ((readText(path.join(dir, f)).match(/^#\s+(?:The\s+)?(.+)/m) || [])[1] || id).trim() };
+  }
+  return c;
+};
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
 
 // "2026-10-19" + "19:30" in the page's timezone -> Date

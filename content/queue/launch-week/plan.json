@@ -3,16 +3,17 @@
   "start": "2026-10-17",
   "slots": [
     {
-      "day": "2026-10-17",
-      "time": "13:00",
-      "format": "carousel",
-      "post": "c01-leaky-page",
-      "keyword": "STORE",
+      "day": "2026-10-16",
+      "time": "17:13",
+      "format": "reel",
+      "post": "02-launch-trial",
+      "keyword": "LAUNCH",
       "pillar": "Sell more",
-      "topic": "6 reasons shoppers leave your product page",
-      "status": "made",
-      "attempts": 1,
-      "error": "slides not on the site yet: https://YOUR-GITHUB-USERNAME.github.io/theecomprashant/media/posts/c01-leaky-page/slide-01.jpg"
+      "topic": "12 AI customers judge your launch",
+      "status": "published",
+      "media_id": "17952100824292297",
+      "published_at": "2026-10-16T11:43:30Z",
+      "note": "posted by hand before the agent went live"
     },
     {
       "day": "2026-10-16",
@@ -28,41 +29,8 @@
       "published_at": "2026-10-16T15:28:37.548Z"
     },
     {
-      "day": "2026-10-18",
+      "day": "2026-10-17",
       "time": "13:00",
-      "format": "carousel",
-      "post": "c02-launch-questions",
-      "keyword": "LAUNCH",
-      "pillar": "Sell more",
-      "topic": "7 questions your launch page must answer",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-18",
-      "time": "19:30",
-      "format": "reel",
-      "post": "02-launch-trial",
-      "keyword": "LAUNCH",
-      "pillar": "Sell more",
-      "topic": "12 AI customers judge your launch",
-      "status": "published",
-      "media_id": "17952100824292297",
-      "published_at": "2026-10-16T11:43:30Z",
-      "note": "posted by hand before the agent went live"
-    },
-    {
-      "day": "2026-10-19",
-      "time": "13:00",
-      "format": "carousel",
-      "post": "c03-checkout-leaks",
-      "keyword": "AUDIT",
-      "pillar": "Sell more",
-      "topic": "7 checkout leaks that lose Indian shoppers",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-19",
-      "time": "19:30",
       "format": "reel",
       "post": "03-store-audit",
       "keyword": "AUDIT",
@@ -71,17 +39,7 @@
       "status": "made"
     },
     {
-      "day": "2026-10-20",
-      "time": "13:00",
-      "format": "carousel",
-      "post": "c04-ad-hook-formula",
-      "keyword": "ROAST",
-      "pillar": "Ads",
-      "topic": "The 4-part ad hook",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-20",
+      "day": "2026-10-17",
       "time": "19:30",
       "format": "reel",
       "post": "04-ad-roast",
@@ -91,18 +49,8 @@
       "status": "made"
     },
     {
-      "day": "2026-10-21",
+      "day": "2026-10-18",
       "time": "13:00",
-      "format": "carousel",
-      "post": "c05-jobs-for-ai",
-      "keyword": "TEAM",
-      "pillar": "Operations",
-      "topic": "Marketing jobs to hand to AI this week",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-21",
-      "time": "19:30",
       "format": "reel",
       "post": "05-agent-team",
       "keyword": "TEAM",
@@ -111,17 +59,7 @@
       "status": "made"
     },
     {
-      "day": "2026-10-22",
-      "time": "13:00",
-      "format": "carousel",
-      "post": "c06-best-ad-copy",
-      "keyword": "REVIEWS",
-      "pillar": "Ads",
-      "topic": "5 places your best ad copy is hiding",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-22",
+      "day": "2026-10-18",
       "time": "19:30",
       "format": "reel",
       "post": "06-review-hooks",
@@ -131,6 +69,82 @@
       "status": "made"
     },
     {
+      "day": "2026-10-19",
+      "time": "13:00",
+      "format": "reel",
+      "post": "07-price-test",
+      "keyword": "PRICE",
+      "pillar": "Sell more",
+      "topic": "₹999 or ₹1,299? Ask 100 AI shoppers",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-17",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c01-leaky-page",
+      "keyword": "STORE",
+      "pillar": "Sell more",
+      "topic": "6 reasons shoppers leave your product page",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-18",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c02-launch-questions",
+      "keyword": "LAUNCH",
+      "pillar": "Sell more",
+      "topic": "7 questions your launch page must answer",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-19",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c03-checkout-leaks",
+      "keyword": "AUDIT",
+      "pillar": "Sell more",
+      "topic": "7 checkout leaks that lose Indian shoppers",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-20",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c04-ad-hook-formula",
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "The 4-part ad hook",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-21",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c05-jobs-for-ai",
+      "keyword": "TEAM",
+      "pillar": "Operations",
+      "topic": "Marketing jobs to hand to AI this week",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "c06-best-ad-copy",
+      "keyword": "REVIEWS",
+      "pillar": "Ads",
+      "topic": "5 places your best ad copy is hiding",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
       "day": "2026-10-23",
       "time": "13:00",
       "format": "carousel",
@@ -138,17 +152,8 @@
       "keyword": "PRICE",
       "pillar": "Sell more",
       "topic": "5 ways to make ₹1,299 feel fair",
-      "status": "made"
-    },
-    {
-      "day": "2026-10-23",
-      "time": "19:30",
-      "format": "reel",
-      "post": "07-price-test",
-      "keyword": "PRICE",
-      "pillar": "Sell more",
-      "topic": "₹999 or ₹1,299? Ask 100 AI shoppers",
-      "status": "made"
+      "status": "hold",
+      "note": "saved for November: October is reels only"
     }
   ]
 }

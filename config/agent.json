@@ -6,6 +6,12 @@
     { "time": "13:00", "format": "carousel" },
     { "time": "19:30", "format": "reel" }
   ],
+  "slot_overrides": [
+    { "from": "2026-10-17", "until": "2026-10-31", "note": "October: reels only, twice a day", "slots": [
+      { "time": "13:00", "format": "reel" },
+      { "time": "19:30", "format": "reel" }
+    ] }
+  ],
   "voice": { "id": "am_fenrir", "speed": 1.08 },
   "models": {
     "writer": "claude-opus-5-5",

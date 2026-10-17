@@ -1,21 +1,18 @@
 {
-  "at": "2026-10-17T15:35:23.471Z",
+  "at": "2026-10-17T18:31:58.376Z",
   "problems": [
     {
       "kind": "human",
       "key": "ig-blocked",
-      "text": "Instagram has refused every call since 2026-10-17T15:08:28.728Z (\"Instagram GET /17841462809508508/media: API access blocked. (code 200)\"). The agent retries every 30 minutes. Fix: make a fresh access token (Meta app dashboard → Manage messaging and content on Instagram → API setup with Instagram login → Generate token) and save it as the IG_ACCESS_TOKEN secret. Also check the Instagram app for a \"confirm it's you\" notice."
+      "text": "Instagram has refused every call since 2026-10-17T17:59:53.939Z (\"Instagram GET /17841462809508508/media: API access blocked. (code 200)\"). The agent retries every 30 minutes. Fix: make a fresh access token (Meta app dashboard → Manage messaging and content on Instagram → API setup with Instagram login → Generate token) and save it as the IG_ACCESS_TOKEN secret. Also check the Instagram app for a \"confirm it's you\" notice."
     },
     {
       "kind": "human",
       "key": "gh-pat",
       "text": "The GH_PAT secret is missing, so the Instagram token can't renew itself and will stop working about 60 days after it was made. Add GH_PAT (docs/SETUP.md, step \"Token\")."
-    },
-    {
-      "kind": "info",
-      "key": "gaps",
-      "text": "1 empty slots in the next 3 days; a planner run is already going or just ran."
     }
   ],
-  "fixed": []
+  "fixed": [
+    "auto-approved PR #5 \"Approve 2026-W43\" (first post within 30 hours)"
+  ]
 }

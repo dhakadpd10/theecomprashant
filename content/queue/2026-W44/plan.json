@@ -1,0 +1,153 @@
+{
+  "week": "2026-W44",
+  "start": "2026-10-26",
+  "research": "I found 9 things worth your time. Most dates come from third-party blogs and trackers, not the companies' own posts, so check before a script states a feature as live. Two items are from 1 Oct, just outside the 14 days, but they matter enough to keep.\n\n**AI tools and platforms**\n\n1. **Meta's AI ads assistant can now act for you (test, 6 Oct).** It can build campaigns, change targeting and move budget from a chat prompt. A newer tool, Customer Lifecycle Strategy, which leaves out existing buyers from acquisition ads, is reported live for all advertisers. Turning static product images into video with Advantage+ is reported as generally available. **Why care:** you stop paying to reach people who already bought, and you get video ads from photos you already have. **Catch:** the chat assistant is still a test and missing from most accounts. [Common Thread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands) · [adsuploader](https://adsuploader.com/blog/meta-ads-updates)\n\n2. **WhatsApp Business API now charges for service messages (1 Oct).** Service messages cost money after 1,000 free per number per month. Utility messages (order and shipping updates) sent inside the 24-hour reply window are now charged too, about ₹0.115 each before GST in India. Click-to-WhatsApp ad chats keep a 72-hour free window. The normal WhatsApp Business app is not affected. **Why care:** it changes what COD-confirmation and cart flows cost during festive volume. **Catch:** check rates in Meta's own docs before quoting them. [Business Today](https://www.businesstoday.in/latest/photo/whatsapp-changes-from-october-1-businesses-will-pay-but-will-you-559031-2026-10-01) · [Asianet Newsable](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku)\n\n3. **Instagram clickable links in feed posts and Reels (13 Oct, one tracker).** This is for Meta One business plans at Advanced tier and above. Edits can also now build carousels and post them straight to Instagram (iOS first). **Why care:** a link on the Reel itself instead of \"link in bio.\" **Catch:** it's paid-tier only, and so far only one tracker reports it. [invisibleapi.ai](https://invisibleapi.ai/blog/instagram-new-features/) · [inDM](https://indm.social/blog/instagram-trends-2026)\n\n4. **Claude Docs, Slides and Design now on every plan, including Free (9 Oct).** Dashboards (live charts) and Motion (animated explainers) are also in public beta. **Why care:** a free way to turn a sales sheet into a chart or a pitch deck without a designer. **Catch:** beta features, and much of this comes from trackers. Anthropic's release notes confirm the developer updates from the same day. [Emergent](https://emergent.sh/news/claude-dashboards-motion-launch-beta-all) · [Claude release notes](https://platform.claude.com/docs/en/release-notes/overview)\n\n5. **Shopify opens its catalog to outside AI shopping agents (13 Oct).** Shoppers connect an agent to their Shop account and it can search over 1 billion listings, including discounted items. Buyers approve each purchase. Shopify also launched Canvas on 1 Oct, which builds or edits your store by chatting with its Sidekick assistant. **Why care:** clean titles, prices and descriptions now decide whether AI agents show your product. Canvas helps with quick store edits before Diwali. **Catch:** sources disagree on whether agents can complete checkout themselves. [TechCrunch (Canvas)](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/) · [mlq.ai](https://mlq.ai/news/shopify-lets-shoppers-connect-more-ai-agents-to-its-catalog-and-shop-pay/)\n\n6. **Google Universal Cart across Search and Gemini (15 Oct, US only).** Shoppers save items from several stores in one cart and get price-drop and restock alerts. The merchant stays the seller. **Why care:** for Indian brands this is a heads-up, not something to act on now. It's the same shift as Shopify's: product data quality decides who gets seen. **Catch:** no India rollout date. [Search Engine Land](https://searchengineland.com/google-launches-universal-cart-across-search-and-gemini-for-easier-shopping-496573) · [Digital Commerce 360](https://www.digitalcommerce360.com/2026/10/16/google-universal-cart-launch-features/)\n\n**Festival and sale dates**\n\n7. **Diwali dates.** Dhanteras is 6 Nov and Diwali is 8 Nov. Bhai Dooj is 11 Nov in most sources (one says 10 Nov). Flipkart Big Billion Days opened 9 Oct. Amazon's and Flipkart's Diwali sale dates were not confirmed in what I found. **Why care:** about 3 weeks left to plan offers, stock and creatives. A festival sale planner fits here (SALE in your topic bank). [Zoutons](https://zoutons.com/news/diwali-2026-dates-sale-calendar-november) · [Kissht](https://www.kissht.com/blog/diwali-2026-date-and-lakshmi-puja-timing) · [DMI Finance](https://www.dmifinance.in/personal-loan/online-sales-india/)\n\n**Problems people are discussing**\n\n8. **Festive RTO and COD losses.** Unicommerce put D2C RTO at 39.2% in Nov 2025. COD orders had a 58% *return* rate that festive quarter, against under 15% for prepaid. Brands got back to 21% by March 2026 with prepaid incentives at checkout and changes to dispatch, not by switching couriers. **Why care:** the same spike is likely this November. It's an RTO post, and it ties in with item 2's WhatsApp costs. **Catch:** these are last year's numbers, mostly from vendors. Nobody has published a 2026 festive figure yet. [Unicommerce](https://unicommerce.com/india-d2c-report-2026-april/) · [Amazon Shipping India](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n\n9. **Instagram is reducing reach for unlabelled AI people.** The \"AI creator\" label is becoming \"AI-generated profile,\" and accounts with AI-made people but no label may get less reach. **Why care:** brands using AI models or AI UGC-style ads should label them. **Catch:** one blog reports this, not Instagram. [Gain blog](https://blog.gainapp.com/social-media-updates/)\n\nI left out ChatGPT shopping because nothing new turned up in the last 14 days; the latest change I found was from March 2026. I also skipped Claude Haiku 5.5 as pure model news.\n\nThe strongest post ideas for this week:\n- **RTO:** the COD-confirm script plus the new WhatsApp costs.\n- **SALE:** the Diwali planner.\n- **Ads:** Meta's existing-customer exclusion, reusing the ROAST or SCALE keyword.\n\nThese are your hunches to test, not data.",
+  "slots": [
+    {
+      "day": "2026-10-26",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-26-carousel-diwali-2026-sale-calendar",
+      "keyword": "SALE",
+      "pillar": "Sell more",
+      "topic": "Diwali 2026 sale calendar: what to do each day from now to Bhai Dooj",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-26",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-26-reel-diwali-sale-planned-in-10-minutes",
+      "keyword": "SALE",
+      "pillar": "Sell more",
+      "topic": "Your Diwali sale, planned in 10 minutes, then judged by 10 AI shoppers",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-27",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-27-carousel-diwali-offer-math",
+      "keyword": "PRICE",
+      "pillar": "Ads",
+      "topic": "5 Diwali offers and what each really costs you per order (example numbers)",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-27",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-27-reel-diwali-offer-100-shoppers-vote",
+      "keyword": "PRICE",
+      "pillar": "Ads",
+      "topic": "₹200 off, 20% off or a free gift? 100 AI shoppers pick the offer for your Diwali ad",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-28",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-28-carousel-festive-cod-math-2026",
+      "keyword": "RTO",
+      "pillar": "Operations",
+      "topic": "What festive COD will cost you this year, and 5 fixes before Dhanteras",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-28",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-28-reel-8-cod-buyers-read-your-confirm-message",
+      "keyword": "RTO",
+      "pillar": "Operations",
+      "topic": "8 AI COD buyers read your order-confirm WhatsApp. Who confirms, who cancels, who refuses at the door?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-29",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-29-carousel-meta-ai-ads-whats-live",
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "Meta's new AI ad tools: what's live, what's a test, what to do this week",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-29",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-29-reel-would-a-stranger-click-your-ad",
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "Meta can now stop showing your ad to past buyers. Would a stranger still click?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-30",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-30-carousel-listing-checklist-for-ai-agents",
+      "keyword": "STORE",
+      "pillar": "Sell more",
+      "topic": "7 fields to fix so AI shopping agents can read your product",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-30",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-30-reel-7-ai-agents-search-for-your-product",
+      "keyword": "STORE",
+      "pillar": "Sell more",
+      "topic": "7 AI shopping agents search for what you sell. Do they pick you?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-31",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-10-31-carousel-festive-jobs-ai-vs-you",
+      "keyword": "TEAM",
+      "pillar": "Operations",
+      "topic": "Diwali week, split: 7 jobs for your AI agents, 5 that stay with you",
+      "status": "hold",
+      "note": "saved for November: October is reels only"
+    },
+    {
+      "day": "2026-10-31",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-31-reel-4-agents-run-your-diwali-week",
+      "keyword": "TEAM",
+      "pillar": "Operations",
+      "topic": "Hand your Diwali week to 4 AI agents: who writes, who plans, who checks, who reports",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-01",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-11-01-carousel-3-messages-after-delivery",
+      "keyword": "REVIEWS",
+      "pillar": "Retention",
+      "topic": "The 3 messages every buyer should get after delivery",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-01",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-01-reel-reviews-write-your-second-order-message",
+      "keyword": "REVIEWS",
+      "pillar": "Retention",
+      "topic": "Your happiest buyers already told you why they'd order again",
+      "status": "made"
+    }
+  ]
+}

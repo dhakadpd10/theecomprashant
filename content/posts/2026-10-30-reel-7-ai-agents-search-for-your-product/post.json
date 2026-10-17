@@ -1,0 +1,246 @@
+{
+  "id": "2026-10-30-reel-7-ai-agents-search-for-your-product",
+  "keyword": "STORE",
+  "world": "studio",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(STORE|7|seven|6|six|rival|agents?|Shopify|catch)",
+  "page": {
+    "title": "Premium Comfort Tee",
+    "price": "₹799",
+    "label": "EXAMPLE",
+    "url": "yourstore.com/products/premium-comfort-tee"
+  },
+  "cast": [
+    {
+      "name": "Budget shopper",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Size checker",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Fabric fussy",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Fast-delivery seeker",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#F59FB0",
+      "prop": "glass"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#9FE3A8",
+      "prop": "cart"
+    },
+    {
+      "name": "Rival brand",
+      "col": "#5D6577",
+      "prop": "shades"
+    },
+    {
+      "name": "Your store",
+      "col": "#E8CF8E",
+      "prop": "heart"
+    },
+    {
+      "name": "News anchor",
+      "col": "#5E6E94",
+      "prop": "none"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Shopify opened its catalog to AI shopping agents.",
+      "card": "AI AGENTS CAN SHOP NOW",
+      "scene": {
+        "type": "stat",
+        "big": "13 OCT",
+        "label": "Shopify opens its catalog to AI agents"
+      }
+    },
+    {
+      "say": "Will they pick you, or another store?",
+      "card": "YOU OR YOUR RIVAL?",
+      "scene": {
+        "type": "versus",
+        "gap": 0.6,
+        "left": {
+          "who": 8,
+          "tag": "YOU",
+          "say": [
+            "Premium",
+            "Comfort Tee"
+          ],
+          "mood": "neutral"
+        },
+        "right": {
+          "who": 7,
+          "tag": "RIVAL",
+          "say": [
+            "Cotton tee,",
+            "S–XXL, ₹699"
+          ],
+          "mood": "happy"
+        }
+      }
+    },
+    {
+      "say": "Paste only your title, price and description.",
+      "card": "PASTE WHAT AGENTS READ",
+      "scene": {
+        "type": "chat",
+        "text": "Title: Premium Comfort Tee · Price: ₹799 · Description: Soft. Stylish. Made for you.",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "say": "Your title just says Premium Comfort. No size, no fabric, no price.",
+      "card": "YOUR TITLE SAYS NOTHING",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "NO SIZE",
+            "at": 0.8
+          },
+          {
+            "x": 690,
+            "y": 166,
+            "label": "NO FABRIC",
+            "at": 1.6
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "NO PRICE",
+            "at": 2.4
+          }
+        ],
+        "who": 1,
+        "whoAt": 1,
+        "say": [
+          "What size?",
+          "What fabric?"
+        ]
+      }
+    },
+    {
+      "say": "Seven AI shoppers search for what you sell.",
+      "show": "7 AI shoppers search for what you sell.",
+      "card": "7 AI SHOPPERS SEARCH",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "RIVAL",
+          "RIVAL",
+          "RIVAL",
+          "BUY",
+          "RIVAL",
+          "RIVAL",
+          "RIVAL"
+        ],
+        "voteAt": "@line5+0.1",
+        "voteStep": 0.12,
+        "tally": "@line5+1.3"
+      }
+    },
+    {
+      "say": "In this example, six of seven pick another store.",
+      "show": "Example: 6 of 7 pick a rival.",
+      "card": "6 OF 7 PICK A RIVAL"
+    },
+    {
+      "say": "You get the words that make them pick you.",
+      "card": "FIX THE WORDS",
+      "scene": {
+        "type": "list",
+        "title": "Example rewrite",
+        "items": [
+          "Men's 100% Cotton Crew Tee",
+          "Sizes S to XXL, size chart in text",
+          "₹799, COD, ships in 2 days"
+        ],
+        "who": 8,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The catch: this is a stand-in, not Shopify's real agent.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 9,
+        "stamp": "STAND-IN TEST",
+        "sub": "not Shopify's actual agent"
+      }
+    },
+    {
+      "say": "Comment STORE and I'll send you the free seven-shopper test.",
+      "show": "Comment STORE and I'll send you the free 7-Shopper Test.",
+      "card": "COMMENT \"STORE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 7-Shopper Test in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "DO 7 AI AGENTS",
+      "PICK YOUR STORE?"
+    ],
+    "line": 4,
+    "lt": 2,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

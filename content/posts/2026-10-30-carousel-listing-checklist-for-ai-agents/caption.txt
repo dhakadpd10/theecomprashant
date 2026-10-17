@@ -1,0 +1,30 @@
+AI shopping agents don't skim your product page. They read every word. Here are the 7 fields they check first 👇
+
+Quick note: every example below uses a made-up kids' kurta set. Swap in your own product.
+
+1. A title that says what it is.
+Before: "Kurta Set 02". After: "Boys' Cotton Kurta Pyjama Set, 2-3 Years, Mustard". An agent can't guess. It matches words, so give it the words.
+
+2. Price and offer in text.
+Before: your offer lives only on a banner image. After: "₹899. 10% off with DIWALI10, so ₹809." If it's inside a picture, assume the agent misses it.
+
+3. Every size spelled out.
+Before: "S, M, L". After: "2-3 yrs, chest 22 in" for each size. Set up one variant per size and colour, not one listing for all 12.
+
+4. Material and specs in plain words.
+Before: "Premium breathable fabric". After: "100% cotton, 180 GSM, machine wash cold, no zips or buttons." That's something an agent can actually quote back to a parent.
+
+5. Stock status that's true.
+Before: "In stock" on a size you sold out of last week. After: "3-4 yrs: 4 left. 4-5 yrs: back on 12 Nov." Keep it synced, or the agent sends shoppers to a dead end.
+
+6. Alt text on every photo.
+Before: "IMG_4521". After: "Mustard cotton kurta pyjama set on a 3-year-old, front view." Takes you 30 seconds per image.
+
+7. Delivery and COD on the page.
+Before: "Ships soon". After: "Delivers in 3-5 days. Free over ₹999. COD available, ₹49 fee. 7-day returns." Indian buyers ask this first. So do agents.
+
+The catch: can agents check out on their own yet? Honestly, sources disagree. But getting found is the part you control, and you can fix all 7 fields this weekend.
+
+Comment "STORE" and I'll DM you the free 7-Shopper Test. You paste your product page, 7 AI shoppers read it and tell you what's missing or unclear. Follow so the DM lands 📩
+
+#ecommerce #d2cbrand #shopifystore

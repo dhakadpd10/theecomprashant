@@ -1,0 +1,303 @@
+{
+  "id": "2026-10-30-carousel-listing-checklist-for-ai-agents",
+  "keyword": "STORE",
+  "cast": [
+    {
+      "name": "AI shopping agent",
+      "col": "#7FA8F8",
+      "prop": "glass"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Midnight scroller",
+      "col": "#B7A4F7",
+      "prop": "phone"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#FF9F68",
+      "prop": "cart"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "7 FIELDS AI AGENTS",
+        "READ ON YOUR PRODUCT"
+      ],
+      "sub": "Before and after for each, on an example product",
+      "art": {
+        "page": true,
+        "w": 520,
+        "y": 640,
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": ""
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": ""
+          },
+          {
+            "x": 690,
+            "y": 686,
+            "label": ""
+          }
+        ],
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.9
+          },
+          {
+            "who": 1,
+            "x": 890,
+            "y": 1230,
+            "mood": "neutral",
+            "s": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "A title that says what it is",
+      "body": "Example product. Before: \"Kurta Set 02\". After: \"Boys' Cotton Kurta Pyjama Set, 2-3 Years, Mustard\". Agents match words, not vibes.",
+      "art": {
+        "page": true,
+        "w": 470,
+        "x": 300,
+        "y": 760,
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": ""
+          }
+        ],
+        "cast": [
+          {
+            "who": 0,
+            "x": 180,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.85
+          }
+        ]
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Price and offer, in text",
+      "body": "Example product. Before: offer only on a banner image. After: \"₹899. 10% off with DIWALI10, so ₹809.\" Plain text reads reliably.",
+      "art": {
+        "page": true,
+        "w": 470,
+        "x": 300,
+        "y": 760,
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": ""
+          }
+        ],
+        "cast": [
+          {
+            "who": 2,
+            "x": 180,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.85
+          }
+        ]
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Variants and sizes spelled out",
+      "body": "Example product. Before: \"S, M, L\". After: \"2-3 yrs, chest 22 in\" and so on for every size. One variant per size and colour.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Which size fits",
+          "a 3-year-old?"
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Material and specs in plain words",
+      "body": "Example product. Before: \"Premium breathable fabric\". After: \"100% cotton, 180 GSM, machine wash cold, no zips or buttons.\" Facts an agent can quote.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Premium",
+          "means what?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "Stock status that's true",
+      "body": "Example product. Before: \"In stock\" on a sold-out size. After: \"3-4 yrs: 4 left. 4-5 yrs: back on 12 Nov.\" Keep it synced.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Is it really",
+          "in stock?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "Alt text on every image",
+      "body": "Example product. Before: alt text \"IMG_4521\". After: \"Mustard cotton kurta pyjama set on a 3-year-old, front view.\" One for every photo.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "IMG_4521",
+          "tells me nothing."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 7,
+      "title": "Delivery and COD on the page",
+      "body": "Example product. Before: \"Ships soon\". After: \"Delivers in 3-5 days. Free over ₹999. COD available, ₹49 fee. 7-day returns.\"",
+      "art": {
+        "page": true,
+        "w": 470,
+        "x": 300,
+        "y": 760,
+        "pins": [
+          {
+            "x": 690,
+            "y": 686,
+            "label": ""
+          }
+        ],
+        "cast": [
+          {
+            "who": 5,
+            "x": 180,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.85
+          }
+        ]
+      }
+    },
+    {
+      "type": "recap",
+      "title": "FIX THESE 7 FIELDS",
+      "items": [
+        "Title says what it is",
+        "Price + offer in text",
+        "Every size spelled out",
+        "Material + specs, plain words",
+        "Stock status that's true",
+        "Alt text on every photo",
+        "Delivery days + COD on page"
+      ],
+      "foot": "Screenshot this. Can agents check out on their own yet? Sources disagree. Getting found is the part you control."
+    },
+    {
+      "type": "cta",
+      "body": "and I'll DM you the free 7-Shopper Test. 7 AI shoppers read your page and say what's missing or unclear.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

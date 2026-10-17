@@ -1,0 +1,279 @@
+{
+  "id": "2026-10-26-carousel-diwali-2026-sale-calendar",
+  "keyword": "SALE",
+  "cast": [
+    {
+      "name": "Founder",
+      "col": "#FF9F68",
+      "prop": "phone"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Last-minute shopper",
+      "col": "#7FA8F8",
+      "prop": "cart"
+    },
+    {
+      "name": "Sister",
+      "col": "#B7A4F7",
+      "prop": "heart"
+    },
+    {
+      "name": "Delivery checker",
+      "col": "#7DD3C0",
+      "prop": "question"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "DIWALI 2026",
+        "SALE CALENDAR"
+      ],
+      "sub": "What to do each day, now to Bhai Dooj",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          },
+          {
+            "who": 1,
+            "x": 540,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          },
+          {
+            "who": 2,
+            "x": 890,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Diwali is 8 Nov. Your real deadline is earlier.",
+      "hot": [
+        "8 Nov",
+        "earlier"
+      ],
+      "body": "Orders take days to reach buyers. Work backwards from delivery, not from the festival. Amazon and Flipkart Diwali sale dates aren't confirmed yet, so don't plan around them.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "frown"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          },
+          {
+            "who": 5,
+            "mood": "frown"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "This week: lock offers and stock",
+      "body": "Pick one main offer. Count stock for your top 5 sellers. Reorder now if anything runs out within two weeks.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "One offer.",
+          "Stock counted."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "By 1 Nov: creatives done",
+      "body": "Ads, banners, WhatsApp messages, email. All approved and scheduled. Meta ad review can take a day, so don't upload on launch day.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Approved",
+          "and scheduled."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Set your last dispatch date",
+      "body": "Ask your courier for transit days. Example: 4 days means dispatch by 2 Nov for Dhanteras, 4 Nov for Diwali. Show it on site.",
+      "art": {
+        "cast": [
+          {
+            "who": 5,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Will it come",
+          "before Diwali?"
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "2 to 8 Nov: the big push",
+      "body": "Dhanteras 6 Nov, Diwali 8 Nov. Push your main offer. Past your dispatch date, stop promising festival delivery and sell e-gift cards.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Still time",
+          "for a gift?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "9 Nov: clearance goes out",
+      "body": "Plan it now. Pick the slow movers, set the discount, write the message. Send it the morning after Diwali.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Post-Diwali",
+          "deals?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "Bhai Dooj: 11 Nov (check this)",
+      "body": "One source says 10 Nov, so check before you schedule anything. Push only gifts you can still deliver, or digital gift cards.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "10th or",
+          "11th?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "YOUR DIWALI 2026 DATES",
+      "items": [
+        "This week: lock offer + stock",
+        "By 1 Nov: creatives approved",
+        "Last dispatch date: ask your courier",
+        "2 to 8 Nov: push (Dhanteras 6, Diwali 8)",
+        "9 Nov: clearance message out",
+        "Bhai Dooj 11 Nov (confirm 10 or 11)"
+      ],
+      "foot": "Screenshot this. Amazon and Flipkart sale dates aren't confirmed, so don't plan around them."
+    },
+    {
+      "type": "cta",
+      "body": "and get the free Diwali Sale Planner: your own dated calendar for your products and courier times. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "id": "2026-10-31-reel-4-agents-run-your-diwali-week",
+  "keyword": "TEAM",
+  "world": "arcade",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(TEAM|4|four|5|five|Diwali|free|catch|beta|approve|plan)",
+  "page": {
+    "title": "Diwali Gift Hamper",
+    "price": "₹1,499",
+    "label": "DIWALI",
+    "url": "yourstore.com/products/diwali-hamper"
+  },
+  "cast": [
+    {
+      "name": "Writer",
+      "col": "#FF5FD2",
+      "prop": "gift"
+    },
+    {
+      "name": "Planner",
+      "col": "#3EE6FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Checker",
+      "col": "#FFE45E",
+      "prop": "glass"
+    },
+    {
+      "name": "Reporter",
+      "col": "#8CFF7A",
+      "prop": "none"
+    },
+    {
+      "name": "You",
+      "col": "#FF9F68",
+      "prop": "heart"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Diwali week. You're one person.",
+      "card": "DIWALI WEEK. ONE FOUNDER.",
+      "scene": {
+        "type": "page",
+        "who": 4,
+        "whoAt": 0.4,
+        "say": [
+          "Offers. Posts.",
+          "Reports. Help!"
+        ]
+      }
+    },
+    {
+      "say": "Give it to four AI agents.",
+      "show": "Hand it to 4 AI agents.",
+      "card": "HAND IT TO 4 AI AGENTS",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "big": "×4",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Player one writes the offers.",
+      "show": "Player 1 writes the offers.",
+      "card": "PLAYER 1: THE WRITER",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          0
+        ],
+        "shown": [],
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Player two plans your messages and posts.",
+      "show": "Player 2 schedules WhatsApp and posts.",
+      "card": "PLAYER 2: THE PLANNER",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          1
+        ],
+        "shown": [
+          0
+        ],
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Player three checks prices and facts.",
+      "show": "Player 3 checks prices and facts.",
+      "card": "PLAYER 3: THE CHECKER",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          2
+        ],
+        "shown": [
+          0,
+          1
+        ],
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Player four reports Monday's sales.",
+      "show": "Player 4 reports Monday's sales.",
+      "card": "PLAYER 4: THE REPORTER",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "reveal": [
+          3
+        ],
+        "shown": [
+          0,
+          1,
+          2
+        ],
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Then they chart your sales into a five-slide deck.",
+      "show": "Then they chart your sales into a 5-slide deck.",
+      "card": "SALES SHEET TO TEAM DECK",
+      "scene": {
+        "type": "list",
+        "title": "Monday, for the team",
+        "items": [
+          "Sales sheet → chart",
+          "5-slide deck in Slides",
+          "Summary in Docs"
+        ],
+        "who": 3,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Reports say Docs and Slides are on the free plan.",
+      "card": "NOW ON THE FREE PLAN",
+      "scene": {
+        "type": "stat",
+        "big": "FREE",
+        "label": "Docs + Slides, per trackers"
+      }
+    },
+    {
+      "say": "The catch: you give it the data and approve every output.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 4,
+        "stamp": "YOU APPROVE",
+        "sub": "You paste the data in"
+      }
+    },
+    {
+      "say": "Dashboards and Motion are beta. Check your plan.",
+      "card": "CHECK YOUR OWN PLAN",
+      "scene": {
+        "type": "stat",
+        "big": "BETA",
+        "label": "Dashboards + Motion"
+      }
+    },
+    {
+      "say": "Comment TEAM and I'll send you the free four-agent team.",
+      "show": "Comment TEAM and I'll send you the free 4-agent team.",
+      "card": "COMMENT \"TEAM\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 4-Agent Marketing Team in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "HAND DIWALI WEEK",
+      "TO 4 AI AGENTS"
+    ],
+    "line": 5,
+    "lt": 1.2,
+    "shift": 150
+  }
+}

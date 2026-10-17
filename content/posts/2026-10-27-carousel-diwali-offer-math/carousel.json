@@ -1,0 +1,286 @@
+{
+  "id": "2026-10-27-carousel-diwali-offer-math",
+  "keyword": "PRICE",
+  "cast": [
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Family shopper",
+      "col": "#7DD3C0",
+      "prop": "cart"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#7FA8F8",
+      "prop": "phone"
+    },
+    {
+      "name": "Founder",
+      "col": "#FF9F68",
+      "prop": "question"
+    },
+    {
+      "name": "Reel scroller",
+      "col": "#B7A4F7",
+      "prop": "shades"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "5 DIWALI OFFERS",
+        "WHAT EACH REALLY COSTS"
+      ],
+      "sub": "Example ₹999 product, margin left per order",
+      "art": {
+        "page": true,
+        "w": 520,
+        "y": 640,
+        "pins": [
+          {
+            "x": 690,
+            "y": 200,
+            "label": ""
+          }
+        ],
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          },
+          {
+            "who": 4,
+            "x": 890,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "type": "stake",
+      "title": "Example: a ₹999 product that leaves you ₹549 before ads.",
+      "hot": [
+        "₹999",
+        "₹549"
+      ],
+      "body": "Example numbers, not a real brand. ₹450 to make, pack and ship. Every Diwali offer below comes out of that ₹549.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "neutral"
+          },
+          {
+            "who": 4,
+            "mood": "frown"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "20% off: ₹349 left",
+      "body": "Shopper pays ₹799. You lose ₹200 of your ₹549, over a third of the margin. The biggest cut of the five.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹799?",
+          "Adding to cart."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Flat ₹150 off: ₹399 left",
+      "body": "Shopper pays ₹849. Rupees off feel concrete on a ₹999 product, and cost you ₹50 less per order than 20% off.",
+      "art": {
+        "cast": [
+          {
+            "who": 5,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹150 off.",
+          "Easy maths."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Free gift: ₹429 left",
+      "body": "Example gift: costs you ₹120, feels worth ₹299 to the shopper. Price stays ₹999, so the product never looks cheaper.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Something",
+          "extra? Nice."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Buy 2, save 15%: ₹798 left",
+      "body": "Two units for ₹1,698. Each unit keeps ₹399, but the order keeps ₹798 versus ₹549 for one. One box saves shipping too.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "One for me,",
+          "one for Maa."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "Prepaid only, ₹50 off: ₹499 left",
+      "body": "Smallest discount of the five. It also nudges buyers off COD, where returned orders cost you shipping both ways and earn nothing.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "₹50 off for UPI?",
+          "Fine, paying now."
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "Tip: label AI-made models in your ad",
+      "body": "One blog reports Instagram is cutting reach for unlabelled AI models. Reported, not confirmed. Labelling costs you nothing, so do it anyway.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "AI model?",
+          "Say so."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "WHAT YOUR ₹549 BECOMES",
+      "items": [
+        "20% off: ₹349 left",
+        "Flat ₹150 off: ₹399 left",
+        "Free gift (₹120 cost): ₹429 left",
+        "Buy 2, 15% off: ₹798 per order",
+        "Prepaid ₹50 off: ₹499 left, fewer COD returns",
+        "Label AI models in your ads"
+      ],
+      "foot": "Example numbers. Screenshot this and swap in your own costs."
+    },
+    {
+      "type": "cta",
+      "body": "and 100 AI shoppers react to your Diwali offers before you run them. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

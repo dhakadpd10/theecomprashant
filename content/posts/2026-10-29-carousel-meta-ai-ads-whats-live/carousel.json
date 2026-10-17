@@ -1,0 +1,233 @@
+{
+  "id": "2026-10-29-carousel-meta-ai-ads-whats-live",
+  "keyword": "ROAST",
+  "cast": [
+    {
+      "name": "Founder",
+      "col": "#FFC857",
+      "prop": "phone"
+    },
+    {
+      "name": "Repeat buyer",
+      "col": "#FF9F68",
+      "prop": "heart"
+    },
+    {
+      "name": "New shopper",
+      "col": "#7DD3C0",
+      "prop": "question"
+    },
+    {
+      "name": "Diwali gift buyer",
+      "col": "#F59FB0",
+      "prop": "gift"
+    },
+    {
+      "name": "Hook critic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Offer critic",
+      "col": "#7FA8F8",
+      "prop": "tag"
+    },
+    {
+      "name": "Harsh critic",
+      "col": "#FF6B6B",
+      "prop": "gavel"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "META'S NEW AI AD TOOLS",
+        "WHAT'S LIVE, WHAT'S A TEST"
+      ],
+      "sub": "And what to do before Diwali",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "neutral",
+            "s": 0.9
+          },
+          {
+            "who": 3,
+            "x": 890,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "type": "stake",
+      "title": "3 new Meta AI ad tools. Only 2 are reported live.",
+      "hot": [
+        "3",
+        "2",
+        "live"
+      ],
+      "body": "Diwali spend starts soon. Here's what's reported live, what's still a test, one step for each and the honest catch.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "neutral"
+          },
+          {
+            "who": 1,
+            "mood": "neutral"
+          },
+          {
+            "who": 2,
+            "mood": "neutral"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          }
+        ],
+        "y": 1200
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "LIVE (reported): exclude past buyers",
+      "body": "Before Diwali: export your Shopify buyers, upload as a customer list, exclude it from prospecting. Catch: only matched buyers get excluded, so some slip through.",
+      "art": {
+        "cast": [
+          {
+            "who": 1,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "I already",
+          "bought it."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "LIVE (reported): photos into video",
+      "body": "Before Diwali: turn your 3 best-seller photos into videos, test each against your current ad. Catch: it can warp labels and text. Check every frame.",
+      "art": {
+        "page": true,
+        "w": 470,
+        "x": 300,
+        "y": 760,
+        "cast": [
+          {
+            "who": 2,
+            "x": 180,
+            "y": 1230,
+            "mood": "neutral",
+            "s": 0.85
+          }
+        ],
+        "say": [
+          "Is that the",
+          "real label?"
+        ],
+        "sayX": 640,
+        "sayY": 1080
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "TEST: the chat assistant that runs campaigns",
+      "body": "Missing from most accounts. Before Diwali: write your own budget rules, like a daily cap. Catch: if it appears, don't hand it sale-week budget.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Not in my",
+          "account."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Before all three: fix the ad itself",
+      "body": "New tools spread a weak ad faster. Hook, offer and proof still decide if a Diwali shopper stops scrolling.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Who stops",
+          "for this?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "DO THESE BEFORE DIWALI",
+      "items": [
+        "Upload buyer list, exclude from prospecting",
+        "Turn 3 best-seller photos into video, test vs current ad",
+        "Write budget rules, keep the test tool off sale week",
+        "Roast the ad before any of it"
+      ],
+      "foot": "Status as reported. Check your own Ads Manager. Screenshot this."
+    },
+    {
+      "type": "cta",
+      "body": "and 5 AI critics roast your Meta ad before any of these tools spend on it. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "happy"
+          },
+          {
+            "who": 5,
+            "mood": "happy"
+          },
+          {
+            "who": 6,
+            "mood": "happy"
+          },
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -15,7 +15,7 @@ function body(week, branch) {
   const problems = readText(P('content/queue', week, 'problems.txt')).trim();
   return `## ${week}: ${plan.slots.length} posts ready for your OK
 
-**Merge this pull request to approve the week.** Nothing is posted before you merge. To hold a post back, open \`content/queue/${week}/plan.json\` in this PR and change its \`"status"\` to \`"skip"\`. Close the PR to reject the whole week.
+**Merge this pull request to approve the week.** Nothing is posted before it's merged. If you don't get to it, the agent approves it by itself 30 hours before the first post, so the page never goes quiet: add the label **hold** to stop that. To hold a post back, open \`content/queue/${week}/plan.json\` in this PR and change its \`"status"\` to \`"skip"\`. Close the PR to reject the whole week.
 
 | # | When (IST) | Format | Keyword | Topic | Preview | Caption line 1 |
 |---|---|---|---|---|---|---|

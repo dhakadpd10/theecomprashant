@@ -9,6 +9,7 @@
 //   node src/cli.js refresh-token                          print a refreshed Instagram token (workflow stores it)
 //   node src/cli.js launch --start YYYY-MM-DD             give the launch week real dates (Day 1 = start)
 //   node src/cli.js check                                  check keys and the Instagram connection
+//   node src/cli.js health [--fix]                         find (and fix) what would stop daily posting
 const args = process.argv.slice(2);
 const flag = (name, def) => { const i = args.indexOf(`--${name}`); return i < 0 ? def : args[i + 1] ?? true; };
 
@@ -30,6 +31,7 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
   } else if (cmd === 'review') console.log(require('./review').body(args[1], args[2]));
   else if (cmd === 'publish') await require('./publish').run({ dryRun: args.includes('--dry-run') });
   else if (cmd === 'engage') await require('./engage').run();
+  else if (cmd === 'health') await require('./health').run({ fix: args.includes('--fix') });
   else if (cmd === 'analytics') await require('./analytics').run();
   else if (cmd === 'site') require('./site').build();
   else if (cmd === 'launch') {

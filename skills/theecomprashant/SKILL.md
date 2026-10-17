@@ -11,4 +11,4 @@ The cloud workflows do the weekly work; use this when a person wants to step in.
 - **Add a free tool:** `tools/<id>.md` (title, one paragraph, a `---` line, the prompt), then add the keyword to `config/agent.json` → `keywords`.
 - **Change behaviour:** voice and banned words in `brand/voice.md`; topics in `brand/pillars.md`; times, models and reply rules in `config/agent.json`.
 - **Run a job:** `node src/cli.js plan|publish --dry-run|engage|analytics|site|check` with the same secrets in the environment.
-- Rules that never change: nothing posts without the weekly approval merge; never invent results; official Instagram API only; never start a spoken line with "Claude".
+- Rules that never change: nothing posts until its weekly approval PR is merged (by Prashant, or automatically by the Doctor 30 hours before the first post unless the PR has the "hold" label); never invent results; official Instagram API only; never start a spoken line with "Claude".

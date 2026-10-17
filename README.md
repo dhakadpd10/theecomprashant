@@ -12,6 +12,9 @@ you                  open the pull request on your phone → Merge   (that's the
 every minute         publish posts that are due (one long "Run" job, restarted hourly)
 every 10 min         send keyword DMs · answer comments and DMs
 daily 10:00 IST      log each post's views, reach, likes, comments, saves, shares
+every hour           Doctor: restart anything stuck, auto-approve a week 30 h before its first post,
+                     reschedule failed posts, fill empty slots, let Claude fix broken code
+                     (only if the safety test passes), open "Agent needs you" for tokens/Meta
 Monday               refresh the Instagram token
 ```
 

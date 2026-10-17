@@ -12,8 +12,21 @@ const { WORLD_NOTES } = require('../engine/themes');
 const brand = () => [
   '# Voice\n' + readText(P('brand/voice.md')),
   '# Pillars and topic bank\n' + readText(P('brand/pillars.md')),
+  '# This week\'s strategy (from the weekly audit; it outranks the defaults)\n' + readText(P('brand/strategy.md'), 'No strategy yet: not enough posts to judge.'),
   '# What the numbers said (newest first)\n' + readText(P('brand/learnings.md')),
 ].join('\n\n');
+
+// ---------- the Instagram skill pack (skills/ig-*): the method docs, and the scripts that actually score things ----------
+// The skills were written for a person chatting with Claude. Here they run unattended, so their "ask the user" and
+// "~/.claude/instagram/*" steps are replaced by this repo's files (brand/*, content/analytics, content/queue).
+const skill = (name) => readText(P('skills', name, 'SKILL.md')).replace(/^---[\s\S]*?---\s*/, '').trim();
+const UNATTENDED = 'You are running unattended inside an automated pipeline: never ask questions and never read or write ~/.claude files. The repo files quoted here replace the voice, swipe and log files the method mentions.';
+const HOOKS = () => readJSON(P('skills/ig-reel/hooks.json'));
+function pyJSON(script, input) { // run one of the skill scripts on some text, read its --json output (null if Python is missing)
+  const f = path.join(require('os').tmpdir(), `ig-${process.pid}-${Date.now()}.txt`); fs.writeFileSync(f, input);
+  const [py, pre] = python(); const r = spawnSync(py, [...pre, P(script), f, '--json'], { encoding: 'utf8' }); fs.rmSync(f, { force: true });
+  try { return JSON.parse(r.stdout); } catch { return null; }
+}
 
 const SYSTEM = () => `You are Theecomprashant, the content agent for an Instagram page about practical AI for D2C and ecommerce brands, run by Prashant (an Indian D2C founder). You write reels and carousels in a fixed house format and you never invent results, clients or revenue. Example numbers must be labelled as examples. Every post gives away a real free tool reached by commenting one keyword.
 
@@ -25,18 +38,59 @@ function recentTopics(weeks = 4) {
 }
 function nextMonday(from = localDay()) { let d = from; do d = addDays(d, 1); while (new Date(`${d}T00:00:00Z`).getUTCDay() !== 1); return d; }
 
-// ---------- 1. learn ----------
+// ---------- 1. learn: the ig-audit method on our own numbers -> learnings.md, strategy.md, a weekly report ----------
+function postStats() {
+  const lines = readText(P('content/analytics/log.csv')).trim().split('\n'); const cols = (lines.shift() || '').split(',');
+  const latest = {}; // last snapshot per post
+  for (const l of lines) { const r = Object.fromEntries(l.split(',').map((v, i) => [cols[i], v])); if (r.post) latest[r.post] = r; }
+  const slot = {}; const qroot = P('content/queue');
+  if (fs.existsSync(qroot)) for (const w of fs.readdirSync(qroot)) for (const s of readJSON(path.join(qroot, w, 'plan.json'), { slots: [] }).slots) slot[s.post] = s;
+  const num = (v) => Number(v) || 0;
+  const rows = Object.values(latest).map((r) => {
+    const s = slot[r.post] || {}, reach = num(r.reach);
+    return { post: r.post, format: r.format, keyword: r.keyword, pillar: r.pillar, style: s.style || '', hook: s.hook ? `#${s.hook.id} ${s.hook.name}` : '', published: (r.published_at || '').slice(0, 16),
+      views: num(r.views), reach, likes: num(r.likes), comments: num(r.comments), saves: num(r.saved), shares: num(r.shares),
+      shares_per_1k_reach: reach ? +(1000 * num(r.shares) / reach).toFixed(1) : 0, saves_per_1k_reach: reach ? +(1000 * num(r.saved) / reach).toFixed(1) : 0 };
+  });
+  const v = rows.map((r) => r.views).sort((a, b) => a - b), median = v.length ? v[Math.floor(v.length / 2)] || 1 : 1;
+  for (const r of rows) r.outlier = +(r.views / median).toFixed(2);
+  return { rows: rows.sort((a, b) => b.outlier - a.outlier), median };
+}
+
 async function learn() {
-  const logCsv = readText(P('content/analytics/log.csv'));
-  if (logCsv.split('\n').filter(Boolean).length < 3) { log('no analytics yet, skipping the weekly learning step'); return; }
-  const text = await ask({
+  const { rows, median } = postStats();
+  if (rows.length < 3) { log(`only ${rows.length} posts with numbers yet, skipping the weekly audit`); return null; }
+  const res = await askJSON({
     system: SYSTEM(), effort: 'high',
-    prompt: `Here is the per-post metrics log (latest snapshot per post counts):\n\n${logCsv.slice(-20000)}\n\nWrite this week's entry for learnings.md: a "## Week of ${localDay()}" heading, then 3 to 5 bullet points: what over-performed and why you think so, what to stop, and one experiment for next week. Use views, saves, shares, comments and keyword comments; say plainly when a sample is too small to conclude anything. Markdown only, no preamble.`,
+    validate: (x) => (typeof x.learnings === 'string' && /^## Week of /.test(x.learnings.trim()) && typeof x.strategy === 'string' && x.strategy.length > 200 && typeof x.summary === 'string' ? [] : ['return {"summary":"...","learnings":"## Week of ...","strategy":"..."}']),
+    prompt: `${UNATTENDED}
+
+Run this audit method on the page's own numbers:
+${skill('ig-audit')}
+
+Instagram's API does not give hold-at-3s, watch time, follows or non-follower reach per post, so rank by outlier multiple (views / the page's median of ${median}) and shares and saves per 1,000 reach, and say which conclusions need those missing numbers. Each row has the hook formula and reel style used.
+
+Posts (latest numbers, best first):
+${JSON.stringify(rows, null, 1).slice(0, 30000)}
+
+Return JSON only:
+- "summary": the audit block in the method's output format (top 5, bottom 5, WHAT THE DATA SAYS, STOP, DO MORE), plain text, honest about sample size.
+- "learnings": this week's entry for learnings.md: a "## Week of ${localDay()}" heading and 3 to 5 bullets.
+- "strategy": the full strategy for next week in Markdown, which replaces brand/strategy.md and is read when planning and writing every post: hook formulas to favour and to avoid (by number), reel styles and worlds that worked, pillars and keywords to push or rest, topics to repeat with a new angle, one experiment with how we'll judge it. Only claims the data supports; with few posts, say so and keep most defaults.`,
   });
   const f = P('brand/learnings.md'); const old = readText(f);
   const [head, ...rest] = old.split('\n## ');
-  fs.writeFileSync(f, `${head.trim()}\n\n${text.trim()}\n\n## ${rest.join('\n## ')}`.replace(/\n## $/, '\n'));
-  log('learnings updated');
+  fs.writeFileSync(f, `${head.trim()}\n\n${res.learnings.trim()}\n\n## ${rest.join('\n## ')}`.replace(/\n## $/, '\n'));
+  fs.writeFileSync(P('brand/strategy.md'), `# Strategy for the week of ${localDay()}\n\n${res.strategy.trim()}\n`);
+  log('audit done: learnings and strategy updated');
+  return res.summary;
+}
+
+async function weeklyReport(summary, week) { // a GitHub issue, so Prashant gets the audit on his phone
+  const repo = process.env.GITHUB_REPOSITORY, token = process.env.GITHUB_TOKEN; if (!repo || !token || !summary) return;
+  const body = `The agent read last week's numbers with the ig-audit method and changed next week's plan to match.\n\n\`\`\`\n${summary.trim()}\n\`\`\`\n\n### Strategy now in use\n${readText(P('brand/strategy.md'))}\n\nClose this issue once you've read it.`;
+  const r = await fetch(`https://api.github.com/repos/${repo}/issues`, { method: 'POST', headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' }, body: JSON.stringify({ title: `Weekly report: what worked, and the plan for ${week}`, body, labels: ['report'] }) }).catch((e) => ({ ok: false, statusText: e.message }));
+  log(r.ok ? 'weekly report issue opened' : `weekly report issue failed: ${r.status || ''} ${r.statusText}`);
 }
 
 // ---------- 2. research ----------
@@ -62,6 +116,7 @@ async function planWeek(need, researchNotes) {
   const cfg = config(); const kws = Object.keys(cfg.keywords);
   const reels = need.filter((n) => n.format === 'reel').length, maxWorld = Math.max(1, Math.ceil(reels / WORLDS.length)), maxNew = reels > 8 ? 3 : 2;
   const motionCount = Math.round(reels * Math.min(1, Math.max(0, Number(cfg.motion?.share ?? 0)))); // reels made as motion graphics (docs/MOTION.md)
+  const hooks = HOOKS().hooks, hookIds = hooks.map((h) => h.id);
   const validate = (v) => {
     const e = []; const posts = v.posts || [], fresh = v.new_tools || {};
     if (!Array.isArray(v.posts) || posts.length !== need.length) e.push(`posts must have exactly ${need.length} entries, one per slot, in the order given`);
@@ -74,6 +129,7 @@ async function planWeek(need, researchNotes) {
       if (!p.topic || !p.slug || !/^[a-z0-9-]+$/.test(p.slug)) e.push(`posts[${i}] needs topic and a lowercase-dash slug`);
       if (p.format === 'reel' && !WORLDS.includes(p.world)) e.push(`posts[${i}].world must be one of ${WORLDS.join(', ')}`);
       if (p.format === 'reel' && !['motion', 'world'].includes(p.style)) e.push(`posts[${i}].style must be "motion" or "world"`);
+      if (p.format === 'reel' && !hookIds.includes(p.hook_formula)) e.push(`posts[${i}].hook_formula must be a hook id number from the list`);
     });
     const motion = posts.filter((p) => p.format === 'reel' && p.style === 'motion').length;
     if (motion !== motionCount) e.push(`exactly ${motionCount} reels must have style "motion" (you have ${motion})`);
@@ -98,9 +154,15 @@ Reel styles: exactly ${motionCount} of the ${reels} reels are "motion" (motion g
 
 Every reel, motion or not, gets a visual world that fits its topic (the look for world reels, and the backup if a motion render fails). Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).
 
+Plan with this method (${UNATTENDED} The posting cadence is fixed by the slots above, so use its post types, mix and angle rules, not its posts-per-week count. "Proof" may only use real public data or our own published numbers, never invented results. The engagement round is done by Prashant, so leave it out):
+${skill('ig-plan').split('## The engagement round')[0]}
+
+Hook formulas (id name: best for). Pick the one that fits each reel's angle, follow the strategy above, and don't use the same formula on two reels in a row:
+${hooks.map((h) => `${h.id} ${h.name}: ${h.best_for}`).join('\n')}
+
 Rules: reels are one idea with a mechanism (panels of AI critics/shoppers/customers judging the viewer's thing work best); carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","slug":"...","topic":"...","angle":"...","style":"motion","world":"courtroom"}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
-(style and world only for reels; new_tools may be {}).`,
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","post_type":"Teach","slug":"...","topic":"...","angle":"...","style":"motion","world":"courtroom","hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+(style, world and hook_formula only for reels; new_tools may be {}).`,
   });
 }
 
@@ -148,19 +210,56 @@ async function writeCaption(dir, kind, spec) {
   fs.writeFileSync(f, caption + '\n');
 }
 
+// ig-reel step 1-2: three hooks off different formulas, scored by skills/ig-reel/hookscore.py; the best one opens the reel
+async function pickHook(d) {
+  const H = HOOKS(), ids = H.hooks.map((h) => h.id);
+  const card = (h) => ({ id: h.id, name: h.name, template: h.template, example: h.example, on_screen: h.on_screen, best_for: h.best_for, trap: h.trap });
+  let best = null, feedback = '';
+  for (let round = 0; round < 2; round++) {
+    const res = await askJSON({
+      system: SYSTEM(), effort: 'medium',
+      validate: (v) => (Array.isArray(v.hooks) && v.hooks.length === 3 && v.hooks.every((h) => ids.includes(h.id) && h.spoken && h.on_screen) && new Set(v.hooks.map((h) => h.id)).size === 3 ? [] : ['return {"hooks":[three {"id","spoken","on_screen"} with three different formula ids]}']),
+      prompt: `${UNATTENDED}\n\nWrite three hook options for this reel, each off a different formula (the planner suggested #${d.hook_formula}; include it). The spoken line is the first sentence of the voiceover (under 3 seconds, 5 to 12 words, numbers as digits here); the on-screen line is 6 words or fewer. Never invent results: example numbers must be clearly examples or public data.\n\nReel: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword}.\n\nRules:\n- ${H.rules.join('\n- ')}\n\nFormulas:\n${JSON.stringify(H.hooks.map(card))}\n${feedback}\nReturn JSON only: {"hooks":[{"id":5,"spoken":"...","on_screen":"..."}]}`,
+    });
+    const scored = pyJSON('skills/ig-reel/hookscore.py', res.hooks.map((h) => h.spoken.replace(/\n/g, ' ')).join('\n'));
+    const opts = res.hooks.map((h, i) => ({ ...h, name: H.hooks.find((x) => x.id === h.id).name, score: scored?.[i]?.score ?? null, verdict: scored?.[i]?.verdict, weakest: scored?.[i]?.weakest }));
+    opts.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+    if (!best || (opts[0].score ?? 0) > (best.score ?? 0)) best = opts[0];
+    if (best.score === null || best.score >= 50) break; // hookscore under 50 = "you do not have the hook yet": one more round
+    feedback = `\nLast round's best scored only ${best.score}/100 (weakest: ${opts.map((o) => `${o.spoken} -> ${o.weakest}`).join('; ')}). Write three stronger ones.`;
+  }
+  log(`hook #${best.id} ${best.name} scored ${best.score ?? 'n/a'}: ${best.spoken}`);
+  return best;
+}
+const hookLine = (h) => (h ? `\n\nOpen with this hook (formula #${h.id} ${h.name}): the first line's "say" is "${h.spoken}" with numbers spelled as words, and its card is "${h.on_screen}".` : '');
+
+// ig-reel step 5: run the spoken script through skills/ig-human/detect.py; reword once if it reads machine-written
+async function humanize(spec, validate) {
+  // voiceover lines are short and even on purpose and spell numbers out, so the burstiness and specificity checks
+  // don't apply; act on stock phrases (SLOP DENSITY) and a flat, impersonal voice (VOICE) only
+  const text = (spec.lines || []).map((l) => l.say).join('\n'), r = pyJSON('skills/ig-human/detect.py', text);
+  const c = r?.checks || {}, bad = [['SLOP DENSITY', 70], ['VOICE', 50]].filter(([k, min]) => c[k] && c[k].score < min);
+  if (!r || !bad.length) return spec;
+  const notes = bad.map(([k]) => `${k}: ${c[k].detail}`).join('; ');
+  log(`voiceover reads machine-written (human score ${r.human_score}), rewording once`);
+  return askJSON({ system: SYSTEM(), effort: 'medium', validate, prompt: `${UNATTENDED}\n\nThis voiceover reads machine-written (human score ${r.human_score}/100: ${notes}). Use this method:\n${skill('ig-human').slice(0, 4000)}\n\nReword only the "say" text so it sounds like a person talking (contractions, short lines, varied rhythm, no stock phrases), keep the hook line's meaning, the timing and every other field, then return the full post.json.\n\n${JSON.stringify(spec)}` });
+}
+
 async function makeReel(day, d) {
   const cfg = config(); const id = `${day}-reel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
+  d.hook ||= await pickHook(d);
   if (d.style === 'motion') {
-    try { await makeMotionReel(d, id, dir); return { id, style: 'motion' }; } catch (e) {
+    try { await makeMotionReel(d, id, dir); return { id, style: 'motion', hook: d.hook }; } catch (e) {
       if (USAGE_LIMIT.test(e.message)) throw e; // out of Claude for now: the run stops and tops up later
       log('motion reel failed, making it as a world reel instead:', e.message.split('\n')[0]);
       fs.rmSync(dir, { recursive: true, force: true });
     }
   }
-  const spec = await askJSON({
+  const draft = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateReel(v, { keywords: Object.keys(cfg.keywords) }),
-    prompt: `Write the reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", world "${d.world}" (${WORLD_NOTES[d.world]}), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Two-line hook first.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example that rendered well:\n${example('02-launch-trial', 'post.json')}\n\nReturn post.json only.`,
+    prompt: `Write the reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", world "${d.world}" (${WORLD_NOTES[d.world]}), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Two-line hook first.${hookLine(d.hook)}\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example that rendered well:\n${example('02-launch-trial', 'post.json')}\n\nReturn post.json only.`,
   });
+  const spec = await humanize(draft, (v) => validateReel(v, { keywords: Object.keys(cfg.keywords) }));
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'post.json'), spec);
   let out = render('reel', dir);
   const bad = (out.match(/CHECK THESE WORDS: (.*)/) || [])[1];
@@ -169,7 +268,7 @@ async function makeReel(day, d) {
     writeJSON(path.join(dir, 'post.json'), fixed); out = render('reel', dir);
   }
   await writeCaption(dir, 'reel', spec);
-  return { id, out, style: 'world' };
+  return { id, out, style: 'world', hook: d.hook };
 }
 
 // ---------- motion reels: HyperFrames picture written per reel (docs/MOTION.md, engine/motion.js) ----------
@@ -214,8 +313,8 @@ async function makeMotionReel(d, id, dir) {
   const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateMotionReel(v, { keywords: kws }),
-    prompt: `Write the motion reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${tool}). id must be "${id}", style "motion", world "${d.world}" (the backup look), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Hook first.\n\nHow motion reels work:\n${MOTION_DOC()}\n\nA finished example:\n${example(MOTION_EXAMPLE, 'post.json')}\n\nReturn post.json only.`,
-  });
+    prompt: `Write the motion reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${tool}). id must be "${id}", style "motion", world "${d.world}" (the backup look), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Hook first.${hookLine(d.hook)}\n\nHow motion reels work:\n${MOTION_DOC()}\n\nA finished example:\n${example(MOTION_EXAMPLE, 'post.json')}\n\nReturn post.json only.`,
+  }).then((s) => humanize(s, (v) => validateMotionReel(v, { keywords: kws })));
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'post.json'), spec);
   let prep = motion(dir, '--prep');
   if (!prep.ok) throw new Error(`voiceover failed: ${prep.out.slice(-600)}`);
@@ -258,7 +357,7 @@ async function run({ start, days = 7 } = {}) {
   const need = openSlots(start, days);
   if (!need.length) { log(`no open slots ${start} + ${days} days`); return { week, skipped: true }; }
   log(`open slots: ${need.length} (${need.filter((n) => n.format === 'reel').length} reels)`);
-  await learn();
+  const audit = await learn().catch((e) => { if (USAGE_LIMIT.test(e.message)) throw e; log('audit skipped:', e.message.split('\n')[0]); return null; });
   const notes = await research().catch((e) => { log('research skipped:', e.message); return ''; });
   const plan = await planWeek(need, notes);
   for (const [kw, nt] of Object.entries(plan.new_tools || {})) if (!config().keywords[kw] && plan.posts.some((p) => p.keyword === kw)) await writeTool(kw, nt);
@@ -267,7 +366,7 @@ async function run({ start, days = 7 } = {}) {
   for (const p of plan.posts) {
     try {
       const made = p.format === 'reel' ? await makeReel(p.day, p) : await makeCarousel(p.day, p);
-      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, ...(made.style ? { style: made.style } : {}), keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
+      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, ...(made.style ? { style: made.style } : {}), ...(made.hook ? { hook: { id: made.hook.id, name: made.hook.name, score: made.hook.score } } : {}), keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
       log('made', made.id);
     } catch (e) {
       problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message);
@@ -280,6 +379,7 @@ async function run({ start, days = 7 } = {}) {
   writeJSON(path.join(qdir, 'plan.json'), { week, start, research: notes, slots });
   fs.writeFileSync(path.join(qdir, 'problems.txt'), problems.join('\n'));
   log(`planned ${week}: ${slots.length} posts made, ${problems.length} failed`);
+  await weeklyReport(audit, week);
   return { week, slots, problems };
 }
 

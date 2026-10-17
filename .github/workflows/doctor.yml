@@ -1,0 +1,145 @@
+name: Doctor - keep the agent healthy
+# Every hour, and whenever another job fails:
+#  1. health check: restarts the posting loop, auto-approves a week whose first post is near, retries or
+#     reschedules failed posts, and starts the planner for empty slots (src/health.js, no Claude needed)
+#  2. if code broke (a failed job, a stuck post), Claude reads the logs and fixes the code; the fix is saved only
+#     if scripts/smoke.js passes, and never touches workflows, secrets or what gets posted
+#  3. anything only Prashant can do (tokens, Meta) goes in one "Agent needs you" issue, closed when it's resolved
+on:
+  schedule:
+    - cron: "20 * * * *"
+  workflow_run:
+    workflows:
+      - "Run - post on time and answer the page"
+      - "Weekly - research, plan and make next week"
+      - "Daily - numbers"
+      - "Site - free tools page and media"
+      - "Token - keep Instagram connected"
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+concurrency:
+  group: doctor
+  cancel-in-progress: false
+jobs:
+  doctor:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Health check and simple fixes
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          GH_PAT_SET: ${{ secrets.GH_PAT != '' }}
+        run: |
+          git config user.name "theecomprashant-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node src/cli.js health --fix > health.json || echo '{"problems":[{"kind":"code","key":"health-crashed","text":"src/health.js crashed"}],"fixed":[]}' > health.json
+          cat health.json
+          git add content/queue content/state
+          git diff --cached --quiet || { git commit -qm "Doctor: health fixes" && git pull -q --rebase && git push -q; }
+
+      - name: Collect what broke
+        id: what
+        env:
+          FAILED_RUN: ${{ github.event.workflow_run.id }}
+          FAILED_NAME: ${{ github.event.workflow_run.name }}
+        run: |
+          : > broke.txt
+          if [ -n "$FAILED_RUN" ]; then
+            echo "## The job \"$FAILED_NAME\" failed (run $FAILED_RUN). Last lines of its failed steps:" >> broke.txt
+            gh run view "$FAILED_RUN" --log-failed 2>/dev/null | tail -250 | cut -c1-400 >> broke.txt
+          fi
+          node -e "const h=require('./health.json');const c=h.problems.filter(p=>p.kind==='code');if(c.length)console.log('## Health check problems that need a code fix\n'+c.map(p=>'- '+p.text).join('\n'))" >> broke.txt
+          # a run that failed only because the Claude plan was used up, or Instagram blocked the app, is not a code problem
+          if grep -qiE "hit your .*limit|usage limit|session limit|API access blocked" broke.txt && ! grep -q "Health check problems" broke.txt; then : > broke.txt; fi
+          # at most 4 Claude repairs a day
+          today=$(date -u +%F); used=$(git log --since="$today 00:00" --grep="^Doctor: fix" --oneline | wc -l)
+          if [ -s broke.txt ] && [ "$used" -lt 4 ]; then echo "repair=true" >> "$GITHUB_OUTPUT"; else echo "repair=false" >> "$GITHUB_OUTPUT"; fi
+          cat broke.txt
+
+      - name: Install what the code needs
+        if: steps.what.outputs.repair == 'true'
+        run: npm ci && npm install -g @anthropic-ai/claude-code
+
+      - name: Claude finds and fixes the cause
+        if: steps.what.outputs.repair == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          [ -z "$ANTHROPIC_API_KEY" ] && unset ANTHROPIC_API_KEY
+          export CLAUDE_CODE_OAUTH_TOKEN="$(printf %s "$CLAUDE_CODE_OAUTH_TOKEN" | tr -d '[:space:]')"
+          cat > prompt.md <<'EOF'
+          You are the on-call engineer for Theecomprashant, an open-source agent that runs the Instagram page
+          @theecomprashant from GitHub Actions (read README.md and docs/ first if you need the map). Something broke.
+          Find the root cause and fix it with the smallest safe change.
+
+          Rules:
+          - Never edit .github/workflows/*, secrets, or anything that decides what gets posted without approval
+            (do not change a slot's "status" to "made" in content/queue, do not merge or create pull requests).
+          - Never call Instagram or post anything. Do not run src/cli.js publish/engage/plan.
+          - You may edit src/, engine/, scripts/, docs/, .github/loop.sh, and fix a broken post spec in content/posts.
+          - After changing code, run: node scripts/smoke.js   It must print SMOKE OK.
+          - If the cause is outside the code (an expired or blocked token, Meta, GitHub outage, the Claude plan's
+            usage limit), change nothing and say so.
+          Finish by writing doctor-report.md: a first line "CAUSE: ...", then "FIX: ..." (or "FIX: none"), then
+          "NEEDS PRASHANT: no" or "NEEDS PRASHANT: yes" followed by plain-language steps for a non-coder.
+
+          What broke:
+          EOF
+          cat broke.txt >> prompt.md
+          claude -p "$(cat prompt.md)" --model claude-opus-5-5 --permission-mode acceptEdits \
+            --allowedTools "Read,Edit,Write,Grep,Glob,Bash(node:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(ls:*),Bash(cat:*)" \
+            --max-turns 40 > claude.log 2>&1 || true
+          tail -40 claude.log
+          [ -f doctor-report.md ] || echo "CAUSE: unknown (Claude did not finish; see the Doctor run log)" > doctor-report.md
+          cat doctor-report.md
+
+      - name: Save the fix if it passes the safety test
+        if: steps.what.outputs.repair == 'true'
+        run: |
+          git checkout -- .github/workflows 2>/dev/null || true
+          rm -f prompt.md claude.log health.json broke.txt
+          git add -A src engine scripts docs content/posts .github/loop.sh
+          if git diff --cached --quiet; then echo "no code change"; exit 0; fi
+          if node scripts/smoke.js; then
+            git commit -qm "Doctor: fix - $(head -1 doctor-report.md | cut -c1-120)" -m "$(cat doctor-report.md)"
+            git pull -q --rebase && git push -q && echo "fix saved"
+            gh workflow run site.yml || true
+          else
+            echo "SMOKE FAILED: fix not saved" | tee -a doctor-report.md
+            git reset -q --hard
+          fi
+
+      - name: Tell Prashant what only he can do
+        if: always()
+        run: |
+          node - <<'EOF'
+          const fs = require('fs'), { execSync } = require('child_process');
+          const h = fs.existsSync('health.json') ? JSON.parse(fs.readFileSync('health.json', 'utf8')) : { problems: [], fixed: [] };
+          const human = h.problems.filter((p) => p.kind === 'human').map((p) => `- ${p.text}`);
+          const rep = fs.existsSync('doctor-report.md') ? fs.readFileSync('doctor-report.md', 'utf8') : '';
+          if (/NEEDS PRASHANT: yes/i.test(rep)) human.push(`- From the Doctor's repair attempt:\n\n${rep.split('\n').map((l) => '  ' + l).join('\n')}`);
+          const list = JSON.parse(execSync('gh issue list --state open --label needs-you --json number', { encoding: 'utf8' }) || '[]');
+          const body = `The agent can't fix these by itself. Everything else it repairs automatically.\n\n${human.join('\n\n')}\n\n_Last checked ${new Date().toISOString()}. This issue closes itself when they're resolved._`;
+          fs.writeFileSync('issue.md', body);
+          try { execSync('gh label create needs-you --color D93F0B --description "Only Prashant can fix this" 2>/dev/null'); } catch {}
+          if (human.length && !list.length) execSync('gh issue create --title "Agent needs you" --label needs-you --body-file issue.md', { stdio: 'inherit' });
+          else if (human.length) execSync(`gh issue edit ${list[0].number} --body-file issue.md`, { stdio: 'inherit' });
+          else for (const i of list) execSync(`gh issue close ${i.number} --comment "Resolved: the agent is healthy again."`, { stdio: 'inherit' });
+          if (h.fixed?.length) console.log('Fixed automatically:\n- ' + h.fixed.join('\n- '));
+          EOF

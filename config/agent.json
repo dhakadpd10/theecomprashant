@@ -13,6 +13,7 @@
     ] }
   ],
   "voice": { "id": "am_fenrir", "speed": 1.08 },
+  "motion": { "share": 0.5, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
   "models": {
     "writer": "claude-opus-5-5",
     "replies": "claude-opus-5-5",

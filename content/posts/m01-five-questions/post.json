@@ -1,0 +1,22 @@
+{
+  "id": "m01-five-questions",
+  "style": "motion",
+  "keyword": "AUDIT",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(AUDIT|5|five|gone|price|free)$",
+  "palette": { "bg": "#10131A", "ink": "#F6F1E7", "accent": "#FFC857" },
+  "lines": [
+    { "say": "Your product page is losing buyers, and it isn't the price.", "show": "Your product page is losing buyers. It isn't the price.", "cut": true },
+    { "say": "It's five questions every shopper asks before they buy.", "show": "It's 5 questions every shopper asks.", "cut": true },
+    { "say": "What is it? Who's it for? Why should I trust you?", "show": "What is it? Who's it for? Why trust you?" },
+    { "say": "What will it cost me, and what if I hate it?", "show": "What will it cost me? What if I hate it?" },
+    { "say": "Leave one unanswered, and they're gone. Quietly.", "show": "Leave one unanswered and they're gone." },
+    { "say": "So I made a five minute audit that checks all five.", "show": "So I made a 5-minute audit that checks all 5.", "cut": true },
+    { "say": "Paste your page in, and get a ranked fix list back.", "show": "Paste your page in. Get a ranked fix list.", "cut": true },
+    { "say": "Comment AUDIT and I'll send you the free audit.", "show": "Comment AUDIT and I'll send it free.", "cut": true }
+  ],
+  "sfx": [],
+  "cover": { "at": "@line3+0.9", "title": ["5 QUESTIONS", "YOUR PAGE MUST ANSWER"] }
+}

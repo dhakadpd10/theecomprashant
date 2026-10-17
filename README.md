@@ -31,7 +31,7 @@ Monday               refresh the Instagram token
 | Folder | What |
 |---|---|
 | `src/` | the agent: `plan.js` (weekly brain), `publish.js`, `engage.js` (DMs + replies), `analytics.js`, `ig.js` (Instagram API), `claude.js` (Claude API), `site.js` (public site), `validate.js` |
-| `engine/` | renders reels (`make.js`, scene types in `lib.js`) and carousels (`carousel.js`) with `@napi-rs/canvas` + `ffmpeg` |
+| `engine/` | renders reels (`make.js`, scene types in `lib.js`) and carousels (`carousel.js`) with `@napi-rs/canvas` + `ffmpeg`; motion-graphics reels (`motion.js`) with HyperFrames, see `docs/MOTION.md` |
 | `tts/` | local voiceover (Kokoro, open-source) and a Whisper word check |
 | `brand/` | voice, content pillars, learnings: edit these to make it yours |
 | `config/agent.json` | handle, posting times, models, reply rules, keyword → free tool map |

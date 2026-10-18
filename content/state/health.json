@@ -1,10 +1,10 @@
 {
-  "at": "2026-10-18T04:38:31.474Z",
+  "at": "2026-10-18T09:39:52.122Z",
   "problems": [
     {
       "kind": "human",
       "key": "ig-blocked",
-      "text": "Instagram has refused every call since 2026-10-17T17:59:53.939Z (\"Instagram GET /17841462809508508/media: API access blocked. (code 200)\"). The agent retries every 30 minutes. Fix: make a fresh access token (Meta app dashboard → Manage messaging and content on Instagram → API setup with Instagram login → Generate token) and save it as the IG_ACCESS_TOKEN secret. Also check the Instagram app for a \"confirm it's you\" notice."
+      "text": "Instagram has refused every call since 2026-10-17T17:59:53.939Z (\"Instagram POST /17841462809508508/media: API access blocked. (code 200)\"). The agent retries every 30 minutes. Fix: make a fresh access token (Meta app dashboard → Manage messaging and content on Instagram → API setup with Instagram login → Generate token) and save it as the IG_ACCESS_TOKEN secret. Also check the Instagram app for a \"confirm it's you\" notice."
     },
     {
       "kind": "human",

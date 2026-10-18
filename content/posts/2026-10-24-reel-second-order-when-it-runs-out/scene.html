@@ -1,0 +1,276 @@
+<style>
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  .blob { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
+  #blobA { left: -320px; top: -240px; background: #1F6E54; }
+  #blobB { left: 460px; top: 880px; background: #7A4A1E; opacity: 0.4; }
+  #bggrid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.045) 2px, transparent 2px); background-size: 90px 90px; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .kicker { position: absolute; left: 90px; width: 900px; top: 20px; font-family: var(--display); font-size: 108px; line-height: 0.96; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 6px; }
+  .mask > span { display: block; }
+  .acc { color: var(--accent); }
+
+  /* calendar: days after delivery (beats 0 to 5) */
+  #cal { position: absolute; left: 90px; top: 320px; width: 900px; height: 502px; box-sizing: border-box; border-radius: 32px; background: #15261F; border: 3px solid rgba(244,239,228,0.12); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+  #cal .hd { position: absolute; left: 28px; top: 26px; width: 600px; font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(244,239,228,0.75); }
+  #cal .days { position: absolute; left: 28px; top: 88px; width: 844px; display: grid; grid-template-columns: repeat(7, 112px); grid-auto-rows: 90px; gap: 10px; }
+  .d { display: flex; align-items: center; justify-content: center; border-radius: 18px; background: rgba(244,239,228,0.07); font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #c7 { background: #FFB86B; color: #0F1A17; }
+  #x7 { position: absolute; left: 760px; top: 88px; width: 112px; height: 90px; opacity: 0; }
+  #x7::before, #x7::after { content: ''; position: absolute; left: 4px; right: 4px; top: 39px; height: 12px; border-radius: 6px; background: #FF5E57; box-shadow: 0 0 0 3px #0F1A17; }
+  #x7::before { rotate: 40deg; }
+  #x7::after { rotate: -40deg; }
+  #ring25 { position: absolute; left: 386px; top: 380px; width: 128px; height: 106px; box-sizing: border-box; border: 6px solid var(--accent); border-radius: 24px; opacity: 0; box-shadow: 0 0 34px rgba(124,224,176,0.6); }
+
+  /* 0: hook chip */
+  #s0-when { position: absolute; left: 150px; width: 780px; top: 890px; height: 110px; border-radius: 30px; background: var(--accent); color: #0F1A17; display: flex; align-items: center; justify-content: center; gap: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  #s0-when .mini { display: block; width: 30px; height: 50px; box-sizing: border-box; border: 6px solid #0F1A17; border-radius: 12px 12px 8px 8px; }
+  #s0-when .w { display: block; font-family: var(--display); font-size: 40px; }
+
+  /* 1: the day-7 message */
+  #s1-ask { position: absolute; left: 330px; width: 660px; top: 610px; height: 170px; border-radius: 36px 36px 8px 36px; background: var(--ink); color: #0F1A17; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  #s1-ask .meta { position: absolute; left: 36px; top: 24px; width: 580px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #4A5A53; }
+  #s1-ask .msg { position: absolute; left: 36px; top: 78px; width: 590px; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  #s1-typing { position: absolute; left: 90px; top: 830px; width: 170px; height: 90px; border-radius: 36px 36px 36px 8px; background: #24372F; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #s1-typing i { display: block; width: 18px; height: 18px; border-radius: 50%; background: rgba(244,239,228,0.75); }
+  #s1-reply { position: absolute; left: 90px; top: 830px; width: 640px; height: 120px; box-sizing: border-box; padding-left: 36px; border-radius: 36px 36px 36px 8px; background: #24372F; color: var(--ink); display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  #s1-ex { position: absolute; left: 90px; top: 990px; width: 400px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.7); }
+
+  /* 2-4: the bottle */
+  #bottle { position: absolute; left: 120px; top: 600px; width: 260px; height: 540px; }
+  #bottle .cap { position: absolute; left: 85px; top: 0; width: 90px; height: 64px; box-sizing: border-box; border-radius: 14px; background: #2A3B34; border: 3px solid rgba(244,239,228,0.3); }
+  #bottle .neck { position: absolute; left: 100px; top: 60px; width: 60px; height: 40px; background: rgba(244,239,228,0.25); }
+  #bottle .body { position: absolute; left: 0; top: 96px; width: 260px; height: 444px; box-sizing: border-box; border-radius: 64px 64px 40px 40px; background: rgba(244,239,228,0.08); border: 5px solid rgba(244,239,228,0.55); overflow: hidden; }
+  #liquid { position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: linear-gradient(180deg, #9BEBC4, #3FAE82); }
+  #bottle .lab { position: absolute; left: 36px; width: 178px; top: 120px; height: 120px; border-radius: 18px; background: var(--ink); color: #0F1A17; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  #bottle .lab .a { display: block; font-family: var(--display); font-size: 30px; }
+  #bottle .lab .b { display: block; font-family: var(--body); font-weight: 900; font-size: 40px; }
+
+  .chip { position: absolute; left: 440px; width: 550px; height: 100px; box-sizing: border-box; padding-left: 30px; border-radius: 26px; background: #1C2E27; border: 3px solid rgba(244,239,228,0.16); display: flex; align-items: center; gap: 22px; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s2-c1 { top: 610px; }
+  #s2-c2 { top: 730px; }
+  #s2-left { top: 860px; border-color: #FF8A6B; color: #FF8A6B; }
+  .drop { display: block; width: 32px; height: 32px; background: var(--accent); border-radius: 0 50% 50% 50%; rotate: 45deg; flex: 0 0 32px; }
+  .sun { display: block; width: 40px; height: 40px; border-radius: 50%; background: #FFB86B; flex: 0 0 40px; }
+  .moon { display: block; width: 40px; height: 40px; border-radius: 50%; box-shadow: inset 12px -6px 0 0 #DCE6F2; flex: 0 0 40px; }
+  .warn { display: block; width: 34px; height: 34px; border-radius: 50%; border: 6px solid #FF8A6B; box-sizing: border-box; flex: 0 0 34px; }
+  #s2-ex { position: absolute; left: 440px; top: 1000px; width: 550px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.7); }
+
+  #s3-num { position: absolute; left: 440px; width: 550px; top: 620px; height: 110px; font-family: var(--display); font-size: 88px; line-height: 110px; color: var(--accent); }
+  #s3-empty { position: absolute; left: 440px; width: 320px; top: 770px; height: 100px; border-radius: 26px; background: var(--accent); color: #0F1A17; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+  #s3-sub { position: absolute; left: 440px; width: 550px; top: 900px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.75); }
+
+  /* 4: the free tool */
+  #s4-card { position: absolute; left: 440px; width: 550px; top: 600px; height: 540px; border-radius: 32px; background: var(--ink); color: #0F1A17; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s4-free { position: absolute; left: 34px; top: 30px; width: 140px; height: 56px; border-radius: 16px; background: #0F1A17; color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 30px; }
+  #s4-card .ttl { position: absolute; left: 34px; top: 108px; width: 490px; font-family: var(--display); font-size: 64px; line-height: 0.98; text-transform: uppercase; }
+  .f { position: absolute; left: 34px; width: 490px; height: 44px; display: flex; align-items: center; gap: 16px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #0F1A17; }
+  .f i { display: block; width: 26px; height: 26px; border-radius: 50%; background: #2E9E6E; flex: 0 0 26px; }
+  #s4-f1 { top: 340px; }
+  #s4-f2 { top: 396px; }
+  #s4-f3 { top: 452px; color: #4A5A53; }
+  #s4-f3 i { background: #9AA59F; }
+
+  /* 5: add your product */
+  #s5-box { position: absolute; left: 90px; width: 900px; top: 600px; height: 530px; box-sizing: border-box; border-radius: 32px; background: #15261F; border: 3px solid rgba(244,239,228,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s5-box .bar { position: absolute; left: 0; right: 0; top: 0; height: 80px; border-radius: 29px 29px 0 0; background: #1D3229; }
+  #s5-box .lights { position: absolute; left: 30px; top: 30px; display: flex; gap: 12px; }
+  #s5-box .lights i { display: block; width: 20px; height: 20px; border-radius: 50%; background: #FF8A6B; }
+  #s5-box .lights i:nth-child(2) { background: #FFB86B; }
+  #s5-box .lights i:nth-child(3) { background: var(--accent); }
+  #s5-box .bt { position: absolute; left: 130px; top: 22px; width: 620px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.75); }
+  .lbl { position: absolute; left: 36px; width: 600px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.75); }
+  #s5-l1 { top: 106px; }
+  #s5-l2 { top: 260px; }
+  .in { position: absolute; left: 36px; width: 822px; height: 84px; border-radius: 20px; background: var(--ink); }
+  #s5-i1 { top: 150px; }
+  #s5-i2 { top: 304px; }
+  .in .v { position: absolute; left: 28px; top: 0; bottom: 0; width: 760px; display: flex; align-items: center; overflow: hidden; white-space: nowrap; font-family: var(--body); font-weight: 900; font-size: 40px; color: #0F1A17; clip-path: inset(0 100% 0 0); }
+  #s5-go { position: absolute; left: 658px; top: 414px; width: 200px; height: 80px; border-radius: 22px; background: var(--accent); color: #0F1A17; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+  #s5-ex { position: absolute; left: 36px; top: 436px; width: 400px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.7); }
+
+  /* 6: three messages */
+  .msgc { position: absolute; left: 90px; width: 900px; height: 240px; border-radius: 34px; background: var(--ink); color: #0F1A17; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  #m1 { top: 230px; }
+  #m2 { top: 520px; }
+  #m3 { top: 810px; background: var(--accent); }
+  .msgc .no { position: absolute; left: 30px; top: 60px; width: 120px; height: 120px; border-radius: 30px; background: #0F1A17; color: var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+  .msgc .t { position: absolute; left: 180px; top: 44px; width: 680px; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  .msgc .s { position: absolute; left: 180px; top: 104px; width: 680px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #3B4A44; }
+  .msgc .w { position: absolute; left: 180px; top: 160px; width: 680px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #1F6347; }
+  #m3 .s, #m3 .w { color: #0F1A17; }
+
+  /* 7: the catch */
+  #s7-card { position: absolute; left: 90px; width: 900px; top: 200px; height: 410px; box-sizing: border-box; border-radius: 34px; background: #15261F; border: 3px solid rgba(244,239,228,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.45); }
+  #s7-card .cl { position: absolute; left: 36px; top: 30px; width: 400px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.75); }
+  #s7-ex { position: absolute; left: 594px; top: 30px; width: 264px; text-align: right; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.7); }
+  #s7-stk { position: absolute; left: 300px; top: 96px; width: 300px; height: 76px; border-radius: 18px; background: #FF9A7A; color: #0F1A17; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+  #s7-card .track { position: absolute; left: 60px; top: 230px; width: 780px; height: 16px; border-radius: 8px; background: rgba(244,239,228,0.22); }
+  #s7-band { position: absolute; left: 216px; top: 200px; width: 468px; height: 76px; box-sizing: border-box; border-radius: 22px; border: 4px dashed var(--accent); background: rgba(124,224,176,0.18); }
+  #s7-dot { position: absolute; left: 426px; top: 214px; width: 48px; height: 48px; box-sizing: border-box; border-radius: 50%; background: var(--accent); border: 6px solid #0F1A17; }
+  .tkl { position: absolute; top: 306px; width: 200px; font-family: var(--body); font-weight: 700; font-size: 30px; color: rgba(244,239,228,0.85); }
+  #tk20 { left: 60px; text-align: left; }
+  #tk25 { left: 350px; text-align: center; }
+  #tk30 { left: 640px; text-align: right; }
+  #s7-chk { position: absolute; left: 90px; width: 900px; top: 690px; height: 130px; box-sizing: border-box; padding-left: 34px; border-radius: 34px; background: var(--ink); color: #0F1A17; display: flex; align-items: center; gap: 26px; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  #s7-tick { display: flex; align-items: center; justify-content: center; width: 70px; height: 70px; border-radius: 18px; background: var(--accent); flex: 0 0 70px; }
+  #s7-tick b { display: block; width: 30px; height: 16px; border-left: 8px solid #0F1A17; border-bottom: 8px solid #0F1A17; rotate: -45deg; margin-top: -8px; }
+  #s7-chk .ct { display: block; }
+
+  /* 8: cost per message */
+  #s8-stamp { position: absolute; left: 90px; width: 900px; top: 30px; height: 150px; box-sizing: border-box; border: 8px solid #FF8A6B; border-radius: 24px; background: rgba(15,26,23,0.6); color: #FF8A6B; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 72px; }
+  .bar8 { position: absolute; left: 90px; width: 900px; height: 112px; box-sizing: border-box; border-radius: 28px; background: #1C2E27; border: 3px solid rgba(244,239,228,0.16); }
+  .bar8 .t { position: absolute; left: 36px; top: 0; bottom: 0; width: 600px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  .bar8 .coin { position: absolute; right: 24px; top: 18px; width: 70px; height: 70px; border-radius: 50%; background: #FFB86B; color: #0F1A17; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  #b0 { top: 230px; } #b1 { top: 370px; } #b2 { top: 510px; } #b3 { top: 650px; } #b4 { top: 790px; } #b5 { top: 930px; }
+
+  /* 9: comment */
+  #s9-av { position: absolute; left: 90px; top: 250px; width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(140deg, #7CE0B0, #2E7D5B); }
+  #s9-bub { position: absolute; left: 90px; top: 400px; width: 900px; height: 290px; border-radius: 12px 54px 54px 54px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s9-bub .ch { display: block; font-family: var(--display); font-size: 150px; line-height: 1; color: #0F1A17; }
+  #s9-stk { position: absolute; left: 240px; top: 770px; width: 600px; height: 110px; border-radius: 28px; background: var(--accent); color: #0F1A17; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 40px; }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob" id="blobA"></div>
+  <div class="blob" id="blobB"></div>
+  <div id="bggrid"></div>
+</div>
+
+<!-- calendar: lives from the hook to the prompt -->
+<section class="scene" id="sCal" data-from="@line0" data-to="@line6">
+  <div id="cal">
+    <div class="hd">Days after delivery</div>
+    <div class="days">
+      <div class="d" id="c1">1</div><div class="d" id="c2">2</div><div class="d" id="c3">3</div><div class="d" id="c4">4</div><div class="d" id="c5">5</div><div class="d" id="c6">6</div><div class="d" id="c7">7</div>
+      <div class="d" id="c8">8</div><div class="d" id="c9">9</div><div class="d" id="c10">10</div><div class="d" id="c11">11</div><div class="d" id="c12">12</div><div class="d" id="c13">13</div><div class="d" id="c14">14</div>
+      <div class="d" id="c15">15</div><div class="d" id="c16">16</div><div class="d" id="c17">17</div><div class="d" id="c18">18</div><div class="d" id="c19">19</div><div class="d" id="c20">20</div><div class="d" id="c21">21</div>
+      <div class="d" id="c22">22</div><div class="d" id="c23">23</div><div class="d" id="c24">24</div><div class="d" id="c25">25</div><div class="d" id="c26">26</div><div class="d" id="c27">27</div><div class="d" id="c28">28</div>
+    </div>
+    <div id="x7" data-layout-allow-overlap></div>
+    <div id="ring25" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<!-- 0: hook -->
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kicker" id="s0-k" aria-label="Stop asking on day 7">
+    <span class="mask"><span class="l">Stop asking</span></span>
+    <span class="mask"><span class="l">on <span class="acc">day 7</span></span></span>
+  </div>
+  <div id="s0-when"><i class="mini"></i><span class="w">ASK WHEN IT'S EMPTY</span></div>
+</section>
+
+<!-- 1: the usual day-7 message -->
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div id="s1-ask"><div class="meta">Day 7 · your store</div><div class="msg">Time to reorder?</div></div>
+  <div id="s1-reply" data-layout-allow-overlap>I still have lots left.</div>
+  <div id="s1-typing" data-layout-allow-overlap><i></i><i></i><i></i></div>
+  <div id="s1-ex">example chat</div>
+</section>
+
+<!-- 2-4: the bottle -->
+<section class="scene" id="s2" data-from="@line2" data-to="@line5">
+  <div id="bottle">
+    <div class="cap"></div>
+    <div class="neck"></div>
+    <div class="body">
+      <div id="liquid"></div>
+      <div class="lab" data-layout-allow-overlap><span class="a">SERUM</span><span class="b">50 ml</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2: how it's used -->
+<section class="scene" id="s2b" data-from="@line2" data-to="@line3">
+  <div class="chip" id="s2-c1"><i class="drop"></i><span>50 ml serum</span></div>
+  <div class="chip" id="s2-c2"><i class="sun"></i><i class="moon"></i><span>Morning + night</span></div>
+  <div class="chip" id="s2-left"><i class="warn"></i><span>Day 7: 72% left</span></div>
+  <div id="s2-ex">example numbers</div>
+</section>
+
+<!-- 3: count to empty -->
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div id="s3-num">DAY 7</div>
+  <div id="s3-empty">EMPTY</div>
+  <div id="s3-sub">about 3.5 weeks · example</div>
+</section>
+
+<!-- 4: the free tool finds that day -->
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div id="s4-card">
+    <div id="s4-free">FREE</div>
+    <div class="ttl" aria-label="Use-Up Reorder Series">
+      <span class="mask"><span class="l">Use-Up</span></span>
+      <span class="mask"><span class="l">Reorder</span></span>
+      <span class="mask"><span class="l">Series</span></span>
+    </div>
+    <div class="f" id="s4-f1"><i></i><span>Finds the use-up day</span></div>
+    <div class="f" id="s4-f2"><i></i><span>Writes 3 messages</span></div>
+    <div class="f" id="s4-f3"><i></i><span>You send from your tool</span></div>
+  </div>
+</section>
+
+<!-- 5: add your product -->
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div id="s5-box">
+    <div class="bar"><div class="lights"><i></i><i></i><i></i></div><div class="bt">Use-Up Reorder Series</div></div>
+    <div class="lbl" id="s5-l1">Your product</div>
+    <div class="in" id="s5-i1"><div class="v" id="s5-v1">50 ml serum</div></div>
+    <div class="lbl" id="s5-l2">How it's used</div>
+    <div class="in" id="s5-i2"><div class="v" id="s5-v2">Morning and night</div></div>
+    <div id="s5-ex">example</div>
+    <div id="s5-go">GO</div>
+  </div>
+</section>
+
+<!-- 6: three messages -->
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="kicker" aria-label="3 messages">
+    <span class="mask"><span class="l"><span class="acc">3</span> messages</span></span>
+  </div>
+  <div class="msgc" id="m1"><div class="no">1</div><div class="t">Tip</div><div class="s">How to use it well</div><div class="w">Soon after delivery</div></div>
+  <div class="msgc" id="m2"><div class="no">2</div><div class="t">Check-in</div><div class="s">How's it going?</div><div class="w">Midway</div></div>
+  <div class="msgc" id="m3"><div class="no">3</div><div class="t">Reorder</div><div class="s">Running low? Refill here</div><div class="w">Just before it runs out</div></div>
+</section>
+
+<!-- 7: the catch -->
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="kicker" aria-label="The catch">
+    <span class="mask"><span class="l">The <span class="acc">catch</span></span></span>
+  </div>
+  <div id="s7-card">
+    <div class="cl">Use-up day</div>
+    <div id="s7-ex">example</div>
+    <div id="s7-stk">ESTIMATE</div>
+    <div class="track"></div>
+    <div id="s7-band" data-layout-allow-overlap></div>
+    <div id="s7-dot" data-layout-allow-overlap></div>
+    <div class="tkl" id="tk20">day 20</div>
+    <div class="tkl" id="tk25">day 25</div>
+    <div class="tkl" id="tk30">day 30</div>
+  </div>
+  <div id="s7-chk"><div id="s7-tick"><b></b></div><span class="ct">Check it against real reorders</span></div>
+</section>
+
+<!-- 8: every message costs money -->
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div id="s8-stamp">₹ PER MESSAGE</div>
+  <div class="bar8" id="b0"><div class="t">Tip</div><div class="coin">₹</div></div>
+  <div class="bar8" id="b1"><div class="t">Reminder</div><div class="coin">₹</div></div>
+  <div class="bar8" id="b2"><div class="t">Offer</div><div class="coin">₹</div></div>
+  <div class="bar8" id="b3" data-layout-allow-overlap><div class="t">Check-in</div><div class="coin">₹</div></div>
+  <div class="bar8" id="b4"><div class="t">Last chance</div><div class="coin">₹</div></div>
+  <div class="bar8" id="b5" data-layout-allow-overlap><div class="t">Reorder</div><div class="coin">₹</div></div>
+</section>
+
+<!-- 9: comment the keyword -->
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="kicker" aria-label="Comment">
+    <span class="mask"><span class="l">Comment</span></span>
+  </div>
+  <div id="s9-av"></div>
+  <div id="s9-bub"><span class="ch">R</span><span class="ch">E</span><span class="ch">P</span><span class="ch">E</span><span class="ch">A</span><span class="ch">T</span></div>
+  <div id="s9-stk">FREE · 3 MESSAGES</div>
+</section>

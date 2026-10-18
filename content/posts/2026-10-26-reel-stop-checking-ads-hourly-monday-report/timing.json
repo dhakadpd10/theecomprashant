@@ -1,0 +1,73 @@
+{
+  "dur": 26.57,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.881,
+      "b": 3.981,
+      "say": "Stop refreshing ROAS at midnight and read one report on Monday.",
+      "show": "Stop refreshing ROAS at midnight. Read 1 report Monday."
+    },
+    {
+      "a": 3.981,
+      "voice": 4.081,
+      "end": 6.053,
+      "b": 6.153,
+      "say": "Killing an ad after six hours is a guess.",
+      "show": "Killing an ad at 6 hours is a guess."
+    },
+    {
+      "a": 6.153,
+      "voice": 6.253,
+      "end": 9.177,
+      "b": 9.277,
+      "say": "Not your fault. Ads Manager is built for refreshing.",
+      "show": "Not your fault. It's built for refreshing."
+    },
+    {
+      "a": 9.277,
+      "voice": 9.377,
+      "end": 13.495,
+      "b": 13.595,
+      "say": "Every Monday, paste the last seven days into the Kill, Keep, Scale report.",
+      "show": "Every Monday: paste 7 days into the report."
+    },
+    {
+      "a": 13.595,
+      "voice": 13.695,
+      "end": 16.638,
+      "b": 16.738,
+      "say": "Every ad gets kill, keep or scale, plus one reason.",
+      "show": "Every ad: kill, keep or scale. Plus 1 reason."
+    },
+    {
+      "a": 16.738,
+      "voice": 16.838,
+      "end": 19.194,
+      "b": 19.294,
+      "say": "The catch: it only reads the export you paste.",
+      "show": "The catch: it only reads your export."
+    },
+    {
+      "a": 19.294,
+      "voice": 19.394,
+      "end": 22.693,
+      "b": 22.793,
+      "say": "On small budgets, seven days is thin. Kill means maybe.",
+      "show": "Small budget? 7 days is thin. Kill means maybe."
+    },
+    {
+      "a": 22.793,
+      "voice": 22.893,
+      "end": 25.175,
+      "b": 26.57,
+      "say": "Comment SCALE and I'll send you the free report.",
+      "show": "Comment SCALE and I'll send it free."
+    }
+  ]
+}

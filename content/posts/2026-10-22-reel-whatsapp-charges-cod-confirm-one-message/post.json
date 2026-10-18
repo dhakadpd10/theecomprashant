@@ -1,0 +1,179 @@
+{
+  "id": "2026-10-22-reel-whatsapp-charges-cod-confirm-one-message",
+  "keyword": "RTO",
+  "world": "studio",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(RTO|Stop|3|three|1|one|9,000|nine|3,000|₹0.115|free|catch|invoice)",
+  "cast": [
+    {
+      "name": "COD buyer",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "News anchor",
+      "col": "#5E6E94",
+      "prop": "none"
+    },
+    {
+      "name": "Founder",
+      "col": "#FFC857",
+      "prop": "cart"
+    },
+    {
+      "name": "Accountant",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Delivery partner",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Repeat buyer",
+      "col": "#F59FB0",
+      "prop": "heart"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop sending three COD confirm messages. Send one good one.",
+      "show": "Stop sending 3 COD confirm messages. Send 1 good one.",
+      "card": "STOP SENDING 3 CONFIRMS",
+      "scene": {
+        "type": "list",
+        "title": "Your COD confirms",
+        "items": [
+          "Msg 1: Order placed",
+          "Msg 2: Confirm your address",
+          "Msg 3: Pay by UPI?"
+        ],
+        "who": 0,
+        "mood": "frown"
+      }
+    },
+    {
+      "say": "Meta now charges brands for order update messages.",
+      "show": "WhatsApp now charges for business replies.",
+      "card": "WHATSAPP NOW CHARGES",
+      "scene": {
+        "type": "verdict",
+        "who": 1,
+        "stamp": "NOW CHARGED",
+        "sub": "WhatsApp Business API, from 1 Oct"
+      }
+    },
+    {
+      "say": "One report: just over a tenth of a rupee each, after a thousand free.",
+      "show": "One report: ₹0.115 each, after the first 1,000 free a month.",
+      "card": "ONE REPORT: ₹0.115 EACH",
+      "scene": {
+        "type": "stat",
+        "big": "₹0.115",
+        "label": "per order update · one report · before GST"
+      }
+    },
+    {
+      "say": "Example: three thousand COD orders times three.",
+      "show": "Example: 3,000 COD orders × 3.",
+      "card": "EXAMPLE: 3,000 COD ORDERS",
+      "scene": {
+        "type": "stat",
+        "big": "3,000",
+        "label": "EXAMPLE: COD orders a month"
+      }
+    },
+    {
+      "say": "That's triple the messages.",
+      "show": "9,000 messages.",
+      "card": "EXAMPLE: 9,000 MESSAGES",
+      "scene": {
+        "type": "stat",
+        "big": "9,000",
+        "label": "EXAMPLE: 3,000 orders × 3 messages"
+      }
+    },
+    {
+      "say": "The COD Confirm Kit packs all three into one.",
+      "show": "The COD Confirm Kit packs all 3 into 1.",
+      "card": "3 CHECKS, 1 MESSAGE",
+      "scene": {
+        "type": "list",
+        "title": "1 good message",
+        "items": [
+          "Check your address",
+          "Pay now by UPI?",
+          "Tap to confirm"
+        ],
+        "who": 2,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Down to three thousand messages.",
+      "show": "9,000 becomes 3,000.",
+      "card": "EXAMPLE: 9,000 → 3,000",
+      "scene": {
+        "type": "stat",
+        "big": "3,000",
+        "label": "EXAMPLE: messages a month, down from 9,000"
+      }
+    },
+    {
+      "say": "When a buyer messages first, replies stay free.",
+      "show": "Customer-started chats stay free.",
+      "card": "CUSTOMER CHATS STAY FREE",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          5
+        ],
+        "big": "FREE",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Catch: that price is one report. Check your invoice.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 3,
+        "stamp": "CHECK INVOICE",
+        "sub": "price is from one report"
+      }
+    },
+    {
+      "say": "Plain Business app isn't affected.",
+      "show": "The plain WhatsApp Business app isn't affected.",
+      "card": "PLAIN APP NOT AFFECTED"
+    },
+    {
+      "say": "Type RTO below. The free kit lands in your DMs.",
+      "show": "Comment RTO and I'll send you the free kit.",
+      "card": "COMMENT \"RTO\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free COD Confirm Kit in your DMs",
+        "ids": [
+          0,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "WHATSAPP NOW CHARGES",
+      "SEND 1 COD CONFIRM"
+    ],
+    "line": 4,
+    "lt": 1.5,
+    "shift": 150
+  }
+}

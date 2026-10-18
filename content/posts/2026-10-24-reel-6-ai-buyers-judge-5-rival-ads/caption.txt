@@ -1,0 +1,25 @@
+Comment "RIVAL" and I'll DM you the free Rival Ad Teardown: find the gap in 5 rival ads. Follow so the DM lands 📩
+
+👇 READ BELOW for how the teardown works:
+
+1. Your competitors' Meta ads are public and free to see. Open Meta Ad Library, search a rival brand in your category, and copy the text of 5 of their ads.
+
+2. You paste all 5 into Claude with the teardown prompt, plus your own product and price.
+
+3. A jury of 6 AI buyers reads every ad: a first-time buyer, a bargain hunter, a review sceptic, a busy mom, a gift buyer and a student.
+
+4. They list the claim every ad repeats (example for a lip kit: "long-lasting matte", "free delivery") and the doubt none of them answer (example: "will this shade suit me?").
+
+5. A judge picks the biggest gap and writes 3 hooks for your next ad that answer it.
+
+What you get: the claim your rivals all lean on, the doubt they leave open, and 3 ready hooks aimed at that gap.
+
+Why it works: when 5 brands make the same claim, nobody stands out. A doubt no ad answers is a reason buyers hold back, and no rival is fixing it. Six different buyers catch doubts that a single "review this ad" prompt skips.
+
+The catch: Ad Library shows what your rivals run, not what works. A long-running ad is a hint, not proof. And these are AI buyers, so test the 3 hooks with real ad spend before you scale. You also pull the 5 ads yourself; the tool doesn't fetch them for you.
+
+It's completely free. Paste it into Claude and run it before your next ad.
+
+Comment "RIVAL" for the teardown.
+
+#ecommerce #d2cbrand #metaads

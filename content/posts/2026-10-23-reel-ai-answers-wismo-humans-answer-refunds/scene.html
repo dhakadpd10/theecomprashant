@@ -1,0 +1,252 @@
+<style>
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  .blob { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(140px); opacity: 0.5; }
+  #blobA { left: -320px; top: -220px; background: #4B23B8; }
+  #blobB { left: 440px; top: 820px; background: #0E7A4E; }
+  #blobC { left: -260px; top: 1120px; width: 700px; height: 700px; background: #7A1E5C; opacity: 0.35; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(244,240,255,0.05) 2px, transparent 2px), linear-gradient(90deg, rgba(244,240,255,0.05) 2px, transparent 2px); background-size: 90px 90px; }
+  .lines { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 6px); }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .scene * { box-sizing: border-box; }
+  .kicker { position: absolute; left: 90px; width: 900px; top: 20px; font-family: var(--display); line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; color: var(--ink); transform-origin: 0 50%; }
+  .mask { display: block; overflow: hidden; padding-bottom: 6px; }
+  .mask > span { display: block; }
+  .acc { color: var(--accent); }
+
+  /* 0: the inbox full of the same question, then the policy pasted once */
+  #s0 .kicker { font-size: 100px; }
+  #inbox { position: absolute; left: 90px; top: 290px; width: 900px; height: 870px; border-radius: 36px; background: #1A1535; border: 3px solid rgba(244,240,255,0.14); box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; }
+  #inbox .bar { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #241D47; }
+  #inbox .live { position: absolute; left: 36px; top: 34px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); }
+  #inbox .ttl { position: absolute; left: 84px; top: 0; height: 96px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #inbox .src { position: absolute; right: 36px; top: 0; height: 96px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 40px; color: rgba(244,240,255,0.75); }
+  .msg { position: absolute; left: 30px; width: 760px; height: 96px; transform-origin: 0 50%; }
+  .msg .av { position: absolute; left: 0; top: 16px; width: 64px; height: 64px; border-radius: 50%; background: #F59FB0; }
+  #m1 .av { background: #7FA8F8; } #m2 .av { background: #FFC857; } #m3 .av { background: #B7A4F7; }
+  .msg .bub { position: absolute; left: 84px; top: 0; height: 96px; padding: 0 34px; border-radius: 12px 32px 32px 32px; background: #F4F0FF; color: #0E0B1F; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 40px; white-space: nowrap; }
+  #m0 { top: 126px; } #m1 { top: 242px; } #m2 { top: 358px; } #m3 { top: 474px; }
+  #type { position: absolute; left: 30px; right: 30px; top: 720px; height: 120px; border-radius: 28px; background: #0E0B1F; border: 3px solid rgba(244,240,255,0.2); }
+  #type .txt { position: absolute; left: 32px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 40px; color: #F4F0FF; white-space: nowrap; overflow: hidden; clip-path: inset(0 100% 0 0); }
+  #type .snd { position: absolute; right: 16px; top: 16px; width: 120px; height: 82px; border-radius: 22px; background: var(--accent); color: #0E0B1F; display: flex; align-items: center; justify-content: center; }
+  #pdoc { position: absolute; left: 170px; top: 400px; width: 740px; height: 500px; border-radius: 32px; background: #F4F0FF; color: #0E0B1F; box-shadow: 0 40px 90px rgba(0,0,0,0.6); overflow: hidden; }
+  #pdoc .hd { position: absolute; left: 40px; top: 34px; font-family: var(--display); font-size: 40px; }
+  .prow { position: absolute; left: 40px; right: 40px; height: 70px; }
+  .prow .k { position: absolute; left: 0; top: 0; height: 70px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  .prow .v { position: absolute; left: 270px; right: 0; top: 23px; height: 24px; border-radius: 12px; background: #CFC8E6; transform-origin: 0 50%; }
+  #pr0 { top: 110px; } #pr1 { top: 195px; } #pr2 { top: 280px; } #pr3 { top: 365px; }
+  #pstamp { position: absolute; left: 360px; top: 800px; padding: 12px 24px; border: 8px solid #C4173A; border-radius: 16px; color: #C4173A; background: rgba(244,240,255,0.96); font-family: var(--display); font-size: 56px; line-height: 1.1; white-space: nowrap; }
+
+  /* 1-3: five questions, all day */
+  #big5 { position: absolute; left: 80px; top: 0; font-family: var(--display); font-size: 260px; line-height: 1; color: var(--accent); }
+  #s1-head { position: absolute; left: 330px; width: 620px; top: 40px; font-family: var(--display); font-size: 56px; line-height: 1.05; text-transform: uppercase; color: var(--ink); }
+  #fest { position: absolute; left: 330px; top: 200px; width: 380px; height: 80px; border-radius: 20px; background: var(--accent); color: #0E0B1F; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 40px; white-space: nowrap; }
+  #clock { position: absolute; left: 730px; top: 200px; width: 260px; height: 80px; border-radius: 20px; border: 3px solid rgba(244,240,255,0.3); background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .ask { position: absolute; width: 560px; height: 110px; transform-origin: 0 50%; }
+  #a1, #a3 { transform-origin: 100% 50%; }
+  .ask .g { position: absolute; width: 560px; height: 110px; border-radius: 30px; border: 3px solid rgba(57,255,136,0.4); background: rgba(57,255,136,0.05); }
+  .ask .g2 { left: 28px; top: 28px; }
+  .ask .g1 { left: 14px; top: 14px; }
+  .ask .bb { position: absolute; left: 0; top: 0; width: 560px; height: 110px; border-radius: 30px; background: #F4F0FF; color: #0E0B1F; display: flex; align-items: center; padding-left: 36px; font-family: var(--body); font-weight: 900; font-size: 40px; white-space: nowrap; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+  #a0 { left: 90px; top: 330px; } #a1 { left: 400px; top: 490px; } #a2 { left: 90px; top: 650px; } #a3 { left: 400px; top: 810px; } #a4 { left: 90px; top: 970px; }
+
+  /* 4-5: policies feed the AI lane, refunds go to the human lane */
+  #pol { position: absolute; left: 90px; top: 0; width: 900px; height: 200px; border-radius: 32px; background: #F4F0FF; color: #0E0B1F; box-shadow: 0 30px 70px rgba(0,0,0,0.5); }
+  #pol .hd { position: absolute; left: 30px; top: 22px; font-family: var(--display); font-size: 40px; }
+  #pol .tag { position: absolute; right: 30px; top: 22px; font-family: var(--body); font-weight: 900; font-size: 40px; color: #0B7A3E; }
+  #pol .chips { position: absolute; left: 30px; right: 30px; top: 100px; height: 72px; display: flex; gap: 16px; }
+  #pol .chip { display: block; height: 72px; padding: 0 22px; border-radius: 18px; background: #0E0B1F; color: #F4F0FF; font-family: var(--body); font-weight: 900; font-size: 40px; line-height: 72px; white-space: nowrap; }
+  #wire { position: absolute; left: 300px; top: 200px; width: 10px; height: 60px; border-radius: 5px; background: var(--accent); transform-origin: 50% 0; }
+  .lane { position: absolute; top: 260px; height: 900px; border-radius: 34px; }
+  #laneL { left: 90px; width: 470px; background: rgba(57,255,136,0.07); border: 3px solid rgba(57,255,136,0.45); }
+  #laneR { left: 590px; width: 400px; background: rgba(255,92,122,0.06); border: 3px dashed rgba(255,92,122,0.6); }
+  .lane .lh { position: absolute; left: 24px; top: 22px; font-family: var(--display); font-size: 56px; line-height: 1.1; white-space: nowrap; transform-origin: 0 50%; }
+  #laneL .lh { color: var(--accent); }
+  #laneR .lh { color: #FF5C7A; }
+  .dc { position: absolute; left: 20px; right: 20px; height: 120px; border-radius: 24px; background: #F4F0FF; color: #0E0B1F; }
+  .dc .tk { position: absolute; left: 18px; top: 28px; width: 64px; height: 64px; border-radius: 50%; background: #0B7A3E; display: flex; align-items: center; justify-content: center; }
+  .dc .tk b { display: block; width: 28px; height: 14px; border-left: 7px solid #FFFFFF; border-bottom: 7px solid #FFFFFF; rotate: -45deg; margin-top: -6px; }
+  .dc .t { position: absolute; left: 100px; right: 18px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 32px; line-height: 1.15; }
+  #d0 { top: 110px; } #d1 { top: 250px; } #d2 { top: 390px; } #d3 { top: 530px; } #d4 { top: 670px; }
+  .hc { position: absolute; left: 20px; right: 20px; height: 180px; border-radius: 24px; background: #F4F0FF; color: #0E0B1F; box-shadow: 0 18px 40px rgba(0,0,0,0.4); }
+  .hc .flag { position: absolute; left: 20px; top: 20px; height: 50px; padding: 0 18px; border-radius: 14px; background: #C4173A; color: #FFFFFF; font-family: var(--display); font-size: 32px; line-height: 50px; white-space: nowrap; }
+  .hc .t { position: absolute; left: 20px; right: 20px; top: 86px; font-family: var(--body); font-weight: 700; font-size: 32px; line-height: 1.15; }
+  #h0 { top: 110px; } #h1 { top: 320px; }
+  #you { position: absolute; left: 100px; top: 560px; width: 200px; height: 250px; }
+  #you .head { position: absolute; left: 50px; top: 0; width: 100px; height: 100px; border-radius: 50%; background: #FF5C7A; }
+  #you .body { position: absolute; left: 0; top: 120px; width: 200px; height: 120px; border-radius: 100px 100px 24px 24px; background: #FF5C7A; }
+
+  /* 6: the catch */
+  #s6 .kicker { font-size: 120px; }
+  #cdoc { position: absolute; left: 90px; top: 300px; width: 900px; height: 330px; border-radius: 32px; background: #F4F0FF; color: #0E0B1F; overflow: hidden; }
+  #cdoc .hd { position: absolute; left: 36px; top: 28px; font-family: var(--display); font-size: 40px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 56px; }
+  .crow .k { position: absolute; left: 0; top: 0; height: 56px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 40px; }
+  .crow .v { position: absolute; left: 270px; right: 0; top: 16px; height: 24px; border-radius: 12px; background: #CFC8E6; }
+  #cr0 { top: 110px; } #cr1 { top: 180px; } #cr2 { top: 250px; }
+  #cscan { position: absolute; left: 0; right: 0; top: 100px; height: 76px; background: linear-gradient(180deg, rgba(196,23,58,0), rgba(196,23,58,0.22), rgba(196,23,58,0)); }
+  #cq { position: absolute; left: 90px; top: 680px; width: 600px; height: 110px; border-radius: 12px 32px 32px 32px; background: #2A2250; border: 3px solid rgba(244,240,255,0.2); color: #F4F0FF; display: flex; align-items: center; padding-left: 36px; font-family: var(--body); font-weight: 900; font-size: 40px; white-space: nowrap; transform-origin: 0 50%; }
+  #crep { position: absolute; left: 250px; top: 830px; width: 740px; height: 210px; border-radius: 32px 12px 32px 32px; background: #F4F0FF; color: #0E0B1F; border-left: 14px solid #C4173A; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  #crep .fl { position: absolute; left: 26px; top: 64px; width: 64px; height: 80px; display: block; }
+  #crep .l1 { position: absolute; left: 116px; right: 30px; top: 42px; font-family: var(--body); font-weight: 900; font-size: 40px; line-height: 1.2; }
+  #crep .l2 { position: absolute; left: 116px; right: 30px; top: 112px; font-family: var(--body); font-weight: 900; font-size: 40px; line-height: 1.2; color: #C4173A; }
+
+  /* 7: what it can't do, and what you do */
+  .no { position: absolute; left: 90px; width: 900px; height: 150px; border-radius: 30px; background: rgba(255,255,255,0.05); border: 3px solid rgba(244,240,255,0.12); }
+  #no1 { top: 20px; } #no2 { top: 200px; }
+  .no .x { position: absolute; left: 28px; top: 28px; width: 88px; height: 88px; border-radius: 50%; background: #FF5C7A; }
+  .no .x i { position: absolute; left: 19px; top: 38px; width: 50px; height: 12px; border-radius: 6px; background: #0E0B1F; }
+  .no .x i:nth-child(1) { rotate: 45deg; }
+  .no .x i:nth-child(2) { rotate: -45deg; }
+  .no .t { position: absolute; left: 150px; right: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 56px; white-space: nowrap; color: var(--ink); }
+  .no .st { position: absolute; left: 140px; width: 620px; top: 66px; height: 12px; border-radius: 6px; background: #FF5C7A; transform-origin: 0 50%; }
+  #draft { position: absolute; left: 90px; top: 420px; width: 900px; height: 600px; border-radius: 34px; background: #F4F0FF; color: #0E0B1F; box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; }
+  #draft .bar { position: absolute; left: 0; right: 0; top: 0; height: 100px; background: #E2DCF5; }
+  #draft .hd { position: absolute; left: 36px; top: 0; height: 100px; display: flex; align-items: center; font-family: var(--display); font-size: 40px; }
+  #draft .ln { position: absolute; left: 36px; height: 28px; border-radius: 14px; background: #CFC8E6; transform-origin: 0 50%; }
+  #ln1 { top: 150px; width: 780px; } #ln2 { top: 205px; width: 700px; } #ln3 { top: 260px; width: 520px; }
+  .btn { position: absolute; top: 400px; width: 390px; height: 140px; border-radius: 28px; background: #0E0B1F; color: #F4F0FF; display: flex; align-items: center; justify-content: center; gap: 18px; font-family: var(--display); font-size: 40px; white-space: nowrap; }
+  #copy { left: 40px; } #send { left: 470px; }
+  .ci { display: block; position: relative; width: 48px; height: 48px; }
+  .ci i { position: absolute; width: 32px; height: 32px; border: 5px solid currentColor; border-radius: 8px; }
+  .ci i:nth-child(1) { left: 0; top: 0; }
+  .ci i:nth-child(2) { left: 16px; top: 16px; }
+  #plane { display: block; width: 52px; height: 52px; }
+
+  /* 8: comment */
+  #s8 .kicker { font-size: 130px; }
+  #avatar { position: absolute; left: 90px; top: 200px; width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(140deg, #39FF88, #1B8F55); }
+  #bubble { position: absolute; left: 90px; top: 380px; width: 900px; height: 290px; border-radius: 52px; background: #F4F0FF; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #bubble .tail { position: absolute; left: 70px; top: -22px; width: 60px; height: 60px; border-radius: 8px; background: #F4F0FF; rotate: 45deg; }
+  #bubble .ch { display: block; font-family: var(--display); font-size: 130px; line-height: 1; color: #0E0B1F; }
+  #sticker { position: absolute; left: 380px; top: 730px; height: 100px; padding: 0 34px; border-radius: 24px; background: var(--accent); color: #0E0B1F; font-family: var(--display); font-size: 56px; line-height: 100px; white-space: nowrap; }
+  #gets { position: absolute; left: 90px; top: 890px; width: 900px; display: flex; flex-wrap: wrap; gap: 20px; }
+  .get { display: flex; align-items: center; gap: 16px; height: 84px; padding: 0 28px; border-radius: 42px; background: rgba(255,255,255,0.06); border: 3px solid rgba(57,255,136,0.5); font-family: var(--body); font-weight: 700; font-size: 40px; white-space: nowrap; color: var(--ink); }
+  .get i { display: block; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob" id="blobA"></div>
+  <div class="blob" id="blobB"></div>
+  <div class="blob" id="blobC"></div>
+  <div class="grid"></div>
+  <div class="lines"></div>
+</div>
+
+<!-- 0: stop typing the same answer, paste your policy once -->
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kicker" aria-label="Stop typing the same 5">
+    <span class="mask"><span class="l">Stop typing</span></span>
+    <span class="mask"><span class="l acc">the same 5</span></span>
+  </div>
+  <div id="inbox">
+    <div class="bar"><div class="live"></div><div class="ttl">Inbox</div><div class="src">DMs · WhatsApp</div></div>
+    <div class="msg" id="m0"><div class="av"></div><div class="bub">Is COD available?</div></div>
+    <div class="msg" id="m1"><div class="av"></div><div class="bub">cod available??</div></div>
+    <div class="msg" id="m2"><div class="av"></div><div class="bub">Is COD there for my pin?</div></div>
+    <div class="msg" id="m3"><div class="av"></div><div class="bub">COD available? Urgent</div></div>
+    <div id="type">
+      <div class="txt">Yes, COD is available on...</div>
+      <div class="snd"><svg width="44" height="44" viewBox="0 0 24 24"><path d="M3 12 L21 4 L15 21 L11 13 Z" fill="currentColor"/></svg></div>
+    </div>
+  </div>
+  <div id="pdoc" data-layout-allow-overlap>
+    <div class="hd">YOUR POLICY</div>
+    <div class="prow" id="pr0"><div class="k">Shipping</div><div class="v"></div></div>
+    <div class="prow" id="pr1"><div class="k">Returns</div><div class="v"></div></div>
+    <div class="prow" id="pr2"><div class="k">COD</div><div class="v"></div></div>
+    <div class="prow" id="pr3"><div class="k">FAQ</div><div class="v"></div></div>
+  </div>
+  <div id="pstamp" data-layout-allow-overlap>PASTE ONCE</div>
+</section>
+
+<!-- 1-3: festive week, the same five questions pile up all day -->
+<section class="scene" id="s1" data-from="@line1" data-to="@line4">
+  <div id="big5">5</div>
+  <div id="s1-head" aria-label="Questions, all day">
+    <span class="mask"><span class="l">questions,</span></span>
+    <span class="mask"><span class="l acc">all day</span></span>
+  </div>
+  <div id="fest">FESTIVE WEEK</div>
+  <div id="clock"><span id="clk">9:00 AM</span></div>
+  <div class="ask" id="a0"><div class="g g2" data-layout-allow-overlap></div><div class="g g1" data-layout-allow-overlap></div><div class="bb">Where's my order?</div></div>
+  <div class="ask" id="a1"><div class="g g2" data-layout-allow-overlap></div><div class="g g1" data-layout-allow-overlap></div><div class="bb">Change the address?</div></div>
+  <div class="ask" id="a2"><div class="g g2" data-layout-allow-overlap></div><div class="g g1" data-layout-allow-overlap></div><div class="bb">Is COD available?</div></div>
+  <div class="ask" id="a3"><div class="g g2" data-layout-allow-overlap></div><div class="g g1" data-layout-allow-overlap></div><div class="bb">Return policy?</div></div>
+  <div class="ask" id="a4"><div class="g g2" data-layout-allow-overlap></div><div class="g g1" data-layout-allow-overlap></div><div class="bb">When will it ship?</div></div>
+</section>
+
+<!-- 4-5: answers come from your policies; refunds and angry ones go to a human -->
+<section class="scene" id="s4" data-from="@line4" data-to="@line6">
+  <div id="pol">
+    <div class="hd">YOUR POLICIES</div>
+    <div class="tag">pasted once</div>
+    <div class="chips"><div class="chip">Shipping</div><div class="chip">Returns</div><div class="chip">COD</div><div class="chip">FAQ</div></div>
+  </div>
+  <div id="wire"></div>
+  <div class="lane" id="laneL">
+    <div class="lh">AI DRAFTS</div>
+    <div class="dc" id="d0"><div class="tk"><b></b></div><div class="t">Where's my order?</div></div>
+    <div class="dc" id="d1"><div class="tk"><b></b></div><div class="t">Change address?</div></div>
+    <div class="dc" id="d2"><div class="tk"><b></b></div><div class="t">COD available?</div></div>
+    <div class="dc" id="d3"><div class="tk"><b></b></div><div class="t">Return policy?</div></div>
+    <div class="dc" id="d4"><div class="tk"><b></b></div><div class="t">When will it ship?</div></div>
+  </div>
+  <div class="lane" id="laneR">
+    <div class="lh">HUMAN</div>
+    <div class="hc" id="h0"><div class="flag">REFUND</div><div class="t">I want my refund</div></div>
+    <div class="hc" id="h1"><div class="flag">ANGRY</div><div class="t">Third time asking!</div></div>
+    <div id="you"><div class="head"></div><div class="body"></div></div>
+  </div>
+</section>
+
+<!-- 6: the catch, it only knows what you paste -->
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="kicker" aria-label="The catch">
+    <span class="mask"><span class="l">The</span></span>
+    <span class="mask"><span class="l acc">catch</span></span>
+  </div>
+  <div id="cdoc">
+    <div class="hd">YOUR POLICIES</div>
+    <div class="crow" id="cr0"><div class="k">Shipping</div><div class="v"></div></div>
+    <div class="crow" id="cr1"><div class="k">Returns</div><div class="v"></div></div>
+    <div class="crow" id="cr2"><div class="k">COD</div><div class="v"></div></div>
+    <div id="cscan" data-layout-allow-overlap></div>
+  </div>
+  <div id="cq">Can I pay with EMI?</div>
+  <div id="crep">
+    <div class="fl"><svg width="64" height="80" viewBox="0 0 32 40"><rect x="3" y="2" width="4" height="36" rx="2" fill="#0E0B1F"/><path d="M7 4 H28 L22 12 L28 20 H7 Z" fill="#C4173A"/></svg></div>
+    <div class="l1">Not in your policies.</div>
+    <div class="l2">Flagged for you.</div>
+  </div>
+</section>
+
+<!-- 7: no tracking, no sending; you copy, you send -->
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="no" id="no1"><div class="x"><i></i><i></i></div><div class="t">Courier tracking</div><div class="st" data-layout-allow-overlap></div></div>
+  <div class="no" id="no2"><div class="x"><i></i><i></i></div><div class="t">WhatsApp sending</div><div class="st" data-layout-allow-overlap></div></div>
+  <div id="draft">
+    <div class="bar"></div>
+    <div class="hd">DRAFT REPLY</div>
+    <div class="ln" id="ln1"></div>
+    <div class="ln" id="ln2"></div>
+    <div class="ln" id="ln3"></div>
+    <div class="btn" id="copy"><div class="ci"><i></i><i></i></div><span>YOU COPY</span></div>
+    <div class="btn" id="send"><div id="plane"><svg width="52" height="52" viewBox="0 0 24 24"><path d="M3 12 L21 4 L15 21 L11 13 Z" fill="currentColor"/></svg></div><span>YOU SEND</span></div>
+  </div>
+</section>
+
+<!-- 8: comment SUPPORT -->
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="kicker" aria-label="Comment">
+    <span class="mask"><span class="l">Comment</span></span>
+  </div>
+  <div id="avatar"></div>
+  <div id="bubble"><div class="tail"></div><span class="ch">S</span><span class="ch">U</span><span class="ch">P</span><span class="ch">P</span><span class="ch">O</span><span class="ch">R</span><span class="ch">T</span></div>
+  <div id="sticker">FREE PROMPT</div>
+  <div id="gets">
+    <div class="get"><i></i>Drafts replies</div>
+    <div class="get"><i></i>Any AI chat</div>
+    <div class="get"><i></i>Flags what needs you</div>
+  </div>
+</section>

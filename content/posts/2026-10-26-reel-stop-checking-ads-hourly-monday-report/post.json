@@ -1,0 +1,80 @@
+{
+  "id": "2026-10-26-reel-stop-checking-ads-hourly-monday-report",
+  "style": "motion",
+  "keyword": "SCALE",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(SCALE|[Ss]cale|[Kk]ill|[Kk]eep|ROAS|Monday|1|6|7|maybe|free)$",
+  "palette": {
+    "bg": "#0E1A17",
+    "ink": "#F2F0E8",
+    "accent": "#7CF5B0"
+  },
+  "lines": [
+    {
+      "say": "Stop refreshing ROAS at midnight and read one report on Monday.",
+      "show": "Stop refreshing ROAS at midnight. Read 1 report Monday.",
+      "cut": true,
+      "card": "STOP REFRESHING ROAS"
+    },
+    {
+      "say": "Killing an ad after six hours is a guess.",
+      "show": "Killing an ad at 6 hours is a guess.",
+      "cut": true
+    },
+    {
+      "say": "Not your fault. Ads Manager is built for refreshing.",
+      "show": "Not your fault. It's built for refreshing."
+    },
+    {
+      "say": "Every Monday, paste the last seven days into the Kill, Keep, Scale report.",
+      "show": "Every Monday: paste 7 days into the report.",
+      "cut": true
+    },
+    {
+      "say": "Every ad gets kill, keep or scale, plus one reason.",
+      "show": "Every ad: kill, keep or scale. Plus 1 reason.",
+      "cut": true
+    },
+    {
+      "say": "The catch: it only reads the export you paste.",
+      "show": "The catch: it only reads your export.",
+      "cut": true
+    },
+    {
+      "say": "On small budgets, seven days is thin. Kill means maybe.",
+      "show": "Small budget? 7 days is thin. Kill means maybe."
+    },
+    {
+      "say": "Comment SCALE and I'll send you the free report.",
+      "show": "Comment SCALE and I'll send it free.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+1.3",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.6",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.2",
+    "title": [
+      "STOP REFRESHING ROAS",
+      "READ 1 REPORT ON MONDAY"
+    ]
+  }
+}

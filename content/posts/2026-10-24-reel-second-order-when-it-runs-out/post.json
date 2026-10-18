@@ -1,0 +1,88 @@
+{
+  "id": "2026-10-24-reel-second-order-when-it-runs-out",
+  "style": "motion",
+  "keyword": "REPEAT",
+  "world": "notebook",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(REPEAT|7|25|empty|free|catch|3)$",
+  "palette": {
+    "bg": "#0F1A17",
+    "ink": "#F4EFE4",
+    "accent": "#7CE0B0"
+  },
+  "lines": [
+    {
+      "say": "Stop asking for the next order after one week. Ask when it's empty.",
+      "show": "Stop asking on day 7. Ask when it's empty.",
+      "card": "STOP ASKING ON DAY 7",
+      "cut": true
+    },
+    {
+      "say": "Most flows ask a week after delivery.",
+      "show": "Most flows ask a week after delivery."
+    },
+    {
+      "say": "Example: a small serum bottle, used morning and night.",
+      "show": "Example: 50 ml serum, used twice a day.",
+      "cut": true
+    },
+    {
+      "say": "It's empty in about three and a half weeks.",
+      "show": "Empty around day 25. Example timing."
+    },
+    {
+      "say": "My free Use-Up Reorder Series finds that day.",
+      "show": "The free Use-Up Reorder Series finds that day.",
+      "cut": true
+    },
+    {
+      "say": "Add your product and how it's used.",
+      "show": "Add your product and how it's used."
+    },
+    {
+      "say": "Three messages: a tip, a check-in, the reorder.",
+      "show": "3 messages: tip, check-in, reorder.",
+      "cut": true
+    },
+    {
+      "say": "The catch: that day is only a guess. Check it.",
+      "show": "The catch: the date is an estimate.",
+      "cut": true
+    },
+    {
+      "say": "Sales chats cost money per message, so it stays short.",
+      "show": "WhatsApp marketing costs money. It stays short."
+    },
+    {
+      "say": "Comment REPEAT and I'll send it free.",
+      "show": "Comment REPEAT and I'll send it free.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+1.0",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+0.3",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line4+0.9",
+    "title": [
+      "ASK WHEN IT RUNS OUT",
+      "NOT ON DAY 7"
+    ]
+  }
+}

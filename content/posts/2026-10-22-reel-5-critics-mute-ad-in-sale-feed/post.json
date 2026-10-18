@@ -1,0 +1,215 @@
+{
+  "id": "2026-10-22-reel-5-critics-mute-ad-in-sale-feed",
+  "keyword": "ROAST",
+  "world": "courtroom",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(ROAST|5|five|3|three|mute|alone|Stop|stop|scroll|fix|catch|CPM)",
+  "page": {
+    "title": "Glow Night Cream",
+    "price": "₹1,299",
+    "label": "YOUR AD",
+    "url": "yourstore.com/products/festive-offer"
+  },
+  "cast": [
+    {
+      "name": "Thumb-scroller",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Mute viewer",
+      "col": "#F59FB0",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Brand sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Media buyer",
+      "col": "#7FA8F8",
+      "prop": "shades"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop judging your ad alone. Judge it after a few Flipkart ads.",
+      "show": "Stop judging your ad alone. Judge it after 3 Flipkart ads.",
+      "card": "STOP JUDGING ADS ALONE",
+      "scene": {
+        "type": "page",
+        "ghosts": true,
+        "pins": [
+          {
+            "x": 690,
+            "y": 132,
+            "label": "COMMENT ROAST",
+            "at": 0.3
+          },
+          {
+            "x": 690,
+            "y": 200,
+            "label": "SOUND OFF",
+            "at": 1.4
+          }
+        ]
+      }
+    },
+    {
+      "say": "Comment ROAST. Your AI critics watch it on mute.",
+      "show": "Comment ROAST. 5 AI critics watch it on mute.",
+      "card": "COMMENT \"ROAST\"",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "big": "×5",
+        "step": 0.08
+      }
+    },
+    {
+      "say": "Marketplace sales have no end date yet.",
+      "card": "SALES WITH NO END DATE",
+      "scene": {
+        "type": "stat",
+        "big": "3 ADS",
+        "label": "Big Billion Days + Great Indian Festival, then yours"
+      }
+    },
+    {
+      "say": "Paste your ad, its first frame, and one line.",
+      "card": "PASTE AD + FIRST FRAME",
+      "scene": {
+        "type": "chat",
+        "text": "[your ad + first frame] Context: the viewer just scrolled past 3 marketplace sale ads, sound off.",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "say": "Sound off, after a few sale ads.",
+      "show": "Sound off, after 3 sale ads."
+    },
+    {
+      "say": "Each critic says stop or scroll.",
+      "card": "STOP OR SCROLL?",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cols": 5,
+        "walls": true,
+        "votes": [
+          "SCROLL",
+          "STOP",
+          "SCROLL",
+          "SCROLL",
+          "STOP"
+        ],
+        "voteAt": 0.6,
+        "voteStep": 0.15
+      }
+    },
+    {
+      "say": "One fix each, like price in frame one.",
+      "show": "1 fix each, like price in frame 1.",
+      "card": "ONE FIX EACH",
+      "scene": {
+        "type": "list",
+        "title": "Example fixes",
+        "items": [
+          "Price in frame 1",
+          "Product before the logo",
+          "Text big enough on mute"
+        ],
+        "who": 4
+      }
+    },
+    {
+      "say": "The catch: they judge creative, not targeting or CPM.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 5,
+        "stamp": "CREATIVE ONLY",
+        "sub": "not targeting, CPM or festive bids"
+      }
+    },
+    {
+      "say": "Or what Meta charges this festive week."
+    },
+    {
+      "say": "Comment ROAST and I'll send you the free roast.",
+      "card": "COMMENT \"ROAST\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 5-Critic Ad Roast in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "5 AI CRITICS",
+      "ROAST YOUR AD ON MUTE"
+    ],
+    "line": 5,
+    "lt": 4,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05
+    }
+  },
+  "log": {
+    "pillar": "Ads",
+    "hook": "#2 Negative Command",
+    "style": "courtroom: gold plaque titles, clay critics in jury booths, yellow ROAST chip",
+    "experiment": "keyword-placement, Ads arm A (chip + spoken 'Comment ROAST' early and at end)",
+    "timing_note": "The fixed hook line runs about 3.5 s at speed 1.08. The ROAST chip pin shows at 0.3 s. The spoken 'Comment ROAST' starts line 2, at about 3.5 s. Log the real timestamp after the render. If arm A has to be strictly 3 s spoken, shorten line 1.",
+    "post_window": "8-9 PM IST",
+    "at_72h": [
+      "keyword_comments (exclude Prashant)",
+      "reach",
+      "hold at 3s",
+      "avg watch time",
+      "follows",
+      "non-follower % reach",
+      "DMs sent",
+      "link taps"
+    ]
+  }
+}

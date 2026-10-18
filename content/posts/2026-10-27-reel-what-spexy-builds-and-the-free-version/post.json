@@ -1,0 +1,89 @@
+{
+  "id": "2026-10-27-reel-what-spexy-builds-and-the-free-version",
+  "style": "motion",
+  "keyword": "TEAM",
+  "world": "space",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hook": 9,
+  "hot": "^(TEAM|free|4|tonight|catch|Diwali)$",
+  "palette": {
+    "bg": "#0B0F24",
+    "ink": "#EEF0FF",
+    "accent": "#7CF5C8"
+  },
+  "lines": [
+    {
+      "say": "Grab the free version of what my studio builds for brands.",
+      "show": "Steal the free version of what Spexy builds.",
+      "card": "STEAL THE FREE VERSION",
+      "cut": true
+    },
+    {
+      "say": "You'll set up AI after the festival? Start the free one tonight.",
+      "show": "\"I'll set up AI after Diwali.\" Start tonight.",
+      "cut": true
+    },
+    {
+      "say": "We build AI systems that plug into your store and ads.",
+      "show": "We build AI wired into your store and ads.",
+      "cut": true
+    },
+    {
+      "say": "The free version is four agents in one chat app.",
+      "show": "Free version: 4 agents, 1 chat app.",
+      "cut": true
+    },
+    {
+      "say": "A writer, planner, checker and reporter, passing work along.",
+      "show": "Writer, planner, checker, reporter. Passing work along."
+    },
+    {
+      "say": "The catch: you copy and paste between them yourself.",
+      "show": "The catch: you copy-paste between them.",
+      "cut": true
+    },
+    {
+      "say": "It won't touch Shopify or Meta. The paid build does.",
+      "show": "No Shopify or Meta access. Paid build has it."
+    },
+    {
+      "say": "Comment TEAM and I'll send you the free team.",
+      "show": "Comment TEAM for the free 4-agent team.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+1.1",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+1.7",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line7.voice+0.5",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.8",
+    "title": [
+      "STEAL THE FREE VERSION",
+      "4 AI AGENTS, 1 CHAT"
+    ]
+  }
+}

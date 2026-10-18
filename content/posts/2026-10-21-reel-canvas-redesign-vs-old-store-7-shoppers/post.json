@@ -1,0 +1,229 @@
+{
+  "id": "2026-10-21-reel-canvas-redesign-vs-old-store-7-shoppers",
+  "keyword": "STORE",
+  "world": "gameshow",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hook": 17,
+  "style": "gameshow",
+  "pillar": "Sell more",
+  "publish": {
+    "date": "2026-10-21",
+    "time": "19:30",
+    "tz": "Asia/Kolkata"
+  },
+  "experiment": {
+    "name": "keyword-placement",
+    "arm": "A",
+    "chip": "yellow STORE chip on screen from 0s (line 0 cta scene) and again on the last line",
+    "spoken": "'Comment STORE' on line 1 and on the last line",
+    "note": "Line 0 is fixed at 11 words (about 4s at 1.08), so the spoken 'Comment STORE' starts at about 4s, not inside 3s. The chip itself is on screen from 0s. Log the real start time from the render."
+  },
+  "hot": "^(STORE|7|seven|Canvas|vote|votes|old|new|draft|blind|catch|simulation)",
+  "cast": [
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Host",
+      "col": "#FF7B7B",
+      "prop": "none"
+    },
+    {
+      "name": "You",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Stop publishing Canvas drafts blind. Let AI test shoppers vote first.",
+      "show": "Stop publishing Canvas drafts blind. Let 7 AI shoppers vote first.",
+      "card": "DON'T PUBLISH CANVAS BLIND",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 7-Shopper Test in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    },
+    {
+      "say": "Comment STORE and I'll send you the test free."
+    },
+    {
+      "say": "Shopify Canvas went live on October first.",
+      "show": "Shopify Canvas went live on 1 October.",
+      "card": "CANVAS WENT LIVE 1 OCT",
+      "scene": {
+        "type": "stat",
+        "big": "1 OCT",
+        "label": "Shopify Canvas is live"
+      }
+    },
+    {
+      "say": "You chat, it builds a new homepage in minutes.",
+      "card": "CHAT. GET A NEW HOMEPAGE.",
+      "scene": {
+        "type": "chat",
+        "text": "Redesign my homepage for the Diwali sale",
+        "ids": [
+          8
+        ]
+      }
+    },
+    {
+      "say": "But faster doesn't mean better.",
+      "card": "OLD STORE VS CANVAS DRAFT",
+      "scene": {
+        "type": "versus",
+        "gap": 0.9,
+        "left": {
+          "who": 3,
+          "tag": "OLD STORE",
+          "say": [
+            "I know this one.",
+            "Price is right there."
+          ],
+          "mood": "happy"
+        },
+        "right": {
+          "who": 0,
+          "tag": "CANVAS DRAFT",
+          "say": [
+            "Looks fresh.",
+            "Where's the price?"
+          ],
+          "mood": "frown"
+        }
+      }
+    },
+    {
+      "say": "Each AI shopper sees your live store and the draft.",
+      "show": "7 AI shoppers see your live store and the draft.",
+      "card": "7 AI SHOPPERS. 2 PAGES.",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "big": "×7",
+        "step": 0.08
+      }
+    },
+    {
+      "say": "Each one votes alone: old or new, and why.",
+      "card": "EXAMPLE VOTE: OLD OR NEW",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "NEW",
+          "OLD",
+          "OLD",
+          "NEW",
+          "OLD",
+          "OLD",
+          "NEW"
+        ],
+        "voteAt": 0.3,
+        "voteStep": 0.15
+      }
+    },
+    {
+      "say": "The catch: it's a simulation, not real traffic.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 7,
+        "stamp": "SIMULATION",
+        "sub": "not real traffic"
+      }
+    },
+    {
+      "say": "Comment STORE and I'll send you the free AI shopper test.",
+      "show": "Comment STORE and I'll send you the free 7-Shopper Test.",
+      "card": "COMMENT \"STORE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 7-Shopper Test: old store vs Canvas draft",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "OLD STORE OR",
+      "CANVAS DRAFT?"
+    ],
+    "line": 6,
+    "lt": 2,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05
+    }
+  }
+}

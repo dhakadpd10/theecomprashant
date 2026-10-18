@@ -1,0 +1,81 @@
+{
+  "dur": 28.07,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.488,
+      "b": 4.588,
+      "say": "Stop typing 'is COD available' by hand. Paste your policy once.",
+      "show": "Stop typing 'is COD available'. Paste your policy once."
+    },
+    {
+      "a": 4.588,
+      "voice": 4.688,
+      "end": 7.688,
+      "b": 7.788,
+      "say": "Festive week brings the same five questions, all day.",
+      "show": "Festive week: the same 5 questions, all day."
+    },
+    {
+      "a": 7.788,
+      "voice": 7.888,
+      "end": 11.014,
+      "b": 11.114,
+      "say": "Where's my order? Change the address? Is COD available?",
+      "show": "Where's my order? Change address? COD available?"
+    },
+    {
+      "a": 11.114,
+      "voice": 11.214,
+      "end": 12.913,
+      "b": 13.013,
+      "say": "Return policy? When will it ship?",
+      "show": "Return policy? When will it ship?"
+    },
+    {
+      "a": 13.013,
+      "voice": 13.113,
+      "end": 16.176,
+      "b": 16.276,
+      "say": "This free agent answers each one from your own policies.",
+      "show": "It answers from your own pasted policies."
+    },
+    {
+      "a": 16.276,
+      "voice": 16.376,
+      "end": 18.763,
+      "b": 18.863,
+      "say": "Refunds and angry customers go to a human.",
+      "show": "Refunds and angry customers go to a human."
+    },
+    {
+      "a": 18.863,
+      "voice": 18.963,
+      "end": 20.988,
+      "b": 21.088,
+      "say": "The catch: it only knows what you paste in.",
+      "show": "The catch: it only knows what you paste."
+    },
+    {
+      "a": 21.088,
+      "voice": 21.188,
+      "end": 24.538,
+      "b": 24.638,
+      "say": "No courier tracking, no WhatsApp sending. You copy, you send.",
+      "show": "No courier tracking. You copy and send it."
+    },
+    {
+      "a": 24.638,
+      "voice": 24.738,
+      "end": 26.667,
+      "b": 28.07,
+      "say": "Type SUPPORT below and I'll send it free.",
+      "show": "Comment SUPPORT and I'll send it free."
+    }
+  ]
+}

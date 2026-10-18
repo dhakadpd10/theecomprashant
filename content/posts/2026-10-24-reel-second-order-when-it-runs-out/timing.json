@@ -1,0 +1,89 @@
+{
+  "dur": 27.08,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.961,
+      "b": 4.061,
+      "say": "Stop asking for the next order after one week. Ask when it's empty.",
+      "show": "Stop asking on day 7. Ask when it's empty."
+    },
+    {
+      "a": 4.061,
+      "voice": 4.161,
+      "end": 6.233,
+      "b": 6.333,
+      "say": "Most flows ask a week after delivery.",
+      "show": "Most flows ask a week after delivery."
+    },
+    {
+      "a": 6.333,
+      "voice": 6.433,
+      "end": 9.255,
+      "b": 9.355,
+      "say": "Example: a small serum bottle, used morning and night.",
+      "show": "Example: 50 ml serum, used twice a day."
+    },
+    {
+      "a": 9.355,
+      "voice": 9.455,
+      "end": 11.408,
+      "b": 11.508,
+      "say": "It's empty in about three and a half weeks.",
+      "show": "Empty around day 25. Example timing."
+    },
+    {
+      "a": 11.508,
+      "voice": 11.608,
+      "end": 14.073,
+      "b": 14.173,
+      "say": "My free Use-Up Reorder Series finds that day.",
+      "show": "The free Use-Up Reorder Series finds that day."
+    },
+    {
+      "a": 14.173,
+      "voice": 14.273,
+      "end": 15.959,
+      "b": 16.059,
+      "say": "Add your product and how it's used.",
+      "show": "Add your product and how it's used."
+    },
+    {
+      "a": 16.059,
+      "voice": 16.159,
+      "end": 18.543,
+      "b": 18.643,
+      "say": "Three messages: a tip, a check-in, the reorder.",
+      "show": "3 messages: tip, check-in, reorder."
+    },
+    {
+      "a": 18.643,
+      "voice": 18.743,
+      "end": 20.689,
+      "b": 20.789,
+      "say": "The catch: that day is only a guess. Check it.",
+      "show": "The catch: the date is an estimate."
+    },
+    {
+      "a": 20.789,
+      "voice": 20.889,
+      "end": 23.728,
+      "b": 23.828,
+      "say": "Sales chats cost money per message, so it stays short.",
+      "show": "WhatsApp marketing costs money. It stays short."
+    },
+    {
+      "a": 23.828,
+      "voice": 23.928,
+      "end": 25.682,
+      "b": 27.08,
+      "say": "Comment REPEAT and I'll send it free.",
+      "show": "Comment REPEAT and I'll send it free."
+    }
+  ]
+}

@@ -2,6 +2,14 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-19
+
+- **Still too early: 3 reels, 1 pillar, 124 total reach.** The ranking by outlier multiple against a median of 32 is LAUNCH 3.5x, STORE 1.0x and AUDIT 0x. A median built from 3 posts means very little, so none of this is a pattern. Shares are 0 on every post, so the strongest signal (sends per reach) can't rank anything yet.
+- **Same shape as last week (hunch).** LAUNCH got reach (98) but no action: 0 likes, 0 comments, 1 save (10.2 per 1k reach). STORE got 6 comments on 26 reach (231 per 1k). We still can't tell if those comments were "STORE" because keyword_comments is blank, and without hold at 3s we can't say where LAUNCH lost people.
+- **AUDIT is still at 0 views and 0 reach** a day or more after its 08:04 UTC publish on 17 Oct. Before counting it, check by hand that the reel is live and public and that the API pull isn't lagging. Treat it as a possible publishing issue, not a hook verdict.
+- **The log can't answer the audit's questions yet.** Hook formula and reel style are blank on all 3 posts, so the hooks.json comparison can't run. Hold at 3s, watch time, follows and non-follower reach aren't in the API. From now on, fill in hook id, style and keyword comments for every post, and copy those 4 numbers from in-app insights at 72 hours.
+- **Carry forward unchanged:** follow the planned pillar mix, and run the keyword-placement test (chip in the first 3 seconds plus the end, against the end only) on 4 reels at 8 to 9 PM IST. Judge it on keyword comments ÷ reach at 72 hours.
+
 ## Week of 2026-10-17
 
 - **Too early to conclude anything.** There are 3 reels, all in the Sell more pillar, and each was under 36 hours old at the snapshot. Together they have 156 views. Everything below is a hunch. AUDIT shows 0 views because it went live at 08:04 UTC on the day of the snapshot, so re-pull it next Monday before reading anything into it.

@@ -1,0 +1,27 @@
+Comment "REPEAT" for the free Use-Up Reorder Series. It asks for the reorder when the pack runs out, not before.
+
+I'll DM it to you. Follow so the DM lands 📩
+
+👇 READ BELOW for how it works:
+
+1. Most post-purchase flows ask for the reorder about 7 days after delivery. But on day 7 your customer's bottle is still half full. Too early.
+
+2. You paste the series into Claude and add 3 details: pack size, how much goes in one use, and how many times a day it's used.
+
+3. It works out roughly when the pack runs out. Example: a 50 ml serum, about 1 ml a use, twice a day, is empty around day 25. That's example maths, not a promise.
+
+4. It writes you 3 short messages around that day. A usage tip first. Then a check-in. Then the reorder.
+
+5. You copy them into the WhatsApp or email tool you already use. You set the send days yourself. It doesn't send anything for you.
+
+What you get: a 3-message reorder series timed to when your product actually runs out, not a fixed day 7.
+
+Why it works: a reminder only helps when they're close to empty. Send it too early and they ignore it. Send it too late and they've already bought from someone else on Amazon.
+
+The catch: the empty date is a guess. Some people use double, some use half. Check it against when your repeat buyers really reorder and adjust. And keep it to 3 messages, because every WhatsApp marketing message costs you money.
+
+It's free. Paste it into Claude and try it on your best-seller first.
+
+Comment "REPEAT" and I'll send it over.
+
+#ecommerce #d2cbrand #customerretention

@@ -1,0 +1,205 @@
+{
+  "id": "2026-10-24-reel-6-ai-buyers-judge-5-rival-ads",
+  "keyword": "RIVAL",
+  "world": "courtroom",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(RIVAL|5|five|6|six|3|three|free|public|gap|doubt|catch)",
+  "page": {
+    "title": "Matte Lip Kit",
+    "price": "₹799",
+    "label": "SPONSORED",
+    "url": "facebook.com/ads/library"
+  },
+  "cast": [
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Judge",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    },
+    {
+      "name": "Competitor",
+      "col": "#5D6577",
+      "prop": "shades"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Nobody tells you your competitors' Meta ads are public and free.",
+      "card": "COMPETITOR ADS ARE PUBLIC",
+      "scene": {
+        "type": "page",
+        "who": 7,
+        "whoAt": 0.5,
+        "say": [
+          "Shhh.",
+          "Don't tell them."
+        ]
+      }
+    },
+    {
+      "say": "Pull five of them from Ad Library tonight.",
+      "show": "Pull 5 of them from Ad Library tonight.",
+      "card": "PULL 5 FROM AD LIBRARY",
+      "scene": {
+        "type": "stat",
+        "big": "5 ADS",
+        "label": "Meta Ad Library · free"
+      }
+    },
+    {
+      "say": "Then a jury of six AI buyers reads all five.",
+      "show": "Then a jury of 6 AI buyers reads all 5.",
+      "card": "6 AI BUYERS READ THEM",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "big": "×6",
+        "step": 0.08
+      }
+    },
+    {
+      "say": "They list the claim every ad repeats.",
+      "card": "THE CLAIM EVERYONE REPEATS",
+      "scene": {
+        "type": "list",
+        "title": "Every ad says (example)",
+        "items": [
+          "Long-lasting matte",
+          "Free delivery",
+          "Dermatologist tested"
+        ],
+        "who": 2,
+        "mood": "frown"
+      }
+    },
+    {
+      "say": "And the doubt nobody answers.",
+      "card": "THE DOUBT NOBODY ANSWERS",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "cols": 3,
+        "walls": true,
+        "votes": [
+          "SHADE?",
+          "FADES?",
+          "SHADE?",
+          "FAKE?",
+          "SHADE?",
+          "SHADE?"
+        ],
+        "voteAt": "@line5+0.1",
+        "voteStep": 0.15
+      }
+    },
+    {
+      "say": "That gap is your angle.",
+      "card": "THAT GAP IS YOUR ANGLE",
+      "scene": {
+        "type": "verdict",
+        "who": 6,
+        "stamp": "NO ONE SAYS IT",
+        "sub": "example gap: will the shade suit me?"
+      }
+    },
+    {
+      "say": "You leave with three hooks written for it.",
+      "show": "You leave with 3 hooks written for it.",
+      "card": "3 HOOKS FOR THE GAP",
+      "scene": {
+        "type": "list",
+        "title": "Example hooks",
+        "items": [
+          "Wrong shade? Swap it free.",
+          "See it on 6 skin tones.",
+          "Find your shade in 30 sec."
+        ],
+        "who": 6,
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One catch. The library shows what they run, not what works.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "stat",
+        "big": "HINT",
+        "label": "a long-running ad is not proof"
+      }
+    },
+    {
+      "say": "Comment RIVAL and I'll send you the free teardown.",
+      "card": "COMMENT \"RIVAL\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free Rival Ad Teardown in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "6 AI BUYERS JUDGE",
+      "5 COMPETITOR ADS"
+    ],
+    "line": 4,
+    "lt": 2,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05
+    }
+  }
+}

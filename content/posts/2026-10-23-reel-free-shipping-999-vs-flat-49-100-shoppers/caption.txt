@@ -1,0 +1,25 @@
+Comment "PRICE" and I'll DM you the free 100-Shopper Price Test: 100 AI shoppers pick your price. Follow so the DM lands 📩
+
+👇 READ BELOW for how the test works:
+
+1. Free shipping above ₹999 or flat ₹49? Most stores pick on a hunch. If you pick wrong, you only find out when next month's orders drop.
+
+2. You paste your cart into Claude: the product, the price and the two shipping rules you're stuck between.
+
+3. 100 AI shoppers split into two groups, one for each rule: a student, a busy mom, a COD-only buyer, a tier-2 shopper, a premium buyer, a late-night scroller and more.
+
+4. Each shopper decides alone: buy, add one more item to cross ₹999, switch to COD, or leave. Each one says why.
+
+5. You get both rules side by side, with the one worth testing first.
+
+What you get: a count for each rule showing who buys, who adds an item, who picks COD and who abandons. You also get every shopper's reason and one rule to A/B test.
+
+Why it works: if you ask one AI which rule is better, it picks one and sounds sure. 100 different shoppers deciding alone show you who each rule loses, not just which one wins.
+
+The catch: AI shoppers don't feel a real wallet. Use the vote to choose which rule to A/B test, then judge it on real orders.
+
+It's completely free. Paste it into Claude and run it on your own cart. It works for two prices too, not just shipping.
+
+Comment "PRICE" for the test.
+
+#ecommerce #d2cbrand #pricing

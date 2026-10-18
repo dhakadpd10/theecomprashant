@@ -1,0 +1,85 @@
+{
+  "id": "2026-10-23-reel-ai-answers-wismo-humans-answer-refunds",
+  "style": "motion",
+  "keyword": "SUPPORT",
+  "world": "arcade",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hook": "2",
+  "hot": "^(SUPPORT|5|COD|human|free|Refunds|catch|once)$",
+  "palette": {
+    "bg": "#0E0B1F",
+    "ink": "#F4F0FF",
+    "accent": "#39FF88"
+  },
+  "lines": [
+    {
+      "say": "Stop typing 'is COD available' by hand. Paste your policy once.",
+      "show": "Stop typing 'is COD available'. Paste your policy once.",
+      "card": "STOP TYPING THE SAME 5",
+      "cut": true
+    },
+    {
+      "say": "Festive week brings the same five questions, all day.",
+      "show": "Festive week: the same 5 questions, all day.",
+      "cut": true
+    },
+    {
+      "say": "Where's my order? Change the address? Is COD available?",
+      "show": "Where's my order? Change address? COD available?"
+    },
+    {
+      "say": "Return policy? When will it ship?",
+      "show": "Return policy? When will it ship?"
+    },
+    {
+      "say": "This free agent answers each one from your own policies.",
+      "show": "It answers from your own pasted policies.",
+      "cut": true
+    },
+    {
+      "say": "Refunds and angry customers go to a human.",
+      "show": "Refunds and angry customers go to a human.",
+      "cut": true
+    },
+    {
+      "say": "The catch: it only knows what you paste in.",
+      "show": "The catch: it only knows what you paste.",
+      "cut": true
+    },
+    {
+      "say": "No courier tracking, no WhatsApp sending. You copy, you send.",
+      "show": "No courier tracking. You copy and send it."
+    },
+    {
+      "say": "Type SUPPORT below and I'll send it free.",
+      "show": "Comment SUPPORT and I'll send it free.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line8.voice+0.5",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "AI ANSWERS THE SAME 5",
+      "REFUNDS STAY HUMAN"
+    ]
+  }
+}

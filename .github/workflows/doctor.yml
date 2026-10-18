@@ -135,11 +135,18 @@ jobs:
           const rep = fs.existsSync('doctor-report.md') ? fs.readFileSync('doctor-report.md', 'utf8') : '';
           if (/NEEDS PRASHANT: yes/i.test(rep)) human.push(`- From the Doctor's repair attempt:\n\n${rep.split('\n').map((l) => '  ' + l).join('\n')}`);
           const list = JSON.parse(execSync('gh issue list --state open --label needs-you --json number', { encoding: 'utf8' }) || '[]');
-          const body = `The agent can't fix these by itself. Everything else it repairs automatically.\n\n${human.join('\n\n')}\n\n_Last checked ${new Date().toISOString()}. This issue closes itself when they're resolved._`;
+          const me = `@${process.env.GITHUB_REPOSITORY_OWNER || 'dhakadpd10'}`; // the @mention pushes it to his phone and email
+          const body = `${me} the agent can't fix these by itself. Everything else it repairs automatically.\n\n${human.join('\n\n')}\n\n_Last checked ${new Date().toISOString()}. This issue closes itself when they're resolved._`;
           fs.writeFileSync('issue.md', body);
           try { execSync('gh label create needs-you --color D93F0B --description "Only Prashant can fix this" 2>/dev/null'); } catch {}
           if (human.length && !list.length) execSync('gh issue create --title "Agent needs you" --label needs-you --body-file issue.md', { stdio: 'inherit' });
-          else if (human.length) execSync(`gh issue edit ${list[0].number} --body-file issue.md`, { stdio: 'inherit' });
+          else if (human.length) {
+            const old = execSync(`gh issue view ${list[0].number} --json body -q .body`, { encoding: 'utf8' });
+            const fresh = human.filter((l) => !old.includes(l.split('\n')[0]));
+            execSync(`gh issue edit ${list[0].number} --body-file issue.md`, { stdio: 'inherit' });
+            // an edit sends no notification, so a NEW problem also gets a comment that mentions him
+            if (fresh.length) { fs.writeFileSync('new.md', `${me} something new needs you:\n\n${fresh.join('\n\n')}`); execSync(`gh issue comment ${list[0].number} --body-file new.md`, { stdio: 'inherit' }); }
+          }
           else for (const i of list) execSync(`gh issue close ${i.number} --comment "Resolved: the agent is healthy again."`, { stdio: 'inherit' });
           if (h.fixed?.length) console.log('Fixed automatically:\n- ' + h.fixed.join('\n- '));
           EOF

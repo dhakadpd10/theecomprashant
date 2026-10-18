@@ -68,7 +68,7 @@ jobs:
           git fetch origin main
           git rebase origin/main || { git rebase --abort; git merge --no-edit origin/main; }
           git push -u origin "$BRANCH"
-          node src/cli.js review "$WEEK" "$BRANCH" > pr.md
+          { echo "@$GITHUB_REPOSITORY_OWNER next week's posts are ready for your OK. Merge to approve (or add the label \`hold\`)."; echo; node src/cli.js review "$WEEK" "$BRANCH"; } > pr.md
           gh pr create --base main --head "$BRANCH" --title "Approve $WEEK" --body-file pr.md
       - name: Keep everything made if saving failed (Actions -> this run -> Artifacts, 14 days)
         if: failure()

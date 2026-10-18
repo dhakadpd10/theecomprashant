@@ -41,15 +41,16 @@
       "published_at": "2026-10-17T08:04:45.472Z"
     },
     {
-      "day": "2026-10-17",
-      "time": "19:30",
+      "day": "2026-10-21",
+      "time": "13:00",
       "format": "reel",
       "post": "04-ad-roast",
       "keyword": "ROAST",
       "pillar": "Ads",
       "topic": "5 AI critics roast your Meta ad",
-      "status": "hold",
-      "note": "Instagram blocked the app at 19:30 on 17 Oct (API access blocked); reschedule once access is back"
+      "status": "made",
+      "note": "rescheduled from 2026-10-17 19:30",
+      "attempts": 0
     },
     {
       "day": "2026-10-18",

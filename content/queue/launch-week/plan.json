@@ -59,9 +59,11 @@
       "keyword": "TEAM",
       "pillar": "Operations",
       "topic": "A 4-agent marketing team inside Claude",
-      "status": "made",
+      "status": "published",
       "attempts": 2,
-      "error": "Instagram POST /17841462809508508/media: Error validating access token: The user has not authorized application 1093122280161971. (code 190)"
+      "error": "Instagram POST /17841462809508508/media: Error validating access token: The user has not authorized application 1093122280161971. (code 190)",
+      "media_id": "17998505828824369",
+      "published_at": "2026-10-18T12:05:19.497Z"
     },
     {
       "day": "2026-10-18",

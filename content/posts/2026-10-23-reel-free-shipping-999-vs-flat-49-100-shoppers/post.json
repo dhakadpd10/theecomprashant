@@ -1,0 +1,268 @@
+{
+  "id": "2026-10-23-reel-free-shipping-999-vs-flat-49-100-shoppers",
+  "keyword": "PRICE",
+  "world": "bazaar",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(PRICE|100|₹?999|₹?49|COD|abandons|wallet|catch)",
+  "page": {
+    "title": "Cotton Kurta Set",
+    "price": "₹899",
+    "label": "EXAMPLE CART",
+    "button": "Checkout",
+    "url": "yourstore.com/cart"
+  },
+  "cast": [
+    {
+      "name": "Student",
+      "col": "#7DD3C0",
+      "prop": "phone"
+    },
+    {
+      "name": "Busy mom",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "Bargain hunter",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "COD-only buyer",
+      "col": "#FF7B7B",
+      "prop": "question"
+    },
+    {
+      "name": "First-time buyer",
+      "col": "#9FE3A8",
+      "prop": "question"
+    },
+    {
+      "name": "Office worker",
+      "col": "#A0C4FF",
+      "prop": "phone"
+    },
+    {
+      "name": "Late-night scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Premium buyer",
+      "col": "#E8CF8E",
+      "prop": "heart"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    },
+    {
+      "name": "Tier-2 shopper",
+      "col": "#C9B6FF",
+      "prop": "cart"
+    },
+    {
+      "name": "Repeat customer",
+      "col": "#7FA8F8",
+      "prop": "heart"
+    },
+    {
+      "name": "Shop owner",
+      "col": "#5E6E94",
+      "prop": "gavel"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Free shipping on big carts, or a small flat fee? A crowd of AI shoppers voted.",
+      "show": "\"Free shipping above ₹999 or flat ₹49?\" 100 AI shoppers voted.",
+      "card": "₹999 FREE OR ₹49 FLAT",
+      "scene": {
+        "type": "page",
+        "pins": [
+          {
+            "x": 690,
+            "y": 686,
+            "label": "SHIPPING RULE?",
+            "at": 0.4
+          }
+        ]
+      }
+    },
+    {
+      "say": "Same cart, different shipping rules.",
+      "card": "SAME CART. TWO RULES.",
+      "scene": {
+        "type": "versus",
+        "gap": 0.8,
+        "left": {
+          "who": 1,
+          "tag": "FREE ABOVE ₹999",
+          "say": [
+            "I'll add",
+            "one more."
+          ],
+          "mood": "happy"
+        },
+        "right": {
+          "who": 3,
+          "tag": "FLAT ₹49",
+          "say": [
+            "₹49 just",
+            "to ship?"
+          ],
+          "mood": "frown"
+        }
+      }
+    },
+    {
+      "say": "On free shipping, who adds one more item to reach the free shipping limit?",
+      "show": "On free shipping, who adds one more item to cross ₹999?",
+      "card": "EXAMPLE: WHO ADDS ONE ITEM?",
+      "scene": {
+        "type": "stat",
+        "big": "18 / 50",
+        "label": "EXAMPLE: added 1 item to cross ₹999"
+      }
+    },
+    {
+      "say": "With the flat fee, who abandons the cart?",
+      "show": "On flat ₹49, who abandons the cart?",
+      "card": "EXAMPLE: WHO ABANDONS AT ₹49?",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "cols": 4,
+        "walls": false,
+        "votes": [
+          "BUY",
+          "BUY",
+          "BUY",
+          "LEAVE",
+          "COD",
+          "COD",
+          "BUY",
+          "LEAVE",
+          "BUY",
+          "LEAVE",
+          "COD",
+          "BUY"
+        ],
+        "voteAt": "@line3+0.3",
+        "voteStep": 0.12,
+        "tally": "@line4+0.6"
+      }
+    },
+    {
+      "say": "And who switches to cash on delivery?",
+      "show": "And who switches to COD?",
+      "card": "EXAMPLE: WHO PICKS COD?"
+    },
+    {
+      "say": "Each shopper says why.",
+      "card": "EVERY SHOPPER SAYS WHY",
+      "scene": {
+        "type": "page",
+        "who": 10,
+        "whoAt": 0.2,
+        "say": [
+          "₹49 to ship?",
+          "I'll pay COD."
+        ]
+      }
+    },
+    {
+      "say": "The catch: AI shoppers don't feel a real wallet.",
+      "card": "THE CATCH",
+      "scene": {
+        "type": "verdict",
+        "who": 12,
+        "stamp": "A/B TEST IT",
+        "sub": "AI has no real wallet"
+      }
+    },
+    {
+      "say": "Use it to pick which rule to A-B test for real.",
+      "show": "Use it to pick which rule to A/B test for real.",
+      "card": "PICK THE RULE TO TEST",
+      "scene": {
+        "type": "list",
+        "title": "Vote, then test",
+        "items": [
+          "AI vote picks the rule",
+          "Run both on your store",
+          "Judge on real orders"
+        ],
+        "who": 12
+      }
+    },
+    {
+      "say": "Comment PRICE and I'll send you the free shopper price test.",
+      "show": "Comment PRICE and I'll send you the free 100-Shopper Price Test.",
+      "card": "COMMENT \"PRICE\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free 100-Shopper Price Test in your DMs",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          10
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "100 AI SHOPPERS VOTE",
+      "₹999 FREE OR ₹49 FLAT?"
+    ],
+    "line": 3,
+    "lt": 2.5,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  },
+  "log": {
+    "hook": "16",
+    "hook_name": "The Verbatim Question",
+    "style": "bazaar world, clay box characters with props, price-tag titles, captions at bottom",
+    "pillar": "Sell more",
+    "experiment": "keyword placement, Sell more B: keyword chip and spoken 'Comment PRICE' at the end only",
+    "post_at": "19:30 IST",
+    "note": "19:30 is outside the experiment's 20:00 to 21:00 IST window. Move to 20:00 or later so it matches the Sell more A reel, or log the time difference.",
+    "keyword_comments": null,
+    "hold_3s": null,
+    "avg_watch_time": null,
+    "follows": null,
+    "non_follower_reach_pct": null,
+    "dms_sent": null,
+    "link_taps": null
+  }
+}

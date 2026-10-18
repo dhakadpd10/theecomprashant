@@ -1,0 +1,238 @@
+{
+  "id": "2026-10-25-reel-8-cart-leavers-read-your-reminders",
+  "keyword": "CART",
+  "world": "bazaar",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(CART|8|eight|3|three|block|favourite|two|2|money|COD|less)",
+  "cast": [
+    {
+      "name": "Amazon price checker",
+      "col": "#FFC857",
+      "prop": "tag"
+    },
+    {
+      "name": "Payday gift buyer",
+      "col": "#FF9F68",
+      "prop": "gift"
+    },
+    {
+      "name": "COD-only buyer",
+      "col": "#9FE3A8",
+      "prop": "cart"
+    },
+    {
+      "name": "Distracted scroller",
+      "col": "#F7A8D8",
+      "prop": "phone"
+    },
+    {
+      "name": "Size doubter",
+      "col": "#B7A4F7",
+      "prop": "question"
+    },
+    {
+      "name": "Coupon hunter",
+      "col": "#7FA8F8",
+      "prop": "tag"
+    },
+    {
+      "name": "Festival shopper",
+      "col": "#F59FB0",
+      "prop": "heart"
+    },
+    {
+      "name": "Delivery-date worrier",
+      "col": "#7DD3C0",
+      "prop": "glass"
+    }
+  ],
+  "lines": [
+    {
+      "say": "Since first October, every WhatsApp cart reminder costs you money.",
+      "show": "Since 1 Oct, every WhatsApp cart reminder costs you money.",
+      "card": "1 OCT: REMINDERS COST MONEY",
+      "scene": {
+        "type": "stat",
+        "big": "1 OCT",
+        "label": "every reminder now costs"
+      }
+    },
+    {
+      "say": "So eight AI shoppers who left carts read your three reminders.",
+      "show": "So 8 AI cart leavers read your 3 reminders.",
+      "card": "8 CART LEAVERS. 3 REMINDERS.",
+      "scene": {
+        "type": "drop",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "big": "×8",
+        "step": 0.06
+      }
+    },
+    {
+      "say": "One checks Amazon. One gift buyer waits for payday.",
+      "card": "A SALE-WEEK MIX",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "reveal": [
+          0,
+          1
+        ],
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "One wanted C O D. One just got distracted.",
+      "show": "One wanted COD. One just got distracted.",
+      "scene": {
+        "type": "lineup",
+        "rows": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "reveal": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "shown": [
+          0,
+          1
+        ],
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "Each votes order, ignore or block, and picks the best message.",
+      "card": "EXAMPLE: BUY, IGNORE, BLOCK",
+      "scene": {
+        "type": "jury",
+        "ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "cols": 4,
+        "walls": true,
+        "votes": [
+          "IGNORE",
+          "BUY",
+          "BUY",
+          "BUY",
+          "IGNORE",
+          "BLOCK",
+          "BUY",
+          "IGNORE"
+        ],
+        "voteAt": 0.8,
+        "voteStep": 0.12,
+        "tally": 2
+      }
+    },
+    {
+      "say": "Message one nudges. Two answers the doubt. Three sets a deadline.",
+      "show": "Message 1 nudges. 2 answers the doubt. 3 sets a deadline.",
+      "card": "3 MESSAGES. 3 JOBS.",
+      "scene": {
+        "type": "list",
+        "title": "Your 3 reminders",
+        "items": [
+          "1 hr: a calm nudge + cart link",
+          "Day 1: clears COD, size doubts",
+          "Day 2: a real sale deadline"
+        ],
+        "who": 3,
+        "mood": "neutral"
+      }
+    },
+    {
+      "say": "The winner? Message two. It clears their doubt.",
+      "show": "Favourite? Message 2. It clears their doubt.",
+      "card": "THE FAVOURITE",
+      "scene": {
+        "type": "verdict",
+        "who": 2,
+        "stamp": "FAV: MESSAGE 2",
+        "sub": "it clears the doubt"
+      }
+    },
+    {
+      "say": "Fewer, better reminders cost less now.",
+      "card": "FEWER MESSAGES, SMALLER BILL",
+      "scene": {
+        "type": "stat",
+        "big": "3 MSGS",
+        "label": "fewer, better, cheaper"
+      }
+    },
+    {
+      "say": "Comment CART and I'll send you the free sequence.",
+      "card": "COMMENT \"CART\"",
+      "scene": {
+        "type": "cta",
+        "sub": "Free no-spam cart sequence in your DMs",
+        "ids": [
+          1,
+          2,
+          3,
+          6
+        ]
+      }
+    }
+  ],
+  "cover": {
+    "title": [
+      "8 CART LEAVERS",
+      "READ YOUR REMINDERS"
+    ],
+    "line": 4,
+    "lt": 3,
+    "shift": 150,
+    "params": {
+      "voteAt": 0.2,
+      "voteStep": 0.05,
+      "tally": 99
+    }
+  }
+}

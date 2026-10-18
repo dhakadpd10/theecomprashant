@@ -1,0 +1,281 @@
+<style>
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(140px); opacity: 0.45; }
+  #blobA { left: -320px; top: -220px; width: 900px; height: 900px; background: #1B6B50; }
+  #blobB { left: 420px; top: 900px; width: 900px; height: 900px; background: #24407A; }
+  #blobC { left: 560px; top: -260px; width: 600px; height: 600px; background: #2F5E3A; opacity: 0.35; }
+  .grid { position: absolute; inset: 0; background-image: radial-gradient(rgba(242,240,232,0.09) 2.5px, transparent 2.5px); background-size: 60px 60px; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .kicker { position: absolute; left: 90px; right: 90px; top: 20px; font-family: var(--display); font-size: 104px; line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 6px; }
+  .mask > span { display: block; }
+  .acc { color: var(--accent); }
+
+  /* s0: midnight ROAS refreshing */
+  #phone { position: absolute; left: 290px; top: 270px; width: 500px; height: 860px; border-radius: 56px; background: #15251F; border: 3px solid rgba(242,240,232,0.16); box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; }
+  #phone .notch { position: absolute; left: 180px; top: 18px; width: 140px; height: 30px; border-radius: 16px; background: #0B1411; }
+  #s0-clock { position: absolute; left: 40px; top: 66px; width: 260px; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.75); }
+  #s0-ref { position: absolute; right: 40px; top: 56px; width: 64px; height: 64px; color: var(--accent); }
+  #s0-ref svg, #s2-arrow svg { display: block; width: 100%; height: 100%; }
+  #phone .lbl { position: absolute; left: 40px; top: 170px; font-family: var(--body); font-weight: 900; font-size: 48px; color: rgba(242,240,232,0.7); }
+  #s0-ex { position: absolute; right: 40px; top: 184px; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.65); }
+  #s0-roas { position: absolute; left: 40px; top: 240px; width: 300px; font-family: var(--display); font-size: 104px; line-height: 1; color: var(--ink); }
+  #phone .bars { position: absolute; left: 40px; right: 40px; top: 420px; height: 300px; display: flex; align-items: flex-end; gap: 18px; }
+  #phone .bar { display: block; flex: 1; height: 100%; border-radius: 14px 14px 6px 6px; background: linear-gradient(180deg, #7CF5B0, #2E8F62); transform-origin: 50% 100%; }
+  #s0-upd { position: absolute; left: 40px; top: 770px; width: 420px; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.65); }
+  #s0-stk { position: absolute; left: 200px; top: 1010px; padding: 18px 30px; border-radius: 22px; background: #F2F0E8; color: #0E1A17; font-family: var(--body); font-weight: 900; font-size: 48px; white-space: nowrap; box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+
+  /* s1: six hours out of a week */
+  #s1-big { position: absolute; left: 90px; top: 40px; font-family: var(--display); font-size: 150px; line-height: 1; white-space: nowrap; color: var(--ink); }
+  #s1-card { position: absolute; left: 90px; top: 300px; width: 810px; height: 560px; border-radius: 36px; background: #F2F0E8; color: #0E1A17; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s1-card .wk-h { position: absolute; left: 44px; top: 40px; font-family: var(--body); font-weight: 900; font-size: 48px; }
+  #s1-pin { position: absolute; left: 44px; top: 120px; width: 160px; height: 130px; }
+  #s1-pin .flag { position: absolute; left: 0; top: 0; height: 70px; padding: 0 20px; border-radius: 14px; background: #C62828; color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 48px; display: flex; align-items: center; }
+  #s1-pin .stem { position: absolute; left: 10px; top: 70px; width: 6px; height: 60px; background: #C62828; }
+  #s1-track { position: absolute; left: 44px; right: 44px; top: 250px; height: 80px; border-radius: 20px; background: #DCD8CC; overflow: hidden; }
+  #s1-seg { position: absolute; left: 0; top: 0; width: 26px; height: 80px; background: #C62828; transform-origin: 0% 50%; }
+  #s1-card .days { position: absolute; left: 44px; right: 44px; top: 350px; display: flex; justify-content: space-between; font-family: var(--body); font-weight: 700; font-size: 34px; color: #3E443F; }
+  #s1-card .days span { display: block; }
+  #s1-card .wk-foot { position: absolute; left: 44px; top: 440px; font-family: var(--body); font-weight: 700; font-size: 34px; color: #3E443F; }
+  #s1-guess { position: absolute; left: 220px; top: 620px; padding: 10px 30px; border: 10px solid #FF6B6B; border-radius: 22px; background: rgba(14,26,23,0.95); color: #FF6B6B; font-family: var(--display); font-size: 150px; line-height: 1; white-space: nowrap; }
+
+  /* s2: built for refreshing */
+  #s2-btn { position: absolute; left: 340px; top: 300px; width: 400px; height: 400px; border-radius: 50%; background: #F2F0E8; box-shadow: 0 30px 80px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+  #s2-arrow { display: block; width: 230px; height: 230px; color: #0E1A17; }
+  #s2-count { position: absolute; left: 90px; right: 90px; top: 760px; text-align: center; font-family: var(--display); font-size: 150px; line-height: 1; color: var(--accent); }
+  #s2-lbl { position: absolute; left: 90px; right: 90px; top: 930px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: rgba(242,240,232,0.8); }
+
+  /* s3: Monday, last 7 days, paste */
+  #s3-mon { display: block; transform-origin: 0% 60%; }
+  #s3-week { position: absolute; left: 90px; top: 260px; width: 810px; height: 130px; display: flex; gap: 18px; }
+  #s3 .day { position: relative; display: block; width: 100px; height: 130px; border-radius: 22px; border: 4px solid rgba(242,240,232,0.3); }
+  #s3 .df { position: absolute; inset: -4px; border-radius: 22px; background: var(--accent); opacity: 0; }
+  #s3 .dl { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--ink); }
+  #s3-brk { position: absolute; left: 90px; top: 410px; width: 810px; height: 26px; border: 4px solid var(--accent); border-top: none; border-radius: 0 0 12px 12px; transform-origin: 50% 50%; }
+  #s3-brk-l { position: absolute; left: 90px; right: 90px; top: 450px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 34px; color: var(--accent); }
+  #s3-sheet { position: absolute; left: 90px; top: 520px; width: 810px; height: 300px; border-radius: 28px; background: #17302A; border: 3px solid rgba(242,240,232,0.16); }
+  #s3-sheet .sh { position: absolute; left: 32px; top: 24px; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.8); }
+  #s3-sheet .srow { position: absolute; left: 32px; right: 32px; height: 50px; border-radius: 12px; background: rgba(242,240,232,0.1); display: flex; gap: 16px; align-items: center; padding: 0 16px; }
+  #s3-sheet .srow i { display: block; height: 18px; border-radius: 9px; background: rgba(242,240,232,0.35); }
+  #s3-r1 { top: 90px; } #s3-r2 { top: 160px; } #s3-r3 { top: 230px; }
+  #s3-slot { position: absolute; left: 90px; top: 880px; width: 810px; height: 240px; border-radius: 32px; border: 5px dashed var(--accent); }
+  #s3-slot .sf { position: absolute; inset: -5px; border-radius: 32px; background: #F2F0E8; opacity: 0; }
+  #s3-st { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+
+  /* s4: the report */
+  #s4-rep { position: absolute; left: 90px; top: 170px; width: 810px; height: 960px; border-radius: 36px; background: #15241F; border: 3px solid rgba(242,240,232,0.16); box-shadow: 0 30px 80px rgba(0,0,0,0.5); overflow: hidden; }
+  #s4-rep .bar { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #1D312A; }
+  #s4-rep .lights { position: absolute; left: 32px; top: 36px; display: flex; gap: 14px; }
+  #s4-rep .lights i { display: block; width: 24px; height: 24px; border-radius: 50%; background: #E5484D; }
+  #s4-rep .lights i:nth-child(2) { background: #FFC857; } #s4-rep .lights i:nth-child(3) { background: #3DD68C; }
+  #s4-rep .ttl { position: absolute; left: 150px; top: 28px; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--ink); }
+  #s4-rep .ex { position: absolute; right: 32px; top: 28px; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.65); }
+  #s4 .vrow { position: absolute; left: 30px; right: 30px; height: 240px; border-radius: 24px; background: rgba(242,240,232,0.06); border: 3px solid rgba(124,245,176,0); }
+  #s4-v1 { top: 130px; } #s4-v2 { top: 395px; } #s4-v3 { top: 660px; }
+  #s4 .nm { position: absolute; left: 28px; top: 34px; width: 460px; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s4 .chip { position: absolute; right: 24px; top: 24px; height: 80px; padding: 0 26px; border-radius: 18px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 48px; }
+  #s4 .k-kill { background: #C62828; color: #FFFFFF; }
+  #s4 .k-keep { background: #2C3F39; color: #F2F0E8; }
+  #s4 .k-scale { background: var(--accent); color: #0E1A17; }
+  #s4 .why { position: absolute; left: 28px; right: 28px; top: 132px; font-family: var(--body); font-weight: 700; font-size: 34px; line-height: 1.2; color: rgba(242,240,232,0.85); clip-path: inset(0 100% 0 0); }
+
+  /* s5: the catch */
+  #s5-file { position: absolute; left: 90px; top: 200px; width: 330px; height: 400px; border-radius: 28px; background: #F2F0E8; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  #s5-file .corner { position: absolute; right: 0; top: 0; width: 80px; height: 80px; background: linear-gradient(225deg, #0E1A17 50%, #D3CEBE 50%); }
+  #s5-file .fl { position: absolute; left: 30px; height: 22px; border-radius: 11px; background: #CFCABC; }
+  #s5-fn { position: absolute; left: 30px; top: 330px; font-family: var(--body); font-weight: 900; font-size: 34px; color: #0E1A17; }
+  #s5-arrow { position: absolute; left: 440px; top: 340px; width: 140px; height: 120px; color: var(--accent); }
+  #s5-arrow svg { display: block; width: 100%; height: 100%; }
+  #s5-box { position: absolute; left: 600px; top: 200px; width: 360px; height: 400px; border-radius: 28px; background: #15241F; border: 4px solid var(--accent); }
+  #s5-tick { position: absolute; left: 116px; top: 60px; width: 120px; height: 120px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #s5-tick b { display: block; width: 48px; height: 24px; border-left: 12px solid #0E1A17; border-bottom: 12px solid #0E1A17; rotate: -45deg; margin-top: -12px; }
+  #s5-box .bt { position: absolute; left: 0; right: 0; top: 220px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s5-box .bs { position: absolute; left: 0; right: 0; top: 290px; text-align: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: rgba(242,240,232,0.75); }
+  #s5-am { position: absolute; left: 90px; top: 680px; width: 810px; height: 330px; border-radius: 28px; background: #1A2622; border: 3px solid rgba(242,240,232,0.16); }
+  #s5-am .lock { position: absolute; left: 40px; top: 90px; width: 120px; height: 140px; color: rgba(242,240,232,0.7); }
+  #s5-am .lock svg { display: block; width: 100%; height: 100%; }
+  #s5-am .amt { position: absolute; left: 200px; top: 50px; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s5-am .ams { position: absolute; left: 200px; top: 125px; width: 580px; font-family: var(--body); font-weight: 700; font-size: 34px; line-height: 1.15; color: rgba(242,240,232,0.75); }
+  #s5-no { position: absolute; left: 200px; top: 222px; padding: 10px 20px; border-radius: 12px; background: #C62828; color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 34px; white-space: nowrap; }
+
+  /* s6: small budget, thin data */
+  #s6-chart { position: absolute; left: 90px; top: 260px; width: 810px; height: 440px; border-radius: 32px; background: #F2F0E8; color: #0E1A17; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s6-chart .ch-h { position: absolute; left: 40px; top: 28px; font-family: var(--body); font-weight: 900; font-size: 48px; }
+  #s6-chart .ch-ex { position: absolute; right: 40px; top: 40px; font-family: var(--body); font-weight: 700; font-size: 34px; color: #4A504B; }
+  #s6-chart .cols { position: absolute; left: 40px; right: 40px; top: 100px; height: 260px; display: flex; justify-content: space-between; align-items: flex-end; }
+  #s6-chart .col { position: relative; display: block; width: 80px; height: 260px; }
+  #s6 .gh { position: absolute; inset: 0; border: 3px dashed rgba(14,26,23,0.35); border-radius: 14px; }
+  #s6 .bv { position: absolute; left: 0; right: 0; bottom: 0; border-radius: 10px; background: #1E7A55; transform-origin: 50% 100%; }
+  #s6-chart .dlab { position: absolute; left: 40px; right: 40px; top: 374px; display: flex; justify-content: space-between; font-family: var(--body); font-weight: 700; font-size: 34px; color: #3E443F; }
+  #s6-chart .dlab span { display: block; width: 80px; text-align: center; }
+  #s6-kill { position: absolute; left: 290px; top: 790px; width: 500px; height: 200px; border-radius: 30px; background: #C62828; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 104px; color: #FFFFFF; box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
+  #s6-maybe { position: absolute; left: 330px; top: 830px; padding: 6px 30px 14px; border-radius: 24px; border: 5px solid var(--accent); background: #0E1A17; color: var(--accent); font-family: 'Permanent Marker'; font-size: 104px; line-height: 1.1; white-space: nowrap; }
+
+  /* s7: comment SCALE */
+  #s7-box { position: absolute; left: 90px; top: 200px; width: 810px; height: 300px; border-radius: 40px; background: #F2F0E8; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s7 .ch { display: block; font-family: var(--display); font-size: 190px; line-height: 1; color: #0E1A17; }
+  #s7-dm { position: absolute; left: 90px; top: 600px; width: 810px; height: 260px; border-radius: 36px; background: #15241F; border: 4px solid var(--accent); }
+  #s7-doc { position: absolute; left: 40px; top: 48px; width: 120px; height: 160px; border-radius: 16px; background: #F2F0E8; }
+  #s7-doc i { position: absolute; left: 18px; height: 18px; border-radius: 9px; }
+  #s7-doc i:nth-child(1) { top: 30px; width: 60px; background: #C62828; }
+  #s7-doc i:nth-child(2) { top: 66px; width: 76px; background: #8A938E; }
+  #s7-doc i:nth-child(3) { top: 102px; width: 84px; background: #1E7A55; }
+  #s7-dm .dt { position: absolute; left: 200px; top: 40px; width: 570px; font-family: var(--body); font-weight: 900; font-size: 48px; line-height: 1.15; color: var(--ink); }
+  #s7-dm .ds { position: absolute; left: 200px; top: 170px; width: 570px; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--accent); }
+  #s7-stk { position: absolute; left: 560px; top: 940px; padding: 18px 32px; border-radius: 22px; background: var(--accent); color: #0E1A17; font-family: var(--body); font-weight: 900; font-size: 48px; white-space: nowrap; box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob" id="blobA"></div>
+  <div class="blob" id="blobB"></div>
+  <div class="blob" id="blobC"></div>
+  <div class="grid"></div>
+</div>
+
+<!-- 0: hook, refreshing ROAS at midnight -->
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kicker" aria-label="Stop refreshing">
+    <span class="mask"><span class="l">Stop</span></span>
+    <span class="mask"><span class="l acc">refreshing</span></span>
+  </div>
+  <div id="phone">
+    <div class="notch"></div>
+    <div id="s0-clock">12:04 AM</div>
+    <div id="s0-ref"><svg viewBox="0 0 64 64"><path d="M52 32a20 20 0 1 1-6-14.1" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M48 6v14H34" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="lbl">ROAS</div>
+    <div id="s0-ex">example</div>
+    <div id="s0-roas">2.1</div>
+    <div class="bars"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div>
+    <div id="s0-upd">Updated just now</div>
+  </div>
+  <div id="s0-stk" data-layout-allow-overlap>1 REPORT, MONDAY</div>
+</section>
+
+<!-- 1: six hours out of a 168-hour week -->
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div id="s1-big"><span class="acc">6</span> HOURS</div>
+  <div id="s1-card">
+    <div class="wk-h">One ad, one week</div>
+    <div id="s1-pin"><div class="flag">KILL</div><div class="stem"></div></div>
+    <div id="s1-track"><div id="s1-seg"></div></div>
+    <div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="wk-foot">6 of 168 hours</div>
+  </div>
+  <div id="s1-guess" data-layout-allow-overlap>GUESS</div>
+</section>
+
+<!-- 2: built for refreshing -->
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="kicker" aria-label="Not your fault">
+    <span class="mask"><span class="l">Not your</span></span>
+    <span class="mask"><span class="l acc">fault</span></span>
+  </div>
+  <div id="s2-btn"><div id="s2-arrow"><svg viewBox="0 0 64 64"><path d="M52 32a20 20 0 1 1-6-14.1" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><path d="M48 6v14H34" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  <div id="s2-count">0</div>
+  <div id="s2-lbl">refreshes · example</div>
+</section>
+
+<!-- 3: every Monday, last 7 days, paste the export -->
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="kicker" aria-label="Every Monday">
+    <span class="mask"><span class="l" id="s3-k1">Every</span></span>
+    <span id="s3-mon" class="acc">Monday</span>
+  </div>
+  <div id="s3-week">
+    <div class="day"><div class="df"></div><div class="dl">MON</div></div>
+    <div class="day"><div class="df"></div><div class="dl">TUE</div></div>
+    <div class="day"><div class="df"></div><div class="dl">WED</div></div>
+    <div class="day"><div class="df"></div><div class="dl">THU</div></div>
+    <div class="day"><div class="df"></div><div class="dl">FRI</div></div>
+    <div class="day"><div class="df"></div><div class="dl">SAT</div></div>
+    <div class="day"><div class="df"></div><div class="dl">SUN</div></div>
+  </div>
+  <div id="s3-brk"></div>
+  <div id="s3-brk-l">last 7 days</div>
+  <div id="s3-sheet">
+    <div class="sh">export.csv</div>
+    <div class="srow" id="s3-r1" data-layout-allow-overlap><i style="width:40%"></i><i style="width:20%"></i><i style="width:15%"></i></div>
+    <div class="srow" id="s3-r2" data-layout-allow-overlap><i style="width:34%"></i><i style="width:24%"></i><i style="width:12%"></i></div>
+    <div class="srow" id="s3-r3" data-layout-allow-overlap><i style="width:44%"></i><i style="width:16%"></i><i style="width:18%"></i></div>
+  </div>
+  <div id="s3-slot"><div class="sf"></div><div id="s3-st">Kill · Keep · Scale</div></div>
+</section>
+
+<!-- 4: every ad gets a verdict and one reason -->
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="kicker" aria-label="Every ad">
+    <span class="mask"><span class="l">Every <span class="acc">ad</span></span></span>
+  </div>
+  <div id="s4-rep">
+    <div class="bar"><div class="lights"><i></i><i></i><i></i></div><div class="ttl">Weekly report</div><div class="ex">example</div></div>
+    <div class="vrow" id="s4-v1"><div class="nm">Ad 1 · Offer</div><div class="chip k-kill" id="s4-c1">KILL</div><div class="why" id="s4-w1">ROAS under break-even all week</div></div>
+    <div class="vrow" id="s4-v2"><div class="nm">Ad 2 · UGC</div><div class="chip k-keep" id="s4-c2">KEEP</div><div class="why" id="s4-w2">Near break-even. Wait 7 more days.</div></div>
+    <div class="vrow" id="s4-v3"><div class="nm">Ad 3 · Founder</div><div class="chip k-scale" id="s4-c3">SCALE</div><div class="why" id="s4-w3">Above break-even, spend is steady</div></div>
+  </div>
+</section>
+
+<!-- 5: the catch, it only reads your export -->
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="kicker" aria-label="The catch">
+    <span class="mask"><span class="l">The <span class="acc">catch</span></span></span>
+  </div>
+  <div id="s5-file">
+    <div class="corner"></div>
+    <div class="fl" style="top:110px; width:220px"></div>
+    <div class="fl" style="top:160px; width:260px"></div>
+    <div class="fl" style="top:210px; width:190px"></div>
+    <div class="fl" style="top:260px; width:240px"></div>
+    <div id="s5-fn">export.csv</div>
+  </div>
+  <div id="s5-arrow"><svg viewBox="0 0 140 120"><path d="M12 60H112" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"/><path d="M80 28L116 60L80 92" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div id="s5-box">
+    <div id="s5-tick"><b></b></div>
+    <div class="bt">Report</div>
+    <div class="bs">reads it</div>
+  </div>
+  <div id="s5-am">
+    <div class="lock"><svg viewBox="0 0 120 140"><path d="M32 66V46a28 28 0 0 1 56 0v20" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"/><rect x="14" y="62" width="92" height="70" rx="14" fill="currentColor"/></svg></div>
+    <div class="amt">Ads Manager</div>
+    <div class="ams">Can't see it. Can't change it.</div>
+    <div id="s5-no">NO ACCESS</div>
+  </div>
+</section>
+
+<!-- 6: small budget, thin data, kill means maybe -->
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="kicker" aria-label="Small budget">
+    <span class="mask"><span class="l">Small</span></span>
+    <span class="mask"><span class="l acc">budget</span></span>
+  </div>
+  <div id="s6-chart">
+    <div class="ch-h">7 days of orders</div>
+    <div class="ch-ex">example</div>
+    <div class="cols">
+      <div class="col"><div class="gh"></div><div class="bv" style="height:24px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:40px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:16px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:32px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:20px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:48px"></div></div>
+      <div class="col"><div class="gh"></div><div class="bv" style="height:28px"></div></div>
+    </div>
+    <div class="dlab"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+  </div>
+  <div id="s6-kill">KILL</div>
+  <div id="s6-maybe" data-layout-allow-overlap>maybe?</div>
+</section>
+
+<!-- 7: comment SCALE -->
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="kicker" aria-label="Comment">
+    <span class="mask"><span class="l">Comment</span></span>
+  </div>
+  <div id="s7-box"><span class="ch">S</span><span class="ch">C</span><span class="ch">A</span><span class="ch">L</span><span class="ch">E</span></div>
+  <div id="s7-dm">
+    <div id="s7-doc"><i></i><i></i><i></i></div>
+    <div class="dt">Kill / Keep / Scale report</div>
+    <div class="ds">free, in your DMs</div>
+  </div>
+  <div id="s7-stk">FREE TOOL</div>
+</section>

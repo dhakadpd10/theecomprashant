@@ -1,0 +1,25 @@
+Comment "SCALE" and I'll DM you the free Weekly Kill / Keep / Scale Ad Report: 1 verdict per ad. Follow so the DM lands 📩
+
+👇 READ BELOW for how the report works:
+
+1. Killing an ad after 6 hours is a guess. It's not your fault. Ads Manager is built for refreshing ROAS at midnight.
+
+2. Every Monday, export the last 7 days from Ads Manager at ad level: spend, purchases, ROAS, CTR, CPM.
+
+3. Paste the export into Claude with the report prompt. Add your break-even ROAS so it knows your line.
+
+4. Every ad gets one verdict: kill, keep or scale. Each verdict comes with 1 reason in plain words.
+
+5. You make the changes yourself in one sitting. Then you close Ads Manager until next Monday.
+
+What you get: one short report a week that tells you what to cut and where to put more money, with no midnight checking.
+
+Why it works: one day of data swings with weekends, paydays and the learning phase. 7 days smooths most of that out. The same rules get applied to every ad, so how you feel at midnight doesn't decide.
+
+The catch: it only reads the export you paste, and it can't touch your ad account. On small budgets, 7 days is thin. If an ad has only a few purchases, treat "kill" as "maybe" and give it another week.
+
+It's completely free. Paste it into Claude and run it this Monday.
+
+Comment "SCALE" for the report.
+
+#metaads #d2cbrand #ecommerce

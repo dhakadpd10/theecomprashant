@@ -1,0 +1,274 @@
+<style>
+  .bg { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  .blob { position: absolute; width: 900px; height: 900px; border-radius: 50%; filter: blur(140px); opacity: 0.45; }
+  #blobA { left: -320px; top: -240px; background: #3B2FA8; }
+  #blobB { left: 520px; top: 880px; background: #0F7A6A; }
+  #blobC { left: 160px; top: 1260px; background: #26206E; }
+  .stars { position: absolute; left: 0; right: 0; top: 0; height: 2200px; background-size: 540px 620px; }
+  #starsA { background-image: radial-gradient(circle at 12% 18%, rgba(238,240,255,0.8) 0 2px, transparent 3px), radial-gradient(circle at 64% 9%, rgba(238,240,255,0.6) 0 2px, transparent 3px), radial-gradient(circle at 83% 47%, rgba(238,240,255,0.7) 0 2px, transparent 3px), radial-gradient(circle at 35% 72%, rgba(238,240,255,0.5) 0 2px, transparent 3px); }
+  #starsB { background-size: 700px 760px; background-image: radial-gradient(circle at 26% 40%, rgba(124,245,200,0.9) 0 3px, transparent 4px), radial-gradient(circle at 78% 22%, rgba(238,240,255,0.9) 0 3px, transparent 4px), radial-gradient(circle at 52% 88%, rgba(238,240,255,0.8) 0 2px, transparent 3px); }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(238,240,255,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(238,240,255,0.045) 2px, transparent 2px); background-size: 90px 90px; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .kicker { position: absolute; left: 90px; right: 90px; top: 20px; font-family: var(--display); font-size: 116px; line-height: 0.96; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); transform-origin: 0 0; }
+  .mask { display: block; overflow: hidden; padding-bottom: 6px; }
+  .mask > span { display: block; }
+  .acc { color: var(--accent); font-style: normal; }
+
+  /* 0: the paid build, and the free copy coming out of it */
+  #s0-card { position: absolute; left: 140px; top: 400px; width: 800px; height: 470px; box-sizing: border-box; border-radius: 36px; background-color: #131A3D; background-image: linear-gradient(rgba(124,245,200,0.07) 2px, transparent 2px), linear-gradient(90deg, rgba(124,245,200,0.07) 2px, transparent 2px); background-size: 40px 40px; border: 3px solid rgba(124,245,200,0.45); box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+  #s0-card .hdr { position: absolute; left: 40px; top: 30px; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s0 .node { position: absolute; top: 120px; width: 200px; height: 140px; box-sizing: border-box; border-radius: 26px; border: 3px solid rgba(124,245,200,0.6); background: rgba(124,245,200,0.08); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s0-store { left: 40px; } #s0-ads { left: 560px; }
+  #s0-ai { left: 300px; background: var(--accent); border-color: var(--accent); color: #0B0F24; }
+  #s0 .wire { position: absolute; top: 186px; width: 60px; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: 0 50%; }
+  #s0-wa { left: 240px; } #s0-wb { left: 500px; }
+  #s0 .bar { position: absolute; left: 40px; height: 18px; border-radius: 9px; background: rgba(124,245,200,0.28); }
+  #s0-b1 { top: 300px; width: 520px; } #s0-b2 { top: 340px; width: 360px; } #s0-b3 { top: 380px; width: 600px; }
+  #s0-ticket { position: absolute; left: 400px; top: 830px; width: 560px; height: 150px; border-radius: 24px; background: #F2F3FF; box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  #s0-ticket .perf { position: absolute; left: 46px; top: 16px; bottom: 16px; border-left: 4px dashed rgba(11,15,36,0.35); }
+  #s0-ticket .tt { position: absolute; left: 70px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 48px; color: #0B0F24; white-space: nowrap; }
+
+  /* 1: "after Diwali" gets struck out */
+  .lights1 { position: absolute; left: 90px; right: 90px; top: 20px; height: 40px; display: flex; justify-content: space-between; align-items: center; }
+  .lights1::before { content: ''; position: absolute; left: 0; right: 0; top: 19px; height: 2px; background: rgba(238,240,255,0.25); }
+  .bulb { display: block; width: 30px; height: 30px; border-radius: 50%; background: #FFB347; box-shadow: 0 0 22px rgba(255,179,71,0.8); }
+  .bulb:nth-child(3n+2) { background: #FF6B6B; box-shadow: 0 0 22px rgba(255,107,107,0.8); }
+  .bulb:nth-child(3n) { background: #7CF5C8; box-shadow: 0 0 22px rgba(124,245,200,0.8); }
+  #s1-note { position: absolute; left: 140px; top: 110px; width: 800px; height: 440px; border-radius: 28px; background: #F7F2DF; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+  #s1-note .todo { position: absolute; left: 60px; top: 44px; font-family: var(--body); font-weight: 900; font-size: 40px; letter-spacing: 0.12em; text-transform: uppercase; color: #6B5420; }
+  #s1-note .cb { position: absolute; left: 60px; top: 142px; width: 56px; height: 56px; box-sizing: border-box; border: 6px solid #0B0F24; border-radius: 12px; }
+  #s1-note .t1 { position: absolute; left: 150px; top: 124px; font-family: var(--body); font-weight: 900; font-size: 64px; line-height: 1.2; color: #0B0F24; white-space: nowrap; }
+  #s1-later { position: absolute; left: 150px; top: 250px; font-family: 'Permanent Marker'; font-size: 64px; line-height: 1.2; color: #B23A2A; white-space: nowrap; }
+  #s1-strike { position: absolute; left: -14px; right: -14px; top: 38px; height: 10px; border-radius: 5px; background: #0B0F24; transform-origin: 0 50%; }
+  #s1-diya { position: absolute; left: 660px; top: 330px; width: 110px; height: 48px; border-radius: 0 0 55px 55px; background: #D9822B; }
+  #s1-diya .flame { position: absolute; left: 40px; top: -44px; width: 30px; height: 30px; border-radius: 50% 0 50% 50%; background: #FFB000; rotate: -45deg; }
+  #s1-tn { position: absolute; left: 90px; width: 900px; top: 660px; height: 160px; display: flex; align-items: center; justify-content: center; gap: 44px; }
+  #s1-moon { display: block; width: 120px; height: 120px; border-radius: 50%; box-shadow: 28px -10px 0 0 #FFE9A8; }
+  #s1-tonight .l { font-family: var(--display); font-size: 110px; line-height: 1; color: var(--accent); text-transform: uppercase; }
+
+  /* 2: the paid build, wired into store and ads */
+  #s2-wires { position: absolute; left: 0; top: 0; display: block; }
+  #s2-wires path { fill: none; stroke: #7CF5C8; stroke-width: 8; stroke-linecap: round; stroke-dasharray: 440; stroke-dashoffset: 440; }
+  #s2 .nd { position: absolute; top: 300px; width: 320px; height: 230px; border-radius: 32px; background: #F2F3FF; box-shadow: 0 26px 70px rgba(0,0,0,0.5); }
+  #s2-store { left: 90px; } #s2-ads { left: 670px; }
+  #s2 .nd .lb { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: #0B0F24; }
+  #s2 .bag { position: absolute; left: 115px; top: 64px; width: 90px; height: 72px; border-radius: 12px; background: #0B0F24; }
+  #s2 .bag i { position: absolute; left: 23px; top: -30px; width: 44px; height: 34px; box-sizing: border-box; border: 8px solid #0B0F24; border-bottom: none; border-radius: 24px 24px 0 0; }
+  #s2 .play { position: absolute; left: 110px; top: 56px; width: 100px; height: 76px; border-radius: 18px; background: #E5484D; }
+  #s2 .play i { position: absolute; left: 38px; top: 20px; width: 0; height: 0; border-left: 30px solid #FFFFFF; border-top: 18px solid transparent; border-bottom: 18px solid transparent; }
+  #s2-ring { position: absolute; left: 390px; top: 680px; width: 300px; height: 300px; box-sizing: border-box; border-radius: 50%; border: 6px solid var(--accent); }
+  #s2-core { position: absolute; left: 390px; top: 680px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #C8FFEA, #7CF5C8 55%, #2FBF92); box-shadow: 0 0 90px rgba(124,245,200,0.45); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 116px; color: #0B0F24; }
+  #s2 .pulse { position: absolute; width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 24px #7CF5C8; }
+  #s2-p1 { left: 238px; top: 518px; } #s2-p2 { left: 818px; top: 518px; }
+
+  /* 3-4: four agents in one chat app */
+  #s3-win { position: absolute; left: 90px; top: 190px; width: 900px; height: 930px; border-radius: 36px; background: #121839; border: 3px solid rgba(238,240,255,0.16); box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; }
+  #s3 .wbar { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #1C2350; }
+  #s3 .lights { position: absolute; left: 34px; top: 36px; display: flex; gap: 14px; }
+  #s3 .lights i { display: block; width: 24px; height: 24px; border-radius: 50%; background: #E5484D; }
+  #s3 .lights i:nth-child(2) { background: #FFC857; } #s3 .lights i:nth-child(3) { background: #3DD68C; }
+  #s3-title { position: absolute; left: 150px; top: 0; height: 96px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 34px; color: var(--ink); transform-origin: 0 50%; }
+  #s3 .proj { position: absolute; right: 36px; top: 0; height: 96px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--accent); }
+  #s3-track { position: absolute; left: 30px; top: 215px; width: 8px; height: 582px; border-radius: 4px; background: rgba(124,245,200,0.22); }
+  #s3-trackfill { position: absolute; inset: 0; border-radius: 4px; background: var(--accent); transform-origin: 50% 0; }
+  #s3 .agents { position: absolute; left: 70px; right: 30px; top: 130px; }
+  #s3 .agent { position: relative; height: 170px; margin-bottom: 24px; box-sizing: border-box; border-radius: 28px; border: 3px solid rgba(238,240,255,0.14); background: rgba(255,255,255,0.05); }
+  #s3 .agent .fill { position: absolute; inset: -3px; border-radius: 28px; background: #F2F3FF; opacity: 0; }
+  #s3 .agent .av { position: absolute; left: 26px; top: 32px; width: 100px; height: 100px; border-radius: 50%; background: #7CF5C8; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 52px; color: #0B0F24; }
+  #a1 .av { background: #F59FB0; } #a2 .av { background: #FFD66B; } #a3 .av { background: #B7A4F7; }
+  #s3 .agent .nm { position: absolute; left: 156px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 52px; color: var(--ink); }
+  #s3 .agent .pill { position: absolute; right: 26px; top: 47px; height: 70px; padding: 0 26px; border-radius: 35px; background: var(--accent); display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 34px; color: #0B0F24; opacity: 0; }
+  #s3-token { position: absolute; left: 14px; top: 195px; width: 40px; height: 40px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 26px #7CF5C8, 0 0 0 6px rgba(124,245,200,0.4); }
+
+  /* 5: the catch, you are the copy-paste */
+  #s5-card { position: absolute; left: 90px; top: 200px; width: 900px; height: 500px; border-radius: 32px; background: #F2F3FF; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+  #s5-card .hh { position: absolute; left: 50px; top: 36px; font-family: var(--display); font-size: 48px; color: #0B0F24; }
+  #s5 .ln { position: absolute; left: 50px; right: 50px; font-family: var(--body); font-weight: 700; font-size: 36px; color: #2A3050; white-space: nowrap; }
+  #s5-l1 { top: 120px; } #s5-l2 { top: 180px; } #s5-l3 { top: 240px; } #s5-l4 { top: 300px; }
+  #s5-copy { position: absolute; right: 40px; bottom: 40px; width: 200px; height: 80px; border-radius: 20px; background: #0B0F24; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 36px; color: var(--accent); }
+  #s5 .chip { position: absolute; top: 790px; width: 330px; height: 130px; box-sizing: border-box; border-radius: 30px; border: 3px solid rgba(238,240,255,0.25); background: rgba(255,255,255,0.06); }
+  #s5-writer { left: 90px; border-color: var(--accent); } #s5-planner { left: 660px; }
+  #s5 .chip .flash { position: absolute; inset: -3px; border-radius: 30px; background: var(--accent); opacity: 0; }
+  #s5 .chip .tx { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s5-arrow { position: absolute; left: 450px; top: 851px; width: 170px; height: 8px; border-radius: 4px; background: rgba(124,245,200,0.6); transform-origin: 0 50%; }
+  #s5-arrow i { position: absolute; right: -20px; top: -14px; width: 0; height: 0; border-left: 24px solid rgba(124,245,200,0.6); border-top: 18px solid transparent; border-bottom: 18px solid transparent; }
+  #s5-ghost { position: absolute; left: 730px; top: 585px; width: 240px; height: 70px; border-radius: 18px; background: var(--accent); box-shadow: 0 16px 40px rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 36px; color: #0B0F24; }
+  #s5-cursor { position: absolute; left: 850px; top: 630px; width: 60px; height: 84px; display: block; }
+  #s5-count { position: absolute; left: 190px; top: 990px; width: 700px; height: 100px; box-sizing: border-box; border-radius: 50px; border: 4px dashed var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--accent); }
+
+  /* 6: free vs paid build */
+  #s6 .col { position: absolute; top: 0; width: 420px; height: 760px; }
+  #s6-free { left: 90px; } #s6-paid { left: 570px; }
+  #s6 .hd { position: absolute; left: 0; right: 0; top: 20px; }
+  #s6 .hd .l { font-family: var(--display); font-size: 110px; line-height: 1; text-transform: uppercase; color: var(--ink); }
+  #s6-paid .hd .l { color: var(--accent); }
+  #s6 .cardc { position: absolute; left: 0; top: 170px; width: 420px; height: 440px; box-sizing: border-box; border-radius: 32px; }
+  #s6-free .cardc { background: rgba(255,255,255,0.04); border: 3px dashed rgba(238,240,255,0.3); }
+  #s6-paid .cardc { background: #F2F3FF; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  #s6 .rw { position: absolute; left: 20px; right: 20px; height: 160px; border-radius: 24px; }
+  #s6 .rw:nth-of-type(1) { top: 40px; }
+  #s6 .r1 { top: 40px; } #s6 .r2 { top: 240px; }
+  #s6-free .rw { background: rgba(255,255,255,0.06); }
+  #s6-paid .rw { background: #E3E6FA; }
+  #s6 .lb { position: absolute; left: 120px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s6-paid .lb { color: #0B0F24; }
+  #s6 .xb { position: absolute; left: 20px; top: 42px; width: 76px; height: 76px; border-radius: 20px; background: rgba(229,72,77,0.22); }
+  #s6 .xb i { position: absolute; left: 14px; top: 34px; width: 48px; height: 8px; border-radius: 4px; background: #FF5A5F; rotate: 45deg; }
+  #s6 .xb i + i { rotate: -45deg; }
+  #s6 .tk { position: absolute; left: 20px; top: 42px; width: 76px; height: 76px; border-radius: 20px; background: #2FBF92; display: flex; align-items: center; justify-content: center; }
+  #s6 .tk b { display: block; width: 30px; height: 16px; border-left: 8px solid #0B0F24; border-bottom: 8px solid #0B0F24; rotate: -45deg; margin-top: -8px; }
+  #s6 .wire { position: absolute; left: 74px; top: 120px; width: 8px; height: 200px; border-radius: 4px; background: #2FBF92; transform-origin: 50% 0; }
+  #s6 .foot { position: absolute; left: 0; right: 0; top: 650px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 48px; color: var(--ink); }
+  #s6-paid .foot { color: var(--accent); }
+  #s6-div { position: absolute; left: 538px; top: 40px; width: 4px; height: 760px; border-radius: 2px; background: rgba(124,245,200,0.5); transform-origin: 50% 0; }
+  #s6-stamp { position: absolute; left: 110px; top: 350px; padding: 10px 22px; border: 6px solid #FF5A5F; border-radius: 14px; background: rgba(11,15,36,0.94); font-family: var(--display); font-size: 48px; color: #FF5A5F; white-space: nowrap; }
+
+  /* 7: comment TEAM */
+  #s7-avatar { position: absolute; left: 90px; top: 400px; width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(140deg, #7CF5C8, #3B2FA8); }
+  #s7-bubble { position: absolute; left: 250px; top: 330px; width: 740px; height: 300px; border-radius: 48px; background: #F2F3FF; box-shadow: 0 30px 80px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; gap: 8px; }
+  #s7-bubble .tail { position: absolute; left: -28px; top: 110px; width: 0; height: 0; border-right: 40px solid #F2F3FF; border-top: 26px solid transparent; border-bottom: 26px solid transparent; }
+  #s7-bubble .ch { display: block; font-family: var(--display); font-size: 180px; line-height: 1; color: #0B0F24; }
+  #s7-sticker { position: absolute; left: 300px; top: 700px; padding: 20px 34px; border-radius: 22px; background: var(--accent); font-family: var(--display); font-size: 54px; color: #0B0F24; white-space: nowrap; }
+  #s7-team { position: absolute; left: 300px; top: 870px; height: 100px; display: flex; gap: 24px; }
+  #s7-team .tm { display: flex; width: 100px; height: 100px; border-radius: 50%; align-items: center; justify-content: center; font-family: var(--display); font-size: 54px; color: #0B0F24; background: #7CF5C8; }
+  #s7-team .tm:nth-child(2) { background: #F59FB0; } #s7-team .tm:nth-child(3) { background: #FFD66B; } #s7-team .tm:nth-child(4) { background: #B7A4F7; }
+</style>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob" id="blobA"></div>
+  <div class="blob" id="blobB"></div>
+  <div class="blob" id="blobC"></div>
+  <div class="stars" id="starsA"></div>
+  <div class="stars" id="starsB"></div>
+  <div class="grid"></div>
+</div>
+
+<!-- 0: steal the free version of the paid build -->
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kicker" aria-label="Steal the free version">
+    <span class="mask"><span class="l">Steal</span></span>
+    <span class="mask"><span class="l">the <em class="acc">free</em></span></span>
+    <span class="mask"><span class="l">version</span></span>
+  </div>
+  <div id="s0-card">
+    <div class="hdr">Spexy build</div>
+    <div class="node" id="s0-store">STORE</div>
+    <div class="wire" id="s0-wa"></div>
+    <div class="node" id="s0-ai">AI</div>
+    <div class="wire" id="s0-wb"></div>
+    <div class="node" id="s0-ads">ADS</div>
+    <div class="bar" id="s0-b1"></div>
+    <div class="bar" id="s0-b2"></div>
+    <div class="bar" id="s0-b3"></div>
+  </div>
+  <div id="s0-ticket" data-layout-allow-overlap><div class="perf"></div><div class="tt">FREE VERSION</div></div>
+</section>
+
+<!-- 1: "after Diwali" gets struck out, tonight wins -->
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="lights1"><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i><i class="bulb"></i></div>
+  <div id="s1-note">
+    <div class="todo">To do</div>
+    <div class="cb"></div>
+    <div class="t1">Set up AI</div>
+    <div id="s1-later">after Diwali<div id="s1-strike" data-layout-allow-overlap></div></div>
+    <div id="s1-diya"><div class="flame"></div></div>
+  </div>
+  <div id="s1-tn">
+    <div id="s1-moon"></div>
+    <div class="mask" id="s1-tonight"><span class="l">Tonight</span></div>
+  </div>
+</section>
+
+<!-- 2: what the studio builds: AI wired into store and ads -->
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="kicker" aria-label="We build">
+    <span class="mask"><span class="l">We <em class="acc">build</em></span></span>
+  </div>
+  <svg id="s2-wires" width="1080" height="1180" viewBox="0 0 1080 1180" aria-hidden="true">
+    <path id="s2-w1" d="M250 530 V830 H390"></path>
+    <path id="s2-w2" d="M830 530 V830 H690"></path>
+  </svg>
+  <div class="nd" id="s2-store"><div class="bag"><i></i></div><div class="lb">STORE</div></div>
+  <div class="nd" id="s2-ads"><div class="play"><i></i></div><div class="lb">ADS</div></div>
+  <div id="s2-ring"></div>
+  <div id="s2-core">AI</div>
+  <div class="pulse" id="s2-p1"></div>
+  <div class="pulse" id="s2-p2"></div>
+</section>
+
+<!-- 3-4: the free version: 4 agents in one chat app, passing work along -->
+<section class="scene" id="s3" data-from="@line3" data-to="@line5">
+  <div class="kicker" aria-label="4 agents">
+    <span class="mask"><span class="l"><em class="acc">4</em> agents</span></span>
+  </div>
+  <div id="s3-win">
+    <div class="wbar"><div class="lights"><i></i><i></i><i></i></div><div id="s3-title">One chat app</div><div class="proj">4 Projects</div></div>
+    <div id="s3-track"><div id="s3-trackfill"></div></div>
+    <div class="agents">
+      <div class="agent" id="a0"><div class="fill"></div><div class="av">W</div><div class="nm">Writer</div><div class="pill">HANDOFF</div></div>
+      <div class="agent" id="a1"><div class="fill"></div><div class="av">P</div><div class="nm">Planner</div><div class="pill">HANDOFF</div></div>
+      <div class="agent" id="a2"><div class="fill"></div><div class="av">C</div><div class="nm">Checker</div><div class="pill">HANDOFF</div></div>
+      <div class="agent" id="a3"><div class="fill"></div><div class="av">R</div><div class="nm">Reporter</div><div class="pill">HANDOFF</div></div>
+    </div>
+    <div id="s3-token"></div>
+  </div>
+</section>
+
+<!-- 5: the catch: you carry the HANDOFF block yourself -->
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="kicker" aria-label="The catch">
+    <span class="mask"><span class="l">The <em class="acc">catch</em></span></span>
+  </div>
+  <div id="s5-card">
+    <div class="hh">HANDOFF</div>
+    <div class="ln" id="s5-l1">To: Planner</div>
+    <div class="ln" id="s5-l2">What I found / made: ...</div>
+    <div class="ln" id="s5-l3">What you should do next: ...</div>
+    <div class="ln" id="s5-l4">Needs owner approval: yes</div>
+    <div id="s5-copy">COPY</div>
+  </div>
+  <div class="chip" id="s5-writer"><div class="flash"></div><div class="tx">WRITER</div></div>
+  <div id="s5-arrow"><i></i></div>
+  <div class="chip" id="s5-planner"><div class="flash"></div><div class="tx">PLANNER</div></div>
+  <div id="s5-ghost" data-layout-allow-overlap>HANDOFF</div>
+  <svg id="s5-cursor" width="60" height="84" viewBox="0 0 60 84" aria-hidden="true" data-layout-allow-overlap>
+    <path d="M4 4 L4 64 L19 51 L31 78 L44 72 L32 46 L54 46 Z" fill="#EEF0FF" stroke="#0B0F24" stroke-width="4" stroke-linejoin="round"></path>
+  </svg>
+  <div id="s5-count">Every handoff, by hand</div>
+</section>
+
+<!-- 6: free has no Shopify or Meta access, the paid build is wired in -->
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="col" id="s6-free">
+    <div class="hd mask"><span class="l">Free</span></div>
+    <div class="cardc">
+      <div class="rw r1"><div class="xb"><i></i><i></i></div><div class="lb">Shopify</div></div>
+      <div class="rw r2"><div class="xb"><i></i><i></i></div><div class="lb">Meta</div></div>
+    </div>
+    <div class="foot">Copy-paste</div>
+  </div>
+  <div id="s6-div"></div>
+  <div class="col" id="s6-paid">
+    <div class="hd mask"><span class="l">Paid</span></div>
+    <div class="cardc">
+      <div class="wire"></div>
+      <div class="rw r1"><div class="tk"><b></b></div><div class="lb">Shopify</div></div>
+      <div class="rw r2"><div class="tk"><b></b></div><div class="lb">Meta</div></div>
+    </div>
+    <div class="foot">Wired in</div>
+  </div>
+  <div id="s6-stamp" data-layout-allow-overlap>NO ACCESS</div>
+</section>
+
+<!-- 7: comment TEAM -->
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="kicker" aria-label="Comment">
+    <span class="mask"><span class="l">Comment</span></span>
+  </div>
+  <div id="s7-avatar"></div>
+  <div id="s7-bubble"><div class="tail"></div><span class="ch">T</span><span class="ch">E</span><span class="ch">A</span><span class="ch">M</span></div>
+  <div id="s7-sticker">FREE · 4 AGENTS</div>
+  <div id="s7-team"><div class="tm">W</div><div class="tm">P</div><div class="tm">C</div><div class="tm">R</div></div>
+</section>

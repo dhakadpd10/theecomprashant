@@ -1,0 +1,73 @@
+{
+  "dur": 33.4,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.052,
+      "b": 3.152,
+      "say": "Premium fabric is the wrong pitch, and it's not your fault.",
+      "show": "Premium fabric is the wrong pitch. Not your fault."
+    },
+    {
+      "a": 3.152,
+      "voice": 3.252,
+      "end": 7.114,
+      "b": 7.214,
+      "say": "Example kurta page: premium fabric, elegant design. Says nothing.",
+      "show": "Example kurta: premium fabric, elegant design."
+    },
+    {
+      "a": 7.214,
+      "voice": 7.314,
+      "end": 10.457,
+      "b": 10.557,
+      "say": "Same kurta, rewritten from a stack of real buyer reviews.",
+      "show": "Same kurta, rewritten from 20 reviews."
+    },
+    {
+      "a": 10.557,
+      "voice": 10.657,
+      "end": 15.606,
+      "b": 15.706,
+      "say": "Doesn't go see-through. Fits after a wash. Got compliments at the office Diwali party.",
+      "show": "Not see-through. Fits after a wash. Office puja compliments."
+    },
+    {
+      "a": 15.706,
+      "voice": 15.806,
+      "end": 19.768,
+      "b": 19.868,
+      "say": "The Buyer-Words Rewriter does this from your own reviews and support chats.",
+      "show": "Built from your own reviews and support chats."
+    },
+    {
+      "a": 19.868,
+      "voice": 19.968,
+      "end": 25.468,
+      "b": 25.568,
+      "say": "Shopify just opened its product list to AI shopping assistants. They read your description.",
+      "show": "Shopify opened its catalogue to AI shopping assistants."
+    },
+    {
+      "a": 25.568,
+      "voice": 25.668,
+      "end": 29.184,
+      "b": 29.284,
+      "say": "The catch: with only a few reviews, nine or less, it starts guessing.",
+      "show": "The catch: under ~10 reviews, it guesses."
+    },
+    {
+      "a": 29.284,
+      "voice": 29.384,
+      "end": 31.996,
+      "b": 33.4,
+      "say": "Type DESC below to get the rewriter at no cost.",
+      "show": "Comment DESC for the free rewriter."
+    }
+  ]
+}

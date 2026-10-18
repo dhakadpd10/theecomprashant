@@ -1,0 +1,89 @@
+{
+  "id": "2026-10-25-reel-description-before-after-buyer-words",
+  "style": "motion",
+  "keyword": "DESC",
+  "world": "desk",
+  "voice": "am_fenrir",
+  "speed": 1.08,
+  "hot": "^(DESC|premium|20|10|example|buyers|free)$",
+  "palette": {
+    "bg": "#0F1A17",
+    "ink": "#F4EFE6",
+    "accent": "#FFB347"
+  },
+  "lines": [
+    {
+      "say": "Premium fabric is the wrong pitch, and it's not your fault.",
+      "show": "Premium fabric is the wrong pitch. Not your fault.",
+      "card": "BUYERS NEVER SAY PREMIUM",
+      "cut": true
+    },
+    {
+      "say": "Example kurta page: premium fabric, elegant design. Says nothing.",
+      "show": "Example kurta: premium fabric, elegant design.",
+      "cut": true
+    },
+    {
+      "say": "Same kurta, rewritten from a stack of real buyer reviews.",
+      "show": "Same kurta, rewritten from 20 reviews.",
+      "cut": true
+    },
+    {
+      "say": "Doesn't go see-through. Fits after a wash. Got compliments at the office Diwali party.",
+      "show": "Not see-through. Fits after a wash. Office puja compliments."
+    },
+    {
+      "say": "The Buyer-Words Rewriter does this from your own reviews and support chats.",
+      "show": "Built from your own reviews and support chats.",
+      "cut": true
+    },
+    {
+      "say": "Shopify just opened its product list to AI shopping assistants. They read your description.",
+      "show": "Shopify opened its catalogue to AI shopping assistants.",
+      "cut": true
+    },
+    {
+      "say": "The catch: with only a few reviews, nine or less, it starts guessing.",
+      "show": "The catch: under ~10 reviews, it guesses.",
+      "cut": true
+    },
+    {
+      "say": "Type DESC below to get the rewriter at no cost.",
+      "show": "Comment DESC for the free rewriter.",
+      "cut": true
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.end",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+1.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+3.0",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+1.0",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.3",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line3+2.5",
+    "title": [
+      "SAME KURTA",
+      "WRITTEN IN BUYERS' WORDS"
+    ]
+  }
+}

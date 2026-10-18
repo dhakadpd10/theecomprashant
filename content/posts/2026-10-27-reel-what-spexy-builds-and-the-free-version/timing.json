@@ -1,0 +1,73 @@
+{
+  "dur": 25.85,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.236,
+      "b": 3.336,
+      "say": "Grab the free version of what my studio builds for brands.",
+      "show": "Steal the free version of what Spexy builds."
+    },
+    {
+      "a": 3.336,
+      "voice": 3.436,
+      "end": 7.051,
+      "b": 7.151,
+      "say": "You'll set up AI after the festival? Start the free one tonight.",
+      "show": "\"I'll set up AI after Diwali.\" Start tonight."
+    },
+    {
+      "a": 7.151,
+      "voice": 7.251,
+      "end": 10.276,
+      "b": 10.376,
+      "say": "We build AI systems that plug into your store and ads.",
+      "show": "We build AI wired into your store and ads."
+    },
+    {
+      "a": 10.376,
+      "voice": 10.476,
+      "end": 13.01,
+      "b": 13.11,
+      "say": "The free version is four agents in one chat app.",
+      "show": "Free version: 4 agents, 1 chat app."
+    },
+    {
+      "a": 13.11,
+      "voice": 13.21,
+      "end": 16.217,
+      "b": 16.317,
+      "say": "A writer, planner, checker and reporter, passing work along.",
+      "show": "Writer, planner, checker, reporter. Passing work along."
+    },
+    {
+      "a": 16.317,
+      "voice": 16.417,
+      "end": 18.98,
+      "b": 19.08,
+      "say": "The catch: you copy and paste between them yourself.",
+      "show": "The catch: you copy-paste between them."
+    },
+    {
+      "a": 19.08,
+      "voice": 19.18,
+      "end": 22.123,
+      "b": 22.223,
+      "say": "It won't touch Shopify or Meta. The paid build does.",
+      "show": "No Shopify or Meta access. Paid build has it."
+    },
+    {
+      "a": 22.223,
+      "voice": 22.323,
+      "end": 24.447,
+      "b": 25.85,
+      "say": "Comment TEAM and I'll send you the free team.",
+      "show": "Comment TEAM for the free 4-agent team."
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "week": "2026-W43-2",
+  "start": "2026-10-21",
+  "research": "I found 9 things worth knowing from 4 to 18 October 2026. Most of the coverage comes from blogs and news sites, not the companies' own pages. Check anything marked \"unconfirmed\" before it goes into a script.\n\n**New tools and features**\n\n1. **Meta ads: a new audience tool for finding new customers is live for everyone (6 Oct).** It's called Customer Lifecycle Strategy. It suggests leaving out people who already bought from you when a campaign is meant to find new buyers. Advantage+ can now turn product photos into videos, and that is also live for everyone. *Why care:* you stop paying for ads shown to people who already bought, and you get video ads without a shoot. *The catch:* the AI assistant that builds campaigns and changes budgets for you is still a test, and most accounts don't have it. [MediaPost](https://www.mediapost.com/publications/article/418580/meta-unveils-enhanced-ai-business-assistant-autom.html) · [PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/) · [Common Thread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n\n2. **WhatsApp Business API: new charges from 1 Oct.** Replies to customers are now charged after the first 1,000 free each month, per business number. One report says order and delivery updates now cost ₹0.115 each before GST in India. Chats started by the customer stay free, and so do chats from Click-to-WhatsApp ads for 72 hours. The regular WhatsApp Business app is not affected. *Why care:* cart reminders and order-confirmation messages now cost a little per message, so use fewer and better ones. This fits the CART and RTO tools. [Business Today](https://www.businesstoday.in/latest/photo/whatsapp-changes-from-october-1-businesses-will-pay-but-will-you-559031-2026-10-01) · [Asianet Newsable](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku)\n\n3. **Shopify Canvas (1 Oct): build or edit your store by chatting with AI.** It runs through Sidekick, Shopify's built-in AI assistant, and shows the changes as they happen. *Why care:* you can test a new homepage or landing page in minutes without a developer before Diwali. *The catch:* stores built on Shopify's custom-code setup (Hydrogen) reportedly aren't supported yet. [TechCrunch](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/) · [MediaPost](https://www.mediapost.com/publications/article/418436/shopify-unveils-commerce-site-creation-tool-integ.html)\n\n4. **Shopify opened its catalogue of over 1 billion products to outside AI shopping assistants (13 Oct).** Shoppers can connect an assistant to their Shop account to search and buy, and every purchase needs their approval. *Why care:* AI tools now read your product titles and descriptions to decide what to recommend, so clear product data matters more. This fits the DESC topic. [Daily Guardian](https://dailyguardian.ca/shopify-opens-its-catalog-up-to-more-ai-agents/) · [MLQ](https://mlq.ai/news/shopify-lets-shoppers-connect-more-ai-agents-to-its-catalog-and-shop-pay/)\n\n5. **Google Universal Cart (15 Oct): one cart across many stores in Search and the Gemini app, US only for now.** It also tracks price and stock. Google says the store stays the seller and handles support. *Why care:* nothing changes for India yet. If you sell to the US, keep your Google Merchant Center product data complete and correct. [PPC Land](https://ppc.land/googles-universal-cart-reaches-us-search-and-gemini-but-not-youtube/) · [Delante](https://delante.co/google-universal-cart-search-gemini/)\n\n6. **Claude: Docs, Slides and Design are reportedly on every plan, including Free.** Max and Team plans now include monthly credits for running your own apps and agents. *Why care:* a free way to make product one-pagers, pitch slides and sale creatives. *The catch:* the Docs/Slides/Design detail comes from a third-party tracker, so check Anthropic's release notes first. [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes) · [Releasebot](https://releasebot.io/updates/anthropic/claude)\n\n7. **Instagram (unconfirmed): clickable links in posts and Reels, but only on a paid Meta One plan, reportedly from 13 Oct.** Separately, the Edits app got a carousel editor (iOS first). *Why care:* a link in the Reel could lead straight to the product page. *The catch:* it's paid, and prices and plan names differ between sources. [Social Media Updates (Gain)](https://blog.gainapp.com/social-media-updates/) · [Metricool](https://metricool.com/instagram-news/)\n\n**Dates coming up**\n\n8. **Diwali week: Dhanteras Fri 6 Nov, Choti Diwali 7 Nov, Lakshmi Puja Sun 8 Nov, Govardhan 9 Nov, Bhai Dooj Tue 10 Nov.** Amazon's Great Indian Festival started 8 Oct. Flipkart's Big Billion Days opened to everyone on 9 Oct, and neither has announced an end date. *Why care:* there are about 3 weeks left to plan a Diwali sale on your own site while the marketplaces pull buyers away. This fits the SALE topic. *The catch:* some BankBazaar pages still show 20–21 Oct, which looks like last year's date. [Kissht](https://www.kissht.com/blog/diwali-2026-date-and-lakshmi-puja-timing) · [Indian Retailer](https://www.indianretailer.com/article/retail-business/retail-trends/festive-sale-2026-flipkart-amazon-myntra-meesho-and-ajio-sale) · [Tycoon Story](https://www.tycoonstory.com/big-billion-days-2026-flipkart-date/)\n\n**Problem people are discussing**\n\n9. **COD returns (RTO) at festive peak.** These are last year's numbers, mostly from companies that sell RTO tools. Unicommerce reports 58% of festive COD orders came back, against under 15% for prepaid. D2C returns overall hit 39.2% at the 2025 festive peak. The fixes that worked were a discount for paying upfront, choosing the courier by pin code, and confirming the address before dispatch. Blocking COD completely cost more than it saved in tier 2 and 3 towns. *Why care:* this is the best timed topic right now for the RTO confirm-order WhatsApp script. Use these as industry numbers with the source named, never as Prashant's own results. [Unicommerce](https://unicommerce.com/india-d2c-report-2026-april/) · [First Resort](https://www.firstresort.in/blogs/research/fashion-ecommerce-returns-rto-india-2026) · [Amazon Shipping](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n\nChatGPT had no news a store owner can use in this window. The last big change was in March, when OpenAI scaled back buying inside the chat and now sends shoppers to the store's own site to pay ([CNBC](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)).\n\nSources:\n- [MediaPost: Meta business assistant](https://www.mediapost.com/publications/article/418580/meta-unveils-enhanced-ai-business-assistant-autom.html)\n- [PYMNTS: Meta AI tools](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/)\n- [Common Thread: Meta AI agent](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n- [Business Today: WhatsApp changes](https://www.businesstoday.in/latest/photo/whatsapp-changes-from-october-1-businesses-will-pay-but-will-you-559031-2026-10-01)\n- [Asianet Newsable: WhatsApp pricing](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku)\n- [TechCrunch: Shopify Canvas](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n- [MediaPost: Shopify Canvas](https://www.mediapost.com/publications/article/418436/shopify-unveils-commerce-site-creation-tool-integ.html)\n- [Daily Guardian: Shopify AI agents](https://dailyguardian.ca/shopify-opens-its-catalog-up-to-more-ai-agents/)\n- [MLQ: Shopify agents and Shop Pay](https://mlq.ai/news/shopify-lets-shoppers-connect-more-ai-agents-to-its-catalog-and-shop-pay/)\n- [PPC Land: Universal Cart](https://ppc.land/googles-universal-cart-reaches-us-search-and-gemini-but-not-youtube/)\n- [Delante: Universal Cart](https://delante.co/google-universal-cart-search-gemini/)\n- [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes)\n- [Releasebot: Claude updates](https://releasebot.io/updates/anthropic/claude)\n- [Gain: social media updates](https://blog.gainapp.com/social-media-updates/)\n- [Metricool: Instagram news](https://metricool.com/instagram-news/)\n- [Kissht: Diwali 2026 dates](https://www.kissht.com/blog/diwali-2026-date-and-lakshmi-puja-timing)\n- [Indian Retailer: festive sale 2026](https://www.indianretailer.com/article/retail-business/retail-trends/festive-sale-2026-flipkart-amazon-myntra-meesho-and-ajio-sale)\n- [Tycoon Story: Big Billion Days 2026](https://www.tycoonstory.com/big-billion-days-2026-flipkart-date/)\n- [Unicommerce: India D2C Report 2026](https://unicommerce.com/india-d2c-report-2026-april/)\n- [First Resort: fashion RTO 2026](https://www.firstresort.in/blogs/research/fashion-ecommerce-returns-rto-india-2026)\n- [Amazon Shipping: COD RTO festive surge](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n- [CNBC: ChatGPT shopping revamp](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)",
+  "slots": [
+    {
+      "day": "2026-10-21",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-21-reel-canvas-redesign-vs-old-store-7-shoppers",
+      "style": "world",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 92.6
+      },
+      "keyword": "STORE",
+      "pillar": "Sell more",
+      "topic": "Shopify Canvas lets you redesign your homepage by chatting with AI. 7 AI shoppers pick: old store or new draft?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-22-reel-whatsapp-charges-cod-confirm-one-message",
+      "style": "world",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83.2
+      },
+      "keyword": "RTO",
+      "pillar": "Operations",
+      "topic": "WhatsApp now charges for business replies. Stop sending 3 COD confirm messages and send 1 good one.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-22-reel-5-critics-mute-ad-in-sale-feed",
+      "style": "world",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 84.4
+      },
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "5 AI critics watch your ad on mute, sandwiched between Big Billion Days and Great Indian Festival ads. Does yours still stop the thumb?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-23-reel-ai-answers-wismo-humans-answer-refunds",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 80
+      },
+      "keyword": "SUPPORT",
+      "pillar": "Operations",
+      "topic": "Hand AI the 'where is my order' messages. Keep refunds human.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-23-reel-free-shipping-999-vs-flat-49-100-shoppers",
+      "style": "world",
+      "hook": {
+        "id": 16,
+        "name": "The Verbatim Question",
+        "score": 61.2
+      },
+      "keyword": "PRICE",
+      "pillar": "Sell more",
+      "topic": "Free shipping above ₹999 or flat ₹49 shipping? 100 AI shoppers vote.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-24",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-24-reel-second-order-when-it-runs-out",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 81.8
+      },
+      "keyword": "REPEAT",
+      "pillar": "Retention",
+      "topic": "Don't ask for a second order on day 7. Ask the day your product runs out.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-24",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-24-reel-6-ai-buyers-judge-5-rival-ads",
+      "style": "world",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 85.6
+      },
+      "keyword": "RIVAL",
+      "pillar": "Ads",
+      "topic": "Paste 5 rival ads. A jury of 6 AI buyers names the promise none of them make.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-25",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-25-reel-description-before-after-buyer-words",
+      "style": "motion",
+      "hook": {
+        "id": 7,
+        "name": "Wrong Way, Right Way",
+        "score": 52.2
+      },
+      "keyword": "DESC",
+      "pillar": "Sell more",
+      "topic": "Your product description is written in your words. Here it is rewritten in your buyers' words, before and after on screen.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-25",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-25-reel-8-cart-leavers-read-your-reminders",
+      "style": "world",
+      "hook": {
+        "id": 19,
+        "name": "The Deadline",
+        "score": 84.4
+      },
+      "keyword": "CART",
+      "pillar": "Retention",
+      "topic": "8 AI shoppers who left their cart read your 3 reminders. Who comes back, who mutes you?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-26",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-26-reel-stop-checking-ads-hourly-monday-report",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 81.8
+      },
+      "keyword": "SCALE",
+      "pillar": "Ads",
+      "topic": "Stop opening Ads Manager every hour in festive week. Read one report on Monday.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-27",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-27-reel-what-spexy-builds-and-the-free-version",
+      "style": "motion",
+      "hook": {
+        "id": 9,
+        "name": "The Steal",
+        "score": 81.8
+      },
+      "keyword": "TEAM",
+      "pillar": "Operations",
+      "topic": "What I build for D2C brands at Spexy Studio, said plainly, and the free version you can run yourself tonight.",
+      "status": "made"
+    }
+  ]
+}

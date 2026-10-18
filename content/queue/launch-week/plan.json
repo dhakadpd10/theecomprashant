@@ -60,7 +60,7 @@
       "pillar": "Operations",
       "topic": "A 4-agent marketing team inside Claude",
       "status": "made",
-      "attempts": 1,
+      "attempts": 2,
       "error": "Instagram POST /17841462809508508/media: Error validating access token: The user has not authorized application 1093122280161971. (code 190)"
     },
     {

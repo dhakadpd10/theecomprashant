@@ -1,0 +1,162 @@
+{
+  "id": "2026-10-22-reel-bunty-sold-out-before-dhanteras",
+  "style": "story",
+  "keyword": "STOCK",
+  "hook": "3 LATE REORDERS THEN THIS",
+  "sign": "3 late reorders\nSOLD OUT again\nComment STOCK",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "STOCK",
+    "red",
+    "gift boxes",
+    "polybags",
+    "Dhanteras",
+    "Mummy"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "worried",
+      "say": "Stock tension again! My last three festival reorders came too late. Number four won't.",
+      "show": "STOCK tension again! My last 3 festival reorders came too late. Number 4 won't.",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You check the shelf. Check how fast it empties.",
+      "other": {
+        "act": "arms",
+        "mood": "angry"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "point",
+      "mood": "angry",
+      "say": "But bhai, forty-eight size M on the shelf! Dhanteras is safe!",
+      "show": "But bhai, 48 size M on the shelf! Dhanteras is safe!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "You sell four daily. Empty by November third. Three days before Dhanteras.",
+      "show": "4 a day. They're gone 3 Nov, 3 days before Dhanteras.",
+      "screen": {
+        "type": "stats",
+        "label": "Pink kurta M left",
+        "from": 48,
+        "to": 0,
+        "prefix": "",
+        "suffix": " pcs",
+        "note": "Empty 3 Nov. Dhanteras 6 Nov. Tailor needs 10 days."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Every Monday, paste sales, stock and your tailor's ten days into Claude. Nothing syncs by itself.",
+      "show": "Every Monday, paste sales, stock and your tailor's 10 days into Claude. Nothing syncs by itself.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here's my 30-day sales export, today's stock and my tailor's lead times. Give every product a reorder-by date, order quantity and RED, AMBER or GREEN status. Show the maths.",
+        "answer": "2 RED, 1 AMBER, 4 GREEN. Pink kurta M: 4 a day, 48 in stock = 12 days. 12 - 10 lead - 7 buffer = 5 days late. Order 140."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Size M is red. Order one hundred forty today.",
+      "show": "Size M is RED. Order 140 today.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "Pink kurta · reorder plan",
+        "items": [
+          "M · RED · order 140 today",
+          "L · AMBER · order by 27 Oct",
+          "S · GREEN · 41 days left"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Super, bhai! I will phone my tailor right now!",
+      "other": {
+        "act": "think",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "point",
+      "mood": "smug",
+      "say": "Scroll up, Bunty. Your first red row is the gift boxes.",
+      "other": {
+        "act": "idle",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ],
+      "punch": true
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Diwali gifts in plain plastic bags? Mummy will never forgive me!",
+      "sfx": [
+        "boing"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "Order this week · RED first",
+        "items": [
+          "RED · Gift boxes · 4 days left",
+          "RED · Pink kurta M · order 140",
+          "AMBER · Pink kurta L · by 27 Oct",
+          "GREEN · Cotton dupatta · fine"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment STOCK, and I'll send you the Reorder Alert Sheet.",
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    }
+  ]
+}

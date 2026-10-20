@@ -1,0 +1,141 @@
+{
+  "id": "2026-10-21-reel-bunty-ai-wrote-my-ad-roast",
+  "style": "story",
+  "keyword": "ROAST",
+  "hook": "STOP WRITING ELEVATE",
+  "sign": "AI wrote my ad\n₹8,000 = 2 sales\nROAST IT",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "ROAST",
+    "Elevate",
+    "Jaipur",
+    "desi"
+  ],
+  "musicStop": 7,
+  "log": {
+    "hook_id": 1,
+    "hook_formula": "Negative Command",
+    "style": "story-3d",
+    "pillar": "Ads",
+    "experiment": "keyword-placement",
+    "arm": "A",
+    "keyword_early": "ROAST on cardboard-sign cover and as a yellow chip in the first 3 seconds, spoken again in the CTA",
+    "example_numbers": "₹8,000 spent and 2 sales are example numbers in Bunty's story, not real results"
+  },
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Stop running 'Elevate your festive wardrobe' as your Diwali ad. Eight thousand rupees. Two sales!",
+      "show": "Stop running 'Elevate your festive wardrobe' as your Diwali ad. ₹8,000. 2 sales!",
+      "chip": "Comment ROAST",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "That's 'cause Meta's AI gave the same line to every kurta brand this Diwali."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But it sounds premium! Like my premium cotton!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Okay, paste the ad into Claude. Five critics read it, each on their own.",
+      "screen": {
+        "type": "ad",
+        "brand": "BUNTY'S",
+        "headline": "Elevate your festive wardrobe",
+        "product": "kurta",
+        "notes": [
+          "Written by Meta's AI text suggestions",
+          "₹8,000 spent, 2 sales (example)"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "And each one tells you the exact line they scrolled past.",
+      "screen": {
+        "type": "chat",
+        "ask": "Roast my Diwali kurta ad as 5 critics: fast scroller, sceptic, bargain hunter, designer, rival brand. Each gives a score out of 10, the exact line they scrolled past at, and one fix.",
+        "answer": "Fast scroller 3/10. Scrolled past at 'Elevate your festive wardrobe'. Every brand says it. Rival brand 2/10. I'd beat you with a made-in-Jaipur story."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Then it rewrites your hook. See their top pick?",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "New hooks (avg was 3/10)",
+        "items": [
+          "1. Stitched in Jaipur. Worn across India.",
+          "2. Hand-stitched kurtas, ready for Diwali [CHECK: delivery date]",
+          "3. One Jaipur workshop. Your Diwali kurta."
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Hey, that's MY line! Made in Jaipur, worn all over India!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "arms",
+      "mood": "smug",
+      "say": "Yep. The one you deleted last year for being too desi.",
+      "other": {
+        "act": "facepalm",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment ROAST. I'll send you the five-critic prompt before you spend more.",
+      "show": "Comment ROAST, and I'll send you the 5-Critic Ad Roast prompt before you spend more.",
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    }
+  ]
+}

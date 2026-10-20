@@ -1,0 +1,9 @@
+Bunty's 10% cart coupon was used on 38 of his last 100 orders, and some of them were buying anyway (example numbers).
+
+His first WhatsApp reminder sent the coupon to everyone who left a cart, even his cousin Golu, who now leaves carts on purpose. Prashant pasted Bunty's price, sizes and return policy into a prompt in Claude and got back a 3-message sequence. Message 1 goes 1 hour after the cart is left and only helps with size, and the 10% waits until message 3 on day 3, for first orders only.
+
+Comment "CART" and I'll DM you the No-Spam Cart Recovery Sequence prompt. Follow so the DM lands 📩
+
+It's free. Paste in your price, your sizes, your return policy and the one doubt buyers ask about most.
+
+#d2cbrand #shopifyindia #abandonedcart #ecommerceindia

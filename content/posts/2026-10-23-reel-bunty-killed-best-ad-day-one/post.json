@@ -1,0 +1,145 @@
+{
+  "id": "2026-10-23-reel-bunty-killed-best-ad-day-one",
+  "style": "story",
+  "keyword": "SCALE",
+  "hook": "STOP KILLING ADS ON DAY 1",
+  "sign": "₹600 spent\n0 sales\nAD KILLED!",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "killing",
+    "Monday",
+    "KEEP",
+    "too early",
+    "mummy",
+    "SCALE"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "angry",
+      "say": "Stop killing ads on day one? Wait for the Monday read? I killed mine at six hundred rupees!",
+      "show": "'Stop killing ads on day 1. Wait for the Monday read.' I killed mine at ₹600!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You're judging ads every hour, on too little money to tell anything."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "angry",
+      "say": "Six hundred rupees, zero sales! What is left to tell, Bhai?",
+      "show": "₹600, ZERO sales! What is left to tell, Bhai?",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Every Monday, paste last week's Meta Ads export into Claude with your break-even cost per order.",
+      "show": "Every Monday, paste last week's Meta Ads export into Claude with your break-even CPA.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here is last week's Meta Ads export. My break-even CPA is ₹400. Label every ad with one line on why. No verdict until an ad spends 2x that.",
+        "answer": "Rule set: ₹800 spend before any verdict. Under that, an ad is KEEP (too early) and I'll say how much more it needs. Full table below."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "happy",
+      "say": "One read a week. Every ad gets one label and one line on why.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "Monday read (example numbers)",
+        "items": [
+          "Festive flatlay: KILL. ₹900 spent, 0 orders",
+          "Cotton close-up: KEEP. Under your ₹400 CPA",
+          "Mirror-work reel: KEEP (too early). Needs ₹500 more"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Arre wah! One Monday read and no more checking ads in the bathroom!",
+      "other": {
+        "act": "idle",
+        "mood": "happy"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "smug",
+      "say": "Last row. The indigo reel you killed. Two orders, credited a day late. Keep.",
+      "show": "Last row. The Indigo reel you killed. 2 orders, credited a day late. KEEP.",
+      "sfx": [
+        "scratch"
+      ],
+      "screen": {
+        "type": "stats",
+        "label": "Indigo kurta reel: orders credited",
+        "from": 0,
+        "to": 2,
+        "prefix": "",
+        "suffix": " orders",
+        "note": "Example numbers. Showed up on day 2. Verdict: KEEP"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "phone",
+      "mood": "sad",
+      "say": "Okay, okay... turning it back on. Please don't tell my mom.",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment SCALE, and I'll send you the full kill, keep or scale prompt.",
+      "show": "Comment SCALE, and I'll send you the full Kill / Keep / Scale prompt.",
+      "other": {
+        "act": "phone",
+        "mood": "happy"
+      }
+    }
+  ]
+}

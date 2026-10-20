@@ -2,6 +2,14 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-20
+
+- **8 reels, 360 reach, 0 likes, 0 shares, 2 saves.** By outlier multiple against a median of 55, the ranking is LAUNCH 2.11x, TEAM 1.45x, STORE 1.42x, PRICE 1.00x, DESC 0.78x, REVIEWS 0.36x, AUDIT 0.15x and RTO 0.07x (RTO is hours old). Nothing in the old format earned a like or a share. This fits Prashant's 20 Oct switch to 3D story episodes, but it can't show which part failed, because hold@3s, watch time, follows and non-follower reach are still missing on every post.
+- **STORE is still the only post with comments (6), and the count hasn't moved since last week** even though reach went from 26 to 66. All 6 came early and may be Prashant's own replies or friends. keyword_comments is still blank, so this stays a hunch.
+- **One like-for-like pair (hunch):** on 18 Oct, 2 hours apart, TEAM (Operations) got 80 views and REVIEWS (Ads) got 20. One pair isn't a pillar verdict.
+- **AUDIT published fine** (0 to 8 views). The 0 was lag. It's simply weak at 0.15x after 3 days. Rest it, along with LAUNCH (reach and zero action, twice).
+- **The plan wasn't followed, so the week can't be audited properly.** Hook id was blank on 8 of 8 posts and style on 6 of 8. There were 0 carousels and the keyword-placement test never ran. Midday IST posts (PRICE, AUDIT, RTO) sat at or below the median, but that's mixed up with post age, so it isn't a finding. Post everything from 8 to 9 PM IST so time stops being a variable.
+
 ## Week of 2026-10-19
 
 - **Still too early: 3 reels, 1 pillar, 124 total reach.** The ranking by outlier multiple against a median of 32 is LAUNCH 3.5x, STORE 1.0x and AUDIT 0x. A median built from 3 posts means very little, so none of this is a pattern. Shares are 0 on every post, so the strongest signal (sends per reach) can't rank anything yet.

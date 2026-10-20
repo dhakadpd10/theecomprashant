@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop killing ads on day one? Wait for the Monday read? I killed mine at six hundred rupees!",
+  "heard": "Stop killing ads on day 1. Wait for the Monday read. I killed mine at 600 rupees.",
+  "error": 0
+ },
+ "01": {
+  "say": "You're judging ads every hour, on too little money to tell anything.",
+  "heard": "Your judging adds every hour on too little money to tell anything.",
+  "error": 0.17
+ },
+ "02": {
+  "say": "Six hundred rupees, zero sales! What is left to tell, Bhai?",
+  "heard": "600 rupees, zero sales. What is left to tell by?",
+  "error": 0.1
+ },
+ "03": {
+  "say": "Every Monday, paste last week's Meta Ads export into Claude with your break-even cost per order.",
+  "heard": "Every Monday, paste last week's meta ads export into cloud with your break-even cost per order.",
+  "error": 0.06
+ },
+ "04": {
+  "say": "One read a week. Every ad gets one label and one line on why.",
+  "heard": "One read a week, every ad gets one label and one line on Y.",
+  "error": 0.07
+ },
+ "05": {
+  "say": "Arre wah! One Monday read and no more checking ads in the bathroom!",
+  "heard": "Arwa, one Monday read, and no more checking ads in the bathroom.",
+  "error": 0.15
+ },
+ "06": {
+  "say": "Last row. The indigo reel you killed. Two orders, credited a day late. Keep.",
+  "heard": "Last row, the Indigo Reel you killed two orders credited a day late, keep.",
+  "error": 0
+ },
+ "07": {
+  "say": "Okay, okay... turning it back on. Please don't tell my mom.",
+  "heard": "Ok, ok, turn it back on. Please don't tell my mom.",
+  "error": 0.09
+ },
+ "08": {
+  "say": "Comment SCALE, and I'll send you the full kill, keep or scale prompt.",
+  "heard": "Comment scale and I'll send you the full kill, keep or scale prompt.",
+  "error": 0
+ }
+}

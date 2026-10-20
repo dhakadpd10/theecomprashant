@@ -180,7 +180,7 @@ const signTex = canvasTex(900, 640, (x, w, h) => {
   x.fillStyle = '#1C1A2E'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.font = `${fs}px "Permanent Marker"`;
   ls.forEach((l, i) => { let f = fs; x.font = `${f}px "Permanent Marker"`; while (x.measureText(l).width > w - 70 && f > 50) { f -= 6; x.font = `${f}px "Permanent Marker"`; } x.fillText(l, w / 2, h / 2 + (i - (ls.length - 1) / 2) * fs * 1.05); });
 });
-const sign = mesh(new RoundedBoxGeometry(1.22, 0.86, 0.02, 2, 0.01), [mat('#B98A50'), mat('#B98A50'), mat('#B98A50'), mat('#B98A50'), new THREE.MeshStandardMaterial({ map: signTex, roughness: 0.95 }), mat('#B98A50')], scene);
+const sign = mesh(new RoundedBoxGeometry(1.12, 0.78, 0.02, 2, 0.01), [mat('#B98A50'), mat('#B98A50'), mat('#B98A50'), mat('#B98A50'), new THREE.MeshStandardMaterial({ map: signTex, roughness: 0.95 }), mat('#B98A50')], scene);
 
 // the big phone for close-ups (held up to the camera)
 const hero = new THREE.Group(); scene.add(hero);
@@ -192,8 +192,8 @@ const heroScr = new THREE.Mesh(new THREE.PlaneGeometry(0.156, 0.312), new THREE.
 const notch = new THREE.Mesh(new RoundedBoxGeometry(0.04, 0.008, 0.002, 2, 0.003), new THREE.MeshBasicMaterial({ color: '#000' })); notch.position.set(0, 0.148, 0.011); hero.add(notch);
 const heroHand = new THREE.Group(); hero.add(heroHand);
 const hs = new THREE.MeshPhysicalMaterial({ color: '#C48858', roughness: 0.55, sheen: 0.4, sheenColor: new THREE.Color('#FFB89A') });
-mesh(new THREE.SphereGeometry(0.06, 32, 24), hs, heroHand, 0.07, -0.14, -0.02).scale.set(0.8, 1.3, 0.7);
-mesh(new THREE.SphereGeometry(0.022, 16, 12), hs, heroHand, 0.085, -0.07, 0.016).scale.set(0.8, 1.6, 0.6);
+mesh(new THREE.SphereGeometry(0.06, 32, 24), hs, heroHand, 0.095, -0.165, -0.03).scale.set(0.8, 1.3, 0.7);
+mesh(new THREE.SphereGeometry(0.02, 16, 12), hs, heroHand, 0.088, -0.1, 0.012).scale.set(0.7, 1.4, 0.6);
 mesh(new THREE.CylinderGeometry(0.075, 0.07, 0.25, 24, 1, true), new THREE.MeshPhysicalMaterial({ color: '#2A3A5C', roughness: 0.85, sheen: 1 }), heroHand, 0.12, -0.3, -0.06).rotation.z = 0.5;
 let heroKey = '';
 function drawHero(s, u, t) {
@@ -246,8 +246,8 @@ function hookTitle(t) {
 }
 function ctaSticker(b, t) {
   const a = eBack(prog(t, b.start + 0.1, b.start + 0.45));
-  const y = 360 + Math.sin(t * 4) * 6;
-  hud.save(); hud.translate(W / 2, y); hud.rotate(-0.04 + Math.sin(t * 3) * 0.01); hud.scale(a, a);
+  const close = b.shot && b.shot !== 'two' && b.shot !== 'wide', y = (close ? 215 : 360) + Math.sin(t * 4) * 6;
+  hud.save(); hud.translate(W / 2, y); hud.rotate(-0.04 + Math.sin(t * 3) * 0.01); hud.scale(a * (close ? 0.72 : 1), a * (close ? 0.72 : 1));
   hud.font = '58px "Archivo Black"'; hud.textAlign = 'center'; hud.textBaseline = 'middle';
   const top = 'COMMENT', kw = String(TL.keyword || '').toUpperCase();
   hud.font = '130px "Archivo Black"'; const kwW = hud.measureText(kw).width;
@@ -291,7 +291,7 @@ function poseAll(t, b, over) {
   smallPhone.visible = (over?.prashant?.act || stateIn('prashant', b).act) === 'phone';
   const signUp = (over?.bunty?.act || stateIn('bunty', b).act) === 'sign';
   sign.visible = signUp;
-  if (signUp) { const a = v3(-0.6, 1.58, 0.55), c = v3(0.6, 1.58, 0.55); bunty.root.localToWorld(a); bunty.root.localToWorld(c); sign.position.copy(a.add(c).multiplyScalar(0.5)).add(v3(0, 0.12, 0.09)); sign.rotation.set(-0.05, bunty.root.rotation.y * 0.4, Math.sin(t * 2) * 0.015); }
+  if (signUp) { const a = v3(-0.55, 1.4, 0.55), c = v3(0.55, 1.4, 0.55); bunty.root.localToWorld(a); bunty.root.localToWorld(c); sign.position.copy(a.add(c).multiplyScalar(0.5)).add(v3(0, 0.12, 0.09)); sign.rotation.set(-0.05, bunty.root.rotation.y * 0.4, Math.sin(t * 2) * 0.015); }
 }
 
 // camera shots
@@ -345,7 +345,7 @@ window.renderAt = renderAt;
 window.renderCover = () => {
   const b = { ...BEATS[0], i: 0, start: 0, end: 1, vo: null, shot: 'sign', look: 'camera' };
   const mood = TL.cover.mood || 'worried';
-  frame(1.0, b, { bunty: { act: 'sign', mood, look: 'camera' }, prashant: { act: 'point', mood: 'smug' }, cam: { p: v3(-0.18, 2.0, 4.2), l: v3(-0.2, 1.9, 0), fov: 40, focus: 'sign' } });
+  frame(1.0, b, { bunty: { act: 'sign', mood, look: 'camera' }, prashant: { act: 'point', mood: 'smug' }, cam: { p: v3(-0.3, 1.95, 4.75), l: v3(-0.3, 1.88, 0), fov: 40, focus: 'sign' } });
   hud.clearRect(0, 0, W, H);
 };
 renderAt(0.5);

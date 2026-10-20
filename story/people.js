@@ -138,7 +138,7 @@ export function makePerson(name, canvasTex) {
       case 'celebrate': return [v3(-0.5, 2.2 + Math.sin(t * 9) * 0.05, 0.12), v3(0.5, 2.2 + Math.sin(t * 9 + 2) * 0.05, 0.12)];
       case 'shrug': return [v3(-0.58 * B, 1.36, 0.36), v3(0.58 * B, 1.36, 0.36)];
       case 'think': return [v3(-0.12, 1.5, 0.44), v3(0.08, 0.92 + 0.92 + R * 0.35, 0.3 + R * 0.75)];
-      case 'sign': return [v3(-0.6, 1.58, 0.55), v3(0.6, 1.58, 0.55)];
+      case 'sign': return [v3(-0.55, 1.4, 0.55), v3(0.55, 1.4, 0.55)];
       case 'explain': return [v3(-0.4 * B + sway(0), 1.38 + sway(2), 0.5), v3(0.4 * B + sway(1), 1.42 + sway(3), 0.5)];
       case 'arms': return [v3(-0.16, 1.46, 0.46), v3(0.16, 1.4, 0.46)]; // arms folded-ish
       default: return [v3(rest[0].x, rest[0].y + sway(0) * 0.5, rest[0].z), v3(rest[1].x + sway(1), rest[1].y + sway(2), rest[1].z)];

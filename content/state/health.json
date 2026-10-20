@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-20T10:07:03.860Z",
+  "at": "2026-10-20T15:07:55.516Z",
   "problems": [
     {
       "kind": "human",
@@ -9,7 +9,7 @@
     {
       "kind": "info",
       "key": "gaps",
-      "text": "Paused in config/agent.json: 5 empty slots in the next 3 days stay empty."
+      "text": "4 empty slots in the next 3 days; a planner run is already going or just ran."
     }
   ],
   "fixed": []

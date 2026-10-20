@@ -23,6 +23,11 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    outputs:
+      week: ${{ steps.plan.outputs.week }}
+      skipped: ${{ steps.plan.outputs.skipped }}
+      branch: ${{ steps.save.outputs.branch }}
+      story: ${{ steps.save.outputs.story }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,10 +57,10 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           DAYS: ${{ inputs.days }}
         run: node src/cli.js plan ${START:+--start "$START"} ${DAYS:+--days "$DAYS"}
-      - name: Open the approval pull request
+      - name: Save the week to its branch
+        id: save
         if: steps.plan.outputs.skipped == 'false'
         env:
-          GH_TOKEN: ${{ github.token }}
           WEEK: ${{ steps.plan.outputs.week }}
         run: |
           BRANCH="week/$WEEK"
@@ -63,13 +68,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
           git add -A content brand config tools
-          git commit -m "Week $WEEK: posts ready for approval"
+          git commit -m "Week $WEEK: posts written"
           # main may have moved during the run (a workflow file changing there makes GitHub refuse this push)
           git fetch origin main
           git rebase origin/main || { git rebase --abort; git merge --no-edit origin/main; }
           git push -u origin "$BRANCH"
-          { echo "@$GITHUB_REPOSITORY_OWNER next week's posts are ready for your OK. Merge to approve (or add the label \`hold\`)."; echo; node src/cli.js review "$WEEK" "$BRANCH"; } > pr.md
-          gh pr create --base main --head "$BRANCH" --title "Approve $WEEK" --body-file pr.md
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "story=$(node src/cli.js story-pending "$WEEK")" >> "$GITHUB_OUTPUT"
       - name: Keep everything made if saving failed (Actions -> this run -> Artifacts, 14 days)
         if: failure()
         uses: actions/upload-artifact@v4
@@ -81,3 +86,76 @@ jobs:
             tools
             brand
           retention-days: 14
+
+  # every 3D story reel takes about an hour to draw on a GitHub machine, so they are drawn side by side
+  story:
+    needs: plan
+    if: needs.plan.outputs.skipped == 'false' && needs.plan.outputs.story != '' && needs.plan.outputs.story != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 14
+      matrix:
+        post: ${{ fromJSON(needs.plan.outputs.story) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.plan.outputs.branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Cache the voice and speech-check models
+        uses: actions/cache@v4
+        with:
+          path: node_modules/@huggingface/transformers/.cache
+          key: hf-models-v1
+      - name: Draw the reel
+        env:
+          POST: ${{ matrix.post }}
+        run: node story/make.js "$POST"
+      - name: Name the result
+        id: n
+        env:
+          POST: ${{ matrix.post }}
+        run: echo "name=story-$(basename "$POST")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.n.outputs.name }}
+          path: ${{ matrix.post }}/reel.mp4
+          retention-days: 7
+
+  approve:
+    needs: [plan, story]
+    if: always() && needs.plan.result == 'success' && needs.plan.outputs.skipped == 'false'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.plan.outputs.branch }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect the drawn reels
+        uses: actions/download-artifact@v4
+        with:
+          pattern: story-*
+          path: ${{ runner.temp }}/drawn
+      - name: Put each reel in its post folder and open the approval pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WEEK: ${{ needs.plan.outputs.week }}
+          BRANCH: ${{ needs.plan.outputs.branch }}
+          DRAWN: ${{ runner.temp }}/drawn
+        run: |
+          for d in "$DRAWN"/story-*; do [ -f "$d/reel.mp4" ] && cp "$d/reel.mp4" "content/posts/$(basename "$d" | sed 's/^story-//')/reel.mp4"; done
+          node src/cli.js story-done "$WEEK"
+          git config user.name "theecomprashant-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A content
+          git commit -m "Week $WEEK: story reels drawn" || true
+          git push origin "$BRANCH"
+          { echo "@$GITHUB_REPOSITORY_OWNER next week's posts are ready for your OK. Merge to approve (or add the label hold)."; echo; node src/cli.js review "$WEEK" "$BRANCH"; } > "$RUNNER_TEMP/pr.md"
+          gh pr create --base main --head "$BRANCH" --title "Approve $WEEK" --body-file "$RUNNER_TEMP/pr.md"

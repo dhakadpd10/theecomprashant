@@ -1,5 +1,8 @@
 # Strategy for the week of 2026-10-19
 
+## 20 Oct 2026: new format (Prashant's decision, outranks everything below)
+The first 6 cartoon reels reached 7 to 102 people each with zero likes. Prashant judged the look too basic and the writing too weak. From now on every reel is a 3D story episode (docs/STORY.md): Bunty's real D2C problem, Prashant's AI fix on the phone, a twist, then the keyword. Drop the "N AI shoppers judge your X" panel format as the default; use it at most as one phone beat inside a story. Vary Bunty's problems every week. Captions follow the story caption rules in docs/STORY.md, not the old READ BELOW template.
+
 # Strategy: week of 2026-10-19
 
 **Evidence level: almost none.** 3 reels, all Sell more, all under 3 days old, with hook and style unlogged. This strategy keeps the defaults from the pillars file and the voice file. It changes only what the logging gaps force us to change. Nothing here says a hook, style or topic works or fails for this account yet.

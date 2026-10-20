@@ -17,4 +17,6 @@
 - Promising automation the free tool doesn't do.
 - Using "Claude" as the first word of a spoken line (the Fenrir voice says it as "Claw"); start with another word.
 
-**Visual identity:** dark ink stage, paper sticker title + yellow sticker, clay box characters with props, yellow keyword chips, captions at the bottom of reels. Male voice: Kokoro am_fenrir, speed 1.08.
+**Visual identity (from 20 Oct 2026):** 3D cartoon story reels, a two-person sitcom. Bunty (a loud, lovable Jaipur kurta-brand founder, pink kurta, moustache) has the problem; Prashant (calm AI guy, navy hoodie, glasses) fixes it with AI on his phone. Bright stockroom set, word-pop captions with yellow key words, a cardboard-sign cover. Voices: Kokoro hm_omega (Bunty) and hm_psi (Prashant). How to write them: docs/STORY.md.
+
+**Storytelling first (Corey Haines):** a story with stakes beats a list. Specific moment, the mistake, the fix shown on screen, a twist, one ask.

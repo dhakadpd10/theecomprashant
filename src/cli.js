@@ -10,6 +10,8 @@
 //   node src/cli.js launch --start YYYY-MM-DD             give the launch week real dates (Day 1 = start)
 //   node src/cli.js check                                  check keys and the Instagram connection
 //   node src/cli.js health [--fix]                         find (and fix) what would stop daily posting
+//   node src/cli.js story-pending <week>                   print the story reels of a week that still need drawing (JSON)
+//   node src/cli.js story-done <week>                      after drawing: clear the flag, hold back any that failed
 const args = process.argv.slice(2);
 const flag = (name, def) => { const i = args.indexOf(`--${name}`); return i < 0 ? def : args[i + 1] ?? true; };
 
@@ -34,6 +36,20 @@ const NEEDS_CLAUDE = ['plan', 'engage'];
   else if (cmd === 'health') await require('./health').run({ fix: args.includes('--fix') });
   else if (cmd === 'analytics') await require('./analytics').run();
   else if (cmd === 'site') require('./site').build();
+  else if (cmd === 'story-pending' || cmd === 'story-done') {
+    const fs = require('fs'), { P, readJSON, writeJSON } = require('./util');
+    const f = P('content/queue', args[1], 'plan.json'), plan = readJSON(f, { slots: [] });
+    const pending = plan.slots.filter((s) => s.render === 'pending');
+    if (cmd === 'story-pending') { console.log(JSON.stringify(pending.map((s) => `content/posts/${s.post}`))); return; }
+    const failed = [];
+    for (const s of pending) {
+      if (fs.existsSync(P('content/posts', s.post, 'reel.mp4'))) delete s.render;
+      else { s.status = 'skip'; s.render = 'failed'; s.note = 'the 3D render failed; re-run Story check on this post, then set status back to "made"'; failed.push(`${s.day} ${s.time} reel: ${s.post} could not be drawn (held back)`); }
+    }
+    writeJSON(f, plan);
+    if (failed.length) fs.appendFileSync(P('content/queue', args[1], 'problems.txt'), '\n' + failed.join('\n'));
+    console.log(`story reels drawn: ${pending.length - failed.length}, failed: ${failed.length}`);
+  }
   else if (cmd === 'launch') {
     const { P, readJSON, writeJSON, addDays } = require('./util'); const start = flag('start');
     if (!/^\d{4}-\d{2}-\d{2}$/.test(start || '')) throw new Error('give --start YYYY-MM-DD');

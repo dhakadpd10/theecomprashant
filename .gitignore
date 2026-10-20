@@ -11,3 +11,7 @@ content/posts/*/slide-*.png
 content/posts/*/cover.png
 content/posts/*/*.tmp.*
 .claude/
+content/posts/*/voice/*.f32
+content/story-samples/*/voice/
+content/story-samples/*/audio.wav
+content/story-samples/*/stills/

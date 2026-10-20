@@ -1,0 +1,9 @@
+200 people opened Bunty's kurta page today and nobody bought. His page says "premium cotton" and answers nothing else.
+
+Buyers come with three questions: will it fit, can I pay cash on delivery, is the white see-through. Prashant pasted the page and 20 real reviews into Claude, asked which questions the page never answers, and had it rewrite the description in the buyers' own words. Size, COD and fabric now sit right under the price.
+
+Comment "DESC" and I'll DM you the exact prompt. Follow so the DM lands 📩
+
+It's free. Paste in your best-selling product page and your last 20 reviews.
+
+#d2cbrand #shopifyindia #productdescription #ecommerceindia

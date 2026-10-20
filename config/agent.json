@@ -14,7 +14,8 @@
     ] }
   ],
   "voice": { "id": "am_fenrir", "speed": 1.08 },
-  "motion": { "share": 0.5, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
+  "story": { "share": 1, "note": "share of reels made as 3D story episodes with Bunty and Prashant (docs/STORY.md, story/); 20 Oct 2026: all reels" },
+  "motion": { "share": 0, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
   "models": {
     "writer": "claude-opus-5-5",
     "replies": "claude-opus-5-5",

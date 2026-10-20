@@ -14,12 +14,12 @@
     { "who": "bunty", "shot": "bunty", "act": "shrug", "mood": "angry", "say": "Confirm? Bhai, an order is an order!", "punch": true },
     { "who": "prashant", "shot": "phone", "act": "phone", "say": "Send one WhatsApp message within ten minutes. The order, a Yes button, and a No button.",
       "screen": { "type": "whatsapp", "name": "Bunty's Kurtas", "msgs": [ { "from": "brand", "text": "Hi Riya! Your Cotton Kurta Set (₹899, cash on delivery) is packed. Shall we send it?", "buttons": ["Yes, send it", "No, cancel"] } ] } },
-    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Claude writes it in Hinglish for you. Friendly, short, and never pushy.",
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Let Claude write it in Hinglish for you. Friendly, short, and never pushy.",
       "screen": { "type": "chat", "ask": "Write a short, friendly WhatsApp message in Hinglish to confirm a cash on delivery order. Yes and No buttons. No pressure.", "answer": "Hi Riya! Aapka Cotton Kurta Set pack ho gaya hai. ₹899 cash on delivery. Bhej dein? Tap Yes or No, dono chalega!" } },
     { "who": "prashant", "shot": "phone", "act": "phone", "say": "Tap No, and it's cancelled before the courier ever picks it up.", "sfx": ["ding"],
       "screen": { "type": "whatsapp", "name": "Bunty's Kurtas", "msgs": [ { "from": "brand", "text": "Your Cotton Kurta Set is packed. Shall we send it?", "buttons": ["Yes, send it", "No, cancel"] }, { "from": "buyer", "text": "No, cancel" }, { "from": "brand", "text": "Done, cancelled. No problem at all!" } ] } },
     { "who": "bunty", "shot": "bunty", "act": "celebrate", "mood": "excited", "say": "So the fake orders cancel themselves?" },
     { "who": "bunty", "shot": "two", "act": "point", "mood": "smug", "look": "camera", "say": "Okay. Those forty parcels are going to your house.", "other": { "act": "facepalm", "mood": "worried" }, "sfx": ["scratch"] },
-    { "who": "prashant", "shot": "prashant", "act": "explain", "mood": "happy", "look": "camera", "cta": true, "say": "Comment RTO, and I'll send you all three messages." }
+    { "who": "prashant", "shot": "prashant", "act": "explain", "mood": "happy", "look": "camera", "cta": true, "say": "Comment RTO, and I'll send you the prompt that writes all three." }
   ]
 }

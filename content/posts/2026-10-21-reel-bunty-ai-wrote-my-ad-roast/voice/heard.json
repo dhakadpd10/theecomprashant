@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop running 'Elevate your festive wardrobe' as your Diwali ad. Eight thousand rupees. Two sales!",
+  "heard": "Stop running, elevate your festive wardrobe as your Diwali ad 8000 rupees to sales.",
+  "error": 0.07
+ },
+ "01": {
+  "say": "That's 'cause Meta's AI gave the same line to every kurta brand this Diwali.",
+  "heard": "That's cause, mirrors, AI, gave the same line to every Cura brand this Diwali.",
+  "error": 0.14
+ },
+ "02": {
+  "say": "But it sounds premium! Like my premium cotton!",
+  "heard": "But it sounds premium like my premium cotton.",
+  "error": 0
+ },
+ "03": {
+  "say": "Okay, paste the ad into Claude. Five critics read it, each on their own.",
+  "heard": "Okay, paste the add into cloud. 5 critics read it, each on their own.",
+  "error": 0.14
+ },
+ "04": {
+  "say": "And each one tells you the exact line they scrolled past.",
+  "heard": "And each one tells you the exact line they scrolled past.",
+  "error": 0
+ },
+ "05": {
+  "say": "Then it rewrites your hook. See their top pick?",
+  "heard": "Then it rewrites your hook. See their top pick.",
+  "error": 0
+ },
+ "06": {
+  "say": "Hey, that's MY line! Made in Jaipur, worn all over India!",
+  "heard": "Hey, that's my line, made in Jaipur worn all over India.",
+  "error": 0
+ },
+ "07": {
+  "say": "Yep. The one you deleted last year for being too desi.",
+  "heard": "Yep, the one you deleted last year for being too dacy.",
+  "error": 0.09
+ },
+ "08": {
+  "say": "Comment ROAST. I'll send you the five-critic prompt before you spend more.",
+  "heard": "Comment \"Roast\". I'll send you the 5-critic prompt before you spend more.",
+  "error": 0
+ }
+}

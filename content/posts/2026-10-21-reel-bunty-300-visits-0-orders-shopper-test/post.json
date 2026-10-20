@@ -1,0 +1,169 @@
+{
+  "id": "2026-10-21-reel-bunty-300-visits-0-orders-shopper-test",
+  "style": "story",
+  "keyword": "STORE",
+  "hook": "STOP CHANGING THE BANNER",
+  "sign": "300 visits\n0 orders\nBanner #3??",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Festive Sale · Banner v3"
+  },
+  "hot": [
+    "zero",
+    "banner",
+    "size chart",
+    "WhatsApp",
+    "STORE"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "point",
+      "mood": "angry",
+      "say": "Three hundred visits, zero orders. You say, stop changing your banner. Watch a shopper use the page.",
+      "show": "300 visits Saturday. ZERO orders. You say, stop changing your banner. Watch a shopper use the page.",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Three banners. You never watched one shopper try to buy.",
+      "show": "3 banners. You never watched 1 shopper try to buy."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "angry",
+      "say": "Arre, the banner is the first thing they see!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Shopify's testing AI shoppers. It's called SimGym, a research preview.",
+      "show": "Shopify's testing AI shoppers. It's called SimGym, a research preview.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Run your own tonight, free. Paste the test and your page into Claude.",
+      "screen": {
+        "type": "chat",
+        "ask": "Run a 7-Shopper Test on this page. Read it as 7 shoppers, each alone. For each: where they leave, why, what would keep them, a score out of 10. buntys.in/kurta-set",
+        "answer": "Shopper 5, Midnight scroller. Leaves at: 'Select size'. Because: where is the size chart, yaar? Would buy if: sizes sit under the price. Score: 2/10."
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Seven shoppers, each alone. Five leave at the same spot, the size chart.",
+      "show": "7 shoppers, each alone. 5 leave at the same spot, the size chart.",
+      "screen": {
+        "type": "list",
+        "title": "5 of 7 leave at SIZE",
+        "items": [
+          "First-timer · no size chart · 3/10",
+          "Midnight scroller · no size chart · 2/10",
+          "Gift buyer · no size chart · 3/10",
+          "Loyal fan · no size chart · 4/10",
+          "Bargain hunter · no size chart · 4/10"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Super idea! I'll make a size chart tonight!",
+      "other": {
+        "act": "idle",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "You already have one. It's hiding behind the green chat button.",
+      "other": {
+        "act": "facepalm",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ],
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Move sizes right under the price.",
+      "screen": {
+        "type": "page",
+        "product": "kurta",
+        "name": "Cotton Kurta Set",
+        "price": "₹899",
+        "url": "buntys.in/kurta-set",
+        "lines": [
+          {
+            "text": "Size chart: pop-up behind WhatsApp button",
+            "mark": "bad"
+          },
+          {
+            "text": "S 36 · M 38 · L 40 · XL 42 inch chest",
+            "mark": "good"
+          },
+          {
+            "text": "Sizes now sit right under the price",
+            "mark": "good"
+          }
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment STORE, and I'll send you the full seven-shopper test.",
+      "show": "Comment STORE, and I'll send you the full 7-Shopper Test.",
+      "other": {
+        "act": "phone",
+        "mood": "happy"
+      }
+    }
+  ]
+}

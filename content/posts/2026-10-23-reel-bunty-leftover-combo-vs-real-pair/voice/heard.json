@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop combining your three worst sellers, son. My mother says it daily. Nine orders in ten are one piece!",
+  "heard": "Stop combining your three worst-sellers son. My mother says it daily. Nine orders in 10 are one piece.",
+  "error": 0
+ },
+ "01": {
+  "say": "Nobody picks those three alone. One box won't change that.",
+  "heard": "Nobody picks those three alone. One box won't change that.",
+  "error": 0
+ },
+ "02": {
+  "say": "But my average order is eleven hundred rupees! Super Combo fixes that!",
+  "heard": "But my average order is 1100 rupees. Super combo fixes that.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste your order export into Claude, names and phones removed.",
+  "heard": "Paste your order export into Cloud, Names and Phones remove.",
+  "error": 0.2
+ },
+ "04": {
+  "say": "One design, two sizes, bought together twenty-four times. The slow three? Never.",
+  "heard": "One design, two sizes, bought together 24 times. The slow three never.",
+  "error": 0
+ },
+ "05": {
+  "say": "It suggests a bundle price. Check it against your own costs.",
+  "heard": "It suggests a bundle price. Check it against your own cost.",
+  "error": 0.09
+ },
+ "06": {
+  "say": "Wow, nice! But brother, who buys a medium and a large together?",
+  "heard": "Wow nice, but brother who buys a medium and a large together.",
+  "error": 0
+ },
+ "07": {
+  "say": "Probably sisters, one for each brother. Sell a Bhai Dooj pair before eleven November.",
+  "heard": "Probably sisters, one for each brother, sell a by-duge pair before 11 November.",
+  "error": 0.14
+ },
+ "08": {
+  "say": "Comment BUNDLE, and I'll send you the Bundle Builder prompt.",
+  "heard": "Comment \"Pundal\" and I'll send you the \"Bundal Builder\" prompt.",
+  "error": 0.2
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "My ten percent discount code killed my margin on thirty-eight orders!",
+  "heard": "My 10% discount code killed my margin on 38 orders.",
+  "error": 0
+ },
+ "01": {
+  "say": "Your first reminder gives the coupon to everyone, even people about to pay.",
+  "heard": "Your first reminder gives the coupon to everyone, even people about to pay.",
+  "error": 0
+ },
+ "02": {
+  "say": "Arre, the coupon brings them back, bhai!",
+  "heard": "R, the coupon brings them back by.",
+  "error": 0.29
+ },
+ "03": {
+  "say": "Thirty-eight of your last hundred orders used it. Some were buying anyway.",
+  "heard": "38 of your last 100 orders used it. Some were buying anyway.",
+  "error": 0.08
+ },
+ "04": {
+  "say": "Paste your price, sizes and return policy into this prompt in Claude.",
+  "heard": "Paste your price, sizes and return policy into this prompt in cloud.",
+  "error": 0.08
+ },
+ "05": {
+  "say": "Message one goes out after an hour, no coupon. It just helps with size.",
+  "heard": "Message 1 goes out after an hour. No coupon. It just helps with size.",
+  "error": 0
+ },
+ "06": {
+  "say": "Oh wow! The discount comes only on day three, for new buyers!",
+  "heard": "Oh wow, the discount comes only on Day 3 for new buyers.",
+  "error": 0
+ },
+ "07": {
+  "say": "My cousin Golu leaves his cart on purpose. He knows my discount always comes!",
+  "heard": "My cousin, Galu, leaves his cart on purpose. He knows my discount always comes.",
+  "error": 0.07
+ },
+ "08": {
+  "say": "Comment CART, and I'll send you the No-Spam Cart Recovery prompt.",
+  "heard": "Comment card and I'll send you the No Spam card recovery prompt.",
+  "error": 0.17
+ }
+}

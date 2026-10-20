@@ -1,0 +1,154 @@
+{
+  "id": "2026-10-22-reel-bunty-cart-coupon-trained-abandoners",
+  "style": "story",
+  "keyword": "CART",
+  "hook": "38 ORDERS MARGIN GONE",
+  "sign": "10% coupon\nate my margin\n38 ORDERS??",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "coupon",
+    "margin",
+    "first reminder",
+    "Golu",
+    "CART"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "My ten percent discount code killed my margin on thirty-eight orders!",
+      "show": "My 10% discount code killed my margin on 38 orders!",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Your first reminder gives the coupon to everyone, even people about to pay."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "angry",
+      "say": "Arre, the coupon brings them back, bhai!",
+      "show": "Arre, the coupon brings them back, bhai!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Thirty-eight of your last hundred orders used it. Some were buying anyway.",
+      "show": "38 of your last 100 orders used it. Some were buying anyway.",
+      "screen": {
+        "type": "stats",
+        "label": "Orders that used the 10% cart coupon",
+        "from": 0,
+        "to": 38,
+        "prefix": "",
+        "suffix": " of 100",
+        "note": "Bunty's last 100 orders (example numbers)"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste your price, sizes and return policy into this prompt in Claude.",
+      "screen": {
+        "type": "chat",
+        "ask": "Write my No-Spam Cart Recovery Sequence. Kurtas ₹899, Shopify, top doubt is size. Offer for message 3: 10% off, first order only. No discount in message 1.",
+        "answer": "Message 1 at 1 hour: cart link and help with size, no discount. Message 2 at 24 hours: size guide and exchange policy. Message 3 at 72 hours: last message, 10% for first orders. [CHECK: offer expiry]"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Message one goes out after an hour, no coupon. It just helps with size.",
+      "show": "Message 1 goes out after 1 hour, no coupon. It just helps with size.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Hi Riya, your kurta is still in your cart. Not sure about size? Send us your usual size and we'll suggest yours. Reply STOP and we won't message you again.",
+            "buttons": [
+              "View my cart",
+              "Ask a question"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Oh wow! The discount comes only on day three, for new buyers!",
+      "show": "Oh wow! The discount comes only on day 3, for new buyers!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "shock",
+      "say": "My cousin Golu leaves his cart on purpose. He knows my discount always comes!",
+      "show": "My cousin Golu leaves his cart on purpose. He knows my discount always comes!",
+      "sfx": [
+        "buzz",
+        "scratch"
+      ],
+      "punch": true,
+      "screen": {
+        "type": "whatsapp",
+        "name": "Golu (cousin)",
+        "msgs": [
+          {
+            "from": "buyer",
+            "text": "Bhaiya, main cart chhod ke 1 ghanta wait karta hoon 😄"
+          },
+          {
+            "from": "buyer",
+            "text": "Bunty bhaiya ka coupon toh aata hi hai!"
+          }
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment CART, and I'll send you the No-Spam Cart Recovery prompt.",
+      "other": {
+        "act": "facepalm",
+        "mood": "sad"
+      }
+    }
+  ]
+}

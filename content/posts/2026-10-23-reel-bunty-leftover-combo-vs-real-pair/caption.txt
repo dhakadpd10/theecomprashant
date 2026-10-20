@@ -1,0 +1,9 @@
+9 of Bunty's 10 orders are a single kurta, so he boxed his 3 slowest sellers together as a Super Combo.
+
+Prashant pasted Bunty's order export into Claude, with names and phone numbers removed, and asked which products people already buy together. The same block-print kurta in M and L came up in 24 orders, and the 3 leftovers were never bought together once (example numbers). That pair is the bundle to test first, as a Bhai Dooj gift before 11 Nov, once Bunty checks the ₹1,599 price against his own costs.
+
+Comment "BUNDLE" and I'll DM you the exact Bundle Builder prompt. Follow so the DM lands 📩
+
+It's free. Paste in your last 3 months of orders from Shopify, with customer names and phone numbers removed.
+
+#d2cbrand #shopifyindia #ecommerceindia #productbundles

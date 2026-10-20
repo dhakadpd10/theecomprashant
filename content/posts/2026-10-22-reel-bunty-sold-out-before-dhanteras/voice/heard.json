@@ -1,0 +1,52 @@
+{
+ "00": {
+  "say": "Stock tension again! My last three festival reorders came too late. Number four won't.",
+  "heard": "Stock tension again, my last three festival reorders came too late. Number 4.",
+  "error": 0.07
+ },
+ "01": {
+  "say": "You check the shelf. Check how fast it empties.",
+  "heard": "You check the shelf. Check how fast it empties.",
+  "error": 0
+ },
+ "02": {
+  "say": "But bhai, forty-eight size M on the shelf! Dhanteras is safe!",
+  "heard": "But by 48 size M on the shelf, Dantros is safe.",
+  "error": 0.18
+ },
+ "03": {
+  "say": "You sell four daily. Empty by November third. Three days before Dhanteras.",
+  "heard": "You sell 4 daily, empty by November 3, 3 days before Dantra's.",
+  "error": 0.17
+ },
+ "04": {
+  "say": "Every Monday, paste sales, stock and your tailor's ten days into Claude. Nothing syncs by itself.",
+  "heard": "Every Monday, base sale, stock and your tailors 10 days into Claude. Nothing sinks by itself.",
+  "error": 0.19
+ },
+ "05": {
+  "say": "Size M is red. Order one hundred forty today.",
+  "heard": "Size M is red. Order 140 today.",
+  "error": 0
+ },
+ "06": {
+  "say": "Super, bhai! I will phone my tailor right now!",
+  "heard": "Super bye, I will phone my Taylor right now.",
+  "error": 0.22
+ },
+ "07": {
+  "say": "Scroll up, Bunty. Your first red row is the gift boxes.",
+  "heard": "Scroll up, Bunty. Your first red row is the gift box.",
+  "error": 0.09
+ },
+ "08": {
+  "say": "Diwali gifts in plain plastic bags? Mummy will never forgive me!",
+  "heard": "Diwali gifts in plain plastic bags. Mummy will never forgive me.",
+  "error": 0
+ },
+ "09": {
+  "say": "Comment STOCK, and I'll send you the Reorder Alert Sheet.",
+  "heard": "Comment stock and I'll send you the Reorder Alert Sheet.",
+  "error": 0
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "00": {
+  "say": "Three hundred visits, zero orders. You say, stop changing your banner. Watch a shopper use the page.",
+  "heard": "300 visits, zero orders. You say, \"Stop changing your banner.\" Watch a shopper use the page.",
+  "error": 0
+ },
+ "01": {
+  "say": "Three banners. You never watched one shopper try to buy.",
+  "heard": "Three banners, you never watched one shopper try the buy.",
+  "error": 0.1
+ },
+ "02": {
+  "say": "Arre, the banner is the first thing they see!",
+  "heard": "Or the banner is the first thing they see.",
+  "error": 0.11
+ },
+ "03": {
+  "say": "Shopify's testing AI shoppers. It's called SimGym, a research preview.",
+  "heard": "Shopify's testing AI Shoppers, it's called SimGIM, a research preview.",
+  "error": 0.1
+ },
+ "04": {
+  "say": "Run your own tonight, free. Paste the test and your page into Claude.",
+  "heard": "Run your own tonight free, paste the test and your page into cloud.",
+  "error": 0.08
+ },
+ "05": {
+  "say": "Seven shoppers, each alone. Five leave at the same spot, the size chart.",
+  "heard": "7 shoppers each alone, 5 leave at the same spot the size chart.",
+  "error": 0
+ },
+ "06": {
+  "say": "Super idea! I'll make a size chart tonight!",
+  "heard": "Super idea, I'll make a size chart tonight.",
+  "error": 0
+ },
+ "07": {
+  "say": "You already have one. It's hiding behind the green chat button.",
+  "heard": "You already have one. It's hiding behind the green chat button.",
+  "error": 0
+ },
+ "08": {
+  "say": "Move sizes right under the price.",
+  "heard": "Move sizes right under the price.",
+  "error": 0
+ },
+ "09": {
+  "say": "Comment STORE, and I'll send you the full seven-shopper test.",
+  "heard": "Comment store and I'll send you the full 7-shaper test.",
+  "error": 0.09
+ }
+}

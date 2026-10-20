@@ -1,0 +1,109 @@
+{
+  "week": "2026-W43-3",
+  "start": "2026-10-21",
+  "research": "I found 9 things from 6 to 20 Oct 2026 that a small D2C or Shopify owner can use. Most of the sources are trade blogs, not the companies' own pages, so check the details before we build a post on any of them.\n\n**AI tools and platforms**\n\n1. **Meta's Ads Manager assistant can now make changes from a chat prompt (testing since 6 Oct).** It can build campaigns, change targeting and adjust budgets, and you approve each change before it goes live. It also remembers past results and can take your brand voice documents. Image-to-video in Advantage+ Creative is now available to everyone. *Why you should care:* turning your static product photos into video ads for Diwali costs nothing extra. Most accounts don't have the chat-prompt changes yet. [CommonThread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands) · [PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/)\n\n2. **Meta's new Customer Lifecycle Strategy setting is live for all advertisers.** It suggests leaving existing customers out of campaigns meant to find new ones. *Why you should care:* you stop paying to \"acquire\" people who have already bought from you. This one is quick to check. [Adsuploader](https://adsuploader.com/blog/meta-ads-updates)\n\n3. **Shopify Canvas (1 Oct).** You build and edit your store by chatting with Sidekick, Shopify's AI assistant, and the changes show up live. *Why you should care:* a 1 to 5 person team can redo a homepage or a festive landing page without a developer. [TechCrunch](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n\n4. **Shopify SimGym (research preview) and Meta as a sales channel (8 Oct).** SimGym runs AI shoppers through your store to show how real buyers might behave. Separately, Meta now appears as an AI sales channel in your Shopify admin, and your products are shared with Meta automatically unless you turn it off. *Why you should care:* SimGym is Shopify's own version of our STORE shopper test, so it's a fresh hook for that episode. And the Meta sharing means you should check that your product titles and descriptions are clean. [MediaPost](https://www.mediapost.com/publications/article/418436/shopify-unveils-commerce-site-creation-tool-integ.html) · [Shopify Changelog](https://changelog.shopify.com/)\n\n5. **ChatGPT added \"Shop at\" buttons under product recommendations (10 Oct).** One analysis found more than half of the buttons sent shoppers to big-box retailers and about 5% sent them to the brand's own site. Separately, Shopify launched a tool (13 Oct) that lets ChatGPT and Claude search products and check out with Shop Pay once the buyer approves. *Why you should care:* AI chat apps may send buyers to the big marketplaces and skip your store. Clear product data on your own site is the defence. [WISLR](https://www.wislr.com/articles/chatgpt-shop-at-buttons-big-box/) · [FourWeekMBA](https://fourweekmba.com/ai-shops-new-skill-lets-chatgpt-and-claude-buy-with-shop-pay/)\n\n6. **WhatsApp Business API pricing changed on 1 Oct.** Replies sent through the API inside the 24-hour window are now paid after the first 1,000 a month per number. Replies a person types in the Business App stay free. *Why you should care:* a festive surge in support chats or cart reminders sent through a third-party tool could raise your bill. Sources disagree on the details, and Meta's own pricing page hadn't been updated as of 12 Oct, so check your actual bill. [Techweez](https://techweez.com/2026/09/28/whatsapp-business-pricing-october-2026/) · [Blueticks](https://blueticks.co/blog/whatsapp-business-api-updates-2026)\n\n7. **Instagram links in posts and Reels (reported 13 Oct).** This comes with Meta One, Meta's paid plan for businesses. The Advanced plan reportedly allows 4 links in posts and 4 in Reels a month. Separately, the Edits app can now make carousels. *Why you should care:* a product link right on the Reel instead of \"link in bio\", if the plan's price is worth it to you. Only third-party blogs report this so far. [Invisibleapi](https://invisibleapi.ai/blog/instagram-new-features/) · [SocialBee](https://socialbee.com/blog/instagram-updates/)\n\n**Festival dates in India**\n\n8. **Diwali is 8 Nov.** Dhanteras is 6 Nov and Bhai Dooj is 11 Nov. Flipkart Big Billion Days and the Amazon Great Indian Festival have been running since 8 to 9 Oct. Nykaaland is listed for 23 to 25 Oct. Black Friday is expected on 27 Nov. Dates for the marketplaces' separate Diwali sales are still guesses and the sites disagree. *Why you should care:* your last chance to stock up and run ads is the next 2 weeks, and Bhai Dooj gifting is a second push after Diwali. [Zoutons](https://zoutons.com/news/diwali-2026-shopping-calendar-sale-dates-amazon-flipkart-myntra-ajio) · [RoopTantra](https://rooptantra.ai/blog/festive-marketing-calendar-for-fashion-brands-india/)\n\n**A problem sellers are talking about**\n\n9. **The festive RTO spike (orders sent back undelivered).** Unicommerce reported RTO at 39.2% in November 2025. Brands that worked on it got down to 21% by March, mainly through COD confirmation, address checks and prepaid offers. Sellers say returns peak about 1 to 2 weeks after the sales end. *Why you should care:* that cash gets stuck right when you're restocking. These figures are from last year and from companies that sell RTO tools, and I found no independent 2026 numbers yet. [Unicommerce](https://unicommerce.com/india-d2c-report-2026-april/) · [Amazon Shipping](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n\n**What I left out**\n- **Claude:** Anthropic had no small-business launch in the last 14 days. The latest is Claude for Small Business from May ([Anthropic](https://www.anthropic.com/news/claude-for-small-business)).\n- **Google Universal Cart (15 Oct):** a single cart across retailers in Search and Gemini. It's US-only and reportedly not open to Indian brands yet ([ppc.land](https://ppc.land/googles-universal-cart-reaches-us-shoppers-as-meta-flips-browsing-on/)).\n\n**How these fit this week's plan**\n- **Bullet 6** works for the CART episode (Retention). The pricing change makes it timely: Bunty's WhatsApp bill goes up.\n- **Bullets 1 and 2** work for ROAST (Ads).\n- **Bullet 4** works for the STORE repeat.\n- **Bullet 9** belongs to RTO, which is on hold until its 72-hour numbers are in, so it waits.\n\nNone of these sources give results we could claim as ours. Any numbers we use from them should be credited to the source.",
+  "slots": [
+    {
+      "day": "2026-10-21",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-21-reel-bunty-300-visits-0-orders-shopper-test",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 81.4
+      },
+      "keyword": "STORE",
+      "pillar": "Sell more",
+      "topic": "Shopify is testing AI shoppers (SimGym, research preview). You can run your own shopper test on your store tonight, free.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-21",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-21-reel-bunty-ai-wrote-my-ad-roast",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83
+      },
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "Meta's AI wrote Bunty's Diwali ad copy. 5 AI critics roast it before he spends more.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-22-reel-bunty-cart-coupon-trained-abandoners",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 54.8
+      },
+      "keyword": "CART",
+      "pillar": "Retention",
+      "topic": "Your cart reminder's 10% coupon is teaching buyers to abandon carts on purpose.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-22-reel-bunty-sold-out-before-dhanteras",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 15,
+        "name": "The Flop Record",
+        "score": 80.8
+      },
+      "keyword": "STOCK",
+      "pillar": "Operations",
+      "topic": "Bunty's bestseller sells out before Dhanteras because he reorders when the shelf is empty.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-23-reel-bunty-leftover-combo-vs-real-pair",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 84.4
+      },
+      "keyword": "BUNDLE",
+      "pillar": "Sell more",
+      "topic": "Bunty's '3 leftovers combo' vs the pair his buyers already make on their own.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-23-reel-bunty-killed-best-ad-day-one",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83.2
+      },
+      "keyword": "SCALE",
+      "pillar": "Ads",
+      "topic": "Don't kill an ad on day one. Bunty did, and it was his best one.",
+      "status": "made"
+    }
+  ]
+}

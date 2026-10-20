@@ -1,0 +1,133 @@
+{
+  "id": "2026-10-23-reel-bunty-leftover-combo-vs-real-pair",
+  "style": "story",
+  "keyword": "BUNDLE",
+  "hook": "STOP BUNDLING LEFTOVERS",
+  "sign": "9 of 10 orders\n= 1 kurta\nWHY??",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S SUPER COMBO",
+    "line": "3 kurtas · 1 price · Jaipur"
+  },
+  "hot": [
+    "leftovers",
+    "together",
+    "sizes",
+    "Bhai Dooj",
+    "BUNDLE"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "worried",
+      "say": "Stop combining your three worst sellers, son. My mother says it daily. Nine orders in ten are one piece!",
+      "show": "\"Stop bundling your 3 slowest kurtas, Bunty.\" Mummy says it daily. 9 orders in 10 are 1 kurta!",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Nobody picks those three alone. One box won't change that."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "angry",
+      "say": "But my average order is eleven hundred rupees! Super Combo fixes that!",
+      "show": "But my average order is ₹1,100! Super Combo fixes that!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste your order export into Claude, names and phones removed.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here is my order export. Group rows by order id, skip returned orders, and count each size as its own product. Which products get bought together? Suggest 3 bundles to test.",
+        "answer": "Top pair: Block-print kurta M + L, in 24 orders. Your 3 slow kurtas: never bought together. Here are 3 bundle ideas to test..."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "One design, two sizes, bought together twenty-four times. The slow three? Never.",
+      "show": "Same kurta, 2 sizes, together 24 times. Your leftovers, 0 times.",
+      "screen": {
+        "type": "list",
+        "title": "Already bought together (example)",
+        "items": [
+          "Block-print kurta M + L: 24 orders",
+          "Kurta + cotton pyjama: 9 orders",
+          "Your 3 leftovers together: 0 orders"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "It suggests a bundle price. Check it against your own costs.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "Bundle 1: the natural pair (example)",
+        "items": [
+          "Kurta M + L, 2 × ₹899 = ₹1,798",
+          "Bundle price: ₹1,599",
+          "Buyer saves ₹199",
+          "Your costs: [CHECK] before listing"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Wow, nice! But brother, who buys a medium and a large together?"
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "Probably sisters, one for each brother. Sell a Bhai Dooj pair before eleven November.",
+      "show": "Probably sisters, one for each brother. Sell a Bhai Dooj pair before 11 Nov.",
+      "other": {
+        "act": "idle",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ],
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment BUNDLE, and I'll send you the Bundle Builder prompt.",
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    }
+  ]
+}

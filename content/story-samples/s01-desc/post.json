@@ -1,0 +1,25 @@
+{
+  "id": "s01-desc",
+  "style": "story",
+  "keyword": "DESC",
+  "hook": "200 visitors. 0 orders.",
+  "sign": "200 visitors\n0 orders\nWHY??",
+  "cover": { "mood": "worried" },
+  "brand": { "name": "BUNTY'S", "line": "Handmade kurtas · Jaipur" },
+  "hot": ["zero", "DESC", "size", "COD", "see-through", "mummy"],
+  "musicStop": 7,
+  "beats": [
+    { "who": "bunty", "shot": "bunty-push", "act": "facepalm", "mood": "shock", "say": "Two hundred people opened my kurta page today. Zero orders!", "show": "200 people opened my kurta page today. ZERO orders!", "sfx": ["fail"] },
+    { "who": "prashant", "shot": "two", "act": "explain", "mood": "normal", "say": "Because your page talks like a catalogue. Buyers came with questions." },
+    { "who": "bunty", "shot": "bunty", "act": "shrug", "mood": "angry", "say": "It says premium cotton! What more do they want?", "punch": true },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Will it fit me? Can I pay cash on delivery? Is it see-through? Your page answers none of it.", "show": "Will it fit me? Can I pay COD? Is it see-through? Your page answers none of it.",
+      "screen": { "type": "page", "product": "kurta", "name": "Cotton Kurta Set", "price": "₹899", "url": "buntys.in/kurta-set", "lines": [ { "text": "Premium quality cotton.", "mark": "bad" }, { "text": "Elegant design for every occasion.", "mark": "bad" }, { "text": "Size? Fabric? COD? Not mentioned.", "mark": "bad" } ] } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "So paste your page and twenty real reviews into Claude, and ask it to answer what buyers keep asking.",
+      "screen": { "type": "chat", "ask": "Here is my product page and 20 customer reviews. List the questions buyers ask that my page never answers. Then rewrite it in their words.", "answer": "Buyers keep asking: 1. Will size L fit a 40 inch chest? 2. Is cash on delivery available? 3. Is the white see-through? Here is the new page..." } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Now size, cash on delivery and fabric sit right under the price.", "show": "Now size, COD and fabric sit right under the price.", "sfx": ["ding"],
+      "screen": { "type": "page", "product": "kurta", "name": "Cotton Kurta Set", "price": "₹899", "url": "buntys.in/kurta-set", "lines": [ { "text": "Fits true to size. L = 40 inch chest.", "mark": "good" }, { "text": "Cash on delivery available.", "mark": "good" }, { "text": "Thick cotton, not see-through.", "mark": "good" } ] } },
+    { "who": "bunty", "shot": "bunty", "act": "celebrate", "mood": "excited", "say": "Arre wah! Even my mummy would buy this now!" },
+    { "who": "prashant", "shot": "prashant", "act": "arms", "mood": "smug", "say": "Your mummy already bought three.", "other": { "act": "idle", "mood": "shock" }, "sfx": ["scratch"] },
+    { "who": "prashant", "shot": "two", "act": "point", "mood": "happy", "look": "camera", "cta": true, "say": "Comment DESC, and I'll send you the exact prompt.", "other": { "act": "celebrate", "mood": "happy" } }
+  ]
+}

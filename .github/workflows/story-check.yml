@@ -1,0 +1,63 @@
+name: Story check - render story reels
+# Manual test of the 3D story-reel pipeline on GitHub's machines: both voices (checked by Whisper), sound, cover, reel.
+# Posts nothing and uses no Claude. Each finished reel is attached to the run as an artifact.
+on:
+  workflow_dispatch:
+    inputs:
+      posts:
+        description: "Folders to render, space separated (default: the two samples)"
+        required: false
+        default: "content/story-samples/s01-desc content/story-samples/s02-rto"
+      stills:
+        description: "Only these seconds as stills (e.g. 1,5,9), no full reel. Empty = full reel."
+        required: false
+permissions:
+  contents: read
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    outputs:
+      posts: ${{ steps.l.outputs.posts }}
+    steps:
+      - id: l
+        env:
+          POSTS: ${{ inputs.posts }}
+        run: echo "posts=$(printf '%s\n' $POSTS | jq -R . | jq -sc .)" >> "$GITHUB_OUTPUT"
+  render:
+    needs: list
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        post: ${{ fromJSON(needs.list.outputs.posts) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Cache the voice and speech-check models
+        uses: actions/cache@v4
+        with:
+          path: node_modules/@huggingface/transformers/.cache
+          key: hf-models-v1
+      - name: Render
+        env:
+          POST: ${{ matrix.post }}
+          STILLS: ${{ inputs.stills }}
+        run: node story/make.js "$POST" ${STILLS:+--stills "$STILLS"}
+      - name: Name the artifact
+        id: n
+        env:
+          POST: ${{ matrix.post }}
+        run: echo "name=$(basename "$POST")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.n.outputs.name }}
+          path: |
+            ${{ matrix.post }}/reel.mp4
+            ${{ matrix.post }}/cover.jpg
+            ${{ matrix.post }}/stills
+            ${{ matrix.post }}/voice/heard.json

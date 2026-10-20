@@ -88,7 +88,8 @@ async function run({ fix = false } = {}) {
   // 5. empty slots in the next 3 days -> planner (unless one is running or a PR covers them)
   const t = taken(all), gaps = [];
   for (let i = 0; i < 3; i++) { const day = addDays(localDay(), i); for (const sl of slotsFor(day)) if (!t.has(`${day} ${sl.time}`) && slotDate(day, sl.time).getTime() > now + H) gaps.push(`${day} ${sl.time}`); }
-  if (gaps.length) {
+  if (gaps.length && cfg.paused?.on) add('info', 'gaps', `Paused in config/agent.json: ${gaps.length} empty slots in the next 3 days stay empty.`);
+  else if (gaps.length) {
     const weekly = ghJSON('run', 'list', '--workflow', 'weekly.yml', '--limit', '3', '--json', 'status,createdAt') || [];
     const busy = weekly.some((r) => r.status !== 'completed' || now - new Date(r.createdAt) < 3 * H);
     if (busy) add('info', 'gaps', `${gaps.length} empty slots in the next 3 days; a planner run is already going or just ran.`);

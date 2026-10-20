@@ -22,7 +22,8 @@
       "keyword": "SALE",
       "pillar": "Sell more",
       "topic": "Your Diwali sale, planned in 10 minutes, then judged by 10 AI shoppers",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-10-27",
@@ -43,7 +44,8 @@
       "keyword": "PRICE",
       "pillar": "Ads",
       "topic": "₹200 off, 20% off or a free gift? 100 AI shoppers pick the offer for your Diwali ad",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-10-28",
@@ -64,7 +66,8 @@
       "keyword": "RTO",
       "pillar": "Operations",
       "topic": "8 AI COD buyers read your order-confirm WhatsApp. Who confirms, who cancels, who refuses at the door?",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-10-29",
@@ -85,7 +88,8 @@
       "keyword": "ROAST",
       "pillar": "Ads",
       "topic": "Meta can now stop showing your ad to past buyers. Would a stranger still click?",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-10-30",
@@ -106,7 +110,8 @@
       "keyword": "STORE",
       "pillar": "Sell more",
       "topic": "7 AI shopping agents search for what you sell. Do they pick you?",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-10-31",
@@ -127,7 +132,8 @@
       "keyword": "TEAM",
       "pillar": "Operations",
       "topic": "Hand your Diwali week to 4 AI agents: who writes, who plans, who checks, who reports",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-11-01",
@@ -137,7 +143,8 @@
       "keyword": "REVIEWS",
       "pillar": "Retention",
       "topic": "The 3 messages every buyer should get after delivery",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     },
     {
       "day": "2026-11-01",
@@ -147,7 +154,8 @@
       "keyword": "REVIEWS",
       "pillar": "Retention",
       "topic": "Your happiest buyers already told you why they'd order again",
-      "status": "made"
+      "status": "skip",
+      "note": "old cartoon style, stopped 20 Oct 2026 for the 3D story reels"
     }
   ]
 }

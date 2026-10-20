@@ -346,6 +346,7 @@ async function makeCarousel(day, d) {
 // ---------- run ----------
 async function run({ start, days = 7 } = {}) {
   const cfg = config();
+  if (cfg.paused?.on) { log('paused in config/agent.json: no planning'); return { skipped: true }; }
   const launch = readJSON(P('content/queue/launch-week/plan.json'), null);
   if (launch && !launch.start) { log('launch week has no dates yet: run the Launch workflow first'); return { skipped: true }; }
   if (!start && launch?.start) { const end = addDays(launch.start, 6); start = nextMonday(end > localDay() ? end : localDay()); }

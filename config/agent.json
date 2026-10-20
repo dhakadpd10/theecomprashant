@@ -2,6 +2,7 @@
   "name": "Theecomprashant",
   "handle": "@theecomprashant",
   "timezone_offset": "+05:30",
+  "paused": { "on": true, "note": "20 Oct 2026: old cartoon reels stopped while the 3D story-reel style is built. Set on to false to start planning and posting again." },
   "slots": [
     { "time": "13:00", "format": "carousel" },
     { "time": "19:30", "format": "reel" }

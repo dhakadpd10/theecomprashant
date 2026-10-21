@@ -1,11 +1,18 @@
 {
-  "at": "2026-10-21T13:50:45.499Z",
+  "at": "2026-10-21T18:40:48.367Z",
   "problems": [
+    {
+      "kind": "human",
+      "key": "azure-key",
+      "text": "Reels are in Hindi now, and the Hindi voices need the AZURE_SPEECH_KEY and AZURE_SPEECH_REGION secrets. Until they are added the planner makes nothing. Steps: docs/SETUP.md, \"Hindi voices\"."
+    },
     {
       "kind": "human",
       "key": "gh-pat",
       "text": "The GH_PAT secret is missing, so the Instagram token can't renew itself and will stop working about 60 days after it was made. Add GH_PAT (docs/SETUP.md, step \"Token\")."
     }
   ],
-  "fixed": []
+  "fixed": [
+    "started the planner for 6 empty slots from 2026-10-22 13:00"
+  ]
 }

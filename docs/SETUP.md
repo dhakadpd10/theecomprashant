@@ -42,6 +42,17 @@ Instagram tokens last 60 days. Create a GitHub fine-grained token (github.com â†
 3. From then on, every Saturday you get a pull request **"Approve <week>"**. Look through it on the GitHub app and press **Merge**. Close it to reject the week, or set a post's `"status"` to `"skip"` in its `plan.json` to hold one back.
 4. Anything the agent won't answer itself shows up as an **issue** labelled `inbox`. Turn on GitHub notifications on your phone.
 
+## Hindi voices (Microsoft Azure, free tier)
+
+The reels are spoken in Hindi by two Microsoft neural voices (Bunty = hi-IN-KunalNeural, Prashant = hi-IN-MadhurNeural, set in `story/cast.json`). The free tier gives 5 lakh characters a month; the agent uses about 25,000.
+
+1. Go to https://portal.azure.com and sign in, or create a free Azure account (it asks for a phone number and a card to check you are a real person; the free tier does not charge it).
+2. At the top, search **Speech service** and click **Create**.
+3. Fill in: Resource group **Create new** -> `theecomprashant`; Region **Central India**; Name `theecomprashant-speech`; Pricing tier **Free F0**. Click **Review + create**, then **Create**. Wait about a minute, then **Go to resource**.
+4. In the left menu open **Keys and Endpoint**. Copy **KEY 1** and the **Location/Region** (it says `centralindia`).
+5. On GitHub: this repository -> **Settings** -> **Secrets and variables** -> **Actions** -> **New repository secret**. Add `AZURE_SPEECH_KEY` = KEY 1, then `AZURE_SPEECH_REGION` = `centralindia`.
+6. Run **Actions -> Story check** to hear a Hindi sample. Never paste the key into a chat or a file.
+
 ## Check it
 Actions tab â†’ run **Publish**, **Engage** or **Daily** by hand any time. Each run's log says exactly what it did.
 To run locally: `npm ci`, put the same secrets in a `.env`-style environment, then `node src/cli.js check`.

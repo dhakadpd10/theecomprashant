@@ -53,7 +53,8 @@
       "keyword": "CART",
       "pillar": "Retention",
       "topic": "Your cart reminder's 10% coupon is teaching buyers to abandon carts on purpose.",
-      "status": "made"
+      "status": "skip",
+      "note": "English reel held 21 Oct 2026: Prashant wants every reel in Hindi. Set status back to \"made\" to post it."
     },
     {
       "day": "2026-10-22",
@@ -69,7 +70,8 @@
       "keyword": "STOCK",
       "pillar": "Operations",
       "topic": "Bunty's bestseller sells out before Dhanteras because he reorders when the shelf is empty.",
-      "status": "made"
+      "status": "skip",
+      "note": "English reel held 21 Oct 2026: Prashant wants every reel in Hindi. Set status back to \"made\" to post it."
     },
     {
       "day": "2026-10-23",
@@ -85,7 +87,8 @@
       "keyword": "BUNDLE",
       "pillar": "Sell more",
       "topic": "Bunty's '3 leftovers combo' vs the pair his buyers already make on their own.",
-      "status": "made"
+      "status": "skip",
+      "note": "English reel held 21 Oct 2026: Prashant wants every reel in Hindi. Set status back to \"made\" to post it."
     },
     {
       "day": "2026-10-23",
@@ -101,7 +104,8 @@
       "keyword": "SCALE",
       "pillar": "Ads",
       "topic": "Don't kill an ad on day one. Bunty did, and it was his best one.",
-      "status": "made"
+      "status": "skip",
+      "note": "English reel held 21 Oct 2026: Prashant wants every reel in Hindi. Set status back to \"made\" to post it."
     }
   ]
 }

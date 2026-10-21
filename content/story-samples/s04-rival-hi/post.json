@@ -1,0 +1,22 @@
+{
+  "id": "s04-rival-hi",
+  "style": "story",
+  "keyword": "RIVAL",
+  "hook": "Rival ke ads public hain!",
+  "sign": "Rival ke ads\nPUBLIC hain!",
+  "cover": { "mood": "shock" },
+  "brand": { "name": "BUNTY'S", "line": "Handmade kurtas · Jaipur" },
+  "hot": ["Pinky", "public", "free", "RIVAL", "Claude"],
+  "musicStop": 5,
+  "beats": [
+    { "who": "bunty", "shot": "bunty-push", "act": "facepalm", "mood": "shock", "say": "पिंकी ने फिर मेरा ऐड कॉपी किया! उसे कैसे पता?", "show": "Pinky ne phir mera ad copy kiya! Use kaise pata?", "sfx": ["boing"] },
+    { "who": "prashant", "shot": "two", "act": "point", "mood": "smug", "say": "हर ब्रांड के ऐड पब्लिक होते हैं। तुम्हारे भी, उसके भी।", "show": "Har brand ke ad public hote hain. Tumhare bhi, uske bhi.", "other": { "act": "shrug", "mood": "worried" } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "मेटा की फ्री ऐड लाइब्रेरी खोलो, और ब्रांड का नाम डालो।", "show": "Meta ki free Ad Library kholo, aur brand ka naam daalo.",
+      "screen": { "type": "list", "title": "Meta Ad Library (free)", "items": ["Kisi bhi brand ka naam daalo", "Abhi chal rahe saare ads dekho", "Har ad kab shuru hua, dekho"] } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "उसके पाँच ऐड Claude में डालो। पूछो, कोई क्या नहीं बोल रहा?", "show": "Uske paanch ad Claude mein daalo. Poochho, koi kya nahi bol raha?", "sfx": ["ding"],
+      "screen": { "type": "chat", "ask": "Here are 5 ads from my rival. What do they all promise, and what does none of them say?", "answer": "All 5 say pure cotton and free delivery. None of them promises a fit guarantee. That's your angle." } },
+    { "who": "bunty", "shot": "bunty", "act": "celebrate", "mood": "excited", "say": "तो मेरा अगला ऐड वही बोलेगा जो वो भूल गई?", "show": "To mera agla ad wahi bolega jo wo bhool gayi?" },
+    { "who": "prashant", "shot": "prashant", "act": "arms", "mood": "smug", "say": "पिंकी साल भर से तुम्हारे साथ यही कर रही है।", "show": "Pinky saal bhar se tumhare saath yahi kar rahi hai.", "other": { "act": "facepalm", "mood": "shock" }, "sfx": ["scratch"] },
+    { "who": "prashant", "shot": "two", "act": "point", "mood": "happy", "look": "camera", "cta": true, "say": "कमेंट करो राइवल, और मैं तुम्हें पूरा प्रॉम्प्ट भेजूँगा।", "show": "Comment karo RIVAL, aur main tumhe poora prompt bhejunga.", "other": { "act": "point", "mood": "angry" } }
+  ]
+}

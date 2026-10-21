@@ -1,4 +1,12 @@
 {
-  "bunty": { "voice": "hm_omega", "acc": "a", "speed": 1.06, "pitch": 0.94, "gain": 1.0 },
-  "prashant": { "voice": "hm_psi", "acc": "a", "speed": 1.08, "pitch": 1.0, "gain": 1.0 }
+  "language": "hi",
+  "provider": "azure",
+  "azure": {
+    "bunty": { "voice": "hi-IN-KunalNeural", "lang": "hi-IN", "rate": "+8%", "pitch": "-2%", "gain": 1.0 },
+    "prashant": { "voice": "hi-IN-MadhurNeural", "lang": "hi-IN", "rate": "+5%", "pitch": "+0%", "gain": 1.0 }
+  },
+  "kokoro": {
+    "bunty": { "voice": "hm_omega", "acc": "a", "speed": 1.06, "pitch": 0.94, "gain": 1.0 },
+    "prashant": { "voice": "hm_psi", "acc": "a", "speed": 1.08, "pitch": 1.0, "gain": 1.0 }
+  }
 }

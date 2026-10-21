@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/@huggingface/transformers/.cache
-          key: hf-models-v1
+          key: hf-models-v2
       - name: Browser for motion reels (HyperFrames renders in Chrome; if this fails, motion reels fall back to world reels)
         env:
           HYPERFRAMES_NO_TELEMETRY: "1"
@@ -53,6 +53,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           START: ${{ inputs.start }}
           GITHUB_TOKEN: ${{ github.token }}
           DAYS: ${{ inputs.days }}
@@ -111,9 +113,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/@huggingface/transformers/.cache
-          key: hf-models-v1
+          key: hf-models-v2
       - name: Draw the reel
         env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           POST: ${{ matrix.post }}
         run: node story/make.js "$POST"
       - name: Name the result

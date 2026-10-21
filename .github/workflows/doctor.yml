@@ -44,6 +44,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           GH_PAT_SET: ${{ secrets.GH_PAT != '' }}
+          AZURE_SET: ${{ secrets.AZURE_SPEECH_KEY != '' && secrets.AZURE_SPEECH_REGION != '' }}
         run: |
           git config user.name "theecomprashant-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

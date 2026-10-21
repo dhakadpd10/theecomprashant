@@ -18,8 +18,26 @@ const AI_TELLS = [
   [/\bthe (result|catch|best part)\s*[?:]/i, 'a self-answered question or colon reveal'],
 ];
 
-function validateStory(p, { keywords } = {}) {
+// the reel language follows story/cast.json ("hi" = spoken Hindi in Devanagari, captions in Hinglish Roman letters)
+const CAST_LANG = (() => { try { return require('../story/cast.json').language || 'en'; } catch { return 'en'; } })();
+const DEVA = /[ऀ-ॿ]/, DEVA_ALL = /[ऀ-ॿ]/g;
+
+function validateStory(p, { keywords, hindi = CAST_LANG === 'hi' } = {}) {
   const e = [];
+  if (hindi) {
+    // the voice reads "say" (Hindi in Devanagari; tool names like Claude, Meta, WhatsApp may stay in English letters);
+    // viewers read "show", "hook", "sign" and "hot" (Hinglish in Roman letters: the caption fonts have no Devanagari)
+    for (const [k, v] of [['hook', p.hook], ['sign', p.sign], ['hot', (p.hot || []).join(' ')]]) if (DEVA.test(v || '')) e.push(`${k} must be Hinglish in Roman letters, no Devanagari`);
+    (p.beats || []).forEach((b, i) => {
+      const letters = String(b.say || '').replace(/[^\p{L}]/gu, ''), deva = (String(b.say || '').match(DEVA_ALL) || []).length;
+      if (!letters || deva / letters.length < 0.6) e.push(`beats[${i}].say must be spoken Hindi written in Devanagari (English only for tool names)`);
+      if (!b.show) e.push(`beats[${i}] needs "show": the same line in Hinglish Roman letters for the captions`);
+      else if (DEVA.test(b.show)) e.push(`beats[${i}].show must be Hinglish in Roman letters, no Devanagari`);
+      // captions and camera cuts follow the spoken words one for one, so "show" is the same words, transliterated
+      else if (Math.abs(words(b.show) - words(b.say)) > 2) e.push(`beats[${i}].show has ${words(b.show)} words but say has ${words(b.say)}; write show as the same words, word for word, in Roman letters`);
+    });
+    p = { ...p, beats: (p.beats || []).map((b) => ({ ...b, say: b.show || b.say })) }; // count and check the words as viewers read them
+  }
   if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) e.push('id must be lowercase-with-dashes');
   if (p.style !== 'story') e.push('style must be "story"');
   if (!p.keyword || !/^[A-Z]+$/.test(p.keyword)) e.push('keyword must be one uppercase word');
@@ -38,8 +56,8 @@ function validateStory(p, { keywords } = {}) {
     if (!b.say) e.push(`${at} needs "say"`);
     if (words(b.say) > 14) e.push(`${at}.say is ${words(b.say)} words; 14 or fewer`);
     if (i === 0 && words(b.say) > 10) e.push('beats[0] is the hook: 10 spoken words or fewer, payoff or shock first');
-    if (/\d/.test(b.say || '')) e.push(`${at}.say has digits; spell numbers as words in "say" and put digits in "show"`);
-    if (/^\s*claude\b/i.test(b.say || '')) e.push(`${at}.say starts with "Claude"; the voice garbles it there, reword`);
+    if (!hindi && /\d/.test(b.say || '')) e.push(`${at}.say has digits; spell numbers as words in "say" and put digits in "show"`);
+    if (!hindi && /^\s*claude\b/i.test(b.say || '')) e.push(`${at}.say starts with "Claude"; the voice garbles it there, reword`);
     for (const [re, name] of AI_TELLS) if (re.test(b.say || '') || re.test(b.show || '')) e.push(`${at} uses ${name}, an AI tell; say it the way a person talks`);
     if (b.shot && !STORY.shots.includes(b.shot)) e.push(`${at}.shot must be one of ${STORY.shots.join(' ')}`);
     if (b.act && !STORY.acts.includes(b.act)) e.push(`${at}.act must be one of ${STORY.acts.join(' ')}`);

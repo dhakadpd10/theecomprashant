@@ -211,13 +211,13 @@ function lintCaption(file) {
 async function writeCaption(dir, kind, spec) {
   const kw = spec.keyword, tool = config().keywords[kw].title, story = spec.style === 'story';
   const rules = story ? `${STORY_DOC().split('## Caption')[1]}\n\nAvoid every pattern in this list:\n${AI_TELLS_DOC().slice(0, 9000)}` : SCENES_DOC().split('## Caption')[1];
-  const model = story ? readText(P('content/story-samples/s03-rival/caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
+  const model = story ? readText(P(STORY_EXAMPLE_DIR(), 'caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
   let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${story ? 'story reel' : kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${rules}\n\nModel caption:\n${model}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).trim();
   const f = path.join(dir, 'caption.txt');
   for (let i = 0; i < 2; i++) {
     const errs = validateCaption(caption, kw); fs.writeFileSync(f, caption + '\n');
     const lint = lintCaption(f);
-    if (!errs.length && lint.verdict !== 'FAIL' && lint.human >= 70) break;
+    if (!errs.length && (story && HINDI() || (lint.verdict !== 'FAIL' && lint.human >= 70))) break; // the human-score lint reads English only
     caption = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `Revise this caption. Problems: ${[...errs, lint.notes, lint.human < 70 ? `it reads machine-written (human score ${lint.human}/100): use contractions, "you", varied sentence lengths, concrete numbers` : ''].filter(Boolean).join('; ')}.\n\n${caption}\n\nReturn the caption only.` })).trim();
   }
   fs.writeFileSync(f, caption + '\n');
@@ -351,7 +351,8 @@ async function makeMotionReel(d, id, dir) {
 // parallel afterwards (story/make.js) and only then opens the approval pull request.
 const STORY_DOC = () => readText(P('docs/STORY.md'));
 const AI_TELLS_DOC = () => readText(P('skills/marketingskills/ai-tells.md'));
-const STORY_EXAMPLE = 'content/story-samples/s03-rival';
+const HINDI = () => readJSON(P('story/cast.json'), {}).language === 'hi'; // story/cast.json decides the reel language
+const STORY_EXAMPLE_DIR = () => (HINDI() ? 'content/story-samples/s04-rival-hi' : 'content/story-samples/s03-rival');
 const VIRAL_DOC = () => readText(P('docs/VIRAL.md'));
 function storyPrep(dir) {
   const r = spawnSync('node', [P('story/make.js'), dir, '--no-reel'], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
@@ -386,7 +387,7 @@ ${readText(P('skills/marketingskills/short-form-video.md')).slice(0, 7000)}
 ${AI_TELLS_DOC().slice(0, 12000)}
 
 # A finished episode that rendered well. Match its quality and pace, never its jokes or story.
-${readText(P(STORY_EXAMPLE, 'post.json'))}
+${readText(P(STORY_EXAMPLE_DIR(), 'post.json'))}
 
 Return post.json only.`,
   }).then((s) => humanize(s, validate));
@@ -418,6 +419,8 @@ async function makeCarousel(day, d) {
 async function run({ start, days = 7 } = {}) {
   const cfg = config();
   if (cfg.paused?.on) { log('paused in config/agent.json: no planning'); return { skipped: true }; }
+  const cast = readJSON(P('story/cast.json'), {});
+  if (cast.provider === 'azure' && (!process.env.AZURE_SPEECH_KEY || !process.env.AZURE_SPEECH_REGION)) { log('Hindi voices need the AZURE_SPEECH_KEY and AZURE_SPEECH_REGION secrets (docs/SETUP.md): nothing planned'); return { skipped: true }; }
   const launch = readJSON(P('content/queue/launch-week/plan.json'), null);
   if (launch && !launch.start) { log('launch week has no dates yet: run the Launch workflow first'); return { skipped: true }; }
   if (!start && launch?.start) { const end = addDays(launch.start, 6); start = nextMonday(end > localDay() ? end : localDay()); }

@@ -42,6 +42,8 @@ async function run({ fix = false } = {}) {
   // 1. Instagram access
   const blocked = readJSON(P('content/state/ig-blocked.json'), null);
   if (blocked) add('human', 'ig-blocked', `Instagram has refused every call since ${blocked.since} ("${blocked.error}"). The agent retries every 30 minutes. Fix: make a fresh access token (Meta app dashboard → Manage messaging and content on Instagram → API setup with Instagram login → Generate token) and save it as the IG_ACCESS_TOKEN secret. Also check the Instagram app for a "confirm it's you" notice.`);
+  const castProvider = (() => { try { return require('../story/cast.json').provider; } catch { return null; } })();
+  if (castProvider === 'azure' && process.env.AZURE_SET === 'false') add('human', 'azure-key', 'Reels are in Hindi now, and the Hindi voices need the AZURE_SPEECH_KEY and AZURE_SPEECH_REGION secrets. Until they are added the planner makes nothing. Steps: docs/SETUP.md, "Hindi voices".');
   if (!process.env.GH_PAT_SET || process.env.GH_PAT_SET === 'false') add('human', 'gh-pat', 'The GH_PAT secret is missing, so the Instagram token can\'t renew itself and will stop working about 60 days after it was made. Add GH_PAT (docs/SETUP.md, step "Token").');
 
   // 2. the posting loop must be running

@@ -7,7 +7,7 @@ on:
       posts:
         description: "Folders to render, space separated (default: the two samples)"
         required: false
-        default: "content/story-samples/s03-rival"
+        default: "content/story-samples/s04-rival-hi"
       stills:
         description: "Only these seconds as stills (e.g. 1,5,9), no full reel. Empty = full reel."
         required: false
@@ -42,9 +42,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/@huggingface/transformers/.cache
-          key: hf-models-v1
+          key: hf-models-v2
       - name: Render
         env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           POST: ${{ matrix.post }}
           STILLS: ${{ inputs.stills }}
         run: node story/make.js "$POST" ${STILLS:+--stills "$STILLS"}

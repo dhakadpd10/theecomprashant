@@ -32,6 +32,14 @@ Rules of the story:
 - The joke comes from character (Bunty's pride, his mummy, his chai, his 40 parcels), never from mocking the viewer or any real person or brand.
 - Write for sound-off: the captions carry it, so put the key word of each line early.
 
+## Language: Hindi (when story/cast.json "language" is "hi")
+
+Every reel is spoken in Hindi, the everyday Hindi an Indian shop owner speaks: short, warm, a little filmi for Bunty, calm for Prashant. English words people really use stay English (ad, brand, order, cash on delivery, prompt, free, Claude, Meta, WhatsApp, Instagram).
+- `"say"` is what the voice reads: Hindi in Devanagari, so the Hindi voice pronounces it clearly. Tool and brand names may stay in English letters (Claude, Meta). Write the keyword in Devanagari for the voice (राइवल), and in English in `"show"`. Numbers can be digits ("5") or Hindi words.
+- `"show"` is the caption: the SAME words, word for word, in Hinglish Roman letters ("Pinky ne phir mera ad copy kiya!"). Same word count as `say` (at most 2 off), because each caption chunk and each camera cut starts on the matching spoken word.
+- `"hook"`, `"sign"`, `"hot"` and the phone screen text: Hinglish or English in Roman letters, never Devanagari (the fonts on screen have no Devanagari). The prompt shown on the phone stays in English, because that is the real prompt people paste.
+- The caption (caption.txt) is Hinglish in Roman letters too, with the keyword in English capitals.
+
 ## Writing the lines (from Corey Haines' copywriting and social skills)
 
 - Spoken lines are short: 4 to 14 words. Contractions. Talk like people talk.

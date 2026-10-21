@@ -13,9 +13,11 @@ The format is a two-person explainer sitcom: one loud person with a real D2C pro
 
 ## Storytelling (Corey Haines: story first, tactics second)
 
-A reel is a story with stakes, never a list read aloud. Shape every episode like this (25 to 40 seconds, 7 to 10 beats):
+Read docs/VIRAL.md first: it is what the million-view reels do, and it outranks anything here.
 
-1. **Hook, 0 to 3 s.** Bunty's pain as a specific number or moment, said with feeling, and the same idea as `"hook"` text on screen (6 words or fewer). The visual, the spoken line and the text all land in the first second. Use the hook formula the planner picked.
+A reel is a story with stakes, never a list read aloud. Shape every episode like this (15 to 25 seconds, 45 to 70 spoken words, 6 to 9 beats, a new camera angle every caption chunk):
+
+1. **Hook, 0 to 2 s.** Start in the middle of the action: Bunty's disaster at its peak, or the payoff already on screen. 10 spoken words or fewer, with feeling, and the promise as `"hook"` text on screen (6 words or fewer, a benefit, a number or a secret). The visual, the spoken line and the text all land in the first second. Never introduce the characters. Use the hook formula the planner picked.
 2. **Cause.** Prashant names why it happens in one plain sentence.
 3. **Push-back.** Bunty argues ("But it says premium cotton!"). This is the relatable beat; the viewer is Bunty.
 4. **The fix on the phone, 2 to 3 beats.** Show the real thing: the prompt typed into Claude, the WhatsApp message, the page before and after. Specific nouns and numbers, never "optimise your funnel".
@@ -32,7 +34,7 @@ Rules of the story:
 
 ## Writing the lines (from Corey Haines' copywriting and social skills)
 
-- Spoken lines are short: 4 to 18 words. Contractions. Talk like people talk.
+- Spoken lines are short: 4 to 14 words. Contractions. Talk like people talk.
 - **No AI tells**: no "It's not X, it's Y", no "No X, no Y, no Z", no self-answered questions ("The result?"), no colon reveals, no "Say goodbye to", "unlock", "game-changer", "here's the thing", no em dashes, no lists of three on every line.
 - `"say"` is what the voice reads: spell numbers as words ("forty", "two hundred"), write "cash on delivery" (not COD). `"show"` is the caption text when it should differ: digits and short forms there ("40", "COD").
 - Don't start a line with "Claude" (the voice garbles it); "paste it into Claude" is fine mid-line.
@@ -76,5 +78,5 @@ A beat: `{ "who": "bunty"|"prashant", "say": "...", "show": "...", "shot": "..."
 
 ## Caption (caption.txt)
 
-Line 1 (125 characters or fewer) continues the story's hook as Bunty's problem, with the number. Then one short paragraph of what Prashant showed (2 or 3 sentences, plain words). Then `Comment "KEYWORD" and I'll DM you <the exact thing>. Follow so the DM lands 📩`. Then a one-line note that the prompt is free and what to paste into it. Then 3 to 5 hashtags.
+Line 1 is the comment gate: `Comment "KEYWORD" and I'll DM you the free <tool> 📩` (the biggest comment counts come from this being first). Then one short paragraph telling Bunty's story and what Prashant showed (2 or 3 sentences, plain words, the number). Then `Follow so the DM lands.` and a one-line note that the prompt is free and what you need. Then 3 to 5 hashtags.
 No em dashes, no emoji bullets, no "game-changer", none of the AI tells above. Write it like a person.

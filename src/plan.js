@@ -159,6 +159,9 @@ ${researchNotes || 'none'}
 Reel styles: ${storyCount} of the ${reels} reels are "story": a 3D cartoon episode where Bunty (a loud, lovable Jaipur kurta-brand founder) hits a real D2C problem and Prashant fixes it with AI on his phone, then a twist and the free tool. Plan each one as a story: Bunty's specific pain (a number or a moment), the mistake behind it, the fix the free tool delivers, and a funny twist. Vary the problems week to week (COD returns, product pages, ads, WhatsApp, pricing, reviews, festive sales, repeat orders, support), never the same mistake twice in a row.${motionCount ? ` ${motionCount} reels are "motion" (motion graphics for numbers, steps and news).` : ''}${worldReels - motionCount > 0 ? ` The rest are "world" (character panels judging the viewer's thing).` : ''}
 ${worldReels ? `Every non-story reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).` : 'Story reels need no world.'}
 
+Pick topics the way the million-view accounts do (this research outranks the pillar mix when they clash):
+${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}
+
 What makes people stop, watch and comment (Corey Haines' marketing-psychology skill; use it to pick angles, not as jargon):
 ${readText(P('skills/marketingskills/marketing-psychology.md')).replace(/^---[\s\S]*?---\s*/, '').slice(0, 9000)}
 
@@ -208,7 +211,7 @@ function lintCaption(file) {
 async function writeCaption(dir, kind, spec) {
   const kw = spec.keyword, tool = config().keywords[kw].title, story = spec.style === 'story';
   const rules = story ? `${STORY_DOC().split('## Caption')[1]}\n\nAvoid every pattern in this list:\n${AI_TELLS_DOC().slice(0, 9000)}` : SCENES_DOC().split('## Caption')[1];
-  const model = story ? readText(P('content/story-samples/s01-desc/caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
+  const model = story ? readText(P('content/story-samples/s03-rival/caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
   let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${story ? 'story reel' : kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${rules}\n\nModel caption:\n${model}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).trim();
   const f = path.join(dir, 'caption.txt');
   for (let i = 0; i < 2; i++) {
@@ -348,7 +351,8 @@ async function makeMotionReel(d, id, dir) {
 // parallel afterwards (story/make.js) and only then opens the approval pull request.
 const STORY_DOC = () => readText(P('docs/STORY.md'));
 const AI_TELLS_DOC = () => readText(P('skills/marketingskills/ai-tells.md'));
-const STORY_EXAMPLE = 'content/story-samples/s01-desc';
+const STORY_EXAMPLE = 'content/story-samples/s03-rival';
+const VIRAL_DOC = () => readText(P('docs/VIRAL.md'));
 function storyPrep(dir) {
   const r = spawnSync('node', [P('story/make.js'), dir, '--no-reel'], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
   return { ok: r.status === 0, out: (r.stdout || '') + (r.stderr || '') };
@@ -363,6 +367,9 @@ async function makeStoryReel(d, id, dir) {
     prompt: `${UNATTENDED}
 
 Write the next episode (post.json) of the 3D story reel. Topic: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: "${tool}"). id must be "${id}".${d.hook ? `\n\nOpen with this hook (formula #${d.hook.id} ${d.hook.name}): Bunty's first line carries "${d.hook.spoken}" (numbers spelled as words in "say"), and "hook" is "${d.hook.on_screen}".` : ''}
+
+# What the million-view reels do (outranks everything below)
+${VIRAL_DOC()}
 
 # The show and the format (follow exactly)
 ${STORY_DOC()}

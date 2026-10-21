@@ -7,7 +7,7 @@ on:
       posts:
         description: "Folders to render, space separated (default: the two samples)"
         required: false
-        default: "content/story-samples/s01-desc content/story-samples/s02-rto"
+        default: "content/story-samples/s03-rival"
       stills:
         description: "Only these seconds as stills (e.g. 1,5,9), no full reel. Empty = full reel."
         required: false

@@ -1,5 +1,8 @@
 # Strategy for the week of 2026-10-20
 
+## 21 Oct 2026: viral rules (Prashant's ask, outranks everything below)
+Research on accounts that got millions of views fast is in docs/VIRAL.md. Apply it to every reel: broad pain + FREE + a named tool people know, payoff or shock in the first second, 15 to 25 seconds, a new picture every 1 to 1.5 s, the comment gate as caption line 1 and on screen mid-reel, Bunty as a recurring series (running jokes: his mummy, his chai, rival Pinky), "Part 2" when a topic has more.
+
 # Strategy: week of 2026-10-20
 
 ## Format: Prashant's 20 Oct decision (this outranks everything below)

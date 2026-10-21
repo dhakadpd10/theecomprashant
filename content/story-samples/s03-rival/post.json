@@ -1,0 +1,22 @@
+{
+  "id": "s03-rival",
+  "style": "story",
+  "keyword": "RIVAL",
+  "hook": "Your rival's ads are public.",
+  "sign": "Your rival's ads\nare PUBLIC",
+  "cover": { "mood": "shock" },
+  "brand": { "name": "BUNTY'S", "line": "Handmade kurtas · Jaipur" },
+  "hot": ["Pinky", "public", "free", "RIVAL", "nobody"],
+  "musicStop": 5,
+  "beats": [
+    { "who": "bunty", "shot": "bunty-push", "act": "facepalm", "mood": "shock", "say": "Pinky copied my ad AGAIN! How does she know?", "sfx": ["boing"] },
+    { "who": "prashant", "shot": "two", "act": "point", "mood": "smug", "say": "Every brand's ads are public. Yours too. Hers too.", "other": { "act": "shrug", "mood": "worried" } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Open Meta's free Ad Library and type any brand's name.",
+      "screen": { "type": "list", "title": "Meta Ad Library (free)", "items": ["Type any brand's name", "See every ad they're running now", "See the date each one started"] } },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "Paste five of her ads into Claude. Ask what nobody is saying.", "sfx": ["ding"],
+      "screen": { "type": "chat", "ask": "Here are 5 ads from my rival. What do they all promise, and what does none of them say?", "answer": "All 5 say pure cotton and free delivery. None of them promises a fit guarantee. That's your angle." } },
+    { "who": "bunty", "shot": "bunty", "act": "celebrate", "mood": "excited", "say": "So my next ad says the thing she missed?" },
+    { "who": "prashant", "shot": "prashant", "act": "arms", "mood": "smug", "say": "Pinky's been doing this to you for a year.", "other": { "act": "facepalm", "mood": "shock" }, "sfx": ["scratch"] },
+    { "who": "prashant", "shot": "two", "act": "point", "mood": "happy", "look": "camera", "cta": true, "say": "Comment RIVAL, and I'll send you the exact prompt.", "other": { "act": "point", "mood": "angry" } }
+  ]
+}

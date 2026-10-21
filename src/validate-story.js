@@ -29,14 +29,15 @@ function validateStory(p, { keywords } = {}) {
   if (!p.sign || sl.length < 2 || sl.length > 4 || sl.some((l) => l.length > 22)) e.push('sign must be 2 to 4 lines (joined with \\n) of 22 characters or fewer');
   if (p.cover?.mood && !STORY.moods.includes(p.cover.mood)) e.push(`cover.mood must be one of ${STORY.moods.join(' ')}`);
   const bs = Array.isArray(p.beats) ? p.beats : [];
-  if (bs.length < 7 || bs.length > 11) e.push('beats must have 7 to 11 entries');
+  if (bs.length < 6 || bs.length > 9) e.push('beats must have 6 to 9 entries (docs/VIRAL.md: 15 to 25 seconds)');
   const total = bs.reduce((n, b) => n + words(b.say), 0);
-  if (total < 60 || total > 125) e.push(`the spoken words add up to ${total}; aim for 70 to 110 (about 25 to 40 seconds)`);
+  if (total < 40 || total > 80) e.push(`the spoken words add up to ${total}; keep it to 45 to 70 (15 to 25 seconds); short reels get watched to the end`);
   bs.forEach((b, i) => {
     const at = `beats[${i}]`;
     if (!STORY.who.includes(b.who)) e.push(`${at}.who must be bunty or prashant`);
     if (!b.say) e.push(`${at} needs "say"`);
-    if (words(b.say) > 20) e.push(`${at}.say is ${words(b.say)} words; 20 or fewer`);
+    if (words(b.say) > 14) e.push(`${at}.say is ${words(b.say)} words; 14 or fewer`);
+    if (i === 0 && words(b.say) > 10) e.push('beats[0] is the hook: 10 spoken words or fewer, payoff or shock first');
     if (/\d/.test(b.say || '')) e.push(`${at}.say has digits; spell numbers as words in "say" and put digits in "show"`);
     if (/^\s*claude\b/i.test(b.say || '')) e.push(`${at}.say starts with "Claude"; the voice garbles it there, reword`);
     for (const [re, name] of AI_TELLS) if (re.test(b.say || '') || re.test(b.show || '')) e.push(`${at} uses ${name}, an AI tell; say it the way a person talks`);
@@ -56,7 +57,7 @@ function validateStory(p, { keywords } = {}) {
     } else if (b.screen) e.push(`${at} has a screen but its shot is not "phone"`);
   });
   const phones = bs.filter((b) => b.shot === 'phone').length;
-  if (phones < 2 || phones > 4) e.push(`use the phone shot for 2 to 4 beats (now ${phones})`);
+  if (phones < 2 || phones > 3) e.push(`use the phone shot for 2 or 3 beats (now ${phones})`);
   if (bs[0] && bs[0].who !== 'bunty') e.push('the first beat is Bunty with the problem');
   const last = bs[bs.length - 1];
   if (last && (!last.cta || !new RegExp(`\\b${p.keyword}\\b`, 'i').test(last.say || ''))) e.push(`the last beat needs "cta": true and must say the keyword ${p.keyword}`);

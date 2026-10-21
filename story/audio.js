@@ -63,6 +63,7 @@ const FX = {
 };
 B.forEach((b, i) => {
   if (i > 0 && b.shot !== B[i - 1].shot) whoosh(b.start);
+  if (!b.cta) (b.caps || []).slice(1).forEach((c) => whoosh(c.at - 0.04, 0.22)); // story/scene.js cuts on every caption chunk
   if (b.shot === 'phone' && (i === 0 || B[i - 1].shot !== 'phone')) FX.pop(b.start + 0.12);
   if (b.punch && b.vo !== null) FX.boing(b.vo);
   if (b.cta) FX.ding(b.start + 0.12);

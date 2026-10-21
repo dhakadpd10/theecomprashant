@@ -258,6 +258,18 @@ function ctaSticker(b, t) {
   hud.font = '130px "Archivo Black"'; hud.fillText(kw, 0, 36);
   hud.restore();
 }
+// the comment gate shows once mid-reel too (a small corner sticker), not only at the end
+const MID_ASK = Math.max(1, Math.floor(BEATS.length / 2));
+function midSticker(b, t) {
+  const a = Math.min(eBack(prog(t, b.start + 0.05, b.start + 0.35)), 1 - prog(t, b.start + 2.1, b.start + 2.4));
+  if (a <= 0) return;
+  const kw = String(TL.keyword || '').toUpperCase(), txt = `COMMENT ${kw} 👇`;
+  hud.save(); hud.translate(W - 60, 150); hud.rotate(0.05); hud.scale(a, a);
+  hud.font = '50px "Archivo Black"'; hud.textAlign = 'right'; hud.textBaseline = 'middle';
+  const w = hud.measureText(txt).width + 56;
+  rr(hud, -w, -44, w, 88, 26); hud.fillStyle = '#FFD400'; hud.fill(); hud.lineWidth = 6; hud.strokeStyle = '#111'; hud.stroke();
+  hud.fillStyle = '#111'; hud.fillText(txt, -28, 4); hud.restore();
+}
 
 // ---------- the director ----------
 const beatAt = (t) => BEATS.find((b) => t >= b.start && t < b.end) || BEATS[BEATS.length - 1];
@@ -291,11 +303,27 @@ function poseAll(t, b, over) {
   smallPhone.visible = (over?.prashant?.act || stateIn('prashant', b).act) === 'phone';
   const signUp = (over?.bunty?.act || stateIn('bunty', b).act) === 'sign';
   sign.visible = signUp;
-  if (signUp) { const a = v3(-0.55, 1.4, 0.55), c = v3(0.55, 1.4, 0.55); bunty.root.localToWorld(a); bunty.root.localToWorld(c); sign.position.copy(a.add(c).multiplyScalar(0.5)).add(v3(0, 0.12, 0.09)); sign.rotation.set(-0.05, bunty.root.rotation.y * 0.4, Math.sin(t * 2) * 0.015); }
+  if (signUp) { const a = v3(-0.55, 1.4, 0.55), c = v3(0.55, 1.4, 0.55); bunty.root.localToWorld(a); bunty.root.localToWorld(c); sign.position.copy(a.add(c).multiplyScalar(0.5)).add(v3(0, 0.12, 0.17)); sign.rotation.set(-0.05, bunty.root.rotation.y * 0.4, Math.sin(t * 2) * 0.015); }
 }
 
-// camera shots
+// camera shots. Viral edits change the picture every 1 to 1.5 s (docs/VIRAL.md), so each caption chunk inside a
+// beat gets its own angle: chunk 0 = the beat's shot, then a tight punch-in, then a reaction/alternate angle, and so on.
+function chunkAt(b, t) { let k = 0; (b.caps || []).forEach((c, i) => { if (t >= c.at - 0.04) k = i; }); return k; }
 function shotCam(b, t) {
+  const k = b.cta ? 0 : chunkAt(b, t), v = k === 0 ? 0 : 1 + ((k - 1) % 2);
+  const other = b.who === 'bunty' ? 'prashant' : 'bunty';
+  let c;
+  if (v === 0) c = baseCam(b, t, b.shot);
+  else if (b.shot === 'phone') { c = baseCam(b, t, 'phone'); const tight = v === 1 ? 0.84 : 0.93; c.p = c.l.clone().add(c.p.clone().sub(c.l).multiplyScalar(tight)); if (v === 2) c.p.x += 0.035; }
+  else if (b.shot === 'two' || b.shot === 'wide') c = baseCam(b, t, v === 1 ? b.who : other);
+  else if (v === 1) { c = baseCam(b, t, b.shot); c.p = c.l.clone().add(c.p.clone().sub(c.l).multiplyScalar(0.72)); }
+  else c = baseCam(b, t, b.look === 'camera' ? b.shot.replace('-push', '') : 'two');
+  // a hard shake when someone is shocked
+  if (b.mood === 'shock' && b.vo !== null) { const s = Math.max(0, 1 - (t - b.vo) / 0.5) * (t >= b.vo ? 1 : 0); c.p = c.p.clone().add(v3(Math.sin(t * 91) * 0.035 * s, Math.sin(t * 77 + 1) * 0.03 * s, 0)); }
+  return c;
+}
+function baseCam(b, t, shot) {
+  b = { ...b, shot };
   const u = prog(t, b.start, b.end), d = noise(t * 0.6, b.i) * 0.01, d2 = noise(t * 0.5, b.i + 4) * 0.008;
   const bh = bunty.headWorld(), ph = prashant.headWorld();
   const punch = b.punch ? 1 + 0.08 * eOut(prog(t, b.vo, b.vo + 0.2)) : 1;
@@ -336,6 +364,7 @@ function renderAt(t) {
   hud.clearRect(0, 0, W, H);
   hookTitle(t);
   if (b.cta) ctaSticker(b, t);
+  else if (b.i === MID_ASK && t < b.start + 2.4) midSticker(b, t);
   if (b.vo !== null) caption(b, t);
   const fade = Math.max(1 - prog(t, 0, 0.12), prog(t, TL.DUR - 0.4, TL.DUR));
   if (fade > 0) { hud.fillStyle = `rgba(0,0,0,${fade})`; hud.fillRect(0, 0, W, H); }

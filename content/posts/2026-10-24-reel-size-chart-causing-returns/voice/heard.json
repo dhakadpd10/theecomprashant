@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop blaming buyers for returns. Rewrite your size chart instead.",
+  "heard": "Stop blaming buyers for returns. Right your size chart instead.",
+  "error": 0.1
+ },
+ "01": {
+  "say": "Fifty returns, bhai! Buyers don't know their size!",
+  "heard": "50 returns by, buyers don't know their size.",
+  "error": 0.13
+ },
+ "02": {
+  "say": "That chart's your supplier's. Nobody measures chest inches.",
+  "heard": "That charts your suppliers, nobody measures chest inches.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste three months of chats and returns.",
+  "heard": "Paste 3 months of chats and returns.",
+  "error": 0
+ },
+ "04": {
+  "say": "Now it uses sizes buyers already wear.",
+  "heard": "Now it uses sizes buyers already wear.",
+  "error": 0
+ },
+ "05": {
+  "say": "Oh wow! Right size, the first time!",
+  "heard": "Oh well right-sized the first time.",
+  "error": 0.29
+ },
+ "06": {
+  "say": "Top question was 'will it shrink after wash?'",
+  "heard": "Top question was, \"Will it shrink after wash?\"",
+  "error": 0.11
+ },
+ "07": {
+  "say": "Mummy's answered that by phone for three years!",
+  "heard": "Mummy's answered that by phone for three years.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment FAQ, and I'll send you the free prompt.",
+  "heard": "Comment FAQ and I'll send you the free prompt.",
+  "error": 0
+ }
+}

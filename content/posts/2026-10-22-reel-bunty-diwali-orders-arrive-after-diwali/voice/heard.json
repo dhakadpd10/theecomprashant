@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Nobody tells you Northeast orders need an earlier Diwali cutoff!",
+  "heard": "Nobody tells you Northeast orders need an earlier Diwali cut-off.",
+  "error": 0.2
+ },
+ "01": {
+  "say": "Last year at Diwali, sixty-two orders. Nine arrived late!",
+  "heard": "Last year at Duwali 62 orders, 9 arrived late.",
+  "error": 0.11
+ },
+ "02": {
+  "say": "You gave all India one last date.",
+  "heard": "You gave all India one last date.",
+  "error": 0
+ },
+ "03": {
+  "say": "Arre, courier says five days!",
+  "heard": "Our courier says five days.",
+  "error": 0.2
+ },
+ "04": {
+  "say": "Not to Assam. Paste his days per zone into the planner.",
+  "heard": "Not to us on, paste his days per zone into the planner.",
+  "error": 0.2
+ },
+ "05": {
+  "say": "Every zone gets its own last order date.",
+  "heard": "Every zone gets its own last-order date.",
+  "error": 0
+ },
+ "06": {
+  "say": "My aunty in Guwahati gets her Diwali gift on time!",
+  "heard": "My Auntie and Guwahati gets her Diwali gift on time.",
+  "error": 0.2
+ },
+ "07": {
+  "say": "Pinky's banner still says delivery guaranteed, all India.",
+  "heard": "Pinkies Banner still says delivery guaranteed all India.",
+  "error": 0.13
+ },
+ "08": {
+  "say": "Use real courier days. Comment SALE, I'll send the planner.",
+  "heard": "Use real courier days. Comment sale, I'll send the planner.",
+  "error": 0
+ }
+}

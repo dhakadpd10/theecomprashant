@@ -1,0 +1,172 @@
+{
+  "id": "2026-10-24-reel-size-chart-causing-returns",
+  "style": "story",
+  "keyword": "FAQ",
+  "hook": "STOP BLAMING YOUR BUYERS",
+  "sign": "Stop blaming\nyour buyers.\nFix the SIZE CHART",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "size chart",
+    "blaming",
+    "shrink",
+    "Mummy",
+    "FAQ"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "point",
+      "mood": "shock",
+      "say": "Stop blaming buyers for returns. Rewrite your size chart instead.",
+      "other": {
+        "act": "phone",
+        "mood": "smug"
+      },
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "arms",
+      "mood": "angry",
+      "say": "Fifty returns, bhai! Buyers don't know their size!",
+      "show": "50 returns (example), bhai! Buyers don't know their size!",
+      "other": {
+        "act": "shrug",
+        "mood": "normal"
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "That chart's your supplier's. Nobody measures chest inches.",
+      "other": {
+        "act": "arms",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste three months of chats and returns.",
+      "show": "Paste 3 months of chats and returns.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here are 3 months of support chats, return reasons and reviews. Write a size guide in my buyers' words and the 8 questions they ask most.",
+        "answer": "If you're 5'4\" and wear M in most brands, take M. Want it looser? Take L. Plus your 8 most-asked questions, ready to paste."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Now it uses sizes buyers already wear.",
+      "screen": {
+        "type": "page",
+        "product": "kurta",
+        "name": "Block-print cotton kurta",
+        "price": "₹899",
+        "url": "buntys.in/block-print-kurta",
+        "lines": [
+          {
+            "text": "Chest 40\" (supplier chart)",
+            "mark": "bad"
+          },
+          {
+            "text": "5'4\" and wear M elsewhere? Take M",
+            "mark": "good"
+          },
+          {
+            "text": "Want it looser? Take L",
+            "mark": "good"
+          },
+          {
+            "text": "8 buyer FAQs added",
+            "mark": "good"
+          }
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Oh wow! Right size, the first time!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Top question was 'will it shrink after wash?'",
+      "screen": {
+        "type": "list",
+        "title": "Most asked by your buyers",
+        "items": [
+          "1. Will it shrink after wash?",
+          "2. What size if I'm 5'4\"?",
+          "3. COD available?"
+        ]
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Mummy's answered that by phone for three years!",
+      "show": "Mummy's answered that by phone for 3 years!",
+      "other": {
+        "act": "shrug",
+        "mood": "smug"
+      },
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment FAQ, and I'll send you the free prompt.",
+      "show": "Comment FAQ, and I'll send you the free prompt.",
+      "other": {
+        "act": "phone",
+        "mood": "happy"
+      }
+    }
+  ]
+}

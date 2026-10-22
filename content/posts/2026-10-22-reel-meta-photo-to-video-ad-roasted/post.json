@@ -1,0 +1,162 @@
+{
+  "id": "2026-10-22-reel-meta-photo-to-video-ad-roasted",
+  "style": "story",
+  "keyword": "ROAST",
+  "hook": "₹5,000 ON ONE TAP (EXAMPLE)",
+  "sign": "₹5,000 ON ONE TAP?\n(example)\n5 free AIs roast it\nComment ROAST",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "ROAST",
+    "one tap",
+    "5-Critic",
+    "mummy's",
+    "price"
+  ],
+  "musicStop": 7,
+  "log": {
+    "hook": 13,
+    "hook_formula": "Cost Confession",
+    "style": "story-3d",
+    "pillar": "Ads",
+    "experiment": "keyword-placement",
+    "arm": "A",
+    "keyword_placements": [
+      "cover sign",
+      "yellow chip 0-3s",
+      "caption line 1",
+      "mid-reel sticker",
+      "spoken at end"
+    ],
+    "publish_window_ist": "20:00-21:00",
+    "publish_window_utc": "14:30-15:30"
+  },
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "look": "camera",
+      "say": "Example: five thousand is what one tap nearly cost me!",
+      "show": "Example: ₹5,000 is what one tap nearly cost me!",
+      "chip": "COMMENT ROAST",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "phone",
+      "mood": "excited",
+      "say": "Wow, Meta turned my kurta photo into a video!",
+      "show": "Arre, Meta made my kurta photo a video!",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Nobody checked if it sells.",
+      "show": "Nobody checked if it sells."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But it moves! I'm putting five thousand on it.",
+      "show": "It moves, bhai! ₹5,000 (example) going on it.",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Drop the first frame into Claude's five-critic roast.",
+      "show": "Drop the first frame into Claude's 5-Critic Roast.",
+      "screen": {
+        "type": "chat",
+        "ask": "Roast this Meta ad as 5 critics: fast scroller, sceptic, bargain hunter, designer, rival brand. Score each out of 10, quote where you scrolled past, one change each.",
+        "answer": "Scroller: the first frame looks like every other ad. Designer: the kurta floats with nobody in it. Bargain hunter: I can't see a price."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "The kurta floats empty, and the price is missing.",
+      "show": "The kurta floats empty, and the price is missing.",
+      "screen": {
+        "type": "list",
+        "title": "5 critics on the AI video",
+        "items": [
+          "Kurta floats, no person in it",
+          "Price missing",
+          "No reason to buy before Diwali",
+          "First frame looks like every ad"
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "point",
+      "mood": "shock",
+      "say": "Mummy just filmed herself holding it up!",
+      "show": "Mummy just filmed herself holding it up!",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Critics like mummy's two-second clip more.",
+      "show": "Critics like mummy's 2-second clip more.",
+      "screen": {
+        "type": "chat",
+        "ask": "Compare two first frames for my kurta ad: Meta's AI video of the kurta alone, and a 2-second phone clip of a woman holding it up. Which stops you?",
+        "answer": "The phone clip. A real person shows the fit, and it looks different in the feed. Lead with her, then add the price."
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "smug",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment ROAST, and I'll send the prompt.",
+      "show": "Comment ROAST, and I'll send the prompt.",
+      "other": {
+        "act": "celebrate",
+        "mood": "excited"
+      }
+    }
+  ],
+  "caption": "Comment \"ROAST\" and I'll DM you the free 5-Critic Ad Roast 📩\n\nBunty let Meta turn one kurta photo into a video ad and was about to put ₹5,000 on it (example number). Before he spent a rupee, I dropped its first frame into the 5-Critic Ad Roast in Claude. Five critics flagged a floating kurta with nobody in it, a missing price, no reason to buy before Diwali, and an opening that looks like every other ad. Then his mummy's 2-second phone clip beat the AI video.\n\nThe catch: Meta's image-to-video is open to all advertisers, but what it makes varies a lot from photo to photo. The critics are AI opinions, not your buyers, so test the version you pick on a small budget first.\n\nFollow so the DM lands.\n\nThe prompt is free. You need Claude (the free plan works), a screenshot of your ad's first frame or a short description of it, and your headline and caption.\n\n#metaads #d2cindia #shopifyindia #aiforbusiness"
+}

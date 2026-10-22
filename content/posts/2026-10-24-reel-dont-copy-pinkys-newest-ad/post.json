@@ -1,0 +1,172 @@
+{
+  "id": "2026-10-24-reel-dont-copy-pinkys-newest-ad",
+  "style": "story",
+  "pillar": "Ads",
+  "keyword": "RIVAL",
+  "hook_id": 2,
+  "hook_formula": "Negative Command",
+  "log": {
+    "hook": 2,
+    "style": "story-3d",
+    "arm": "B"
+  },
+  "test": {
+    "name": "keyword-placement",
+    "arm": "B",
+    "note": "No keyword on the cover or in the first 3 s. Keyword first appears on screen at beat 5 (mid-reel) and is spoken at the end."
+  },
+  "hook": "STOP COPYING THE 2-DAY AD",
+  "sign": "Stop copying\nPinky's 2-day ad\nCopy the 60-day one",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Pinky",
+    "testing",
+    "washing",
+    "Diwali",
+    "RIVAL"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Stop copying Pinky's two-day-old ad? Copy her sixty-day one?",
+      "show": "Stop copying Pinky's 2-day-old ad? Copy her 60-day one?",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "point",
+      "mood": "angry",
+      "say": "Her new ad's everywhere! I'm copying it tonight!",
+      "show": "Her new ad's everywhere! I'm copying it tonight!",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      },
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Two days old? Probably still a test.",
+      "show": "2 days old? Probably still a test.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Meta's Ad Library is free. Check each start date.",
+      "show": "Meta's Ad Library is free. Check each start date.",
+      "screen": {
+        "type": "list",
+        "title": "Meta Ad Library (free)",
+        "items": [
+          "Search: Pinky's Kurtas",
+          "Ad 1: started 2 days ago",
+          "Ad 2: live 60 days (example)",
+          "Ad 3: live 41 days (example)"
+        ]
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "This one's run sixty days. She keeps paying.",
+      "show": "This one's run 60 days. She keeps paying.",
+      "screen": {
+        "type": "ad",
+        "brand": "PINKY'S KURTAS",
+        "headline": "Soft pure cotton kurtas",
+        "product": "kurta",
+        "notes": [
+          "Live 60 days (example)",
+          "Still active",
+          "Shows run time, not sales"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Her five longest ads go into the Rival Ad Teardown.",
+      "show": "Her 5 longest ads go into the RIVAL Ad Teardown.",
+      "screen": {
+        "type": "chat",
+        "ask": "Rival Ad Teardown. Here are Pinky's 5 longest-running ads from Meta Ad Library. What claim do they all repeat, and what buyer doubt does none of them answer?",
+        "answer": "All 5 repeat 'soft pure cotton'. Most jurors still ask: will it fit after washing? No ad answers it. Own it only if your size chart backs it."
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Nobody says it fits after washing!",
+      "show": "Nobody says it fits after washing!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Her new ad's off already? Diwali budget, nearly gone!",
+      "show": "Her new ad's OFF already? Diwali budget, nearly gone!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "scratch"
+      ],
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment RIVAL, and I'll send you this free tool today.",
+      "show": "Comment RIVAL, and I'll send you the free teardown.",
+      "other": {
+        "act": "phone",
+        "mood": "happy"
+      }
+    }
+  ]
+}

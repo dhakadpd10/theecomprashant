@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Mummy's Diwali off costs me three years of captions!",
+  "heard": "Mummies Diwali off cost me three years of captions.",
+  "error": 0.22
+ },
+ "01": {
+  "say": "One person, every job, nothing written down.",
+  "heard": "One person every job, nothing written down.",
+  "error": 0
+ },
+ "02": {
+  "say": "Thirty captions this week! Nobody writes like mummy.",
+  "heard": "30 captions this week, nobody writes like Mummy.",
+  "error": 0
+ },
+ "03": {
+  "say": "Write mummy's job down. Four Claude agents do it.",
+  "heard": "Write Mummy's job down, four-claud agents do it.",
+  "error": 0.11
+ },
+ "04": {
+  "say": "Now the Ads agent writes captions.",
+  "heard": "Now the ad's agent writes captions.",
+  "error": 0
+ },
+ "05": {
+  "say": "Mummy gets her Diwali off!",
+  "heard": "Mummy gets her Diwali off.",
+  "error": 0
+ },
+ "06": {
+  "say": "Oh no! Mummy fired it over one spelling!",
+  "heard": "Oh no, Mummy fired it over one spelling.",
+  "error": 0
+ },
+ "07": {
+  "say": "So mummy's the checker. Agents draft, you post.",
+  "heard": "So Mummy's the checker, Agent's Draft, you post.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment TEAM. I'll send all four prompts.",
+  "heard": "Comment team, I'll send all four prompts.",
+  "error": 0
+ }
+}

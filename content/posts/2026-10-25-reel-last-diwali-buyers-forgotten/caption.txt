@@ -1,0 +1,7 @@
+Comment "WINBACK" and I'll DM you the free Last-Diwali Win-Back Kit 📩
+
+Bunty was about to pay Meta to find Diwali shoppers, while 400 people who bought from him last Diwali (example number) had heard nothing from him since. Prashant pasted the header row of Bunty's Shopify orders export into Claude, and it built a Google Sheet that pulls last October and November's buyers and groups them by product. Then it wrote 2 WhatsApp messages for each group, to send only to buyers who opted in.
+
+Follow so the DM lands. The kit is free; you need your Shopify orders export and a Google Sheet.
+
+#d2cbrand #whatsappmarketing #diwalisale #ecommerceindia

@@ -1,0 +1,42 @@
+{
+ "00": {
+  "say": "Stop asking for reviews on delivery day. Send three messages.",
+  "heard": "Stop asking for reviews on delivery day. Send three messages.",
+  "error": 0
+ },
+ "01": {
+  "say": "Nine bad reviews, one star each. Six on delivery day.",
+  "heard": "9 Bad Reviews 1 Star each, 6 on Delivery Day.",
+  "error": 0
+ },
+ "02": {
+  "say": "You ask for five stars before she's tried it on.",
+  "heard": "You ask for five stars before she's tried it on.",
+  "error": 0
+ },
+ "03": {
+  "say": "But I need reviews, bhai!",
+  "heard": "But I need reviews by...",
+  "error": 0.2
+ },
+ "04": {
+  "say": "Open Claude, paste your rules. Get three messages.",
+  "heard": "Open Cloud paste your rules, get three messages.",
+  "error": 0.13
+ },
+ "05": {
+  "say": "Care tips, then size check, then ask for a photo.",
+  "heard": "Here, tips then size check, then ask for a photo.",
+  "error": 0.1
+ },
+ "06": {
+  "say": "She almost gave one star. Took an exchange!",
+  "heard": "She almost gave one star, took an exchange.",
+  "error": 0
+ },
+ "07": {
+  "say": "You send them yourself. Tools charge per message. Comment AFTER for all three.",
+  "heard": "You send them yourself \"Tools Charge per Message.\" Comment after for all three.",
+  "error": 0
+ }
+}

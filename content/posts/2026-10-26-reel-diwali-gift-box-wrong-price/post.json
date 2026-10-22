@@ -1,0 +1,179 @@
+{
+  "id": "2026-10-26-reel-diwali-gift-box-wrong-price",
+  "style": "story",
+  "hook_id": 17,
+  "keyword": "BUNDLE",
+  "hook": "EXAMPLE: ₹2,999 vs ₹1,499",
+  "sign": "₹2,999 GIFT BOX\nSOLD 2\nWHY??",
+  "cover": {
+    "mood": "sad"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "voted",
+    "leftover",
+    "BUNDLE",
+    "chai-wala",
+    "Chai Wali"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Example: twenty-nine ninety-nine flopped. Fourteen ninety-nine sold.",
+      "show": "Example: ₹2,999 box versus ₹1,499. His orders already voted.",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "normal",
+      "say": "Unsold stock, at a price nobody gifts.",
+      "show": "You boxed leftover stock, priced above what people gift.",
+      "other": {
+        "act": "facepalm",
+        "mood": "sad"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But premium cotton! Two sold, one to Mummy.",
+      "show": "But premium cotton! Sold 2. Mummy bought 1.",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Drop your Shopify orders into Bundle Builder.",
+      "show": "Drop your Shopify orders export into the Bundle Builder.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here is my Shopify order export. Find which products my customers already buy together and suggest 3 bundles. Use only my data. Don't invent numbers.",
+        "answer": "Example: kurta + dupatta + potli bag were bought together in 9 orders. Most orders land under ₹1,500. Test a 3-item box at ₹1,499."
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Your old box goes.",
+      "show": "Your old box goes.",
+      "screen": {
+        "type": "page",
+        "product": "box",
+        "name": "Diwali Box · 5 items",
+        "price": "₹2,999",
+        "url": "buntys.in/diwali-box",
+        "lines": [
+          {
+            "text": "Picked from leftover stock",
+            "mark": "bad"
+          },
+          {
+            "text": "Above most order values (example)",
+            "mark": "bad"
+          }
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Three items they buy together. Fourteen ninety-nine rupees.",
+      "show": "3 items they already pair. ₹1,499.",
+      "screen": {
+        "type": "page",
+        "product": "box",
+        "name": "Diwali Box · 3 items",
+        "price": "₹1,499",
+        "url": "buntys.in/diwali-box-3",
+        "lines": [
+          {
+            "text": "Kurta + dupatta + potli bag",
+            "mark": "good"
+          },
+          {
+            "text": "Already bought together (example)",
+            "mark": "good"
+          },
+          {
+            "text": "Under ₹1,500, like most orders (example)",
+            "mark": "good"
+          }
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Named after my chai. Chai Wali box!",
+      "show": "Named after my chai. The Chai Wali Diwali Box!",
+      "other": {
+        "act": "arms",
+        "mood": "happy"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "What! First order came from my chai-wala!",
+      "show": "Arre! First order is from my chai-wala!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "punch": true,
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment BUNDLE for the free Bundle Builder.",
+      "show": "Comment BUNDLE, and I'll send you the Bundle Builder.",
+      "other": {
+        "act": "celebrate",
+        "mood": "excited"
+      }
+    }
+  ]
+}

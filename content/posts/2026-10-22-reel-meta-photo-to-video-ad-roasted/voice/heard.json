@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Example: five thousand is what one tap nearly cost me!",
+  "heard": "Example 5000 is what one tap nearly cost me.",
+  "error": 0
+ },
+ "01": {
+  "say": "Wow, Meta turned my kurta photo into a video!",
+  "heard": "Wow, meta turned my kurtafoto into a video.",
+  "error": 0.22
+ },
+ "02": {
+  "say": "Nobody checked if it sells.",
+  "heard": "Nobody checked if it sells.",
+  "error": 0
+ },
+ "03": {
+  "say": "But it moves! I'm putting five thousand on it.",
+  "heard": "But it moves, I'm putting 5,000 on it.",
+  "error": 0.25
+ },
+ "04": {
+  "say": "Drop the first frame into Claude's five-critic roast.",
+  "heard": "Drop the first frame into Claude's 5-critic roast.",
+  "error": 0
+ },
+ "05": {
+  "say": "The kurta floats empty, and the price is missing.",
+  "heard": "The Curta floats empty and the price is missing.",
+  "error": 0.11
+ },
+ "06": {
+  "say": "Mummy just filmed herself holding it up!",
+  "heard": "Mummy just filmed herself holding it up.",
+  "error": 0
+ },
+ "07": {
+  "say": "Critics like mummy's two-second clip more.",
+  "heard": "Critics like Mummy's 2-second clip more.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment ROAST, and I'll send the prompt.",
+  "heard": "Comment \"Roast\" and I'll send the prompt.",
+  "error": 0
+ }
+}

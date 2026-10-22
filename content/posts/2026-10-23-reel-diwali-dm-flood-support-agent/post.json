@@ -1,0 +1,173 @@
+{
+  "id": "2026-10-23-reel-diwali-dm-flood-support-agent",
+  "style": "story",
+  "log_style": "story-3d",
+  "hook_id": 5,
+  "arm": "B",
+  "keyword": "SUPPORT",
+  "tool": "Policy-Trained Support Agent",
+  "hook": "EXAMPLE: 3 HRS -> 20 MIN",
+  "sign": "EXAMPLE: 120 DMs\n3 HRS -> 20 MIN\nin Hinglish!",
+  "cover": {
+    "mood": "excited"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Hinglish",
+    "policy",
+    "refund",
+    "Mummy",
+    "SUPPORT"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "excited",
+      "say": "मान लो, बीस मिनट में एक सौ बीस मैसेज!",
+      "show": "Example: 20 minute mein 120 DMs! Pehle 3 ghante.",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "worried",
+      "say": "रोज़ रात एक बजे तक वही सवाल.",
+      "show": "Roz raat 1 baje tak, wahi sawaal.",
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Instagram",
+            "text": "1:04 AM · COD hai?"
+          },
+          {
+            "app": "WhatsApp",
+            "text": "Diwali tak aayega?"
+          },
+          {
+            "app": "Instagram",
+            "text": "Size L fit hoga?"
+          },
+          {
+            "app": "WhatsApp",
+            "text": "Exchange hota hai?"
+          },
+          {
+            "app": "Instagram",
+            "text": "+116 more messages"
+          }
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "normal",
+      "say": "सब हाथ से, कभी गलत प्रॉमिस.",
+      "show": "Sab haath se. Kabhi policy se bahar promise.",
+      "other": {
+        "act": "facepalm",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "सारी पॉलिसी फ्री क्लॉड प्रोजेक्ट में डालो.",
+      "show": "Free Claude project mein shipping, COD, exchange, size policy daalo.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "happy",
+      "say": "कोई पूछे सीओडी? तुरंत जवाब, हिंग्लिश में.",
+      "show": "COD hai? Jawab turant, Hinglish mein.",
+      "screen": {
+        "type": "chat",
+        "ask": "New Instagram DM: \"COD hai?\" Draft a reply from my policies only, in the customer's language. Decide ANSWER or SEND TO HUMAN.",
+        "answer": "Decision: ANSWER. Why: \"COD up to ₹3,000, fee ₹49.\" Reply to copy: Haan ji, COD hai, ₹3,000 tak. ₹49 COD fee lagegi. Team Bunty's"
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "worried",
+      "say": "अरे, दिवाली तक आएगा? पिन शिलॉन्ग का!",
+      "show": "Diwali tak aayega? Shillong ka pin!",
+      "screen": {
+        "type": "chat",
+        "ask": "New WhatsApp DM: \"Diwali tak aayega? Pin 793001.\" Draft a reply from my policies only, in Hinglish.",
+        "answer": "Decision: ANSWER. Why: \"North East delivery 10 to 14 days.\" Reply to copy: Sorry ji, 793001 par Diwali se pehle nahi pahunchega. Baad mein size exchange 7 din mein ho jayega. Team Bunty's"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "इसने प्यार से ना बोला. रिफ़ंड बच गया.",
+      "show": "Isne pyaar se na bola. Refund bach gaya.",
+      "other": {
+        "act": "idle",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "मम्मी तो कस्टमर को कभी ना नहीं बोलती!",
+      "show": "Mummy toh customer ko kabhi na nahi bolti!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "कमेंट SUPPORT, फ्री प्रॉम्प्ट भेजूँगा. पॉलिसी पूरी लिखो, सेंड तुम दबाओ.",
+      "show": "Comment SUPPORT, free prompt bhejunga. Policy poori likho, send tum dabao.",
+      "other": {
+        "act": "phone",
+        "mood": "happy"
+      }
+    }
+  ]
+}

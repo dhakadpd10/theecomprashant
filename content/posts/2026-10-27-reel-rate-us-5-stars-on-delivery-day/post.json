@@ -1,0 +1,165 @@
+{
+  "id": "2026-10-27-reel-rate-us-5-stars-on-delivery-day",
+  "style": "story",
+  "hook_id": 22,
+  "keyword": "AFTER",
+  "hook": "STOP ASKING ON DELIVERY DAY",
+  "sign": "STOP asking for\n5 stars on\ndelivery day",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "one-star",
+    "delivery day",
+    "exchange",
+    "Diwali",
+    "AFTER"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "look": "camera",
+      "say": "Stop asking for reviews on delivery day. Send three messages.",
+      "show": "Stop asking for reviews on delivery day. Send 3 messages.",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "phone",
+      "mood": "sad",
+      "say": "Nine bad reviews, one star each. Six on delivery day.",
+      "show": "9 one-star reviews (example). 6 came on delivery day.",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You ask for five stars before she's tried it on.",
+      "show": "You ask for 5 stars before she's tried it on.",
+      "other": {
+        "act": "facepalm",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But I need reviews, bhai!",
+      "punch": true,
+      "other": {
+        "act": "shrug",
+        "mood": "smug"
+      },
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Open Claude, paste your rules. Get three messages.",
+      "show": "Paste your rules into Claude. Get 3 messages.",
+      "screen": {
+        "type": "chat",
+        "ask": "Write 3 WhatsApp messages for after delivery. Day 0: care tips. Day 3: fit check with my exchange rule. Day 10: photo and review ask. My policies are below.",
+        "answer": "Day 0: Your kurta is here. Wash cold, dry in shade. Day 3: Did the fit work? Reply EXCHANGE. Day 10: send only to buyers with no problem."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Care tips, then size check, then ask for a photo.",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Day 0: Your kurta is here! Wash cold, inside out. Dry in shade."
+          },
+          {
+            "from": "brand",
+            "text": "Day 3: Did the fit work? Exchange in 2 taps.",
+            "buttons": [
+              "Fit is perfect",
+              "Exchange size"
+            ]
+          },
+          {
+            "from": "brand",
+            "text": "Day 10: Send a photo in it, get featured."
+          }
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "excited",
+      "say": "She almost gave one star. Took an exchange!",
+      "show": "She almost gave 1 star. Took an exchange!",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Did the fit work? Exchange in 2 taps.",
+            "buttons": [
+              "Fit is perfect",
+              "Exchange size"
+            ]
+          },
+          {
+            "from": "buyer",
+            "text": "Exchange size. Too tight, I was about to post 1 star."
+          },
+          {
+            "from": "buyer",
+            "text": "Got the L. Wearing it for Diwali! 📸"
+          }
+        ]
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "You send them yourself. Tools charge per message. Comment AFTER for all three.",
+      "show": "You send them yourself. Tools charge per message. Comment AFTER for all 3.",
+      "other": {
+        "act": "celebrate",
+        "mood": "excited"
+      }
+    }
+  ]
+}

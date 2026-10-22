@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop paying Meta to find Diwali buyers you already have.",
+  "heard": "Stop paying meta to find Dewally buyers you already have.",
+  "error": 0.1
+ },
+ "01": {
+  "say": "Example. Four hundred bought last Diwali. Zero messages since.",
+  "heard": "Example 400 bought last Uwali, zero messages since.",
+  "error": 0.13
+ },
+ "02": {
+  "say": "Paste your Shopify export headers into Claude.",
+  "heard": "Paste your Shopify export headers into Cloud.",
+  "error": 0.14
+ },
+ "03": {
+  "say": "It sorts last year's festive buyers into groups.",
+  "heard": "It sorts last year's festive buyers into groups.",
+  "error": 0
+ },
+ "04": {
+  "say": "Then writes two WhatsApp messages per group.",
+  "heard": "then writes two WhatsApp messages per group.",
+  "error": 0
+ },
+ "05": {
+  "say": "Look. Pinky bought one, just to spy.",
+  "heard": "Look pinky bought one just to spy.",
+  "error": 0
+ },
+ "06": {
+  "say": "Message her too. No discount.",
+  "heard": "Message her to no discount.",
+  "error": 0.2
+ },
+ "07": {
+  "say": "Opted-in buyers only. Each message costs money. Expect a few replies.",
+  "heard": "Opted in buyers only, each message costs money, expect a few replies.",
+  "error": 0
+ },
+ "08": {
+  "say": "Just comment WINBACK, and I will send you the free kit.",
+  "heard": "Just comment \"win back\" and I will send you the free kit.",
+  "error": 0.18
+ }
+}

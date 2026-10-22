@@ -1,0 +1,149 @@
+{
+  "id": "2026-10-25-reel-last-diwali-buyers-forgotten",
+  "style": "story",
+  "hookId": 2,
+  "keyword": "WINBACK",
+  "hook": "STOP PAYING FOR OLD BUYERS",
+  "sign": "400 Diwali buyers\n0 messages since\n(example)",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Meta",
+    "already",
+    "WhatsApp",
+    "Pinky",
+    "WINBACK"
+  ],
+  "musicStop": 5,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Stop paying Meta to find Diwali buyers you already have.",
+      "show": "Stop paying Meta to find Diwali buyers you already have.",
+      "sfx": [
+        "fail"
+      ],
+      "other": {
+        "act": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "sad",
+      "say": "Example. Four hundred bought last Diwali. Zero messages since.",
+      "show": "Example: 400 bought last Diwali. 0 messages since."
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste your Shopify export headers into Claude.",
+      "show": "Paste your Shopify export headers into Claude.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here's my Shopify orders export header row. Build a Google Sheet that finds last Oct to Nov buyers and groups them by product.",
+        "answer": "Festive tab: orders in your window, cancelled ones removed. Groups tab: product to group. OK to message: only opted-in phones."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "It sorts last year's festive buyers into groups.",
+      "show": "It sorts last year's festive buyers into groups.",
+      "screen": {
+        "type": "list",
+        "title": "Last Diwali buyers (example)",
+        "items": [
+          "Cotton kurtas: 212",
+          "Festive kurtas: 140",
+          "Gift sets: 48"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Then writes two WhatsApp messages per group.",
+      "show": "Then writes 2 WhatsApp messages per group.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Hi Riya, last Diwali you picked the mustard kurta. This year's festive colours are in. Size M kept aside till 2 Nov. Reply STOP to opt out.",
+            "buttons": [
+              "Show me",
+              "Not now"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "smug",
+      "say": "Look. Pinky bought one, just to spy.",
+      "show": "Look. Pinky bought one, just to spy.",
+      "sfx": [
+        "scratch"
+      ],
+      "other": {
+        "act": "facepalm",
+        "mood": "shock"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "point",
+      "mood": "smug",
+      "say": "Message her too. No discount.",
+      "show": "Message her too. No discount.",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Opted-in buyers only. Each message costs money. Expect a few replies.",
+      "show": "Opted-in buyers only. Each message costs money. Expect a few replies."
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Just comment WINBACK, and I will send you the free kit.",
+      "show": "Just comment WINBACK, and I will send you the free kit.",
+      "other": {
+        "act": "celebrate",
+        "mood": "excited"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Example: my last three reorders flopped. Number four didn't.",
+  "heard": "Example, my last three reorders flopped, number four didn't.",
+  "error": 0
+ },
+ "01": {
+  "say": "Two hundred of the viral one. One sixty still here!",
+  "heard": "200 of the viral 1.160 still here.",
+  "error": 0.29
+ },
+ "02": {
+  "say": "You reordered from one big day you remember.",
+  "heard": "You reordered from one big day, you remember.",
+  "error": 0
+ },
+ "03": {
+  "say": "Bhai, it sold out in two hours!",
+  "heard": "Buy it sold out in two hours.",
+  "error": 0.14
+ },
+ "04": {
+  "say": "Paste sixty days of sales into the Reorder Alert Sheet.",
+  "heard": "Paste 60 days of sales into the Reorder Alert Sheet.",
+  "error": 0
+ },
+ "05": {
+  "say": "It counts units per day. Paste fresh sales weekly.",
+  "heard": "It counts units per day, pays fresh sales weekly.",
+  "error": 0.13
+ },
+ "06": {
+  "say": "So the boring white one sells every day?",
+  "heard": "So the boring white one sells every day.",
+  "error": 0
+ },
+ "07": {
+  "say": "Your mummy made it. You called it boring.",
+  "heard": "Your mummy made it, you called it boring.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment STOCK, and I'll send you the free sheet.",
+  "heard": "Comment stock and I'll send you the free sheet.",
+  "error": 0
+ }
+}

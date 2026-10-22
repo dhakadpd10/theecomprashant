@@ -1,0 +1,7 @@
+Comment "SUPPORT" and I'll DM you the free Policy-Trained Support Agent prompt 📩
+
+Bunty was answering every Diwali DM by hand till 1 AM, and sometimes he promised things his own policy didn't allow. Prashant put Bunty's shipping, COD, exchange and size rules into a free Claude project, and now every DM gets a Hinglish reply drafted from those rules only, or gets flagged for a human. In this example, 120 DMs took 20 minutes instead of 3 hours, and it politely told a Shillong buyer his order wouldn't reach before Diwali, which saved a refund.
+
+Follow so the DM lands. The prompt is free; you need your policies written out in full and a free Claude account, and you still press send on every reply.
+
+#d2cbrand #ecommerceindia #customersupport #smallbusinessindia

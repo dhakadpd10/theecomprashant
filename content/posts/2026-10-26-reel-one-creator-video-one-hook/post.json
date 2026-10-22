@@ -1,0 +1,158 @@
+{
+  "id": "2026-10-26-reel-one-creator-video-one-hook",
+  "style": "story",
+  "logStyle": "story-3d",
+  "hookId": 4,
+  "pillar": "Ads",
+  "keyword": "UGC",
+  "hook": "₹8,000 ONE HOOK (EG)",
+  "sign": "₹8,000 for 1 hook\nor 30 scripts FREE\n(example)",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "one hook",
+    "30 scripts",
+    "free",
+    "UGC",
+    "chai-wala",
+    "Pinky"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Example. One hook cost me eight thousand rupees.",
+      "show": "Example: ₹8,000 is what one hook cost me.",
+      "sfx": [
+        "fail"
+      ],
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "sad",
+      "say": "Proper creator! Died in two days.",
+      "show": "Proper creator! Died in 2 days.",
+      "sfx": [
+        "buzz"
+      ],
+      "screen": {
+        "type": "stats",
+        "label": "Creator ad spend (example)",
+        "from": 0,
+        "to": 8000,
+        "prefix": "₹",
+        "suffix": "",
+        "note": "1 video, 1 hook, paused on day 2"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "smug",
+      "say": "Whole budget on one opening line.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Paste your page into Claude. Thirty scripts by hook.",
+      "show": "Paste your page into Claude. 30 scripts by hook.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "chat",
+        "ask": "Write a UGC Script Pack for this product. Use only facts from my page and reviews. 30 scripts, 6 angles, hook line first. [product page link]",
+        "answer": "Fact sheet ready. 30 scripts in 6 angles: problem, buyer's words, doubt, behind the scenes, first use, occasion. Unknown facts marked [CHECK]. Shoot these 5 first."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Then swap the first three seconds. Five hooks.",
+      "show": "Then swap the first 3 seconds. 5 hooks.",
+      "screen": {
+        "type": "list",
+        "title": "Meta Creative Studio (if you have it)",
+        "items": [
+          "Keep the video after second 3",
+          "Swap in 5 different openings",
+          "Run all 5, no full reshoot"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Our chai man nailed script seventeen in one take!",
+      "show": "Our chai-wala nailed script 17 in one take!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "Pinky's furious it wasn't her creator.",
+      "sfx": [
+        "scratch"
+      ],
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Real person still films. Creative Studio isn't everywhere yet.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment UGC for the free script pack. Part two, the winner.",
+      "show": "Comment UGC for the free script pack. Part 2, the winner.",
+      "other": {
+        "act": "point",
+        "mood": "excited"
+      }
+    }
+  ]
+}

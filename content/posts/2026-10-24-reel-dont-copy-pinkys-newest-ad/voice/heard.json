@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop copying Pinky's two-day-old ad? Copy her sixty-day one?",
+  "heard": "Stop copying Pinky's two-day old ad. Copy your 60-day one.",
+  "error": 0.08
+ },
+ "01": {
+  "say": "Her new ad's everywhere! I'm copying it tonight!",
+  "heard": "Her new ads everywhere I'm copying it tonight.",
+  "error": 0
+ },
+ "02": {
+  "say": "Two days old? Probably still a test.",
+  "heard": "Two days old, probably still a test.",
+  "error": 0
+ },
+ "03": {
+  "say": "Meta's Ad Library is free. Check each start date.",
+  "heard": "Metas ad library is free, check each start date.",
+  "error": 0
+ },
+ "04": {
+  "say": "This one's run sixty days. She keeps paying.",
+  "heard": "This one's run 60 days, she keeps paying.",
+  "error": 0
+ },
+ "05": {
+  "say": "Her five longest ads go into the Rival Ad Teardown.",
+  "heard": "Her five longest ads go into the rival ad teardown.",
+  "error": 0
+ },
+ "06": {
+  "say": "Nobody says it fits after washing!",
+  "heard": "Nobody says it fits after washing.",
+  "error": 0
+ },
+ "07": {
+  "say": "Her new ad's off already? Diwali budget, nearly gone!",
+  "heard": "Her new ads off already, Dewally budget nearly gone.",
+  "error": 0.11
+ },
+ "08": {
+  "say": "Comment RIVAL, and I'll send you this free tool today.",
+  "heard": "Comment rival and I'll send you this free tool today.",
+  "error": 0
+ }
+}

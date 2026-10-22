@@ -1,0 +1,159 @@
+{
+  "id": "2026-10-25-reel-mummy-quits-marketing-team",
+  "style": "story",
+  "keyword": "TEAM",
+  "hook": "3 YEARS. 1 MUMMY.",
+  "sign": "3 YEARS. 1 MUMMY.\nSHE'S OFF FOR DIWALI\nComment TEAM",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "mummy",
+    "TEAM",
+    "Diwali",
+    "chikenkari",
+    "checker"
+  ],
+  "musicStop": 6,
+  "log": {
+    "hook_id": 1,
+    "hook_formula": "Cost Confession",
+    "style": "story-3d",
+    "pillar": "Operations",
+    "experiment": {
+      "name": "keyword-placement",
+      "arm": "A"
+    },
+    "publish_window_utc": "14:30-15:30"
+  },
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Mummy's Diwali off costs me three years of captions!",
+      "show": "Mummy's Diwali off costs me 3 years of captions!",
+      "chip": "COMMENT TEAM",
+      "sfx": [
+        "fail"
+      ],
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "normal",
+      "say": "One person, every job, nothing written down.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "Thirty captions this week! Nobody writes like mummy.",
+      "show": "30 captions this week (example)! Nobody writes like mummy.",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Write mummy's job down. Four Claude agents do it.",
+      "sticker": true,
+      "screen": {
+        "type": "list",
+        "title": "4-Agent Marketing Team",
+        "items": [
+          "Ads: 5 hooks, 3 captions, 1 Reel script",
+          "Messages: Diwali WhatsApp, under 60 words",
+          "Support: replies from your own policies",
+          "Numbers: what went up, what went down"
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Now the Ads agent writes captions.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "chat",
+        "ask": "New chikankari kurta, ₹1,299. Write 5 hooks and 3 captions from the brand file. Use words from our reviews. Mark anything unconfirmed [CHECK].",
+        "answer": "Hook 1: Jaipur chikenkari that stays soft wash after wash [CHECK]. Caption 1: Hand-stitched in Jaipur, ₹1,299. HANDOFF to Messages agent. Needs owner approval: yes"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Mummy gets her Diwali off!",
+      "other": {
+        "act": "idle",
+        "mood": "happy"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Oh no! Mummy fired it over one spelling!",
+      "show": "Oh no! Mummy fired it over one spelling: 'chikenkari'!",
+      "punch": true,
+      "sfx": [
+        "scratch"
+      ],
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "arms",
+      "mood": "smug",
+      "say": "So mummy's the checker. Agents draft, you post.",
+      "other": {
+        "act": "facepalm",
+        "mood": "sad"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment TEAM. I'll send all four prompts.",
+      "other": {
+        "act": "point",
+        "mood": "excited"
+      }
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "2026-10-22-reel-bunty-diwali-orders-arrive-after-diwali",
+  "style": "story",
+  "hookId": 19,
+  "keyword": "SALE",
+  "hook": "ASSAM NEEDS AN EARLIER CUTOFF",
+  "sign": "ASSAM needs an\nEARLIER Diwali\ncutoff",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Assam",
+    "last order",
+    "guaranteed",
+    "Pinky",
+    "SALE"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Nobody tells you Northeast orders need an earlier Diwali cutoff!",
+      "show": "Nobody tells you Assam needs an earlier Diwali cutoff!",
+      "sfx": [
+        "buzz",
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "worried",
+      "say": "Last year at Diwali, sixty-two orders. Nine arrived late!",
+      "show": "Example: last Diwali 62 orders. 9 came late!",
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "WhatsApp",
+            "text": "Guwahati: Diwali is over. Where's my kurta?"
+          },
+          {
+            "app": "WhatsApp",
+            "text": "Srinagar: Ordered 1 Nov. Still not here."
+          },
+          {
+            "app": "WhatsApp",
+            "text": "Shillong: Gift came late. Refund please."
+          }
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You gave all India one last date.",
+      "show": "You gave all India one last date.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "Arre, courier says five days!",
+      "show": "Arre, courier says 5 days!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Not to Assam. Paste his days per zone into the planner.",
+      "show": "Not to Assam. Paste his days per zone into the planner.",
+      "screen": {
+        "type": "chat",
+        "ask": "Diwali Sale Planner. Today 22 Oct. Diwali 8 Nov. Dispatch 1 day. Courier transit days (example): Metro 3, Tier-2 5, Northeast 8, J&K 9. Give the last order date per zone and a day-by-day plan.",
+        "answer": "Last order for Diwali delivery (2-day festive buffer, Assumption): Metro 2 Nov, Tier-2 31 Oct, Northeast 28 Oct, J&K 27 Oct. Day-by-day plan to 8 Nov below. CHECK transit with your courier."
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Every zone gets its own last order date.",
+      "show": "Every zone gets its own last order date.",
+      "screen": {
+        "type": "page",
+        "product": "kurta",
+        "name": "Block-print cotton kurta",
+        "price": "₹899",
+        "url": "buntys.in/diwali",
+        "lines": [
+          {
+            "text": "Old: Sale ends 6 Nov, all India",
+            "mark": "bad"
+          },
+          {
+            "text": "Northeast: order by 28 Oct for Diwali delivery",
+            "mark": "good"
+          },
+          {
+            "text": "J&K: order by 27 Oct for Diwali delivery",
+            "mark": "good"
+          },
+          {
+            "text": "Metro: order by 2 Nov for Diwali delivery",
+            "mark": "good"
+          }
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "My aunty in Guwahati gets her Diwali gift on time!",
+      "show": "Mausi in Guwahati gets her kurta!",
+      "other": {
+        "act": "idle",
+        "mood": "happy"
+      },
+      "sfx": [
+        "cash"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "Pinky's banner still says delivery guaranteed, all India.",
+      "show": "Pinky's banner still says delivery guaranteed, all India.",
+      "punch": true,
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Use real courier days. Comment SALE, I'll send the planner.",
+      "show": "Use real courier days. Comment SALE, I'll send the planner.",
+      "other": {
+        "act": "idle",
+        "mood": "smug"
+      }
+    }
+  ]
+}

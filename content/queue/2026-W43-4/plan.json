@@ -1,0 +1,211 @@
+{
+  "week": "2026-W43-4",
+  "start": "2026-10-22",
+  "research": "I found 9 useful items. Three are slightly older than 14 days and are marked. Several sources are vendor blogs, so check the official page before quoting a detail on camera.\n\n**New tools and features**\n\n1. **WhatsApp Business messages now cost money in India** (started 1 Oct, about 3 weeks ago). Each business number gets 1,000 free service messages a month, then about ₹0.115 per message plus GST. Order confirmations and delivery updates are now charged, even when sent within 24 hours of a customer's message. Replies stay free for 72 hours when the chat started from a Click-to-WhatsApp ad or a Facebook Page button. **Why it matters:** any CART or RTO \"confirm your order\" flow now has a cost per message. Ad-led chats are the cheap route. [Business Standard](https://www.business-standard.com/world-news/whatsapp-business-pricing-changes-from-today-what-indian-firms-should-know-126100100165_1.html)\n\n2. **Meta: Customer Lifecycle Strategy and Advantage+ image-to-video** (announced 6 Oct, about 16 days ago). These two are open to all advertisers. Customer Lifecycle Strategy suggests leaving existing buyers out of campaigns meant to find new customers. Image-to-video turns product photos into video ads. **Why it matters:** you stop paying to show \"new customer\" ads to people who already bought. The catch: Meta's AI assistant that can run campaigns for you is still in testing and missing from most accounts. [PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/), [status check](https://marketpulse.juelria.com/en/platform/meta-advertising-week-ai-tools-status/)\n\n3. **Meta Ads Creative Studio and Ads MCP server.** Creative Studio is reaching more advertisers. It lets you swap a video ad's opening hook, change the audio or length, add captions and replace the last scene. The MCP server lets outside AI tools like Claude or ChatGPT upload creative and prepare draft campaigns. **Why it matters:** you can test 5 hooks on one video without reshooting, which fits the UGC or ROAST episodes. [adsuploader](https://adsuploader.com/blog/meta-ads-updates), [Common Thread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n\n4. **Shopify opens its product catalog to AI shopping agents** (9 to 18 Oct). Third-party AI agents can now search over 1 billion products, see compare-at prices and check out with Shop Pay. **Why it matters:** clean titles, descriptions and prices now decide whether an AI agent recommends you. That is a new reason to fix product pages. The catch: Shop Pay checkout is mostly for US buyers, so Indian stores mainly get the product-data lesson for now. [8digits](https://8digits.net/news/shopify-ai-agents-product-catalog-shop-pay/), [kua.ai changelog](https://kua.ai/blog/ai-commerce-changelog-october-2026)\n\n5. **Shopify Canvas** (1 Oct, about 3 weeks ago). You set up your store by chatting with Shopify's AI assistant, Sidekick. **Why it matters:** a quick way to make a festive landing page without a designer. [TechCrunch](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n\n6. **Instagram: clickable links in Reels and posts, plus a carousel editor in Edits** (7 and 13 Oct). The links only come with paid Meta One business plans, starting at the Advanced tier. The Edits carousel editor is on iOS first. **Why it matters:** a link inside a Reel could cut out the \"link in bio\" step. Instagram is also testing bonuses for photo and carousel posts, which helps our planned carousels. [SocialBee](https://socialbee.com/blog/instagram-updates-news-features/), [BabyBoomer.org](https://babyboomer.org/contributors/corey-c-walker/october-instagram-updates-what-small-businesses-should-try-watch-and-ignore/)\n\n7. **Google Universal Cart and ChatGPT virtual try-on** (Universal Cart launched 15 Oct, US only). Universal Cart puts products from several stores into one cart in Google Search and the Gemini app. ChatGPT added a try-on feature for clothes using a selfie. **Why it matters:** fashion and kurta brands should watch this. Today it is mostly a reason to keep product feeds tidy, because none of it works in India yet. Both claims come from single, weak sources. [on-dm](https://on-dm.com/en/blog/google-ai-shopping-universal-cart-2026), [b2the7](https://www.b2the7.com/news-blog/chatgpt-news-october-2026-small-business-marketing)\n\n**Sale calendar**\n\n8. **Diwali is 8 Nov 2026.** Sources disagree on when Flipkart's Big Bang Diwali sale starts: one says 28 Oct, another says 20 Oct. Expected but not confirmed: Black Friday around 27 Nov, Flipkart's year-end sale 5 to 8 Dec, and its Christmas sale 20 to 25 Dec. **Why it matters:** marketplaces will pull shoppers away from your own site in early November. The SALE planner should go out this week, not after Diwali. [Indian Retailer](https://www.indianretailer.com/article/retail-business/retail-trends/festive-sale-2026-flipkart-amazon-myntra-meesho-and-ajio-sale), [DesiDime](https://www.desidime.com/news/flipkart-upcoming-sales)\n\n**Problems owners are talking about**\n\n9. **Festive COD returns.** The most-cited figure is that 58% of COD orders came back in the festive quarter, against under 15% for prepaid. In that data, return-to-origin (RTO) rates fell from 39.2% at the Nov 2025 peak to 21% by March 2026. The brands credited that drop to prepaid incentives, choosing couriers by pin code and checking addresses before dispatch, not to switching couriers. **Why it matters:** this is the same pain as Bunty's \"40 COD orders, 11 came back\" (example). The catch: the numbers are from 2025, mostly repeated from one Unicommerce report, on vendor blogs. Quote them as \"one report found\", not as fact. [Unicommerce](https://unicommerce.com/india-d2c-report-2026-april/), [Razorpay Rize](https://rizevault.razorpay.com/p/festive-season-2026-what-d2c-founders)\n\n**Nothing new found**\n- **Claude:** nothing from the last 14 days. \"Claude for Small Business\" launched in May 2026.\n- **WhatsApp:** no new feature beyond the pricing change.\n\n**Where these fit this week's plan**\n- **SALE:** item 8. The timing is right.\n- **CART and RTO:** item 1, so the scripts can show the new message costs. RTO stays on hold until its 72-hour numbers come in tomorrow.\n- **UGC or ROAST:** items 2 and 3.\n- **STORE carousel:** item 4.\n\nSources:\n- [Business Standard: WhatsApp pricing](https://www.business-standard.com/world-news/whatsapp-business-pricing-changes-from-today-what-indian-firms-should-know-126100100165_1.html)\n- [PYMNTS: Meta AI ad tools](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/)\n- [MarketPulse: Meta tool status](https://marketpulse.juelria.com/en/platform/meta-advertising-week-ai-tools-status/)\n- [adsuploader: Meta Ads updates](https://adsuploader.com/blog/meta-ads-updates)\n- [Common Thread: Meta AI agent](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n- [8digits: Shopify catalog to AI agents](https://8digits.net/news/shopify-ai-agents-product-catalog-shop-pay/)\n- [kua.ai: October 2026 changelog](https://kua.ai/blog/ai-commerce-changelog-october-2026)\n- [TechCrunch: Shopify Canvas](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n- [SocialBee: Instagram updates](https://socialbee.com/blog/instagram-updates-news-features/)\n- [BabyBoomer.org: October Instagram updates](https://babyboomer.org/contributors/corey-c-walker/october-instagram-updates-what-small-businesses-should-try-watch-and-ignore/)\n- [on-dm: Google Universal Cart](https://on-dm.com/en/blog/google-ai-shopping-universal-cart-2026)\n- [b2the7: ChatGPT October 2026](https://www.b2the7.com/news-blog/chatgpt-news-october-2026-small-business-marketing)\n- [Indian Retailer: festive sale dates](https://www.indianretailer.com/article/retail-business/retail-trends/festive-sale-2026-flipkart-amazon-myntra-meesho-and-ajio-sale)\n- [DesiDime: Flipkart sales](https://www.desidime.com/news/flipkart-upcoming-sales)\n- [Unicommerce: India D2C Report 2026](https://unicommerce.com/india-d2c-report-2026-april/)\n- [Razorpay Rize: Festive season 2026](https://rizevault.razorpay.com/p/festive-season-2026-what-d2c-founders)",
+  "slots": [
+    {
+      "day": "2026-10-22",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-22-reel-bunty-diwali-orders-arrive-after-diwali",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 84.4
+      },
+      "keyword": "SALE",
+      "pillar": "Sell more",
+      "topic": "Your Diwali sale needs a 'last order for Diwali delivery' date for each zone. A free Claude planner works it out in 10 minutes.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-22",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-22-reel-meta-photo-to-video-ad-roasted",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 77.8
+      },
+      "keyword": "ROAST",
+      "pillar": "Ads",
+      "topic": "Meta now turns one product photo into a video ad. 5 free AI critics roast the result before you put money behind it.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-23-reel-dear-customer-cart-reminder",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83.2
+      },
+      "keyword": "CART",
+      "pillar": "Retention",
+      "topic": "Your cart reminder says 'Dear Customer, you forgot something'. Free fix: one WhatsApp reminder that names the product and answers the real doubt.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-23",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-23-reel-diwali-dm-flood-support-agent",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 5,
+        "name": "Time Collapse",
+        "score": 50.6
+      },
+      "keyword": "SUPPORT",
+      "pillar": "Operations",
+      "topic": "120 'COD hai? Diwali tak aayega?' DMs a day. A free support agent in Claude drafts every reply in Hinglish from your own policies.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-24",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-24-reel-size-chart-causing-returns",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 85.6
+      },
+      "keyword": "FAQ",
+      "pillar": "Sell more",
+      "topic": "Your buyers aren't the reason your kurtas come back. Your size chart is. A free AI tool rewrites it from your own support chats.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-24",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-24-reel-dont-copy-pinkys-newest-ad",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83.2
+      },
+      "keyword": "RIVAL",
+      "pillar": "Ads",
+      "topic": "Don't copy your rival's newest ad. Meta Ad Library shows which of their ads have run longest, free, and AI tells you the angle they all skip.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-25",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-25-reel-last-diwali-buyers-forgotten",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 100
+      },
+      "keyword": "WINBACK",
+      "pillar": "Retention",
+      "topic": "Last Diwali's buyers are your cheapest sale this Diwali. A free kit finds them in your Shopify export and writes 2 WhatsApp messages.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-25",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-25-reel-mummy-quits-marketing-team",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 79.4
+      },
+      "keyword": "TEAM",
+      "pillar": "Operations",
+      "topic": "Bunty's mummy has been his whole marketing team for 3 years, and she's taking Diwali off. A free 4-agent team inside Claude covers for her.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-26",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-26-reel-diwali-gift-box-wrong-price",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 66.2
+      },
+      "keyword": "BUNDLE",
+      "pillar": "Sell more",
+      "topic": "Bunty's ₹2,999 Diwali gift box sold 2. His own orders show the 3-item box people actually buy as a gift.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-26",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-26-reel-one-creator-video-one-hook",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 77.8
+      },
+      "keyword": "UGC",
+      "pillar": "Ads",
+      "topic": "Don't pay for one UGC video with one hook. Get 30 free scripts from your product page, then test 5 openings on one video.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-27",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-27-reel-rate-us-5-stars-on-delivery-day",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 92.6
+      },
+      "keyword": "AFTER",
+      "pillar": "Retention",
+      "topic": "Your 'rate us 5 stars' message on delivery day is why you get 1 star. Send 3 messages after delivery instead, free templates.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-27",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-27-reel-gut-reorders-the-wrong-kurta",
+      "style": "story",
+      "render": "pending",
+      "hook": {
+        "id": 15,
+        "name": "The Flop Record",
+        "score": 80.8
+      },
+      "keyword": "STOCK",
+      "pillar": "Operations",
+      "topic": "Your gut reorders the kurta that went viral once. A free Google Sheet reorders the one that sells every single day.",
+      "status": "made"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "2026-10-27-reel-gut-reorders-the-wrong-kurta",
+  "style": "story",
+  "hook_id": 15,
+  "keyword": "STOCK",
+  "hook": "3 FLOPPED REORDERS (EXAMPLE)",
+  "sign": "3 reorders\nFLOPPED\nWHY??",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "flopped",
+    "every day",
+    "boring",
+    "mummy",
+    "STOCK"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Example: my last three reorders flopped. Number four didn't.",
+      "show": "Example: my last 3 reorders flopped. Number 4 didn't.",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "point",
+      "mood": "sad",
+      "say": "Two hundred of the viral one. One sixty still here!",
+      "show": "200 of the viral one. 160 still here!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ],
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You reordered from one big day you remember.",
+      "show": "You reordered from 1 big day you remember."
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "Bhai, it sold out in two hours!",
+      "show": "Bhai, it sold out in 2 hours!",
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste sixty days of sales into the Reorder Alert Sheet.",
+      "show": "Paste 60 days of sales into the Reorder Alert Sheet.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here are 60 days of kurta sales, my stock and supplier lead times. Give each kurta its daily sales, a reorder date and a status: RED, AMBER or GREEN.",
+        "answer": "Example data. Plain White: 4 a day, 12 left, 3 days of cover. RED, reorder now. Viral Block Print: 0.4 a day, 160 left. GREEN, don't reorder."
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "It counts units per day. Paste fresh sales weekly.",
+      "show": "It counts units per day. Paste fresh sales weekly.",
+      "screen": {
+        "type": "list",
+        "title": "Reorder plan (example numbers)",
+        "items": [
+          "Plain White · 4/day · RED · reorder now",
+          "Viral Block Print · 0.4/day · GREEN · don't reorder",
+          "Doesn't sync with Shopify: paste weekly",
+          "A sudden spike fools it for a week"
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "So the boring white one sells every day?",
+      "show": "So the boring white one sells every day?",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "arms",
+      "mood": "smug",
+      "say": "Your mummy made it. You called it boring.",
+      "show": "Your mummy made it. You called it boring.",
+      "sfx": [
+        "scratch"
+      ],
+      "other": {
+        "act": "facepalm",
+        "mood": "shock"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment STOCK, and I'll send you the free sheet.",
+      "show": "Comment STOCK, and I'll send you the free sheet.",
+      "other": {
+        "act": "phone",
+        "mood": "worried"
+      }
+    }
+  ]
+}

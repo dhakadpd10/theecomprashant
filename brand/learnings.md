@@ -2,6 +2,14 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-22
+
+- **9 reels, 501 reach, 0 likes, 0 shares, 2 saves.** Ranked by outlier multiple against a median of 65: LAUNCH 1.78x, STORE story episode 1.45x, TEAM 1.23x, STORE 1.20x, RTO 1.00x, PRICE 0.85x, DESC 0.69x, REVIEWS 0.31x, AUDIT 0.12x. The highest is 116 views, so nothing is a real hit. Hold@3s, watch time, follows and non-follower % are still missing on all 9, so we can't say whether the hooks or the audience are the problem.
+- **First 3D story episode (hunch, n=1):** the STORE episode with Bunty (300 visits, 0 orders) got 94 views at about 1 day old, against an old-format median of 60. It is the youngest post in the top two. It posted at 1:01 PM IST, outside the window, and got 0 likes, comments, saves and shares. It shows promise on reach and nothing yet on action.
+- **STORE comments look less real (hunch):** the old STORE reel's 6 comments have not moved since the first snapshot while its reach went from 26 to 66. The story STORE episode has 0 comments on 79 reach with the same keyword and tool. Hand-count the 6 before treating STORE as a comment-puller.
+- **PRICE (0.85x) and DESC (0.69x) reached about 72 hours with zero likes, comments, saves or shares.** Rest them. This is a rest, not a verdict. RTO is at 1.00x and under 72 hours, so it stays on hold until 23 Oct.
+- **Logging improved but is still incomplete.** For the first time a post has a hook id (#2 Negative Command). Style was logged as 'story' instead of 'story-3d'. The log is in UTC, and the scheduler's 07:31 UTC slot is 1:01 PM IST, so 4 of 9 posts missed the 8 to 9 PM IST window (14:30 to 15:30 UTC). The keyword-placement test and the 2 carousels have still not run.
+
 ## Week of 2026-10-20
 
 - **8 reels, 360 reach, 0 likes, 0 shares, 2 saves.** By outlier multiple against a median of 55, the ranking is LAUNCH 2.11x, TEAM 1.45x, STORE 1.42x, PRICE 1.00x, DESC 0.78x, REVIEWS 0.36x, AUDIT 0.15x and RTO 0.07x (RTO is hours old). Nothing in the old format earned a like or a share. This fits Prashant's 20 Oct switch to 3D story episodes, but it can't show which part failed, because hold@3s, watch time, follows and non-follower reach are still missing on every post.

@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Stop sending Dear Customer! Name kurta, size, cash on delivery.",
+  "heard": "Stop sending Dear Customer, name Curtissize Cash on Delivery.",
+  "error": 0.2
+ },
+ "01": {
+  "say": "Dear Customer, you forgot something. Sixty left, only one came back.",
+  "heard": "Dear customer, you forgot something. 60 left, only one came back.",
+  "error": 0
+ },
+ "02": {
+  "say": "It never answers why they stopped.",
+  "heard": "It never answers why they stopped.",
+  "error": 0
+ },
+ "03": {
+  "say": "But I wrote Dear!",
+  "heard": "But I wrote, dear.",
+  "error": 0
+ },
+ "04": {
+  "say": "Give the AI your order details. It writes one reminder.",
+  "heard": "Give the AI your order details, it writes one reminder.",
+  "error": 0
+ },
+ "05": {
+  "say": "It names the kurta and answers the doubt.",
+  "heard": "He names the kurda and answers the doubt.",
+  "error": 0.13
+ },
+ "06": {
+  "say": "Wait, my own mother ordered! She missed cash on delivery!",
+  "heard": "Wait, my own mother ordered. She missed cash on delivery.",
+  "error": 0
+ },
+ "07": {
+  "say": "Since October, each message costs money. Send one, opted-in only.",
+  "heard": "Since October each message costs money, send one opted in only.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment CART for the free sequence. Part two next.",
+  "heard": "Comment \"CART\" for the free sequence. Part 2 next.",
+  "error": 0
+ }
+}

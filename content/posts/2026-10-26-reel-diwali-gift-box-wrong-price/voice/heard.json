@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Example: twenty-nine ninety-nine flopped. Fourteen ninety-nine sold.",
+  "heard": "Example 29.99 flopped, 14.99 sold.",
+  "error": 0.8
+ },
+ "01": {
+  "say": "Unsold stock, at a price nobody gifts.",
+  "heard": "Unsold stock are price nobody gifts.",
+  "error": 0.29
+ },
+ "02": {
+  "say": "But premium cotton! Two sold, one to Mummy.",
+  "heard": "But premium cotton too sold one to mummy.",
+  "error": 0.13
+ },
+ "03": {
+  "say": "Drop your Shopify orders into Bundle Builder.",
+  "heard": "Drop your Shopify orders into Bundle Builder.",
+  "error": 0
+ },
+ "04": {
+  "say": "Your old box goes.",
+  "heard": "your old box goes",
+  "error": 0
+ },
+ "05": {
+  "say": "Three items they buy together. Fourteen ninety-nine rupees.",
+  "heard": "Three items they buy together, $14.99 rupees.",
+  "error": 0.29
+ },
+ "06": {
+  "say": "Named after my chai. Chai Wali box!",
+  "heard": "Named after my chai chai wali box.",
+  "error": 0
+ },
+ "07": {
+  "say": "What! First order came from my chai-wala!",
+  "heard": "What first order came from my chaiwala?",
+  "error": 0.25
+ },
+ "08": {
+  "say": "Comment BUNDLE for the free Bundle Builder.",
+  "heard": "Comment \"Bundle\" for the free bundle builder.",
+  "error": 0
+ }
+}

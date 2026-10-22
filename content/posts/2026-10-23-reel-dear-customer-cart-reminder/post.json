@@ -1,0 +1,163 @@
+{
+  "id": "2026-10-23-reel-dear-customer-cart-reminder",
+  "style": "story",
+  "keyword": "CART",
+  "hook": "STOP SENDING DEAR CUSTOMER",
+  "sign": "STOP sending\n\"Dear Customer\"\nName the kurta!",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Dear",
+    "COD",
+    "size",
+    "Mummy",
+    "CART"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "look": "camera",
+      "say": "Stop sending Dear Customer! Name kurta, size, cash on delivery.",
+      "show": "Stop sending Dear Customer! Name kurta, size, COD.",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "sad",
+      "say": "Dear Customer, you forgot something. Sixty left, only one came back.",
+      "show": "Dear Customer, you forgot something. Example: 60 carts, 1 back.",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Dear Customer, you forgot something! Complete your order now."
+          }
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "It never answers why they stopped.",
+      "show": "It never answers why they stopped.",
+      "other": {
+        "act": "arms",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But I wrote Dear!",
+      "show": "But I wrote Dear!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ],
+      "other": {
+        "act": "think",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Give the AI your order details. It writes one reminder.",
+      "show": "Paste your facts into Claude for 1 reminder.",
+      "screen": {
+        "type": "chat",
+        "ask": "Write 1 WhatsApp cart reminder. Facts: blue chikan kurta, size M, COD available, delivers by 5 Nov, free size exchange in 7 days. No 'Dear Customer'. Add a STOP line.",
+        "answer": "Hi! Your blue chikan kurta, size M, is saved. COD available. Delivers by 5 Nov, before Diwali. Free size exchange in 7 days. Reply STOP to opt out."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "happy",
+      "say": "It names the kurta and answers the doubt.",
+      "show": "It names the kurta and answers the doubt.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Hi! Your blue chikan kurta, size M, is saved. COD available. Delivers by 5 Nov, before Diwali. Free size exchange in 7 days. Reply STOP to opt out.",
+            "buttons": [
+              "View my cart",
+              "Ask a question"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Wait, my own mother ordered! She missed cash on delivery!",
+      "show": "Arre, Mummy ordered! She couldn't find COD!",
+      "punch": true,
+      "sfx": [
+        "buzz",
+        "scratch"
+      ],
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Since October, each message costs money. Send one, opted-in only.",
+      "show": "Since Oct, each message costs money. Send 1, opted-in only.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment CART for the free sequence. Part two next.",
+      "show": "Comment CART for the free sequence. Part 2 next.",
+      "other": {
+        "act": "celebrate",
+        "mood": "excited"
+      }
+    }
+  ]
+}

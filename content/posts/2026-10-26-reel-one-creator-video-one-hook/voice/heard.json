@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Example. One hook cost me eight thousand rupees.",
+  "heard": "Example 1 hook cost me 8,000 rupees.",
+  "error": 0.29
+ },
+ "01": {
+  "say": "Proper creator! Died in two days.",
+  "heard": "Proper Creator died in two days.",
+  "error": 0
+ },
+ "02": {
+  "say": "Whole budget on one opening line.",
+  "heard": "Whole budget on one opening line.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste your page into Claude. Thirty scripts by hook.",
+  "heard": "Paste your page into Claude, 30 scripts by Hook.",
+  "error": 0
+ },
+ "04": {
+  "say": "Then swap the first three seconds. Five hooks.",
+  "heard": "Then swap the first three seconds, five hooks.",
+  "error": 0
+ },
+ "05": {
+  "say": "Our chai man nailed script seventeen in one take!",
+  "heard": "Our chime man nailed script 17 in one take.",
+  "error": 0.11
+ },
+ "06": {
+  "say": "Pinky's furious it wasn't her creator.",
+  "heard": "Pinky's furious it wasn't her creator.",
+  "error": 0
+ },
+ "07": {
+  "say": "Real person still films. Creative Studio isn't everywhere yet.",
+  "heard": "Real person still films. Creative studio isn't everywhere yet.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment UGC for the free script pack. Part two, the winner.",
+  "heard": "Comment UGC for the free script pack Part 2 the winner.",
+  "error": 0
+ }
+}

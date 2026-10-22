@@ -35,7 +35,7 @@ check('queued plans and their posts', () => {
   return `${n} waiting posts have their files`;
 });
 check('site builds', () => { const r = spawnSync(process.execPath, [P('src/cli.js'), 'site'], { cwd: ROOT, encoding: 'utf8' }); if (r.status) throw new Error((r.stderr || r.stdout).slice(-300)); fs.rmSync(P('_site'), { recursive: true, force: true }); });
-check('story samples pass the story checker', () => { const { validateStory } = require(path.join(ROOT, 'src/validate-story')); for (const d of ['s04-rival-hi']) { const e = validateStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'content/story-samples', d, 'post.json'), 'utf8'))); if (e.length) throw new Error(`${d}: ${e.join('; ')}`); } });
+check('story samples pass the story checker', () => { const { validateStory } = require(path.join(ROOT, 'src/validate-story')); for (const d of ['s03-rival']) { const e = validateStory(JSON.parse(fs.readFileSync(path.join(ROOT, 'content/story-samples', d, 'post.json'), 'utf8'))); if (e.length) throw new Error(`${d}: ${e.join('; ')}`); } });
 check('validators run', () => { const r = v.validateReel({}); if (!Array.isArray(r) || !r.length) throw new Error('validateReel accepted an empty spec'); });
 
 console.log(fail.length ? `\nSMOKE FAILED (${fail.length})` : '\nSMOKE OK');

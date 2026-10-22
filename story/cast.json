@@ -1,12 +1,13 @@
 {
-  "language": "hi",
-  "provider": "azure",
+  "language": "en",
+  "provider": "kokoro",
+  "note": "22 Oct 2026: English with the clearest Kokoro voices (Whisper word error on 8 test lines: am_puck 0.071, am_eric 0.095; the old hm_omega/hm_psi scored 0.21/0.23). Set language hi + provider azure (needs AZURE_SPEECH_KEY/REGION) for Hindi.",
+  "kokoro": {
+    "bunty": { "voice": "am_eric", "acc": "a", "speed": 1.06, "pitch": 0.95, "gain": 1.0 },
+    "prashant": { "voice": "am_puck", "acc": "a", "speed": 1.05, "pitch": 1.0, "gain": 1.0 }
+  },
   "azure": {
     "bunty": { "voice": "hi-IN-KunalNeural", "lang": "hi-IN", "rate": "+8%", "pitch": "-2%", "gain": 1.0 },
     "prashant": { "voice": "hi-IN-MadhurNeural", "lang": "hi-IN", "rate": "+5%", "pitch": "+0%", "gain": 1.0 }
-  },
-  "kokoro": {
-    "bunty": { "voice": "hm_omega", "acc": "a", "speed": 1.06, "pitch": 0.94, "gain": 1.0 },
-    "prashant": { "voice": "hm_psi", "acc": "a", "speed": 1.08, "pitch": 1.0, "gain": 1.0 }
   }
 }

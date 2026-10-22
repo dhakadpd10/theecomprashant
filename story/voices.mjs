@@ -101,7 +101,21 @@ if (CHECK) {
       if (e > 0.4) bad.push(`beat ${L.i} "${L.say}" was heard as "${text}"`);
     }
   } else {
-    const asr = await pipeline('automatic-speech-recognition', 'onnx-community/whisper-base.en', { dtype: 'q8' });
+    // the timestamped Whisper also says when each word starts, so captions and camera cuts can land on the voice
+    const asr = await pipeline('automatic-speech-recognition', 'onnx-community/whisper-base.en_timestamped', { dtype: 'q8' });
+    const tok = (s) => s.toLowerCase().replace(/[^a-z0-9' ]+/g, ' ').split(/\s+/).filter(Boolean);
+    // line up the script's words with the heard words (edit-distance alignment); unmatched words get times in between
+    const align = (sayWords, chunks) => {
+      const r = sayWords.map((w) => w.toLowerCase().replace(/[^a-z0-9']/g, '')), h = chunks.map((c) => tok(c.text).join(''));
+      const d = Array.from({ length: r.length + 1 }, (_, i) => [i, ...Array(h.length).fill(0)]); for (let j = 1; j <= h.length; j++) d[0][j] = j;
+      for (let i = 1; i <= r.length; i++) for (let j = 1; j <= h.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (r[i - 1] === h[j - 1] ? 0 : 1));
+      const t = Array(r.length).fill(null); let i = r.length, j = h.length;
+      while (i > 0 && j > 0) { if (d[i][j] === d[i - 1][j - 1] + (r[i - 1] === h[j - 1] ? 0 : 1)) { t[i - 1] = chunks[j - 1].timestamp[0]; i--; j--; } else if (d[i][j] === d[i - 1][j] + 1) i--; else j--; }
+      const known = t.map((v, k) => [k, v]).filter(([, v]) => v !== null);
+      if (!known.length) return null;
+      return t.map((v, k) => { if (v !== null) return v; const a = [...known].reverse().find(([x]) => x < k), b = known.find(([x]) => x > k);
+        if (a && b) return a[1] + ((b[1] - a[1]) * (k - a[0])) / (b[0] - a[0]); return a ? a[1] + 0.25 * (k - a[0]) : Math.max(0, b[1] - 0.25 * (b[0] - k)); });
+    };
     // words -> comparable tokens: numbers as digits, no punctuation, a few sound-alikes merged
     const NUM = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18, nineteen: 19, twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90 };
     const SAME = { okay: 'ok', mum: 'mom', whether: 'weather', kurda: 'kurta', percent: '', per: '', cent: '' };
@@ -121,11 +135,14 @@ if (CHECK) {
     for (const L of lines) {
       const m = Math.floor(L.y.length / 3), z = new Float32Array(m + 8000);
       for (let k = 0; k < m; k++) z[k + 4000] = L.y[k * 3]; // 48k -> 16k with a little silence around it
-      const text = (await asr(z)).text.trim();
+      const o = await asr(z, { return_timestamps: 'word' }), text = o.text.trim();
+      const sayWords = L.say.split(/\s+/).filter(Boolean), ts = o.chunks?.length ? align(sayWords, o.chunks) : null;
+      if (ts) res[L.key].words = ts.map((v, k) => ({ t: +Math.max(0, v - 0.25).toFixed(3), text: sayWords[k] })); // 0.25 s of silence was added in front
       const e = lev(norm(L.say), norm(text)); heard[L.key] = { say: L.say, heard: text, error: +e.toFixed(2) };
       if (e > 0.2) bad.push(`beat ${L.i} "${L.say}" was heard as "${text}"`);
     }
   }
   fs.writeFileSync(path.join(out, 'heard.json'), JSON.stringify(heard, null, 1));
+  fs.writeFileSync(path.join(out, 'voice.json'), JSON.stringify(res)); // now with word timings
   if (bad.length) console.log('CHECK THESE WORDS: ' + bad.join(' | ')); else console.log('voice check: every line heard right');
 }

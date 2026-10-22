@@ -17,9 +17,11 @@
       "keyword": "SALE",
       "pillar": "Sell more",
       "topic": "Your Diwali sale needs a 'last order for Diwali delivery' date for each zone. A free Claude planner works it out in 10 minutes.",
-      "status": "made",
+      "status": "published",
       "attempts": 1,
-      "error": "video not on the site yet: https://dhakadpd10.github.io/theecomprashant/media/posts/2026-10-22-reel-bunty-diwali-orders-arrive-after-diwali/reel.mp4"
+      "error": "video not on the site yet: https://dhakadpd10.github.io/theecomprashant/media/posts/2026-10-22-reel-bunty-diwali-orders-arrive-after-diwali/reel.mp4",
+      "media_id": "17904809973668353",
+      "published_at": "2026-10-22T08:28:12.900Z"
     },
     {
       "day": "2026-10-22",

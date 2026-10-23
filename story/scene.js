@@ -235,7 +235,7 @@ function caption(b, t) {
 }
 function hookTitle(t) {
   if (!TL.hook) return;
-  const b0 = BEATS[0], until = b0.end + (BEATS[1] ? 0.6 : 0);
+  const b0 = BEATS[0], until = b0.end + (BEATS[1] && BEATS[1].shot !== 'phone' ? 0.6 : -0.15); // phone captions use the top of the frame
   if (t > until + 0.3) return;
   const a = Math.min(eBack(prog(t, 0.05, 0.35)), 1 - prog(t, until, until + 0.3));
   hud.save(); hud.globalAlpha = clamp(a); hud.translate(W / 2, 330); hud.rotate(-0.025); hud.scale(0.7 + 0.3 * a, 0.7 + 0.3 * a); hud.translate(-W / 2, -330);

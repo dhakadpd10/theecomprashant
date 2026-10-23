@@ -13,8 +13,10 @@
       { "time": "19:30", "format": "reel" }
     ] }
   ],
+  "bio_line": "If you're new here, I'm Prashant. I build AI systems for D2C brands, and every reel comes with a free tool you can use today.",
+  "repost": { "min_outlier": 2, "min_views": 1000, "after_days": 10, "per_week": 2, "note": "re-post reels that did 2x the page median views, at most twice a week, with a new first line (docs/ADLEY.md)" },
   "voice": { "id": "am_fenrir", "speed": 1.08 },
-  "story": { "share": 1, "note": "share of reels made as 3D story episodes with Bunty and Prashant (docs/STORY.md, story/); 20 Oct 2026: all reels" },
+  "story": { "share": 1, "skit_share": 0.4, "skit_note": "23 Oct 2026, Adley Kinsman system (docs/ADLEY.md): this share of story reels are pure Bunty comedy skits for reach; the rest teach", "note": "share of reels made as 3D story episodes with Bunty and Prashant (docs/STORY.md, story/); 20 Oct 2026: all reels" },
   "motion": { "share": 0, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
   "models": {
     "writer": "claude-opus-5-5",

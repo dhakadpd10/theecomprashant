@@ -30,5 +30,5 @@ module.exports = function timeline(dir) {
     t = end;
     return { ...b, i, key, start: +start.toFixed(3), vo, len, end: +end.toFixed(3), env: v ? v.env : null, caps: v ? chunks(b.show || b.say, vo, len, v.words) : [] };
   });
-  return { id: post.id, keyword: post.keyword, hook: post.hook, hot: post.hot || [], sign: post.sign, brand: post.brand || {}, cover: post.cover || {}, beats, DUR: +(t + 0.5).toFixed(2) };
+  return { id: post.id, kind: post.kind || 'teach', keyword: post.keyword, hook: post.hook, hot: post.hot || [], sign: post.sign, brand: post.brand || {}, cover: post.cover || {}, beats, DUR: +(t + 0.5).toFixed(2) };
 };

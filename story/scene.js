@@ -364,7 +364,7 @@ function renderAt(t) {
   hud.clearRect(0, 0, W, H);
   hookTitle(t);
   if (b.cta) ctaSticker(b, t);
-  else if (b.i === MID_ASK && t < b.start + 2.4) midSticker(b, t);
+  else if (b.i === MID_ASK && TL.kind !== 'skit' && t < b.start + 2.4) midSticker(b, t); // skits keep the joke clean; the caption asks
   if (b.vo !== null) caption(b, t);
   const fade = Math.max(1 - prog(t, 0, 0.12), prog(t, TL.DUR - 0.4, TL.DUR));
   if (fade > 0) { hud.fillStyle = `rgba(0,0,0,${fade})`; hud.fillRect(0, 0, W, H); }

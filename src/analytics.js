@@ -17,7 +17,7 @@ async function run() {
       if (!s.media_id || Date.now() - new Date(s.published_at) > 30 * 86400000) continue;
       try {
         const m = await ig.mediaInsights(s.media_id, s.format);
-        rows.push([today, s.post, s.format, s.keyword, s.pillar || '', s.published_at, m.views, m.reach, m.likes, m.comments, m.saved, m.shares, m.total_interactions, ''].map((v) => (v ?? '')).join(','));
+        rows.push([today, s.repost ? `${s.post}#repost` : s.post, s.format, s.keyword, s.pillar || '', s.published_at, m.views, m.reach, m.likes, m.comments, m.saved, m.shares, m.total_interactions, ''].map((v) => (v ?? '')).join(','));
         n++;
       } catch (e) { log('insights failed', s.post, e.message); }
     }

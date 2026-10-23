@@ -31,7 +31,7 @@ async function run({ dryRun = false } = {}) {
       if (due > now) continue;
       if (now - due > LATE_LIMIT_H * 3600000) { s.status = 'missed'; changed = true; log('missed', s.post); continue; }
       if (postedToday >= cfg.limits.max_posts_per_day) { log('daily post limit reached'); continue; }
-      const dir = `content/posts/${s.post}`; const caption = readText(P(dir, 'caption.txt')).trim();
+      const dir = `content/posts/${s.post}`; const caption = readText(P(dir, s.caption_file || 'caption.txt')).trim(); // re-posts carry their own caption file
       try {
         const dup = await alreadyLive(caption);
         if (dup) { Object.assign(s, { status: 'published', media_id: dup.id, published_at: new Date(dup.timestamp).toISOString(), note: 'found already live' }); changed = true; log('already live', s.post, dup.id); continue; }

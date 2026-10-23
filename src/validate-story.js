@@ -75,11 +75,20 @@ function validateStory(p, { keywords, hindi = CAST_LANG === 'hi' } = {}) {
     } else if (b.screen) e.push(`${at} has a screen but its shot is not "phone"`);
   });
   const phones = bs.filter((b) => b.shot === 'phone').length;
-  if (phones < 2 || phones > 3) e.push(`use the phone shot for 2 or 3 beats (now ${phones})`);
-  if (bs[0] && bs[0].who !== 'bunty') e.push('the first beat is Bunty with the problem');
-  const last = bs[bs.length - 1];
-  if (last && (!last.cta || !new RegExp(`\\b${p.keyword}\\b`, 'i').test(last.say || ''))) e.push(`the last beat needs "cta": true and must say the keyword ${p.keyword}`);
-  if (bs.filter((b) => b.cta).length !== 1) e.push('exactly one beat has "cta": true (the last one)');
+  // "kind": "teach" = Bunty's problem, Prashant's fix on the phone, the comment ask at the end;
+  // "skit" = pure comedy about founder life for reach (docs/ADLEY.md): it ends on the punchline, the caption does the asking
+  const skit = p.kind === 'skit';
+  if (p.kind !== undefined && !['skit', 'teach'].includes(p.kind)) e.push('kind must be "skit" or "teach"');
+  if (skit) {
+    if (phones > 2) e.push(`a skit uses the phone shot for at most 2 beats (now ${phones})`);
+    if (bs.some((b) => b.cta)) e.push('a skit has no "cta" beat: it ends on the punchline, and the caption carries the comment keyword');
+  } else {
+    if (phones < 2 || phones > 3) e.push(`use the phone shot for 2 or 3 beats (now ${phones})`);
+    if (bs[0] && bs[0].who !== 'bunty') e.push('the first beat is Bunty with the problem');
+    const last = bs[bs.length - 1];
+    if (last && (!last.cta || !new RegExp(`\\b${p.keyword}\\b`, 'i').test(last.say || ''))) e.push(`the last beat needs "cta": true and must say the keyword ${p.keyword}`);
+    if (bs.filter((b) => b.cta).length !== 1) e.push('exactly one beat has "cta": true (the last one)');
+  }
   if (p.musicStop !== undefined && (!Number.isInteger(p.musicStop) || p.musicStop < 3 || p.musicStop >= bs.length)) e.push('musicStop must be the index of the twist beat');
   return e;
 }

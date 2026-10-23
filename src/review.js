@@ -9,7 +9,7 @@ function body(week, branch) {
   const raw = (p) => `https://raw.githubusercontent.com/${repo}/${branch}/${p}`;
   const rows = plan.slots.map((s, i) => {
     const dir = `content/posts/${s.post}`; const img = s.format === 'reel' ? `${dir}/cover.jpg` : `${dir}/slide-01.jpg`;
-    const cap = readText(P(dir, 'caption.txt')).split('\n')[0].replace(/\|/g, '/');
+    const cap = readText(P(dir, s.caption_file || 'caption.txt')).split('\n')[0].replace(/\|/g, '/');
     return `| ${i + 1} | ${s.day} ${s.time} | ${s.format} | **${s.keyword}** | ${s.topic.replace(/\|/g, '/')} | <img src="${raw(img)}" width="140"> | ${cap} |`;
   });
   const problems = readText(P('content/queue', week, 'problems.txt')).trim();

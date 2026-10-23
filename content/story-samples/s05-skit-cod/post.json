@@ -1,0 +1,24 @@
+{
+  "id": "s05-skit-cod",
+  "style": "story",
+  "kind": "skit",
+  "keyword": "RTO",
+  "hook": "Prepaid order vs COD order",
+  "sign": "Prepaid vs\nCOD order",
+  "cover": { "mood": "worried" },
+  "brand": { "name": "BUNTY'S", "line": "Handmade kurtas · Jaipur" },
+  "hot": ["prepaid", "COD", "mummy", "cancel"],
+  "musicStop": 6,
+  "beats": [
+    { "who": "bunty", "shot": "bunty-push", "act": "celebrate", "mood": "excited", "say": "Prepaid order! Pack it, ship it, I love this customer!", "sfx": ["cash"] },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "New order. Cash on delivery.",
+      "screen": { "type": "notify", "items": [{ "app": "Shopify", "text": "New order #1042 · ₹899 · Cash on delivery" }] } },
+    { "who": "bunty", "shot": "bunty", "act": "think", "mood": "worried", "say": "Cash on delivery? Is she real? Did she mean it?", "other": { "act": "arms", "mood": "smug" } },
+    { "who": "bunty", "shot": "two", "act": "point", "mood": "angry", "say": "Call her. Then call her mummy. Ask the neighbours too.", "punch": true, "sfx": ["boing"] },
+    { "who": "prashant", "shot": "prashant", "act": "shrug", "mood": "normal", "say": "Bunty, it's one kurta. Eight hundred ninety nine rupees.", "show": "Bunty, it's one kurta. ₹899." },
+    { "who": "bunty", "shot": "bunty", "act": "facepalm", "mood": "sad", "say": "Last time a cash on delivery kurta went to Goa. It came back alone.", "show": "Last time a COD kurta went to Goa. It came back alone." },
+    { "who": "prashant", "shot": "phone", "act": "phone", "say": "She just paid online instead.", "sfx": ["scratch"],
+      "screen": { "type": "whatsapp", "name": "Bunty's Kurtas", "msgs": [{ "from": "buyer", "text": "Changed it to prepaid 🙂 Paid ₹899 via UPI" }] } },
+    { "who": "bunty", "shot": "two", "act": "celebrate", "mood": "excited", "look": "camera", "say": "Pack it! Gift wrap it! I love this customer!", "other": { "act": "facepalm", "mood": "smug" } }
+  ]
+}

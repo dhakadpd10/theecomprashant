@@ -54,6 +54,7 @@ Every reel is spoken in Hindi, the everyday Hindi an Indian shop owner speaks: s
 {
   "id": "2026-10-27-reel-<slug>",
   "style": "story",
+  "kind": "teach",                            // "teach" (problem, fix on the phone, comment ask) or "skit" (pure comedy for reach, docs/ADLEY.md)
   "keyword": "DESC",
   "hook": "200 visitors. 0 orders.",          // on-screen hook, 6 words or fewer
   "sign": "200 visitors\n0 orders\nWHY??",    // the cardboard sign on the cover, 2 to 4 short lines, 22 characters max per line
@@ -84,7 +85,15 @@ A beat: `{ "who": "bunty"|"prashant", "say": "...", "show": "...", "shot": "..."
 - `sfx`: `fail` (sad trombone, for the hook), `ding` (the fix works), `boing`, `cash`, `buzz` (phone), `scratch` (record scratch, for the twist), `pop`.
 - `punch: true`: a quick camera punch-in on a comic line (use once or twice).
 
+## Skits (kind "skit")
+
+Read docs/ADLEY.md. A skit is pure comedy about D2C founder life, made for reach: no lesson, no fix, no comment ask in the video. One premise the viewer gets in a second (a contrast, a choice game, an escalation, a feeling every founder knows), 6 to 8 beats that escalate, a punchline at the end, no "cta" beat. The phone is optional (0 to 2 beats) and only shows something funny. "hook" is the premise as on-screen text. Model: content/story-samples/s05-skit-cod.
+
 ## Caption (caption.txt)
 
-Line 1 is the comment gate: `Comment "KEYWORD" and I'll DM you the free <tool> 📩` (the biggest comment counts come from this being first). Then one short paragraph telling Bunty's story and what Prashant showed (2 or 3 sentences, plain words, the number). Then `Follow so the DM lands.` and a one-line note that the prompt is free and what you need. Then 3 to 5 hashtags.
+Every caption, joke or lesson, carries the bio line from config/agent.json ("bio_line") word for word on its own line near the end, before the hashtags (Adley Kinsman's system).
+
+Teaching reels: line 1 is the comment gate: `Comment "KEYWORD" and I'll DM you the free <tool> 📩` (the biggest comment counts come from this being first). Then one short paragraph telling Bunty's story and what Prashant showed (2 or 3 sentences, plain words, the number). Then `Follow so the DM lands.` and a one-line note that the prompt is free and what you need. Then 3 to 5 hashtags.
+
+Skits: line 1 is the joke as one relatable line ("Every founder knows this feeling." style, but specific). Then one short line that sets up the free tool the skit's theme points to. Then the bio line. Then `Comment "KEYWORD" and I'll DM you the free <tool> 📩 Follow so the DM lands.` Then 3 to 5 hashtags.
 No em dashes, no emoji bullets, no "game-changer", none of the AI tells above. Write it like a person.

@@ -120,6 +120,7 @@ async function planWeek(need, researchNotes) {
   const storyCount = Math.round(reels * share(cfg.story?.share)); // 3D story reels with Bunty and Prashant (docs/STORY.md)
   const motionCount = Math.min(reels - storyCount, Math.round(reels * share(cfg.motion?.share))); // motion graphics (docs/MOTION.md)
   const worldReels = reels - storyCount, maxWorld = Math.max(1, Math.ceil(worldReels / WORLDS.length));
+  const skitCount = Math.round(storyCount * share(cfg.story?.skit_share)); // pure Bunty comedy for reach (docs/ADLEY.md)
   const hooks = HOOKS().hooks, hookIds = hooks.map((h) => h.id);
   const validate = (v) => {
     const e = []; const posts = v.posts || [], fresh = v.new_tools || {};
@@ -137,6 +138,11 @@ async function planWeek(need, researchNotes) {
     });
     const story = posts.filter((p) => p.format === 'reel' && p.style === 'story').length;
     if (story !== storyCount) e.push(`exactly ${storyCount} reels must have style "story" (you have ${story})`);
+    posts.forEach((p, i) => { if (p.style === 'story' && !['skit', 'teach'].includes(p.kind)) e.push(`posts[${i}].kind must be "skit" or "teach"`); });
+    const skits = posts.filter((p) => p.style === 'story' && p.kind === 'skit').length;
+    if (skits !== skitCount) e.push(`exactly ${skitCount} story reels must have kind "skit" (you have ${skits})`);
+    const sr = posts.filter((p) => p.style === 'story');
+    sr.forEach((p, i) => { if (i && p.kind === 'skit' && sr[i - 1].kind === 'skit') e.push(`the skits on ${sr[i - 1].day} ${sr[i - 1].time} and ${p.day} ${p.time} follow each other: put a teaching reel between them`); });
     const motion = posts.filter((p) => p.format === 'reel' && p.style === 'motion').length;
     if (motion !== motionCount) e.push(`exactly ${motionCount} reels must have style "motion" (you have ${motion})`);
     const rs = posts.filter((p) => p.format === 'reel' && p.style !== 'story'); const count = {};
@@ -159,6 +165,14 @@ ${researchNotes || 'none'}
 Reel styles: ${storyCount} of the ${reels} reels are "story": a 3D cartoon episode where Bunty (a loud, lovable Jaipur kurta-brand founder) hits a real D2C problem and Prashant fixes it with AI on his phone, then a twist and the free tool. Plan each one as a story: Bunty's specific pain (a number or a moment), the mistake behind it, the fix the free tool delivers, and a funny twist. Vary the problems week to week (COD returns, product pages, ads, WhatsApp, pricing, reviews, festive sales, repeat orders, support), never the same mistake twice in a row.${motionCount ? ` ${motionCount} reels are "motion" (motion graphics for numbers, steps and news).` : ''}${worldReels - motionCount > 0 ? ` The rest are "world" (character panels judging the viewer's thing).` : ''}
 ${worldReels ? `Every non-story reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).` : 'Story reels need no world.'}
 
+Two kinds of story reel (Adley Kinsman's "entertain the masses, educate the interested, sell to the committed"):
+- ${skitCount} are kind "skit": pure comedy about D2C founder life for reach, no lesson and no fix. One premise you get in a second (a contrast like "Bunty when they pay online vs cash on delivery", a choice game, an escalation, a feeling every founder knows), ending on a punchline. The keyword is the free tool closest to the skit's theme; only the caption asks for it.
+- The rest are kind "teach": Bunty's problem, Prashant's fix on the phone, the comment ask at the end.
+Spread the skits out: never two skits in a row.
+
+Her system in full (use it for every angle and hook):
+${readText(P('docs/ADLEY.md'))}
+
 Pick topics the way the million-view accounts do (this research outranks the pillar mix when they clash):
 ${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}
 
@@ -172,8 +186,8 @@ Hook formulas (id name: best for). Pick the one that fits each reel's angle, fol
 ${hooks.map((h) => `${h.id} ${h.name}: ${h.best_for}`).join('\n')}
 
 Rules: reels are one idea told as a story with stakes; carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist","style":"story","hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
-(style and hook_formula only for reels, plus "world" for non-story reels; new_tools may be {}).`,
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"story","kind":"teach","hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+(style, kind and hook_formula only for reels, plus "world" for non-story reels; new_tools may be {}).`,
   });
 }
 
@@ -211,16 +225,25 @@ function lintCaption(file) {
 async function writeCaption(dir, kind, spec) {
   const kw = spec.keyword, tool = config().keywords[kw].title, story = spec.style === 'story';
   const rules = story ? `${STORY_DOC().split('## Caption')[1]}\n\nAvoid every pattern in this list:\n${AI_TELLS_DOC().slice(0, 9000)}` : SCENES_DOC().split('## Caption')[1];
-  const model = story ? readText(P(STORY_EXAMPLE_DIR(), 'caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
-  let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${story ? 'story reel' : kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${rules}\n\nModel caption:\n${model}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).trim();
+  const skit = spec.kind === 'skit';
+  const model = story ? readText(P(skit && !HINDI() ? 'content/story-samples/s05-skit-cod' : STORY_EXAMPLE_DIR(), 'caption.txt')) : example(kind === 'reel' ? '02-launch-trial' : 'c01-leaky-page', 'caption.txt');
+  const bio = config().bio_line || '';
+  let caption = (await ask({ system: SYSTEM(), effort: 'high', prompt: `Write the Instagram caption for this ${story ? (skit ? 'comedy skit reel' : 'story reel') : kind} (keyword ${kw}, free tool "${tool}"). Follow the caption rules in this guide exactly:\n\n${rules}\n\n${bio ? `Every caption, joke or lesson, includes this bio line word for word on its own line near the end, before the hashtags (Adley Kinsman's system, docs/ADLEY.md):\n${bio}\n\n` : ''}Model caption:\n${model}\n\nThe ${kind}:\n${JSON.stringify(spec)}\n\nReturn the caption text only.` })).trim();
   const f = path.join(dir, 'caption.txt');
   for (let i = 0; i < 2; i++) {
     const errs = validateCaption(caption, kw); fs.writeFileSync(f, caption + '\n');
     const lint = lintCaption(f);
     if (!errs.length && (story && HINDI() || (lint.verdict !== 'FAIL' && lint.human >= 70))) break; // the human-score lint reads English only
-    caption = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `Revise this caption. Problems: ${[...errs, lint.notes, lint.human < 70 ? `it reads machine-written (human score ${lint.human}/100): use contractions, "you", varied sentence lengths, concrete numbers` : ''].filter(Boolean).join('; ')}.\n\n${caption}\n\nReturn the caption only.` })).trim();
+    caption = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `Revise this caption. Problems: ${[...errs, lint.notes, lint.human < 70 ? `it reads machine-written (human score ${lint.human}/100): use contractions, "you", varied sentence lengths, concrete numbers` : ''].filter(Boolean).join('; ')}.${bio ? ` Keep this line word for word: ${bio}` : ''}\n\n${caption}\n\nReturn the caption only.` })).trim();
   }
-  fs.writeFileSync(f, caption + '\n');
+  fs.writeFileSync(f, withBio(caption, bio) + '\n');
+}
+// the bio line goes on every caption (docs/ADLEY.md); if the writer dropped it, put it back just before the hashtags
+function withBio(caption, bio) {
+  if (!bio || caption.includes(bio)) return caption;
+  const lines = caption.split('\n'), tagAt = lines.findIndex((l) => /^\s*#\w/.test(l));
+  if (tagAt < 0) return `${caption}\n\n${bio}`;
+  return [...lines.slice(0, tagAt), bio, '', ...lines.slice(tagAt)].join('\n').replace(/\n{3,}/g, '\n\n');
 }
 
 // ig-reel step 1-2: three hooks off different formulas, scored by skills/ig-reel/hookscore.py; the best one opens the reel
@@ -232,7 +255,7 @@ async function pickHook(d) {
     const res = await askJSON({
       system: SYSTEM(), effort: 'medium',
       validate: (v) => (Array.isArray(v.hooks) && v.hooks.length === 3 && v.hooks.every((h) => ids.includes(h.id) && h.spoken && h.on_screen) && new Set(v.hooks.map((h) => h.id)).size === 3 ? [] : ['return {"hooks":[three {"id","spoken","on_screen"} with three different formula ids]}']),
-      prompt: `${UNATTENDED}\n\nWrite three hook options for this reel, each off a different formula (the planner suggested #${d.hook_formula}; include it). The spoken line is the first sentence of the voiceover (under 3 seconds, 5 to 12 words, numbers as digits here); the on-screen line is 6 words or fewer. Never invent results: example numbers must be clearly examples or public data.\n\nReel: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword}.\n\nRules:\n- ${H.rules.join('\n- ')}\n\nFormulas:\n${JSON.stringify(H.hooks.map(card))}\n${feedback}\nReturn JSON only: {"hooks":[{"id":5,"spoken":"...","on_screen":"..."}]}`,
+      prompt: `${UNATTENDED}\n\nWrite three hook options for this reel, each off a different formula (the planner suggested #${d.hook_formula}; include it). The spoken line is the first sentence of the voiceover (under 3 seconds, 5 to 12 words, numbers as digits here); the on-screen line is 6 words or fewer. Never invent results: example numbers must be clearly examples or public data.\n\nAdley Kinsman's hook rules (apply all): every hook makes the viewer feel something (shock, embarrassment, envy, relief) and opens a curiosity gap; the "duh" test: if someone could answer it with "duh", rewrite it; open on the thing people want (more orders, a calm Diwali, no returns), not on the tool; create an itch the reel only scratches at the end.${d.kind === 'skit' ? ' This reel is a comedy skit: the hook is the premise the viewer gets in one second (a contrast like "when they pay online vs cash on delivery", a choice game, an escalation), not a lesson.' : ''}\n\nReel: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword}.\n\nRules:\n- ${H.rules.join('\n- ')}\n\nFormulas:\n${JSON.stringify(H.hooks.map(card))}\n${feedback}\nReturn JSON only: {"hooks":[{"id":5,"spoken":"...","on_screen":"..."}]}`,
     });
     const scored = pyJSON('skills/ig-reel/hookscore.py', res.hooks.map((h) => h.spoken.replace(/\n/g, ' ')).join('\n'));
     const opts = res.hooks.map((h, i) => ({ ...h, name: H.hooks.find((x) => x.id === h.id).name, score: scored?.[i]?.score ?? null, verdict: scored?.[i]?.verdict, weakest: scored?.[i]?.weakest }));
@@ -261,7 +284,7 @@ async function humanize(spec, validate) {
 async function makeReel(day, d) {
   const cfg = config(); const id = `${day}-reel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
   d.hook ||= await pickHook(d);
-  if (d.style === 'story') { await makeStoryReel(d, id, dir); return { id, style: 'story', hook: d.hook, render: 'pending' }; }
+  if (d.style === 'story') { await makeStoryReel(d, id, dir); return { id, style: 'story', kind: d.kind === 'skit' ? 'skit' : 'teach', hook: d.hook, render: 'pending' }; }
   if (d.style === 'motion') {
     try { await makeMotionReel(d, id, dir); return { id, style: 'motion', hook: d.hook }; } catch (e) {
       if (USAGE_LIMIT.test(e.message)) throw e; // out of Claude for now: the run stops and tops up later
@@ -360,8 +383,12 @@ function storyPrep(dir) {
 }
 async function makeStoryReel(d, id, dir) {
   const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);
-  const validate = (v) => validateStory(v, { keywords: kws });
+  const kind = d.kind === 'skit' ? 'skit' : 'teach';
+  const validate = (v) => { const e = validateStory(v, { keywords: kws }); if (v.kind !== kind) e.push(`kind must be "${kind}"`); return e; };
   const toolText = readText(P('tools', `${cfg.keywords[d.keyword].tool}.md`));
+  const kindNote = kind === 'skit'
+    ? `This episode is kind "skit" (put "kind": "skit" in post.json): pure comedy about D2C founder life, for reach. No lesson, no fix, no comment ask in the video. One premise the viewer gets in the first second (a contrast, a choice game, an escalation or a feeling every founder knows), built in 6 to 8 beats that escalate, ending on a punchline. The phone (0 to 2 beats) may show something funny (a WhatsApp, a notification, an order), never a tutorial. No "cta" beat. "hook" is the premise as on-screen text (like "Bunty when it's prepaid vs COD"). The keyword ${d.keyword} is only used in the caption.`
+    : 'This episode is kind "teach" (put "kind": "teach" in post.json): Bunty\'s problem, Prashant\'s fix on the phone, the comment ask at the end.';
   const social = readText(P('skills/marketingskills/social.md')).replace(/^---[\s\S]*?---\s*/, '');
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate,
@@ -369,14 +396,18 @@ async function makeStoryReel(d, id, dir) {
 
 Write the next episode (post.json) of the 3D story reel. Topic: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: "${tool}"). id must be "${id}".${d.hook ? `\n\nOpen with this hook (formula #${d.hook.id} ${d.hook.name}): Bunty's first line carries "${d.hook.spoken}" (numbers spelled as words in "say"), and "hook" is "${d.hook.on_screen}".` : ''}
 
-# What the million-view reels do (outranks everything below)
+${kindNote}
+
+# Adley Kinsman's system: hooks and skit shapes (outranks everything below)
+${readText(P('docs/ADLEY.md'))}
+
+# What the million-view reels do
 ${VIRAL_DOC()}
 
 # The show and the format (follow exactly)
 ${STORY_DOC()}
 
-# The free tool this episode gives away. The phone beats must show what it really does, using its real prompt in short form.
-${toolText}
+${kind === 'teach' ? `# The free tool this episode gives away. The phone beats must show what it really does, using its real prompt in short form.\n${toolText}` : `# The free tool the caption offers (for the theme only; the skit doesn't teach it)\n${toolText.split('\n---')[0]}`}
 
 # Corey Haines: social content and short-form video (story first; hooks; three hooks at once in the first second)
 ${social.slice(0, 9000)}
@@ -387,7 +418,7 @@ ${readText(P('skills/marketingskills/short-form-video.md')).slice(0, 7000)}
 ${AI_TELLS_DOC().slice(0, 12000)}
 
 # A finished episode that rendered well. Match its quality and pace, never its jokes or story.
-${readText(P(STORY_EXAMPLE_DIR(), 'post.json'))}
+${readText(P(kind === 'skit' && !HINDI() ? 'content/story-samples/s05-skit-cod' : STORY_EXAMPLE_DIR(), 'post.json'))}
 
 Return post.json only.`,
   }).then((s) => humanize(s, validate));
@@ -433,15 +464,20 @@ async function run({ start, days = 7 } = {}) {
   if (!need.length) { log(`no open slots ${start} + ${days} days`); return { week, skipped: true }; }
   log(`open slots: ${need.length} (${need.filter((n) => n.format === 'reel').length} reels)`);
   const audit = await learn().catch((e) => { if (USAGE_LIMIT.test(e.message)) throw e; log('audit skipped:', e.message.split('\n')[0]); return null; });
+  const slots = []; const problems = [];
+  // re-post winners first (docs/ADLEY.md): their slots are taken out of what the planner fills
+  for (const r of await repostWinners(need).catch((e) => { if (USAGE_LIMIT.test(e.message)) throw e; log('re-posts skipped:', e.message.split('\n')[0]); return []; })) {
+    need.splice(need.indexOf(r.slot), 1); slots.push(r.entry); log('re-posting', r.entry.post, 'on', r.slot.day, r.slot.time);
+  }
+  if (!need.length) { writeJSON(path.join(qdir, 'plan.json'), { week, start, research: '', slots }); fs.writeFileSync(path.join(qdir, 'problems.txt'), ''); return { week, slots, problems }; }
   const notes = await research().catch((e) => { log('research skipped:', e.message); return ''; });
   const plan = await planWeek(need, notes);
   for (const [kw, nt] of Object.entries(plan.new_tools || {})) if (!config().keywords[kw] && plan.posts.some((p) => p.keyword === kw)) await writeTool(kw, nt);
 
-  const slots = []; const problems = [];
   for (const p of plan.posts) {
     try {
       const made = p.format === 'reel' ? await makeReel(p.day, p) : await makeCarousel(p.day, p);
-      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, ...(made.style ? { style: made.style } : {}), ...(made.render ? { render: made.render } : {}), ...(made.hook ? { hook: { id: made.hook.id, name: made.hook.name, score: made.hook.score } } : {}), keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
+      slots.push({ day: p.day, time: p.time, format: p.format, post: made.id, ...(made.style ? { style: made.style } : {}), ...(made.kind ? { kind: made.kind } : {}), ...(made.render ? { render: made.render } : {}), ...(made.hook ? { hook: { id: made.hook.id, name: made.hook.name, score: made.hook.score } } : {}), keyword: p.keyword, pillar: p.pillar, topic: p.topic, status: 'made' });
       log('made', made.id);
     } catch (e) {
       problems.push(`${p.day} ${p.time} ${p.format}: ${e.message.split('\n')[0]}`); log('FAILED', p.day, p.format, e.message);
@@ -458,4 +494,33 @@ async function run({ start, days = 7 } = {}) {
   return { week, slots, problems };
 }
 
-module.exports = { run, nextMonday, makeReel };
+// ---------- re-posting winners (docs/ADLEY.md: she posts a winning video again weeks later with a new caption) ----------
+// A reel qualifies when it did config.repost.min_outlier x the page's median views (and at least min_views), went live
+// more than after_days ago and was never re-posted. It goes into an open reel slot with a new first caption line
+// (caption-repost-N.txt next to the reel; publish.js uses the slot's "caption_file").
+async function repostWinners(need) {
+  const cfg = config(), rp = cfg.repost; if (!rp || !rp.per_week) return [];
+  const stateFile = P('content/state/reposts.json'), state = readJSON(stateFile, { reposted: {} });
+  const slotOf = {}; const qroot = P('content/queue');
+  if (fs.existsSync(qroot)) for (const w of fs.readdirSync(qroot)) for (const s of readJSON(path.join(qroot, w, 'plan.json'), { slots: [] }).slots) if (s.status === 'published' && !s.repost) slotOf[s.post] = s;
+  const { rows } = postStats(), now = Date.now();
+  const winners = rows.filter((r) => r.format === 'reel' && r.outlier >= rp.min_outlier && r.views >= rp.min_views && r.published
+    && now - new Date(r.published) > rp.after_days * 86400000 && !state.reposted[r.post] && slotOf[r.post]
+    && fs.existsSync(P('content/posts', r.post, 'caption.txt'))).slice(0, rp.per_week);
+  const open = need.filter((n) => n.format === 'reel'), out = [];
+  for (const w of winners) {
+    const slot = open.shift(); if (!slot) break;
+    const old = readText(P('content/posts', w.post, 'caption.txt')).trim();
+    const fresh = (await ask({ system: SYSTEM(), effort: 'medium', prompt: `This reel did ${w.outlier}x the page's usual views, so it is being posted again. Write a NEW first line for its caption (a different hook for the same video, 125 characters or fewer, the "duh" test from docs/ADLEY.md applies: no line anyone could answer with "duh"). Keep every other line of the caption exactly as it is, including the bio line and the comment keyword. Return the full caption only.\n\n${old}` })).trim();
+    if (fresh.split('\n')[0].trim() === old.split('\n')[0].trim()) continue; // same first line would be caught as a double post
+    const n = Object.keys(state.reposted).length + 1, file = `caption-repost-${n}.txt`;
+    fs.writeFileSync(P('content/posts', w.post, file), withBio(fresh, cfg.bio_line) + '\n');
+    state.reposted[w.post] = { on: slot.day, at: slot.time, views: w.views, outlier: w.outlier };
+    const s0 = slotOf[w.post];
+    out.push({ slot, entry: { day: slot.day, time: slot.time, format: 'reel', post: w.post, ...(s0.style ? { style: s0.style } : {}), ...(s0.kind ? { kind: s0.kind } : {}), repost: true, repost_of: s0.media_id, caption_file: file, keyword: s0.keyword, pillar: s0.pillar, topic: `re-post (${w.outlier}x views): ${s0.topic || w.post}`, status: 'made' } });
+  }
+  if (out.length) writeJSON(stateFile, state);
+  return out;
+}
+
+module.exports = { run, nextMonday, makeReel, repostWinners };

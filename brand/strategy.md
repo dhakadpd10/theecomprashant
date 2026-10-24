@@ -1,11 +1,11 @@
-# Strategy for the week of 2026-10-22
+# Strategy for the week of 2026-10-24
 
-# Strategy: week of 2026-10-22
+# Strategy for the week of 2026-10-24
 
 ## Prashant's standing decisions (these outrank everything below)
 
 ### 21 Oct 2026: viral rules
-The research on accounts that got millions of views fast is in docs/VIRAL.md. Apply it to every reel:
+The research is in docs/VIRAL.md. Apply it to every reel:
 - broad pain + FREE + a named tool people know
 - payoff or shock in the first second
 - 15 to 25 seconds long
@@ -16,121 +16,146 @@ The research on accounts that got millions of views fast is in docs/VIRAL.md. Ap
 
 ### 20 Oct 2026: format
 Every reel is a 3D story episode (docs/STORY.md). Bunty has a real D2C problem, Prashant fixes it with AI on his phone, there is a twist, and the episode ends on one keyword.
-- Captions follow the story caption rules in docs/STORY.md, but caption line 1 is the comment gate (21 Oct rule).
+- Captions follow docs/STORY.md, but caption line 1 is the comment gate.
 - Voices are Kokoro hm_omega (Bunty) and hm_psi (Prashant). No spoken line starts with 'Claude'.
 - The 'N AI shoppers judge your X' panel appears at most as one phone beat inside a story.
 - Give Bunty a different problem in every episode.
 
-## Evidence level: still almost none
-- 9 reels in 6 days, with a top reach of 102 and 501 reach in total.
-- Totals: 0 likes, 0 shares, 2 saves, and 6 comments, all on one post.
-- Only 1 story episode exists: STORE, 94 views at about 1 day, 1.45x the page median of 65. That is n=1.
-- Hook id is logged on 1 of 9 posts and style on 3 of 9.
-- Hold@3s, watch time, follows and non-follower % are missing on all 9. Nothing below is a proven pattern.
-- **Baseline the story episodes have to beat:** the old-format median of 60 views (8 posts, latest numbers), with 0 likes and 0 shares.
+## Evidence level: thin, with one first claim
+**Totals:** 13 reels, 954 reach, 5 likes, 8 comments, 2 saves, 0 shares.
+
+**The one claim the data supports (low to moderate confidence): story-3d beats the old format on views.**
+- 5 episodes: median 121 views (1.49x).
+- 8 old-format reels: median 60.5 views (0.75x).
+- All 5 episodes rank in the top 6, and every bottom-5 post is old format.
+- Caveats:
+  - n=5.
+  - The episodes are the newest posts, so page growth may explain part of the gap.
+  - Non-follower % is missing, so we don't know if they travelled.
+
+**What it doesn't show:**
+- No episode broke out. Reach sat between 101 and 111 on all 5, which looks like a floor.
+- Story lifted views, not action: 1 like per episode, 0 saves, 0 shares.
+
+**Still missing on 13 of 13 posts:** hold@3s, average watch time, follows and non-follower %. Until these exist:
+- we can't grade hooks
+- we can't tell a hook problem from a profile problem
+
+**New baseline to beat:** the story-3d median of 121 views. The old-format median of 60 is already beaten. The next bar is action: any share, or saves above 0.
 
 ## Non-negotiable: log everything
-This improved from 0 of 8 posts with a hook id to 1 of 9, and that is still not enough.
+Missed again last week: style was 'story' on all 5 episodes, 0 of 13 posts had hold@3s copied, and no A/B arm was logged.
 
 At publishing:
 - `hook`: the hooks.json id
-- `style`: exactly `story-3d` for episodes and `carousel` for carousels. The 21 Oct episode was logged as 'story', so fix it.
-- publish time. The log stores UTC: 8 to 9 PM IST = 14:30 to 15:30 UTC.
+- `style`: exactly `story-3d` for episodes, `carousel` for carousels. Fix the 5 existing 'story' rows to `story-3d`.
+- `arm`: `A` or `B` for the 4 experiment episodes, blank otherwise
+- publish time in UTC, between 14:30 and 15:30 UTC (8 to 9 PM IST)
+- follower count at the time of posting. We need it to read the reach floor.
 
 At 72 hours:
 - `keyword_comments`, counted by hand, leaving out Prashant's replies
 - from in-app insights: **hold at 3s, average watch time, follows, non-follower % of reach**
 - DMs sent and link taps
 
-Don't publish the next post until the previous one's publish-time fields are filled in.
+Don't publish the next post until the previous one's publish-time fields are filled in. The Monday audit gives no hook verdict without hold@3s.
+
+## Check before planning
+- Copy in-app insights for the STORE episode (72 hours passed 24 Oct, 07:31 UTC) and ROAST 21 Oct (72 hours at 24 Oct, 14:01 UTC). These are the first episode numbers that can show whether the hook or the reach is the problem.
+- Hand-count CART's 2 comments and old STORE's 6. Were they the keyword? Were any from Prashant?
+- Check who left the single like on each episode. Is it one account?
+- Pull the LAUNCH and AUDIT retention graphs if Instagram still shows them.
+- Hold dates:
+  - SALE: 25 Oct, 08:28 UTC
+  - ROAST 22 Oct: 25 Oct, 14:01 UTC
+  - CART: 26 Oct, 07:31 UTC
 
 ## Hook formulas
-- **Favour:** none proven.
-  - #2 Negative Command is the only id ever logged: 1 post, 1.45x, 0 likes, comments, saves or shares.
-  - It may be reused in at most 2 episodes this week so it doesn't crowd out the comparison.
-- **Avoid:** none, because no other id has data.
+- **Favour:** none proven. All three logged ids landed within 21 views of each other:
+  - #1 Cost Confession: 1.57x, n=1
+  - #3 Nobody Tells You: 1.52x, n=1
+  - #2 Negative Command: 1.31x to 1.54x, n=3
+- **Avoid:** none. No id has hold@3s data.
 - **Do:**
-  - Use at least 3 different hooks.json ids across this week's episodes. #2 plus at least 2 others, each logged.
-  - Next Monday compares them by hold@3s.
-  - Open every episode on Bunty's problem in the first line, with a specific number or moment, and label it as an example (example: '40 COD orders, 11 came back'). No intro, no greeting.
+  - Balance the sample. Use #1 in 2 episodes and #3 in 2 episodes.
+  - Use #2 in at most 1 episode, because it already has 3.
+  - Add at least 1 hooks.json id never used before.
+  - Log every id. Next Monday compares them by hold@3s, but only if hold@3s was copied.
+  - Open every episode on Bunty's problem in the first line, with a specific number or moment labelled as an example (example: '40 COD orders, 11 came back'). No intro, no greeting.
 
 ## Reel styles and worlds
-- **Worked:** nothing proven.
-  - story-3d: 1 episode, 1.45x at about 1 day old, the youngest post in the top two.
-  - We keep it because Prashant decided on it. The data agrees so far but can't confirm it.
-- **Retired:** dark ink stage, clay box characters, world (1 post, 0.69x) and motion (1 post, 1.00x). One post each is not a verdict on those styles.
-- **This week's style:** only story-3d, so style is not a variable. That means the bright stockroom, word-pop captions with yellow key words, and the cardboard-sign cover.
+- **Worked (low to moderate confidence):** story-3d.
+  - 5 episodes, median 1.49x, all in the top 6.
+  - Keep the bright stockroom, word-pop captions with yellow key words and the cardboard-sign cover.
+- **Retired:** dark ink stage, clay box characters, world (DESC 0.56x), motion (RTO 0.80x) and the old talking-list format (median 0.75x across 8 posts).
+- **This week's style:** only story-3d, so style is not a variable.
+- **The open question is action, not reach.** Each episode needs one beat worth sending: the twist should be something Bunty would forward to Pinky.
 
 ## Pillars and keywords
-Posted so far: Sell more 6, Operations 2, Ads 1, Retention 0, Proof 0, carousels 0. No pillar has enough posts for a verdict:
-- Sell more: median 1.03x, n=6
-- Operations: 1.23x and 1.00x, n=2
-- Ads: 0.31x, n=1
+**Posted so far:** Sell more 7, Ads 3, Operations 2, Retention 1, Proof 0, carousels 0.
 
-**Mix for 14 posts:** Sell more 3 · Ads 4 · Operations 4 · Retention 3 · Proof 0.
-- This mix rebalances for comparison. It isn't based on performance.
-- Proof stays at 0 because there are no real MiniKin numbers. If Prashant supplies real numbers, swap 1 Operations slot for Proof.
+Pillar shows nothing once format is held fixed. Episode views by pillar: Ads 127 and 106, Retention 125, Sell more 123 and 121.
+
+**Mix for 14 posts:** Sell more 3 · Ads 3 · Operations 5 · Retention 3 · Proof 0.
+- This rebalances for comparison. It isn't based on performance.
+- Operations has zero story episodes, and Retention has one.
+- If Prashant supplies real MiniKin numbers, swap 1 Operations slot for Proof.
 - Never invent figures. Label example numbers as examples.
 
 **Push:**
-- Retention: CART (it would be the first Retention post ever), then REPEAT, and the AFTER carousel if there's room.
-- Ads: ROAST, UGC, RIVAL.
-- Operations: SUPPORT, STOCK.
-- Sell more: the STORE carousel plus 2 new topics from the bank. SALE (Diwali planner) is timely for the calendar. That is a timing call, not a data call.
+- **Operations (5):**
+  - SUPPORT episode
+  - STOCK episode
+  - TEAM episode (Bunty drowning in work; 1.00x old format, best save rate from 1 save, a hunch)
+  - RTO retold as a story episode (Bunty's COD returns). Only the motion version was tested.
+  - JOBS carousel
+- **Ads (3):** UGC, RIVAL and SCALE episodes. ROAST already has 2 episodes, so no third this week.
+- **Retention (3):**
+  - REPEAT episode
+  - AFTER carousel
+  - CART Part 2, but only if CART's 72-hour keyword comments are real 'CART' comments from people other than Prashant. Otherwise do an ABANDONED-cart-adjacent topic from the bank, or a third REPEAT angle.
+- **Sell more (3):**
+  - STORE carousel ('6 reasons shoppers leave your product page'), reusing the STORE tool and DM flow
+  - BUNDLE episode (Diwali gift bundles)
+  - SALE Part 2 (Diwali shipping cutoffs). This is a timing call with Diwali about 2 weeks out, not a data call. Hold it until SALE's 72-hour numbers are in.
 
-**Hold until 72-hour numbers are in:**
-- RTO: 23 Oct, 07:31 UTC.
-- STORE story episode: 24 Oct, 07:31 UTC.
+**Carousels: 2 minimum (STORE, JOBS), published in the first 4 days.** We're two weeks in with zero, so there's still no save data on a second format.
 
-**Rest (a rest, not a verdict):**
-- LAUNCH: best reach two weeks running, but zero action on every pull.
-- AUDIT: 0.12x.
-- REVIEWS: 0.31x, from one post.
-- PRICE: 0.85x, zero action at about 72 hours.
-- DESC: 0.69x, zero action at about 72 hours.
-
-**Carousels:** at least 2. We still have zero, so there is no save data on a second format.
-- STORE: '6 reasons shoppers leave your product page'. Reuse the existing STORE tool and DM flow.
-- JOBS: '7 jobs to hand to AI this week, 7 to keep'.
+**Rest (a rest, not a verdict):** LAUNCH (zero action on every pull), AUDIT 0.10x, REVIEWS 0.25x, PRICE 0.69x, DESC 0.56x, and RTO in the motion format.
 
 ## Topics to repeat with a new angle
-- **STORE:** already run once as a story episode (21 Oct).
-  - No second STORE reel until its 72-hour numbers are in and both STORE posts' comments are hand-counted.
-  - The old reel's 6 comments haven't moved since the first snapshot, and the episode has 0. The STORE carousel goes ahead because it is a different format.
-- **TEAM, as one optional Operations episode:** Bunty is drowning in work and Prashant shows the 4-agent team.
-  - TEAM scored 1.23x with the highest save rate on the page (13.9 per 1k).
-  - That rate comes from 1 save, so it is a hunch.
-- Nothing else gets repeated.
+- **RTO:** as a story episode. The topic was only ever tested in the retired motion style.
+- **TEAM:** optional Operations episode.
+- **SALE Part 2 and CART Part 2:** under the conditions above.
+- **STORE:** no third STORE reel. The carousel is the repeat.
+- Nothing else.
 
 ## Posting window
-Post everything from 8 to 9 PM IST, which is **14:30 to 15:30 UTC**.
-- The scheduler's 07:31 UTC slot is 1:01 PM IST. Four posts, including the first story episode, went out there.
-- Fix the scheduler. Evening is not proven to work. A fixed window just takes time out of the comparison.
+- Post everything at 14:30 to 15:30 UTC (8 to 9 PM IST). Set the scheduler to 14:45 UTC.
+- Both current slots are wrong: 07:31 UTC is 1:01 PM IST, and 14:01 UTC is 7:31 PM IST.
+- Time showed no effect among the episodes. The fixed window is only there to remove a variable.
 
-## One experiment: where the keyword appears (carried over, never run, adjusted to the 21 Oct rule)
-**Why:** the only comment signal on the page is old STORE (6 comments) against story STORE (0), with the same keyword. That pair can't separate format from keyword placement.
+## One experiment: where the keyword appears (carried over, never confirmed as run)
+**Why:** comments are the page's main metric, and they are near zero. The only signals are old STORE's frozen 6 and CART's 2, which can't separate format from keyword placement.
 
-**Setup:** 4 story episodes, 2 in Ads and 2 in Operations, all story-3d, all posted 8 to 9 PM IST on different days, alternating A and B.
-- **Both arms:** the comment gate is caption line 1, the keyword is on screen mid-reel (Prashant's rule), and the keyword is spoken at the end.
+**Setup:** 4 story-3d episodes, 2 in Ads and 2 in Operations, posted at 14:30 to 15:30 UTC on different days, alternating A and B. Log `arm` on each.
+- **Both arms:** the comment gate is caption line 1, the keyword is on screen mid-reel, and the keyword is spoken at the end.
 - **Episode A:** also puts the keyword on the cardboard-sign cover and as a yellow chip in the first 3 seconds, while Bunty states the problem.
 - **Episode B:** no keyword before the mid-reel beat.
 
 **How we judge it:**
 - Main measure: keyword comments ÷ reach at 72 hours, counted by hand, leaving out Prashant's replies.
-- Guardrail: if A's hold@3s is more than 10 points below B's, B wins whatever the comment count says, because the extra comments aren't worth the lost reach.
+- Guardrail: if A's hold@3s is more than 10 points below B's, B wins whatever the comment count says.
+- If hold@3s isn't copied for all 4 episodes, the test can't be judged, and it is void.
 
 **Reading the result:**
-- With 4 posts, any result is only directional.
+- With 4 posts, any result is directional only.
 - If A beats B in both pillars, repeat the test before making it the house format.
 - If the pillars disagree, call it noise.
 
 ## Baseline check (not an experiment)
-At each 72-hour mark, compare the story episodes' median views with the old-format median of 60, and their likes and shares with the old 0.
-- After about 10 episodes, bring the comparison to the Monday audit.
-- If story episodes are still under 60 views with 0 shares at that point, look at hold@3s first, before changing topics.
-
-## Check before planning
-- Hand-count the comments on both STORE posts. Were they 'STORE'? Were any from Prashant?
-- Re-pull RTO at 72 hours (23 Oct).
-- At 72 hours (24 Oct), copy the STORE story episode's hold@3s, average watch time, follows and non-follower % from in-app insights. These are the most useful numbers the page can get right now.
-- Pull the retention graphs for LAUNCH (best) and AUDIT (worst) from in-app insights while they're still available.
+- At each 72-hour mark, compare episode views with the story-3d median of 121, and compare shares and saves with 0.
+- At about 10 episodes, bring the comparison to the Monday audit.
+- If reach is still stuck around 100 to 110 with 0 shares, check two things before touching topics:
+  - hold@3s, which tells us whether it's a hook problem
+  - non-follower %, which tells us whether it's a distribution problem

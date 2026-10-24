@@ -1,0 +1,150 @@
+{
+  "id": "2026-10-29-reel-bunty-refreshes-ads-manager",
+  "style": "story",
+  "kind": "skit",
+  "keyword": "SCALE",
+  "hook": "IT FOLLOWS YOU TO AARTI",
+  "sign": "Ads Manager\nfollowed me\nto AARTI",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "refresh",
+    "aarti",
+    "Mummy",
+    "six",
+    "Learning"
+  ],
+  "musicStop": 5,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "worried",
+      "say": "Nobody tells you Ads Manager follows you into mummy's aarti.",
+      "show": "Nobody tells you Ads Manager follows you into mummy's aarti.",
+      "other": {
+        "act": "idle",
+        "mood": "normal"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Chai in one hand. Refresh. Chai on my premium cotton.",
+      "show": "Chai in one hand. Refresh. Chai on my premium cotton.",
+      "other": {
+        "act": "arms",
+        "mood": "normal"
+      },
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "phone",
+      "mood": "worried",
+      "say": "Two o'clock at night. Under the blanket. Refresh. Still learning?",
+      "show": "2 AM. Under the blanket. Refresh. Still learning?",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "phone",
+      "mood": "happy",
+      "say": "Diwali prayers with Mummy. Plate in my hand. One tiny refresh.",
+      "show": "Mummy's Diwali aarti. Thali is up. Tiny little refresh.",
+      "other": {
+        "act": "facepalm",
+        "mood": "worried"
+      },
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Mummy just sent me a message. From two feet away.",
+      "show": "Mummy just WhatsApped me. From 2 feet away.",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Mummy",
+        "msgs": [
+          {
+            "from": "buyer",
+            "text": "Bunty. I can SEE you. Phone down or this thali is coming 🪔"
+          }
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "explain",
+      "mood": "smug",
+      "say": "Listen, Bunty. It has been six minutes.",
+      "show": "Bunty. It's been 6 minutes.",
+      "other": {
+        "act": "phone",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "sad",
+      "say": "Learning phase. Again?",
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Meta Ads Manager",
+            "text": "Diwali Sale ad · Learning phase"
+          }
+        ]
+      },
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "phone",
+      "mood": "excited",
+      "look": "camera",
+      "say": "Okay okay. One last refresh.",
+      "other": {
+        "act": "facepalm",
+        "mood": "smug"
+      }
+    }
+  ]
+}

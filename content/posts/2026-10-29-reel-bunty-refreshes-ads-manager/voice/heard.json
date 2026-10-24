@@ -1,0 +1,42 @@
+{
+ "00": {
+  "say": "Nobody tells you Ads Manager follows you into mummy's aarti.",
+  "heard": "Nobody tells you ads manager follows you into Mummy's arty.",
+  "error": 0.1
+ },
+ "01": {
+  "say": "Chai in one hand. Refresh. Chai on my premium cotton.",
+  "heard": "Chai in one hand refreshed chai on my premium cotton.",
+  "error": 0.1
+ },
+ "02": {
+  "say": "Two o'clock at night. Under the blanket. Refresh. Still learning?",
+  "heard": "2 o'clock at night under the blanket refresh still learning.",
+  "error": 0
+ },
+ "03": {
+  "say": "Diwali prayers with Mummy. Plate in my hand. One tiny refresh.",
+  "heard": "Dewali prayers with mummy played in my hand one tiny refresh.",
+  "error": 0.18
+ },
+ "04": {
+  "say": "Mummy just sent me a message. From two feet away.",
+  "heard": "Mommy just sent me a message from two feet away.",
+  "error": 0.1
+ },
+ "05": {
+  "say": "Listen, Bunty. It has been six minutes.",
+  "heard": "Listen, Bunty, it has been 6 minutes.",
+  "error": 0
+ },
+ "06": {
+  "say": "Learning phase. Again?",
+  "heard": "Learning phase again.",
+  "error": 0
+ },
+ "07": {
+  "say": "Okay okay. One last refresh.",
+  "heard": "OK OK 1 last refresh",
+  "error": 0
+ }
+}

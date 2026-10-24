@@ -1,0 +1,160 @@
+{
+  "id": "2026-10-28-reel-bunty-before-vs-after-delivery",
+  "style": "story",
+  "kind": "skit",
+  "keyword": "AFTER",
+  "hook": "6 A DAY vs 0",
+  "sign": "Before delivery: 6\nAfter delivery: 0",
+  "cover": {
+    "mood": "happy"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "WhatsApps",
+    "GIF",
+    "Delivered",
+    "Pinky",
+    "Sharma"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "excited",
+      "say": "Six WhatsApps a day versus zero. Same Bunty, same customer.",
+      "show": "6 WhatsApps a day vs 0. Same Bunty, same customer.",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "phone",
+      "mood": "excited",
+      "say": "Your parcel has left, sir! Dancing cartoon!",
+      "show": "Parcel nikal gaya sir! Dancing GIF!",
+      "other": {
+        "act": "idle",
+        "mood": "normal"
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Out for delivery sir! Another dancing GIF!",
+      "show": "Out for delivery sir! Another dancing GIF!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "punch": true,
+      "sfx": [
+        "buzz",
+        "boing"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "excited",
+      "say": "It comes today, sir! Three cartoons this time!",
+      "show": "Sir aaj aa jayega! 3 GIFs this time!",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Parcel nikal gaya sir! 🎉 [GIF: dancing kurta]"
+          },
+          {
+            "from": "brand",
+            "text": "Out for delivery sir! 💃 [GIF: dancing kurta]"
+          },
+          {
+            "from": "brand",
+            "text": "Sir aaj aa jayega!! 🕺🕺🕺 [3 GIFs]"
+          }
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "sign",
+      "mood": "happy",
+      "say": "Delivered! All done. Tea time.",
+      "show": "Delivered! Done. Chai time.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "point",
+      "mood": "smug",
+      "say": "Day three. Day ten. Not one message, Bunty.",
+      "show": "Day 3. Day 10. Not one message, Bunty.",
+      "other": {
+        "act": "idle",
+        "mood": "happy"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Pinky's phone. New order. Mrs Sharma.",
+      "show": "Pinky's phone. New order. Mrs Sharma.",
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Pinky's Kurtas",
+            "text": "New order #2210 · Mrs Sharma · ₹1,299 · Prepaid"
+          }
+        ]
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "facepalm",
+      "mood": "shock",
+      "look": "camera",
+      "say": "What?! Mrs Sharma? But I sent her six dancing cartoons!",
+      "show": "Pfff! Mrs Sharma?! I sent her 6 dancing GIFs!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    }
+  ]
+}

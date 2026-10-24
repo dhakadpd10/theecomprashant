@@ -1,0 +1,23 @@
+Shopify says Sidekick can now edit your checkout. Here are 6 lines to type before Dhanteras 👇
+
+First, check that Sidekick's checkout editing shows on your own store and plan before you count on it.
+
+1. Add a gift message box. Type: "Add an optional gift message field to checkout, up to 150 characters." Dhanteras orders are often gifts.
+
+2. Ask for a landmark. Type: "Add an optional field under the address, labelled 'Nearby landmark'." It helps the courier find the house, which can mean fewer COD parcels coming back.
+
+3. Add a short COD note. Type: "Show this note under Cash on Delivery: 'Please keep the exact amount ready at delivery.'" Edit it to match your courier.
+
+4. Nudge buyers to UPI. Type: "Add a line above payment options: 'Pay by UPI in a few taps.'" That's example wording. Mention a discount only if you really offer one.
+
+5. Say when it arrives. Type: "Add a line above the pay button: 'Order by [your date] for Diwali delivery.'" Use your courier's real cutoff. Don't guess.
+
+6. Put trust badges by the pay button. Type: "Add trust badges under the pay button: Secure payment, Easy returns, COD available." List only what's true for you.
+
+The catch: Sidekick can get a field label wrong. Preview every change, place a test order with COD and then UPI, check it on your phone, and only then publish.
+
+Comment "CHECKOUT" and I'll DM you the free Sidekick Checkout Prompts: all 6 lines, copy-paste ready, plus the test-order checklist. Follow so the DM lands 📩
+
+If you're new here, I'm Prashant. I build AI systems for D2C brands, and every reel comes with a free tool you can use today.
+
+#shopify #d2cbrand #ecommerce

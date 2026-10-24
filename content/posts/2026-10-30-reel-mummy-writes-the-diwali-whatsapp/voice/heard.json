@@ -1,0 +1,42 @@
+{
+ "00": {
+  "say": "More is more. Ask mummy's fourteen diyas.",
+  "heard": "More is more Ask Mummy's 14 Dias.",
+  "error": 0.14
+ },
+ "01": {
+  "say": "For your festival WhatsApp? First card says Happy festival, beta.",
+  "heard": "For your Festival WhatsApp, first card says Happy Festival Beta.",
+  "error": 0
+ },
+ "02": {
+  "say": "Card two. Same message. Fourteen diyas.",
+  "heard": "Card 2, same message, 14 Dias.",
+  "error": 0.17
+ },
+ "03": {
+  "say": "Okay, maybe twelve lamps. What is the third card?",
+  "heard": "Okay, maybe 12 lamps. What is the third card?",
+  "error": 0
+ },
+ "04": {
+  "say": "A three minute voice note. About her knees.",
+  "heard": "A three minute voice note about her knees.",
+  "error": 0
+ },
+ "05": {
+  "say": "Her knees? To customers? Card four, please be normal!",
+  "heard": "Her knees to customers card for please be normal.",
+  "error": 0.11
+ },
+ "06": {
+  "say": "Card four. She phoned every buyer herself. Look.",
+  "heard": "Card 4, she phoned every buyer herself. Look.",
+  "error": 0
+ },
+ "07": {
+  "say": "Six orders, just from one phone call. Mummy is the CMO now.",
+  "heard": "Six orders just from one phone call. Mummy is the CMO now.",
+  "error": 0
+ }
+}

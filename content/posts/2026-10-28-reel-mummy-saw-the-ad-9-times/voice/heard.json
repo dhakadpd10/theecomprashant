@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Forty-thousand is what doubling my tired Diwali ad cost me.",
+  "heard": "40,000 is what doubling my tired Diwali ad cost me.",
+  "error": 0.2
+ },
+ "01": {
+  "say": "Mummy saw it nine times. Still no order!",
+  "heard": "Mummy saw it nine times, still no order.",
+  "error": 0
+ },
+ "02": {
+  "say": "Thirty-four days live. Frequency nearly eight. Buyers are bored.",
+  "heard": "34 days live, frequency nearly 8. Buyers are bored.",
+  "error": 0
+ },
+ "03": {
+  "say": "But it sold fifty kurtas!",
+  "heard": "But it sold 50 curdas.",
+  "error": 0.2
+ },
+ "04": {
+  "say": "Export the last two weeks. Paste it in, then type SCALE.",
+  "heard": "Export the last two weeks, paste it in the Type Scale.",
+  "error": 0.09
+ },
+ "05": {
+  "say": "Refresh, don't kill. Same offer, new first two seconds.",
+  "heard": "Refresh don't kill, same offer, new first two seconds.",
+  "error": 0
+ },
+ "06": {
+  "say": "Oh great! The offer stays, only the start changes!",
+  "heard": "Oh great, the offer stays only the start changes.",
+  "error": 0
+ },
+ "07": {
+  "say": "Pinky sent my own ad. Still this one?",
+  "heard": "Pinky sent my own ad still this one.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment SCALE, and I'll send the free report.",
+  "heard": "Comment scale and I'll send the free report.",
+  "error": 0
+ }
+}

@@ -1,0 +1,176 @@
+{
+  "id": "2026-10-28-reel-mummy-saw-the-ad-9-times",
+  "style": "story",
+  "kind": "teach",
+  "keyword": "SCALE",
+  "hook": "EXAMPLE: ₹40,000 DIWALI MISTAKE",
+  "sign": "Mummy saw my ad 9x\nStill no order\nComment SCALE",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "SCALE",
+    "Mummy",
+    "bored",
+    "REFRESH",
+    "Pinky"
+  ],
+  "musicStop": 7,
+  "experiment": {
+    "arm": "A",
+    "keyword_early": "SCALE on the cardboard-sign cover and as a yellow chip in the first 3 s (beat 0), then mid-reel (beat 4), then spoken at the end (beat 8)"
+  },
+  "log": {
+    "hook": 1,
+    "hook_formula": "Cost Confession",
+    "style": "story-3d",
+    "arm": "A",
+    "slot_utc": "14:00",
+    "slot_note": "14:00 UTC is 7:30 PM IST, outside the 14:30 to 15:30 UTC window. Log the real publish time in UTC.",
+    "example_numbers": "All numbers are Bunty's story numbers, labelled as examples: ₹40,000, 34 days, frequency 7.8, CTR 2.1% to 0.6%, 9 views by Mummy, 50 kurtas."
+  },
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Forty-thousand is what doubling my tired Diwali ad cost me.",
+      "show": "₹40,000 is what doubling my tired Diwali ad cost me.",
+      "chip": "COMMENT SCALE",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "Mummy saw it nine times. Still no order!",
+      "show": "Mummy saw it 9 times. Still no order!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ],
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "Thirty-four days live. Frequency nearly eight. Buyers are bored.",
+      "show": "34 days live. Frequency nearly 8. Buyers are bored.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "point",
+      "mood": "angry",
+      "say": "But it sold fifty kurtas!",
+      "show": "But it sold 50 kurtas!",
+      "other": {
+        "act": "shrug",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Export the last two weeks. Paste it in, then type SCALE.",
+      "show": "Export 14 days. Paste into Claude with SCALE.",
+      "screen": {
+        "type": "chat",
+        "ask": "You're my weekly Meta Ads analyst. Label every ad KILL, KEEP or SCALE and flag creative fatigue. Here are my last 14 days from Ads Manager.",
+        "answer": "Diwali Kurta Ad: KEEP + FATIGUE RISK. Frequency 7.8, link CTR 2.1% to 0.6%. REFRESH, don't kill. Keep the offer, new first 2 seconds."
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "smug",
+      "say": "Refresh, don't kill. Same offer, new first two seconds.",
+      "show": "REFRESH, don't kill. Same offer, new first 2 seconds.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "list",
+        "title": "Diwali Kurta Ad (example)",
+        "items": [
+          "FATIGUE RISK: frequency 7.8",
+          "CTR 2.1% → 0.6%",
+          "REFRESH, don't kill",
+          "Keep the offer",
+          "New first 2 seconds"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Oh great! The offer stays, only the start changes!",
+      "show": "Accha! Offer stays, only the start changes!",
+      "other": {
+        "act": "arms",
+        "mood": "happy"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Pinky sent my own ad. Still this one?",
+      "show": "Pinky sent my own ad. \"Still this one?\"",
+      "sfx": [
+        "buzz",
+        "scratch"
+      ],
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Instagram",
+            "text": "Pinky sent a photo: your Diwali ad"
+          },
+          {
+            "app": "Instagram",
+            "text": "Pinky: still this one? 😂"
+          }
+        ]
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment SCALE, and I'll send the free report.",
+      "show": "Comment SCALE, and I'll send the free report.",
+      "other": {
+        "act": "facepalm",
+        "mood": "sad"
+      }
+    }
+  ]
+}

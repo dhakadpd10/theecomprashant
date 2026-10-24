@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "\"Can you add a gift note?\" Twenty-three DMs before Dhanteras!",
+  "heard": "Can you add a gift note 23 DMs before Dandros?",
+  "error": 0.1
+ },
+ "01": {
+  "say": "Web guy wants twelve thousand rupees for one box!",
+  "heard": "WebGuy wants 12,000 rupees for one box.",
+  "error": 0.5
+ },
+ "02": {
+  "say": "Skip him. Try Sidekick, if your plan has it.",
+  "heard": "Skip him, try sidekick if your plan has it.",
+  "error": 0
+ },
+ "03": {
+  "say": "Just ask for a gift box and a last order date.",
+  "heard": "Just ask for a gift box and a last order date.",
+  "error": 0
+ },
+ "04": {
+  "say": "Preview first. Test order before it goes live.",
+  "heard": "Preview first, test order before it goes live.",
+  "error": 0
+ },
+ "05": {
+  "say": "Oh wow! Bring on the gift notes!",
+  "heard": "Oh wow, bring on the gift notes.",
+  "error": 0
+ },
+ "06": {
+  "say": "First one's in. Happy Diwali Mummy, from Bunty.",
+  "heard": "First one's in, Happy Duwali Mummy from Bunty.",
+  "error": 0.13
+ },
+ "07": {
+  "say": "I forgot mummy's gift! That's my kurta!",
+  "heard": "I forgot Mummy's gift, that's my kurda.",
+  "error": 0
+ },
+ "08": {
+  "say": "Comment CHECKOUT, one word, and I'll send the prompts.",
+  "heard": "Comment check out one word and I'll send the prompts.",
+  "error": 0.22
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Nobody tells you mummy's phone video beats a forty-thousand shoot.",
+  "heard": "Nobody tells you Mummy's phone video beats a 40,000 shoot.",
+  "error": 0.2
+ },
+ "01": {
+  "say": "Model shoot, three orders. Mummy's wobbly clip got more clicks!",
+  "heard": "Model Shoot 3 Orders. Mummies Wobbly Clip got more clicks.",
+  "error": 0.1
+ },
+ "02": {
+  "say": "Buyers trust real hands on a real kurta.",
+  "heard": "Buyers trust real hands on a real kurda.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste your product page into Claude with this prompt.",
+  "heard": "Paste your product page and declaw it with this prompt.",
+  "error": 0.33
+ },
+ "04": {
+  "say": "Thirty scripts and a shot list for one shelf.",
+  "heard": "30 scripts in a shot list for one shelf.",
+  "error": 0.11
+ },
+ "05": {
+  "say": "Arre, no studio bill, bhai!",
+  "heard": "RNO Studio Build By",
+  "error": 0.8
+ },
+ "06": {
+  "say": "You still film it. Light and the first two seconds decide.",
+  "heard": "You still film it, light and the first two seconds decide.",
+  "error": 0
+ },
+ "07": {
+  "say": "Now mummy wants credits and chai per take!",
+  "heard": "Now Mummy wants credits and shy per take.",
+  "error": 0.14
+ },
+ "08": {
+  "say": "Comment UGC, and I'll send you the free script pack.",
+  "heard": "Comment UGC and I'll send you the free script pack.",
+  "error": 0
+ }
+}

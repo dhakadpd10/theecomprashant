@@ -1,0 +1,159 @@
+{
+  "id": "2026-10-31-reel-price-in-the-dms",
+  "style": "story",
+  "kind": "skit",
+  "keyword": "SUPPORT",
+  "hook": "4 HOURS LOST TO PRICE?",
+  "sign": "4 hours lost\nto 1 word:\nPRICE?",
+  "cover": {
+    "mood": "angry"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "price",
+    "cardboard",
+    "kurta",
+    "mummy",
+    "COD"
+  ],
+  "musicStop": 5,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "I lost four hours today. To one word. Price?",
+      "show": "4 hours lost to 1 word today: 'price?'",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      },
+      "sfx": [
+        "buzz",
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "worried",
+      "say": "It's right there on the photo. And she goes, price?",
+      "show": "Price is written on the photo. She replies, 'price?'",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "📷 Kurta photo · ₹899 written on it"
+          },
+          {
+            "from": "buyer",
+            "text": "price?"
+          }
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "sign",
+      "mood": "angry",
+      "say": "So I wrote it on cardboard. This big. Price?",
+      "show": "So I wrote ₹899 on cardboard. This big. 'Price?'",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "punch": true,
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "point",
+      "mood": "shock",
+      "say": "I stitched eight ninety nine on the kurta. Price?",
+      "show": "Stitched ₹899 on the kurta itself. 'Price?'",
+      "other": {
+        "act": "shrug",
+        "mood": "smug"
+      },
+      "sfx": [
+        "buzz",
+        "boing"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "arms",
+      "mood": "angry",
+      "say": "My mummy yelled it off the balcony. The whole colony knows. Price?",
+      "show": "Mummy shouted it from the balcony. Whole colony knows. 'Price?'",
+      "other": {
+        "act": "facepalm",
+        "mood": "normal"
+      },
+      "punch": true,
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Oh, there's a new one. Okay... cash on delivery hai?",
+      "show": "Finally, a new message. 'ok... COD hai?'",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "buyer",
+            "text": "price?"
+          },
+          {
+            "from": "brand",
+            "text": "₹899 ₹899 ₹899 🙏"
+          },
+          {
+            "from": "buyer",
+            "text": "ok... COD hai?"
+          }
+        ]
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "facepalm",
+      "mood": "sad",
+      "look": "camera",
+      "say": "Bhai, just bury me in the kurta pile.",
+      "show": "Bhai, bury me in the kurta pile.",
+      "other": {
+        "act": "idle",
+        "mood": "smug"
+      },
+      "sfx": [
+        "fail"
+      ]
+    }
+  ]
+}

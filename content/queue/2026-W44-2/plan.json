@@ -1,0 +1,161 @@
+{
+  "week": "2026-W44-2",
+  "start": "2026-10-26",
+  "research": "I found 9 updates worth knowing. A few launched 15 to 23 days ago rather than within the last 14, and I've marked those. Most of the sources are trade blogs, so check the official changelog or help page before any of this goes into a post.\n\n**AI and platform tools**\n\n1. **Shopify Sidekick can now edit checkout and customer accounts (13 Oct).** You type what you want, like a COD note, a gift message field or trust badges, and Sidekick makes the change. A small team can test checkout changes before Diwali without paying a developer. The \"Agentic Storefronts\" expansion was announced the same day, but that's buying through AI agents, which matters more in the US for now. [Shopify Sidekick](https://www.shopify.com/sidekick) · [kua.ai October changelog](https://kua.ai/blog/ai-commerce-changelog-october-2026)\n\n2. **Shopify Canvas, an AI store builder you chat with (1 Oct, a little older than 14 days).** It's available to all merchants inside the Shopify admin. Owners can rebuild a landing or sale page by chatting instead of hiring an agency. The catch: it doesn't work on headless (Hydrogen) stores. [TechCrunch](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n\n3. **Shopify SimGym, AI shoppers that test your store (research preview).** Simulated buyers move through your store and show where they drop off. It's the official version of our \"7 AI shoppers reject your store\" idea, which makes it a good STORE carousel or Part 2 hook. The catch: only eligible merchants can use it, so check before promising it to anyone. [Spyingbee: Shopify October updates](https://spyingbee.com/updates/shopify/2026-10)\n\n4. **Meta Advertising Week tools (6 Oct, a little older than 14 days).** Turning still images into video in Advantage+ creative is reported as generally available. Customer Lifecycle Strategy, which stops acquisition campaigns spending on people who already bought, is reported as open to all advertisers. Both matter for anyone running Meta ads: product photos become video ads with no shoot, and less budget goes to existing buyers. The AI assistant that changes budgets and targeting for you is mostly still in testing, so don't promise it. [PYMNTS](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/) · [Common Thread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n\n5. **WhatsApp Business API pricing change (from 1 Oct).** Messages that used to be free are now charged. Utility templates sent inside the 24-hour window are reportedly no longer free. Sources disagree on whether you still get 1,000 free service replies per number each month. This raises the cost of order confirmations, COD checks and cart reminders sent through the API. The WhatsApp Business app on your phone is reportedly not affected. That matters for our CART and RTO tools: \"use the app for free\" is a safer claim than \"use the API\". [Asianet Newsable](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku) · [Whapi](https://usewhapi.com/blog/whatsapp-pricing-change-october-2026/)\n\n6. **Instagram clickable links in feed posts and Reels through Meta One paid plans (reported 13 Oct).** The links start with the Advanced tier. Reported prices range from $14.99 to $499 a month, and sources disagree on what each plan includes. A link inside a reel could send viewers straight to a product page instead of relying only on comments and DMs. Separately, Edits added a carousel editor on 7 Oct. [Metricool](https://metricool.com/instagram-news/) · [invisibleapi.ai](https://invisibleapi.ai/blog/instagram-new-features/)\n\n7. **Google Universal Cart in Search and Gemini (15 Oct, US only).** Shoppers can keep items from different stores in one cart, and Google alerts them to price drops and restocks. Many Shopify merchants are included without any setup. For Indian owners this is a heads-up rather than something to act on, because it isn't live in India. The useful takeaway now: clean product data and accurate compare-at prices will decide who shows up in AI shopping. [Digital Commerce 360](https://www.digitalcommerce360.com/2026/10/16/google-universal-cart-launch-features/) · [Search Engine Land](https://searchengineland.com/google-launches-universal-cart-across-search-and-gemini-for-easier-shopping-496573)\n\n**India dates and problems**\n\n8. **Diwali is late this year.** Dhanteras is Fri 6 Nov, Diwali is Sun 8 Nov and Bhai Dooj is about 11 Nov. Black Friday is 27 Nov, and Nykaa's Pink Friday is expected around 21 to 30 Nov. Flipkart Big Billion Days and Amazon Great Indian Festival have been running since 8 to 9 Oct, so shoppers have already had weeks of marketplace discounts. That leaves about 2 weeks to set shipping cutoffs and gift bundles, which supports SALE Part 2 and BUNDLE. Treat the Nykaa and Flipkart Diwali sale dates as \"expected\" until they're announced. [Zoutons Diwali calendar](https://zoutons.com/news/diwali-2026-dates-sale-calendar-november) · [Sunday Guardian](https://sundayguardianlive.com/trending/upcoming-festive-sale-2026-flipkart-big-billion-days-amazon-great-indian-festival-myntra-meesho-nykaa-ajio-check-sale-dates-offers-cashback-discounts-top-deals-301503/)\n\n9. **Festive COD returns (RTO) are the problem everyone is writing about.** Unicommerce says COD orders came back at about 58% in last year's festive quarter, against under 15% for prepaid, and overall RTO peaked at 39.2% in November 2025. The common advice is to keep COD but nudge buyers to prepaid and confirm addresses before dispatch. Redseer expects more first-time festive buyers this year, which usually means more COD returns. This is the strongest pain point for the RTO story episode. One caveat: these figures come from vendors and refer to last season, so on screen they must be cited as Unicommerce figures, not presented as our own. [Unicommerce India D2C Report 2026](https://unicommerce.com/india-d2c-report-2026-april/) · [Amazon Shipping India](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n\n**Skipped:** ChatGPT shopping had no new October news. OpenAI moved away from in-chat checkout back in March. I also left out Claude Duet: only one outlet has reported it, it's US-only behind a waitlist, and I found no Anthropic page for it. I'd hold it until Anthropic confirms it.\n\nSources:\n- [Shopify Sidekick](https://www.shopify.com/sidekick)\n- [kua.ai: AI Commerce Updates October 2026](https://kua.ai/blog/ai-commerce-changelog-october-2026)\n- [TechCrunch: Shopify Canvas](https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/)\n- [Spyingbee: Shopify October 2026 updates](https://spyingbee.com/updates/shopify/2026-10)\n- [PYMNTS: Meta AI tools](https://www.pymnts.com/news/artificial-intelligence/2026/meta-debuts-ai-tools-help-advertisers-find-customers/)\n- [Common Thread: Meta Advertising Week 2026](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n- [Asianet Newsable: WhatsApp Business rules from 1 Oct 2026](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku)\n- [Whapi: WhatsApp pricing change](https://usewhapi.com/blog/whatsapp-pricing-change-october-2026/)\n- [Metricool: Instagram news](https://metricool.com/instagram-news/)\n- [invisibleapi.ai: Instagram October 2026](https://invisibleapi.ai/blog/instagram-new-features/)\n- [Digital Commerce 360: Google Universal Cart](https://www.digitalcommerce360.com/2026/10/16/google-universal-cart-launch-features/)\n- [Search Engine Land: Universal Cart](https://searchengineland.com/google-launches-universal-cart-across-search-and-gemini-for-easier-shopping-496573)\n- [Zoutons: Diwali 2026 sale calendar](https://zoutons.com/news/diwali-2026-dates-sale-calendar-november)\n- [Sunday Guardian: Festive sale 2026](https://sundayguardianlive.com/trending/upcoming-festive-sale-2026-flipkart-big-billion-days-amazon-great-indian-festival-myntra-meesho-nykaa-ajio-check-sale-dates-offers-cashback-discounts-top-deals-301503/)\n- [Unicommerce India D2C Report 2026](https://unicommerce.com/india-d2c-report-2026-april/)\n- [Amazon Shipping India: COD RTO festive surge](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n- [CNBC: OpenAI revamps ChatGPT shopping](https://www.cnbc.com/2026/03/24/openai-revamps-shopping-experience-in-chatgpt-after-instant-checkout.html)\n- [Pulse 2.0: Claude Duet](https://pulse2.com/anthropic-launches-claude-duet-as-proactive-ai-agent-for-work-and-small-businesses/)",
+  "slots": [
+    {
+      "day": "2026-10-28",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-28-reel-bunty-before-vs-after-delivery",
+      "style": "story",
+      "kind": "skit",
+      "render": "pending",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 62.6
+      },
+      "keyword": "AFTER",
+      "pillar": "Retention",
+      "topic": "Bunty before delivery vs Bunty after delivery: 6 WhatsApps a day while the parcel travels, then total silence once it lands.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-28",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-28-reel-mummy-saw-the-ad-9-times",
+      "style": "story",
+      "kind": "teach",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 80.8
+      },
+      "keyword": "SCALE",
+      "pillar": "Ads",
+      "topic": "Your Diwali ad isn't dead. Your buyers are tired of it. A free weekly report reads your Ads Manager export and flags ad fatigue before you raise the budget.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-29",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-29-reel-bunty-refreshes-ads-manager",
+      "style": "story",
+      "kind": "skit",
+      "render": "pending",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 84.4
+      },
+      "keyword": "SCALE",
+      "pillar": "Ads",
+      "topic": "Bunty refreshing Ads Manager every 4 minutes after launching his Diwali ad.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-29",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-29-reel-festive-cod-comes-back",
+      "style": "story",
+      "kind": "teach",
+      "render": "pending",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 80
+      },
+      "keyword": "RTO",
+      "pillar": "Operations",
+      "topic": "Festive COD parcels come back more than half the time (Unicommerce, last festive quarter). A free kit flags risky COD orders before you ship, and confirms them from the free WhatsApp Business app.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-30",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-30-reel-mummy-writes-the-diwali-whatsapp",
+      "style": "story",
+      "kind": "skit",
+      "render": "pending",
+      "hook": {
+        "id": 22,
+        "name": "Contrarian Flip",
+        "score": 51.2
+      },
+      "keyword": "WINBACK",
+      "pillar": "Retention",
+      "topic": "Bunty lets mummy write the Diwali WhatsApp to old buyers, and every version gets more mummy.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-30",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-30-reel-dispatch-sheet-in-10-minutes",
+      "style": "story",
+      "kind": "teach",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 80.8
+      },
+      "keyword": "PACK",
+      "pillar": "Operations",
+      "topic": "Stop copying Diwali orders into your courier sheet by hand. Paste your Shopify export into a free Claude prompt and get a pick list and dispatch sheet in 10 minutes.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-31",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-10-31-reel-price-in-the-dms",
+      "style": "story",
+      "kind": "skit",
+      "render": "pending",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 62.6
+      },
+      "keyword": "SUPPORT",
+      "pillar": "Operations",
+      "topic": "A customer asks 'price?' on a post where the price is already everywhere.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-01",
+      "time": "13:00",
+      "format": "carousel",
+      "post": "2026-11-01-carousel-sidekick-checkout-prompts-before-dhanter",
+      "keyword": "CHECKOUT",
+      "pillar": "Sell more",
+      "topic": "6 checkout fixes to type into Shopify Sidekick before Dhanteras (copy the exact prompts)",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-01",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-01-reel-gift-note-without-a-developer",
+      "style": "story",
+      "kind": "teach",
+      "render": "pending",
+      "hook": {
+        "id": 16,
+        "name": "The Verbatim Question",
+        "score": 80.8
+      },
+      "keyword": "CHECKOUT",
+      "pillar": "Sell more",
+      "topic": "Bunty's developer quoted ₹12,000 for a gift-message box at checkout. Shopify Sidekick added it from one typed line, included in his Shopify plan.",
+      "status": "made"
+    }
+  ]
+}

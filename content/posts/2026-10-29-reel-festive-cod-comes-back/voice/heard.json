@@ -1,0 +1,42 @@
+{
+ "00": {
+  "say": "Nobody tells you festive cash on delivery comes back...",
+  "heard": "Nobody tells you festive cash on delivery comes back.",
+  "error": 0
+ },
+ "01": {
+  "say": "More than half the time! Forty shipped. Fourteen came back!",
+  "heard": "More than half the time, 40 shipped, 14 came back.",
+  "error": 0
+ },
+ "02": {
+  "say": "You ship each order the minute it comes in.",
+  "heard": "You ship each order the minute it comes in.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste your order export with the RTO prompt.",
+  "heard": "Paste your order export with the RTO prompt.",
+  "error": 0
+ },
+ "04": {
+  "say": "API messages cost now. Send free from the WhatsApp Business app.",
+  "heard": "API messages cost now. Send free from the WhatsApp Business app.",
+  "error": 0
+ },
+ "05": {
+  "say": "Arre, fakes cancel before shipping!",
+  "heard": "Our fakes cancel before shipping.",
+  "error": 0.2
+ },
+ "06": {
+  "say": "The man who says no the most lives next door to Pinky.",
+  "heard": "The man who says no the most lives next door to Pinky.",
+  "error": 0
+ },
+ "07": {
+  "say": "It's manual and won't fix late couriers. Comment RTO for the free kit.",
+  "heard": "It's manual and won't fix late couriers. Comment RTO for the free kit.",
+  "error": 0
+ }
+}

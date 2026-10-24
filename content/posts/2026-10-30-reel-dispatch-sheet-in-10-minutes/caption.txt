@@ -1,0 +1,9 @@
+Comment "PACK" and I'll DM you the free Dispatch Day Sheet prompt 📩
+
+Bunty copied 300 orders onto packing slips by hand (example numbers) and still sent out 11 kurtas in the wrong size. Prashant pasted the day's Shopify orders export into Claude with the PACK prompt and got a pick list by size and a packing order by courier pickup time in 10 minutes. It also put 14 orders on hold, including 9 cash-on-delivery orders from one phone number, which turned out to be Bunty's mummy testing the Buy now button.
+
+Follow so the DM lands. The prompt is free. You need your Shopify orders export and your courier pickup times, and you still check every flag by hand.
+
+If you're new here, I'm Prashant. I build AI systems for D2C brands, and every reel comes with a free tool you can use today.
+
+#d2cbrand #shopifyindia #ecommerceindia #smallbusinessindia

@@ -1,0 +1,42 @@
+{
+ "00": {
+  "say": "Six WhatsApps a day versus zero. Same Bunty, same customer.",
+  "heard": "6. What's apps a day versus zero? Same bunty, same customer.",
+  "error": 0.2
+ },
+ "01": {
+  "say": "Your parcel has left, sir! Dancing cartoon!",
+  "heard": "Your parcel is left, sir, dancing cartoon.",
+  "error": 0.14
+ },
+ "02": {
+  "say": "Out for delivery sir! Another dancing GIF!",
+  "heard": "Out for delivery, sir, another dancing GIF.",
+  "error": 0
+ },
+ "03": {
+  "say": "It comes today, sir! Three cartoons this time!",
+  "heard": "It comes today, sir, three cartoons this time.",
+  "error": 0
+ },
+ "04": {
+  "say": "Delivered! All done. Tea time.",
+  "heard": "Delivered all done tea time.",
+  "error": 0
+ },
+ "05": {
+  "say": "Day three. Day ten. Not one message, Bunty.",
+  "heard": "Day 3, Day 10, not one message, Bunty.",
+  "error": 0
+ },
+ "06": {
+  "say": "Pinky's phone. New order. Mrs Sharma.",
+  "heard": "Pinkie's phone new order, Mrs. Sharma.",
+  "error": 0.17
+ },
+ "07": {
+  "say": "What?! Mrs Sharma? But I sent her six dancing cartoons!",
+  "heard": "What Mrs. Sharma but I send her six dancing cartoons.",
+  "error": 0.1
+ }
+}

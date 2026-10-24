@@ -1,0 +1,37 @@
+{
+ "00": {
+  "say": "I lost four hours today. To one word. Price?",
+  "heard": "I lost 4 hours today to 1 word price.",
+  "error": 0
+ },
+ "01": {
+  "say": "It's right there on the photo. And she goes, price?",
+  "heard": "It's right there on the photo and she goes price.",
+  "error": 0
+ },
+ "02": {
+  "say": "So I wrote it on cardboard. This big. Price?",
+  "heard": "So I wrote it on cardboard, this big price.",
+  "error": 0
+ },
+ "03": {
+  "say": "I stitched eight ninety nine on the kurta. Price?",
+  "heard": "I stitched 899 on the KURDA price.",
+  "error": 0.14
+ },
+ "04": {
+  "say": "My mummy yelled it off the balcony. The whole colony knows. Price?",
+  "heard": "My mummy yelled it off the balcony, the whole colony knows price.",
+  "error": 0
+ },
+ "05": {
+  "say": "Oh, there's a new one. Okay... cash on delivery hai?",
+  "heard": "Oh there's a new one okay, cash on delivery high.",
+  "error": 0.1
+ },
+ "06": {
+  "say": "Bhai, just bury me in the kurta pile.",
+  "heard": "Buy just bury me in the kurta pile.",
+  "error": 0.13
+ }
+}

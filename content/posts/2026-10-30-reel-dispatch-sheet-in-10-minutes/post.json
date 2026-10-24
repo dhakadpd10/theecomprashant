@@ -1,0 +1,170 @@
+{
+  "id": "2026-10-30-reel-dispatch-sheet-in-10-minutes",
+  "style": "story",
+  "kind": "teach",
+  "arm": "A",
+  "log": {
+    "style": "story-3d",
+    "arm": "A",
+    "hook": 1
+  },
+  "hook_id": 1,
+  "hook_formula": "Cost Confession",
+  "keyword": "PACK",
+  "tool": "Dispatch Day Sheet",
+  "hook": "300 ORDERS 11 WRONG SIZES",
+  "keywordChip": {
+    "text": "COMMENT PACK",
+    "from": 0,
+    "to": 3
+  },
+  "sign": "300 orders by hand\n11 wrong sizes\nComment PACK",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "wrong-size",
+    "PACK",
+    "flag",
+    "mummy",
+    "Sunday"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Eleven wrong-size kurtas is what copying three-hundred orders cost me.",
+      "show": "11 wrong-size kurtas is what copying 300 orders cost me.",
+      "chip": "COMMENT PACK",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "normal",
+      "say": "Copying by hand, one row at a time.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "arms",
+      "mood": "angry",
+      "say": "But I checked every slip!",
+      "other": {
+        "act": "think",
+        "mood": "smug"
+      },
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Paste your Shopify export into Claude with PACK.",
+      "show": "Paste your Shopify export into Claude with PACK.",
+      "screen": {
+        "type": "chat",
+        "ask": "Here's today's Shopify orders export and my courier pickups: Delhivery 4 PM, Shiprocket 6 PM. Make a pick list by SKU and size, a packing order by pickup time, and flags.",
+        "answer": "Pick List: Pink Kurta M × 38, L × 41, XL × 22. Packing Order: Delhivery 4 PM first. Flags: 14 orders on HOLD. Unit totals match the export."
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Pick list by size. Packing by pickup. Ten minutes.",
+      "show": "Pick list by size. Packing by pickup. 10 minutes.",
+      "screen": {
+        "type": "list",
+        "title": "Packing Order",
+        "items": [
+          "Delhivery 4 PM: 112 orders",
+          "Shiprocket 6 PM: 174 orders",
+          "14 orders: HOLD, see Flags",
+          "Unit totals match: yes"
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Bhai, my Sunday is back!",
+      "other": {
+        "act": "idle",
+        "mood": "smug"
+      },
+      "sfx": [
+        "cash"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Nine orders, one phone, all pay at the door.",
+      "show": "Same kurta, 9 times, cash on delivery.",
+      "screen": {
+        "type": "list",
+        "title": "Flags: HOLD",
+        "items": [
+          "#1187 pin code blank",
+          "#1203 address: 'near temple'",
+          "#1240 to #1248 same phone ..4417, 9 COD orders",
+          "Check every flag by hand"
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Arre, that's mummy testing the Buy now button!",
+      "punch": true,
+      "other": {
+        "act": "facepalm",
+        "mood": "happy"
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment PACK, and I'll send you the free sheet.",
+      "other": {
+        "act": "phone",
+        "mood": "worried"
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "id": "2026-10-29-reel-festive-cod-comes-back",
+  "style": "story",
+  "kind": "teach",
+  "arm": "B",
+  "hook_id": 3,
+  "log": {
+    "style": "story-3d",
+    "arm": "B",
+    "hook": 3
+  },
+  "keyword": "RTO",
+  "hook": "UNICOMMERCE: ~58% FESTIVE COD RETURNED",
+  "sign": "~58% festive COD\ncame BACK\nWHY??",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "Nobody",
+    "festive",
+    "Pinky's",
+    "RTO",
+    "free"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Nobody tells you festive cash on delivery comes back...",
+      "show": "Nobody tells you festive COD comes back...",
+      "other": {
+        "act": "idle",
+        "mood": "normal"
+      },
+      "sfx": [
+        "fail"
+      ],
+      "punch": true
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "worried",
+      "say": "More than half the time! Forty shipped. Fourteen came back!",
+      "show": "More than half the time! 40 shipped. 14 came back!",
+      "screen": {
+        "type": "list",
+        "title": "Festive COD returns",
+        "items": [
+          "Bunty: 14 of 40 back (example)",
+          "Unicommerce: ~58% festive COD came back last year",
+          "Prepaid: under 15% (Unicommerce)"
+        ]
+      },
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You ship each order the minute it comes in.",
+      "show": "You ship every one the second it lands.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Paste your order export with the RTO prompt.",
+      "show": "Paste your order export with the RTO prompt.",
+      "screen": {
+        "type": "chat",
+        "ask": "RTO prompt: here is my COD order export. Flag risky orders: no landmark, first-time ₹2,000+ COD, past refusals. Write a Hinglish confirm message.",
+        "answer": "9 to confirm first: 4 addresses with no landmark, 3 first-time ₹2,000+ COD, 2 repeat refusers. Hinglish message ready below."
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "happy",
+      "say": "API messages cost now. Send free from the WhatsApp Business app.",
+      "show": "API messages cost now. Send FREE from the WhatsApp Business app.",
+      "screen": {
+        "type": "whatsapp",
+        "name": "BUNTY'S Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Namaste Riya ji! BUNTY'S order #1042, ₹2,150 cash on delivery. Address mein ek landmark bata denge?",
+            "buttons": [
+              "Confirm order",
+              "Change address",
+              "Cancel order"
+            ]
+          },
+          {
+            "from": "buyer",
+            "text": "Hanuman mandir ke saamne. Confirm!"
+          }
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Arre, fakes cancel before shipping!",
+      "show": "Arre, fakes cancel BEFORE shipping!",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "cash"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant-push",
+      "act": "point",
+      "mood": "smug",
+      "say": "The man who says no the most lives next door to Pinky.",
+      "show": "Your top repeat refuser lives on Pinky's street.",
+      "other": {
+        "act": "facepalm",
+        "mood": "shock"
+      },
+      "sfx": [
+        "scratch"
+      ],
+      "punch": true
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "It's manual and won't fix late couriers. Comment RTO for the free kit.",
+      "show": "It's manual and won't fix late couriers. Comment RTO for the free kit.",
+      "other": {
+        "act": "point",
+        "mood": "angry"
+      }
+    }
+  ]
+}

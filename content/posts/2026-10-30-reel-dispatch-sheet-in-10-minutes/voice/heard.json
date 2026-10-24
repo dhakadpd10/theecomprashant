@@ -1,0 +1,47 @@
+{
+ "00": {
+  "say": "Eleven wrong-size kurtas is what copying three-hundred orders cost me.",
+  "heard": "11 wrong-size curders is what copying 300 orders cost me.",
+  "error": 0.09
+ },
+ "01": {
+  "say": "Copying by hand, one row at a time.",
+  "heard": "Copying by hand one row at a time.",
+  "error": 0
+ },
+ "02": {
+  "say": "But I checked every slip!",
+  "heard": "But I checked every slip.",
+  "error": 0
+ },
+ "03": {
+  "say": "Paste your Shopify export into Claude with PACK.",
+  "heard": "Paste your Shopify export into Cloud with Pack.",
+  "error": 0.13
+ },
+ "04": {
+  "say": "Pick list by size. Packing by pickup. Ten minutes.",
+  "heard": "Pick list by size, packing by pickup 10 minutes.",
+  "error": 0
+ },
+ "05": {
+  "say": "Bhai, my Sunday is back!",
+  "heard": "Bye, my Sunday is back.",
+  "error": 0.2
+ },
+ "06": {
+  "say": "Nine orders, one phone, all pay at the door.",
+  "heard": "9 orders 1 phone, I'll pay at the door.",
+  "error": 0.11
+ },
+ "07": {
+  "say": "Arre, that's mummy testing the Buy now button!",
+  "heard": "R, that's Mummy testing the Buy Now button.",
+  "error": 0.13
+ },
+ "08": {
+  "say": "Comment PACK, and I'll send you the free sheet.",
+  "heard": "Comment pack and I'll send you the free sheet.",
+  "error": 0
+ }
+}

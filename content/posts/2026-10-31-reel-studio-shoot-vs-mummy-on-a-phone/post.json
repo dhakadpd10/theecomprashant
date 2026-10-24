@@ -1,0 +1,162 @@
+{
+  "id": "2026-10-31-reel-studio-shoot-vs-mummy-on-a-phone",
+  "style": "story",
+  "kind": "teach",
+  "arm": "B",
+  "log": {
+    "style": "story-3d",
+    "arm": "B",
+    "hook": 3
+  },
+  "keyword": "UGC",
+  "hook": "₹40K SHOOT LOST (EXAMPLE)",
+  "sign": "₹40K shoot: 3 orders\nMummy's phone won\n(example)",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "mummy",
+    "phone",
+    "scripts",
+    "chai",
+    "UGC"
+  ],
+  "musicStop": 7,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Nobody tells you mummy's phone video beats a forty-thousand shoot.",
+      "show": "Nobody tells you mummy's phone video beats a ₹40,000 shoot.",
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "shrug",
+      "mood": "sad",
+      "say": "Model shoot, three orders. Mummy's wobbly clip got more clicks!",
+      "show": "Model shoot, 3 orders. Mummy's wobbly clip got more clicks!",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "explain",
+      "mood": "smug",
+      "say": "Buyers trust real hands on a real kurta.",
+      "show": "Buyers trust real hands on a real kurta.",
+      "other": {
+        "act": "arms",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "normal",
+      "say": "Paste your product page into Claude with this prompt.",
+      "show": "Paste your product page into Claude with this prompt.",
+      "screen": {
+        "type": "chat",
+        "ask": "Write 30 scripts I can shoot on a phone this week. Use only facts from my page. Mark gaps as CHECK. Page: buntys.in/cotton-kurta",
+        "answer": "Fact sheet first. Then 30 scripts in 6 angles. #12 Behind the scenes. Hook: 'Mummy checks every seam before it ships.'"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "happy",
+      "say": "Thirty scripts and a shot list for one shelf.",
+      "show": "30 scripts and a shot list for one shelf.",
+      "screen": {
+        "type": "list",
+        "title": "UGC Script Pack: shot list",
+        "items": [
+          "1 shelf, window light, no crew",
+          "Shot 1: hands on the seam",
+          "Shot 2: fold and pack",
+          "Test 5 first. Most will lose."
+        ]
+      },
+      "sfx": [
+        "ding"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Arre, no studio bill, bhai!",
+      "show": "Arre, no studio bill, bhai!",
+      "punch": true,
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "explain",
+      "mood": "normal",
+      "say": "You still film it. Light and the first two seconds decide.",
+      "show": "You still film it. Light and the first 2 seconds decide.",
+      "other": {
+        "act": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "phone",
+      "act": "phone",
+      "mood": "shock",
+      "say": "Now mummy wants credits and chai per take!",
+      "show": "Now mummy wants credits and chai per take!",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Mummy",
+        "msgs": [
+          {
+            "from": "buyer",
+            "text": "Name in the credits. 'Mummy, Head of Seams'."
+          },
+          {
+            "from": "buyer",
+            "text": "And 1 chai per take. Final."
+          }
+        ]
+      },
+      "sfx": [
+        "scratch"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment UGC, and I'll send you the free script pack.",
+      "show": "Comment UGC, and I'll send you the free script pack.",
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "id": "2026-11-01-reel-gift-note-without-a-developer",
+  "style": "story",
+  "kind": "teach",
+  "arm": "",
+  "keyword": "CHECKOUT",
+  "hook": "23 GIFT NOTE DMs",
+  "sign": "23 gift note DMs\nDev quote ₹12,000\nWHY??",
+  "cover": {
+    "mood": "worried"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "gift",
+    "Sidekick",
+    "developer",
+    "mummy",
+    "CHECKOUT"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "phone",
+      "mood": "shock",
+      "say": "\"Can you add a gift note?\" Twenty-three DMs before Dhanteras!",
+      "show": "\"Can you add a gift note?\" 23 DMs before Dhanteras!",
+      "sfx": [
+        "buzz"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "facepalm",
+      "mood": "angry",
+      "say": "Web guy wants twelve thousand rupees for one box!",
+      "show": "Developer wants ₹12,000 for one box!",
+      "punch": true,
+      "sfx": [
+        "fail"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "smug",
+      "say": "Skip him. Try Sidekick, if your plan has it.",
+      "show": "Skip him. Try Sidekick, if your plan has it.",
+      "other": {
+        "act": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Just ask for a gift box and a last order date.",
+      "show": "Type one line. Gift box plus Diwali date.",
+      "screen": {
+        "type": "chat",
+        "ask": "Add an optional Gift message box to my cart, 150 characters max, shown on the packing slip. Add: Diwali delivery if ordered by [your date]. Explain the change first and wait for my yes.",
+        "answer": "I'll add an optional Gift message field on your cart page and the Diwali line under it. Prices and shipping stay the same. Preview below. Apply?"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Preview first. Test order before it goes live.",
+      "show": "Preview first. Test order before it goes live.",
+      "sfx": [
+        "ding"
+      ],
+      "screen": {
+        "type": "page",
+        "product": "kurta",
+        "name": "Your cart · Block-print kurta",
+        "price": "₹899",
+        "url": "buntys.in/cart",
+        "lines": [
+          {
+            "text": "Gift message (optional, 150 chars)",
+            "mark": "good"
+          },
+          {
+            "text": "Diwali delivery if ordered by [your date]",
+            "mark": "good"
+          }
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "wide",
+      "act": "celebrate",
+      "mood": "excited",
+      "say": "Oh wow! Bring on the gift notes!",
+      "show": "Arre wah! Bring the gift notes!",
+      "sfx": [
+        "pop"
+      ],
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "First one's in. Happy Diwali Mummy, from Bunty.",
+      "show": "First one's in. Happy Diwali Mummy, from Bunty.",
+      "sfx": [
+        "scratch"
+      ],
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Shopify",
+            "text": "New order #1043 · Block-print kurta (yours)"
+          },
+          {
+            "app": "Shopify",
+            "text": "Gift note: Happy Diwali Mummy, from Bunty"
+          }
+        ]
+      }
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "I forgot mummy's gift! That's my kurta!",
+      "show": "I forgot mummy's gift! That's my kurta!",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ],
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "happy",
+      "look": "camera",
+      "cta": true,
+      "say": "Comment CHECKOUT, one word, and I'll send the prompts.",
+      "show": "Comment CHECKOUT, and I'll send you the Sidekick prompts.",
+      "other": {
+        "act": "facepalm",
+        "mood": "sad"
+      }
+    }
+  ]
+}

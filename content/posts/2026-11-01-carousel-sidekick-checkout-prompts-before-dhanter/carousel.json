@@ -1,0 +1,272 @@
+{
+  "id": "2026-11-01-carousel-sidekick-checkout-prompts-before-dhanter",
+  "keyword": "CHECKOUT",
+  "tool": "Sidekick Checkout Prompts",
+  "cast": [
+    {
+      "name": "Bunty",
+      "col": "#F59FB0",
+      "prop": "cart"
+    },
+    {
+      "name": "Prashant",
+      "col": "#2B3A67",
+      "prop": "phone"
+    },
+    {
+      "name": "Gift buyer",
+      "col": "#FFC857",
+      "prop": "gift"
+    },
+    {
+      "name": "COD buyer",
+      "col": "#7FA8F8",
+      "prop": "question"
+    },
+    {
+      "name": "Review sceptic",
+      "col": "#B7A4F7",
+      "prop": "glass"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "YOUR CHECKOUT, FIXED",
+        "BY TYPING. FREE."
+      ],
+      "sub": "6 Sidekick prompts to type before Dhanteras",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 190,
+            "y": 1230,
+            "mood": "frown",
+            "s": 0.9
+          },
+          {
+            "who": 1,
+            "x": 890,
+            "y": 1230,
+            "mood": "happy",
+            "s": 0.9
+          }
+        ],
+        "say": [
+          "Just type",
+          "it in."
+        ],
+        "sayX": 760,
+        "sayY": 960
+      }
+    },
+    {
+      "type": "stake",
+      "title": "On 13 Oct, Shopify announced Sidekick can edit your checkout.",
+      "hot": [
+        "13 Oct",
+        "Sidekick"
+      ],
+      "body": "So you can fix checkout by typing one line. Before you rely on it, confirm it shows on your own store and plan.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "x": 300,
+            "y": 1200,
+            "mood": "neutral",
+            "s": 1
+          },
+          {
+            "who": 1,
+            "x": 780,
+            "y": 1200,
+            "mood": "neutral",
+            "s": 1
+          }
+        ],
+        "say": [
+          "Check your",
+          "plan first."
+        ],
+        "sayX": 760,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 1,
+      "title": "Add a gift message box",
+      "body": "Type: \"Add an optional gift message field to checkout, up to 150 characters.\" Dhanteras orders are often gifts.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Can I add",
+          "a note?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 2,
+      "title": "Ask for a landmark",
+      "body": "Type: \"Add an optional field under the address, labelled 'Nearby landmark'.\" Couriers find the house, fewer COD parcels return.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Which lane",
+          "is it?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 3,
+      "title": "Add a short COD note",
+      "body": "Type: \"Show this note under Cash on Delivery: 'Please keep the exact amount ready at delivery.'\" Edit it to match your courier.",
+      "art": {
+        "cast": [
+          {
+            "who": 3,
+            "mood": "neutral",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "How much",
+          "do I pay?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 4,
+      "title": "Nudge buyers to UPI",
+      "body": "Type: \"Add a line above payment options: 'Pay by UPI in a few taps.'\" Example wording. Mention a discount only if you offer one.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "UPI is",
+          "faster."
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 5,
+      "title": "Say when it arrives",
+      "body": "Type: \"Add a line above the pay button: 'Order by [your date] for Diwali delivery.'\" Use your courier's real cutoff. Don't guess.",
+      "art": {
+        "cast": [
+          {
+            "who": 2,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Will it come",
+          "before Diwali?"
+        ],
+        "sayX": 580,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "idea",
+      "num": 6,
+      "title": "Trust badges by the pay button",
+      "body": "Type: \"Add trust badges under the pay button: Secure payment, Easy returns, COD available.\" List only what is true for you.",
+      "art": {
+        "cast": [
+          {
+            "who": 4,
+            "mood": "frown",
+            "s": 1.2,
+            "y": 1180
+          }
+        ],
+        "say": [
+          "Is this site",
+          "safe?"
+        ],
+        "sayX": 600,
+        "sayY": 930
+      }
+    },
+    {
+      "type": "recap",
+      "title": "THE CATCH: TEST ALL 6 FIRST",
+      "items": [
+        "Preview each change, then place a test order",
+        "Gift note and landmark fields: right labels, saved on the order?",
+        "Pick COD, then UPI. Do both lines show?",
+        "Diwali line has your courier's real cutoff date",
+        "Badges by the pay button, all true. Check on phone, then publish"
+      ],
+      "foot": "Sidekick can get a field label wrong. Screenshot this."
+    },
+    {
+      "type": "cta",
+      "body": "for all the prompts: 6 Sidekick lines, copy-paste ready, plus the test-order checklist. Free, in your DMs.",
+      "art": {
+        "cast": [
+          {
+            "who": 0,
+            "mood": "happy"
+          },
+          {
+            "who": 1,
+            "mood": "happy"
+          },
+          {
+            "who": 2,
+            "mood": "happy"
+          },
+          {
+            "who": 3,
+            "mood": "happy"
+          },
+          {
+            "who": 4,
+            "mood": "happy"
+          }
+        ],
+        "y": 1100
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "2026-10-30-reel-mummy-writes-the-diwali-whatsapp",
+  "style": "story",
+  "kind": "skit",
+  "keyword": "WINBACK",
+  "hook": "MORE IS MORE",
+  "sign": "Mummy wrote\nmy Diwali\nWhatsApp",
+  "cover": {
+    "mood": "shock"
+  },
+  "brand": {
+    "name": "BUNTY'S",
+    "line": "Handmade kurtas · Jaipur"
+  },
+  "hot": [
+    "diyas",
+    "knees",
+    "aunty",
+    "CMO"
+  ],
+  "musicStop": 6,
+  "beats": [
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "sign",
+      "mood": "smug",
+      "say": "More is more. Ask mummy's fourteen diyas.",
+      "show": "More is more. Ask mummy's 14 diyas.",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "prashant",
+      "shot": "two",
+      "act": "point",
+      "mood": "normal",
+      "say": "For your festival WhatsApp? First card says Happy festival, beta.",
+      "show": "In your Diwali WhatsApp? Card 1. Happy Diwali beta.",
+      "other": {
+        "act": "celebrate",
+        "mood": "happy"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Card two. Same message. Fourteen diyas.",
+      "show": "Card 2. Same message. 14 diyas.",
+      "screen": {
+        "type": "whatsapp",
+        "name": "Bunty's Kurtas",
+        "msgs": [
+          {
+            "from": "brand",
+            "text": "Happy Diwali beta 🙏🪔🪔🪔🪔🪔🪔🪔🪔🪔🪔🪔🪔🪔🪔"
+          }
+        ]
+      },
+      "sfx": [
+        "pop"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty",
+      "act": "think",
+      "mood": "worried",
+      "say": "Okay, maybe twelve lamps. What is the third card?",
+      "show": "Okay, maybe 12 diyas. What's card 3?",
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "prashant",
+      "act": "shrug",
+      "mood": "smug",
+      "say": "A three minute voice note. About her knees.",
+      "show": "A 3-minute voice note. About her knees.",
+      "punch": true,
+      "sfx": [
+        "boing"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "bunty-push",
+      "act": "facepalm",
+      "mood": "shock",
+      "say": "Her knees? To customers? Card four, please be normal!",
+      "show": "Her knees? To customers? Card 4, please be normal!",
+      "other": {
+        "act": "idle",
+        "mood": "smug"
+      }
+    },
+    {
+      "who": "prashant",
+      "shot": "phone",
+      "act": "phone",
+      "say": "Card four. She phoned every buyer herself. Look.",
+      "show": "Card 4. She phoned every buyer herself. Look.",
+      "screen": {
+        "type": "notify",
+        "items": [
+          {
+            "app": "Shopify",
+            "text": "New order #2201 · 6 kurtas · ₹5,394"
+          },
+          {
+            "app": "WhatsApp",
+            "text": "Neha: Ordered 6 because aunty called 🙏"
+          },
+          {
+            "app": "Shopify",
+            "text": "New order #2202 · 2 kurtas · ₹1,798"
+          }
+        ]
+      },
+      "sfx": [
+        "scratch",
+        "buzz",
+        "cash"
+      ]
+    },
+    {
+      "who": "bunty",
+      "shot": "two",
+      "act": "shrug",
+      "mood": "sad",
+      "look": "camera",
+      "say": "Six orders, just from one phone call. Mummy is the CMO now.",
+      "show": "6 kurtas because aunty called. Mummy is the CMO now.",
+      "punch": true,
+      "other": {
+        "act": "arms",
+        "mood": "smug"
+      }
+    }
+  ]
+}

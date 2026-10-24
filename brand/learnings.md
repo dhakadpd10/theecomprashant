@@ -2,6 +2,29 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-24
+
+- **13 reels, 954 reach, 5 likes, 8 comments, 2 saves, 0 shares.**
+  - Ranked by outlier multiple against a median of 81: ROAST (22 Oct) 1.57x, CART 1.54x, SALE 1.52x, STORE episode 1.49x, LAUNCH 1.43x, ROAST (21 Oct) 1.31x, TEAM 1.00x, old STORE 0.96x, RTO 0.80x, PRICE 0.69x, DESC 0.56x, REVIEWS 0.25x, AUDIT 0.10x.
+  - The best is 127 views, so there is still no real hit.
+- **Story-3d beats the old format on views (first claim with more than one post, low to moderate confidence).**
+  - 5 episodes: median 121 views. 8 old-format reels: median 60.5. All 5 episodes are in the top 6, and all of the bottom 5 are old format.
+  - The lift is in views only: 1 like per episode, 0 saves, 0 shares.
+  - Reach sat between 101 and 111 on every episode. That looks like a floor, not travel.
+  - Page growth could explain part of the lift, and non-follower % is missing, so we can't say the episodes reached new people.
+- **Hook ids don't separate yet.**
+  - #1 Cost Confession 1.57x (n=1), #3 Nobody Tells You 1.52x (n=1), #2 Negative Command 1.31x to 1.54x (n=3).
+  - The spread is 21 views. The planned hold@3s comparison couldn't run because hold@3s was copied for 0 of 13 posts.
+- **CART (the first Retention post) has 2 comments, the first on any episode.**
+  - Hand-count them: were they 'CART', and were any from Prashant?
+  - Old STORE's 6 comments still haven't moved since 16 Oct.
+  - RTO reached 72 hours at 0.80x with zero action. Rest the motion version.
+- **Process misses again.**
+  - Style was logged as 'story' on all 5 episodes instead of 'story-3d'.
+  - 0 carousels.
+  - No post landed in 14:30 to 15:30 UTC. The 14:01 UTC slot is 7:31 PM IST.
+  - No A/B arm was logged, so we can't tell whether the keyword-placement test ran.
+
 ## Week of 2026-10-22
 
 - **9 reels, 501 reach, 0 likes, 0 shares, 2 saves.** Ranked by outlier multiple against a median of 65: LAUNCH 1.78x, STORE story episode 1.45x, TEAM 1.23x, STORE 1.20x, RTO 1.00x, PRICE 0.85x, DESC 0.69x, REVIEWS 0.31x, AUDIT 0.12x. The highest is 116 views, so nothing is a real hit. Hold@3s, watch time, follows and non-follower % are still missing on all 9, so we can't say whether the hooks or the audience are the problem.

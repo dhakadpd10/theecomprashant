@@ -10,7 +10,6 @@
       "post": "2026-10-28-reel-bunty-before-vs-after-delivery",
       "style": "story",
       "kind": "skit",
-      "render": "pending",
       "hook": {
         "id": 17,
         "name": "Head To Head",
@@ -28,7 +27,6 @@
       "post": "2026-10-28-reel-mummy-saw-the-ad-9-times",
       "style": "story",
       "kind": "teach",
-      "render": "pending",
       "hook": {
         "id": 1,
         "name": "Cost Confession",
@@ -46,7 +44,6 @@
       "post": "2026-10-29-reel-bunty-refreshes-ads-manager",
       "style": "story",
       "kind": "skit",
-      "render": "pending",
       "hook": {
         "id": 3,
         "name": "Nobody Tells You",
@@ -64,7 +61,6 @@
       "post": "2026-10-29-reel-festive-cod-comes-back",
       "style": "story",
       "kind": "teach",
-      "render": "pending",
       "hook": {
         "id": 3,
         "name": "Nobody Tells You",
@@ -82,7 +78,6 @@
       "post": "2026-10-30-reel-mummy-writes-the-diwali-whatsapp",
       "style": "story",
       "kind": "skit",
-      "render": "pending",
       "hook": {
         "id": 22,
         "name": "Contrarian Flip",
@@ -100,7 +95,6 @@
       "post": "2026-10-30-reel-dispatch-sheet-in-10-minutes",
       "style": "story",
       "kind": "teach",
-      "render": "pending",
       "hook": {
         "id": 1,
         "name": "Cost Confession",
@@ -118,7 +112,6 @@
       "post": "2026-10-31-reel-price-in-the-dms",
       "style": "story",
       "kind": "skit",
-      "render": "pending",
       "hook": {
         "id": 1,
         "name": "Cost Confession",
@@ -146,7 +139,6 @@
       "post": "2026-11-01-reel-gift-note-without-a-developer",
       "style": "story",
       "kind": "teach",
-      "render": "pending",
       "hook": {
         "id": 16,
         "name": "The Verbatim Question",

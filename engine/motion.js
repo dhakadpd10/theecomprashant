@@ -24,7 +24,7 @@ function hostStates(post) {
 }
 function hostMarkup(post) {
   const s0 = hostStates(post)[0];
-  return `<div id="host" data-layout-allow-overlap style="position:absolute;left:0;top:0;width:520px;height:760px">${host.layered({ mood: s0.mood, pose: s0.pose, prop: 'cooker', idp: 'h' })}</div>`;
+  return `<div id="host" data-layout-allow-overlap data-layout-allow-overflow style="position:absolute;left:0;top:0;width:520px;height:760px">${host.layered({ mood: s0.mood, pose: s0.pose, prop: 'cooker', idp: 'h' })}</div>`;
 }
 /** GSAP calls for the host: position, pose and mood per line, lip-flap while the voice speaks, blinks, the whistle. */
 function hostScript(post, T) {

@@ -145,6 +145,12 @@ async function planWeek(need, researchNotes) {
     sr.forEach((p, i) => { if (i && p.kind === 'skit' && sr[i - 1].kind === 'skit') e.push(`the skits on ${sr[i - 1].day} ${sr[i - 1].time} and ${p.day} ${p.time} follow each other: put a teaching reel between them`); });
     const motion = posts.filter((p) => p.format === 'reel' && p.style === 'motion').length;
     if (motion !== motionCount) e.push(`exactly ${motionCount} reels must have style "motion" (you have ${motion})`);
+    if (cfg.motion?.host) { // hosted reels: the mix of kinds (config motion.mix)
+      const mr = posts.filter((p) => p.format === 'reel' && p.style === 'motion');
+      mr.forEach((p) => { if (!['tutorial', 'wow', 'skit'].includes(p.kind)) e.push(`${p.day} ${p.time}: kind must be "tutorial", "wow" or "skit"`); });
+      for (const k of ['wow', 'skit']) { const want = Math.round(mr.length * (cfg.motion.mix?.[k] ?? 0)), have = mr.filter((p) => p.kind === k).length; if (Math.abs(want - have) > 1) e.push(`about ${want} reels should be kind "${k}" (you have ${have})`); }
+      mr.forEach((p, i) => { if (i && p.kind === 'skit' && mr[i - 1].kind === 'skit') e.push(`two skits in a row on ${p.day} ${p.time}`); });
+    }
     const rs = posts.filter((p) => p.format === 'reel' && p.style !== 'story'); const count = {};
     rs.forEach((p, i) => { count[p.world] = (count[p.world] || 0) + 1; if (i && rs[i - 1].world === p.world) e.push(`reels on ${rs[i - 1].day} ${rs[i - 1].time} and ${p.day} ${p.time} follow each other, so they need different worlds`); });
     for (const [w, c] of Object.entries(count)) if (c > maxWorld) e.push(`world ${w} is used ${c} times; at most ${maxWorld}`);
@@ -165,7 +171,9 @@ ${researchNotes || 'none'}
 Reel styles: ${storyCount} of the ${reels} reels are "story": a 3D cartoon episode where Bunty (a loud, lovable Jaipur kurta-brand founder) hits a real D2C problem and Prashant fixes it with AI on his phone, then a twist and the free tool. Plan each one as a story: Bunty's specific pain (a number or a moment), the mistake behind it, the fix the free tool delivers, and a funny twist. Vary the problems week to week (COD returns, product pages, ads, WhatsApp, pricing, reviews, festive sales, repeat orders, support), never the same mistake twice in a row.${motionCount ? ` ${motionCount} reels are "motion" (motion graphics for numbers, steps and news).` : ''}${worldReels - motionCount > 0 ? ` The rest are "world" (character panels judging the viewer's thing).` : ''}
 ${worldReels ? `Every non-story reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).` : 'Story reels need no world.'}
 
-Two kinds of story reel (Adley Kinsman's "entertain the masses, educate the interested, sell to the committed"):
+${cfg.motion?.host ? `Every reel is a "motion" reel in the editorial theme, hosted by Prashant as a 2D character with his pressure cooker (it whistles when the shortcut is ready). Give each one a "kind": about ${Math.round((cfg.motion.mix?.tutorial ?? 0.6) * 100)}% "tutorial" (a painful task solved step by step with a tool people already use: "[Task]? Just tell Claude."), about ${Math.round((cfg.motion.mix?.wow ?? 0.25) * 100)}% "wow" (one capability that feels illegal to know, shown working in the first second) and about ${Math.round((cfg.motion.mix?.skit ?? 0.15) * 100)}% "skit" (a relatable seller or creator moment acted out, for reach). Never two skits in a row. Audience: anyone who sells or creates online in India (shop owners, resellers, D2C founders, freelancers, creators), so pick pains most of them feel this week, solved with something free.
+
+` : ''}Two kinds of story reel (Adley Kinsman's "entertain the masses, educate the interested, sell to the committed"):
 - ${skitCount} are kind "skit": pure comedy about D2C founder life for reach, no lesson and no fix. One premise you get in a second (a contrast like "Bunty when they pay online vs cash on delivery", a choice game, an escalation, a feeling every founder knows), ending on a punchline. The keyword is the free tool closest to the skit's theme; only the caption asks for it.
 - The rest are kind "teach": Bunty's problem, Prashant's fix on the phone, the comment ask at the end.
 Spread the skits out: never two skits in a row.
@@ -186,7 +194,7 @@ Hook formulas (id name: best for). Pick the one that fits each reel's angle, fol
 ${hooks.map((h) => `${h.id} ${h.name}: ${h.best_for}`).join('\n')}
 
 Rules: reels are one idea told as a story with stakes; carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"story","kind":"teach","hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"STORE","pillar":"Sell more","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"${cfg.motion?.host ? 'motion' : 'story'}","kind":"${cfg.motion?.host ? 'tutorial' : 'teach'}"${cfg.motion?.host ? ',"world":"desk"' : ''},"hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
 (style, kind and hook_formula only for reels, plus "world" for non-story reels; new_tools may be {}).`,
   });
 }
@@ -288,6 +296,7 @@ async function makeReel(day, d) {
   if (d.style === 'motion') {
     try { await makeMotionReel(d, id, dir); return { id, style: 'motion', hook: d.hook }; } catch (e) {
       if (USAGE_LIMIT.test(e.message)) throw e; // out of Claude for now: the run stops and tops up later
+      if (cfg.motion?.host) throw e; // host mode: never fall back to the old cartoon look; the slot stays open for the next run
       log('motion reel failed, making it as a world reel instead:', e.message.split('\n')[0]);
       fs.rmSync(dir, { recursive: true, force: true });
     }
@@ -312,6 +321,8 @@ async function makeReel(day, d) {
 const USAGE_LIMIT = /usage limit|session limit|hit your .*limit/i;
 const MOTION_DOC = () => readText(P('docs/MOTION.md'));
 const MOTION_EXAMPLE = 'm01-five-questions';
+// with the 2D host on (config motion.host), the model reel is the hosted editorial sample
+const mex = (file) => (config().motion?.host ? readText(P('content/story-samples/e02-host-dms', file)) : example(MOTION_EXAMPLE, file));
 function motion(dir, ...args) {
   const r = spawnSync('node', [P('engine/motion.js'), dir, ...args], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
   return { ok: r.status === 0, out: (r.stdout || '') + (r.stderr || '') };
@@ -328,7 +339,7 @@ async function writeScene(dir, spec, tool) {
     `# The reel (post.json)\n${JSON.stringify(spec, null, 2)}`,
     `# The free tool it gives away ("${tool}"): the payoff must show what it really does\n${toolText}`,
     `# Real timing in seconds (the voice is recorded; T in scene.js holds these)\n${readText(path.join(dir, 'timing.json'))}`,
-    `# A finished example that passed the checker. Match its quality, not its look: use a different palette, layout and moves that fit THIS idea.\n--- scene.html ---\n${example(MOTION_EXAMPLE, 'scene.html')}\n--- scene.js ---\n${example(MOTION_EXAMPLE, 'scene.js')}`,
+    `# A finished example that passed the checker. Match its quality, not its look: use a different palette, layout and moves that fit THIS idea.\n--- scene.html ---\n${mex('scene.html')}\n--- scene.js ---\n${mex('scene.js')}`,
     'Reply with exactly two fenced blocks: ```html (scene.html) then ```js (scene.js).',
   ].join('\n\n');
   let prompt = base;
@@ -346,12 +357,23 @@ async function writeScene(dir, spec, tool) {
   throw new Error('the motion scene did not pass the checker after 4 tries');
 }
 
+// the three kinds of hosted reel (config motion.mix) and what each one is for
+const HOST_KIND = {
+  tutorial: 'This reel is kind "tutorial": one painful task solved step by step with a tool people already use ("[Task]? Just tell Claude." then 3 to 5 numbered steps, each with one clean app card, then "Save." and the keyword). It must be genuinely useful and saveable. The host presents from the corner after the hook.',
+  wow: 'This reel is kind "wow": one capability that feels illegal to know, shown working in the first second (the result on screen at frame 0, then how), made for shares. Open with the payoff, not the setup. The host reacts big (shock, then smug).',
+  skit: 'This reel is kind "skit": the host acts out a relatable seller or creator moment for reach (a contrast, a choice game, an escalation), centre stage most of the time, few app cards, ending on a punchline; the lesson is one line at most and the caption carries the keyword.',
+};
+function hostBrief(cfg, d) {
+  if (!cfg.motion?.host) return '';
+  return `\n\n${HOST_KIND[d.kind] || HOST_KIND.tutorial}\nSet "theme": "${cfg.motion.theme || 'editorial'}" and "host": { "name": "prashant" }, and give every line a "host" object (see "The host" in the guide). The cooker whistles once, on the payoff line.\n\nWhat the million-view reels do:\n${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}\n\nAdley Kinsman's hook rules:\n${readText(P('docs/ADLEY.md')).split('## Her rules, the way we apply them')[1] || ''}`;
+}
 async function makeMotionReel(d, id, dir) {
   const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateMotionReel(v, { keywords: kws }),
-    prompt: `Write the motion reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${tool}). id must be "${id}", style "motion", world "${d.world}" (the backup look), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Hook first.${hookLine(d.hook)}\n\nHow motion reels work:\n${MOTION_DOC()}\n\nA finished example:\n${example(MOTION_EXAMPLE, 'post.json')}\n\nReturn post.json only.`,
+    prompt: `Write the motion reel spec (post.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${tool}). id must be "${id}", style "motion", world "${d.world}" (the backup look), voice "${cfg.voice.id}", speed ${cfg.voice.speed}. 20 to 30 seconds spoken (about 60 to 80 words). Hook first.${hookLine(d.hook)}${hostBrief(cfg, d)}\n\nHow motion reels work:\n${MOTION_DOC()}\n\nA finished example:\n${mex('post.json')}\n\nReturn post.json only.`,
   }).then((s) => humanize(s, (v) => validateMotionReel(v, { keywords: kws })));
+  if (cfg.motion?.host) Object.assign(spec, { host: { name: 'prashant' }, theme: cfg.motion.theme || 'editorial', voice: cfg.voice.id, speed: cfg.voice.speed, kind: d.kind || 'tutorial' });
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'post.json'), spec);
   let prep = motion(dir, '--prep');
   if (!prep.ok) throw new Error(`voiceover failed: ${prep.out.slice(-600)}`);

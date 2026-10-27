@@ -1,23 +1,55 @@
 {
-  "name": "Theecomprashant",
-  "handle": "@theecomprashant",
+  "name": "Prashant | AI Shortcuts",
+  "handle": "@prashant.ai",
   "timezone_offset": "+05:30",
-  "paused": { "on": false, "note": "20 Oct 2026: Prashant approved the 3D story style and unpaused. Set on to true to stop planning and the doctor's planner (old unposted cartoon reels stay skipped)." },
+  "paused": {
+    "on": false,
+    "note": "20 Oct 2026: Prashant approved the 3D story style and unpaused. Set on to true to stop planning and the doctor's planner (old unposted cartoon reels stay skipped)."
+  },
   "slots": [
-    { "time": "13:00", "format": "carousel" },
-    { "time": "19:30", "format": "reel" }
+    {
+      "time": "09:00",
+      "format": "reel"
+    },
+    {
+      "time": "13:00",
+      "format": "reel"
+    },
+    {
+      "time": "19:30",
+      "format": "reel"
+    }
   ],
-  "slot_overrides": [
-    { "from": "2026-10-17", "until": "2026-10-31", "note": "October: reels only, twice a day", "slots": [
-      { "time": "13:00", "format": "reel" },
-      { "time": "19:30", "format": "reel" }
-    ] }
-  ],
-  "bio_line": "If you're new here, I'm Prashant. I build AI systems for D2C brands, and every reel comes with a free tool you can use today.",
-  "repost": { "min_outlier": 2, "min_views": 1000, "after_days": 10, "per_week": 2, "note": "re-post reels that did 2x the page median views, at most twice a week, with a new first line (docs/ADLEY.md)" },
-  "voice": { "id": "am_fenrir", "speed": 1.08 },
-  "story": { "share": 1, "skit_share": 0.4, "skit_note": "23 Oct 2026, Adley Kinsman system (docs/ADLEY.md): this share of story reels are pure Bunty comedy skits for reach; the rest teach", "note": "share of reels made as 3D story episodes with Bunty and Prashant (docs/STORY.md, story/); 20 Oct 2026: all reels" },
-  "motion": { "share": 0, "note": "share of reels made as HyperFrames motion graphics (docs/MOTION.md); the rest use the character worlds; 0 turns motion off" },
+  "bio_line": "If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.",
+  "repost": {
+    "min_outlier": 2,
+    "min_views": 1000,
+    "after_days": 10,
+    "per_week": 2,
+    "note": "re-post reels that did 2x the page median views, at most twice a week, with a new first line (docs/ADLEY.md)"
+  },
+  "voice": {
+    "id": "am_puck",
+    "speed": 1.05,
+    "note": "clearest English voice in the 22 Oct audition (Whisper word error 0.071)"
+  },
+  "story": {
+    "share": 0,
+    "skit_share": 0.4,
+    "skit_note": "23 Oct 2026, Adley Kinsman system (docs/ADLEY.md): this share of story reels are pure Bunty comedy skits for reach; the rest teach",
+    "note": "3D Bunty story reels, off since 28 Oct 2026 (replaced by the 2D host reels)"
+  },
+  "motion": {
+    "share": 1,
+    "host": true,
+    "theme": "editorial",
+    "mix": {
+      "tutorial": 0.6,
+      "wow": 0.25,
+      "skit": 0.15
+    },
+    "note": "28 Oct 2026: every reel is an editorial motion reel (docs/MOTION.md) hosted by the 2D Prashant character (character/prashant.js); mix = tutorials / wow demos / skits"
+  },
   "models": {
     "writer": "claude-opus-5-5",
     "replies": "claude-opus-5-5",
@@ -28,17 +60,52 @@
   "replies": {
     "keyword_dm": true,
     "auto_reply_questions": true,
-    "escalate": ["complaint", "refund", "order problem", "collab or paid work", "anything legal or medical"],
-    "public_keyword_replies": ["Sent! Check your DMs 📩", "In your DMs now", "Just sent it, check requests if you don't see it"]
+    "escalate": [
+      "complaint",
+      "refund",
+      "order problem",
+      "collab or paid work",
+      "anything legal or medical"
+    ],
+    "public_keyword_replies": [
+      "Sent! Check your DMs 📩",
+      "In your DMs now",
+      "Just sent it, check requests if you don't see it"
+    ]
   },
   "keywords": {
-    "STORE": { "tool": "store", "title": "7-Shopper Test" },
-    "LAUNCH": { "tool": "launch", "title": "12-Customer Trial" },
-    "AUDIT": { "tool": "audit", "title": "5-Minute Store Audit" },
-    "ROAST": { "tool": "roast", "title": "5-Critic Ad Roast" },
-    "TEAM": { "tool": "team", "title": "4-Agent Marketing Team" },
-    "REVIEWS": { "tool": "reviews", "title": "Review Miner" },
-    "PRICE": { "tool": "price", "title": "100-Shopper Price Test" }
+    "STORE": {
+      "tool": "store",
+      "title": "7-Shopper Test"
+    },
+    "LAUNCH": {
+      "tool": "launch",
+      "title": "12-Customer Trial"
+    },
+    "AUDIT": {
+      "tool": "audit",
+      "title": "5-Minute Store Audit"
+    },
+    "ROAST": {
+      "tool": "roast",
+      "title": "5-Critic Ad Roast"
+    },
+    "TEAM": {
+      "tool": "team",
+      "title": "4-Agent Marketing Team"
+    },
+    "REVIEWS": {
+      "tool": "reviews",
+      "title": "Review Miner"
+    },
+    "PRICE": {
+      "tool": "price",
+      "title": "100-Shopper Price Test"
+    }
   },
-  "limits": { "max_posts_per_day": 4, "max_auto_replies_per_run": 40 }
+  "limits": {
+    "max_posts_per_day": 4,
+    "max_auto_replies_per_run": 40
+  },
+  "slots_note": "28 Oct 2026: 10K-in-10-days push, three reels a day (all motion reels hosted by the 2D Prashant character)"
 }

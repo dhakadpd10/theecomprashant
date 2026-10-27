@@ -41,6 +41,7 @@ const FONTS = [
   ['Inter', '@fontsource/inter/files/inter-latin-900-normal.woff2', 900],
   ['Permanent Marker', '@fontsource/permanent-marker/files/permanent-marker-latin-400-normal.woff2', 400],
   ['Playfair Display', '@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2', 700],
+  ['Playfair Italic', '@fontsource/playfair-display/files/playfair-display-latin-700-italic.woff2', 700],
   ['Press Start 2P', '@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2', 400],
   ['Noto Deva', '@fontsource/noto-sans/files/noto-sans-devanagari-400-normal.woff2', 400], // has the ₹ sign
 ];
@@ -98,6 +99,7 @@ html,body{margin:0;background:var(--bg)}
 .cap .w{display:inline-block;opacity:0}
 .cap .hot{color:var(--accent)}
 #endfade{position:absolute;inset:0;background:#0F1218;opacity:0;pointer-events:none}
+${post.theme === 'editorial' ? '/* editorial theme (docs/MOTION.md): light paper, ink captions without the heavy shadow */\n.cap{color:var(--ink);text-shadow:none;font-weight:700;font-size:56px}\n#endfade{background:var(--bg)}' : ''}
 </style>
 </head>
 <body>

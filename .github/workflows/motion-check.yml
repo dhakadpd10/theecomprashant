@@ -1,8 +1,13 @@
-name: Motion check - render the example motion reel
+name: Motion check - render a motion reel
 # Manual test of the motion-reel pipeline on GitHub's machines: voice, HyperFrames check, render, cover.
 # Posts nothing and uses no Claude. The finished reel is attached to the run as "motion-check".
 on:
   workflow_dispatch:
+    inputs:
+      post:
+        description: "Folder of the motion reel to render"
+        required: false
+        default: "content/posts/m01-five-questions"
 permissions:
   contents: read
 jobs:
@@ -20,16 +25,19 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules/@huggingface/transformers/.cache
-          key: hf-models-v1
+          key: hf-models-v2
       - name: Browser for HyperFrames
         env:
           HYPERFRAMES_NO_TELEMETRY: "1"
         run: npx hyperframes browser ensure
-      - name: Render content/posts/m01-five-questions
-        run: node engine/motion.js content/posts/m01-five-questions
+      - name: Render
+        env:
+          POST: ${{ inputs.post || 'content/posts/m01-five-questions' }}
+        run: node engine/motion.js "$POST"
       - uses: actions/upload-artifact@v4
         with:
           name: motion-check
           path: |
-            content/posts/m01-five-questions/reel.mp4
-            content/posts/m01-five-questions/cover.jpg
+            ${{ inputs.post || 'content/posts/m01-five-questions' }}/reel.mp4
+            ${{ inputs.post || 'content/posts/m01-five-questions' }}/cover.jpg
+            ${{ inputs.post || 'content/posts/m01-five-questions' }}/vo/heard.txt

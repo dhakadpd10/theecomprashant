@@ -13,6 +13,47 @@ const ffmpeg = require('ffmpeg-static');
 const L = require('./lib');
 const buildAudio = require('./audio');
 const voice = require('./voice');
+const host = require('../character/prashant');
+
+// ---- the host: Prashant as a 2D character on top of the scene (post.json "host"; docs/MOTION.md "The host") ----
+// Each line may set host: { at: "center"|"corner"|"right"|"hidden", pose, mood, whistle: true }.
+const HOST_AT = { center: { x: 280, y: 570, scale: 1 }, corner: { x: -40, y: 790, scale: 0.7 }, right: { x: 640, y: 790, scale: 0.7 }, hidden: { x: -40, y: 1960, scale: 0.7 } };
+function hostStates(post) {
+  const n = post.lines.length;
+  return post.lines.map((l, i) => ({ at: i === 0 ? 'center' : 'corner', pose: i === 0 ? 'explain' : i === n - 1 ? 'point' : ['explain', 'idle', 'phone', 'thumbs'][i % 4], mood: i === 0 ? 'shock' : 'normal', ...(l.host || {}) }));
+}
+function hostMarkup(post) {
+  const s0 = hostStates(post)[0];
+  return `<div id="host" data-layout-allow-overlap style="position:absolute;left:0;top:0;width:520px;height:760px">${host.layered({ mood: s0.mood, pose: s0.pose, prop: 'cooker', idp: 'h' })}</div>`;
+}
+/** GSAP calls for the host: position, pose and mood per line, lip-flap while the voice speaks, blinks, the whistle. */
+function hostScript(post, T) {
+  const S = hostStates(post), out = [];
+  let seed = 11; const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+  const set = (kind, names, on, t) => names.forEach((k) => out.push(`tl.set('#h-${kind}-${k}', { opacity: ${k === on ? 1 : 0} }, ${t.toFixed(3)});`));
+  const p0 = HOST_AT[S[0].at] || HOST_AT.center;
+  out.push(`tl.set('#host', { x: ${p0.x}, y: ${p0.y}, scale: ${p0.scale}, transformOrigin: '0 0' }, 0);`);
+  out.push(`tl.fromTo('#h-head', { y: 0 }, { y: -5, duration: 1.3, ease: 'sine.inOut', yoyo: true, repeat: ${Math.max(1, Math.floor(T.dur / 1.3))} }, 0);`);
+  S.forEach((s, i) => {
+    const l = T.lines[i], t = i === 0 ? 0 : l.a, p = HOST_AT[s.at] || HOST_AT.corner, [eyes, brows] = host.MOODS[s.mood] || host.MOODS.normal;
+    if (i > 0) out.push(`tl.to('#host', { x: ${p.x}, y: ${p.y}, scale: ${p.scale}, duration: 0.45, ease: 'power3.inOut' }, ${t.toFixed(3)});`);
+    set('arms', Object.keys(host.POSES), s.pose, t); set('eyes', host.EYES, eyes, t); set('brows', host.BROWS, brows, t);
+    // lip-flap across the spoken span, closed (or smiling) after
+    let k = l.voice; const end = l.end - 0.05;
+    while (k < end) { const shape = rnd() < 0.55 ? 'talk' : rnd() < 0.5 ? 'open' : 'closed'; set('mouth', host.MOUTHS, shape, k); k += 0.1 + rnd() * 0.08; }
+    set('mouth', host.MOUTHS, /happy|smug/.test(s.mood) ? 'smile' : 'closed', Math.max(l.voice, end));
+    // a blink every ~3 s while the eyes are normal
+    if (eyes === 'normal') for (let b = l.a + 0.8 + rnd(); b < l.b - 0.3; b += 2.6 + rnd()) { set('eyes', host.EYES, 'blink', b); set('eyes', host.EYES, 'normal', b + 0.12); }
+    if (s.whistle) {
+      const w = l.voice + 0.3;
+      out.push(`tl.fromTo('#h-steam', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }, ${w.toFixed(3)});`);
+      out.push(`tl.fromTo('#h-cooker', { x: 0 }, { x: 5, duration: 0.05, repeat: 9, yoyo: true, ease: 'none' }, ${w.toFixed(3)});`);
+      out.push(`tl.to('#h-steam', { opacity: 0, y: -30, duration: 0.5, ease: 'power2.in' }, ${(w + 1.4).toFixed(3)});`);
+    }
+  });
+  return out.join('\n');
+}
+const hostWhistles = (post, T) => (post.host ? hostStates(post).map((s, i) => (s.whistle ? ['whistle', T.lines[i].voice + 0.3] : null)).filter(Boolean) : []);
 
 const ROOT = path.resolve(__dirname, '..');
 const NM = path.join(ROOT, 'node_modules');
@@ -106,6 +147,7 @@ ${post.theme === 'editorial' ? '/* editorial theme (docs/MOTION.md): light paper
 <div id="root" data-composition-id="reel" data-start="0" data-width="1080" data-height="1920" data-duration="${T.dur}">
 <div id="stage">
 ${sceneHTML}
+${post.host ? hostMarkup(post) : ''}
 </div>
 <div id="caps" aria-hidden="true">
 ${captionsHTML(post, T)}
@@ -123,6 +165,7 @@ const tl = gsap.timeline({ paused: true });
 (function (tl, T) {
 ${sceneJS}
 })(tl, T);
+${post.host ? `// ---- the host (character/prashant.js) ----\n${hostScript(post, T)}` : ''}
 // ---- house captions: each line's words pop in as they are spoken ----
 T.lines.forEach((l, i) => {
   const cap = document.getElementById('cap' + i), words = cap.querySelectorAll('.w');
@@ -224,7 +267,7 @@ async function main() {
 
     // sound: whoosh on every line marked "cut", plus any sound effects the spec asks for
     const cuts = T.lines.filter((l, i) => i > 0 && post.lines[i].cut).map((l) => l.a);
-    const cues = (post.sfx || []).map((s) => [s.fx, at(s.at, T)]);
+    const cues = [...(post.sfx || []).map((s) => [s.fx, at(s.at, T)]), ...hostWhistles(post, T)];
     buildAudio({ DUR: T.dur, starts: T.lines.map((l) => l.voice), cuts, cues, voDir: path.join(dir, 'vo'), out: path.join(dir, 'audio.wav') });
 
     const silent = path.join(proj, 'video.mp4');

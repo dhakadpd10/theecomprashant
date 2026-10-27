@@ -1,0 +1,140 @@
+<style>
+  /* editorial theme: warm paper, ink, one terracotta accent, serif titles with an italic accent word, clean app cards */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  .tag { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.45); }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 50px; color: rgba(30,26,22,0.6); }
+  #s0-title { top: 190px; font-size: 150px; }
+  .note { position: absolute; left: 140px; right: 140px; height: 150px; border-radius: 30px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(60,40,20,0.13); }
+  .note .av { position: absolute; left: 28px; top: 34px; width: 82px; height: 82px; border-radius: 50%; background: #3BB273; }
+  .note .who { position: absolute; left: 132px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); }
+  .note .msg { position: absolute; left: 132px; right: 30px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 34px; color: rgba(30,26,22,0.7); white-space: nowrap; overflow: hidden; }
+  #n1 { top: 640px; } #n2 { top: 760px; } #n3 { top: 880px; } #n4 { top: 1000px; }
+  #n2 .av { background: #E9A23B; } #n3 .av { background: #6C8CE0; } #n4 .av { background: #D9576B; }
+  #badge { position: absolute; left: 800px; top: 600px; width: 140px; height: 140px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 58px; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(200,85,43,0.35); }
+  #s0-ex { left: 140px; top: 1140px; }
+
+  /* 1: paste policies */
+  #s1-card { top: 470px; height: 620px; }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 110px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 36px; top: 30px; width: 52px; height: 52px; border-radius: 16px; background: var(--accent); }
+  .head .name { position: absolute; left: 110px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); }
+  .paste { position: absolute; left: 36px; right: 36px; top: 150px; border-radius: 26px; background: #F6F1E8; padding: 30px 34px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 42px; line-height: 1.75; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .pl em { font-style: normal; color: rgba(30,26,22,0.5); }
+
+  /* 2: paste messages */
+  #s2-card { top: 470px; height: 690px; }
+  .mrow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .mrow .av { position: absolute; left: 22px; top: 22px; width: 66px; height: 66px; border-radius: 50%; background: #3BB273; }
+  .mrow .t { position: absolute; left: 110px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #m1 { top: 40px; } #m2 { top: 170px; } #m3 { top: 300px; } #m4 { top: 430px; }
+  #m2 .av { background: #E9A23B; } #m3 .av { background: #6C8CE0; } #m4 .av { background: #D9576B; }
+  #more { position: absolute; left: 36px; top: 568px; height: 84px; padding: 0 34px; border-radius: 42px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; display: flex; align-items: center; }
+
+  /* 3: a reply for each */
+  #s3-card { top: 470px; height: 690px; }
+  .bub { position: absolute; border-radius: 30px; padding: 0 34px; height: 104px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; white-space: nowrap; }
+  .bub.in { left: 36px; background: #F1ECE3; color: var(--ink); }
+  .bub.out { right: 36px; background: #F7E1D6; color: #7A2E12; }
+  #b1 { top: 50px; } #b2 { top: 180px; } #b3 { top: 360px; } #b4 { top: 490px; }
+
+  /* 4: flagged */
+  #s4-card { top: 470px; height: 690px; }
+  .frow { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 24px; background: #F6F1E8; }
+  .frow .t { position: absolute; left: 34px; right: 260px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 24px; top: 26px; width: 210px; height: 68px; border-radius: 34px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .chip.ok { background: #DDF2E4; color: #1C7A45; }
+  .chip.you { background: var(--accent); color: #FFFFFF; }
+  #f1 { top: 40px; } #f2 { top: 190px; } #f3 { top: 340px; } #f4 { top: 490px; }
+
+  /* 5: the clock */
+  #ring { position: absolute; left: 420px; top: 380px; width: 500px; height: 500px; }
+  #clock { position: absolute; left: 420px; top: 540px; width: 500px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; color: var(--ink); }
+  #mins { position: absolute; left: 420px; top: 720px; width: 500px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: rgba(30,26,22,0.55); }
+  #s5-title { top: 950px; left: 360px; text-align: center; font-size: 84px; }
+
+  /* 6: save */
+  #save { position: absolute; left: 330px; right: 60px; top: 250px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 230px; line-height: 1; color: var(--ink); }
+  #mark { position: absolute; left: 600px; top: 560px; width: 140px; height: 190px; }
+  #pill { position: absolute; left: 360px; right: 60px; top: 860px; height: 150px; border-radius: 75px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 54px; display: flex; align-items: center; justify-content: center; }
+  #pill b { color: #F2A57F; margin-left: 18px; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">Customer DMs piling up?</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Just tell</span></span><span class="mask"><span class="l it">Claude.</span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Paste your</span></span><span class="mask"><span class="l it">policies.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div class="paste"><span class="pl" id="pl1">Shipping: <em>3 to 5 days</em></span><span class="pl" id="pl2">Returns: <em>7 days, unused</em></span><span class="pl" id="pl3">COD: <em>yes, on orders under ₹3,000</em></span><span class="pl" id="pl4">Tone: <em>warm, short, Hinglish ok</em></span></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste the</span></span><span class="mask"><span class="l it">messages.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="mrow" id="m1"><div class="av"></div><div class="t">Where is my order??</div></div>
+    <div class="mrow" id="m2"><div class="av"></div><div class="t">Can I return size M?</div></div>
+    <div class="mrow" id="m3"><div class="av"></div><div class="t">Is COD available?</div></div>
+    <div class="mrow" id="m4"><div class="av"></div><div class="t">Parcel came damaged</div></div>
+    <div id="more">+ 16 more</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">A reply for</span></span><span class="mask"><span class="l it">each one.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="bub in" id="b1">Can I return size M?</div>
+    <div class="bub out" id="b2">Yes! Within 7 days, unused.</div>
+    <div class="bub in" id="b3">Is COD available?</div>
+    <div class="bub out" id="b4">Yes, on orders under ₹3,000.</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 4</div>
+  <div class="title"><span class="mask"><span class="l">The hard ones</span></span><span class="mask"><span class="l it">come to you.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="frow" id="f1"><div class="t">Return size M</div><div class="chip ok">ANSWER</div></div>
+    <div class="frow" id="f2"><div class="t">Parcel came damaged</div><div class="chip you" id="c2">YOU</div></div>
+    <div class="frow" id="f3"><div class="t">Is COD available?</div><div class="chip ok">ANSWER</div></div>
+    <div class="frow" id="f4"><div class="t">I want a refund</div><div class="chip you" id="c4">YOU</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <svg id="ring" viewBox="0 0 500 500"><circle cx="250" cy="250" r="220" fill="none" stroke="rgba(30,26,22,0.1)" stroke-width="22"></circle><circle id="arc" cx="250" cy="250" r="220" fill="none" stroke="#C8552B" stroke-width="22" stroke-linecap="round" stroke-dasharray="1382" stroke-dashoffset="1382" transform="rotate(-90 250 250)"></circle></svg>
+  <div id="clock">0:00</div>
+  <div id="mins">about 10 minutes</div>
+  <div class="title" id="s5-title"><span class="mask"><span class="l">Read. Copy. <span class="it">Send.</span></span></span></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="end">
+  <div id="save">Save.</div>
+  <svg id="mark" viewBox="0 0 140 190"><path d="M10 10 H130 V180 L70 132 L10 180 Z" fill="#C8552B"></path></svg>
+  <div id="pill">Comment <b>SUPPORT</b></div>
+</section>

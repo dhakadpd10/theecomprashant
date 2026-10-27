@@ -43,6 +43,8 @@ module.exports = function buildAudio({ DUR, starts, cuts, cues, voDir, out }) {
     bloop: (t0) => add(sfx, t0, 0.3, (t) => Math.sin(TAU * (300 * t + 900 * t * t)) * Math.exp(-t * 10), { gain: 0.45 }),
     buzz: (t0) => add(sfx, t0, 0.22, (t) => (Math.sign(Math.sin(TAU * 140 * t)) * 0.5 + Math.sin(TAU * 280 * t) * 0.3) * Math.exp(-t * 14) * 0.6, { gain: 0.32, pan: 0.3 }),
     ding: (t0, m = 84) => add(sfx, t0, 0.9, (t) => { const f = mtof(m); return (Math.sin(TAU * f * t) + 0.4 * Math.sin(TAU * f * 2.76 * t) * Math.exp(-t * 6)) * Math.exp(-t * 4.5); }, { gain: 0.22, pan: 0.3 }),
+    // the host's pressure cooker: two "seeti" bursts, a fluttering high whistle over hissing steam
+    whistle: (t0) => [0, 0.55].forEach((d, i) => { const len = i ? 0.75 : 0.42; const lp = onePole(); add(sfx, t0 + d, len, (t) => { const x = t / len, env = Math.min(1, t * 25) * Math.min(1, (len - t) * 8), f = 2550 + 220 * x + 90 * Math.sin(2 * Math.PI * 9 * t); return (Math.sin(2 * Math.PI * f * t) * 0.55 + (rnd() - lp(rnd(), 0.08)) * 0.35) * env; }, { gain: 0.22, pan: 0.25 }); }),
     whoosh: (t0, len = 0.35) => { const lp = onePole(), lp2 = onePole(); add(sfx, t0 - len - 0.04, len, (t) => { const x = t / len, a = 0.02 + 0.5 * x; return lp2(lp(rnd(), a), a) * Math.sin(Math.PI * x) * 1.6; }, { gain: 0.28 }); },
   };
   cuts.forEach((c) => c > 0 && FX.whoosh(c));

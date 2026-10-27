@@ -1,0 +1,104 @@
+{
+  "id": "e02-host-dms",
+  "style": "motion",
+  "theme": "editorial",
+  "keyword": "SUPPORT",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Claude|SUPPORT|20|10|flagged|Save)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#C8552B"
+  },
+  "lines": [
+    {
+      "say": "Customer messages piling up? Just tell Claude.",
+      "show": "Customer DMs piling up? Just tell Claude.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Step one. Open Claude and paste your shipping and returns policy.",
+      "show": "Step 1: paste your policies.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two. Paste twenty customer messages from WhatsApp or Instagram.",
+      "show": "Step 2: paste 20 messages.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step three. Ask for a reply to each one, in your brand's voice.",
+      "show": "Step 3: a reply for each one.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Angry customers and refund requests get flagged, so you answer those yourself.",
+      "show": "Angry ones and refunds get flagged.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Read, copy, send. Twenty replies in about ten minutes.",
+      "show": "Read. Copy. Send. About 10 minutes.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Save this, and comment support for the exact prompt.",
+      "show": "Save this. Comment SUPPORT for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "CUSTOMER DMS PILING UP?",
+      "JUST TELL CLAUDE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

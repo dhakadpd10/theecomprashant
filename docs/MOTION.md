@@ -130,6 +130,30 @@ Never `linear` on a discrete event. Bigger things move slower. Stagger lists 0.0
 
 **House look.** Dark, rich background with drifting colour blobs and a faint grid; cream cards with near-black text; one accent colour for the words that matter; rounded corners 20 to 40 px; soft deep shadows. Every reel in a week uses a different palette and different moves.
 
+## The editorial theme (post.json "theme": "editorial")
+
+The page's look since 28 Oct 2026, modelled on the AI-tutorial reels that get 10K+ likes: calm, premium, saveable.
+- Palette: warm paper background (`#F3EEE5` family), near-black ink (`#1E1A16`), one accent (terracotta `#C8552B` or a deep green, blue or plum; vary it per reel). Captions are drawn in ink without a shadow.
+- Titles: `'Playfair Display'` 700, 90 to 150 px, with ONE word in `'Playfair Italic'` in the accent colour ("Just tell *Claude.*", "Paste your *policies.*").
+- A thin progress bar at the top (one segment per step) and a small "STEP 1" label in the accent.
+- One clean white app card per step (rounded 32 to 36 px, soft warm shadow): a chat, a list, message rows, reply bubbles, a checklist with chips, a timer ring.
+- End on "Save." in the serif, a bookmark shape, and a dark pill "Comment KEYWORD".
+- Model: `content/story-samples/e02-host-dms/`.
+
+## The host (post.json "host": { "name": "prashant" })
+
+Every reel is presented by Prashant as a 2D character (character/prashant.js) with his pressure cooker, the page's signature prop. The engine draws, moves and animates him; you never draw him and never animate `#host` or anything inside it. You only choose, per line, `"host": { "at", "pose", "mood", "whistle" }`:
+- `at`: `"center"` (big, centre stage, from y 570 down: use it for the hook and for skits), `"corner"` (presenter, bottom-left: x 0 to 330, y 790 to 1320), `"right"` (bottom-right), `"hidden"`.
+- `pose`: idle, point, explain, thumbs, shrug, think, phone, wave, cooker.
+- `mood`: normal, happy, smug, shock, worried, think.
+- `whistle: true` on the payoff line: the cooker steams and whistles ("seeti"). Once per reel.
+His mouth moves while the voice speaks, he blinks, and he glides between positions on each line.
+
+Layout rules with the host:
+- When he is in the corner, keep the bottom-left free: app cards sit at `left: 360px; right: 60px` from y ~470, and nothing important goes left of x 340 below y 780.
+- When he is at the centre (hook, skits), keep the stage content above y 560 (title, kicker, a badge) or to his sides.
+- Text inside cards stays at 30 to 40 px so rows fit the narrower card without touching their chips.
+
 ## Honesty
 
 Never invent results, revenue, clients or statistics. Anything that looks like data is labelled `example` on screen. The tool must really do what the reel says it does: read the tool's description before writing the payoff.

@@ -1,0 +1,130 @@
+{
+  "id": "2026-10-31-reel-amazon-influencer-youtube-pinterest",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "news",
+  "keyword": "PRODUCT",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹0|0|commission|Amazon|Amazon's|PRODUCT|catch|Send|free|Free|1|2|3|4)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Stop reviewing gadgets for free. Amazon pays commission on Pins.",
+      "show": "Stop reviewing for ₹0. Amazon pays commission.",
+      "card": "STOP REVIEWING FOR ₹0",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Amazon's Influencer Program pays commission when people buy through your YouTube videos.",
+      "show": "Amazon's Influencer Program: commission on YouTube and Pins.",
+      "card": "Proof: aboutamazon.in · Amazon Influencer Program · about 200,000 creators (Amazon's figure)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "One, pick a category you buy and use.",
+      "show": "1. Pick a category you buy and use.",
+      "card": "Steps 1 to 4 (one screenshot card, rows fill as each step is said)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Claude writes a short review script for you.",
+      "show": "2. Claude writes a 20-second review script.",
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, get a free AI voice, and make visuals in Canva AI.",
+      "show": "3. Free voice and visuals: ElevenLabs, Canva AI.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Four, tag the product.",
+      "show": "4. Tag the product.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: commission only. Zero rupees until someone buys.",
+      "show": "The catch: no fixed pay. ₹0 until someone buys.",
+      "card": "THE CATCH: commission only · no fixed pay · ₹0 until someone buys",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who reviews every gadget before anyone asks,",
+      "show": "Send this to your gadget-reviewer friend.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "and comment PRODUCT for the free plan.",
+      "show": "Comment PRODUCT for the free plan.",
+      "card": "Save. · Comment PRODUCT",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+1.4",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.2",
+    "title": [
+      "AMAZON PAYS COMMISSION",
+      "ON YOUTUBE AND PINS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

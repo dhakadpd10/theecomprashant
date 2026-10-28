@@ -1,0 +1,165 @@
+{
+  "id": "2026-10-31-reel-first-500-client-lands",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skit",
+  "keyword": "CLIENT",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹500|500|Twice|mummy|hostel|wallpaper|single|cooker|Three|₹540|biryani|minus|₹40|Send|CLIENT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Your first ever client just paid you. This is you.",
+      "show": "First client paid you ₹500? This is you.",
+      "card": "FIRST ₹500 FROM A CLIENT",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "You screenshot it. Twice.",
+      "show": "You screenshot it. Twice.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Send it to mummy.",
+      "show": "Send it to mummy.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Post it in the college group.",
+      "show": "Post it in the hostel group.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Make it your wallpaper.",
+      "show": "Make it your wallpaper.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Refuse to spend a single rupee.",
+      "show": "Refuse to spend a single rupee.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Even the cooker whistles. Three times.",
+      "show": "Even the cooker whistles. Three times.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Then you celebrate with a biryani that costs more than you made.",
+      "show": "Then a ₹540 biryani to celebrate.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Net profit: less than zero.",
+      "show": "Net profit: minus ₹40.",
+      "card": "Net profit: minus ₹40.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who framed their first payment,",
+      "show": "Send this to the friend who framed theirs.",
+      "cut": false,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "and comment CLIENT if you're still waiting for yours.",
+      "show": "Still waiting for yours? Comment CLIENT.",
+      "card": "CLIENT",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0",
+      "fx": "ding"
+    },
+    {
+      "at": "@line1.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.6",
+      "fx": "bloop"
+    },
+    {
+      "at": "@line8.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "YOUR FIRST ₹500",
+      "FROM A CLIENT"
+    ]
+  },
+  "caption": "Comment CLIENT and I'll DM you First Client in 7 Days, a free prompt that plans your first paying client.\n\nThe first ₹500 from a client, in order:\n1. Screenshot it. Twice.\n2. Send it to mummy.\n3. Post it in the hostel group.\n4. Make it your wallpaper.\n5. Refuse to spend it.\n6. Celebrate with a ₹540 biryani.\nNet profit: minus ₹40.\n\nThis is a skit, not my earnings. If you're new here, I'm Prashant. I build AI systems for brands and show real ways to earn with AI.\n\nWhat you need to start: one skill, a free AI tool, and a list of people who could pay for it.\n\nThe catch: the first client usually takes weeks of pitching, not one message. Most people hear no before they hear yes.\n\nSend this to the friend who framed their first payment, and comment CLIENT if you're still waiting for yours.\n\nResults vary.\n\n#sideincome #aiforbeginners #freelancingindia",
+  "host": {
+    "name": "prashant"
+  }
+}

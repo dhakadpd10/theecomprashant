@@ -1,0 +1,179 @@
+<style>
+  /* editorial theme, deep green accent: one list card whose four slots fill site by site, then the catch is stamped onto that same card */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  #tex { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; overflow: hidden; }
+  #tex .xblob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -200px; top: 140px; width: 700px; height: 700px; background: radial-gradient(circle at 50% 50%, rgba(46,107,78,0.12) 0%, rgba(46,107,78,0.05) 45%, rgba(46,107,78,0) 70%); }
+  #blob2 { left: 500px; top: 400px; width: 640px; height: 640px; background: radial-gradient(circle at 50% 50%, rgba(214,160,92,0.16) 0%, rgba(214,160,92,0.06) 45%, rgba(214,160,92,0) 70%); }
+  #tex .xgrain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .scene .xsteprow { position: absolute; left: 90px; width: 880px; top: 76px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .scene .step { display: block; font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: var(--accent); white-space: nowrap; }
+  .scene .url { display: flex; align-items: center; height: 56px; padding: 0 26px; border-radius: 28px; background: #FFFFFF; border: 2px solid rgba(46,107,78,0.35); box-shadow: 0 8px 20px rgba(60,40,20,0.08); font-family: var(--body); font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .scene .url i { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); margin-right: 14px; }
+  .scene .title { position: absolute; left: 90px; width: 880px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.04; color: var(--ink); }
+  .scene .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .scene .mask > span { display: block; }
+  .scene .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .scene .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* 0: hook */
+  #s0-title { font-size: 116px; transform-origin: left top; }
+  #s0-pill { display: flex; align-items: center; height: 60px; padding: 0 26px; border-radius: 30px; background: var(--accent); color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 30px; letter-spacing: 0.06em; white-space: nowrap; }
+
+  /* 1: zero to join */
+  #s1-card { top: 470px; height: 410px; }
+  #s1 .xkchip { position: absolute; left: 40px; height: 60px; padding: 0 24px; border-radius: 30px; background: #E6F0EA; color: var(--accent); display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: 0.08em; white-space: nowrap; }
+  #s1-c1 { top: 36px; }
+  #s1-c2 { top: 112px; }
+  #s1-label { position: absolute; left: 40px; top: 204px; width: 400px; height: 36px; font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: #5E564E; white-space: nowrap; }
+  #s1-zero { position: absolute; left: 40px; top: 244px; width: 220px; height: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1.05; color: var(--accent); transform-origin: left center; }
+  #s1-all { position: absolute; left: 280px; top: 296px; width: 340px; height: 40px; font-family: var(--body); font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+
+  /* the list card: four slots, filled one per site, kept as the screenshot card */
+  #list { top: 392px; height: 716px; }
+  #list .xslot { position: absolute; left: 16px; right: 16px; height: 148px; border: 3px dashed rgba(30,26,22,0.18); border-radius: 24px; box-sizing: border-box; }
+  #r1 { top: 16px; } #r2 { top: 174px; } #r3 { top: 332px; } #r4 { top: 490px; }
+  #list .xenum { position: absolute; left: 22px; top: 38px; width: 64px; height: 64px; border-radius: 50%; border: 3px dashed #B9AFA2; box-sizing: border-box; color: #5E564E; font-family: var(--body); font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #list .xebar { position: absolute; display: block; left: 104px; top: 46px; width: 260px; height: 18px; border-radius: 9px; background: rgba(30,26,22,0.08); }
+  #list .xebar2 { top: 80px; width: 180px; }
+  #list .xlock { position: absolute; display: block; right: 26px; top: 44px; width: 52px; height: 52px; }
+  #list .xfill { position: absolute; left: -3px; top: -3px; right: -3px; bottom: -3px; border-radius: 24px; background: #F7F2E9; }
+  #list .xnum { position: absolute; left: 22px; top: 12px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #list .xname { position: absolute; left: 104px; top: 10px; width: 260px; height: 46px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; line-height: 1.15; color: var(--ink); white-space: nowrap; }
+  #list .xwhat { position: absolute; left: 104px; right: 20px; top: 66px; height: 36px; font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #list .xpay { position: absolute; left: 104px; right: 20px; top: 104px; height: 36px; font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 36px; color: var(--accent); white-space: nowrap; overflow: hidden; }
+  #list .xtag { position: absolute; right: 22px; top: 14px; width: 236px; height: 46px; border-radius: 23px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 30px; letter-spacing: 0.04em; white-space: nowrap; }
+  #foot { position: absolute; left: 16px; right: 40px; top: 648px; height: 52px; border-radius: 18px; background: #F6E1DA; display: flex; align-items: center; padding-left: 20px; font-family: var(--body); font-weight: 700; font-size: 30px; color: #7A2414; white-space: nowrap; }
+  #foot .xcaret { display: block; width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent; border-bottom: 14px solid #7A2414; margin-right: 14px; }
+  #hl { position: absolute; left: 16px; right: 16px; top: 16px; height: 148px; border: 4px solid var(--accent); border-radius: 26px; box-sizing: border-box; }
+  #flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+
+  /* 7: the stamp */
+  #stampwrap { position: absolute; left: 430px; top: 660px; width: 520px; height: 170px; rotate: -7deg; }
+  #stamp { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 8px solid #A8321E; border-radius: 20px; background: rgba(255,250,244,0.94); color: #A8321E; font-family: var(--body); font-weight: 900; font-size: 40px; letter-spacing: 0.04em; line-height: 1.15; }
+  #stamp span { display: block; white-space: nowrap; }
+
+  /* 8: send */
+  #s8-chip { position: absolute; left: 90px; top: 290px; height: 66px; display: flex; align-items: center; padding: 0 28px 0 20px; border-radius: 33px; background: var(--accent); color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 30px; letter-spacing: 0.06em; white-space: nowrap; }
+  #s8-plane { display: block; width: 40px; height: 40px; margin-right: 14px; }
+
+  /* 9: end card */
+  #s9-save { top: 130px; width: 420px; font-size: 130px; }
+  #s9-mark { position: absolute; display: block; left: 520px; top: 150px; width: 100px; height: 140px; }
+  #s9-pill { position: absolute; left: 360px; right: 60px; top: 470px; height: 200px; border-radius: 100px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 26px; box-shadow: 0 30px 60px rgba(30,26,22,0.25); }
+  #s9-lab { display: block; font-family: var(--body); font-weight: 700; font-size: 30px; color: #E9E1D3; white-space: nowrap; }
+  #s9-kw { display: flex; height: 112px; overflow: hidden; align-items: center; }
+  #s9-kw b { display: block; font-family: var(--body); font-weight: 900; font-size: 96px; line-height: 112px; color: #8FD3AE; }
+  #s9-stwrap { position: absolute; left: 390px; top: 730px; width: 560px; height: 128px; rotate: -2deg; }
+  #s9-sticker { position: absolute; inset: 0; border-radius: 22px; border: 3px dashed var(--accent); background: #E6F0EA; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 24px; font-family: var(--body); font-weight: 700; font-size: 30px; line-height: 1.3; color: var(--ink); }
+  #s9-sticker b { color: var(--accent); font-weight: 900; }
+</style>
+
+<div class="paper" data-layout-allow-overlap></div>
+<div id="tex" data-layout-allow-overlap>
+  <div class="xblob" id="blob1" data-layout-allow-overlap></div>
+  <div class="xblob" id="blob2" data-layout-allow-overlap></div>
+  <div class="xgrain" data-layout-allow-overlap></div>
+</div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line2">
+  <div class="xsteprow"><div class="step">FOR STUDENTS</div><div id="s0-pill">#4 TESTS YOU FIRST</div></div>
+  <div class="title" id="s0-title" data-layout-allow-overlap><span class="mask"><span class="l">4 sites pay</span></span><span class="mask"><span class="l it">students.</span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="card" id="s1-card" data-layout-allow-overlap>
+    <div class="xkchip" id="s1-c1">HOSTEL STUDENTS</div>
+    <div class="xkchip" id="s1-c2">NO STIPEND NEEDED</div>
+    <div id="s1-label">JOINING FEE</div>
+    <div id="s1-zero">₹0</div>
+    <div id="s1-all">on all 4 sites</div>
+  </div>
+</section>
+
+<section class="scene" id="sL" data-from="@line2" data-to="@line9">
+  <div class="card" id="list" data-layout-allow-overlap>
+    <div class="xslot" id="r1">
+      <div class="xenum" id="e1" data-layout-allow-overlap data-layout-allow-occlusion>1</div><i class="xebar"></i><i class="xebar xebar2"></i>
+      <div class="xfill" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div class="xnum">1</div><div class="xname">Prolific</div>
+        <div class="xwhat">Paid research studies</div><div class="xpay">Pay: shown per study</div>
+        <div class="xtag" id="t1">IN BURSTS</div>
+      </div>
+    </div>
+    <div class="xslot" id="r2">
+      <div class="xenum" id="e2" data-layout-allow-overlap data-layout-allow-occlusion>2</div><i class="xebar"></i><i class="xebar xebar2"></i>
+      <div class="xfill" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div class="xnum">2</div><div class="xname">Internshala</div>
+        <div class="xwhat">Internships, freelance work</div><div class="xpay">Pay: stipend per listing</div>
+      </div>
+    </div>
+    <div class="xslot" id="r3">
+      <div class="xenum" id="e3" data-layout-allow-overlap data-layout-allow-occlusion>3</div><i class="xebar"></i><i class="xebar xebar2"></i>
+      <div class="xfill" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div class="xnum">3</div><div class="xname">Topmate</div>
+        <div class="xwhat">Sell notes or a call</div><div class="xpay">Pay: you set the ₹ price</div>
+      </div>
+    </div>
+    <div class="xslot" id="r4">
+      <div class="xenum" id="e4" data-layout-allow-overlap data-layout-allow-occlusion>4</div><i class="xebar"></i><i class="xebar xebar2"></i>
+      <svg class="xlock" id="lock4" viewBox="0 0 52 52"><path d="M16 24 V17 A10 10 0 0 1 36 17 V24" fill="none" stroke="#5E564E" stroke-width="5"></path><rect x="10" y="24" width="32" height="24" rx="6" fill="#5E564E"></rect></svg>
+      <div class="xfill" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div class="xnum">4</div><div class="xname">Outlier</div>
+        <div class="xwhat">Rate and write AI answers</div><div class="xpay">Pay: by skill and country</div>
+        <div class="xtag" id="t4">TEST FIRST</div>
+      </div>
+    </div>
+    <div id="foot"><i class="xcaret"></i><span>Joining paused in some places</span></div>
+    <div id="hl" data-layout-allow-overlap></div>
+    <div id="flash" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="xsteprow"><div class="step">SITE 1 OF 4</div><div class="url"><i></i>prolific.com</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">Got spare</span></span><span class="mask"><span class="l it">hours?</span></span></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="xsteprow"><div class="step">SITE 2 OF 4</div><div class="url"><i></i>internshala.com</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">Students in</span></span><span class="mask"><span class="l it">India.</span></span></div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="xsteprow"><div class="step">SITE 3 OF 4</div><div class="url"><i></i>topmate.io</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">The class</span></span><span class="mask"><span class="l it">topper.</span></span></div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="xsteprow"><div class="step">SITE 4 OF 4</div><div class="url"><i></i>outlier.ai</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">Strong in one</span></span><span class="mask"><span class="l it">subject.</span></span></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="xsteprow"><div class="step">BEFORE YOU SIGN UP</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+</section>
+
+<section class="scene" id="sS" data-from="@line7" data-to="@line8">
+  <div id="stampwrap" data-layout-allow-overlap><div id="stamp" data-layout-allow-overlap><span>NOT A WEEK-ONE</span><span>STIPEND</span></div></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="xsteprow"><div class="step">BROKE BY THE 20TH?</div></div>
+  <div class="title" data-layout-allow-overlap><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s8-chip" data-layout-allow-overlap><svg id="s8-plane" viewBox="0 0 40 40"><path d="M3 19 L37 4 L29 36 L19 26 Z" fill="#FFFFFF"></path><path d="M19 26 L37 4 L16 22 L16 33 Z" fill="#CFE3D8"></path></svg><span>FOR YOUR ROOMMATE</span></div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="title" id="s9-save" data-layout-allow-overlap><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s9-mark" viewBox="0 0 100 140"><path d="M10 6 H90 V134 L50 104 L10 134 Z" fill="#2E6B4E"></path></svg>
+  <div id="s9-pill" data-layout-allow-overlap><div id="s9-lab">Full list:</div><div id="s9-kw"><b>S</b><b>I</b><b>T</b><b>E</b><b>S</b></div></div>
+  <div id="s9-stwrap" data-layout-allow-overlap><div id="s9-sticker" data-layout-allow-overlap><span><b>FREE</b> · Websites That Pay for AI Work</span></div></div>
+</section>

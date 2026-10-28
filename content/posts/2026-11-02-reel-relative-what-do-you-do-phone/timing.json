@@ -1,0 +1,81 @@
+{
+  "dur": 27.9,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.862,
+      "b": 2.962,
+      "say": "...and then a client paid me, and Chachaji heard rishta.",
+      "show": "CHACHAJI HEARD RISHTA"
+    },
+    {
+      "a": 2.962,
+      "voice": 3.062,
+      "end": 7.063,
+      "b": 7.163,
+      "say": "Festival dinner. Chachaji asks: what do you even do on your phone all day?",
+      "show": "\"What do you even do on your phone all day?\""
+    },
+    {
+      "a": 7.163,
+      "voice": 7.263,
+      "end": 10.056,
+      "b": 10.156,
+      "say": "Videos for a coffee shop, with AI. So, games.",
+      "show": "\"Reels for a café, with AI.\" \"So, games.\""
+    },
+    {
+      "a": 10.156,
+      "voice": 10.256,
+      "end": 12.95,
+      "b": 13.05,
+      "say": "Paid gigs online. Gigs? You look sick. Take a tablet.",
+      "show": "\"A gig on Fiverr.\" \"Fever? Take Crocin.\""
+    },
+    {
+      "a": 13.05,
+      "voice": 13.15,
+      "end": 15.926,
+      "b": 16.026,
+      "say": "A client from out of town paid me. Out of town? A rishta?",
+      "show": "\"A Pune client paid me.\" \"Pune mein rishta?\""
+    },
+    {
+      "a": 16.026,
+      "voice": 16.126,
+      "end": 17.45,
+      "b": 17.55,
+      "say": "A week later. Voice note.",
+      "show": "1 week later. A voice note."
+    },
+    {
+      "a": 17.55,
+      "voice": 17.65,
+      "end": 21.088,
+      "b": 21.188,
+      "say": "My shop also needs one of those video things. It's free, right?",
+      "show": "\"My shop needs one. Free hai na?\""
+    },
+    {
+      "a": 21.188,
+      "voice": 21.288,
+      "end": 24.449,
+      "b": 24.549,
+      "say": "Send this to the cousin who gets this question every festival.",
+      "show": "Send this to the cousin who gets asked."
+    },
+    {
+      "a": 24.549,
+      "voice": 24.649,
+      "end": 26.5,
+      "b": 27.9,
+      "say": "Comment MONEY for the extra cash planner.",
+      "show": "Comment MONEY for the side-income planner."
+    }
+  ]
+}

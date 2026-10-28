@@ -1,0 +1,163 @@
+<style>
+  /* editorial theme, deep green accent: application card, proof list filling, attach chips, the catch, the send card */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -240px; top: 160px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(47,107,79,0.10) 0%, rgba(47,107,79,0) 65%); }
+  #blob2 { left: 380px; top: 760px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(200,150,90,0.12) 0%, rgba(200,150,90,0) 65%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; top: 470px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .chip { position: absolute; right: 20px; width: 150px; height: 56px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .good { background: var(--accent); }
+  .bad { background: #B23A2A; }
+  .meh { background: var(--ink); }
+
+  /* 0: hook */
+  #s0-title { top: 140px; font-size: 96px; letter-spacing: -0.01em; }
+  #s0-slots { position: absolute; left: 150px; top: 380px; width: 780px; height: 60px; display: flex; gap: 20px; }
+  #s0-slots .slot { flex: 0 0 180px; height: 60px; box-sizing: border-box; border: 3px dashed var(--accent); border-radius: 30px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.08em; color: var(--accent); background: rgba(255,255,255,0.5); }
+
+  /* 1-2: example application */
+  #s1-card { height: 560px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 20px; height: 56px; border-radius: 28px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.7); display: flex; align-items: center; padding-left: 26px; }
+  .arow { position: absolute; left: 32px; right: 32px; border-radius: 24px; background: #F6F1E8; }
+  .arow .k { position: absolute; left: 26px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; color: rgba(30,26,22,0.7); }
+  .arow .v { position: absolute; left: 26px; right: 26px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .arow .chip { top: 14px; }
+  #s1-a { top: 130px; height: 150px; }
+  #s1-b { top: 304px; height: 220px; }
+  #s1-strike { position: absolute; display: block; left: 26px; top: 86px; width: 340px; height: 6px; border-radius: 3px; background: #B23A2A; transform-origin: left center; }
+  #s1-link { position: absolute; left: 26px; top: 132px; width: 320px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+
+  /* 3-5: proof list */
+  #s2-card { height: 650px; }
+  .lhead { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #F1ECE3; }
+  .lhead .lab { position: absolute; left: 32px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: rgba(30,26,22,0.7); }
+  .pips { position: absolute; right: 32px; top: 26px; width: 164px; height: 32px; display: flex; gap: 12px; }
+  .pip { position: relative; flex: 0 0 32px; height: 32px; box-sizing: border-box; border: 4px solid var(--accent); border-radius: 50%; }
+  .pip b { position: absolute; display: block; left: 4px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); }
+  .srow { position: absolute; left: 28px; right: 28px; height: 116px; }
+  .srow .empty { position: absolute; inset: 0; box-sizing: border-box; border: 3px dashed rgba(30,26,22,0.25); border-radius: 22px; }
+  .srow .fill { position: absolute; inset: 0; border-radius: 22px; background: #EAF2EC; }
+  .srow .n { position: absolute; left: 22px; top: 26px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  .srow .sn { position: absolute; left: 108px; right: 20px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .srow .ss { position: absolute; left: 108px; right: 20px; top: 62px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: rgba(30,26,22,0.75); white-space: nowrap; }
+  #s2-r1 { top: 108px; } #s2-r2 { top: 240px; } #s2-r3 { top: 372px; } #s2-r4 { top: 504px; }
+
+  /* 6: attach the proof */
+  #s3-card { height: 444px; }
+  .jrow { position: absolute; left: 28px; right: 28px; height: 116px; border-radius: 22px; background: #F6F1E8; }
+  .jrow .doc { position: absolute; left: 24px; top: 30px; width: 44px; height: 56px; }
+  .jrow .t { position: absolute; left: 90px; right: 190px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .jrow .chip { top: 30px; }
+  #s3-j1 { top: 32px; } #s3-j2 { top: 164px; } #s3-j3 { top: 296px; }
+
+  /* 7: the catch */
+  #s4-badge { position: absolute; left: 90px; top: 70px; width: 300px; height: 64px; box-sizing: border-box; border: 4px solid var(--accent); border-radius: 14px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.14em; color: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #s4-card { height: 444px; }
+  .krow { position: absolute; left: 28px; right: 28px; height: 116px; border-radius: 22px; background: #F6F1E8; }
+  .krow .t { position: absolute; left: 28px; right: 190px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .krow .chip { top: 30px; }
+  #s4-k1 { top: 32px; } #s4-k2 { top: 164px; } #s4-k3 { top: 296px; }
+
+  /* 8: send + keyword */
+  #send { position: absolute; left: 90px; right: 90px; top: 80px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1.05; color: var(--ink); }
+  #who { position: absolute; left: 90px; right: 90px; top: 250px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: rgba(30,26,22,0.72); }
+  #plane { position: absolute; left: 440px; top: 320px; width: 200px; height: 170px; }
+  #pill { position: absolute; left: 360px; right: 60px; top: 560px; height: 240px; border-radius: 48px; background: var(--ink); overflow: hidden; }
+  #pill .pl { position: absolute; left: 0; right: 0; top: 26px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #E9E2D6; }
+  #kw { position: absolute; left: 0; right: 0; top: 80px; height: 140px; display: flex; justify-content: center; gap: 6px; }
+  #kw .kl { display: block; font-family: var(--display); font-size: 130px; line-height: 140px; color: #9FD3B5; }
+  #sticker { position: absolute; left: 400px; top: 508px; width: 520px; height: 72px; border-radius: 36px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 30px rgba(30,60,40,0.22); }
+  #save-mark { position: absolute; left: 390px; top: 880px; width: 70px; height: 100px; }
+  #save { position: absolute; left: 490px; top: 862px; width: 400px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 90px; line-height: 1.2; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">NOBODY TELLS YOU</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">4 AI skills</span></span><span class="mask"><span class="l">Internshala <span class="it">pays.</span></span></span></div>
+  <div id="s0-slots"><div class="slot">SKILL 1</div><div class="slot">SKILL 2</div><div class="slot">SKILL 3</div><div class="slot">SKILL 4</div></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line3">
+  <div class="step">EXAMPLE APPLICATION</div>
+  <div class="title"><span class="mask"><span class="l">Skill, or</span></span><span class="mask"><span class="l it">proof?</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url" id="s1-url">Cover note · example</div></div>
+    <div class="arow" id="s1-a">
+      <div class="k">LINE 1</div>
+      <div class="v">&ldquo;I know AI tools.&rdquo;</div>
+      <div class="chip bad" id="s1-ca">VAGUE</div>
+      <i id="s1-strike" data-layout-allow-overlap></i>
+    </div>
+    <div class="arow" id="s1-b">
+      <div class="k">LINE 2</div>
+      <div class="v">&ldquo;Edited 3 CapCut reels.&rdquo;</div>
+      <div class="chip good" id="s1-cb">PROOF</div>
+      <div id="s1-link"><svg width="40" height="30" viewBox="0 0 40 30"><circle cx="13" cy="15" r="9" fill="none" stroke="#FFFFFF" stroke-width="4"></circle><circle cx="27" cy="15" r="9" fill="none" stroke="#FFFFFF" stroke-width="4"></circle></svg>Link attached</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line3" data-to="@line6">
+  <div class="step">PROVE IT THIS WEEKEND</div>
+  <div class="title"><span class="mask"><span class="l">4 skills you</span></span><span class="mask"><span class="l">can <span class="it">prove.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lhead"><div class="lab">PROOF LIST</div><div class="pips"><div class="pip"><b id="s2-f1"></b></div><div class="pip"><b id="s2-f2"></b></div><div class="pip"><b id="s2-f3"></b></div><div class="pip"><b id="s2-f4"></b></div></div></div>
+    <div class="srow" id="s2-r1"><div class="empty"></div><div class="fill" id="s2-fill1"><div class="n">1</div><div class="sn">AI video editing</div><div class="ss">CapCut</div></div></div>
+    <div class="srow" id="s2-r2"><div class="empty"></div><div class="fill" id="s2-fill2"><div class="n">2</div><div class="sn">Canva AI design</div><div class="ss">Canva</div></div></div>
+    <div class="srow" id="s2-r3"><div class="empty"></div><div class="fill" id="s2-fill3"><div class="n">3</div><div class="sn">Research notes</div><div class="ss">NotebookLM or Perplexity</div></div></div>
+    <div class="srow" id="s2-r4"><div class="empty"></div><div class="fill" id="s2-fill4"><div class="n">4</div><div class="sn">Reel scripts</div><div class="ss">Claude, edited by you</div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line6" data-to="@line7">
+  <div class="step">EVERY APPLICATION · EXAMPLE</div>
+  <div class="title"><span class="mask"><span class="l">Attach the</span></span><span class="mask"><span class="l it">proof.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="jrow" id="s3-j1"><svg class="doc" viewBox="0 0 44 56"><path d="M4 4 H28 L40 16 V52 H4 Z" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><path d="M12 30 H32 M12 40 H26" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round"></path></svg><div class="t">Video intern</div><div class="chip good" id="s3-c1">PROOF</div></div>
+    <div class="jrow" id="s3-j2"><svg class="doc" viewBox="0 0 44 56"><path d="M4 4 H28 L40 16 V52 H4 Z" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><path d="M12 30 H32 M12 40 H26" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round"></path></svg><div class="t">Design intern</div><div class="chip good" id="s3-c2">PROOF</div></div>
+    <div class="jrow" id="s3-j3"><svg class="doc" viewBox="0 0 44 56"><path d="M4 4 H28 L40 16 V52 H4 Z" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><path d="M12 30 H32 M12 40 H26" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round"></path></svg><div class="t">Content intern</div><div class="chip good" id="s3-c3">PROOF</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line7" data-to="@line8">
+  <div id="s4-badge">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Proof gets</span></span><span class="mask"><span class="l">you <span class="it">hired.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div class="krow" id="s4-k1"><div class="t">Proof attached</div><div class="chip good" id="s4-c1">YES</div></div>
+    <div class="krow" id="s4-k2"><div class="t">Just a skill line</div><div class="chip bad" id="s4-c2">NO</div></div>
+    <div class="krow" id="s4-k3"><div class="t">Pay per listing</div><div class="chip meh" id="s4-c3">VARIES</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line8" data-to="end">
+  <div id="send">Send this.</div>
+  <div id="who">to a friend who's applying</div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2F6B4F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4A36"></path></svg>
+  <div id="pill">
+    <div class="pl">Comment</div>
+    <div id="kw"><div class="kl">S</div><div class="kl">K</div><div class="kl">I</div><div class="kl">L</div><div class="kl">L</div></div>
+  </div>
+  <div id="sticker" data-layout-allow-overlap>FREE · 30-DAY PLAN</div>
+  <svg id="save-mark" viewBox="0 0 70 100"><path d="M6 0 H64 V100 L35 76 L6 100 Z" fill="#2F6B4F"></path></svg>
+  <div id="save">Save.</div>
+</section>

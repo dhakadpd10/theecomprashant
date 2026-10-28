@@ -1,0 +1,97 @@
+{
+  "dur": 23.82,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.636,
+      "b": 2.736,
+      "say": "Your first ever client just paid you. This is you.",
+      "show": "First client paid you ₹500? This is you."
+    },
+    {
+      "a": 2.736,
+      "voice": 2.836,
+      "end": 4.163,
+      "b": 4.263,
+      "say": "You screenshot it. Twice.",
+      "show": "You screenshot it. Twice."
+    },
+    {
+      "a": 4.263,
+      "voice": 4.363,
+      "end": 5.271,
+      "b": 5.371,
+      "say": "Send it to mummy.",
+      "show": "Send it to mummy."
+    },
+    {
+      "a": 5.371,
+      "voice": 5.471,
+      "end": 6.851,
+      "b": 6.951,
+      "say": "Post it in the college group.",
+      "show": "Post it in the hostel group."
+    },
+    {
+      "a": 6.951,
+      "voice": 7.051,
+      "end": 8.112,
+      "b": 8.212,
+      "say": "Make it your wallpaper.",
+      "show": "Make it your wallpaper."
+    },
+    {
+      "a": 8.212,
+      "voice": 8.312,
+      "end": 10.047,
+      "b": 10.147,
+      "say": "Refuse to spend a single rupee.",
+      "show": "Refuse to spend a single rupee."
+    },
+    {
+      "a": 10.147,
+      "voice": 10.247,
+      "end": 12.142,
+      "b": 12.242,
+      "say": "Even the cooker whistles. Three times.",
+      "show": "Even the cooker whistles. Three times."
+    },
+    {
+      "a": 12.242,
+      "voice": 12.342,
+      "end": 15.444,
+      "b": 15.544,
+      "say": "Then you celebrate with a biryani that costs more than you made.",
+      "show": "Then a ₹540 biryani to celebrate."
+    },
+    {
+      "a": 15.544,
+      "voice": 15.644,
+      "end": 17.098,
+      "b": 17.198,
+      "say": "Net profit: less than zero.",
+      "show": "Net profit: minus ₹40."
+    },
+    {
+      "a": 17.198,
+      "voice": 17.298,
+      "end": 19.705,
+      "b": 19.805,
+      "say": "Send this to the friend who framed their first payment,",
+      "show": "Send this to the friend who framed theirs."
+    },
+    {
+      "a": 19.805,
+      "voice": 19.905,
+      "end": 22.423,
+      "b": 23.82,
+      "say": "and comment CLIENT if you're still waiting for yours.",
+      "show": "Still waiting for yours? Comment CLIENT."
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "2026-11-01-reel-canva-vs-gumroad-templates",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "breakdown",
+  "hook": "17",
+  "keyword": "PRODUCT",
+  "free_tool": "Weekend Digital Product",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(vs|today|rupees|approval|₹199|example|take|catch|PRODUCT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Canva or Gumroad: only one lets you sell today.",
+      "show": "Canva vs Gumroad: only one sells today.",
+      "card": "CANVA vs GUMROAD",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "AI templates can earn you rupees.",
+      "show": "AI templates can earn you rupees.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Canva Creator: approval first, then pay as Canva's page states.",
+      "show": "Canva Creator: approval first, payout as Canva states.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Gumroad: anyone lists today. Its fee is on the pricing page.",
+      "show": "Gumroad: list today. ₹199 is an example.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Canva AI designs. Claude writes.",
+      "show": "Canva AI designs. Claude writes.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "My take: Gumroad this week, Canva after a portfolio.",
+      "show": "My take: Gumroad now, Canva after a portfolio.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: neither brings day-one buyers. Canva can reject you.",
+      "show": "The catch: no day-one buyers. Canva can reject.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who makes the best Canva posts in your group,",
+      "show": "Send this to your group's Canva star,",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "and comment PRODUCT for the weekend plan.",
+      "show": "and comment PRODUCT for the weekend plan.",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.5",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "CANVA VS GUMROAD",
+      "WHERE TO SELL TEMPLATES"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

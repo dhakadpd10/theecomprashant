@@ -1,0 +1,177 @@
+{
+  "id": "2026-10-30-reel-exp2a-internshala-line-skipped",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skills",
+  "keyword": "SKILL",
+  "tool": "30-Day AI Skill Roadmap",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "experiment": "exp2-skills",
+  "arm": "A",
+  "hook": 2,
+  "hook_name": "Negative Command",
+  "slot": {
+    "ist": "19:30",
+    "utc": "14:00"
+  },
+  "log_style": "editorial-host",
+  "hot": "^(40|₹0|0|STOP|proof|link|4|weekend|Attach|catch|vary|Send|SKILL)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4C8C"
+  },
+  "lines": [
+    {
+      "say": "All those applications, zero rupees back? Stop writing 'I know AI'.",
+      "show": "40 applications, ₹0 back? Stop writing 'I know ChatGPT'.",
+      "card": "STOP WRITING I KNOW CHATGPT",
+      "stage": "Visible at 0.0 s: a mock Internshala-style cover-letter box titled 'Why should you be hired?' with the line 'I know ChatGPT' already struck through in the accent. A small tag reads 'application 40?', phrased as a question, not as anyone's result.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Name one skill and link the proof.",
+      "show": "Name 1 skill. Link the proof.",
+      "card": "PROOF LINK",
+      "stage": "The same student's application split in two. On the left is the vague line, struck through, with a small 'proves nothing' label. On the right is 'I edit short videos with free AI tools: see my 3 sample reels' with a proof link chip that pops in.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Four skills you can prove this weekend.",
+      "show": "4 AI skills you can prove in a weekend.",
+      "card": "4 AI SKILLS YOU CAN SHOW PROOF OF IN A WEEKEND",
+      "stage": "The screenshot card appears as one clean white card titled '4 AI skills you can show proof of in a weekend', with four empty dashed rows. Each row has a 'What to attach' chip slot.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One, AI video editing. Attach a short reel.",
+      "show": "1. AI video editing. Attach: a short reel.",
+      "card": "1 · Short-form video editing with free AI tools · Attach: a 30-sec sample reel",
+      "stage": "Row 1 fills in. Name no specific video app.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Canva AI design. Attach three posters.",
+      "show": "2. Canva AI design. Attach: 3 posters.",
+      "card": "2 · Canva AI design for posts and posters · Attach: 3 posts or posters",
+      "stage": "Row 2 fills in.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Three, AI research summaries. Attach a one page brief.",
+      "show": "3. NotebookLM or Perplexity summaries. Attach: 1-page brief.",
+      "card": "3 · Research summaries with NotebookLM or Perplexity · Attach: a 1-page brief",
+      "stage": "Row 3 fills in.",
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Four, AI drafts you edit. Attach both versions.",
+      "show": "4. Claude drafts you edit. Attach: before + after.",
+      "card": "4 · Scripts and blog drafts written with Claude, edited by you · Attach: draft + your edit",
+      "stage": "Row 4 fills in. The full card holds still for the screenshot.",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "The catch: proof gets you hired. Stipends vary by listing.",
+      "show": "The catch: proof gets you hired. Stipends vary.",
+      "card": "THE CATCH",
+      "stage": "The two application lines return small. A note reads 'the line alone ≠ hired'. A stipend chip reads 'varies by listing', with no figure.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who's applied to every internship this month.",
+      "show": "Send this to the friend with 40 applications.",
+      "card": "SEND",
+      "stage": "A chat card with a forward arrow and a bubble 'saw this, try it'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "And type SKILL below for the one month roadmap.",
+      "show": "Comment SKILL for the 30-day roadmap.",
+      "card": "Save. · Comment SKILL",
+      "stage": "A quiet end card with 'Save.' in the serif, a bookmark shape, a dark pill reading 'Comment SKILL' and a small sticker reading 'FREE · 30-DAY ROADMAP'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line1.voice+1.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line7.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.2",
+    "title": [
+      "4 AI SKILLS YOU CAN",
+      "PROVE IN A WEEKEND"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

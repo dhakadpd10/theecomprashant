@@ -1,0 +1,89 @@
+{
+  "dur": 27.98,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.867,
+      "b": 2.967,
+      "say": "Nobody tells you your first client is on Google Maps.",
+      "show": "Nobody tells you: first client is on Google Maps."
+    },
+    {
+      "a": 2.967,
+      "voice": 3.067,
+      "end": 5.866,
+      "b": 5.966,
+      "say": "Steal this prompt: a list of businesses that would pay you.",
+      "show": "Steal this prompt: 20 businesses that would pay you."
+    },
+    {
+      "a": 5.966,
+      "voice": 6.066,
+      "end": 7.391,
+      "b": 7.491,
+      "say": "Type your skill and your area.",
+      "show": "Type your skill and your area."
+    },
+    {
+      "a": 7.491,
+      "voice": 7.591,
+      "end": 11.549,
+      "b": 11.649,
+      "say": "Back come coaching classes, salons, coffee shops, sweet shops, clinics.",
+      "show": "Coaching centres, salons, cafés, sweet shops, clinics."
+    },
+    {
+      "a": 11.649,
+      "voice": 11.749,
+      "end": 13.207,
+      "b": 13.307,
+      "say": "Each with its Google Maps search.",
+      "show": "Each with its Google Maps search."
+    },
+    {
+      "a": 13.307,
+      "voice": 13.407,
+      "end": 14.889,
+      "b": 14.989,
+      "say": "Plus a two-line first message.",
+      "show": "Plus a 2-line first message."
+    },
+    {
+      "a": 14.989,
+      "voice": 15.089,
+      "end": 17.515,
+      "b": 17.615,
+      "say": "No live shop names. You find those on Maps.",
+      "show": "No live shop names. Find them on Maps."
+    },
+    {
+      "a": 17.615,
+      "voice": 17.715,
+      "end": 20.882,
+      "b": 20.982,
+      "say": "The catch: you message lots of people, and most won't reply.",
+      "show": "The catch: 20 messages, most won't reply."
+    },
+    {
+      "a": 20.982,
+      "voice": 21.082,
+      "end": 24.035,
+      "b": 24.135,
+      "say": "Send this to the friend who says there's no work in their city.",
+      "show": "Send to the friend who says there's no work."
+    },
+    {
+      "a": 24.135,
+      "voice": 24.235,
+      "end": 26.582,
+      "b": 27.98,
+      "say": "And comment CLIENT for the full seven-day plan.",
+      "show": "Comment CLIENT for the 7-day plan."
+    }
+  ]
+}

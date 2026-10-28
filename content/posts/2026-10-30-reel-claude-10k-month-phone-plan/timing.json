@@ -1,0 +1,73 @@
+{
+  "dur": 22.6,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.589,
+      "b": 2.689,
+      "say": "Nobody tells you the money plan is the easy part.",
+      "show": "Nobody tells you the ₹10,000 plan is easy."
+    },
+    {
+      "a": 2.689,
+      "voice": 2.789,
+      "end": 5.095,
+      "b": 5.195,
+      "say": "I asked: one month, phone only, an hour a day.",
+      "show": "30 days. Phone only. 1 hour a day."
+    },
+    {
+      "a": 5.195,
+      "voice": 5.295,
+      "end": 8.181,
+      "b": 8.281,
+      "say": "Four cards back: a service, buyers, a price, week one.",
+      "show": "4 cards: service, buyers, price, week 1."
+    },
+    {
+      "a": 8.281,
+      "voice": 8.381,
+      "end": 10.676,
+      "b": 10.776,
+      "say": "The total adds up. A target, not a result.",
+      "show": "₹10,000 total. A target, not a result."
+    },
+    {
+      "a": 10.776,
+      "voice": 10.876,
+      "end": 12.714,
+      "b": 12.814,
+      "say": "That's the plan it wrote, not money I earned.",
+      "show": "Its plan. Not money I earned."
+    },
+    {
+      "a": 12.814,
+      "voice": 12.914,
+      "end": 16.413,
+      "b": 16.513,
+      "say": "The catch: a first buyer usually takes weeks. Fill in real skills.",
+      "show": "The catch: a first buyer takes weeks."
+    },
+    {
+      "a": 16.513,
+      "voice": 16.613,
+      "end": 19.531,
+      "b": 19.631,
+      "say": "Send this to the friend who'd start if they knew where to begin.",
+      "show": "Send this to the friend who'd start."
+    },
+    {
+      "a": 19.631,
+      "voice": 19.731,
+      "end": 21.204,
+      "b": 22.6,
+      "say": "Comment MONEY for the full prompt.",
+      "show": "Comment MONEY for the full prompt."
+    }
+  ]
+}

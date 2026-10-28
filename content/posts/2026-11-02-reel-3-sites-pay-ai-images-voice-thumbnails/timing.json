@@ -1,0 +1,73 @@
+{
+  "dur": 34.09,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.995,
+      "b": 4.095,
+      "say": "Nobody tells you this, but YouTubers pay for AI thumbnails on Fiverr.",
+      "show": "Nobody tells you YouTubers pay for AI thumbnails."
+    },
+    {
+      "a": 4.095,
+      "voice": 4.195,
+      "end": 8.446,
+      "b": 8.546,
+      "say": "Here are three sites that pay you for AI work. Number three's my top pick.",
+      "show": "3 sites that pay. Number 3 is my favourite."
+    },
+    {
+      "a": 8.546,
+      "voice": 8.646,
+      "end": 13.09,
+      "b": 13.19,
+      "say": "One, Adobe Stock. You sell AI images, as long as you mark them as AI.",
+      "show": "1. Adobe Stock: AI images, labelled as AI."
+    },
+    {
+      "a": 13.19,
+      "voice": 13.29,
+      "end": 16.177,
+      "b": 16.277,
+      "say": "Two, Fiverr. You make AI thumbnails for YouTubers.",
+      "show": "2. Fiverr: AI thumbnails for YouTubers."
+    },
+    {
+      "a": 16.277,
+      "voice": 16.377,
+      "end": 20.286,
+      "b": 20.386,
+      "say": "Three, Eleven Labs. You share your own voice clone and earn when people use it.",
+      "show": "3. ElevenLabs Voice Library: your own voice."
+    },
+    {
+      "a": 20.386,
+      "voice": 20.486,
+      "end": 22.956,
+      "b": 23.056,
+      "say": "Nobody else can upload your voice. It's yours.",
+      "show": "Nobody else can upload your voice."
+    },
+    {
+      "a": 23.056,
+      "voice": 23.156,
+      "end": 28.332,
+      "b": 28.432,
+      "say": "Here's the catch. Adobe rejects a lot. Voice pay depends on use. Fiverr's slow at first.",
+      "show": "The catch: rejections, slow orders, pay varies."
+    },
+    {
+      "a": 28.432,
+      "voice": 28.532,
+      "end": 32.691,
+      "b": 34.09,
+      "say": "Got a friend with a radio voice? Send them this. Comment SITES for the full list.",
+      "show": "Send this to your radio-voice friend. Comment SITES."
+    }
+  ]
+}

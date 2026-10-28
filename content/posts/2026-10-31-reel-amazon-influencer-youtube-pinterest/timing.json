@@ -1,0 +1,81 @@
+{
+  "dur": 29.47,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.059,
+      "b": 4.159,
+      "say": "Stop reviewing gadgets for free. Amazon pays commission on Pins.",
+      "show": "Stop reviewing for ₹0. Amazon pays commission."
+    },
+    {
+      "a": 4.159,
+      "voice": 4.259,
+      "end": 9.242,
+      "b": 9.342,
+      "say": "Amazon's Influencer Program pays commission when people buy through your YouTube videos.",
+      "show": "Amazon's Influencer Program: commission on YouTube and Pins."
+    },
+    {
+      "a": 9.342,
+      "voice": 9.442,
+      "end": 11.293,
+      "b": 11.393,
+      "say": "One, pick a category you buy and use.",
+      "show": "1. Pick a category you buy and use."
+    },
+    {
+      "a": 11.393,
+      "voice": 11.493,
+      "end": 13.678,
+      "b": 13.778,
+      "say": "Two, Claude writes a short review script for you.",
+      "show": "2. Claude writes a 20-second review script."
+    },
+    {
+      "a": 13.778,
+      "voice": 13.878,
+      "end": 17.395,
+      "b": 17.495,
+      "say": "Three, get a free AI voice, and make visuals in Canva AI.",
+      "show": "3. Free voice and visuals: ElevenLabs, Canva AI."
+    },
+    {
+      "a": 17.495,
+      "voice": 17.595,
+      "end": 18.751,
+      "b": 18.851,
+      "say": "Four, tag the product.",
+      "show": "4. Tag the product."
+    },
+    {
+      "a": 18.851,
+      "voice": 18.951,
+      "end": 22.288,
+      "b": 22.388,
+      "say": "The catch: commission only. Zero rupees until someone buys.",
+      "show": "The catch: no fixed pay. ₹0 until someone buys."
+    },
+    {
+      "a": 22.388,
+      "voice": 22.488,
+      "end": 26.134,
+      "b": 26.234,
+      "say": "Send this to the friend who reviews every gadget before anyone asks,",
+      "show": "Send this to your gadget-reviewer friend."
+    },
+    {
+      "a": 26.234,
+      "voice": 26.334,
+      "end": 28.068,
+      "b": 29.47,
+      "say": "and comment PRODUCT for the free plan.",
+      "show": "Comment PRODUCT for the free plan."
+    }
+  ]
+}

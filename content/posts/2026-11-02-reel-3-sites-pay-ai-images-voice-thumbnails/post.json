@@ -1,0 +1,127 @@
+{
+  "id": "2026-11-02-reel-3-sites-pay-ai-images-voice-thumbnails",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "space",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|Nobody|YouTubers|Adobe|Fiverr|ElevenLabs|voice|favourite|catch|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4E"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you this, but YouTubers pay for AI thumbnails on Fiverr.",
+      "show": "Nobody tells you YouTubers pay for AI thumbnails.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Here are three sites that pay you for AI work. Number three's my top pick.",
+      "show": "3 sites that pay. Number 3 is my favourite.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One, Adobe Stock. You sell AI images, as long as you mark them as AI.",
+      "show": "1. Adobe Stock: AI images, labelled as AI.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Fiverr. You make AI thumbnails for YouTubers.",
+      "show": "2. Fiverr: AI thumbnails for YouTubers.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, Eleven Labs. You share your own voice clone and earn when people use it.",
+      "show": "3. ElevenLabs Voice Library: your own voice.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Nobody else can upload your voice. It's yours.",
+      "show": "Nobody else can upload your voice.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Here's the catch. Adobe rejects a lot. Voice pay depends on use. Fiverr's slow at first.",
+      "show": "The catch: rejections, slow orders, pay varies.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Got a friend with a radio voice? Send them this. Comment SITES for the full list.",
+      "show": "Send this to your radio-voice friend. Comment SITES.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line6+0.8",
+    "title": [
+      "3 SITES THAT PAY",
+      "FOR WHAT AI MAKES"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

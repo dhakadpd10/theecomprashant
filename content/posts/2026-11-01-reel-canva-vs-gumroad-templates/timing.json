@@ -1,0 +1,81 @@
+{
+  "dur": 28.03,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.817,
+      "b": 2.917,
+      "say": "Canva or Gumroad: only one lets you sell today.",
+      "show": "Canva vs Gumroad: only one sells today."
+    },
+    {
+      "a": 2.917,
+      "voice": 3.017,
+      "end": 4.735,
+      "b": 4.835,
+      "say": "AI templates can earn you rupees.",
+      "show": "AI templates can earn you rupees."
+    },
+    {
+      "a": 4.835,
+      "voice": 4.935,
+      "end": 8.652,
+      "b": 8.752,
+      "say": "Canva Creator: approval first, then pay as Canva's page states.",
+      "show": "Canva Creator: approval first, payout as Canva states."
+    },
+    {
+      "a": 8.752,
+      "voice": 8.852,
+      "end": 12.295,
+      "b": 12.395,
+      "say": "Gumroad: anyone lists today. Its fee is on the pricing page.",
+      "show": "Gumroad: list today. ₹199 is an example."
+    },
+    {
+      "a": 12.395,
+      "voice": 12.495,
+      "end": 14.49,
+      "b": 14.59,
+      "say": "Canva AI designs. Claude writes.",
+      "show": "Canva AI designs. Claude writes."
+    },
+    {
+      "a": 14.59,
+      "voice": 14.69,
+      "end": 17.621,
+      "b": 17.721,
+      "say": "My take: Gumroad this week, Canva after a portfolio.",
+      "show": "My take: Gumroad now, Canva after a portfolio."
+    },
+    {
+      "a": 17.721,
+      "voice": 17.821,
+      "end": 21.183,
+      "b": 21.283,
+      "say": "The catch: neither brings day-one buyers. Canva can reject you.",
+      "show": "The catch: no day-one buyers. Canva can reject."
+    },
+    {
+      "a": 21.283,
+      "voice": 21.383,
+      "end": 24.596,
+      "b": 24.696,
+      "say": "Send this to the friend who makes the best Canva posts in your group,",
+      "show": "Send this to your group's Canva star,"
+    },
+    {
+      "a": 24.696,
+      "voice": 24.796,
+      "end": 26.631,
+      "b": 28.03,
+      "say": "and comment PRODUCT for the weekend plan.",
+      "show": "and comment PRODUCT for the weekend plan."
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "id": "2026-10-30-reel-mother-tongue-ai-training-sites",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "hook": 3,
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Gujarati|Punjabi|paid|Alignerr|Outlier|OpenTrain|catch|Send|SITES|3)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you speaking Gujarati or Punjabi can get you paid.",
+      "show": "Nobody tells you: Gujarati or Punjabi can get you paid.",
+      "card": "YOUR LANGUAGE IS A PAID SKILL",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Three languages, no job? Try these.",
+      "show": "3 languages. No job. Try these.",
+      "card": "One student · 3 languages · 0 job offers",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "The first site pays subject experts to train AI.",
+      "show": "1. Alignerr: experts train AI.",
+      "card": "1 · Alignerr · alignerr.com · AI training by Labelbox · Pay varies · For: domain experts",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Outlier: rate and write AI answers. Pay depends on skill and country.",
+      "show": "2. Outlier: rate and write AI answers.",
+      "card": "2 · Outlier · outlier.ai · Rate and write AI answers · Pay depends on skill and country · For: experts and strong writers",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Open Train: Gujarati, Nepali, Punjabi review roles, and maths.",
+      "show": "3. OpenTrain: Gujarati, Nepali, Punjabi, maths.",
+      "card": "3 · OpenTrain · opentrain.ai/jobs · Remote part-time roles, posted 26 Oct: Gujarati, Nepali, Punjabi language review + a maths expert role · Pay: check the live listing · For: native speakers, maths experts",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: tests to pass, listings close, and Outlier stopped new sign-ups in some places.",
+      "show": "The catch: tests, closing listings, paused sign-ups.",
+      "card": "THE CATCH · Pass their tests · Listings close · Outlier sign-ups paused in some places",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who speaks three languages and still can't find work.",
+      "show": "Send this to your 3-language friend.",
+      "card": "SCREENSHOT · Alignerr: train AI in your subject, for domain experts · Outlier: rate and write AI answers, for experts and writers · OpenTrain: language review and maths roles, for native speakers",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list.",
+      "card": "Full list: SITES",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6+0.2",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "YOUR LANGUAGE IS",
+      "A PAID SKILL"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

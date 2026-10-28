@@ -1,0 +1,214 @@
+<style>
+  /* editorial theme, terracotta-red accent: a scam chat gets stamped, the pattern ticks in, three real site cards, one screenshot card, send, keyword */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E8E0D3 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #blobA { position: absolute; left: -220px; top: 160px; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(168,50,42,0.09) 0%, rgba(168,50,42,0) 70%); }
+  #blobB { position: absolute; left: 560px; top: 820px; width: 820px; height: 820px; border-radius: 50%; background: radial-gradient(circle, rgba(196,150,86,0.13) 0%, rgba(196,150,86,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 92px; line-height: 1.0; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; padding-right: 20px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* chat pieces (hook + send) */
+  .av { position: absolute; left: 28px; top: 18px; width: 48px; height: 48px; border-radius: 50%; background: #D9D2C7; }
+  .av::after { content: ''; position: absolute; left: 15px; top: 9px; width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; }
+  .who { position: absolute; left: 92px; right: 28px; top: 18px; height: 48px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .bub { position: absolute; left: 28px; top: 82px; width: 560px; height: 72px; border-radius: 8px 28px 28px 28px; background: #EFE9DF; display: flex; align-items: center; padding-left: 24px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .ex { position: absolute; left: 28px; right: 28px; top: 166px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: #5E5650; white-space: nowrap; }
+
+  /* 0: hook */
+  #s0-title { top: 60px; font-size: 90px; white-space: nowrap; }
+  #s0-card { left: 90px; right: 90px; top: 210px; height: 220px; }
+  #s0-stamp { position: absolute; left: 640px; top: 250px; width: 280px; height: 120px; box-sizing: border-box; border: 10px solid var(--accent); border-radius: 18px; color: var(--accent); background: rgba(255,255,255,0.55); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 76px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+
+  /* 1-2: the pattern */
+  #s1-card { top: 360px; height: 520px; }
+  .prow { position: absolute; left: 24px; right: 24px; height: 128px; border-radius: 24px; background: #F6F1E8; }
+  .prow .tk { position: absolute; left: 22px; top: 34px; width: 60px; height: 60px; border-radius: 50%; background: var(--ink); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  .prow .pt { position: absolute; left: 104px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.25; color: var(--ink); }
+  #s1-r1 { top: 24px; } #s1-r2 { top: 164px; } #s1-r3 { top: 304px; }
+  #s1-src { position: absolute; left: 28px; right: 24px; top: 454px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: #5E5650; white-space: nowrap; }
+  #s2-chip { position: absolute; left: 360px; right: 90px; top: 905px; height: 84px; border-radius: 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 3-5: one site card each */
+  .site { top: 360px; height: 600px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 22px; height: 52px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E5650; display: flex; align-items: center; padding-left: 26px; }
+  .num { position: absolute; left: 36px; top: 124px; width: 80px; height: 80px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  .name { position: absolute; left: 136px; right: 30px; top: 116px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; line-height: 1.3; color: var(--ink); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 108px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 26px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; color: #6B625A; }
+  .row .v { position: absolute; left: 26px; right: 20px; top: 52px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .r1 { top: 230px; } .r2 { top: 350px; } .r3 { top: 470px; }
+  .r3 { background: #F6DAD4; } .r3 .v { color: #7A1F18; } .r3 .k { color: #7A1F18; }
+  #s5-chip { position: absolute; left: 360px; top: 985px; width: 380px; height: 80px; border-radius: 40px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 6-7: the screenshot card */
+  #s6-title { top: 80px; white-space: nowrap; }
+  #s6-step { top: 40px; }
+  #s6-card { top: 210px; height: 956px; }
+  .ch { position: absolute; left: 30px; right: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.12em; white-space: nowrap; }
+  #s6-h1 { top: 24px; color: var(--accent); }
+  #s6-h2 { top: 304px; color: var(--ink); }
+  .fl { position: absolute; left: 30px; right: 30px; height: 46px; display: flex; align-items: center; padding-left: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .fl::before, .fl::after { content: ''; position: absolute; left: 13px; top: 9px; width: 5px; height: 28px; border-radius: 3px; background: var(--accent); }
+  .fl::before { rotate: 45deg; } .fl::after { rotate: -45deg; }
+  #f1 { top: 72px; } #f2 { top: 122px; } #f3 { top: 172px; } #f4 { top: 222px; }
+  #s6-div { position: absolute; left: 30px; right: 30px; top: 284px; height: 3px; background: #EDE6DA; }
+  .sr { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 20px; background: #F6F1E8; }
+  .sr .a { position: absolute; left: 22px; right: 16px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .sr .a em { font-style: normal; font-weight: 400; color: #5E5650; margin-left: 10px; }
+  .sr .p { position: absolute; left: 22px; right: 16px; top: 52px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #sr1 { top: 352px; } #sr2 { top: 462px; } #sr3 { top: 572px; }
+  #s6-catch { position: absolute; left: 30px; right: 30px; top: 688px; height: 112px; border-radius: 20px; background: #F6DAD4; display: flex; align-items: center; padding: 0 24px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.25; color: #7A1F18; }
+  #s6-fraud { position: absolute; left: 30px; right: 30px; top: 816px; height: 116px; border-radius: 20px; background: var(--ink); }
+  #s6-phone { position: absolute; left: 24px; top: 34px; width: 48px; height: 48px; display: block; transform-origin: 50% 50%; }
+  #s6-ftxt { position: absolute; left: 92px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.25; color: #F3EEE5; }
+  #s6-ftxt b { color: #F2A57F; font-weight: 900; }
+
+  /* 8: send */
+  #s8-chat { top: 360px; height: 230px; }
+  #s8-strike { position: absolute; left: 16px; top: 114px; width: 584px; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+  #s8-arrow { position: absolute; left: 620px; top: 640px; width: 220px; height: 180px; display: block; }
+  #s8-who { position: absolute; left: 360px; right: 90px; top: 860px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #5E5650; }
+
+  /* 9: keyword */
+  #s9-title { top: 100px; font-size: 150px; }
+  #s9-mark { position: absolute; left: 560px; top: 120px; width: 120px; height: 170px; display: block; }
+  #s9-pill { position: absolute; left: 360px; right: 90px; top: 420px; height: 230px; border-radius: 60px; background: var(--ink); }
+  #s9-c { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.24em; color: #F3EEE5; }
+  #s9-kw { position: absolute; left: 0; right: 0; top: 78px; height: 130px; display: flex; justify-content: center; align-items: center; gap: 4px; }
+  #s9-kw i { display: block; font-style: normal; font-family: var(--display); font-size: 120px; line-height: 1; color: #F2A57F; }
+  #s9-free { position: absolute; left: 820px; top: 378px; width: 150px; height: 80px; border-radius: 40px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s9-sub { position: absolute; left: 360px; right: 90px; top: 690px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div id="blobA"></div>
+<div id="blobB"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop paying <span class="it">₹999.</span></span></span></div>
+  <div class="card" id="s0-card">
+    <div class="av"></div>
+    <div class="who">Unknown number</div>
+    <div class="bub" id="s0-bub">Pay ₹999 to unlock VIP tasks</div>
+    <div class="ex" id="s0-ex">example scam message</div>
+  </div>
+  <div id="s0-stamp" data-layout-allow-overlap>STOP</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">HOW THE SCAM WORKS</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">pattern.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1c" data-from="@line1" data-to="@line3">
+  <div class="card" id="s1-card">
+    <div class="prow" id="s1-r1"><div class="tk">1</div><div class="pt">Paid task: like or review</div></div>
+    <div class="prow" id="s1-r2"><div class="tk">2</div><div class="pt">Prepaid task or Telegram VIP fee</div></div>
+    <div class="prow" id="s1-r3"><div class="tk">3</div><div class="pt">Open a bank account or give your SIM</div></div>
+    <div id="s1-src">Pattern from cyber-fraud warnings</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE NEW TWIST</div>
+  <div class="title"><span class="mask"><span class="l">Money <span class="it">mule.</span></span></span></div>
+  <div id="s2-chip">Your account moves their money</div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">SITE 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Real sites</span></span><span class="mask"><span class="l it">never charge.</span></span></div>
+  <div class="card site" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">outlier.ai</div></div>
+    <div class="num">1</div><div class="name">Outlier</div>
+    <div class="row r1"><div class="k">WHAT</div><div class="v">Write and rate AI answers</div></div>
+    <div class="row r2"><div class="k">FOR</div><div class="v">Experts and strong writers</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Depends on skill and country</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">SITE 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Made for</span></span><span class="mask"><span class="l it">experts.</span></span></div>
+  <div class="card site" id="s4-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">alignerr.com</div></div>
+    <div class="num">2</div><div class="name">Alignerr</div>
+    <div class="row r1"><div class="k">WHAT</div><div class="v">AI training by Labelbox</div></div>
+    <div class="row r2"><div class="k">FOR</div><div class="v">Domain experts</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Varies</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">SITE 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Pay shown</span></span><span class="mask"><span class="l it">upfront.</span></span></div>
+  <div class="card site" id="s5-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">prolific.com</div></div>
+    <div class="num">3</div><div class="name">Prolific</div>
+    <div class="row r1"><div class="k">WHAT</div><div class="v">Paid studies, some about AI</div></div>
+    <div class="row r2"><div class="k">FOR</div><div class="v">Anyone with spare minutes</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Shown before you start</div></div>
+  </div>
+  <div id="s5-chip">No joining fee</div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step" id="s6-step">THE CATCH</div>
+  <div class="title" id="s6-title"><span class="mask"><span class="l">Save <span class="it">this.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="ch" id="s6-h1">RED FLAGS</div>
+    <div class="fl" id="f1">A joining fee</div>
+    <div class="fl" id="f2">A prepaid task</div>
+    <div class="fl" id="f3">A Telegram VIP group</div>
+    <div class="fl" id="f4">Asks for your bank or SIM</div>
+    <div id="s6-div"></div>
+    <div class="ch" id="s6-h2">3 REAL SITES</div>
+    <div class="sr" id="sr1"><div class="a">Outlier<em>outlier.ai</em></div><div class="p">Pay depends on skill and country</div></div>
+    <div class="sr" id="sr2"><div class="a">Alignerr<em>alignerr.com</em></div><div class="p">Labelbox, for domain experts</div></div>
+    <div class="sr" id="sr3"><div class="a">Prolific<em>prolific.com</em></div><div class="p">Pay shown before you start</div></div>
+    <div id="s6-catch">The catch: tests, waitlists, pay varies by country.</div>
+    <div id="s6-fraud">
+      <svg id="s6-phone" viewBox="0 0 48 48"><path d="M14 6c2 0 3 1 4 3l3 7c.5 1.5 0 3-1 4l-3 2c2 4 6 8 10 10l2-3c1-1 2.5-1.5 4-1l7 3c2 1 3 2 3 4v5c0 2-2 4-4 4C20 44 4 28 4 10c0-2 2-4 4-4z" fill="#F2A57F"></path></svg>
+      <div id="s6-ftxt"><span>Fraud? Call <b>1930</b> or cybercrime.gov.in</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">TO ONE FRIEND</div>
+  <div class="title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div class="card" id="s8-chat">
+    <div class="av"></div>
+    <div class="who">Unknown number</div>
+    <div class="bub" id="s8-bub">Pay ₹999 to unlock VIP tasks</div>
+    <div id="s8-strike" data-layout-allow-overlap></div>
+    <div class="ex">example scam message</div>
+  </div>
+  <svg id="s8-arrow" viewBox="0 0 220 180"><path d="M120 20 L210 90 L120 160 L120 118 C70 116 36 132 10 168 C18 104 52 66 120 62 Z" fill="#A8322A"></path></svg>
+  <div id="s8-who">to the friend who got this</div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="title" id="s9-title"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s9-mark" viewBox="0 0 120 170"><path d="M10 10 H110 V160 L60 122 L10 160 Z" fill="#A8322A"></path></svg>
+  <div id="s9-pill">
+    <div id="s9-c">COMMENT</div>
+    <div id="s9-kw"><i>S</i><i>I</i><i>T</i><i>E</i><i>S</i></div>
+  </div>
+  <div id="s9-free" data-layout-allow-overlap>FREE</div>
+  <div id="s9-sub">The full list + prompt</div>
+</section>

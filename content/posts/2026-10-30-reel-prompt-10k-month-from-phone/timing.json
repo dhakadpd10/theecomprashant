@@ -1,0 +1,81 @@
+{
+  "dur": 27.84,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.362,
+      "b": 3.462,
+      "say": "You don't need a laptop or one rupee to make this money plan.",
+      "show": "No laptop. No ₹1. Just a phone."
+    },
+    {
+      "a": 3.462,
+      "voice": 3.562,
+      "end": 6.888,
+      "b": 6.988,
+      "say": "A side income plan for this month, from one prompt on my phone.",
+      "show": "A ₹10,000 plan this month. One prompt."
+    },
+    {
+      "a": 6.988,
+      "voice": 7.088,
+      "end": 10.588,
+      "b": 10.688,
+      "say": "Rewind. Skills, free hours, phone only, zero to invest, city.",
+      "show": "Rewind: skills, hours, phone, ₹0, city."
+    },
+    {
+      "a": 10.688,
+      "voice": 10.788,
+      "end": 12.684,
+      "b": 12.784,
+      "say": "One: AI reels for local shops.",
+      "show": "1. AI reels for local shops."
+    },
+    {
+      "a": 12.784,
+      "voice": 12.884,
+      "end": 14.634,
+      "b": 14.734,
+      "say": "Two: freelance writing on Internshala.",
+      "show": "2. Freelance writing on Internshala."
+    },
+    {
+      "a": 14.734,
+      "voice": 14.834,
+      "end": 16.713,
+      "b": 16.813,
+      "say": "Three: a paid study guide for juniors.",
+      "show": "3. A Topmate guide for juniors."
+    },
+    {
+      "a": 16.813,
+      "voice": 16.913,
+      "end": 20.862,
+      "b": 20.962,
+      "say": "The catch: it's a plan, not money. First rupee takes weeks. Results vary.",
+      "show": "The catch: a plan, not money. Results vary."
+    },
+    {
+      "a": 20.962,
+      "voice": 21.062,
+      "end": 24.536,
+      "b": 24.636,
+      "say": "Send this to the friend who keeps saying I'll start something next month.",
+      "show": "Send this to the 'next month' friend."
+    },
+    {
+      "a": 24.636,
+      "voice": 24.736,
+      "end": 26.436,
+      "b": 27.84,
+      "say": "And comment MONEY for the full prompt.",
+      "show": "Comment MONEY for the full prompt."
+    }
+  ]
+}

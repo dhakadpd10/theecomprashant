@@ -1,0 +1,244 @@
+<style>
+  /* editorial theme, deep green accent. One idea: a menu poster is a service you can sell to a local shop. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blobA { left: -260px; top: 160px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(47,107,79,0.10) 0%, rgba(47,107,79,0) 70%); }
+  #blobB { left: 420px; top: 820px; width: 960px; height: 960px; background: radial-gradient(circle, rgba(200,150,90,0.12) 0%, rgba(200,150,90,0) 70%); }
+
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 14px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* the menu poster (example) */
+  .poster { position: absolute; display: block; border-radius: 28px; background: var(--accent); box-shadow: 0 30px 70px rgba(30,60,40,0.22); }
+  .poster .ph { position: absolute; left: 30px; right: 30px; font-family: 'Playfair Display', serif; font-weight: 700; color: #F3EEE5; white-space: nowrap; }
+  .poster .pd { position: absolute; left: 30px; right: 30px; height: 3px; background: #CFE0D5; }
+  .poster .pr { position: absolute; left: 30px; right: 30px; display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; color: #F3EEE5; white-space: nowrap; }
+  .poster .ptag { position: absolute; left: 30px; border: 3px solid #F3EEE5; color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; }
+
+  /* 0: hook (host centre, content above y 560) */
+  #s0-step { top: 40px; }
+  #s0-title { top: 100px; right: auto; width: 440px; font-size: 96px; transform-origin: left top; }
+  #s0-poster { left: 560px; top: 40px; width: 400px; height: 390px; }
+  #s0-poster .ph { top: 26px; font-size: 36px; }
+  #s0-poster .pd { top: 86px; }
+  #s0-poster .pr { height: 44px; font-size: 30px; }
+  #s0-r1 { top: 108px; } #s0-r2 { top: 163px; } #s0-r3 { top: 218px; }
+  #s0-tag { top: 300px; width: 184px; height: 52px; border-radius: 26px; font-size: 30px; }
+
+  /* 1: the service */
+  #s1-poster { left: 380px; top: 440px; width: 540px; height: 560px; }
+  #s1-poster .ph { left: 40px; top: 40px; font-size: 52px; }
+  #s1-poster .pd { left: 40px; right: 40px; top: 122px; }
+  #s1-poster .pr { left: 40px; right: 40px; height: 50px; font-size: 36px; }
+  #s1-r1 { top: 150px; } #s1-r2 { top: 214px; } #s1-r3 { top: 278px; } #s1-r4 { top: 342px; }
+  #s1-tag { left: 40px; top: 440px; width: 230px; height: 60px; border-radius: 30px; font-size: 36px; }
+  #s1-stamp { position: absolute; left: 560px; top: 960px; width: 380px; height: 130px; box-sizing: border-box; border: 8px solid var(--accent); border-radius: 22px; background: #FBF8F2; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 52px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 2: the news card */
+  #s2-card { top: 470px; height: 696px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  #s2-url { position: absolute; left: 132px; right: 30px; top: 18px; height: 60px; border-radius: 30px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #6B635B; display: flex; align-items: center; padding-left: 26px; }
+  .nrow { position: absolute; left: 36px; right: 36px; height: 96px; border-radius: 24px; background: #F6F1E8; }
+  .nrow .k { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.08em; color: #6B635B; white-space: nowrap; }
+  .nrow .v { position: absolute; right: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s2-r1 { top: 126px; } #s2-r2 { top: 238px; } #s2-r3 { top: 350px; } #s2-r4 { top: 462px; } #s2-r5 { top: 574px; }
+  #s2-r4 { background: #DDEBE2; } #s2-r4 .v { color: var(--accent); }
+
+  /* 3: step 1, the camera */
+  #s3-cam { top: 470px; height: 640px; background: var(--ink); }
+  #s3-board { position: absolute; left: 60px; right: 60px; top: 60px; height: 400px; border-radius: 18px; background: #3A3631; }
+  #s3-board .mk { position: absolute; left: 40px; width: 440px; font-family: 'Permanent Marker', cursive; font-size: 36px; color: #F3EEE5; white-space: nowrap; }
+  #s3-m1 { top: 40px; } #s3-m2 { top: 110px; } #s3-m3 { top: 180px; }
+  #s3-mtag { position: absolute; left: 40px; top: 300px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.12em; color: #CFC6B8; }
+  #s3-frame { position: absolute; display: block; left: 30px; right: 30px; top: 30px; height: 460px; }
+  .br { position: absolute; width: 70px; height: 70px; border: 0 solid #F3EEE5; }
+  .b1 { left: 0; top: 0; border-top-width: 6px; border-left-width: 6px; border-top-left-radius: 14px; }
+  .b2 { right: 0; top: 0; border-top-width: 6px; border-right-width: 6px; border-top-right-radius: 14px; }
+  .b3 { left: 0; bottom: 0; border-bottom-width: 6px; border-left-width: 6px; border-bottom-left-radius: 14px; }
+  .b4 { right: 0; bottom: 0; border-bottom-width: 6px; border-right-width: 6px; border-bottom-right-radius: 14px; }
+  #s3-shut { position: absolute; display: block; left: 275px; top: 510px; width: 110px; height: 110px; box-sizing: border-box; border-radius: 55px; background: #F3EEE5; border: 10px solid #6B635B; }
+  #s3-flash { position: absolute; display: block; left: 0; right: 0; top: 0; bottom: 0; border-radius: 36px; background: #FFFFFF; opacity: 0; }
+
+  /* 4: step 2, three posters */
+  #s4-card { top: 470px; height: 520px; }
+  #s4-field { position: absolute; left: 36px; right: 36px; top: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  #s4-type { position: absolute; left: 28px; top: 0; bottom: 0; width: 520px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .tile { position: absolute; display: block; top: 180px; width: 180px; height: 294px; }
+  #s4-t1 { left: 36px; } #s4-t2 { left: 240px; } #s4-t3 { left: 444px; }
+  .art { position: absolute; left: 0; right: 0; top: 0; height: 240px; border-radius: 20px; overflow: hidden; }
+  #s4-t1 .art { background: var(--accent); }
+  #s4-t2 .art { background: #C8552B; }
+  #s4-t3 .art { background: #4A2C5A; }
+  .ab { position: absolute; left: 22px; height: 12px; border-radius: 6px; background: #F3EEE5; }
+  .ab.h { height: 26px; border-radius: 8px; }
+  .disc { position: absolute; left: 40px; top: 40px; width: 100px; height: 100px; border-radius: 50%; background: #F3EEE5; }
+  .diya { position: absolute; left: 30px; top: 40px; width: 120px; height: 140px; }
+  .tile .tl { position: absolute; left: 0; right: 0; top: 250px; height: 44px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 44px; color: var(--ink); white-space: nowrap; }
+
+  /* 5: step 3, WhatsApp */
+  #s5-chat { top: 470px; height: 560px; background: #EFE7DC; }
+  #s5-head { position: absolute; left: 0; right: 0; top: 0; height: 110px; background: var(--accent); }
+  #s5-av { position: absolute; left: 28px; top: 23px; width: 64px; height: 64px; border-radius: 50%; background: #F3EEE5; }
+  #s5-name { position: absolute; left: 112px; right: 30px; top: 0; height: 110px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #F3EEE5; white-space: nowrap; }
+  #s5-bub { position: absolute; display: block; right: 30px; top: 150px; width: 520px; height: 350px; border-radius: 28px 8px 28px 28px; background: #DCEFE3; box-shadow: 0 8px 20px rgba(30,60,40,0.10); transform-origin: right top; }
+  .th { position: absolute; display: block; top: 20px; width: 140px; height: 140px; border-radius: 14px; }
+  #s5-th1 { left: 20px; background: var(--accent); }
+  #s5-th2 { left: 176px; background: #C8552B; }
+  #s5-th3 { left: 332px; background: #4A2C5A; }
+  .th i { position: absolute; left: 18px; right: 18px; top: 22px; height: 20px; border-radius: 6px; background: #F3EEE5; }
+  #s5-msg { position: absolute; left: 24px; right: 24px; top: 182px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.22; color: var(--ink); }
+  #s5-tick { position: absolute; right: 24px; top: 296px; width: 60px; height: 34px; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 306px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 30px; right: 290px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .chip { position: absolute; display: flex; right: 20px; top: 24px; width: 250px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.04em; align-items: center; justify-content: center; white-space: nowrap; }
+  #s6-k1 { top: 36px; } #s6-k2 { top: 160px; }
+
+  /* 7: send + keyword */
+  #s7-send { top: 140px; font-size: 120px; right: auto; width: 620px; }
+  #s7-plane { position: absolute; display: block; left: 720px; top: 120px; width: 200px; height: 160px; }
+  #s7-who { position: absolute; left: 90px; right: 90px; top: 300px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #6B635B; }
+  #s7-card { top: 400px; height: 340px; }
+  #s7-word { position: absolute; left: 36px; right: 36px; top: 50px; height: 150px; display: flex; justify-content: center; align-items: center; }
+  #s7-word .lt { display: block; font-family: var(--display); font-size: 120px; line-height: 150px; color: var(--accent); }
+  #s7-sub { position: absolute; left: 36px; right: 36px; top: 236px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #6B635B; }
+  #s7-mark { position: absolute; display: block; left: 380px; top: 795px; width: 70px; height: 100px; }
+  #s7-save { position: absolute; display: block; left: 480px; top: 780px; width: 420px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1; color: var(--ink); }
+  #s7-pill { position: absolute; display: flex; left: 360px; right: 60px; top: 950px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; align-items: center; justify-content: center; white-space: nowrap; }
+  #s7-pill b { color: #9FD3B5; margin-left: 14px; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blobA"></div>
+<div class="blob" id="blobB"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">FIRST CLIENT</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Good at</span></span><span class="mask"><span class="l it">Canva.</span></span><span class="mask"><span class="l" id="s0-broke">Broke.</span></span></div>
+  <div class="poster" id="s0-poster">
+    <div class="ph">Chai Corner</div>
+    <div class="pd"></div>
+    <div class="pr" id="s0-r1"><span>Masala chai</span><span>₹15</span></div>
+    <div class="pr" id="s0-r2"><span>Bun maska</span><span>₹25</span></div>
+    <div class="pr" id="s0-r3"><span>Samosa</span><span>₹15</span></div>
+    <div class="ptag" id="s0-tag">EXAMPLE</div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE SERVICE</div>
+  <div class="title"><span class="mask"><span class="l">Sell it to a</span></span><span class="mask"><span class="l it">local shop.</span></span></div>
+  <div class="poster" id="s1-poster">
+    <div class="ph">Chai Corner</div>
+    <div class="pd"></div>
+    <div class="pr" id="s1-r1"><span>Masala chai</span><span>₹15</span></div>
+    <div class="pr" id="s1-r2"><span>Ginger chai</span><span>₹20</span></div>
+    <div class="pr" id="s1-r3"><span>Bun maska</span><span>₹25</span></div>
+    <div class="pr" id="s1-r4"><span>Samosa</span><span>₹15</span></div>
+    <div class="ptag" id="s1-tag">EXAMPLE</div>
+  </div>
+  <div id="s1-stamp" data-layout-allow-overlap>FOR HIRE</div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">NEWS · 22 OCT</div>
+  <div class="title"><span class="mask"><span class="l">Canva's new</span></span><span class="mask"><span class="l">model: <span class="it">Craft.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div id="s2-url">canva.com</div></div>
+    <div class="nrow" id="s2-r1"><div class="k">DATE</div><div class="v">22 Oct</div></div>
+    <div class="nrow" id="s2-r2"><div class="k">MODEL</div><div class="v">Craft</div></div>
+    <div class="nrow" id="s2-r3"><div class="k">WHERE</div><div class="v">Dream Lab</div></div>
+    <div class="nrow" id="s2-r4"><div class="k">WHO</div><div class="v">All users</div></div>
+    <div class="nrow" id="s2-r5"><div class="k">OUTPUT</div><div class="v">Up to 2K</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Photograph</span></span><span class="mask"><span class="l">their <span class="it">menu.</span></span></span></div>
+  <div class="card" id="s3-cam">
+    <div id="s3-board">
+      <div class="mk" id="s3-m1">Chai ₹15</div>
+      <div class="mk" id="s3-m2">Samosa ₹15</div>
+      <div class="mk" id="s3-m3">Poha ₹30</div>
+      <div id="s3-mtag">EXAMPLE</div>
+    </div>
+    <div id="s3-frame" data-layout-allow-overlap><i class="br b1"></i><i class="br b2"></i><i class="br b3"></i><i class="br b4"></i></div>
+    <div id="s3-shut"></div>
+    <div id="s3-flash" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Ask Craft</span></span><span class="mask"><span class="l">for <span class="it">three.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-field"><div id="s4-type">Menu, offer, festival</div></div>
+    <div class="tile" id="s4-t1">
+      <div class="art"><i class="ab h" style="top:28px;width:110px;"></i><i class="ab" style="top:84px;width:136px;"></i><i class="ab" style="top:116px;width:120px;"></i><i class="ab" style="top:148px;width:136px;"></i><i class="ab" style="top:180px;width:100px;"></i></div>
+      <div class="tl">Menu</div>
+    </div>
+    <div class="tile" id="s4-t2">
+      <div class="art"><i class="disc"></i><i class="ab h" style="top:170px;width:136px;"></i></div>
+      <div class="tl">Offer</div>
+    </div>
+    <div class="tile" id="s4-t3">
+      <div class="art"><svg class="diya" viewBox="0 0 120 140"><path d="M60 10 C76 36 80 54 60 72 C40 54 44 36 60 10 Z" fill="#F2C14E"></path><path d="M14 92 L106 92 C100 120 82 132 60 132 C38 132 20 120 14 92 Z" fill="#F3EEE5"></path></svg></div>
+      <div class="tl">Festival</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Send on</span></span><span class="mask"><span class="l it">WhatsApp.</span></span></div>
+  <div class="card" id="s5-chat">
+    <div id="s5-head"><div id="s5-av"></div><div id="s5-name">Your client</div></div>
+    <div id="s5-bub">
+      <div class="th" id="s5-th1"><i></i></div>
+      <div class="th" id="s5-th2"><i></i></div>
+      <div class="th" id="s5-th3"><i></i></div>
+      <div id="s5-msg">Made these for your shop.</div>
+      <svg id="s5-tick" viewBox="0 0 60 34"><path d="M4 18 L14 28 L34 6" fill="none" stroke="#2F6B4F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M24 26 L26 28 L52 6" fill="none" stroke="#2F6B4F" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Two honest</span></span><span class="mask"><span class="l it">limits.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="crow" id="s6-k1"><div class="t">Free limit</div><div class="chip" id="s6-c1">UNKNOWN</div></div>
+    <div class="crow" id="s6-k2"><div class="t">Walking in</div><div class="chip" id="s6-c2">HARD</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="step">FREE POSTER KIT</div>
+  <div class="title" id="s7-send"><span class="mask"><span class="l">Send this.</span></span></div>
+  <svg id="s7-plane" viewBox="0 0 200 160"><path d="M8 78 L192 8 L150 152 L98 106 Z" fill="#2F6B4F"></path><path d="M98 106 L192 8 L82 92 L84 142 Z" fill="#1F4A36"></path></svg>
+  <div id="s7-who">to a broke Canva friend</div>
+  <div class="card" id="s7-card">
+    <div id="s7-word"><span class="lt">P</span><span class="lt">O</span><span class="lt">S</span><span class="lt">T</span><span class="lt">E</span><span class="lt">R</span></div>
+    <div id="s7-sub">Canva prompts for any shop</div>
+  </div>
+  <svg id="s7-mark" viewBox="0 0 70 100"><path d="M4 4 H66 V96 L35 72 L4 96 Z" fill="#2F6B4F"></path></svg>
+  <div id="s7-save">Save.</div>
+  <div id="s7-pill">Comment <b>POSTER</b></div>
+</section>

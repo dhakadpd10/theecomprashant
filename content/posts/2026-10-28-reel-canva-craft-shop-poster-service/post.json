@@ -1,0 +1,128 @@
+{
+  "id": "2026-10-28-reel-canva-craft-shop-poster-service",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "news",
+  "hook": 14,
+  "keyword": "POSTER",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Canva|Craft|broke|client|shop|2K|WhatsApp|catch|Send|POSTER|free)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Good at Canva and broke? This menu is your first client.",
+      "show": "Good at Canva and broke? Your first client.",
+      "card": "GOOD AT CANVA. BROKE.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "This menu poster is a service a local shop can pay you for.",
+      "show": "A local shop can pay you for this.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Canva's new image model, Craft, is in Dream Lab for all users.",
+      "show": "22 Oct: Canva Craft. Dream Lab, all users. Up to 2K.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one: photograph their menu.",
+      "show": "1. Photograph their menu.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, ask Craft for a menu, offer post and festival poster.",
+      "show": "2. Craft: menu, offer post, festival poster.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Last, WhatsApp them all with one line.",
+      "show": "3. Send on WhatsApp with one line.",
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The catch: free limits aren't public, and walking in is hard.",
+      "show": "The catch: free limit unknown. Walking in is hard.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who's good at Canva and broke. Comment POSTER.",
+      "show": "Send this to a broke Canva friend. Comment POSTER.",
+      "card": "POSTER",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "SELL THIS POSTER",
+      "TO SHOPS NEAR YOU"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

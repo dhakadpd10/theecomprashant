@@ -1,0 +1,89 @@
+{
+  "dur": 35.52,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.352,
+      "b": 4.452,
+      "say": "You paid almost a thousand rupees to join an AI task job? Stop.",
+      "show": "Paid ₹999 to join an AI task job? Stop."
+    },
+    {
+      "a": 4.452,
+      "voice": 4.552,
+      "end": 8.868,
+      "b": 8.968,
+      "say": "It's small tasks first, then a VIP fee, then they want your bank or SIM.",
+      "show": "Small tasks, a VIP fee, then bank or SIM."
+    },
+    {
+      "a": 8.968,
+      "voice": 9.068,
+      "end": 10.263,
+      "b": 10.363,
+      "say": "That makes you a money mule.",
+      "show": "That's a money mule."
+    },
+    {
+      "a": 10.363,
+      "voice": 10.463,
+      "end": 14.425,
+      "b": 14.525,
+      "say": "Real sites never charge you. Outlier pays by your skill and country.",
+      "show": "Real sites never charge. Outlier: skill and country."
+    },
+    {
+      "a": 14.525,
+      "voice": 14.625,
+      "end": 18.58,
+      "b": 18.68,
+      "say": "Next site is made for domain experts, backed by a big AI company.",
+      "show": "Alignerr by Labelbox: for domain experts."
+    },
+    {
+      "a": 18.68,
+      "voice": 18.78,
+      "end": 20.709,
+      "b": 20.809,
+      "say": "On Prolific, you'll see the pay upfront.",
+      "show": "Prolific: pay shown upfront."
+    },
+    {
+      "a": 20.809,
+      "voice": 20.909,
+      "end": 24.962,
+      "b": 25.062,
+      "say": "Here's the catch: you'll take tests, you may have to wait, and pay varies by country.",
+      "show": "The catch: tests, waitlists, pay varies by country."
+    },
+    {
+      "a": 25.062,
+      "voice": 25.162,
+      "end": 28.305,
+      "b": 28.405,
+      "say": "If you've been scammed, call nineteen thirty, the number on screen.",
+      "show": "Scammed? Call 1930 or cybercrime.gov.in."
+    },
+    {
+      "a": 28.405,
+      "voice": 28.505,
+      "end": 31.856,
+      "b": 31.956,
+      "say": "Send this to your friend who just got that job message on WhatsApp.",
+      "show": "Send this to the friend with that WhatsApp job."
+    },
+    {
+      "a": 31.956,
+      "voice": 32.056,
+      "end": 34.116,
+      "b": 35.52,
+      "say": "Comment SITES and I'll send you the full list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

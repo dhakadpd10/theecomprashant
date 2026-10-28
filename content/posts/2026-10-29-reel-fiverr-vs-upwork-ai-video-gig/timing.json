@@ -1,0 +1,89 @@
+{
+  "dur": 36.29,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.407,
+      "b": 3.507,
+      "say": "Stop editing reels for free. Fiverr's got buyers for this.",
+      "show": "Stop editing reels for free. Fiverr has buyers."
+    },
+    {
+      "a": 3.507,
+      "voice": 3.607,
+      "end": 8.14,
+      "b": 8.24,
+      "say": "Here's the gig: half-minute reels. Claude script, free app edit, zero rupees.",
+      "show": "Sell 30-sec reels: Claude script, CapCut edit, ₹0."
+    },
+    {
+      "a": 8.24,
+      "voice": 8.34,
+      "end": 11.366,
+      "b": 11.466,
+      "say": "Coffee shops, coaches, small brands. They'll pay for these.",
+      "show": "Buyers: cafés, coaches, small brands."
+    },
+    {
+      "a": 11.466,
+      "voice": 11.566,
+      "end": 15.302,
+      "b": 15.402,
+      "say": "Example: one and a half thousand rupees a reel. That's two hours of work.",
+      "show": "Example: ₹1,500 a reel, 2 hours each."
+    },
+    {
+      "a": 15.402,
+      "voice": 15.502,
+      "end": 18.309,
+      "b": 18.409,
+      "say": "On Fiverr, buyers find you. It's free to post a gig.",
+      "show": "Fiverr: buyers find you. Free to list."
+    },
+    {
+      "a": 18.409,
+      "voice": 18.509,
+      "end": 21.224,
+      "b": 21.324,
+      "say": "On Upwork, you're the one applying, and Connects cost money.",
+      "show": "Upwork: you apply. Connects cost money."
+    },
+    {
+      "a": 21.324,
+      "voice": 21.424,
+      "end": 23.812,
+      "b": 23.912,
+      "say": "If you'd rather wait, Fiverr. If you'll pitch, Upwork.",
+      "show": "Waiting type: Fiverr. Pitching type: Upwork."
+    },
+    {
+      "a": 23.912,
+      "voice": 24.012,
+      "end": 27.501,
+      "b": 27.601,
+      "say": "This week, I'd make one sample reel and pitch three coffee shops.",
+      "show": "This week: 1 sample, 3 café pitches."
+    },
+    {
+      "a": 27.601,
+      "voice": 27.701,
+      "end": 31.237,
+      "b": 31.337,
+      "say": "The catch: with zero reviews, it'll take weeks. And both take a cut.",
+      "show": "Catch: weeks with 0 reviews. Both take a cut."
+    },
+    {
+      "a": 31.337,
+      "voice": 31.437,
+      "end": 34.892,
+      "b": 36.29,
+      "say": "Send this to the friend who's editing reels for free. Comment GIG.",
+      "show": "Send this to a friend. Comment GIG."
+    }
+  ]
+}

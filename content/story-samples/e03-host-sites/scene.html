@@ -1,0 +1,124 @@
+<style>
+  /* editorial theme: warm paper, ink, one terracotta accent, serif titles with an italic accent word, one clean website card per beat */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* 0: hook */
+  #s0-step { top: 110px; }
+  #s0-title { top: 170px; font-size: 128px; }
+
+  /* 1-3: one website card each */
+  .site { top: 470px; height: 620px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 22px; height: 52px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.6); display: flex; align-items: center; padding-left: 26px; }
+  .num { position: absolute; left: 36px; top: 132px; width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; }
+  .name { position: absolute; left: 150px; right: 30px; top: 122px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 84px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 102px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 28px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.14em; color: rgba(30,26,22,0.45); }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .r1 { top: 262px; } .r2 { top: 378px; } .r3 { top: 494px; }
+  .r3 { background: #F7E1D6; } .r3 .v { color: #7A2E12; }
+
+  /* 4: the catch */
+  #s4-card { top: 470px; height: 300px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 30px; right: 200px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 24px; width: 160px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #k1 { top: 36px; } #k2 { top: 160px; }
+
+  /* 5: never pay to join */
+  #ticket { position: absolute; left: 400px; right: 100px; top: 480px; height: 300px; border-radius: 30px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14); border: 4px dashed rgba(30,26,22,0.18); }
+  #ticket .k { position: absolute; left: 40px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: rgba(30,26,22,0.45); }
+  #ticket .v { position: absolute; left: 40px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; color: var(--ink); }
+  #stamp { position: absolute; left: 520px; top: 560px; width: 340px; height: 140px; border: 10px solid #C0392B; border-radius: 20px; color: #C0392B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 84px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; transform: rotate(-12deg); }
+  #s5-sub { position: absolute; left: 400px; right: 60px; top: 840px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 44px; color: var(--ink); }
+
+  /* 6: send */
+  #send { position: absolute; left: 330px; right: 60px; top: 230px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 190px; line-height: 1; color: var(--ink); }
+  #plane { position: absolute; left: 580px; top: 470px; width: 200px; height: 170px; }
+  #who { position: absolute; left: 360px; right: 60px; top: 700px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: rgba(30,26,22,0.6); }
+  #pill { position: absolute; left: 360px; right: 60px; top: 860px; height: 130px; border-radius: 65px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #pill b { color: #F2A57F; margin-left: 14px; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">3 WEBSITES</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">That pay you</span></span><span class="mask"><span class="l">to <span class="it">train AI.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">WEBSITE 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Get paid for</span></span><span class="mask"><span class="l it">studies.</span></span></div>
+  <div class="card site" id="s1-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">prolific.com</div></div>
+    <div class="num">1</div><div class="name">Prolific</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Paid research studies</div></div>
+    <div class="row r2"><div class="k">SUITS</div><div class="v">Anyone 18+, supported countries</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Shown before you start</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WEBSITE 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Check AI in</span></span><span class="mask"><span class="l it">your subject.</span></span></div>
+  <div class="card site" id="s2-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">alignerr.com</div></div>
+    <div class="num">2</div><div class="name">Alignerr</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Check AI answers in your field</div></div>
+    <div class="row r2"><div class="k">SUITS</div><div class="v">Subject experts</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Hourly, set by subject</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">WEBSITE 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Write and</span></span><span class="mask"><span class="l it">rate answers.</span></span></div>
+  <div class="card site" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">outlier.ai</div></div>
+    <div class="num">3</div><div class="name">Outlier</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Write and rate AI answers</div></div>
+    <div class="row r2"><div class="k">SUITS</div><div class="v">Writers, coders, graduates</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Set by your skill</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Two things</span></span><span class="mask"><span class="l it">first.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="crow" id="k1"><div class="t">Pass their test</div><div class="chip" id="c1">TEST</div></div>
+    <div class="crow" id="k2"><div class="t">Your country listed?</div><div class="chip" id="c2">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">NEVER</div>
+  <div class="title"><span class="mask"><span class="l">Pay to</span></span><span class="mask"><span class="l it">join.</span></span></div>
+  <div id="ticket"><div class="k">JOINING FEE</div><div class="v">₹499</div></div>
+  <div id="stamp">SCAM</div>
+  <div id="s5-sub">Real sites pay you.</div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="end">
+  <div id="send">Send this.</div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#C8552B"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#9E3F1D"></path></svg>
+  <div id="who">to a friend who needs work</div>
+  <div id="pill">Full list + prompt: <b>SITES</b></div>
+</section>

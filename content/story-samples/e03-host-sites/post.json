@@ -1,0 +1,105 @@
+{
+  "id": "e03-host-sites",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|Prolific|Alignerr|Outlier|catch|never|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#C8552B"
+  },
+  "lines": [
+    {
+      "say": "These three websites pay you to train AI.",
+      "show": "These 3 websites pay you to train AI.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Number one, Prolific. Paid studies, and many of them are about AI.",
+      "show": "1. Prolific: paid studies, many about AI.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number two, Aligner. Experts get paid to check AI answers in their subject.",
+      "show": "2. Alignerr: experts check AI answers.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number three, Outlier. You write and rate AI answers, and your skill sets the pay.",
+      "show": "3. Outlier: write and rate AI answers.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: there's a test to pass, and not every country is accepted.",
+      "show": "The catch: a test, and not every country.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And never pay a joining fee. Real sites pay you.",
+      "show": "Never pay a joining fee. Real sites pay you.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Send this to a friend who needs work, and comment SITES for the full list.",
+      "show": "Send this to a friend. Comment SITES.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line5.voice+0.7",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "3 WEBSITES THAT",
+      "PAY YOU TO TRAIN AI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

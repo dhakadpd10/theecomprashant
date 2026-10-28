@@ -31,7 +31,7 @@ async function sortMessages(items) {
   const cfg = config();
   const res = await askJSON({
     effort: cfg.models.replies_effort,
-    system: `You answer comments and DMs for the Instagram page ${cfg.handle} (practical AI for D2C and ecommerce brands, run by Prashant). Voice:\n${readText(P('brand/voice.md'))}\n\nFree tools and their links: ${Object.entries(cfg.keywords).map(([k, v]) => `${k} = ${v.title} (${toolLink(k)})`).join('; ')}.`,
+    system: `You answer comments and DMs for the Instagram page ${cfg.handle} (real ways to make money with AI, run by Prashant). Voice:\n${readText(P('brand/voice.md'))}\n\nFree tools and their links: ${Object.entries(cfg.keywords).map(([k, v]) => `${k} = ${v.title} (${toolLink(k)})`).join('; ')}.`,
     validate: (v) => (Array.isArray(v.items) && v.items.length === items.length && v.items.every((x) => ['reply', 'escalate', 'ignore'].includes(x.action)) ? [] : [`return {"items":[...]} with exactly ${items.length} entries, each action reply|escalate|ignore`]),
     prompt: `For each message decide:
 - "reply": questions about the content or tools, thanks, simple feedback. Write a short, warm, human reply (1-2 sentences, no hashtags, no em dashes, at most one emoji). Point to a free tool link only if it truly answers them. Never promise prices, timelines, results or anything Prashant hasn't said.

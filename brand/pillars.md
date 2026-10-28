@@ -1,44 +1,38 @@
 # Content pillars + topic bank
 
-Mix per week (14 posts): 4 × Sell more · 3 × Ads · 3 × Operations · 2 × Retention · 2 × Proof (Prashant's own MiniKin runs, only with real numbers).
-Every reel and every carousel ends in one keyword; reuse an existing free tool where it fits, or write a new one into `posts/<id>/` and add it to the tools page.
+Niche since 29 Oct 2026: **real ways to make money with AI** (docs/MONEY.md). Three reels a day. Every reel ends in one keyword whose free tool is a prompt on the tools page.
 
-## 1. Sell more (product page, store, pricing, launch)
-- 7 AI shoppers reject your store (STORE) ✅ week 1
-- 12 AI customers judge your launch (LAUNCH) ✅ week 1
-- 5-minute store audit (AUDIT) ✅ week 1
-- 2 prices, 100 shoppers (PRICE) ✅ week 1
-- Carousel: 6 reasons shoppers leave your product page (STORE)
-- Rewrite every product description in your buyers' words (DESC)
-- AI bundle builder: which 3 products to bundle for a higher order value (BUNDLE)
-- Festival sale planner: Diwali / Holi / Republic Day calendar in 10 minutes (SALE)
-- Size-guide and FAQ writer from your support chats (FAQ)
+Mix per week (21 reels): 6 × Get paid (sites, news) · 5 × Earn with a skill (skills, breakdown) · 4 × The prompt (prompt) · 3 × Sell your own thing (breakdown, prompt) · 3 × Money moments (skit).
 
-## 2. Ads
-- 5 AI critics roast your Meta ad (ROAST) ✅ week 1
-- 10 ad hooks from your reviews (REVIEWS) ✅ week 1
-- 30 UGC-style video scripts from one product (UGC)
-- Competitor ad teardown: paste 5 rival ads, get the angle they missed (RIVAL)
-- Carousel: the 4-part ad hook formula, with D2C examples (HOOK)
-- Weekly ad report that tells you what to kill and what to scale (SCALE)
+## 1. Get paid (platforms that pay for AI work)
+- 3 websites that pay you to train AI (SITES)
+- Students: 4 ways to earn with AI from your hostel room (SITES)
+- Any real program, fund or contest from this week's research (news, the closest keyword)
+- How to spot a fake "AI task" job before it takes your money (SITES)
 
-## 3. Operations
-- 4-agent marketing team inside Claude (TEAM) ✅ week 1
-- Customer support agent trained on your own policies (SUPPORT)
-- Inventory reorder alert from your sales sheet (STOCK)
-- RTO / COD-return reducer: confirm-order WhatsApp script (RTO)
-- Carousel: 7 jobs to hand to AI this week, 7 to keep (JOBS)
+## 2. Earn with a skill
+- 5 AI skills companies pay for in 2026, ranked (SKILL)
+- AI side hustles tier list: S to D, with the catch for each (SKILL)
+- A Fiverr gig you can run with free AI tools, broken down (GIG)
+- Land your first ₹5,000 client with Claude in 7 days (CLIENT)
+- What a local business will pay for AI reels, and how to pitch them (CLIENT)
 
-## 4. Retention
-- Abandoned-cart WhatsApp sequence that doesn't feel spammy (CART)
-- Post-purchase email series that brings a second order (REPEAT)
-- Carousel: the 3 messages every buyer should get after delivery (AFTER)
+## 3. The prompt
+- The prompt that turns your skills into a side-income plan (MONEY)
+- I asked Claude to make me ₹10,000 this month from my phone (MONEY)
+- The prompt that writes your Fiverr gig for you (GIG)
+- The prompt that finds 20 buyers for your skill in your city (CLIENT)
 
-## 5. Proof (only with real numbers from MiniKin or a client, with permission)
-- "I ran the 7-shopper test on my own store. Here's what it found."
-- Before / after of a rewritten product page.
+## 4. Sell your own thing
+- Make a ₹199 digital product with AI in a weekend (PRODUCT)
+- What a faceless YouTube channel with AI really earns, and the catch (PRODUCT)
+- Sell templates on Canva or Gumroad: the honest breakdown (PRODUCT)
 
-## What's working elsewhere (from the creator watchlist)
-- "N AIs judge YOUR thing" is the biggest format (nocodealex 24K/20K likes; opusjake 84K).
-- Comment-gated business tools get more comments than likes.
-- Pure AI news underperforms (nocodealex's benchmark post: 559 likes).
+## 5. Money moments (skits for reach)
+- Salary day vs day 5 of the month
+- My friend who said AI is a fad, six months later
+- The relative who asks "what do you even do on your phone?"
+- When the first ₹500 from a client lands
+
+## Retired (until 28 Oct 2026, AI for D2C sellers)
+Seller topics and keywords (STORE, LAUNCH, AUDIT, ROAST, TEAM, REVIEWS, PRICE and others) still answer DMs on old reels but are never planned again.

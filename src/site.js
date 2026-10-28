@@ -38,7 +38,7 @@ const page = (title, body) => `<!doctype html>
 <style>${CSS}</style></head><body>${body}</body></html>\n`;
 
 function toolsPage() {
-  const cfg = config(); const entries = Object.entries(cfg.keywords).filter(([, v]) => fs.existsSync(P('tools', `${v.tool}.md`)));
+  const cfg = config(); const entries = Object.entries(cfg.keywords).filter(([, v]) => fs.existsSync(P('tools', `${v.tool}.md`))).sort(([, a], [, b]) => !!a.retired - !!b.retired);
   const cards = entries.map(([kw, v], n) => {
     const raw = readText(P('tools', `${v.tool}.md`)).replace(/\r/g, ''); const parts = raw.split(/\n---\n/);
     const intro = parts[0].split('\n').filter((l) => l && !l.startsWith('# ')).join(' '); const prompt = parts.slice(1).join('\n---\n').trim();
@@ -47,8 +47,8 @@ function toolsPage() {
 <div class="actions"><button type="button" class="copy" data-target="p-${v.tool}">Copy the prompt</button><span class="done" id="done-${v.tool}" role="status" aria-live="polite"></span></div>
 <details><summary>Read the full prompt</summary><pre id="p-${v.tool}">${esc(prompt)}</pre></details></article>`;
   }).join('\n');
-  return page('Free D2C AI Tools', `<div class="wrap"><header><span class="sticker">FREE · NO SIGN-UP</span><h1>Free D2C AI Tools</h1>
-<p class="lede">Every tool from ${esc(cfg.handle)}'s posts, ready to paste into Claude. Tap the keyword you commented, copy the prompt, paste it into a new Claude chat, then add your own product, ad or reviews where it says.</p>
+  return page('Free AI Money Prompts', `<div class="wrap"><header><span class="sticker">FREE · NO SIGN-UP</span><h1>Free AI Money Prompts</h1>
+<p class="lede">Every tool from ${esc(cfg.handle)}'s posts, ready to paste into Claude. Tap the keyword you commented, copy the prompt, paste it into a new Claude chat, then answer its questions. The tools for online sellers from older posts are further down.</p>
 <nav aria-label="Tools">${entries.map(([kw, v]) => `<a href="#${v.tool}">${kw}</a>`).join('')}</nav></header>
 ${cards}
 <footer>These prompts run on your own Claude account and only use what you paste in. AI shoppers, critics and customers are a rehearsal: use them to find problems early, then check with real buyers and your real numbers.</footer></div>
@@ -61,7 +61,7 @@ function build(out = P('_site')) {
   fs.rmSync(out, { recursive: true, force: true }); fs.mkdirSync(path.join(out, 'tools'), { recursive: true });
   fs.writeFileSync(path.join(out, 'tools', 'index.html'), toolsPage());
   fs.writeFileSync(path.join(out, 'index.html'), page(cfg.name, `<div class="wrap"><header><span class="sticker">OPEN-SOURCE INSTAGRAM AGENT</span><h1>${esc(cfg.name)}</h1>
-<p class="lede">Practical AI for D2C and ecommerce brands, posted daily on Instagram at ${esc(cfg.handle)}. The free tools from every post are on <a href="tools/">the tools page</a>.</p></header><footer><a href="privacy/">Privacy</a> · <a href="data-deletion/">Data deletion</a> · <a href="terms/">Terms</a></footer></div>`));
+<p class="lede">Real ways to make money with AI, posted daily on Instagram at ${esc(cfg.handle)}. The free tools from every post are on <a href="tools/">the tools page</a>.</p></header><footer><a href="privacy/">Privacy</a> · <a href="data-deletion/">Data deletion</a> · <a href="terms/">Terms</a></footer></div>`));
   const legal = require('./legal');
   for (const [dir, title, html] of [['privacy', 'Privacy Policy', legal.privacy(cfg.handle)], ['data-deletion', 'Data Deletion', legal.deletion(cfg.handle)], ['terms', 'Terms of Use', legal.terms(cfg.handle)]]) {
     fs.mkdirSync(path.join(out, dir), { recursive: true });

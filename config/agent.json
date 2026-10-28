@@ -1,5 +1,5 @@
 {
-  "name": "Prashant | AI Shortcuts",
+  "name": "Prashant | Make Money with AI",
   "handle": "@prashant.ai",
   "timezone_offset": "+05:30",
   "paused": {
@@ -20,7 +20,7 @@
       "format": "reel"
     }
   ],
-  "bio_line": "If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.",
+  "bio_line": "If you are new here, I am Prashant. I show real ways to make money with AI, and every reel comes with a free prompt.",
   "repost": {
     "min_outlier": 2,
     "min_views": 1000,
@@ -44,11 +44,14 @@
     "host": true,
     "theme": "editorial",
     "mix": {
-      "tutorial": 0.6,
-      "wow": 0.25,
+      "sites": 0.25,
+      "prompt": 0.2,
+      "breakdown": 0.15,
+      "news": 0.1,
+      "skills": 0.15,
       "skit": 0.15
     },
-    "note": "28 Oct 2026: every reel is an editorial motion reel (docs/MOTION.md) hosted by the 2D Prashant character (character/prashant.js); mix = tutorials / wow demos / skits"
+    "note": "29 Oct 2026: every reel is an editorial motion reel hosted by the 2D Prashant character, about making money with AI; mix = the six kinds in docs/MONEY.md"
   },
   "models": {
     "writer": "claude-opus-5-5",
@@ -76,36 +79,68 @@
   "keywords": {
     "STORE": {
       "tool": "store",
-      "title": "7-Shopper Test"
+      "title": "7-Shopper Test",
+      "retired": true
     },
     "LAUNCH": {
       "tool": "launch",
-      "title": "12-Customer Trial"
+      "title": "12-Customer Trial",
+      "retired": true
     },
     "AUDIT": {
       "tool": "audit",
-      "title": "5-Minute Store Audit"
+      "title": "5-Minute Store Audit",
+      "retired": true
     },
     "ROAST": {
       "tool": "roast",
-      "title": "5-Critic Ad Roast"
+      "title": "5-Critic Ad Roast",
+      "retired": true
     },
     "TEAM": {
       "tool": "team",
-      "title": "4-Agent Marketing Team"
+      "title": "4-Agent Marketing Team",
+      "retired": true
     },
     "REVIEWS": {
       "tool": "reviews",
-      "title": "Review Miner"
+      "title": "Review Miner",
+      "retired": true
     },
     "PRICE": {
       "tool": "price",
-      "title": "100-Shopper Price Test"
+      "title": "100-Shopper Price Test",
+      "retired": true
+    },
+    "MONEY": {
+      "tool": "money",
+      "title": "AI Side-Income Planner"
+    },
+    "SITES": {
+      "tool": "sites",
+      "title": "Websites That Pay for AI Work"
+    },
+    "SKILL": {
+      "tool": "skill",
+      "title": "30-Day AI Skill Roadmap"
+    },
+    "CLIENT": {
+      "tool": "client",
+      "title": "First Client in 7 Days"
+    },
+    "PRODUCT": {
+      "tool": "product",
+      "title": "Weekend Digital Product"
+    },
+    "GIG": {
+      "tool": "gig",
+      "title": "AI Gig Builder"
     }
   },
   "limits": {
     "max_posts_per_day": 4,
     "max_auto_replies_per_run": 40
   },
-  "slots_note": "28 Oct 2026: 10K-in-10-days push, three reels a day (all motion reels hosted by the 2D Prashant character)"
+  "slots_note": "28 Oct 2026: 10K-in-10-days push, three reels a day (all motion reels hosted by the 2D Prashant character)",
+  "keywords_note": "29 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again."
 }

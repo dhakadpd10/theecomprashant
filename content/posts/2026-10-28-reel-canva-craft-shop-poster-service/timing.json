@@ -1,0 +1,73 @@
+{
+  "dur": 26.02,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.882,
+      "b": 2.982,
+      "say": "Good at Canva and broke? This menu is your first client.",
+      "show": "Good at Canva and broke? Your first client."
+    },
+    {
+      "a": 2.982,
+      "voice": 3.082,
+      "end": 6.537,
+      "b": 6.637,
+      "say": "This menu poster is a service a local shop can pay you for.",
+      "show": "A local shop can pay you for this."
+    },
+    {
+      "a": 6.637,
+      "voice": 6.737,
+      "end": 10.423,
+      "b": 10.523,
+      "say": "Canva's new image model, Craft, is in Dream Lab for all users.",
+      "show": "22 Oct: Canva Craft. Dream Lab, all users. Up to 2K."
+    },
+    {
+      "a": 10.523,
+      "voice": 10.623,
+      "end": 12.252,
+      "b": 12.352,
+      "say": "Step one: photograph their menu.",
+      "show": "1. Photograph their menu."
+    },
+    {
+      "a": 12.352,
+      "voice": 12.452,
+      "end": 15.887,
+      "b": 15.987,
+      "say": "Next, ask Craft for a menu, offer post and festival poster.",
+      "show": "2. Craft: menu, offer post, festival poster."
+    },
+    {
+      "a": 15.987,
+      "voice": 16.087,
+      "end": 17.732,
+      "b": 17.832,
+      "say": "Last, WhatsApp them all with one line.",
+      "show": "3. Send on WhatsApp with one line."
+    },
+    {
+      "a": 17.832,
+      "voice": 17.932,
+      "end": 20.878,
+      "b": 20.978,
+      "say": "The catch: free limits aren't public, and walking in is hard.",
+      "show": "The catch: free limit unknown. Walking in is hard."
+    },
+    {
+      "a": 20.978,
+      "voice": 21.078,
+      "end": 24.622,
+      "b": 26.02,
+      "say": "Send this to the friend who's good at Canva and broke. Comment POSTER.",
+      "show": "Send this to a broke Canva friend. Comment POSTER."
+    }
+  ]
+}

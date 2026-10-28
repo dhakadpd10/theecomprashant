@@ -1,0 +1,147 @@
+{
+  "id": "2026-10-29-reel-real-ai-training-sites-no-fee-arm-b",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "hook": "3",
+  "arm": "B",
+  "slot": "19:30 IST",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹0|₹1|1930|Outlier|Alignerr|Prolific|catch|fee|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#C8552B"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you this. Outlier and Prolific don't charge you one rupee to join.",
+      "show": "Outlier and Prolific never charge ₹1 to join.",
+      "card": "₹0 TO JOIN. THEY PAY YOU",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Outlier. You rate AI answers, and pay depends on your skill and country.",
+      "show": "1. Outlier: rate AI answers. Pay varies.",
+      "card": "outlier.ai · write and rate AI answers · pay depends on skill and country · for: people with a subject or language skill",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Aligner. If you're an expert in a subject, you check AI answers.",
+      "show": "2. Alignerr: experts check AI answers.",
+      "card": "alignerr.com · AI training by Labelbox · pay varies · for: domain experts",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Prolific. You do paid studies, and you see the pay first.",
+      "show": "3. Prolific: paid studies, pay shown upfront.",
+      "card": "prolific.com · paid research studies, some about AI · pay shown before you start · for: anyone, no expertise needed",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch. You take tests, may wait to get in, and pay changes by country.",
+      "show": "The catch: tests, waitlists, pay varies by country.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Red flag: they want a fee, prepaid tasks, VIP groups, or your bank or SIM.",
+      "show": "Red flags: fee, prepaid task, VIP, bank, SIM.",
+      "card": "RED FLAGS · joining fee · prepaid task · VIP group · asks for your bank account or SIM",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Got scammed? Call one, nine, three, zero.",
+      "show": "Scammed? Call 1930 or cybercrime.gov.in.",
+      "card": "1930 · cybercrime.gov.in",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend who's just got a job message on WhatsApp.",
+      "show": "Send to the friend who got a WhatsApp job.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "And comment SITES. I'll send you the full list.",
+      "show": "Comment SITES for the full list.",
+      "card": "Save. · Full list + prompt: SITES",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "₹0 TO JOIN.",
+      "THEY PAY YOU"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

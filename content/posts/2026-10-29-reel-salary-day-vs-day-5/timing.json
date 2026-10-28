@@ -1,0 +1,89 @@
+{
+  "dur": 26.78,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.451,
+      "b": 2.551,
+      "say": "If your salary is gone in a week, this is your room.",
+      "show": "Broke by the 5th? This is your room."
+    },
+    {
+      "a": 2.551,
+      "voice": 2.651,
+      "end": 4.729,
+      "b": 4.829,
+      "say": "Salary day. Biryani for the whole floor.",
+      "show": "Salary day: biryani for the whole floor."
+    },
+    {
+      "a": 4.829,
+      "voice": 4.929,
+      "end": 6.584,
+      "b": 6.684,
+      "say": "Booked a car, for a two minute walk.",
+      "show": "Cab booked. For a 400 m walk."
+    },
+    {
+      "a": 6.684,
+      "voice": 6.784,
+      "end": 8.196,
+      "b": 8.296,
+      "say": "Need money? Relax, I'll pay.",
+      "show": "Any bill? Chill, I'll pay."
+    },
+    {
+      "a": 8.296,
+      "voice": 8.396,
+      "end": 11.38,
+      "b": 11.48,
+      "say": "A few days later. One noodle packet, split four ways.",
+      "show": "Day 5. Same room. 1 Maggi, 4 ways."
+    },
+    {
+      "a": 11.48,
+      "voice": 11.58,
+      "end": 13.879,
+      "b": 13.979,
+      "say": "U P I balance, checked with one eye closed.",
+      "show": "UPI balance, one eye closed."
+    },
+    {
+      "a": 13.979,
+      "voice": 14.079,
+      "end": 16.327,
+      "b": 16.427,
+      "say": "Now the last spice packet goes up for auction.",
+      "show": "The masala sachet goes up for auction."
+    },
+    {
+      "a": 16.427,
+      "voice": 16.527,
+      "end": 19.851,
+      "b": 19.951,
+      "say": "Then my roommate's phone pings. A client paid for his video edit.",
+      "show": "Roommate's phone pings: client paid for his reel edit."
+    },
+    {
+      "a": 19.951,
+      "voice": 20.051,
+      "end": 21.469,
+      "b": 21.569,
+      "say": "The whole room turns. Brother!",
+      "show": "The whole room turns: bhai."
+    },
+    {
+      "a": 21.569,
+      "voice": 21.669,
+      "end": 25.382,
+      "b": 26.78,
+      "say": "Send this to the friend who's broke a week after payday, and comment MONEY.",
+      "show": "Send to the friend broke by the 5th. Comment MONEY."
+    }
+  ]
+}

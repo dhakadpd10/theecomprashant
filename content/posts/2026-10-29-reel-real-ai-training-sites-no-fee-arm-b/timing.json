@@ -1,0 +1,81 @@
+{
+  "dur": 34.78,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.667,
+      "b": 4.767,
+      "say": "Nobody tells you this. Outlier and Prolific don't charge you one rupee to join.",
+      "show": "Outlier and Prolific never charge ₹1 to join."
+    },
+    {
+      "a": 4.767,
+      "voice": 4.867,
+      "end": 8.946,
+      "b": 9.046,
+      "say": "Outlier. You rate AI answers, and pay depends on your skill and country.",
+      "show": "1. Outlier: rate AI answers. Pay varies."
+    },
+    {
+      "a": 9.046,
+      "voice": 9.146,
+      "end": 12.525,
+      "b": 12.625,
+      "say": "Aligner. If you're an expert in a subject, you check AI answers.",
+      "show": "2. Alignerr: experts check AI answers."
+    },
+    {
+      "a": 12.625,
+      "voice": 12.725,
+      "end": 15.605,
+      "b": 15.705,
+      "say": "Prolific. You do paid studies, and you see the pay first.",
+      "show": "3. Prolific: paid studies, pay shown upfront."
+    },
+    {
+      "a": 15.705,
+      "voice": 15.805,
+      "end": 20.095,
+      "b": 20.195,
+      "say": "Here's the catch. You take tests, may wait to get in, and pay changes by country.",
+      "show": "The catch: tests, waitlists, pay varies by country."
+    },
+    {
+      "a": 20.195,
+      "voice": 20.295,
+      "end": 25.232,
+      "b": 25.332,
+      "say": "Red flag: they want a fee, prepaid tasks, VIP groups, or your bank or SIM.",
+      "show": "Red flags: fee, prepaid task, VIP, bank, SIM."
+    },
+    {
+      "a": 25.332,
+      "voice": 25.432,
+      "end": 27.518,
+      "b": 27.618,
+      "say": "Got scammed? Call one, nine, three, zero.",
+      "show": "Scammed? Call 1930 or cybercrime.gov.in."
+    },
+    {
+      "a": 27.618,
+      "voice": 27.718,
+      "end": 31.018,
+      "b": 31.118,
+      "say": "Send this to the friend who's just got a job message on WhatsApp.",
+      "show": "Send to the friend who got a WhatsApp job."
+    },
+    {
+      "a": 31.118,
+      "voice": 31.218,
+      "end": 33.384,
+      "b": 34.78,
+      "say": "And comment SITES. I'll send you the full list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

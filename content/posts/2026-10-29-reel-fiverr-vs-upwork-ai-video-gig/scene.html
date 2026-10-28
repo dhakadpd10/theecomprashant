@@ -1,0 +1,218 @@
+<style>
+  /* editorial theme, deep green accent: one clean card per beat, the Fiverr vs Upwork head to head is the screenshot card */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; border-radius: 50%; }
+  #blob1 { left: -160px; top: 220px; width: 640px; height: 640px; background: radial-gradient(circle, rgba(46,107,74,0.13) 0%, rgba(46,107,74,0) 70%); }
+  #blob2 { left: 600px; top: 640px; width: 640px; height: 640px; background: radial-gradient(circle, rgba(196,140,80,0.15) 0%, rgba(196,140,80,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; top: 470px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  .row { position: absolute; left: 36px; right: 36px; height: 108px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 28px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; color: #6A645D; }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 52px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.1; color: var(--ink); white-space: nowrap; transform-origin: left center; }
+
+  .crow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 30px; right: 240px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 24px; width: 200px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .chip.dark { background: var(--ink); color: #F3EEE5; }
+  .chip.warn { background: #A8321F; color: #FFFFFF; }
+
+  /* 0: hook */
+  #s0-step { top: 60px; }
+  #s0-title { top: 110px; width: 540px; right: auto; font-size: 100px; line-height: 1.0; transform-origin: left top; }
+  #s0-tag { position: absolute; left: 660px; top: 130px; width: 330px; height: 270px; border-radius: 32px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14); }
+  #s0-tag .k { position: absolute; left: 36px; top: 36px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: #6A645D; }
+  #s0-tag .big { position: absolute; left: 36px; top: 84px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1; color: var(--ink); }
+  #s0-stamp { position: absolute; left: 690px; top: 250px; width: 280px; height: 120px; box-sizing: border-box; border: 8px solid #A8321F; border-radius: 18px; color: #A8321F; font-family: 'Bebas Neue', sans-serif; font-size: 100px; line-height: 1; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+
+  /* 1: the gig */
+  #s1-card { height: 552px; }
+  .gighead { position: absolute; left: 0; right: 0; top: 0; height: 140px; background: #F1ECE3; }
+  #s1-thumb { position: absolute; left: 36px; top: 25px; width: 70px; height: 90px; display: block; }
+  .gk { position: absolute; left: 130px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; color: #6A645D; }
+  #s1-gv { position: absolute; left: 130px; right: 30px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s1 .r1 { top: 162px; } #s1 .r2 { top: 284px; } #s1 .r3 { top: 406px; background: #DDEBE1; }
+  #s1 .r3 .v { color: #1F4D35; }
+
+  /* 2: buyers */
+  #s2-card { height: 422px; }
+  .brow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .brow .ico { position: absolute; left: 22px; top: 20px; width: 70px; height: 70px; display: block; }
+  .brow .t { position: absolute; left: 116px; right: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .brow .tick { position: absolute; right: 24px; top: 27px; width: 56px; height: 56px; display: block; }
+  #b1 { top: 36px; } #b2 { top: 156px; } #b3 { top: 276px; }
+
+  /* 3: example price */
+  #s3-card { height: 456px; }
+  #s3-chip { position: absolute; left: 36px; top: 36px; width: 200px; height: 56px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s3-label { position: absolute; left: 260px; top: 44px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: #6A645D; }
+  #s3-num { position: absolute; left: 36px; top: 118px; width: 560px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.1; color: var(--ink); transform-origin: left center; }
+  #s3-line { position: absolute; left: 36px; right: 36px; top: 272px; height: 3px; background: #EFE8DC; }
+  #s3-ring { position: absolute; left: 36px; top: 304px; width: 120px; height: 120px; display: block; }
+  #s3-time { position: absolute; left: 184px; right: 30px; top: 340px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+
+  /* 4-5: head to head */
+  .vs { height: 250px; }
+  #s4-a { top: 470px; }
+  #s4-b { top: 760px; }
+  #s4-slot { position: absolute; left: 360px; right: 60px; top: 760px; height: 250px; box-sizing: border-box; border: 4px dashed rgba(30,26,22,0.2); border-radius: 36px; }
+  .vk { position: absolute; left: 36px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.16em; color: var(--accent); }
+  .vv { position: absolute; left: 36px; right: 30px; top: 74px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .pchip { position: absolute; left: 36px; top: 150px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; transform-origin: left center; }
+  #s4-ca { width: 300px; }
+  #s4-cb { width: 460px; background: var(--ink); color: #F3EEE5; }
+
+  /* 6: pick by type */
+  #s6-card { height: 300px; }
+  #s6-r1 { top: 36px; } #s6-r2 { top: 154px; }
+
+  /* 7: this week */
+  #s7-card { height: 300px; }
+  #s7-scan { position: absolute; left: 36px; right: 36px; top: 36px; height: 110px; border-radius: 24px; background: rgba(46,107,74,0.12); }
+  #s7 .crow { background: transparent; }
+  #s7-r1 { top: 36px; } #s7-r2 { top: 154px; }
+  .box { position: absolute; left: 24px; top: 25px; width: 60px; height: 60px; box-sizing: border-box; border: 4px solid var(--accent); border-radius: 16px; background: #FFFFFF; }
+  .ck { position: absolute; left: 4px; top: 4px; width: 44px; height: 44px; display: block; }
+  .tt { position: absolute; left: 110px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s7-r1 .tt { right: 24px; }
+  #s7-r2 .tt { right: 200px; }
+  .cups { position: absolute; right: 24px; top: 33px; display: flex; gap: 12px; }
+  .cups i { display: block; width: 44px; height: 44px; box-sizing: border-box; border-radius: 50%; border: 4px solid var(--accent); background: var(--accent); }
+
+  /* 8: the catch */
+  #s8-card { height: 300px; }
+  #s8-r1 { top: 36px; } #s8-r2 { top: 154px; }
+
+  /* 9: send + keyword */
+  #s9-title { top: 100px; width: 600px; right: auto; }
+  #plane { position: absolute; left: 760px; top: 80px; width: 190px; height: 160px; display: block; }
+  #s9-tool { top: 290px; height: 290px; }
+  #s9-tool .vk { top: 30px; font-size: 38px; }
+  #s9-tool .vv { top: 80px; }
+  .tchips { position: absolute; left: 36px; right: 36px; top: 150px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .tchip { height: 56px; padding: 0 22px; border-radius: 28px; background: #DDEBE1; color: #1F4D35; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; display: flex; align-items: center; }
+  #s9-pill { position: absolute; left: 360px; right: 60px; top: 640px; height: 230px; border-radius: 115px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 28px; }
+  #s9-cm { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: #F3EEE5; }
+  #s9-gig { display: flex; gap: 6px; }
+  #s9-gig .g { display: block; font-family: var(--display); font-size: 150px; line-height: 1; color: #A8DDBF; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">REEL EDITORS</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop</span></span><span class="mask"><span class="l">editing</span></span><span class="mask"><span class="l">for <span class="it">free.</span></span></span></div>
+  <div id="s0-tag" data-layout-allow-overlap><div class="k">PER REEL</div><div class="big">₹0</div></div>
+  <div id="s0-stamp" data-layout-allow-overlap>UNPAID</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE GIG</div>
+  <div class="title"><span class="mask"><span class="l">Sell 30-sec</span></span><span class="mask"><span class="l it">reels.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="gighead">
+      <svg id="s1-thumb" viewBox="0 0 70 90"><rect x="0" y="0" width="70" height="90" rx="12" fill="#2E6B4A"></rect><polygon points="27,30 27,60 50,45" fill="#FFFFFF"></polygon></svg>
+      <div class="gk">YOUR GIG</div>
+      <div id="s1-gv">30-sec reels</div>
+    </div>
+    <div class="row r1"><div class="k">SCRIPT</div><div class="v">Written with Claude</div></div>
+    <div class="row r2"><div class="k">EDIT</div><div class="v">CapCut, free app</div></div>
+    <div class="row r3"><div class="k">YOUR COST</div><div class="v">₹0</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WHO PAYS</div>
+  <div class="title"><span class="mask"><span class="l">Who buys</span></span><span class="mask"><span class="l it">them.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="brow" id="b1">
+      <svg class="ico" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#2E6B4A"></circle><path d="M20 26 H44 V40 A10 10 0 0 1 34 50 H30 A10 10 0 0 1 20 40 Z" fill="#FFFFFF"></path><path d="M44 30 H47 A6 6 0 0 1 47 42 H44" stroke="#FFFFFF" stroke-width="4" fill="none"></path></svg>
+      <div class="t">Cafés</div>
+      <svg class="tick" id="t1" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2E6B4A"></circle><path d="M16 29 L24 37 L40 19" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="brow" id="b2">
+      <svg class="ico" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#2E6B4A"></circle><circle cx="35" cy="26" r="9" fill="#FFFFFF"></circle><path d="M20 52 A15 15 0 0 1 50 52 Z" fill="#FFFFFF"></path></svg>
+      <div class="t">Coaches</div>
+      <svg class="tick" id="t2" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2E6B4A"></circle><path d="M16 29 L24 37 L40 19" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="brow" id="b3">
+      <svg class="ico" viewBox="0 0 70 70"><circle cx="35" cy="35" r="35" fill="#2E6B4A"></circle><rect x="22" y="30" width="26" height="22" rx="3" fill="#FFFFFF"></rect><path d="M29 30 V26 A6 6 0 0 1 41 26 V30" stroke="#FFFFFF" stroke-width="4" fill="none"></path></svg>
+      <div class="t">Small brands</div>
+      <svg class="tick" id="t3" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2E6B4A"></circle><path d="M16 29 L24 37 L40 19" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">EXAMPLE PRICE</div>
+  <div class="title"><span class="mask"><span class="l">What it</span></span><span class="mask"><span class="l it">pays.</span></span></div>
+  <div class="card" id="s3-card">
+    <div id="s3-chip">EXAMPLE</div>
+    <div id="s3-label">PER REEL</div>
+    <div id="s3-num">₹0</div>
+    <div id="s3-line"></div>
+    <svg id="s3-ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#E7E0D3" stroke-width="12"></circle><circle id="s3-arc" cx="50" cy="50" r="40" fill="none" stroke="#2E6B4A" stroke-width="12" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" transform="rotate(-90 50 50)"></circle></svg>
+    <div id="s3-time">2 hours of work</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line6">
+  <div class="step">HEAD TO HEAD</div>
+  <div class="title"><span class="mask"><span class="l">Fiverr vs</span></span><span class="mask"><span class="l it">Upwork.</span></span></div>
+  <div class="card vs" id="s4-a"><div class="vk">FIVERR</div><div class="vv">Buyers find you</div><div class="pchip" id="s4-ca">FREE TO LIST</div></div>
+  <div id="s4-slot" data-layout-allow-overlap></div>
+  <div class="card vs" id="s4-b" data-layout-allow-overlap><div class="vk">UPWORK</div><div class="vv">You apply to jobs</div><div class="pchip" id="s4-cb">CONNECTS COST MONEY</div></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">WHICH ONE</div>
+  <div class="title"><span class="mask"><span class="l">Pick by your</span></span><span class="mask"><span class="l it">type.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="crow" id="s6-r1"><div class="t">Waiting type</div><div class="chip" id="s6-c1">FIVERR</div></div>
+    <div class="crow" id="s6-r2"><div class="t">Pitching type</div><div class="chip dark" id="s6-c2">UPWORK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THIS WEEK</div>
+  <div class="title"><span class="mask"><span class="l">Your first</span></span><span class="mask"><span class="l it">move.</span></span></div>
+  <div class="card" id="s7-card">
+    <div id="s7-scan" data-layout-allow-overlap></div>
+    <div class="crow" id="s7-r1"><div class="box" id="s7-b1"><svg class="ck" id="s7-k1" viewBox="0 0 44 44"><path d="M10 23 L18 31 L34 13" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="tt">Make 1 sample reel</div></div>
+    <div class="crow" id="s7-r2"><div class="box" id="s7-b2"><svg class="ck" id="s7-k2" viewBox="0 0 44 44"><path d="M10 23 L18 31 L34 13" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="tt">Pitch 3 cafés</div><div class="cups"><i id="cup1"></i><i id="cup2"></i><i id="cup3"></i></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">It's slow</span></span><span class="mask"><span class="l">at <span class="it">first.</span></span></span></div>
+  <div class="card" id="s8-card">
+    <div class="crow" id="s8-r1"><div class="t">0 reviews</div><div class="chip warn" id="s8-c1">WEEKS</div></div>
+    <div class="crow" id="s8-r2"><div class="t">Both take a cut</div><div class="chip warn" id="s8-c2">FEES</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="title" id="s9-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2E6B4A"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4D35"></path></svg>
+  <div class="card" id="s9-tool">
+    <div class="vk">FREE PROMPT</div>
+    <div class="vv">AI Gig Builder</div>
+    <div class="tchips"><div class="tchip">Title</div><div class="tchip">Packages</div><div class="tchip">Description</div><div class="tchip">Proposals</div></div>
+  </div>
+  <div id="s9-pill"><div id="s9-cm">Comment</div><div id="s9-gig"><div class="g">G</div><div class="g">I</div><div class="g">G</div></div></div>
+</section>

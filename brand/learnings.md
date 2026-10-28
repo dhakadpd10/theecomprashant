@@ -4,6 +4,29 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-10-28
 
+- **Last week of the seller niche: 20 reels, 1,978 reach, 9 likes, 8 comments, 3 saves, 0 shares. Median 121 views.**
+  - Sends per reach was 0.0 on every post and every reel stalled at about 100 to 130 reach (the first test batch).
+  - Confidence is high that the seller content earned no sends. This supports the 28 Oct switch to the make-money-with-AI niche.
+  - None of the numbers below were measured on the new niche, so they are priors, not rules.
+- **Story episodes beat the old format on views only.**
+  - The 12 episodes had a median of 126 views and the 8 old-format reels had 60.5. The top 11 posts were all episodes and the bottom 7 were all old format.
+  - Confidence is moderate. The comparison is confounded by post age and missing follower counts.
+  - Saves went the other way: old tip reels got 4.7 per 1k reach and episodes got 0.6 per 1k. With 3 saves in total, this is noise level.
+- **Theme hunch (n=3).**
+  - FAQ (2.40x), AFTER (1.72x) and CART (1.22x) all named a message the viewer already sends and showed it backfiring.
+  - All three shared hook #2 and the 07:31 UTC slot, so the cause can't be pinned down. WINBACK had a similar theme and got 1.00x.
+  - Carry it into the new niche as a tested angle, not a rule.
+- **Hooks don't separate.**
+  - #2: n=7, median 1.00x. #1: n=3, median 1.05x. #3: n=1, 1.03x. #17: n=1, 1.13x. #17 was on the only episode save.
+  - Hold@3s is still missing on 20 of 20 posts, so there is no hook verdict.
+- **Logging still blocks the audit.**
+  - Missing: hold@3s, average watch time, follows and non-follower % (0 of 20 posts), follower count, and test arm.
+  - Style was logged as 'story' on all 12 episodes.
+  - Comments are unverified: STORE's 6 have been frozen since 16 Oct and CART's 2 haven't been hand-counted. 9 of 12 episodes have exactly 1 like.
+  - Without these numbers, we can't tell a hook problem from a profile problem.
+
+## Week of 2026-10-28
+
 - **20 reels, 1,978 reach, 9 likes, 8 comments, 3 saves, 0 shares. Median views: 121.**
   - Story-3d now has 12 episodes with a median of 126 views. The old format's median is 60.5.
   - The top 11 posts are all episodes, and the bottom 7 are all old format.

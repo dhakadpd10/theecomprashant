@@ -1,0 +1,228 @@
+{
+  "id": "2026-10-28-reel-fake-ai-task-fee-vs-real-sites-arm-a",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(999|₹999|Stop|fee|VIP|SIM|mule|never|Outlier|Alignerr|Prolific|upfront|catch|1930|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#A8322A"
+  },
+  "log": {
+    "hook": "#2 Negative Command",
+    "kind": "sites",
+    "style": "editorial-host",
+    "experiment": "backfire opening vs straight money opening",
+    "pair": 1,
+    "arm": "A",
+    "slot": "19:30 IST",
+    "differs_from_arm_b": "line 0 (say, show, card) only"
+  },
+  "lines": [
+    {
+      "say": "You paid almost a thousand rupees to join an AI task job? Stop.",
+      "show": "Paid ₹999 to join an AI task job? Stop.",
+      "cut": true,
+      "card": {
+        "title": "STOP PAYING ₹999",
+        "visual": "WhatsApp chat card, on screen from frame 0: incoming bubble 'Pay ₹999 to unlock VIP tasks', a small 'example scam message' label under it, red STOP stamp slams on 'Stop'"
+      },
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "It's small tasks first, then a VIP fee, then they want your bank or SIM.",
+      "show": "Small tasks, a VIP fee, then bank or SIM.",
+      "cut": true,
+      "card": {
+        "title": "The pattern",
+        "visual": "3 message rows tick in one by one: 'Paid task: like or review', 'Prepaid task / Telegram VIP group fee', 'Open a bank account or give your SIM'. Label: pattern from cyber-fraud warnings"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "That makes you a money mule.",
+      "show": "That's a money mule.",
+      "card": {
+        "title": "Money mule",
+        "visual": "the third row (bank / SIM) turns accent red, shakes, a chip 'your account moves their money' pops beside it"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Real sites never charge you. Outlier pays by your skill and country.",
+      "show": "Real sites never charge. Outlier: skill and country.",
+      "cut": true,
+      "card": {
+        "title": "1. Outlier",
+        "visual": "clean white site card: Outlier · outlier.ai · write and rate AI answers · pay: depends on skill and country · for: experts and strong writers. Progress bar segment 1 of 3"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next site is made for domain experts, backed by a big AI company.",
+      "show": "Alignerr by Labelbox: for domain experts.",
+      "card": {
+        "title": "2. Alignerr",
+        "visual": "site card: Alignerr · alignerr.com · AI training by Labelbox · pay: varies · for: domain experts. Progress bar segment 2 of 3"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "On Prolific, you'll see the pay upfront.",
+      "show": "Prolific: pay shown upfront.",
+      "cut": true,
+      "card": {
+        "title": "3. Prolific",
+        "visual": "site card: Prolific · prolific.com · paid research studies, some about AI · pay: shown before you start · for: anyone with spare minutes. Chip 'no joining fee' pops. Progress bar segment 3 of 3"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: you'll take tests, you may have to wait, and pay varies by country.",
+      "show": "The catch: tests, waitlists, pay varies by country.",
+      "cut": true,
+      "card": {
+        "title": "Save this.",
+        "visual": "THE SCREENSHOT CARD (same body as arm B): left column 'Red flags': fee · prepaid task · Telegram VIP group · asks for your bank account or SIM. Right column '3 real sites': Outlier (outlier.ai, pay depends on skill and country) · Alignerr (alignerr.com, Labelbox, domain experts) · Prolific (prolific.com, paid studies, pay shown before you start). Footer: 'The catch: tests, waitlists, pay varies by country.'"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "If you've been scammed, call nineteen thirty, the number on screen.",
+      "show": "Scammed? Call 1930 or cybercrime.gov.in.",
+      "card": {
+        "title": "1930",
+        "visual": "footer strip of the screenshot card highlights: 'Fraud: call 1930 or file at cybercrime.gov.in'"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to your friend who just got that job message on WhatsApp.",
+      "show": "Send this to the friend with that WhatsApp job.",
+      "cut": true,
+      "card": {
+        "title": "Send.",
+        "visual": "share arrow over the WhatsApp chat from the hook, now crossed out"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment SITES and I'll send you the full list.",
+      "show": "Comment SITES for the full list.",
+      "card": {
+        "title": "Save.",
+        "visual": "quiet end card: 'Save.' in the serif, bookmark shape, dark pill 'Full list: SITES', small sticker 'FREE'"
+      },
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "screenshot": {
+    "body_shared_with_arm_b": true,
+    "red_flags": [
+      "A joining fee",
+      "A prepaid task",
+      "A Telegram VIP group",
+      "Asks for your bank account or SIM"
+    ],
+    "sites": [
+      {
+        "name": "Outlier",
+        "domain": "outlier.ai",
+        "what": "Write and rate AI answers",
+        "pay": "Depends on skill and country",
+        "for": "Experts and strong writers"
+      },
+      {
+        "name": "Alignerr",
+        "domain": "alignerr.com",
+        "what": "AI training by Labelbox",
+        "pay": "Varies",
+        "for": "Domain experts"
+      },
+      {
+        "name": "Prolific",
+        "domain": "prolific.com",
+        "what": "Paid research studies, some about AI",
+        "pay": "Shown before you start",
+        "for": "Anyone with spare minutes"
+      }
+    ],
+    "catch": "Real sites have tests and waitlists, and pay varies by country.",
+    "fraud": "Call 1930 or file at cybercrime.gov.in"
+  },
+  "sfx": [
+    {
+      "at": "@line0.end-0.25",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line9.voice+0.3",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0.end",
+    "title": [
+      "STOP PAYING ₹999",
+      "REAL AI SITES PAY YOU"
+    ]
+  },
+  "caption": "Comment SITES for the full list of websites that pay for AI work.\n\nPaid to join an \"AI task job\"? Stop. This is the pattern cyber-fraud warnings describe:\n1. Small paid tasks first (likes, reviews)\n2. Then a prepaid task or a Telegram VIP group fee\n3. The newer twist: they ask you to open a bank account or hand over your SIM. That makes you a money mule.\n\n3 real sites that never charge you to join:\n1. Outlier (outlier.ai): write and rate AI answers. Pay depends on skill and country.\n2. Alignerr (alignerr.com): AI training by Labelbox, for domain experts.\n3. Prolific (prolific.com): paid research studies. Pay is shown before you start.\n\nWhat you need: a phone or laptop, an email ID, and time to pass a test.\n\nThe catch: real sites have tests and waitlists, pay varies by country, and not every country is accepted.\n\nLost money to a task scam? Call 1930 or file at cybercrime.gov.in.\n\nSend this to the friend who just got a job message on WhatsApp.\n\nComment SITES and I'll DM you the full list.\nResults vary.\n\n#sideincome #aijobs #scamalert",
+  "host": {
+    "name": "prashant"
+  }
+}

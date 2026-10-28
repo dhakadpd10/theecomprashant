@@ -1,0 +1,149 @@
+{
+  "id": "2026-10-30-reel-prompt-10k-month-from-phone",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "hook": 20,
+  "keyword": "MONEY",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹10,000|₹10000|₹0|₹1|phone|prompt|plan|catch|weeks|Send|MONEY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "You don't need a laptop or one rupee to make this money plan.",
+      "show": "No laptop. No ₹1. Just a phone.",
+      "card": "NO LAPTOP ₹0 JUST A PHONE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "A side income plan for this month, from one prompt on my phone.",
+      "show": "A ₹10,000 plan this month. One prompt.",
+      "card": "Phone screen, answer already there: 3 options, each with a first step for today. Tag on the ₹10,000: EXAMPLE TARGET, NOT A RESULT",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Rewind. Skills, free hours, phone only, zero to invest, city.",
+      "show": "Rewind: skills, hours, phone, ₹0, city.",
+      "card": "SCREENSHOT CARD, chat box typing the prompt: 'Plan ₹10,000 of side income this month for me. My skills: [ ]. Hours free per day: [ ]. Phone only, no laptop. ₹0 to invest. City: [ ]. Give me 3 options: who pays for each and the first message I send today.'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "One: AI reels for local shops.",
+      "show": "1. AI reels for local shops.",
+      "card": "EXAMPLE ANSWER 1/3. Option: AI reels made in CapCut. Who pays: a café or salon near you (example price: ₹500 a reel). First message today: 'I made 2 free sample reels for your shop. Want to see them?'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: freelance writing on Internshala.",
+      "show": "2. Freelance writing on Internshala.",
+      "card": "EXAMPLE ANSWER 2/3. Option: AI-assisted writing gigs. Who pays: startups posting on internshala.com (example: ₹3,000 a project). First step today: apply to 3 posts with one short sample.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three: a paid study guide for juniors.",
+      "show": "3. A Topmate guide for juniors.",
+      "card": "EXAMPLE ANSWER 3/3. Option: a study or exam guide made with AI, sold on topmate.io. Who pays: juniors in your college (example price: ₹199). First message today: post it in your college WhatsApp group.",
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it's a plan, not money. First rupee takes weeks. Results vary.",
+      "show": "The catch: a plan, not money. Results vary.",
+      "card": "THE CATCH. A plan is not money. The first rupee usually takes weeks, not days. Results vary.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who keeps saying I'll start something next month.",
+      "show": "Send this to the 'next month' friend.",
+      "card": "Chat bubble from a friend: 'I'll start something next month.' Forward arrow.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "And comment MONEY for the full prompt.",
+      "show": "Comment MONEY for the full prompt.",
+      "card": "Save. Bookmark shape, then a dark pill: Comment MONEY. Sticker: FREE AI SIDE-INCOME PLANNER",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.4",
+    "title": [
+      "A ₹10,000 PLAN",
+      "FROM ONE PHONE PROMPT"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "id": "2026-10-29-reel-fiverr-vs-upwork-ai-video-gig",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "breakdown",
+  "keyword": "GIG",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(free|FREE|Fiverr|Upwork|₹0|₹1500|₹1,500|Example|example|catch|Catch|GIG|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4A"
+  },
+  "lines": [
+    {
+      "say": "Stop editing reels for free. Fiverr's got buyers for this.",
+      "show": "Stop editing reels for free. Fiverr has buyers.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Here's the gig: half-minute reels. Claude script, free app edit, zero rupees.",
+      "show": "Sell 30-sec reels: Claude script, CapCut edit, ₹0.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Coffee shops, coaches, small brands. They'll pay for these.",
+      "show": "Buyers: cafés, coaches, small brands.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Example: one and a half thousand rupees a reel. That's two hours of work.",
+      "show": "Example: ₹1,500 a reel, 2 hours each.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "On Fiverr, buyers find you. It's free to post a gig.",
+      "show": "Fiverr: buyers find you. Free to list.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "On Upwork, you're the one applying, and Connects cost money.",
+      "show": "Upwork: you apply. Connects cost money.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "If you'd rather wait, Fiverr. If you'll pitch, Upwork.",
+      "show": "Waiting type: Fiverr. Pitching type: Upwork.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "This week, I'd make one sample reel and pitch three coffee shops.",
+      "show": "This week: 1 sample, 3 café pitches.",
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: with zero reviews, it'll take weeks. And both take a cut.",
+      "show": "Catch: weeks with 0 reviews. Both take a cut.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who's editing reels for free. Comment GIG.",
+      "show": "Send this to a friend. Comment GIG.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "ding"
+    },
+    {
+      "at": "@line4.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+1.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.6",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "STOP EDITING FOR FREE",
+      "FIVERR VS UPWORK"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

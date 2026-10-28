@@ -1,0 +1,148 @@
+{
+  "id": "2026-10-29-reel-salary-day-vs-day-5",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skit",
+  "keyword": "MONEY",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(5th|5|biryani|400|pay|Maggi|UPI|auction|paid|bhai|Bhai|MONEY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "If your salary is gone in a week, this is your room.",
+      "show": "Broke by the 5th? This is your room.",
+      "card": "BROKE BY THE 5TH?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Salary day. Biryani for the whole floor.",
+      "show": "Salary day: biryani for the whole floor.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Booked a car, for a two minute walk.",
+      "show": "Cab booked. For a 400 m walk.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Need money? Relax, I'll pay.",
+      "show": "Any bill? Chill, I'll pay.",
+      "host": {
+        "at": "center",
+        "pose": "wave",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "A few days later. One noodle packet, split four ways.",
+      "show": "Day 5. Same room. 1 Maggi, 4 ways.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "U P I balance, checked with one eye closed.",
+      "show": "UPI balance, one eye closed.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Now the last spice packet goes up for auction.",
+      "show": "The masala sachet goes up for auction.",
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Then my roommate's phone pings. A client paid for his video edit.",
+      "show": "Roommate's phone pings: client paid for his reel edit.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The whole room turns. Brother!",
+      "show": "The whole room turns: bhai.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Send this to the friend who's broke a week after payday, and comment MONEY.",
+      "show": "Send to the friend broke by the 5th. Comment MONEY.",
+      "card": "Comment MONEY",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice+1.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.9",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line5+0.8",
+    "title": [
+      "SALARY DAY",
+      "VS DAY 5"
+    ]
+  },
+  "caption": "Comment MONEY for the full prompt: the AI Side-Income Planner.\n\nWhat it does:\n1. Paste it into a free Claude or ChatGPT chat.\n2. Tell it your skills and how many free hours you have a week.\n3. It suggests side incomes that fit you and the first steps to take this week.\n\nWhat you need to start: a phone, a free AI account, 30 minutes.\n\nThe catch: a plan is not a payment. The first client takes weeks of showing up, not one evening, and pay varies a lot.\n\n(Skit. The roommate and his payment are made up.)\n\nIf you're new here, I'm Prashant. I build AI systems for brands and share real ways to earn with AI.\n\nSend this to the friend who's broke by the 5th.\n\nComment MONEY and I'll DM you the planner.\n\nResults vary.\n\n#sidehustleindia #aitools #pglife",
+  "host": {
+    "name": "prashant"
+  }
+}

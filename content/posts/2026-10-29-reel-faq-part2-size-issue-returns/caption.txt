@@ -1,0 +1,27 @@
+Comment "FAQ" and I'll DM you the free Size Guide and FAQ Writer: 'size issue' into a fit line. Follow so the DM lands 📩
+
+👇 READ BELOW for how it works:
+
+1. Your returns get tagged "size issue" and you just refund them. The notes behind that tag say exactly what went wrong, but nobody reads them.
+
+2. Export your return notes from Shopify, your returns app or your marketplace panel. Example: 30 notes from last month.
+
+3. Paste them into Claude with the Size Guide and FAQ Writer prompt.
+
+4. It groups the notes by product and writes one plain fit line for each. Example: "Runs small in the chest. Go one size up."
+
+5. Put that line right above Add to cart. Don't bury it in a size chart PDF nobody opens.
+
+What you get: one fit line per product, written from your own buyers' complaints, ready to paste on the page.
+
+Why it works: shoppers don't read size charts, but they read one line next to the button. And the line comes from real returns, not your guess about the fit.
+
+The catch: it needs written notes. If your returns form is only a dropdown, add a text box and wait about 2 weeks for enough notes to group.
+
+It's completely free. Paste it into Claude and run it on this month's returns.
+
+Comment "FAQ" for the Size Guide and FAQ Writer.
+
+If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.
+
+#ecommerce #d2cbrand #shopifystore

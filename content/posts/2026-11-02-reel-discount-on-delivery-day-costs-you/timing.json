@@ -1,0 +1,81 @@
+{
+  "dur": 33.28,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.214,
+      "b": 3.314,
+      "say": "Every reorder got a discount. One WhatsApp message did that.",
+      "show": "10% off every reorder. Cost: 1 WhatsApp."
+    },
+    {
+      "a": 3.314,
+      "voice": 3.414,
+      "end": 7.451,
+      "b": 7.551,
+      "say": "They'd reorder anyway. Wrong timing: delivery day, not the day it's used up.",
+      "show": "They'd reorder anyway. Wrong day: delivery, not run-out."
+    },
+    {
+      "a": 7.551,
+      "voice": 7.651,
+      "end": 10.195,
+      "b": 10.295,
+      "say": "Want reorders with no discount? Just tell Claude.",
+      "show": "Full-price reorders? Just tell Claude."
+    },
+    {
+      "a": 10.295,
+      "voice": 10.395,
+      "end": 12.863,
+      "b": 12.963,
+      "say": "Step one. Type how many days one pack lasts.",
+      "show": "Step 1: how long it lasts (example: 40 days)."
+    },
+    {
+      "a": 12.963,
+      "voice": 13.063,
+      "end": 16.473,
+      "b": 16.573,
+      "say": "Next, three messages: early, just before it ends, a week after.",
+      "show": "Step 2: 3 messages. Day 30, 38, 45."
+    },
+    {
+      "a": 16.573,
+      "voice": 16.673,
+      "end": 19.895,
+      "b": 19.995,
+      "say": "Step three. Message one: running low? Same size, same address?",
+      "show": "Step 3: 'Running low? Same size, same address?'"
+    },
+    {
+      "a": 19.995,
+      "voice": 20.095,
+      "end": 24.01,
+      "b": 24.11,
+      "say": "No code. The discount waits for message three, only if they don't reply.",
+      "show": "No code. 10% waits for message 3."
+    },
+    {
+      "a": 24.11,
+      "voice": 24.21,
+      "end": 28.867,
+      "b": 28.967,
+      "say": "The catch: it only works for things that get used up. Clothes need a goes-with message.",
+      "show": "Catch: used-up products only. Kurtas: 'pairs with'."
+    },
+    {
+      "a": 28.967,
+      "voice": 29.067,
+      "end": 31.877,
+      "b": 33.28,
+      "say": "Type REPEAT below. I'll send you all three messages.",
+      "show": "Save. Comment REPEAT for the series."
+    }
+  ]
+}

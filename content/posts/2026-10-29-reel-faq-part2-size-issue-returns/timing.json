@@ -1,0 +1,81 @@
+{
+  "dur": 32.96,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.822,
+      "b": 4.922,
+      "say": "Stop refunding 'size issue'. You've got a pile of return notes, and they're telling you why.",
+      "show": "Stop refunding 'size issue'. 30 notes (example) say why."
+    },
+    {
+      "a": 4.922,
+      "voice": 5.022,
+      "end": 7.405,
+      "b": 7.505,
+      "say": "Got size returns? I just hand them to Claude.",
+      "show": "Size returns? Just tell Claude."
+    },
+    {
+      "a": 7.505,
+      "voice": 7.605,
+      "end": 9.492,
+      "b": 9.592,
+      "say": "Step one. Export your return notes.",
+      "show": "Step 1: export your return notes."
+    },
+    {
+      "a": 9.592,
+      "voice": 9.692,
+      "end": 13.043,
+      "b": 13.143,
+      "say": "Step two. Paste them into the Size Guide and FAQ Writer.",
+      "show": "Step 2: paste into the Size Guide and FAQ Writer."
+    },
+    {
+      "a": 13.143,
+      "voice": 13.243,
+      "end": 15.836,
+      "b": 15.936,
+      "say": "Step three. It groups them, one line per product.",
+      "show": "Step 3: grouped by product, one line each."
+    },
+    {
+      "a": 15.936,
+      "voice": 16.036,
+      "end": 19.822,
+      "b": 19.922,
+      "say": "Show that line right above Add to cart. Don't bury it in a PDF.",
+      "show": "Put it above Add to cart. Not a PDF."
+    },
+    {
+      "a": 19.922,
+      "voice": 20.022,
+      "end": 23.909,
+      "b": 24.009,
+      "say": "Here's the catch. It needs written notes, so add a text box and wait two weeks.",
+      "show": "Catch: needs written notes. Add a text box, 2 weeks."
+    },
+    {
+      "a": 24.009,
+      "voice": 24.109,
+      "end": 28.423,
+      "b": 28.523,
+      "say": "Before, it said size issue. Now it says small in the chest, go one size up.",
+      "show": "'Size issue' becomes 'Runs small in the chest.'"
+    },
+    {
+      "a": 28.523,
+      "voice": 28.623,
+      "end": 31.564,
+      "b": 32.96,
+      "say": "Save this, and comment FAQ. I'll send you the tool.",
+      "show": "Save this. Comment FAQ for the free tool."
+    }
+  ]
+}

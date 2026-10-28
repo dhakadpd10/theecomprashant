@@ -1,0 +1,148 @@
+<style>
+  /* editorial theme, plum accent: one cart card that empties as the night goes on, a serif title per beat */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E8E0D3 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; width: 640px; height: 640px; border-radius: 50%; filter: blur(70px); }
+  #blobA { left: -200px; top: 150px; background: radial-gradient(circle, rgba(122,46,90,0.13) 0%, rgba(122,46,90,0) 70%); }
+  #blobB { left: 560px; top: 560px; background: radial-gradient(circle, rgba(200,120,60,0.12) 0%, rgba(200,120,60,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .kick { position: absolute; left: 90px; top: 62px; width: 900px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 106px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.02; color: var(--ink); white-space: nowrap; }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 90px; right: 90px; top: 250px; height: 180px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+
+  #s0-title { transform-origin: left top; }
+
+  /* the cart card (lines 0 to 6) */
+  .kurtas { position: absolute; left: 36px; top: 34px; width: 420px; height: 76px; display: flex; gap: 12px; }
+  .k { display: block; flex: none; width: 60px; height: 76px; }
+  .ex { position: absolute; left: 36px; top: 122px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: var(--accent); }
+  .amt { position: absolute; right: 36px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 56px; line-height: 1; color: var(--ink); white-space: nowrap; }
+  #amt2 { opacity: 0; }
+  #strike { position: absolute; left: -8px; right: -8px; top: 25px; height: 6px; border-radius: 3px; background: var(--accent); transform-origin: left center; }
+  .cnt { position: absolute; right: 36px; top: 110px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  #c3, #c1, #cc { opacity: 0; }
+  #ping { position: absolute; left: 90px; right: 90px; top: 250px; height: 180px; border-radius: 34px; border: 4px solid var(--accent); box-sizing: border-box; opacity: 0; }
+
+  .stamp { position: absolute; top: 220px; height: 56px; opacity: 0; }
+  .stamp .tilt { height: 56px; padding: 0 24px; box-sizing: border-box; border: 4px solid var(--accent); border-radius: 14px; background: #FFFFFF; color: var(--accent); font-family: 'Permanent Marker', cursive; font-size: 34px; line-height: 1; display: flex; align-items: center; white-space: nowrap; box-shadow: 0 10px 24px rgba(60,40,20,0.14); }
+  #goa { left: 120px; }
+  #goa .tilt { rotate: -5deg; position: relative; }
+  #goa-x { position: absolute; left: 14px; right: 14px; top: 24px; height: 5px; border-radius: 3px; background: var(--ink); transform-origin: left center; }
+  #lona { left: 360px; }
+  #lona .tilt { rotate: 4deg; }
+  #placed { right: 120px; }
+  #placed .tilt { border-color: #16663A; color: #16663A; background: #E3F4E9; font-family: 'Inter', sans-serif; font-weight: 900; letter-spacing: 0.06em; }
+
+  #cancel { position: absolute; left: 300px; top: 292px; width: 480px; height: 104px; opacity: 0; }
+  #cancel .tilt { width: 480px; height: 104px; box-sizing: border-box; rotate: -7deg; border: 7px solid var(--accent); border-radius: 18px; background: rgba(255,255,255,0.94); color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 56px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px rgba(122,46,90,0.25); }
+
+  /* 7: till sunrise */
+  #clk { position: absolute; left: 40px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 56px; line-height: 1; color: var(--ink); white-space: nowrap; }
+  #clk-sub { position: absolute; left: 40px; top: 110px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  #win { position: absolute; right: 30px; top: 25px; width: 260px; height: 130px; border-radius: 24px; overflow: hidden; background: linear-gradient(180deg, #1F2440 0%, #3A3560 100%); }
+  #dawn { position: absolute; left: 0; top: 0; width: 260px; height: 130px; background: linear-gradient(180deg, #F6C58A 0%, #F7E4CC 100%); opacity: 0; }
+  #sun { position: absolute; left: 85px; top: 30px; width: 90px; height: 90px; border-radius: 50%; background: #E9893A; box-shadow: 0 0 40px rgba(233,137,58,0.6); }
+  .mull { position: absolute; background: rgba(255,255,255,0.75); }
+  #mv { left: 128px; top: 0; width: 4px; height: 130px; }
+  #mh { left: 0; top: 63px; width: 260px; height: 4px; }
+
+  /* 8: comment CART */
+  #s8-title { font-size: 104px; transform-origin: left center; }
+  .chip3 { position: absolute; top: 28px; width: 250px; height: 64px; border-radius: 32px; background: #F1E6EC; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #m1 { left: 45px; } #m2 { left: 325px; } #m3 { left: 605px; }
+  #ctalabel { position: absolute; left: 45px; top: 112px; width: 780px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blobA"></div>
+<div class="blob" id="blobB"></div>
+<div id="bar"><i><b id="p0"></b></i><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="sc" data-from="@line0" data-to="@line7">
+  <div class="card" id="cart">
+    <div class="kurtas">
+      <svg class="k" id="k1" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#7A2E5A"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+      <svg class="k" id="k2" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#C8552B"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+      <svg class="k" id="k3" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#2F7F7A"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+      <svg class="k" id="k4" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#D9A23A"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+      <svg class="k" id="k5" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#3E5A9E"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+      <svg class="k" id="k6" viewBox="0 0 60 76"><path d="M21 3 H39 L44 9 L57 16 L53 31 L46 28 V73 H14 V28 L7 31 L3 16 L16 9 Z" fill="#C9577A"></path><path d="M30 6 V22" stroke="#F3EEE5" stroke-width="3" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="ex">example</div>
+    <div class="amt" id="amt1">₹7,400<i id="strike"></i></div>
+    <div class="amt" id="amt2" data-layout-allow-overlap>₹499</div>
+    <div class="cnt" id="c6">6 items</div>
+    <div class="cnt" id="c3" data-layout-allow-overlap>3 items</div>
+    <div class="cnt" id="c1" data-layout-allow-overlap>1 item</div>
+    <div class="cnt" id="cc" data-layout-allow-overlap>1 item, COD</div>
+  </div>
+  <div id="ping" data-layout-allow-overlap></div>
+  <div class="stamp" id="goa" data-layout-allow-overlap><div class="tilt">GOA TRIP<i id="goa-x"></i></div></div>
+  <div class="stamp" id="lona" data-layout-allow-overlap><div class="tilt">LONAVALA</div></div>
+  <div class="stamp" id="placed" data-layout-allow-overlap><div class="tilt">PLACED</div></div>
+  <div id="cancel" data-layout-allow-overlap><div class="tilt">CANCELLED</div></div>
+</section>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="kick">NOBODY TELLS YOU</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">6 kurtas at <span class="it">1 am.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="kick">1:02 AM</div>
+  <div class="title"><span class="mask"><span class="l">A big <span class="it">order.</span></span></span></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="kick">1:02 AM</div>
+  <div class="title"><span class="mask"><span class="l">Goa <span class="it">planned.</span></span></span></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="kick">1:09 AM</div>
+  <div class="title"><span class="mask"><span class="l">Down to <span class="it">half.</span></span></span></div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="kick">1:15 AM</div>
+  <div class="title"><span class="mask"><span class="l">Goa? <span class="it">Lonavala.</span></span></span></div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="kick">1:16 AM</div>
+  <div class="title"><span class="mask"><span class="l">Order <span class="it">placed!</span></span></span></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="kick">1:17 AM</div>
+  <div class="title"><span class="mask"><span class="l">Order <span class="it">gone.</span></span></span></div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="kick">TILL SUNRISE</div>
+  <div class="title"><span class="mask"><span class="l">Wide <span class="it">awake.</span></span></span></div>
+  <div class="card" id="clockcard">
+    <div id="clk">1:17 am</div>
+    <div id="clk-sub">still awake</div>
+    <div id="win"><div id="dawn"></div><div id="sun"></div><div class="mull" id="mv"></div><div class="mull" id="mh"></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="kick">FREE · NO-SPAM SEQUENCE</div>
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Comment <span class="it">CART.</span></span></span></div>
+  <div class="card" id="ctacard">
+    <div class="chip3" id="m1">Message 1</div>
+    <div class="chip3" id="m2">Message 2</div>
+    <div class="chip3" id="m3">Message 3</div>
+    <div id="ctalabel">Messages + timing. You hit send.</div>
+  </div>
+</section>

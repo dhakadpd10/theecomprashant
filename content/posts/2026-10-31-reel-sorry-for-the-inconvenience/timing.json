@@ -1,0 +1,89 @@
+{
+  "dur": 27.67,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 5.167,
+      "b": 5.267,
+      "say": "Stop pasting that apology line. My friend's replies got twelve percent bad reviews.",
+      "show": "Stop sending 'Sorry for the inconvenience.'"
+    },
+    {
+      "a": 5.267,
+      "voice": 5.367,
+      "end": 8.138,
+      "b": 8.238,
+      "say": "Example numbers. No order, no date, no next step.",
+      "show": "Example numbers. No order, no date, no step."
+    },
+    {
+      "a": 8.238,
+      "voice": 8.338,
+      "end": 9.945,
+      "b": 10.045,
+      "say": "Where's my order? Just tell Claude.",
+      "show": "Where's my order? Just tell Claude."
+    },
+    {
+      "a": 10.045,
+      "voice": 10.145,
+      "end": 11.52,
+      "b": 11.62,
+      "say": "First, paste your policies.",
+      "show": "Step 1: paste your policies."
+    },
+    {
+      "a": 11.62,
+      "voice": 11.72,
+      "end": 13.362,
+      "b": 13.462,
+      "say": "Next, paste the tracking status.",
+      "show": "Step 2: paste the tracking status."
+    },
+    {
+      "a": 13.462,
+      "voice": 13.562,
+      "end": 16.389,
+      "b": 16.489,
+      "say": "Last, ask for order number, date and a single next step.",
+      "show": "Step 3: order number, date, next step."
+    },
+    {
+      "a": 16.489,
+      "voice": 16.589,
+      "end": 19.032,
+      "b": 19.132,
+      "say": "Not there by Thursday? Reply here, we'll reship.",
+      "show": "'Not there by Thursday? Reply here, we'll reship.'"
+    },
+    {
+      "a": 19.132,
+      "voice": 19.232,
+      "end": 20.799,
+      "b": 20.899,
+      "say": "The twist? No apology at all.",
+      "show": "The twist? Not one sorry."
+    },
+    {
+      "a": 20.899,
+      "voice": 20.999,
+      "end": 23.763,
+      "b": 23.863,
+      "say": "Catch: it drafts, you send. It only sees what you paste.",
+      "show": "Catch: it drafts, you send."
+    },
+    {
+      "a": 23.863,
+      "voice": 23.963,
+      "end": 26.266,
+      "b": 27.67,
+      "say": "Save this. Comment SUPPORT for the free agent.",
+      "show": "Save this. Comment SUPPORT for the agent."
+    }
+  ]
+}

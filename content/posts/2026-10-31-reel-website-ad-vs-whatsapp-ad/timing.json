@@ -1,0 +1,73 @@
+{
+  "dur": 30.16,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.415,
+      "b": 3.515,
+      "say": "Nobody tells you chats from ads stay free for three full days.",
+      "show": "WhatsApp ad chats still get 72 free hours."
+    },
+    {
+      "a": 3.515,
+      "voice": 3.615,
+      "end": 8.757,
+      "b": 8.857,
+      "say": "Normal messages from API tools cost money. Ad chats stay free for three days.",
+      "show": "API messages cost money. Ad chats: 3 days free."
+    },
+    {
+      "a": 8.857,
+      "voice": 8.957,
+      "end": 12.871,
+      "b": 12.971,
+      "say": "Open the AI. It writes the ad, the first reply and three follow-ups.",
+      "show": "Ad, first reply, 3 follow-ups. All inside 72 hours."
+    },
+    {
+      "a": 12.971,
+      "voice": 13.071,
+      "end": 14.601,
+      "b": 14.701,
+      "say": "Twist: chat doesn't always win.",
+      "show": "Twist: chat doesn't always win."
+    },
+    {
+      "a": 14.701,
+      "voice": 14.801,
+      "end": 19.822,
+      "b": 19.922,
+      "say": "Example: a five hundred rupee top brings size and COD questions. Chat wins.",
+      "show": "Example: ₹499 kurta, size and COD questions. Chat wins."
+    },
+    {
+      "a": 19.922,
+      "voice": 20.022,
+      "end": 22.019,
+      "b": 22.119,
+      "say": "An impulse buy? The website is faster.",
+      "show": "Example: impulse buy? Website is faster."
+    },
+    {
+      "a": 22.119,
+      "voice": 22.219,
+      "end": 26.161,
+      "b": 26.261,
+      "say": "The catch: it writes, it does not send. Someone must answer within minutes.",
+      "show": "Catch: drafted, not sent. Answer in minutes."
+    },
+    {
+      "a": 26.261,
+      "voice": 26.361,
+      "end": 28.757,
+      "b": 30.16,
+      "say": "Which one do you run? Comment CHAT for the free kit.",
+      "show": "Which do you run? Comment CHAT for the kit."
+    }
+  ]
+}

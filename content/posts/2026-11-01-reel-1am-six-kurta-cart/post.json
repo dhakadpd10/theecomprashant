@@ -1,0 +1,146 @@
+{
+  "id": "2026-11-01-reel-1am-six-kurta-cart",
+  "style": "motion",
+  "kind": "skit",
+  "theme": "editorial",
+  "keyword": "CART",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(KURTAS|kurtas|7400|₹7400|499|₹499|Goa|Lonavala|COD|cancelled|example|CART)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#7A2E5A"
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you what a six-item cart turns into after midnight.",
+      "show": "6 KURTAS AT 1 AM",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Late at night, his phone lights up. Six items. A big order.",
+      "show": "1:02 am: 6 kurtas, ₹7,400 (example).",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "He's sitting up now. Cooker whistles. The beach trip's all planned.",
+      "show": "Sits up. Cooker whistles. Goa trip planned.",
+      "cut": false,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "A few minutes later. Cart's down to half.",
+      "show": "1:09 am: cart drops to 3.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "A bit later. Just a single item left. So the beach trip's a day trip now.",
+      "show": "1:15 am: 1 item. Goa becomes Lonavala.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Then, order placed! A small order, cash on delivery.",
+      "show": "1:16 am: order placed. ₹499. COD.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "A minute later. The order's gone.",
+      "show": "1:17 am: Order cancelled.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "He's staring at the ceiling till sunrise. You know the feeling.",
+      "show": "Stares at the ceiling. Till sunrise.",
+      "cut": false,
+      "host": {
+        "at": "center",
+        "pose": "idle",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Comment CART and I'll send you the free cart recovery sequence.",
+      "show": "Comment CART for the free sequence.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice",
+      "fx": "ding"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+0.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line7.voice+0.3",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.2",
+    "title": [
+      "6 KURTAS AT 1 AM",
+      "WHAT HAPPENS BY 1:17?"
+    ]
+  },
+  "caption": "Comment CART and I'll DM you the free No-Spam Cart Recovery Sequence.\n\n1:02 am: 6 kurtas, ₹7,400. 1:16 am: ₹499, COD. 1:17 am: cancelled. (All numbers here are an example.)\n\nWhat you get: a ready-to-use abandoned-cart message sequence for WhatsApp, written to sound like a person and not a bot. You paste in your brand details and send the messages yourself.\n\nThe catch: no message brings back every 1 am cart. Some people are just window shopping in bed.\n\nIf you're new here, I'm Prashant. I run AI on my own D2C brand and build AI systems for other brands. I give away one free tool in every post.\n\nComment CART for the sequence.\n\n#d2cindia #shopifyindia #ecommerceindia"
+}

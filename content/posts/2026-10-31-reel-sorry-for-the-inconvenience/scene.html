@@ -1,0 +1,214 @@
+<style>
+  /* editorial theme, plum accent: warm paper, ink, serif titles with one italic accent word, clean white app cards */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E8E0D6 100%); }
+  .blob { position: absolute; width: 780px; height: 780px; border-radius: 50%; }
+  #blob1 { left: -240px; top: 160px; background: radial-gradient(circle, rgba(122,46,92,0.10) 0%, rgba(122,46,92,0) 65%); }
+  #blob2 { left: 520px; top: 880px; background: radial-gradient(circle, rgba(196,120,70,0.10) 0%, rgba(196,120,70,0) 65%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 120px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 120px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 8px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 90px; top: 400px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,30,50,0.14), 0 2px 0 rgba(70,30,50,0.05); }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 100px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 32px; top: 26px; width: 48px; height: 48px; border-radius: 15px; background: var(--accent); }
+  .head .name { position: absolute; left: 100px; right: 32px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .tag { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E564E; white-space: nowrap; }
+  .chip { position: absolute; right: 16px; top: 25px; width: 190px; height: 60px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+  .chip.no { background: var(--accent); color: #FFFFFF; }
+  .chip.ok { background: #DDF2E4; color: #1C7A45; }
+  .chip.you { background: var(--accent); color: #FFFFFF; }
+  .chip.paste { background: var(--ink); color: #F3EEE5; }
+
+  /* 0: hook, the copy-pasted apology */
+  #s0-title { top: 50px; }
+  .ghost { position: absolute; left: 90px; top: 185px; width: 870px; height: 140px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(70,30,50,0.10); opacity: 0.55; }
+  #s0-bub { position: absolute; left: 90px; top: 185px; width: 870px; height: 140px; box-sizing: border-box; padding: 0 40px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 26px 60px rgba(70,30,50,0.16); display: flex; align-items: center; }
+  #s0-q { position: relative; display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s0-strike { position: absolute; left: -6px; right: -6px; top: 50%; height: 8px; margin-top: -4px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+  #s0-chip { position: absolute; left: 90px; top: 345px; height: 84px; padding: 0 34px; border-radius: 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; white-space: nowrap; }
+  #s0-ex { left: 590px; top: 368px; }
+
+  /* 1: says nothing */
+  #s1-card { height: 660px; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; }
+  .bub { display: block; flex: none; border-radius: 28px; padding: 22px 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; }
+  .bub.in { align-self: flex-start; background: #F1ECE3; color: var(--ink); white-space: nowrap; }
+  .bub.out { align-self: flex-end; max-width: 440px; background: #F3E1EC; color: var(--accent); }
+  .row { position: relative; display: block; flex: none; height: 88px; border-radius: 22px; background: #F6F1E8; }
+  .row .t { position: absolute; left: 28px; right: 220px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .chip { top: 14px; }
+
+  /* 2: just tell Claude */
+  #s2-card { height: 510px; }
+  #s2-field { position: absolute; left: 32px; right: 32px; top: 132px; height: 110px; border-radius: 26px; background: #F6F1E8; }
+  #s2-type { position: absolute; left: 30px; right: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-go { position: absolute; left: 32px; top: 272px; height: 84px; padding: 0 34px; border-radius: 42px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; white-space: nowrap; }
+  #s2-dots { position: absolute; left: 32px; top: 390px; width: 160px; height: 80px; border-radius: 40px; background: #F1ECE3; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #s2-dots .dot { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); }
+
+  /* 3: paste your policies */
+  #s3-card { height: 470px; }
+  .paste { position: absolute; left: 32px; right: 32px; top: 132px; border-radius: 26px; background: #F6F1E8; padding: 24px 30px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.75; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .pl em { font-style: normal; color: #5E564E; }
+  #s3-ex { left: 36px; top: 400px; }
+
+  /* 4: paste the tracking */
+  #s4-card { height: 530px; }
+  #s4-line { position: absolute; left: 59px; top: 170px; width: 6px; height: 230px; border-radius: 3px; background: rgba(122,46,92,0.25); transform-origin: center top; }
+  .tdot { position: absolute; left: 45px; width: 34px; height: 34px; border-radius: 50%; background: #C9BFB2; }
+  #d1 { top: 153px; } #d2 { top: 268px; } #d3 { top: 383px; background: var(--accent); }
+  .tr { position: absolute; left: 110px; right: 32px; height: 50px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #t1 { top: 145px; } #t2 { top: 260px; } #t3 { top: 375px; color: var(--accent); }
+  #s4-ex { left: 36px; top: 458px; }
+
+  /* 5: ask for 3 things */
+  #s5-card { height: 440px; }
+  #s5-hl { position: absolute; left: 32px; right: 32px; top: 40px; height: 110px; border-radius: 24px; background: #F3E1EC; }
+  .ck { position: absolute; left: 32px; right: 32px; height: 110px; }
+  #c1 { top: 40px; } #c2 { top: 170px; } #c3 { top: 300px; }
+  .ck .box { position: absolute; left: 24px; top: 23px; width: 64px; height: 64px; box-sizing: border-box; border-radius: 50%; border: 4px solid rgba(30,26,22,0.18); }
+  .ck .fill { position: absolute; left: 24px; top: 23px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); }
+  .ck .fill svg { display: block; width: 64px; height: 64px; }
+  .ck .t { position: absolute; left: 112px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+
+  /* 6: the draft */
+  #s6-card { height: 540px; }
+  #s6-bub { position: absolute; left: 32px; right: 32px; top: 130px; border-radius: 30px; background: #F3E1EC; padding: 26px 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.38; color: var(--ink); }
+  #s6-bub span { color: var(--accent); }
+  #s6-chips { position: absolute; left: 32px; right: 32px; top: 440px; height: 60px; display: flex; gap: 12px; }
+  .gchip { display: flex; align-items: center; height: 60px; padding: 0 22px; border-radius: 30px; background: #DDF2E4; color: #1C7A45; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; white-space: nowrap; }
+
+  /* 7: the twist stamp */
+  #s7-tilt { position: absolute; left: 470px; top: 560px; width: 460px; height: 140px; rotate: -7deg; }
+  #s7-stamp { position: absolute; left: 0; top: 0; width: 460px; height: 140px; box-sizing: border-box; border: 8px solid var(--accent); border-radius: 26px; background: rgba(255,255,255,0.94); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; color: var(--accent); white-space: nowrap; }
+
+  /* 8: the catch */
+  #s8-card { height: 440px; }
+  .fr { position: absolute; left: 32px; right: 32px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  #f1 { top: 40px; } #f2 { top: 170px; } #f3 { top: 300px; }
+  .fr .t { position: absolute; left: 28px; right: 220px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+
+  /* 9: save + comment */
+  #mark { position: absolute; left: 140px; top: 140px; width: 130px; height: 180px; }
+  #save { position: absolute; left: 360px; right: 90px; top: 130px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 140px; line-height: 1.1; color: var(--ink); }
+  #s9-pill { position: absolute; left: 360px; right: 90px; top: 380px; height: 300px; border-radius: 60px; background: var(--ink); box-shadow: 0 30px 70px rgba(70,30,50,0.22); }
+  #s9-com { position: absolute; left: 0; right: 0; top: 46px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 44px; color: #F3EEE5; }
+  #kw { position: absolute; left: 0; right: 0; top: 122px; height: 130px; display: flex; justify-content: center; align-items: center; font-family: var(--display); font-size: 100px; color: #E7A9CC; }
+  #kw .k { display: block; font-weight: 400; }
+  #s9-tilt { position: absolute; left: 560px; top: 720px; width: 340px; height: 84px; rotate: 4deg; }
+  #s9-free { position: absolute; left: 0; top: 0; width: 340px; height: 84px; border-radius: 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop <span class="it">this.</span></span></span></div>
+  <div class="ghost" id="g2" data-layout-allow-overlap></div>
+  <div class="ghost" id="g1" data-layout-allow-overlap></div>
+  <div id="s0-bub"><div id="s0-q">“Sorry for the inconvenience.”<div id="s0-strike" data-layout-allow-overlap></div></div></div>
+  <div id="s0-chip">12% bad reviews</div>
+  <div class="tag" id="s0-ex">example number</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">EXAMPLE NUMBERS</div>
+  <div class="title"><span class="mask"><span class="l">Says</span></span><span class="mask"><span class="l it">nothing.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="bub in" id="s1-in">Where's my order??</div>
+    <div class="bub out" id="s1-out">Sorry for the inconvenience.</div>
+    <div class="row" id="r1"><div class="t">Order number</div><div class="chip no" id="x1">MISSING</div></div>
+    <div class="row" id="r2"><div class="t">Date</div><div class="chip no" id="x2">MISSING</div></div>
+    <div class="row" id="r3"><div class="t">Next step</div><div class="chip no" id="x3">MISSING</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE FIX</div>
+  <div class="title"><span class="mask"><span class="l">Just tell</span></span><span class="mask"><span class="l it">Claude.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div id="s2-field"><div id="s2-type">Where's my order?</div></div>
+    <div id="s2-go">Draft reply</div>
+    <div id="s2-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Paste your</span></span><span class="mask"><span class="l it">policies.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div class="paste"><span class="pl" id="pl1">Shipping: <em>3 to 5 days</em></span><span class="pl" id="pl2">Late order: <em>we reship</em></span><span class="pl" id="pl3">Tone: <em>warm, no excuses</em></span></div>
+    <div class="tag" id="s3-ex">example policy</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste the</span></span><span class="mask"><span class="l it">tracking.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="head"><div class="logo"></div><div class="name">Tracking #4821</div></div>
+    <div id="s4-line"></div>
+    <div class="tdot" id="d1"></div><div class="tdot" id="d2"></div><div class="tdot" id="d3"></div>
+    <div class="tr" id="t1">Shipped, Monday</div>
+    <div class="tr" id="t2">Jaipur hub, Tuesday</div>
+    <div class="tr" id="t3">Due Thursday</div>
+    <div class="tag" id="s4-ex">example tracking</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Ask for</span></span><span class="mask"><span class="l it">3 things.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-hl"></div>
+    <div class="ck" id="c1"><div class="box"></div><div class="fill" id="k1"><svg viewBox="0 0 64 64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Order number</div></div>
+    <div class="ck" id="c2"><div class="box"></div><div class="fill" id="k2"><svg viewBox="0 0 64 64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Date</div></div>
+    <div class="ck" id="c3"><div class="box"></div><div class="fill" id="k3"><svg viewBox="0 0 64 64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">One next step</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step">THE DRAFT · EXAMPLE</div>
+  <div class="title"><span class="mask"><span class="l">It writes</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="head"><div class="logo"></div><div class="name">Draft reply</div></div>
+    <div id="s6-bub">Order #4821 is in transit, due <span>Thursday.</span> Not there by Thursday? Reply here, we'll <span>reship.</span></div>
+    <div id="s6-chips"><div class="gchip" id="h1">ORDER</div><div class="gchip" id="h2">DATE</div><div class="gchip" id="h3">NEXT STEP</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div id="s7-tilt" data-layout-allow-overlap><div id="s7-stamp" data-layout-allow-overlap>0 sorry</div></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">It drafts.</span></span><span class="mask"><span class="l it">You send.</span></span></div>
+  <div class="card" id="s8-card">
+    <div class="fr" id="f1"><div class="t">Drafts reply</div><div class="chip ok" id="y1">IT DOES</div></div>
+    <div class="fr" id="f2"><div class="t">Sends it</div><div class="chip you" id="y2">YOU</div></div>
+    <div class="fr" id="f3"><div class="t">Live tracking</div><div class="chip paste" id="y3">PASTE IT</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <svg id="mark" viewBox="0 0 130 180"><path d="M10 10 H120 V170 L65 126 L10 170 Z" fill="#7A2E5C"></path></svg>
+  <div id="save">Save.</div>
+  <div id="s9-pill">
+    <div id="s9-com">Comment</div>
+    <div id="kw"><b class="k">S</b><b class="k">U</b><b class="k">P</b><b class="k">P</b><b class="k">O</b><b class="k">R</b><b class="k">T</b></div>
+  </div>
+  <div id="s9-tilt"><div id="s9-free">FREE AGENT</div></div>
+</section>

@@ -1,0 +1,241 @@
+<style>
+  /* editorial theme: warm paper, ink, deep green accent, one red for "reorder now", serif titles with an italic accent word */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .grain { position: absolute; inset: 0; background-image: linear-gradient(rgba(30,26,22,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -220px; top: 180px; width: 820px; height: 820px; background: radial-gradient(circle, rgba(46,107,78,0.11) 0%, rgba(46,107,78,0) 70%); }
+  #blob2 { left: 480px; top: 860px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(205,150,80,0.13) 0%, rgba(205,150,80,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 14px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); transform-origin: left top; }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  .tag { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.66); white-space: nowrap; }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 110px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 36px; top: 29px; width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(90deg, transparent 46%, rgba(255,255,255,0.85) 46%, rgba(255,255,255,0.85) 54%, transparent 54%), linear-gradient(transparent 46%, rgba(255,255,255,0.85) 46%, rgba(255,255,255,0.85) 54%, transparent 54%), var(--accent); }
+  .head .name { position: absolute; left: 110px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; top: 56px; width: 560px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  #s0-ex { position: absolute; left: 690px; top: 58px; width: 300px; text-align: right; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.66); white-space: nowrap; }
+  #s0-title { top: 110px; }
+  .day { position: absolute; top: 368px; width: 270px; height: 64px; border-radius: 32px; background: #FFFFFF; box-shadow: 0 14px 34px rgba(60,40,20,0.12); display: flex; align-items: center; justify-content: center; gap: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .day .dn { color: rgba(30,26,22,0.66); }
+  .day b { font-weight: 900; }
+  #d1 { left: 90px; } #d2 { left: 405px; } #d3 { left: 720px; }
+  #d3r { left: 720px; background: #B23A2E; color: #FFFFFF; box-shadow: 0 16px 40px rgba(178,58,46,0.35); }
+  #d3r .dn { color: rgba(255,255,255,0.88); }
+
+  /* 1: stale sheet */
+  #s1-card { top: 470px; height: 560px; }
+  .pan { position: absolute; top: 36px; width: 282px; height: 430px; border-radius: 26px; background: #F6F1E8; }
+  #s1-a { left: 32px; } #s1-b { right: 32px; }
+  .pan .lab { position: absolute; left: 0; right: 0; top: 28px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: rgba(30,26,22,0.72); }
+  .big { position: absolute; left: 0; right: 0; top: 86px; display: block; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 160px; line-height: 1; color: var(--ink); }
+  #s1-0 { color: #B23A2E; }
+  .pan .sub { position: absolute; left: 0; right: 0; top: 270px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  .cells { position: absolute; left: 40px; right: 40px; top: 334px; height: 66px; border-radius: 10px; background-image: linear-gradient(rgba(30,26,22,0.16) 2px, transparent 2px), linear-gradient(90deg, rgba(30,26,22,0.16) 2px, transparent 2px); background-size: 50px 33px; }
+  .plank { position: absolute; left: 40px; right: 40px; height: 10px; border-radius: 5px; background: rgba(30,26,22,0.2); }
+  #pk1 { top: 340px; } #pk2 { top: 390px; }
+  #s1-ex { left: 36px; top: 492px; }
+
+  /* 2: free sheet */
+  #s2-step i { position: absolute; display: block; left: -8px; right: -8px; top: 19px; height: 5px; border-radius: 3px; background: #B23A2E; transform-origin: left center; }
+  #s2-card { top: 470px; height: 590px; }
+  #s2-hdr { position: absolute; left: 36px; right: 36px; top: 140px; height: 70px; border-radius: 18px; background: #E6EFE9; display: flex; align-items: center; padding: 0 24px; gap: 16px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #1F4D37; white-space: nowrap; }
+  #s2-hdr div:nth-child(1) { flex: 1.2; } #s2-hdr div:nth-child(2) { flex: 1; } #s2-hdr div:nth-child(3) { flex: 1.2; text-align: right; }
+  .slot { position: absolute; left: 36px; right: 36px; height: 90px; border-radius: 18px; border: 3px dashed rgba(30,26,22,0.18); }
+  #sl1 { top: 240px; } #sl2 { top: 350px; } #sl3 { top: 460px; }
+  #s2-sw { position: absolute; left: 800px; top: 800px; width: 160px; height: 160px; rotate: 10deg; }
+  #s2-stk { display: flex; width: 160px; height: 160px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.06em; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(46,107,78,0.35); }
+
+  /* 3: paste orders */
+  #s3-card { top: 470px; height: 600px; }
+  #s3-btn { position: absolute; right: 30px; top: 24px; width: 150px; height: 62px; border-radius: 31px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .paste { position: absolute; left: 36px; right: 36px; top: 140px; border-radius: 24px; background: #F6F1E8; padding: 24px 30px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.7; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .pl em { font-style: normal; color: rgba(30,26,22,0.7); }
+  #s3-chip { position: absolute; left: 36px; top: 440px; height: 64px; padding: 0 28px; border-radius: 32px; background: #E6EFE9; color: #1F4D37; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; display: flex; align-items: center; white-space: nowrap; }
+  #s3-ex { left: 36px; top: 534px; }
+
+  /* 4: days left */
+  #s4-card { top: 470px; height: 590px; }
+  #s4-f { position: absolute; left: 36px; top: 36px; height: 66px; padding: 0 28px; border-radius: 33px; background: #E6EFE9; color: #1F4D37; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; display: flex; align-items: center; white-space: nowrap; }
+  .drow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .drow .n { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .drow .v { position: absolute; right: 30px; top: 0; bottom: 0; width: 200px; display: flex; align-items: center; justify-content: flex-end; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #dr1 { top: 130px; } #dr2 { top: 260px; } #dr3 { top: 390px; }
+  #s4-ex { left: 36px; top: 528px; }
+
+  /* 5: the red line */
+  #s5-title .red { font-family: 'Playfair Italic', serif; color: #B23A2E; }
+  #s5-card { top: 470px; height: 590px; }
+  #s5-lt { position: absolute; left: 36px; top: 40px; height: 70px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s5-chip { position: absolute; right: 36px; top: 40px; width: 170px; height: 70px; border-radius: 35px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s5-track { position: absolute; left: 36px; right: 36px; top: 240px; height: 64px; border-radius: 32px; background: #EEE8DD; overflow: hidden; }
+  #s5-red { position: absolute; display: block; left: 0; top: 0; width: 30%; height: 64px; background: #B23A2E; transform-origin: left center; }
+  #s5-green { position: absolute; display: block; left: 30%; right: 0; top: 0; height: 64px; background: #CFE3D6; }
+  #s5-pin { position: absolute; left: 209px; top: 206px; width: 6px; height: 132px; border-radius: 3px; background: var(--ink); }
+  #s5-9 { position: absolute; left: 160px; top: 150px; width: 104px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); }
+  #s5-a0 { left: 36px; top: 324px; }
+  #s5-a30 { right: 36px; top: 324px; }
+  .lg { position: absolute; left: 36px; height: 50px; display: flex; align-items: center; gap: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .lg i { display: block; width: 28px; height: 28px; border-radius: 50%; }
+  #lg1 { top: 392px; } #lg1 i { background: #B23A2E; }
+  #lg2 { top: 452px; } #lg2 i { background: #8FC0A2; }
+  #s5-ex { left: 36px; top: 528px; }
+
+  /* 6: the red row */
+  #s6-card { top: 470px; height: 570px; }
+  .rrow { position: absolute; left: 36px; right: 36px; height: 140px; border-radius: 24px; background: #F6F1E8; }
+  #rr1 { top: 30px; } #rr2 { top: 190px; } #rr3 { top: 350px; }
+  #s6-bg { position: absolute; left: 0; top: 0; right: 0; bottom: 0; border-radius: 24px; background: #F7DCD7; }
+  .rrow .n { position: absolute; left: 30px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .rrow .s { position: absolute; left: 30px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.7); white-space: nowrap; }
+  #s6-six { color: #B23A2E; }
+  #s6-r3s { left: 150px; }
+  .chip { position: absolute; right: 20px; top: 38px; height: 64px; border-radius: 32px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  .chip.ok { width: 120px; background: #DDEDE3; color: #1F5A3E; }
+  .chip.re { width: 190px; background: #B23A2E; color: #FFFFFF; }
+  #s6-ex { left: 36px; top: 512px; }
+
+  /* 7: the catch */
+  #s7-card { top: 470px; height: 600px; }
+  #s7-ring { position: absolute; left: 150px; top: 36px; width: 360px; height: 360px; }
+  #s7-clock { position: absolute; left: 150px; top: 156px; width: 360px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1; color: var(--ink); }
+  #s7-sub { position: absolute; left: 40px; right: 40px; top: 440px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.35; color: var(--ink); }
+
+  /* 8: comment + save */
+  #save { position: absolute; left: 330px; right: 60px; top: 190px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 220px; line-height: 1; color: var(--ink); }
+  #mark { position: absolute; left: 615px; top: 450px; width: 120px; height: 160px; }
+  #pill { position: absolute; left: 360px; right: 60px; top: 680px; height: 170px; border-radius: 85px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; box-shadow: 0 30px 60px rgba(30,26,22,0.25); }
+  #pill-c { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 48px; color: #F3EEE5; }
+  #s8-word { display: flex; gap: 2px; }
+  #s8-word .k { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 80px; line-height: 1; color: #9FD8B7; }
+  #s8-sw { position: absolute; left: 520px; top: 890px; width: 360px; height: 84px; rotate: -4deg; }
+  #s8-stk { display: flex; width: 360px; height: 84px; border-radius: 22px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 48px; align-items: center; justify-content: center; white-space: nowrap; box-shadow: 0 16px 40px rgba(46,107,78,0.3); }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">Bestseller sold out again?</div>
+  <div id="s0-ex">example numbers</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop Sunday</span></span><span class="mask"><span class="l it">stock counts.</span></span></div>
+  <div class="day" id="d1"><span class="dn">SUN</span><b>48</b></div>
+  <div class="day" id="d2"><span class="dn">MON</span><b id="d2n">48</b></div>
+  <div class="day" id="d3"><span class="dn">TUE</span><b>?</b></div>
+  <div class="day" id="d3r" data-layout-allow-overlap><span class="dn">TUE</span><b>0</b></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE PROBLEM</div>
+  <div class="title"><span class="mask"><span class="l">Stale</span></span><span class="mask"><span class="l it">sheet.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="pan" id="s1-a">
+      <div class="lab">SHEET</div>
+      <div class="big" id="s1-48">48</div>
+      <div class="sub">counted Sunday</div>
+      <div class="cells"></div>
+    </div>
+    <div class="pan" id="s1-b">
+      <div class="lab">SHELF</div>
+      <div class="big" id="s1-0">0</div>
+      <div class="sub">Tuesday</div>
+      <div class="plank" id="pk1"></div>
+      <div class="plank" id="pk2"></div>
+    </div>
+    <div class="tag" id="s1-ex">example numbers</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step" id="s2-step">BY GUT<i id="s2-strike" data-layout-allow-overlap></i></div>
+  <div class="title"><span class="mask"><span class="l">Use a</span></span><span class="mask"><span class="l it">free sheet.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="head"><div class="logo"></div><div class="name">Reorder Alert Sheet</div></div>
+    <div id="s2-hdr"><div>Item</div><div>Per day</div><div>Days left</div></div>
+    <div class="slot" id="sl1"></div>
+    <div class="slot" id="sl2"></div>
+    <div class="slot" id="sl3"></div>
+  </div>
+  <div id="s2-sw" data-layout-allow-overlap><div id="s2-stk" data-layout-allow-overlap>FREE</div></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Paste your</span></span><span class="mask"><span class="l it">orders.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="head"><div class="logo"></div><div class="name">orders_export.csv</div><div id="s3-btn">PASTE</div></div>
+    <div class="paste"><span class="pl" id="ol1">#1042 <em>· Black kurta ·</em> 2</span><span class="pl" id="ol2">#1043 <em>· Print kurta ·</em> 1</span><span class="pl" id="ol3">#1044 <em>· Dupatta ·</em> 3</span><span class="pl" id="ol4">#1045 <em>· Black kurta ·</em> 1</span></div>
+    <div id="s3-chip">names, phones removed</div>
+    <div class="tag" id="s3-ex">example rows</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Days of</span></span><span class="mask"><span class="l it">stock left.</span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-f">stock ÷ sold a day</div>
+    <div class="drow" id="dr1"><div class="n">Viral print kurta</div><div class="v" id="dv1">0 days</div></div>
+    <div class="drow" id="dr2"><div class="n">Cotton dupatta</div><div class="v" id="dv2">0 days</div></div>
+    <div class="drow" id="dr3"><div class="n">Plain black kurta</div><div class="v" id="dv3">0 days</div></div>
+    <div class="tag" id="s4-ex">example numbers</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3</div>
+  <div class="title" id="s5-title"><span class="mask"><span class="l">Under 9 days,</span></span><span class="mask"><span class="l red">turns red.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-lt">Supplier lead time</div>
+    <div id="s5-chip">0 days</div>
+    <div id="s5-9">9</div>
+    <div id="s5-track"><i id="s5-red"></i><i id="s5-green"></i></div>
+    <div id="s5-pin" data-layout-allow-overlap></div>
+    <div class="tag" id="s5-a0">0</div>
+    <div class="tag" id="s5-a30">30 days</div>
+    <div class="lg" id="lg1"><i></i>under 9: reorder now</div>
+    <div class="lg" id="lg2"><i></i>9 or more: fine</div>
+    <div class="tag" id="s5-ex">example lead time</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE RED ROW</div>
+  <div class="title"><span class="mask"><span class="l">The boring</span></span><span class="mask"><span class="l it">one.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="rrow" id="rr1"><div class="n">Viral print kurta</div><div class="s">2 a day · 22 days</div><div class="chip ok" id="ok1">OK</div></div>
+    <div class="rrow" id="rr2"><div class="n">Cotton dupatta</div><div class="s">3 a day · 14 days</div><div class="chip ok" id="ok2">OK</div></div>
+    <div class="rrow" id="rr3"><div id="s6-bg" data-layout-allow-overlap></div><div class="n">Plain black kurta</div><div class="s" id="s6-six">6 a day</div><div class="s" id="s6-r3s">· 5 days</div><div class="chip re" id="re3">REORDER</div></div>
+    <div class="tag" id="s6-ex">example numbers</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">It won't</span></span><span class="mask"><span class="l it">update itself.</span></span></div>
+  <div class="card" id="s7-card">
+    <svg id="s7-ring" viewBox="0 0 360 360"><circle cx="180" cy="180" r="160" fill="none" stroke="rgba(30,26,22,0.1)" stroke-width="22"></circle><circle id="s7-arc" cx="180" cy="180" r="160" fill="none" stroke="#2E6B4E" stroke-width="22" stroke-linecap="round" stroke-dasharray="1006" stroke-dashoffset="1006" transform="rotate(-90 180 180)"></circle></svg>
+    <div id="s7-clock" data-layout-allow-overlap>0:00</div>
+    <div id="s7-sub">Nothing syncs. Paste fresh numbers by hand.</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="save">Save.</div>
+  <svg id="mark" viewBox="0 0 120 160"><path d="M10 10 H110 V150 L60 112 L10 150 Z" fill="#2E6B4E"></path></svg>
+  <div id="pill"><div id="pill-c">Comment</div><div id="s8-word"><b class="k">S</b><b class="k">T</b><b class="k">O</b><b class="k">C</b><b class="k">K</b></div></div>
+  <div id="s8-sw"><div id="s8-stk">FREE SHEET</div></div>
+</section>

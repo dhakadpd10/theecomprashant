@@ -1,0 +1,136 @@
+{
+  "id": "2026-11-02-reel-discount-on-delivery-day-costs-you",
+  "style": "motion",
+  "kind": "tutorial",
+  "theme": "editorial",
+  "keyword": "REPEAT",
+  "hook": "1",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(REPEAT|10|Claude|Save|30|38|45|40|code|GONE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6A4A"
+  },
+  "lines": [
+    {
+      "say": "Every reorder got a discount. One WhatsApp message did that.",
+      "show": "10% off every reorder. Cost: 1 WhatsApp.",
+      "card": "10% GONE ON EVERY REORDER",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "They'd reorder anyway. Wrong timing: delivery day, not the day it's used up.",
+      "show": "They'd reorder anyway. Wrong day: delivery, not run-out.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Want reorders with no discount? Just tell Claude.",
+      "show": "Full-price reorders? Just tell Claude.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one. Type how many days one pack lasts.",
+      "show": "Step 1: how long it lasts (example: 40 days).",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, three messages: early, just before it ends, a week after.",
+      "show": "Step 2: 3 messages. Day 30, 38, 45.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step three. Message one: running low? Same size, same address?",
+      "show": "Step 3: 'Running low? Same size, same address?'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "No code. The discount waits for message three, only if they don't reply.",
+      "show": "No code. 10% waits for message 3.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "smug",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it only works for things that get used up. Clothes need a goes-with message.",
+      "show": "Catch: used-up products only. Kurtas: 'pairs with'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Type REPEAT below. I'll send you all three messages.",
+      "show": "Save. Comment REPEAT for the series.",
+      "card": "Running low? Same size, same address?",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line7.voice+0.4",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "10% GONE ON EVERY REORDER",
+      "BLAME 1 WHATSAPP"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

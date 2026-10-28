@@ -1,0 +1,220 @@
+<style>
+  /* editorial theme: warm paper, ink, one deep green accent, serif titles with an italic accent word, clean white app cards */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; width: 760px; height: 760px; border-radius: 50%; }
+  #blob1 { left: -240px; top: 180px; background: radial-gradient(circle, rgba(46,106,74,0.12) 0%, rgba(46,106,74,0) 65%); }
+  #blob2 { left: 520px; top: 760px; background: radial-gradient(circle, rgba(214,160,72,0.13) 0%, rgba(214,160,72,0) 65%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 100px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 32px; top: 26px; width: 50px; height: 50px; border-radius: 16px; background: var(--accent); }
+  .head .name { position: absolute; left: 102px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .tag { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; }
+  .tag.hr { right: 34px; top: 32px; }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; right: 90px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #5E574F; }
+  #s0-title { top: 130px; font-size: 120px; }
+  #s0-ul { position: absolute; left: 92px; top: 402px; width: 560px; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+  .note { position: absolute; width: 250px; height: 76px; border-radius: 22px; background: #FFFFFF; box-shadow: 0 18px 40px rgba(60,40,20,0.13); display: flex; align-items: center; gap: 14px; padding: 0 20px; box-sizing: border-box; }
+  .note i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #C8552B; flex: none; }
+  .note span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #n1 { left: 90px; top: 520px; } #n2 { left: 90px; top: 630px; } #n3 { left: 90px; top: 740px; }
+  #n4 { left: 740px; top: 760px; } #n5 { left: 740px; top: 870px; }
+  #badge { position: absolute; left: 780px; top: 480px; width: 180px; height: 180px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 120px; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 40px rgba(46,106,74,0.35); }
+  #s0-ex { position: absolute; left: 780px; top: 676px; width: 180px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; }
+
+  /* 1: just tell Claude */
+  #s1-card { top: 430px; height: 420px; }
+  #s1-bub { position: absolute; right: 30px; top: 136px; height: 96px; padding: 0 30px; border-radius: 30px; background: #E3EFE7; color: #1F4A33; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; white-space: nowrap; }
+  #s1-file { position: absolute; left: 30px; top: 276px; height: 96px; padding: 0 28px; border-radius: 24px; background: #F6F1E8; display: flex; align-items: center; gap: 18px; }
+  #s1-file i { display: block; width: 34px; height: 44px; border: 4px solid var(--accent); border-radius: 6px; box-sizing: border-box; flex: none; }
+  #s1-file span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s1-ex { right: 34px; top: 306px; }
+
+  /* 2: export notes */
+  #s2-card { top: 430px; height: 640px; }
+  .rrow { position: absolute; left: 30px; right: 30px; height: 72px; border-radius: 18px; background: #F6F1E8; display: flex; align-items: center; gap: 16px; padding: 0 24px; }
+  .rrow i { display: block; width: 14px; height: 14px; border-radius: 50%; background: #C8552B; flex: none; }
+  .rrow span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #r1 { top: 120px; } #r2 { top: 205px; } #r3 { top: 290px; } #r4 { top: 375px; }
+  #s2-btn { position: absolute; left: 30px; top: 500px; width: 220px; height: 96px; border-radius: 48px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #s2-csv { position: absolute; left: 280px; top: 500px; height: 96px; padding: 0 26px; border-radius: 24px; background: #E3EFE7; display: flex; align-items: center; gap: 18px; }
+  #s2-csv i { display: block; width: 28px; height: 14px; border-left: 5px solid var(--accent); border-bottom: 5px solid var(--accent); rotate: -45deg; margin-top: -8px; flex: none; }
+  #s2-csv span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #1F4A33; white-space: nowrap; }
+
+  /* 3: paste into the writer */
+  #s3-card { top: 430px; height: 640px; }
+  .field { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 22px; background: #F6F1E8; }
+  .field span { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .field b { position: absolute; right: 20px; top: 22px; height: 56px; padding: 0 22px; border-radius: 28px; background: #DCEBE2; color: #1F4A33; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; }
+  #fd1 { top: 130px; } #fd2 { top: 250px; } #fd3 { top: 370px; }
+  #s3-go { position: absolute; left: 30px; right: 30px; top: 510px; height: 96px; border-radius: 48px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+
+  /* 4: one line per product */
+  #s4-card { top: 430px; height: 610px; }
+  .grow { position: absolute; left: 30px; right: 30px; height: 140px; border-radius: 24px; background: #F6F1E8; }
+  .grow .pn { position: absolute; left: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .grow .pl { position: absolute; left: 28px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; white-space: nowrap; }
+  .grow .cnt { position: absolute; right: 24px; top: 38px; width: 100px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #g1 { top: 120px; } #g2 { top: 280px; } #g3 { top: 440px; }
+
+  /* 5: product page */
+  #s5-card { top: 430px; height: 700px; }
+  #s5-img { position: absolute; left: 30px; right: 30px; top: 30px; height: 230px; border-radius: 24px; background: linear-gradient(135deg, #2E6A4A 0%, #4F8A66 55%, #C9A55A 100%); display: flex; align-items: center; justify-content: center; }
+  #s5-img svg { display: block; width: 190px; height: 190px; }
+  #s5-pdf { position: absolute; right: 50px; top: 50px; height: 64px; padding: 0 22px; border-radius: 32px; background: #FFFFFF; display: flex; align-items: center; }
+  #s5-pdf span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #s5-strike { position: absolute; left: 14px; right: 14px; top: 30px; height: 5px; border-radius: 3px; background: #B23A2A; transform-origin: left center; }
+  #s5-name { position: absolute; left: 30px; top: 288px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); }
+  #s5-price { position: absolute; left: 30px; top: 342px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; }
+  #s5-fit { position: absolute; left: 30px; right: 30px; top: 410px; height: 130px; border-radius: 22px; background: #E3EFE7; border-left: 8px solid var(--accent); padding: 0 26px; box-sizing: border-box; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.3; color: #1F4A33; }
+  #s5-cart { position: absolute; left: 30px; right: 30px; top: 570px; height: 100px; border-radius: 50px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+
+  /* 6: the catch */
+  #s6-card { top: 430px; height: 600px; }
+  #s6-drop { position: absolute; left: 30px; right: 30px; top: 125px; height: 90px; border-radius: 22px; background: #F6F1E8; border: 2px solid rgba(30,26,22,0.15); box-sizing: border-box; }
+  #s6-drop span { position: absolute; left: 26px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s6-drop i { position: absolute; right: 32px; top: 28px; width: 18px; height: 18px; border-right: 4px solid var(--ink); border-bottom: 4px solid var(--ink); rotate: 45deg; }
+  #s6-box { position: absolute; left: 30px; right: 30px; top: 240px; height: 160px; border-radius: 22px; border: 3px dashed var(--accent); background: #FFFFFF; box-sizing: border-box; }
+  #s6-q { position: absolute; left: 26px; top: 20px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; white-space: nowrap; }
+  #s6-type { position: absolute; left: 26px; right: 26px; top: 80px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s6-wait { position: absolute; left: 30px; right: 30px; top: 430px; height: 130px; }
+  #s6-day { position: absolute; left: 0; top: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--accent); white-space: nowrap; }
+  #s6-wl { position: absolute; right: 0; top: 4px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #5E574F; white-space: nowrap; }
+  #s6-track { position: absolute; left: 0; right: 0; top: 74px; height: 16px; border-radius: 8px; background: rgba(30,26,22,0.1); }
+  #s6-fill { display: block; width: 100%; height: 16px; border-radius: 8px; background: var(--accent); transform-origin: left center; }
+
+  /* 7: before / now */
+  #s7-before { top: 430px; height: 190px; background: #EDE7DD; box-shadow: 0 16px 40px rgba(60,40,20,0.10); }
+  .lab { position: absolute; left: 40px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: #5E574F; }
+  #s7-old { position: absolute; left: 40px; top: 84px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s7-strike { position: absolute; left: 34px; top: 110px; width: 240px; height: 6px; border-radius: 3px; background: #B23A2A; transform-origin: left center; }
+  #s7-after { position: absolute; left: 360px; right: 60px; top: 660px; height: 330px; border-radius: 36px; background: var(--accent); box-shadow: 0 30px 70px rgba(46,106,74,0.30); }
+  #s7-after .lab { color: #CFE6D8; }
+  #s7-msg { position: absolute; left: 40px; right: 40px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; line-height: 1.25; color: #FFFFFF; }
+
+  /* 8: save + comment */
+  #save { position: absolute; left: 360px; top: 110px; width: 480px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 200px; line-height: 1; color: var(--ink); }
+  #mark { position: absolute; left: 850px; top: 160px; width: 100px; height: 130px; }
+  #cta { position: absolute; left: 360px; right: 60px; top: 420px; height: 400px; border-radius: 40px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #cta-lab { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #kw { position: absolute; left: 0; right: 0; top: 110px; height: 240px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  #kw .k { display: block; font-family: var(--display); font-size: 200px; line-height: 1; color: #8FD3AA; }
+  #free { position: absolute; left: 360px; top: 870px; height: 84px; padding: 0 34px; border-radius: 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.06em; display: flex; align-items: center; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">Returns marked ‘size issue’?</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop just</span></span><span class="mask"><span class="l it">refunding.</span></span></div>
+  <div id="s0-ul" data-layout-allow-overlap></div>
+  <div class="note" id="n1"><i></i><span>Size issue</span></div>
+  <div class="note" id="n2"><i></i><span>Size issue</span></div>
+  <div class="note" id="n3"><i></i><span>Size issue</span></div>
+  <div class="note" id="n4"><i></i><span>Size issue</span></div>
+  <div class="note" id="n5"><i></i><span>Size issue</span></div>
+  <div id="badge">30</div>
+  <div id="s0-ex">example</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">SIZE RETURNS?</div>
+  <div class="title"><span class="mask"><span class="l">Just tell</span></span><span class="mask"><span class="l it">Claude.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div id="s1-bub">Why do these come back?</div>
+    <div id="s1-file"><i></i><span>30 return notes</span></div>
+    <div class="tag" id="s1-ex">example</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Export your</span></span><span class="mask"><span class="l it">return notes.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="head"><div class="logo"></div><div class="name">Return notes</div><div class="tag hr">example</div></div>
+    <div class="rrow" id="r1"><i></i><span>Tight at the chest</span></div>
+    <div class="rrow" id="r2"><i></i><span>Sleeves a bit short</span></div>
+    <div class="rrow" id="r3"><i></i><span>Size issue</span></div>
+    <div class="rrow" id="r4"><i></i><span>Chest tight, waist fine</span></div>
+    <div id="s2-btn">Export</div>
+    <div id="s2-csv"><i></i><span>notes.csv</span></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste into</span></span><span class="mask"><span class="l it">the writer.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="head"><div class="logo"></div><div class="name">Size Guide and FAQ Writer</div></div>
+    <div class="field" id="fd1"><span>Size chart</span><b id="ok1">PASTED</b></div>
+    <div class="field" id="fd2"><span>Policies</span><b id="ok2">PASTED</b></div>
+    <div class="field" id="fd3"><span>Return notes</span><b id="ok3">PASTED</b></div>
+    <div id="s3-go">Write it</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">One line</span></span><span class="mask"><span class="l it">per product.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="head"><div class="logo"></div><div class="name">By product</div><div class="tag hr">example</div></div>
+    <div class="grow" id="g1"><div class="pn">Cotton kurta</div><div class="pl">Small in the chest</div><div class="cnt" id="c1">18</div></div>
+    <div class="grow" id="g2"><div class="pn">Palazzo</div><div class="pl">Runs long</div><div class="cnt" id="c2">9</div></div>
+    <div class="grow" id="g3"><div class="pn">Co-ord set</div><div class="pl">True to size</div><div class="cnt" id="c3">3</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THEN</div>
+  <div class="title"><span class="mask"><span class="l">Right above</span></span><span class="mask"><span class="l it">Add to cart.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-img"><svg viewBox="0 0 200 200"><path d="M70 20 L130 20 L150 40 L185 70 L170 95 L148 80 L150 185 L50 185 L52 80 L30 95 L15 70 L50 40 Z" fill="#F6E7C8"></path><path d="M86 20 L100 48 L114 20" fill="none" stroke="#C9A55A" stroke-width="5"></path></svg></div>
+    <div id="s5-pdf" data-layout-allow-overlap><span data-layout-allow-overlap>size-chart.pdf</span><i id="s5-strike" data-layout-allow-overlap></i></div>
+    <div id="s5-name">Cotton kurta</div>
+    <div id="s5-price">₹1,299 · example</div>
+    <div id="s5-fit">Runs small in the chest. Go one size up.</div>
+    <div id="s5-cart">Add to cart</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Needs</span></span><span class="mask"><span class="l it">written notes.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="head"><div class="logo"></div><div class="name">Return form</div></div>
+    <div id="s6-drop"><span>Reason: Size issue</span><i></i></div>
+    <div id="s6-box"><div id="s6-q">What didn't fit?</div><div id="s6-type">Tight at the chest</div></div>
+    <div id="s6-wait"><div id="s6-day">Day 0</div><div id="s6-wl">wait 2 weeks</div><div id="s6-track"><b id="s6-fill"></b></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Now it</span></span><span class="mask"><span class="l it">says why.</span></span></div>
+  <div class="card" id="s7-before"><div class="lab">BEFORE</div><div id="s7-old">Size issue</div><i id="s7-strike" data-layout-allow-overlap></i></div>
+  <div id="s7-after"><div class="lab">NOW</div><div id="s7-msg">Runs small in the chest. Go one size up.</div></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="save">Save.</div>
+  <svg id="mark" viewBox="0 0 100 130"><path d="M8 6 H92 V124 L50 92 L8 124 Z" fill="#2E6A4A"></path></svg>
+  <div id="cta"><div id="cta-lab">Comment</div><div id="kw"><div class="k" id="k1">F</div><div class="k" id="k2">A</div><div class="k" id="k3">Q</div></div></div>
+  <div id="free">FREE TOOL</div>
+</section>

@@ -1,0 +1,253 @@
+<style>
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  #bg { position: absolute; inset: 0; overflow: hidden; }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -260px; top: 200px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(47,107,79,0.12) 0%, rgba(47,107,79,0) 70%); }
+  #blob2 { left: 500px; top: 880px; width: 820px; height: 820px; background: radial-gradient(circle, rgba(200,140,60,0.12) 0%, rgba(200,140,60,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 96px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 30px; top: 24px; width: 48px; height: 48px; border-radius: 14px; background: var(--accent); }
+  .head .logo.sheet { background-color: var(--accent); background-image: linear-gradient(rgba(255,255,255,0.7) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.7) 2px, transparent 2px); background-size: 16px 16px; }
+  .head .name { position: absolute; left: 98px; top: 0; height: 96px; line-height: 96px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .ex { position: absolute; display: block; height: 48px; line-height: 48px; padding: 0 20px; border-radius: 24px; background: #EEF4F0; color: #1F5A3F; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; white-space: nowrap; }
+  .kill { background: #F6DCD7; color: #9A2B1F; }
+  .keep { background: #F3E7C9; color: #6E5208; }
+  .scale { background: var(--accent); color: #FFFFFF; }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; right: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
+  #s0-title { top: 112px; }
+  #s0-title .l { width: fit-content; position: relative; }
+  .strike { position: absolute; display: block; left: 0; right: 0; top: 50%; height: 10px; border-radius: 5px; background: #B23A2B; transform-origin: left center; }
+  #s0-chips { position: absolute; left: 90px; right: 90px; top: 366px; height: 66px; display: flex; justify-content: center; gap: 24px; }
+  .vk { width: 210px; height: 66px; border-radius: 33px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.06em; }
+
+  /* 1: the report nobody can act on */
+  #s1-card { top: 420px; height: 620px; }
+  #s1-grid { position: absolute; left: 30px; right: 30px; top: 108px; height: 360px; }
+  .gr { display: flex; align-items: center; height: 36px; }
+  .gr .lab { width: 100px; flex: none; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; color: var(--ink); white-space: nowrap; }
+  .gr .cells { flex: 1; height: 14px; background: repeating-linear-gradient(90deg, #E6DED1 0 28px, transparent 28px 35.714px); }
+  .gr.hd .lab { color: #6B635A; }
+  .gr.hd .cells { height: 18px; background: repeating-linear-gradient(90deg, #CFC5B5 0 28px, transparent 28px 35.714px); }
+  #s1-foot { position: absolute; left: 30px; right: 30px; top: 482px; height: 44px; font-family: 'Playfair Italic', serif; font-size: 32px; color: #6B635A; white-space: nowrap; }
+  #s1-spend { position: absolute; left: 30px; top: 536px; height: 56px; padding: 0 26px; border-radius: 28px; background: #F6F1E8; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #s1-ask { position: absolute; left: 520px; right: 60px; top: 1068px; height: 84px; border-radius: 42px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; white-space: nowrap; }
+  #s1-ask .it { color: #8FD3AE; margin-left: 10px; }
+
+  /* 2: export */
+  #s2-card { top: 430px; height: 530px; }
+  .flt { position: absolute; top: 126px; height: 64px; padding: 0 28px; border-radius: 32px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; background: var(--accent); color: #FFFFFF; white-space: nowrap; }
+  #s2-f1 { left: 30px; } #s2-f2 { left: 170px; }
+  #s2-file { position: absolute; left: 30px; right: 30px; top: 226px; height: 140px; border-radius: 24px; background: #F6F1E8; }
+  .doc { position: absolute; display: block; left: 24px; top: 24px; width: 60px; height: 76px; }
+  #s2-file .ft { position: absolute; left: 108px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s2-file .fs { position: absolute; left: 108px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: #6B635A; white-space: nowrap; }
+  #s2-track { position: absolute; left: 24px; right: 24px; top: 118px; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.1); }
+  #s2-fill { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+  #s2-tick { position: absolute; display: block; right: 24px; top: 24px; width: 72px; height: 72px; }
+  #s2-btn { position: absolute; left: 30px; right: 30px; top: 400px; height: 100px; border-radius: 26px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; }
+
+  /* 3: paste + break-even */
+  #s3-card { top: 430px; height: 560px; }
+  #s3-file { position: absolute; left: 30px; top: 126px; width: 470px; height: 100px; border-radius: 24px; background: #F6F1E8; }
+  #s3-file .doc { left: 22px; top: 18px; width: 50px; height: 64px; }
+  #s3-file .ft { position: absolute; left: 92px; top: 0; height: 100px; line-height: 100px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s3-field { position: absolute; left: 30px; right: 30px; top: 256px; height: 150px; border-radius: 24px; border: 3px solid var(--accent); background: #FFFFFF; box-sizing: border-box; }
+  #s3-field .fl { position: absolute; left: 28px; top: 20px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: #6B635A; white-space: nowrap; }
+  #s3-val { position: absolute; display: block; left: 28px; top: 74px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 48px; color: var(--ink); white-space: nowrap; }
+  #s3-ex { right: 22px; top: 72px; }
+  #s3-ask { position: absolute; display: block; left: 30px; top: 446px; height: 80px; line-height: 80px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s3-send { position: absolute; right: 30px; top: 446px; width: 80px; height: 80px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #s3-send svg { display: block; width: 40px; height: 40px; }
+
+  /* 4: one call per ad */
+  #s4-card { top: 430px; height: 590px; }
+  #s4-hx { right: 30px; top: 24px; }
+  .arow { position: absolute; left: 30px; right: 30px; height: 130px; border-radius: 24px; background: #F6F1E8; }
+  #s4-a1 { top: 122px; } #s4-a2 { top: 272px; } #s4-a3 { top: 422px; }
+  .arow .an { position: absolute; left: 28px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .arow .ar { position: absolute; left: 28px; right: 196px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: #6B635A; white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 33px; width: 160px; height: 64px; border-radius: 32px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; }
+
+  /* 5: the twist */
+  #s5-card { top: 430px; height: 520px; }
+  #s5-best { position: absolute; right: 30px; top: 24px; height: 48px; line-height: 48px; padding: 0 20px; border-radius: 24px; background: #DCEBE2; color: #1F5A3F; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; white-space: nowrap; }
+  .stl { position: absolute; top: 130px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: #6B635A; white-space: nowrap; }
+  #s5-l1 { left: 36px; } #s5-l2 { left: 380px; }
+  .num { position: absolute; display: block; top: 176px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  #s5-clicks { left: 36px; width: 320px; }
+  #s5-buys { left: 380px; width: 220px; color: #9A2B1F; }
+  #s5-ex { left: 36px; top: 430px; }
+  #s5-sw { position: absolute; left: 470px; top: 560px; width: 400px; height: 150px; rotate: -12deg; }
+  #s5-stamp { display: block; width: 400px; height: 150px; box-sizing: border-box; border: 8px solid #B23A2B; border-radius: 18px; background: rgba(255,255,255,0.92); color: #B23A2B; font-family: var(--display); font-size: 104px; line-height: 134px; text-align: center; }
+
+  /* 6: the catch */
+  #s6-nw { position: absolute; left: 360px; right: 60px; top: 300px; height: 300px; rotate: -1.5deg; }
+  #s6-note { position: relative; display: block; height: 300px; box-sizing: border-box; padding: 44px 36px 28px; border-radius: 24px; background: #FFF1C2; box-shadow: 0 24px 50px rgba(60,40,20,0.14); }
+  #s6-note .pin { position: absolute; display: block; left: 50%; top: -14px; width: 32px; height: 32px; margin-left: -16px; border-radius: 50%; background: #B23A2B; }
+  #s6-note p { margin: 0 0 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.35; color: var(--ink); }
+  #s6-math { top: 640px; height: 340px; }
+  .mr { position: absolute; left: 36px; right: 36px; height: 64px; display: flex; align-items: center; justify-content: space-between; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s6-m1 { top: 28px; } #s6-m2 { top: 100px; } #s6-m3 { top: 198px; }
+  .mr .neg { color: #9A2B1F; } .mr .pos { color: var(--accent); }
+  #s6-line { position: absolute; display: block; left: 36px; right: 36px; top: 178px; height: 3px; background: var(--ink); transform-origin: left center; }
+  #s6-ex { left: 36px; top: 272px; }
+
+  /* 7: the board */
+  #s7-board { position: absolute; left: 90px; right: 90px; top: 90px; height: 500px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  #s7-head { position: absolute; left: 36px; top: 22px; height: 48px; line-height: 48px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s7-ex { right: 36px; top: 22px; }
+  #s7-cols { position: absolute; left: 30px; right: 30px; top: 96px; height: 370px; display: flex; gap: 20px; }
+  .col { position: relative; flex: 1; height: 370px; border-radius: 26px; background: #F6F1E8; }
+  .ch { position: absolute; left: 50%; top: 22px; width: 190px; height: 64px; margin-left: -95px; border-radius: 32px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; }
+  .ad7 { position: absolute; left: 20px; right: 20px; height: 70px; border-radius: 18px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); }
+  .ad7.r1 { top: 106px; } .ad7.r2 { top: 190px; } .ad7.r3 { top: 274px; }
+  #s7-title { left: 360px; right: 60px; top: 660px; }
+
+  /* 8: save + comment */
+  #save { position: absolute; left: 330px; right: 60px; top: 160px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 230px; line-height: 1; color: var(--ink); }
+  #mark { position: absolute; display: block; left: 625px; top: 430px; width: 140px; height: 190px; }
+  #pill { position: absolute; left: 360px; right: 60px; top: 680px; height: 150px; border-radius: 75px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 60px; }
+  #kw { display: flex; margin-left: 20px; color: #8FD3AE; }
+  #kw span { display: block; }
+  #s8-sw { position: absolute; left: 560px; top: 870px; width: 330px; height: 72px; rotate: 5deg; }
+  #s8-sticker { display: block; width: 330px; height: 72px; border-radius: 36px; background: var(--accent); color: #FFFFFF; text-align: center; line-height: 72px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.06em; }
+</style>
+
+<div class="paper"></div>
+<div id="bg"><div class="blob" id="blob1"></div><div class="blob" id="blob2"></div></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">STOP WRITING</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">“Performance<i class="strike" id="s0-k1" data-layout-allow-overlap></i></span></span><span class="mask"><span class="l">was <span class="it">mixed.</span>”<i class="strike" id="s0-k2" data-layout-allow-overlap></i></span></span></div>
+  <div id="s0-chips"><div class="vk kill" id="s0-c1">KILL</div><div class="vk keep" id="s0-c2">KEEP</div><div class="vk scale" id="s0-c3">SCALE</div></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="title"><span class="mask"><span class="l">9 ads.</span></span><span class="mask"><span class="l">0 <span class="it">decisions.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="head"><div class="logo sheet"></div><div class="name">Weekly ad report</div></div>
+    <div id="s1-grid">
+      <div class="gr hd" id="s1-h"><div class="lab">Ad</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r1"><div class="lab">Ad 1</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r2"><div class="lab">Ad 2</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r3"><div class="lab">Ad 3</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r4"><div class="lab">Ad 4</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r5"><div class="lab">Ad 5</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r6"><div class="lab">Ad 6</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r7"><div class="lab">Ad 7</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r8"><div class="lab">Ad 8</div><div class="cells"></div></div>
+      <div class="gr" id="s1-r9"><div class="lab">Ad 9</div><div class="cells"></div></div>
+    </div>
+    <div id="s1-foot">Performance was mixed.</div>
+    <div id="s1-spend">₹40,000 spent · example</div>
+  </div>
+  <div id="s1-ask">Just tell <span class="it">Claude.</span></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Export last</span></span><span class="mask"><span class="l it">week.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="head"><div class="logo"></div><div class="name">Ads Manager</div></div>
+    <div class="flt" id="s2-f1">Ads</div>
+    <div class="flt" id="s2-f2">Last 7 days</div>
+    <div id="s2-file">
+      <svg class="doc" viewBox="0 0 60 76"><path d="M4 4 H40 L56 20 V72 H4 Z" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><path d="M40 4 V20 H56" fill="none" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><rect x="14" y="36" width="32" height="5" rx="2" fill="#2F6B4F"></rect><rect x="14" y="48" width="32" height="5" rx="2" fill="#2F6B4F"></rect><rect x="14" y="60" width="20" height="5" rx="2" fill="#2F6B4F"></rect></svg>
+      <div class="ft">9 ads · .csv</div>
+      <div class="fs">Last 7 days</div>
+      <div id="s2-track"><b id="s2-fill"></b></div>
+      <svg id="s2-tick" viewBox="0 0 72 72"><circle cx="36" cy="36" r="36" fill="#2F6B4F"></circle><path d="M21 37 L32 48 L52 26" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div id="s2-btn">Export table data</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste it, plus</span></span><span class="mask"><span class="l it">break-even.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div id="s3-file">
+      <svg class="doc" viewBox="0 0 60 76"><path d="M4 4 H40 L56 20 V72 H4 Z" fill="#FFFFFF" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><path d="M40 4 V20 H56" fill="none" stroke="#2F6B4F" stroke-width="4" stroke-linejoin="round"></path><rect x="14" y="36" width="32" height="5" rx="2" fill="#2F6B4F"></rect><rect x="14" y="48" width="32" height="5" rx="2" fill="#2F6B4F"></rect><rect x="14" y="60" width="20" height="5" rx="2" fill="#2F6B4F"></rect></svg>
+      <div class="ft">Ads export · 9 rows</div>
+    </div>
+    <div id="s3-field">
+      <div class="fl">Break-even cost per purchase</div>
+      <div id="s3-val">₹350</div>
+      <div class="ex" id="s3-ex">example</div>
+    </div>
+    <div id="s3-ask">Kill, keep or scale?</div>
+    <div id="s3-send"><svg viewBox="0 0 40 40"><path d="M20 32 V9 M10 18 L20 8 L30 18" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Kill, keep or</span></span><span class="mask"><span class="l it">scale.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="head"><div class="logo"></div><div class="name">One call each</div><div class="ex" id="s4-hx">example</div></div>
+    <div class="arow" id="s4-a1"><div class="an">Ad 4</div><div class="ar">₹280, well under ₹350</div><div class="chip scale" id="s4-c1">SCALE</div></div>
+    <div class="arow" id="s4-a2"><div class="an">Ad 7</div><div class="ar">₹340, just under ₹350</div><div class="chip keep" id="s4-c2">KEEP</div></div>
+    <div class="arow" id="s4-a3"><div class="an">Ad 9</div><div class="ar">₹610, way over ₹350</div><div class="chip kill" id="s4-c3">KILL</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="title"><span class="mask"><span class="l">Most clicks.</span></span><span class="mask"><span class="l it">Zero sales.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="head"><div class="logo"></div><div class="name">Ad 2</div><div id="s5-best">BEST CTR</div></div>
+    <div class="stl" id="s5-l1">Clicks</div>
+    <div class="num" id="s5-clicks">0</div>
+    <div class="stl" id="s5-l2">Purchases</div>
+    <div class="num" id="s5-buys">0</div>
+    <div class="ex" id="s5-ex">example</div>
+  </div>
+  <div id="s5-sw" data-layout-allow-overlap><div id="s5-stamp" data-layout-allow-overlap>KILL</div></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div id="s6-nw"><div id="s6-note"><i class="pin"></i><p>Meta's purchases include COD orders that come back.</p><p>Take your return rate off before you scale.</p></div></div>
+  <div class="card" id="s6-math">
+    <div class="mr" id="s6-m1"><div class="ml">Meta purchases</div><div class="mv">10</div></div>
+    <div class="mr" id="s6-m2"><div class="ml">COD returned</div><div class="mv neg">−3</div></div>
+    <div id="s6-line"></div>
+    <div class="mr" id="s6-m3"><div class="ml">Real purchases</div><div class="mv pos">7</div></div>
+    <div class="ex" id="s6-ex">example</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div id="s7-board">
+    <div id="s7-head">This week's call</div>
+    <div class="ex" id="s7-ex">example</div>
+    <div id="s7-cols">
+      <div class="col"><div class="ch kill" id="s7-h1">KILL</div><div class="ad7 r1" id="s7-k1">Ad 2</div><div class="ad7 r2" id="s7-k2">Ad 9</div><div class="ad7 r3" id="s7-k3">Ad 5</div></div>
+      <div class="col"><div class="ch keep" id="s7-h2">KEEP</div><div class="ad7 r1" id="s7-p1">Ad 7</div><div class="ad7 r2" id="s7-p2">Ad 1</div><div class="ad7 r3" id="s7-p3">Ad 6</div></div>
+      <div class="col"><div class="ch scale" id="s7-h3">SCALE</div><div class="ad7 r1" id="s7-s1">Ad 4</div><div class="ad7 r2" id="s7-s2">Ad 3</div><div class="ad7 r3" id="s7-s3">Ad 8</div></div>
+    </div>
+  </div>
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Every ad,</span></span><span class="mask"><span class="l it">sorted.</span></span></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="save">Save.</div>
+  <svg id="mark" viewBox="0 0 140 190"><path d="M10 10 H130 V180 L70 132 L10 180 Z" fill="#2F6B4F"></path></svg>
+  <div id="pill">Comment <div id="kw"><span id="kw1">S</span><span id="kw2">C</span><span id="kw3">A</span><span id="kw4">L</span><span id="kw5">E</span></div></div>
+  <div id="s8-sw"><div id="s8-sticker">FREE · 5 MIN</div></div>
+</section>

@@ -1,0 +1,138 @@
+{
+  "id": "2026-10-30-reel-stale-stock-sheet-sellout",
+  "style": "motion",
+  "kind": "tutorial",
+  "theme": "editorial",
+  "keyword": "STOCK",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(STOCK|48|0|red|9|6|Save|free)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4E"
+  },
+  "lines": [
+    {
+      "say": "Stop updating stock on Sundays. Your bestseller sells out by Tuesday.",
+      "show": "Stop Sunday stock counts. Sold out by Tuesday.",
+      "card": "STOP SUNDAY STOCK COUNTS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Sheet said four dozen. Shelf was empty.",
+      "show": "Sheet said 48. Shelf said 0.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Reordering by gut? Use a free sheet.",
+      "show": "Reorder by gut? Use a free sheet.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one. Paste your Shopify orders export.",
+      "show": "Step 1: paste your Shopify orders export.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two. It counts days of stock left.",
+      "show": "Step 2: it counts days left.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Last step. Nine day lead time? Below that, it turns red.",
+      "show": "Step 3: below 9 days, it turns red.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Red row? Not the viral kurta. The plain black one, six a day.",
+      "show": "Red row? The plain black one. 6 a day.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "smug",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Catch? It won't update itself. Two minutes a day.",
+      "show": "Catch: it won't update itself. 2 min a day.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Type STOCK below for the free sheet, and save it.",
+      "show": "Comment STOCK for the free sheet. Save.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+1.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+1.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.8",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.6",
+    "title": [
+      "SHEET SAID 48.",
+      "SHELF SAID 0."
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

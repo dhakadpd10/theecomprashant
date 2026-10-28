@@ -1,0 +1,27 @@
+Comment "SUPPORT" and I'll DM you the free Policy-Trained Support Agent: dates, not apologies. Follow so the DM lands 📩
+
+👇 READ BELOW for how the agent works:
+
+1. A buyer asks "Where's my order?" and gets "Sorry for the inconvenience." No order number, no date, no next step. Example numbers: send that to 100 buyers and if 12 leave a bad review, that's 12 reviews from one copy-pasted line.
+
+2. You paste your policies into Claude once: shipping times, COD rules, returns, refunds, when you reship.
+
+3. For each chat, you paste the customer's message and the tracking status from your courier.
+
+4. It drafts a reply with the order number, the expected date and one clear next step, using only your policies. Like: "Not there by Thursday? Reply here, we'll reship."
+
+5. You read the draft, fix anything that's off, and send it on WhatsApp or email.
+
+What you get: support replies that answer the question in one message, written in your own policy terms, in a few seconds each.
+
+Why it works: an angry buyer doesn't want an apology. They want to know where the parcel is and what happens next. A reply with a date and a next step ends the chat. "Sorry" starts a second one.
+
+The catch: it drafts, you send. It doesn't connect to Shopify or your courier, so it only knows what you paste. If your policy doesn't cover a case, check the draft before it goes out.
+
+It's completely free. Paste it into Claude and try it on today's "Where's my order?" chats.
+
+If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.
+
+Comment "SUPPORT" for the agent.
+
+#ecommerce #d2cbrand #customersupport

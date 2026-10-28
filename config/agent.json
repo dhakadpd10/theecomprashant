@@ -51,7 +51,7 @@
       "skills": 0.15,
       "skit": 0.15
     },
-    "note": "29 Oct 2026: every reel is an editorial motion reel hosted by the 2D Prashant character, about making money with AI; mix = the six kinds in docs/MONEY.md"
+    "note": "28 Oct 2026: every reel is an editorial motion reel hosted by the 2D Prashant character, about making money with AI; mix = the six kinds in docs/MONEY.md"
   },
   "models": {
     "writer": "claude-opus-5-5",
@@ -142,5 +142,5 @@
     "max_auto_replies_per_run": 40
   },
   "slots_note": "28 Oct 2026: 10K-in-10-days push, three reels a day (all motion reels hosted by the 2D Prashant character)",
-  "keywords_note": "29 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again."
+  "keywords_note": "28 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again."
 }

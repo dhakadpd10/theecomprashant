@@ -1,6 +1,6 @@
 # Content pillars + topic bank
 
-Niche since 29 Oct 2026: **real ways to make money with AI** (docs/MONEY.md). Three reels a day. Every reel ends in one keyword whose free tool is a prompt on the tools page.
+Niche since 28 Oct 2026: **real ways to make money with AI** (docs/MONEY.md). Three reels a day. Every reel ends in one keyword whose free tool is a prompt on the tools page.
 
 Mix per week (21 reels): 6 × Get paid (sites, news) · 5 × Earn with a skill (skills, breakdown) · 4 × The prompt (prompt) · 3 × Sell your own thing (breakdown, prompt) · 3 × Money moments (skit).
 

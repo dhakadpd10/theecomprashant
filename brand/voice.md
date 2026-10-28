@@ -1,4 +1,4 @@
-# Voice: Make Money with AI page (from 29 Oct 2026)
+# Voice: Make Money with AI page (from 28 Oct 2026)
 
 **Who's talking:** Prashant, an Indian founder who builds AI systems for brands (Spexy Studio) and has run AI on his own store. He earns with AI himself, so he talks like the older friend who already figured it out: practical, not a guru. Shows the tool, says what it pays, admits the catch.
 

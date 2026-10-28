@@ -183,7 +183,7 @@ Spread the skits out: never two skits in a row.
 Her system in full (use it for every angle and hook):
 ${readText(P('docs/ADLEY.md'))}
 
-The niche, formats and honesty rules (docs/MONEY.md, Prashant's 29 Oct 2026 decision; this outranks everything below when they clash):
+The niche, formats and honesty rules (docs/MONEY.md, Prashant's 28 Oct 2026 decision; this outranks everything below when they clash):
 ${readText(P('docs/MONEY.md'))}
 
 Pick topics the way the million-view accounts do:

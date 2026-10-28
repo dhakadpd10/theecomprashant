@@ -1,8 +1,8 @@
-# Strategy for the week of 2026-10-29
+# Strategy for the week of 2026-10-28
 
 ## Prashant's standing decisions (these outrank everything below)
 
-### 29 Oct 2026: new niche, make money with AI
+### 28 Oct 2026: new niche, make money with AI
 The page is about real ways to make money with AI, for a broad Indian audience (students, 9-to-5ers, freelancers, homemakers, small business owners). The playbook is docs/MONEY.md. Apply it to every reel:
 - money in the first line and the first second (a rupee figure, "paid", a named real website, company or person)
 - six kinds in the config mix: sites, prompt, breakdown, news, skills, skit; never the same kind twice in a row

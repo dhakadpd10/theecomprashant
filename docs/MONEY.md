@@ -1,4 +1,4 @@
-# Make money with AI: the playbook (29 Oct 2026)
+# Make money with AI: the playbook (28 Oct 2026)
 
 Prashant moved the page from "AI for D2C sellers" to the broad niche **how to make money using AI**. This file is what the planner and the reel writer follow. It outranks docs/VIRAL.md where they clash.
 

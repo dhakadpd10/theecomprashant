@@ -37,7 +37,8 @@
       "keyword": "FAQ",
       "pillar": "Sell more",
       "topic": "FAQ Part 2: your returns tagged 'size issue' already contain the size chart your buyers need.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-10-30",
@@ -53,7 +54,8 @@
       "keyword": "STOCK",
       "pillar": "Operations",
       "topic": "Your bestseller didn't sell out because of Diwali. It sold out because your stock sheet is a week old.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-10-31",
@@ -69,7 +71,8 @@
       "keyword": "CHAT",
       "pillar": "Ads",
       "topic": "Website ad or WhatsApp ad: where should your next ₹500 send people, now that WhatsApp charges for API messages?",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-10-31",
@@ -85,7 +88,8 @@
       "keyword": "SUPPORT",
       "pillar": "Operations",
       "topic": "Stop replying 'Sorry for the inconvenience' to angry buyers. A free support agent in Claude writes the reply that actually calms them down.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-11-01",
@@ -101,7 +105,8 @@
       "keyword": "CART",
       "pillar": "Retention",
       "topic": "The 1 am shopper who adds 6 kurtas to the cart.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-11-02",
@@ -117,7 +122,8 @@
       "keyword": "SCALE",
       "pillar": "Ads",
       "topic": "Your weekly ad report has 14 columns and zero decisions. A free Claude prompt turns it into kill, keep or scale for each ad.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     },
     {
       "day": "2026-11-02",
@@ -133,7 +139,8 @@
       "keyword": "REPEAT",
       "pillar": "Retention",
       "topic": "The most expensive message most sellers send: a 10% code on the day the parcel lands.",
-      "status": "made"
+      "status": "hold",
+      "note": "old seller niche, held 28 Oct 2026 when the page moved to make money with AI (docs/MONEY.md)"
     }
   ]
 }

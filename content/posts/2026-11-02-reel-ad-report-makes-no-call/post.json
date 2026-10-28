@@ -1,0 +1,146 @@
+{
+  "id": "2026-11-02-reel-ad-report-makes-no-call",
+  "style": "motion",
+  "kind": "tutorial",
+  "theme": "editorial",
+  "keyword": "SCALE",
+  "world": "space",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hook": 2,
+  "arm": "B",
+  "hot": "^(SCALE|Scale|scale|Kill|kill|KILL|Keep|keep|KEEP|Claude|9|14|0|3|₹350|Save|COD)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Stop ending ad reports with 'mixed'. Kill, keep or scale each ad.",
+      "show": "Stop writing 'mixed'. Kill, keep or scale each ad.",
+      "card": "STOP WRITING PERFORMANCE WAS MIXED",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Lots of ads, lots of numbers, no answer? Just ask Claude.",
+      "show": "9 ads. 14 columns. 0 decisions. Just tell Claude.",
+      "card": "Report sheet: 9 rows x 14 columns, footer 'Performance was mixed.' Chip: '₹40,000 spent this week (example)'. Tag: 'All 9 still running into Diwali'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Step one. Export last week's ads.",
+      "show": "Step 1: export from Ads Manager.",
+      "card": "STEP 1 · Ads Manager export row: 'Last 7 days · 9 ads · .csv' with a download tick",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, paste it with your break-even cost.",
+      "show": "Step 2: paste it. Break-even ₹350 (example).",
+      "card": "STEP 2 · Chat box: pasted sheet chip plus a field 'Break-even cost per purchase: ₹350 (example)'",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Finally, kill, keep or scale each ad, with one reason.",
+      "show": "Step 3: kill, keep or scale. One reason each.",
+      "card": "STEP 3 · Answer rows, one per ad, each with a KILL / KEEP / SCALE chip and a one-line reason, e.g. 'Ad 4 · ₹280 per purchase vs ₹350 break-even (example) · SCALE'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Twist: your best click-rate ad lands in kill. No purchases.",
+      "show": "Your best-click ad? KILL. Clicks, no purchases.",
+      "card": "Row 'Ad 2 · Best CTR · 0 purchases (example)' with a KILL stamp slamming on",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "The catch: your ad numbers include COD orders that come back. Take off returns.",
+      "show": "Catch: returned COD orders still count. Subtract them.",
+      "card": "Note pinned to the result: 'Meta's purchases include COD orders that return. Take your return rate off before scaling.'",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Every ad, sorted. One clear call each.",
+      "show": "9 ads. 3 columns. 1 call each.",
+      "card": "Full-screen result, readable for a screenshot: three columns KILL / KEEP / SCALE with ad names sorted in, labelled 'example'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Save this. Comment SCALE for the free prompt.",
+      "show": "Save this. Comment SCALE for the free prompt.",
+      "card": "'Save.' in serif, bookmark shape, dark pill 'Comment SCALE', sticker 'FREE · 5 MIN'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.4",
+    "title": [
+      "9 ADS. 14 COLUMNS.",
+      "0 DECISIONS."
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

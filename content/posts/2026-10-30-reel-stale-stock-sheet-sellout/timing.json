@@ -1,0 +1,81 @@
+{
+  "dur": 26.25,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.095,
+      "b": 4.195,
+      "say": "Stop updating stock on Sundays. Your bestseller sells out by Tuesday.",
+      "show": "Stop Sunday stock counts. Sold out by Tuesday."
+    },
+    {
+      "a": 4.195,
+      "voice": 4.295,
+      "end": 6.232,
+      "b": 6.332,
+      "say": "Sheet said four dozen. Shelf was empty.",
+      "show": "Sheet said 48. Shelf said 0."
+    },
+    {
+      "a": 6.332,
+      "voice": 6.432,
+      "end": 8.331,
+      "b": 8.431,
+      "say": "Reordering by gut? Use a free sheet.",
+      "show": "Reorder by gut? Use a free sheet."
+    },
+    {
+      "a": 8.431,
+      "voice": 8.531,
+      "end": 10.989,
+      "b": 11.089,
+      "say": "Step one. Paste your Shopify orders export.",
+      "show": "Step 1: paste your Shopify orders export."
+    },
+    {
+      "a": 11.089,
+      "voice": 11.189,
+      "end": 13.27,
+      "b": 13.37,
+      "say": "Step two. It counts days of stock left.",
+      "show": "Step 2: it counts days left."
+    },
+    {
+      "a": 13.37,
+      "voice": 13.47,
+      "end": 16.331,
+      "b": 16.431,
+      "say": "Last step. Nine day lead time? Below that, it turns red.",
+      "show": "Step 3: below 9 days, it turns red."
+    },
+    {
+      "a": 16.431,
+      "voice": 16.531,
+      "end": 19.937,
+      "b": 20.037,
+      "say": "Red row? Not the viral kurta. The plain black one, six a day.",
+      "show": "Red row? The plain black one. 6 a day."
+    },
+    {
+      "a": 20.037,
+      "voice": 20.137,
+      "end": 22.479,
+      "b": 22.579,
+      "say": "Catch? It won't update itself. Two minutes a day.",
+      "show": "Catch: it won't update itself. 2 min a day."
+    },
+    {
+      "a": 22.579,
+      "voice": 22.679,
+      "end": 24.851,
+      "b": 26.25,
+      "say": "Type STOCK below for the free sheet, and save it.",
+      "show": "Comment STOCK for the free sheet. Save."
+    }
+  ]
+}

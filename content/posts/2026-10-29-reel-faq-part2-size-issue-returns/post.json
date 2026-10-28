@@ -1,0 +1,140 @@
+{
+  "id": "2026-10-29-reel-faq-part2-size-issue-returns",
+  "style": "motion",
+  "kind": "tutorial",
+  "theme": "editorial",
+  "keyword": "FAQ",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|30|Claude|cart|chest|FAQ|Save)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6A4A"
+  },
+  "lines": [
+    {
+      "say": "Stop refunding 'size issue'. You've got a pile of return notes, and they're telling you why.",
+      "show": "Stop refunding 'size issue'. 30 notes (example) say why.",
+      "card": "STOP JUST REFUNDING SIZE ISSUE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Got size returns? I just hand them to Claude.",
+      "show": "Size returns? Just tell Claude.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Step one. Export your return notes.",
+      "show": "Step 1: export your return notes.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two. Paste them into the Size Guide and FAQ Writer.",
+      "show": "Step 2: paste into the Size Guide and FAQ Writer.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step three. It groups them, one line per product.",
+      "show": "Step 3: grouped by product, one line each.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Show that line right above Add to cart. Don't bury it in a PDF.",
+      "show": "Put it above Add to cart. Not a PDF.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Here's the catch. It needs written notes, so add a text box and wait two weeks.",
+      "show": "Catch: needs written notes. Add a text box, 2 weeks.",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Before, it said size issue. Now it says small in the chest, go one size up.",
+      "show": "'Size issue' becomes 'Runs small in the chest.'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Save this, and comment FAQ. I'll send you the tool.",
+      "show": "Save this. Comment FAQ for the free tool.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.7",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "ding"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+1.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "STOP JUST REFUNDING",
+      "SIZE ISSUE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

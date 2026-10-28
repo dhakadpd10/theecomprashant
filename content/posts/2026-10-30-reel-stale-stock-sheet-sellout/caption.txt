@@ -1,0 +1,27 @@
+Comment "STOCK" and I'll DM you the free Reorder Alert Sheet. See what runs out before it does. Follow so the DM lands 📩
+
+👇 READ BELOW for how the sheet works:
+
+1. You count stock on Sunday. Your sheet says 48 left. The shelf says 0 (example numbers). Your bestseller sold out on Tuesday, and you only found out when the orders stopped.
+
+2. You paste your Shopify orders export into the sheet. Sell on Amazon, Flipkart or Meesho too? Paste those orders in as well.
+
+3. You type what's actually on the shelf for each product. Not what the old sheet says. What you can count.
+
+4. The sheet works out how many you sell a day and how many days of stock you've got left.
+
+5. You add your supplier's lead time, say 9 days (example). Any product with fewer than 9 days left turns red.
+
+What you get: one list of what to reorder today, with the product that runs out first at the top.
+
+Why it works: you're watching the product that went viral. Meanwhile the plain black kurta that quietly sells 6 a day (example) is the one that runs out. Days left vs lead time is the number that tells you when to reorder. Your gut can't track that across 40 products.
+
+The catch: it doesn't connect to Shopify and it won't update itself. You'll paste fresh orders and shelf counts yourself, about 2 minutes a day. Skip 3 or 4 days and it goes stale, just like the old sheet.
+
+It's completely free. Open it, paste this week's orders and see which row goes red.
+
+Comment "STOCK" for the Reorder Alert Sheet.
+
+If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.
+
+#ecommerce #d2cbrand #inventorymanagement

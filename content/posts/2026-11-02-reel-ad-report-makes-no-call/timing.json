@@ -1,0 +1,81 @@
+{
+  "dur": 29.5,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.045,
+      "b": 4.145,
+      "say": "Stop ending ad reports with 'mixed'. Kill, keep or scale each ad.",
+      "show": "Stop writing 'mixed'. Kill, keep or scale each ad."
+    },
+    {
+      "a": 4.145,
+      "voice": 4.245,
+      "end": 7.402,
+      "b": 7.502,
+      "say": "Lots of ads, lots of numbers, no answer? Just ask Claude.",
+      "show": "9 ads. 14 columns. 0 decisions. Just tell Claude."
+    },
+    {
+      "a": 7.502,
+      "voice": 7.602,
+      "end": 9.552,
+      "b": 9.652,
+      "say": "Step one. Export last week's ads.",
+      "show": "Step 1: export from Ads Manager."
+    },
+    {
+      "a": 9.652,
+      "voice": 9.752,
+      "end": 11.768,
+      "b": 11.868,
+      "say": "Next, paste it with your break-even cost.",
+      "show": "Step 2: paste it. Break-even ₹350 (example)."
+    },
+    {
+      "a": 11.868,
+      "voice": 11.968,
+      "end": 14.82,
+      "b": 14.92,
+      "say": "Finally, kill, keep or scale each ad, with one reason.",
+      "show": "Step 3: kill, keep or scale. One reason each."
+    },
+    {
+      "a": 14.92,
+      "voice": 15.02,
+      "end": 18.355,
+      "b": 18.455,
+      "say": "Twist: your best click-rate ad lands in kill. No purchases.",
+      "show": "Your best-click ad? KILL. Clicks, no purchases."
+    },
+    {
+      "a": 18.455,
+      "voice": 18.555,
+      "end": 23.296,
+      "b": 23.396,
+      "say": "The catch: your ad numbers include COD orders that come back. Take off returns.",
+      "show": "Catch: returned COD orders still count. Subtract them."
+    },
+    {
+      "a": 23.396,
+      "voice": 23.496,
+      "end": 25.68,
+      "b": 25.78,
+      "say": "Every ad, sorted. One clear call each.",
+      "show": "9 ads. 3 columns. 1 call each."
+    },
+    {
+      "a": 25.78,
+      "voice": 25.88,
+      "end": 28.099,
+      "b": 29.5,
+      "say": "Save this. Comment SCALE for the free prompt.",
+      "show": "Save this. Comment SCALE for the free prompt."
+    }
+  ]
+}

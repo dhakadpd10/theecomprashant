@@ -1,0 +1,81 @@
+{
+  "dur": 30.72,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.775,
+      "b": 4.875,
+      "say": "My day one parcel versus my day seven parcel. Guess which one got reviewed.",
+      "show": "Day 1 vs day 7. Which got reviewed?"
+    },
+    {
+      "a": 4.875,
+      "voice": 4.975,
+      "end": 8.608,
+      "b": 8.708,
+      "say": "Day one. I've got a handwritten card, a Diwali lamp, tissue, ribbon.",
+      "show": "Day 1: handwritten card, diya, tissue, ribbon."
+    },
+    {
+      "a": 8.708,
+      "voice": 8.808,
+      "end": 11.717,
+      "b": 11.817,
+      "say": "And I'm taking a photo to put on my story, obviously.",
+      "show": "Plus a photo for the story."
+    },
+    {
+      "a": 11.817,
+      "voice": 11.917,
+      "end": 14.11,
+      "b": 14.21,
+      "say": "Day four. My card just says thx.",
+      "show": "Day 4: the card says 'Thx'."
+    },
+    {
+      "a": 14.21,
+      "voice": 14.31,
+      "end": 16.76,
+      "b": 16.86,
+      "say": "Day seven, I don't write anything. The card's blank.",
+      "show": "Day 7: the card is blank."
+    },
+    {
+      "a": 16.86,
+      "voice": 16.96,
+      "end": 20.369,
+      "b": 20.469,
+      "say": "I'm asleep half inside a carton. The tape machine is still running.",
+      "show": "Asleep in a carton. Tape gun still running."
+    },
+    {
+      "a": 20.469,
+      "voice": 20.569,
+      "end": 23.531,
+      "b": 23.631,
+      "say": "Next morning I get a review. Such a nice handwritten note!",
+      "show": "Next morning: 'Loved the handwritten note!'"
+    },
+    {
+      "a": 23.631,
+      "voice": 23.731,
+      "end": 26.505,
+      "b": 26.605,
+      "say": "That's a day one parcel. It took six days to get there.",
+      "show": "A day 1 parcel. Took 6 days to arrive."
+    },
+    {
+      "a": 26.605,
+      "voice": 26.705,
+      "end": 29.32,
+      "b": 30.72,
+      "say": "Comment PACK and I'll send you the free Dispatch Day Sheet.",
+      "show": "Comment PACK for the Dispatch Day Sheet."
+    }
+  ]
+}

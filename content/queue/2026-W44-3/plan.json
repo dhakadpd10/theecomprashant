@@ -1,0 +1,135 @@
+{
+  "week": "2026-W44-3",
+  "start": "2026-10-28",
+  "research": "I found 9 updates from the last 14 days (14 to 28 Oct 2026). Most of the sources are third-party blogs and trackers, not the companies' own announcements, so check dates on the official page before building a reel on one.\n\n**Upcoming festival and sale dates**\n\n1. **Diwali is on Sun 8 Nov.** Dhanteras is 6 Nov and Bhai Dooj is 10 Nov. That gives about 8 shipping days for Diwali delivery. One low-quality page gives other dates, so check a panchang. **Why care:** you need to set and announce a shipping cutoff now. This fits the SALE Part 2 (Diwali cutoffs) slot, which has to go out by 31 Oct. [Kissht](https://www.kissht.com/blog/diwali-2026-date-and-lakshmi-puja-timing) · [Vedantu](https://www.vedantu.com/blog/diwali-2026)\n\n2. **After Diwali:** Nykaa Pink Friday starts around 21 Nov, Black Friday is 27 Nov, Flipkart's Year End Sale is expected around 5 to 8 Dec, and Christmas sales run around 20 to 25 Dec. Most of these are deal-blog estimates, not confirmed. **Why care:** Indian D2C brands now run Black Friday too, and it's the next slot to plan after Diwali. [DesiDime](https://www.desidime.com/news/upcoming-amazon-sales) · [Damensch](https://www.damensch.com/blog/upcoming-sales-in-india-2026-dates-offers-and-best-deals)\n\n**Ecommerce problems people are discussing**\n\n3. **Festive COD returns.** The most-quoted figure: during last year's festive quarter, 58% of COD orders came back, against under 15% of prepaid. The fixes cited most often are a prepaid incentive, address checks before dispatch and courier choice by pin code. These are last season's vendor numbers, not independent 2026 data. **Why care:** the Diwali order spike is also the RTO spike. This fits the RTO arm A episode. [Unicommerce](https://unicommerce.com/india-d2c-report-2026-april/) · [Amazon Shipping](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n\n**AI tools and platform changes**\n\n4. **WhatsApp Business Platform now charges for service messages (from 1 Oct).** The first 1,000 service messages per number per month are free. Utility templates are charged again. Chats that start from a Click-to-WhatsApp ad still get a 72-hour free window. The normal WhatsApp Business app is not affected. **Why care:** if your order-confirm or cart messages go out through an API tool like Interakt or Wati, your bill can go up during the Diwali rush. [Asianet Newsable](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku) · [ChatMitra](https://chatmitra.com/blog/whatsapp-service-message-pricing-update-october-2026/)\n\n5. **Meta Ads: AI assistant, image-to-video and new ad terms.** The assistant inside Ads Manager now uses your past campaigns and creative insights. Editing campaigns from chat is still only in testing. Advantage+ turning a still image into a video ad is live for everyone. **Why care:** there are two dates to check today. Sources say product browsing turns on for existing ads from 28 Oct unless you opt out. They disagree on whether the new ad terms start 30 Oct or 20 Nov. [Common Thread](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands) · [Adsuploader](https://adsuploader.com/blog/meta-ads-updates)\n\n6. **Shopify: AI agents now read your store's facts.** Since 26 Oct there is a knowledge base in admin where you edit what AI shopping agents are told about your store (contact details, gift services and so on). Since 13 Oct, Sidekick also helps in the checkout editor. **Why care:** it's a free 10-minute job, and wrong facts there mean AI agents give shoppers wrong answers about you. [DEV](https://dev.to/johnsmithh/shopify-knowledge-base-now-built-into-admin-oct-26-2026-3cjj) · [Fudge](https://www.fudge.ai/blog/shopify-updates-october-2026/)\n\n7. **ChatGPT's new \"Shop at\" buttons mostly point to big retailers.** Since 10 Oct, product answers show a \"Shop at\" button. In one sample of brands, 56% of buttons sent shoppers to a big-box store and about 5% to the brand's own site. Separately, ChatGPT referral tags broke around 8 to 16 Oct, so that traffic may show as \"direct\" in your analytics. **Why care:** clean product data decides who gets the click. The data is US-heavy. [Wislr](https://www.wislr.com/articles/chatgpt-shop-at-buttons-big-box/) · [LLM Pulse](https://llmpulse.ai/data-studies/top-chatgpt-shopping-merchants)\n\n8. **Claude Duet, Anthropic's new agent for small business owners (about 21 Oct).** It runs in the background, sends daily briefs, drafts email replies and makes sales forecasts. Sensitive actions need your approval. **Why care:** it's the first Claude agent pitched at owners rather than developers. **The catch:** it's a US-only research preview on Pro and Max plans, so most Indian viewers can't use it yet. That makes it a \"coming soon\" mention, not a keyword tool. [Inc.](https://www.inc.com/ben-sherry/anthropics-newest-claude-feature-is-here-to-help-small-business-owners-with-their-pain-points/91343926) · [Washington Times](https://www.washingtontimes.com/news/2026/oct/22/anthropics-new-claude-duet-agent-aimed-professionals-business-owners/)\n\n9. **Instagram: Edits carousel editor (7 Oct) and tagged posts on your grid.** Edits can now build carousels mixing photos and video. Brands can also show posts they're tagged in on their own profile grid. **Why care:** customer photos and creator posts can sit on your grid without re-uploading. The Edits editor could also help the carousels that are still untested on the page. [Gain](https://blog.gainapp.com/social-media-updates/) · [inDM](https://indm.social/blog/instagram-trends-2026)\n\nI left out one more: **Google's Universal Cart** in Search and Gemini, live 15 Oct. It's US only and open to select merchants, so Indian brands can't use it yet. Worth watching. [PYMNTS](https://www.pymnts.com/commerce/ecommerce/2026/google-launches-intelligent-shopping-cart-search-gemini-app/)\n\n**What this means for this week's plan:** Diwali (item 1) supports doing SALE Part 2 now, as long as it goes out by 31 Oct. The COD returns topic (item 3) and the WhatsApp pricing change (item 4) both fit the RTO arm A episode. Don't use the RTO percentages as Bunty's numbers. If one goes on screen, credit it to Unicommerce's report as last season's figure.\n\nSources:\n- [Kissht: Diwali 2026 dates](https://www.kissht.com/blog/diwali-2026-date-and-lakshmi-puja-timing)\n- [Vedantu: Diwali 2026](https://www.vedantu.com/blog/diwali-2026)\n- [DesiDime: Amazon upcoming sales](https://www.desidime.com/news/upcoming-amazon-sales)\n- [Damensch: upcoming sales 2026](https://www.damensch.com/blog/upcoming-sales-in-india-2026-dates-offers-and-best-deals)\n- [Unicommerce India D2C Report 2026](https://unicommerce.com/india-d2c-report-2026-april/)\n- [Amazon Shipping: COD RTO festive surge](https://shipping.amazon.in/blog/cod-vs-prepaid-festive-season-surge-india)\n- [Asianet Newsable: WhatsApp Business rules](https://newsable.asianetnews.com/technology/whatsapp-business-new-rules-from-october-1-2026-pricing-free-messages-and-charges-explained-articleshow-12xq5ku)\n- [ChatMitra: WhatsApp pricing update](https://chatmitra.com/blog/whatsapp-service-message-pricing-update-october-2026/)\n- [Common Thread: Meta AI agent](https://commonthreadco.com/blogs/coachs-corner/metas-new-ai-agent-can-now-run-your-ads-what-the-advertising-week-2026-update-means-for-ecommerce-brands)\n- [Adsuploader: Meta Ads updates](https://adsuploader.com/blog/meta-ads-updates)\n- [DEV: Shopify knowledge base](https://dev.to/johnsmithh/shopify-knowledge-base-now-built-into-admin-oct-26-2026-3cjj)\n- [Fudge: Shopify October updates](https://www.fudge.ai/blog/shopify-updates-october-2026/)\n- [Wislr: ChatGPT Shop at buttons](https://www.wislr.com/articles/chatgpt-shop-at-buttons-big-box/)\n- [LLM Pulse: ChatGPT shopping merchants](https://llmpulse.ai/data-studies/top-chatgpt-shopping-merchants)\n- [Inc.: Claude Duet](https://www.inc.com/ben-sherry/anthropics-newest-claude-feature-is-here-to-help-small-business-owners-with-their-pain-points/91343926)\n- [Washington Times: Claude Duet](https://www.washingtontimes.com/news/2026/oct/22/anthropics-new-claude-duet-agent-aimed-professionals-business-owners/)\n- [Gain: social media updates](https://blog.gainapp.com/social-media-updates/)\n- [inDM: Instagram 2026](https://indm.social/blog/instagram-trends-2026)\n- [PYMNTS: Google Universal Cart](https://www.pymnts.com/commerce/ecommerce/2026/google-launches-intelligent-shopping-cart-search-gemini-app/)",
+  "slots": [
+    {
+      "day": "2026-10-28",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-10-28-reel-cod-order-confirmed-message",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 93.8
+      },
+      "keyword": "RTO",
+      "pillar": "Operations",
+      "topic": "Your COD 'Your order is confirmed!' WhatsApp gets ignored, and then the parcel gets refused. Free fix: a confirm message that asks one question.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-29",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-10-29-reel-faq-part2-size-issue-returns",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 78.8
+      },
+      "keyword": "FAQ",
+      "pillar": "Sell more",
+      "topic": "FAQ Part 2: your returns tagged 'size issue' already contain the size chart your buyers need.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-30",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-10-30-reel-stale-stock-sheet-sellout",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83
+      },
+      "keyword": "STOCK",
+      "pillar": "Operations",
+      "topic": "Your bestseller didn't sell out because of Diwali. It sold out because your stock sheet is a week old.",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-31",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-10-31-reel-website-ad-vs-whatsapp-ad",
+      "style": "motion",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 87
+      },
+      "keyword": "CHAT",
+      "pillar": "Ads",
+      "topic": "Website ad or WhatsApp ad: where should your next ₹500 send people, now that WhatsApp charges for API messages?",
+      "status": "made"
+    },
+    {
+      "day": "2026-10-31",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-10-31-reel-sorry-for-the-inconvenience",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 81.8
+      },
+      "keyword": "SUPPORT",
+      "pillar": "Operations",
+      "topic": "Stop replying 'Sorry for the inconvenience' to angry buyers. A free support agent in Claude writes the reply that actually calms them down.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-01",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-01-reel-1am-six-kurta-cart",
+      "style": "motion",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 84.4
+      },
+      "keyword": "CART",
+      "pillar": "Retention",
+      "topic": "The 1 am shopper who adds 6 kurtas to the cart.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-02",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-02-reel-ad-report-makes-no-call",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 84.4
+      },
+      "keyword": "SCALE",
+      "pillar": "Ads",
+      "topic": "Your weekly ad report has 14 columns and zero decisions. A free Claude prompt turns it into kill, keep or scale for each ad.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-02",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-02-reel-discount-on-delivery-day-costs-you",
+      "style": "motion",
+      "hook": {
+        "id": 1,
+        "name": "Cost Confession",
+        "score": 80.8
+      },
+      "keyword": "REPEAT",
+      "pillar": "Retention",
+      "topic": "The most expensive message most sellers send: a 10% code on the day the parcel lands.",
+      "status": "made"
+    }
+  ]
+}

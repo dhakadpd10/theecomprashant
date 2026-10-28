@@ -1,0 +1,27 @@
+Comment "SCALE" and I'll DM you the free Weekly Kill / Keep / Scale Ad Report: one call per ad. Follow so the DM lands 📩
+
+👇 READ BELOW for how the report works:
+
+1. Your weekly ad report has 9 ads and 14 columns (example numbers), and it ends with "Performance was mixed." That isn't a decision, so all 9 ads keep spending.
+
+2. Export last 7 days from Meta Ads Manager as a .csv file.
+
+3. Paste it into Claude with your break-even cost per purchase. Example: ₹350. Above that number, an ad loses you money on every order.
+
+4. Every ad goes into one of three boxes, KILL, KEEP or SCALE, with one line of reason. Example: Ad 4 at ₹280 per purchase against ₹350 break-even goes to SCALE.
+
+5. Read the KILL box first. Your best click-rate ad can land there if the clicks never turn into purchases.
+
+What you get: one screen, three columns and a clear call on every ad, in about 5 minutes a week.
+
+Why it works: ask AI "how are my ads doing?" and you get a summary that says "mixed." Give it one rule (your break-even) and three boxes, and it has to make a call on each ad and show the reason.
+
+The catch: Meta counts COD orders as purchases even when they come back. Take your return rate off before you scale anything. It also only reads what you paste. It won't pause or change your ads. You still do that in Ads Manager.
+
+It's completely free. Paste it into Claude every Monday with last week's export.
+
+Comment "SCALE" for the report.
+
+If you're new here, I'm Prashant. I share AI shortcuts that save you hours, and every reel comes with a free tool.
+
+#metaads #d2cbrand #ecommerce

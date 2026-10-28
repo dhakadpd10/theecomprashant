@@ -1,0 +1,141 @@
+{
+  "id": "2026-10-31-reel-sorry-for-the-inconvenience",
+  "style": "motion",
+  "theme": "editorial",
+  "keyword": "SUPPORT",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Sorry|sorry|Claude|policies|tracking|Thursday|reship|SUPPORT|Save)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#7A2E5C"
+  },
+  "lines": [
+    {
+      "say": "Stop pasting that apology line. My friend's replies got twelve percent bad reviews.",
+      "show": "Stop sending 'Sorry for the inconvenience.'",
+      "card": "STOP SAYING SORRY",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Example numbers. No order, no date, no next step.",
+      "show": "Example numbers. No order, no date, no step.",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Where's my order? Just tell Claude.",
+      "show": "Where's my order? Just tell Claude.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "First, paste your policies.",
+      "show": "Step 1: paste your policies.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, paste the tracking status.",
+      "show": "Step 2: paste the tracking status.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Last, ask for order number, date and a single next step.",
+      "show": "Step 3: order number, date, next step.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Not there by Thursday? Reply here, we'll reship.",
+      "show": "'Not there by Thursday? Reply here, we'll reship.'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The twist? No apology at all.",
+      "show": "The twist? Not one sorry.",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Catch: it drafts, you send. It only sees what you paste.",
+      "show": "Catch: it drafts, you send.",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Save this. Comment SUPPORT for the free agent.",
+      "show": "Save this. Comment SUPPORT for the agent.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "click"
+    },
+    {
+      "at": "@line7.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "STOP SAYING SORRY",
+      "\"SORRY FOR THE INCONVENIENCE\""
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "kind": "tutorial"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "2026-10-31-reel-website-ad-vs-whatsapp-ad",
+  "style": "motion",
+  "theme": "editorial",
+  "keyword": "CHAT",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(CHAT|72|3|free|FREE|WhatsApp|Website|wins|faster|Catch|₹499|Example)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1B6B43"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you chats from ads stay free for three full days.",
+      "show": "WhatsApp ad chats still get 72 free hours.",
+      "card": "72 HOURS FREE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Normal messages from API tools cost money. Ad chats stay free for three days.",
+      "show": "API messages cost money. Ad chats: 3 days free.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "smug",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Open the AI. It writes the ad, the first reply and three follow-ups.",
+      "show": "Ad, first reply, 3 follow-ups. All inside 72 hours.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Twist: chat doesn't always win.",
+      "show": "Twist: chat doesn't always win.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Example: a five hundred rupee top brings size and COD questions. Chat wins.",
+      "show": "Example: ₹499 kurta, size and COD questions. Chat wins.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "An impulse buy? The website is faster.",
+      "show": "Example: impulse buy? Website is faster.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: it writes, it does not send. Someone must answer within minutes.",
+      "show": "Catch: drafted, not sent. Answer in minutes.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Which one do you run? Comment CHAT for the free kit.",
+      "show": "Which do you run? Comment CHAT for the kit.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+1.4",
+      "fx": "ding"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line7.voice+1.2",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "WHATSAPP AD CHATS GET",
+      "72 HOURS FREE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "notes": "Before filming, check the 72-hour free window on Meta's official WhatsApp Business pricing page. The claim comes from third-party reports. Under Meta's free entry point rules, the window may depend on the business replying within 24 hours. The ₹499 kurta case and the impulse-buy case are examples, not MiniKin results. The kit drafts the ad copy, the first reply and 3 follow-ups. It does not send anything. Spoken length is about 80 words.",
+  "kind": "wow"
+}

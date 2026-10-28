@@ -1,0 +1,138 @@
+{
+  "id": "2026-10-28-reel-cod-order-confirmed-message",
+  "style": "motion",
+  "kind": "tutorial",
+  "theme": "editorial",
+  "keyword": "RTO",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(RTO|Claude|confirmed|refused|0|₹0|40|1|2|3|Cancels|Catch|Save)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Stop sending 'Your order is confirmed!' I ask one question instead.",
+      "show": "Stop sending 'Your order is confirmed!' Ask 1 question.",
+      "card": "STOP SAYING ORDER CONFIRMED",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "For example, four zero COD orders. Nobody replied. They refused the parcels.",
+      "show": "40 COD orders (example). 0 replies. Refused.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "That message asks nothing. So I just tell Claude.",
+      "show": "It asks nothing. Just tell Claude.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one, you paste my kit, plus name, product, total and date.",
+      "show": "Step 1: paste the kit + order details.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two, they reply one to confirm, two to change address, three to cancel.",
+      "show": "Step 2: 1 confirm, 2 address, 3 cancel.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Step three. No reply in a day? You call, or you hold it.",
+      "show": "Step 3: no reply in a day? Call or hold.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "A cancel is good news, you lose nothing. A refusal means you pay shipping twice.",
+      "show": "Cancels: ₹0 before dispatch. Refusals: shipping twice.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "smug",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: paid WhatsApp tools might charge you. The free app won't.",
+      "show": "Catch: Interakt or Wati may charge. Free app won't.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Save this. Comment RTO below and I'll send you the free kit.",
+      "show": "Save. Comment RTO for the free kit.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+1.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.9",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.2",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "'YOUR ORDER IS CONFIRMED!'",
+      "STOP SENDING THIS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

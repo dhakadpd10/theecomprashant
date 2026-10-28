@@ -1,0 +1,140 @@
+{
+  "id": "2026-11-02-reel-diwali-packing-day1-vs-day7",
+  "style": "motion",
+  "kind": "skit",
+  "theme": "editorial",
+  "keyword": "PACK",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hook": 17,
+  "hot": "^(1|4|7|6|reviewed|Thx|blank|handwritten|running|days|PACK)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#7A2E5A"
+  },
+  "lines": [
+    {
+      "say": "My day one parcel versus my day seven parcel. Guess which one got reviewed.",
+      "show": "Day 1 vs day 7. Which got reviewed?",
+      "card": "WHICH ONE GOT REVIEWED",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Day one. I've got a handwritten card, a Diwali lamp, tissue, ribbon.",
+      "show": "Day 1: handwritten card, diya, tissue, ribbon.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "And I'm taking a photo to put on my story, obviously.",
+      "show": "Plus a photo for the story.",
+      "cut": false,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Day four. My card just says thx.",
+      "show": "Day 4: the card says 'Thx'.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Day seven, I don't write anything. The card's blank.",
+      "show": "Day 7: the card is blank.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "I'm asleep half inside a carton. The tape machine is still running.",
+      "show": "Asleep in a carton. Tape gun still running.",
+      "cut": false,
+      "host": {
+        "at": "center",
+        "pose": "idle",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Next morning I get a review. Such a nice handwritten note!",
+      "show": "Next morning: 'Loved the handwritten note!'",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "That's a day one parcel. It took six days to get there.",
+      "show": "A day 1 parcel. Took 6 days to arrive.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Comment PACK and I'll send you the free Dispatch Day Sheet.",
+      "show": "Comment PACK for the Dispatch Day Sheet.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "DAY 1 VS DAY 7 PARCEL",
+      "WHICH ONE GOT REVIEWED"
+    ]
+  },
+  "caption": "Comment PACK and I'll DM you the Dispatch Day Sheet, free.\n\nDay 1: handwritten card, diya sticker, tissue, ribbon, story photo.\nDay 4: 'Thx'.\nDay 7: blank card, me asleep in a carton, tape gun still going.\nThe review that came in? For a day 1 parcel. 6 days in transit.\n\nIt's a skit, but every Diwali seller has lived day 7.\n\nThe catch: a sheet won't pack the boxes for you. You still tape every one.\n\nIf you're new here, I'm Prashant. I run AI on my own D2C brand, MiniKin, and build AI systems for other brands at Spexy Studio. Practical tools, free, no fluff.\n\nComment PACK for the Dispatch Day Sheet.\n\n#d2cindia #diwalisale #smallbusinessindia",
+  "host": {
+    "name": "prashant"
+  }
+}

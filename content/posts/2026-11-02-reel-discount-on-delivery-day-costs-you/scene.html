@@ -1,0 +1,216 @@
+<style>
+  /* editorial theme, deep green accent: one WhatsApp mistake, then the 3-step use-up reorder series */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #blob1 { position: absolute; left: -220px; top: 260px; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(46,106,74,0.10) 0%, rgba(46,106,74,0) 70%); }
+  #blob2 { position: absolute; left: 600px; top: 700px; width: 620px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,140,80,0.10) 0%, rgba(200,140,80,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); }
+  .chip { position: absolute; border-radius: 32px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+  .chip.go { background: var(--accent); color: #FFFFFF; }
+  .chip.ok { background: #DDF0E3; color: #1C6B40; }
+  .chip.no { background: #ECE6DC; color: #4F4841; }
+  .grey { color: #6B645C; }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; right: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #6B645C; }
+  #s0-title { top: 112px; font-size: 90px; }
+  #s0-wa { position: absolute; left: 90px; right: 90px; top: 345px; height: 90px; border-radius: 28px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(60,40,20,0.13); }
+  #s0-wa .av { position: absolute; left: 20px; top: 18px; width: 54px; height: 54px; border-radius: 50%; background: #3BB273; }
+  #s0-wa .msg { position: absolute; left: 94px; right: 220px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s0-code { right: 20px; top: 17px; width: 180px; height: 56px; }
+
+  /* 1: wrong day */
+  #s1-card { top: 470px; height: 490px; }
+  #s1-bub { position: absolute; left: 36px; top: 50px; height: 96px; padding: 0 34px; border-radius: 30px; background: #F1ECE3; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s1-strike { position: absolute; left: 20px; right: 20px; top: 45px; height: 6px; border-radius: 3px; background: var(--ink); transform-origin: left center; }
+  #s1-any { position: absolute; left: 40px; top: 168px; width: 360px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; }
+  #s1-send { right: 36px; top: 222px; width: 220px; height: 60px; }
+  #s1-track { position: absolute; left: 60px; right: 60px; top: 318px; height: 12px; border-radius: 6px; background: rgba(30,26,22,0.12); }
+  #s1-fill { position: absolute; left: 0; top: 0; width: 100%; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+  #s1-d0 { position: absolute; left: 44px; top: 306px; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); }
+  #s1-d1 { position: absolute; right: 44px; top: 306px; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); }
+  .lab { position: absolute; top: 362px; font-family: 'Inter', sans-serif; }
+  .lab .a { display: block; font-weight: 900; font-size: 34px; color: var(--ink); }
+  .lab .b { display: block; font-weight: 700; font-size: 30px; color: #6B645C; margin-top: 6px; }
+  #s1-l0 { left: 36px; width: 220px; }
+  #s1-l1 { right: 36px; width: 300px; text-align: right; }
+
+  /* 2: just tell Claude */
+  #s2-card { top: 470px; height: 450px; }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 110px; border-bottom: 2px solid rgba(30,26,22,0.07); }
+  .head .logo { position: absolute; left: 36px; top: 30px; width: 52px; height: 52px; border-radius: 16px; background: var(--accent); }
+  .head .name { position: absolute; left: 110px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); }
+  .field { position: absolute; left: 36px; right: 36px; top: 140px; border-radius: 26px; background: #F6F1E8; padding: 26px 30px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.75; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-go { right: 36px; top: 350px; width: 170px; height: 70px; }
+
+  /* 3: how long it lasts */
+  #s3-card { top: 470px; height: 480px; }
+  #s3-prod { position: absolute; left: 36px; top: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); }
+  #s3-ex { right: 36px; top: 40px; width: 170px; height: 56px; }
+  #s3-num { position: absolute; left: 36px; right: 36px; top: 120px; height: 170px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; line-height: 170px; color: var(--accent); }
+  #s3-days { position: absolute; left: 36px; right: 36px; top: 300px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #6B645C; }
+  #s3-pack { position: absolute; left: 36px; right: 36px; top: 380px; height: 50px; border-radius: 25px; background: rgba(30,26,22,0.1); overflow: hidden; }
+  #s3-level { position: absolute; left: 0; top: 0; width: 100%; height: 50px; border-radius: 25px; background: var(--accent); transform-origin: left center; }
+
+  /* 4: three messages */
+  #s4-card { top: 470px; height: 560px; }
+  .drow { position: absolute; left: 36px; right: 36px; height: 130px; border-radius: 26px; border: 3px dashed rgba(30,26,22,0.22); }
+  .drow .bg { position: absolute; inset: -3px; border-radius: 26px; background: #F6F1E8; }
+  .drow .chip { left: 24px; top: 31px; width: 170px; height: 66px; }
+  .drow .t { position: absolute; left: 220px; right: 20px; top: 20px; height: 90px; font-family: 'Inter', sans-serif; white-space: nowrap; overflow: hidden; }
+  .drow .t .a { display: block; font-weight: 900; font-size: 34px; color: var(--ink); }
+  .drow .t .b { display: block; font-weight: 700; font-size: 30px; color: #6B645C; margin-top: 6px; }
+  #s4-r1 { top: 30px; } #s4-r2 { top: 185px; } #s4-r3 { top: 340px; }
+  #s4-ex { position: absolute; left: 36px; right: 36px; top: 496px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6B645C; }
+
+  /* 5: message one */
+  #s5-card { top: 470px; height: 530px; }
+  #s5-head .logo { border-radius: 50%; background: #3BB273; }
+  #s5-day { right: 36px; top: 27px; width: 150px; height: 56px; }
+  #s5-typing { position: absolute; left: 36px; top: 150px; width: 150px; height: 90px; border-radius: 30px; background: #F1ECE3; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #s5-typing i { display: block; width: 16px; height: 16px; border-radius: 50%; background: rgba(30,26,22,0.45); }
+  #s5-msg { position: absolute; left: 36px; right: 60px; top: 150px; padding: 26px 32px; border-radius: 30px; background: #E3F1E7; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.35; color: #173D2A; }
+  #s5-btns { position: absolute; left: 36px; right: 36px; top: 400px; height: 80px; display: flex; gap: 16px; }
+  #s5-btns .btn { display: flex; align-items: center; height: 80px; padding: 0 24px; border-radius: 40px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; white-space: nowrap; }
+  #s5-y { background: var(--accent); color: #FFFFFF; }
+  #s5-n { background: #F1ECE3; color: var(--ink); }
+
+  /* 6: no code up front */
+  #s6-card { top: 470px; height: 520px; }
+  .frow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .frow .t { position: absolute; left: 30px; right: 240px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .frow .chip { right: 20px; top: 24px; width: 200px; height: 62px; }
+  #s6-r1 { top: 40px; } #s6-r2 { top: 170px; } #s6-r3 { top: 300px; }
+  #s6-note { position: absolute; left: 36px; right: 36px; top: 436px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--accent); }
+
+  /* 7: the catch */
+  #s7-card { top: 470px; height: 580px; }
+  #s7-r1 { top: 60px; } #s7-r2 { top: 190px; } #s7-r3 { top: 320px; }
+  #s7-bub { position: absolute; left: 36px; top: 456px; height: 92px; padding: 0 32px; border-radius: 30px; background: #E3F1E7; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #173D2A; white-space: nowrap; }
+  .tilt { position: absolute; left: 600px; top: 398px; width: 360px; height: 96px; rotate: -6deg; }
+  #s7-stamp { display: flex; align-items: center; justify-content: center; width: 360px; height: 96px; border: 6px solid var(--accent); border-radius: 18px; background: rgba(243,238,229,0.95); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.06em; color: var(--accent); }
+
+  /* 8: save + comment */
+  #save { position: absolute; left: 360px; top: 60px; width: 460px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 180px; line-height: 1; color: var(--ink); }
+  #mark { position: absolute; left: 880px; top: 84px; width: 90px; height: 130px; }
+  #s8-msg { position: absolute; left: 360px; right: 90px; top: 310px; padding: 30px 36px; border-radius: 32px; background: #FFFFFF; box-shadow: 0 24px 60px rgba(60,40,20,0.13); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.35; color: #173D2A; }
+  #pill { position: absolute; left: 360px; right: 90px; top: 560px; height: 160px; border-radius: 80px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 20px; }
+  #pill .c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #s8-kw { display: flex; }
+  #s8-kw span { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 76px; color: #8FD3AE; }
+  #s8-free { position: absolute; left: 360px; top: 760px; width: 330px; height: 80px; border-radius: 40px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div id="blob1"></div>
+<div id="blob2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">One WhatsApp did this.</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">10% <span class="it">gone</span></span></span><span class="mask"><span class="l">on every reorder.</span></span></div>
+  <div id="s0-wa"><div class="av"></div><div class="msg">Delivered! 10% off next order.</div><div class="chip go" id="s0-code">CODE10</div></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE MISTAKE</div>
+  <div class="title"><span class="mask"><span class="l">Right offer,</span></span><span class="mask"><span class="l">wrong <span class="it">day.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-bub">10% off, reorder now!<div id="s1-strike" data-layout-allow-overlap></div></div>
+    <div id="s1-any" class="grey">They'd buy anyway</div>
+    <div class="chip ok" id="s1-send">SEND HERE</div>
+    <div id="s1-track"><div id="s1-fill"></div></div>
+    <div id="s1-d0" data-layout-allow-overlap></div>
+    <div id="s1-d1" data-layout-allow-overlap></div>
+    <div class="lab" id="s1-l0"><span class="a">Day 0</span><span class="b">Delivered</span></div>
+    <div class="lab" id="s1-l1"><span class="a">Day 40</span><span class="b">Used up (example)</span></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE FIX</div>
+  <div class="title"><span class="mask"><span class="l">Just tell</span></span><span class="mask"><span class="l it">Claude.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="head"><div class="logo"></div><div class="name">Claude</div></div>
+    <div class="field"><span class="pl" id="s2-pl1">Write my reorder series.</span><span class="pl" id="s2-pl2">No discount up front.</span></div>
+    <div class="chip go" id="s2-go">SEND</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">How long it</span></span><span class="mask"><span class="l it">lasts.</span></span></div>
+  <div class="card" id="s3-card">
+    <div id="s3-prod">Face serum, 30 ml</div>
+    <div class="chip no" id="s3-ex">EXAMPLE</div>
+    <div id="s3-num">0</div>
+    <div id="s3-days">days per pack</div>
+    <div id="s3-pack"><div id="s3-level"></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Three</span></span><span class="mask"><span class="l it">messages.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="drow" id="s4-r1"><div class="bg" id="s4-b1"></div><div class="chip go" id="s4-c1">DAY 30</div><div class="t" id="s4-t1"><span class="a">Early</span><span class="b">Running low?</span></div></div>
+    <div class="drow" id="s4-r2"><div class="bg" id="s4-b2"></div><div class="chip go" id="s4-c2">DAY 38</div><div class="t" id="s4-t2"><span class="a">Before it ends</span><span class="b">Last few days</span></div></div>
+    <div class="drow" id="s4-r3"><div class="bg" id="s4-b3"></div><div class="chip go" id="s4-c3">DAY 45</div><div class="t" id="s4-t3"><span class="a">A week after</span><span class="b">Only if no reply</span></div></div>
+    <div id="s4-ex">example: a 40-day pack</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Message</span></span><span class="mask"><span class="l it">one.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="head" id="s5-head"><div class="logo"></div><div class="name">Your brand</div></div>
+    <div class="chip go" id="s5-day">DAY 30</div>
+    <div id="s5-typing" data-layout-allow-overlap><i></i><i></i><i></i></div>
+    <div id="s5-msg" data-layout-allow-overlap>Running low? Same size, same address?</div>
+    <div id="s5-btns"><div class="btn" id="s5-y">Yes, send it</div><div class="btn" id="s5-n">Change size</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE TRICK</div>
+  <div class="title"><span class="mask"><span class="l">No code</span></span><span class="mask"><span class="l">up <span class="it">front.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="frow" id="s6-r1"><div class="t">Msg 1 · Day 30</div><div class="chip no" id="s6-c1">NO CODE</div></div>
+    <div class="frow" id="s6-r2"><div class="t">Msg 2 · Day 38</div><div class="chip no" id="s6-c2">NO CODE</div></div>
+    <div class="frow" id="s6-r3"><div class="t">Msg 3 · Day 45</div><div class="chip go" id="s6-c3">10% OFF</div></div>
+    <div id="s6-note">Only if they don't reply</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">HONEST LIMIT</div>
+  <div class="title"><span class="mask"><span class="l">The</span></span><span class="mask"><span class="l it">catch.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="frow" id="s7-r1"><div class="t">Serum, coffee</div><div class="chip ok" id="s7-c1">WORKS</div></div>
+    <div class="frow" id="s7-r2"><div class="t">Pet food, soap</div><div class="chip ok" id="s7-c2">WORKS</div></div>
+    <div class="frow" id="s7-r3"><div class="t">Kurtas</div><div class="chip no" id="s7-c3">SKIP</div></div>
+    <div id="s7-bub">Goes with your kurta?</div>
+  </div>
+  <div class="tilt" data-layout-allow-overlap><div id="s7-stamp" data-layout-allow-overlap>USED-UP ONLY</div></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="save">Save.</div>
+  <svg id="mark" viewBox="0 0 90 130"><path d="M6 6 H84 V124 L45 94 L6 124 Z" fill="#2E6A4A"></path></svg>
+  <div id="s8-msg">Running low? Same size, same address?</div>
+  <div id="pill"><span class="c">Comment</span><div id="s8-kw"><span>R</span><span>E</span><span>P</span><span>E</span><span>A</span><span>T</span></div></div>
+  <div id="s8-free">ALL 3, FREE</div>
+</section>

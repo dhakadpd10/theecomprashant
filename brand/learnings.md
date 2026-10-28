@@ -2,6 +2,34 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-28
+
+- **20 reels, 1,978 reach, 9 likes, 8 comments, 3 saves, 0 shares. Median views: 121.**
+  - Story-3d now has 12 episodes with a median of 126 views. The old format's median is 60.5.
+  - The top 11 posts are all episodes, and the bottom 7 are all old format.
+  - Confidence on views is moderate. Every episode is newer than every old post, and follower count isn't logged, so page growth is still a possible cause.
+- **The reach floor broke for the first time.**
+  - FAQ reached 2.40x (290 views, 263 reach) and AFTER reached 1.72x (208 views, 173 reach, at about 1 day old). The other 10 episodes sat at 101 to 131 reach.
+  - The top 3 (FAQ, AFTER, CART) all name a message the viewer already sends their customer and show it backfiring. They also all used hook #2 and the 07:31 UTC slot, so the three can't be separated.
+  - #2 also produced four posts at 0.88x to 1.00x, so the theme is the lead hunch (n=3). It is not yet a rule.
+- **Still no action.**
+  - 12 episodes have 0 shares, 1 save (BUNDLE) and 2 comments (CART, not yet verified).
+  - 9 of 12 episodes have exactly 1 like. Check whether it's one account.
+  - FAQ doubled reach and got 0 saves.
+  - Without follows and non-follower %, we can't tell a hook problem from a profile problem.
+- **Hooks are logged on all 12 episodes for the first time, but hold@3s is on 0 of 20 posts, so there's no hook verdict.**
+  - #2: n=7, 0.88x to 2.40x.
+  - #1: n=3, 1.03x to 1.17x.
+  - #3: n=1, 1.03x.
+  - #17: n=1, 1.13x. It was a new id, on BUNDLE, which has the only episode save.
+  - The plan asked for #3 twice and #2 at most once. In practice #3 was used 0 times and #2 four times.
+- **Process misses again.**
+  - Style was logged as 'story' on all 12 episodes.
+  - No arm was logged, so the keyword-placement test hasn't run in 3 weeks. At about 1 comment per 1k reach it couldn't be read anyway, so it is replaced this week by a theme test.
+  - There are 0 carousels.
+  - 0 of 7 new posts went out in the 14:30 to 15:30 UTC window.
+  - No follower count was logged.
+
 ## Week of 2026-10-24
 
 - **13 reels, 954 reach, 5 likes, 8 comments, 2 saves, 0 shares.**

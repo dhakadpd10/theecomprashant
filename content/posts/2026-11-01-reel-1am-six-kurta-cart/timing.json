@@ -1,0 +1,81 @@
+{
+  "dur": 29.23,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.515,
+      "b": 3.615,
+      "say": "Nobody tells you what a six-item cart turns into after midnight.",
+      "show": "6 KURTAS AT 1 AM"
+    },
+    {
+      "a": 3.615,
+      "voice": 3.715,
+      "end": 6.893,
+      "b": 6.993,
+      "say": "Late at night, his phone lights up. Six items. A big order.",
+      "show": "1:02 am: 6 kurtas, ₹7,400 (example)."
+    },
+    {
+      "a": 6.993,
+      "voice": 7.093,
+      "end": 10.229,
+      "b": 10.329,
+      "say": "He's sitting up now. Cooker whistles. The beach trip's all planned.",
+      "show": "Sits up. Cooker whistles. Goa trip planned."
+    },
+    {
+      "a": 10.329,
+      "voice": 10.429,
+      "end": 12.49,
+      "b": 12.59,
+      "say": "A few minutes later. Cart's down to half.",
+      "show": "1:09 am: cart drops to 3."
+    },
+    {
+      "a": 12.59,
+      "voice": 12.69,
+      "end": 16.644,
+      "b": 16.744,
+      "say": "A bit later. Just a single item left. So the beach trip's a day trip now.",
+      "show": "1:15 am: 1 item. Goa becomes Lonavala."
+    },
+    {
+      "a": 16.744,
+      "voice": 16.844,
+      "end": 19.431,
+      "b": 19.531,
+      "say": "Then, order placed! A small order, cash on delivery.",
+      "show": "1:16 am: order placed. ₹499. COD."
+    },
+    {
+      "a": 19.531,
+      "voice": 19.631,
+      "end": 21.144,
+      "b": 21.244,
+      "say": "A minute later. The order's gone.",
+      "show": "1:17 am: Order cancelled."
+    },
+    {
+      "a": 21.244,
+      "voice": 21.344,
+      "end": 24.331,
+      "b": 24.431,
+      "say": "He's staring at the ceiling till sunrise. You know the feeling.",
+      "show": "Stares at the ceiling. Till sunrise."
+    },
+    {
+      "a": 24.431,
+      "voice": 24.531,
+      "end": 27.831,
+      "b": 29.23,
+      "say": "Comment CART and I'll send you the free cart recovery sequence.",
+      "show": "Comment CART for the free sequence."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "dur": 36.11,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.838,
+      "b": 3.938,
+      "say": "Stop sending 'Your order is confirmed!' I ask one question instead.",
+      "show": "Stop sending 'Your order is confirmed!' Ask 1 question."
+    },
+    {
+      "a": 3.938,
+      "voice": 4.038,
+      "end": 9.193,
+      "b": 9.293,
+      "say": "For example, four zero COD orders. Nobody replied. They refused the parcels.",
+      "show": "40 COD orders (example). 0 replies. Refused."
+    },
+    {
+      "a": 9.293,
+      "voice": 9.393,
+      "end": 11.849,
+      "b": 11.949,
+      "say": "That message asks nothing. So I just tell Claude.",
+      "show": "It asks nothing. Just tell Claude."
+    },
+    {
+      "a": 11.949,
+      "voice": 12.049,
+      "end": 15.614,
+      "b": 15.714,
+      "say": "Step one, you paste my kit, plus name, product, total and date.",
+      "show": "Step 1: paste the kit + order details."
+    },
+    {
+      "a": 15.714,
+      "voice": 15.814,
+      "end": 19.956,
+      "b": 20.056,
+      "say": "Step two, they reply one to confirm, two to change address, three to cancel.",
+      "show": "Step 2: 1 confirm, 2 address, 3 cancel."
+    },
+    {
+      "a": 20.056,
+      "voice": 20.156,
+      "end": 22.876,
+      "b": 22.976,
+      "say": "Step three. No reply in a day? You call, or you hold it.",
+      "show": "Step 3: no reply in a day? Call or hold."
+    },
+    {
+      "a": 22.976,
+      "voice": 23.076,
+      "end": 27.588,
+      "b": 27.688,
+      "say": "A cancel is good news, you lose nothing. A refusal means you pay shipping twice.",
+      "show": "Cancels: ₹0 before dispatch. Refusals: shipping twice."
+    },
+    {
+      "a": 27.688,
+      "voice": 27.788,
+      "end": 31.182,
+      "b": 31.282,
+      "say": "The catch: paid WhatsApp tools might charge you. The free app won't.",
+      "show": "Catch: Interakt or Wati may charge. Free app won't."
+    },
+    {
+      "a": 31.282,
+      "voice": 31.382,
+      "end": 34.707,
+      "b": 36.11,
+      "say": "Save this. Comment RTO below and I'll send you the free kit.",
+      "show": "Save. Comment RTO for the free kit."
+    }
+  ]
+}

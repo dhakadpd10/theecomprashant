@@ -4,7 +4,9 @@ const path = require('path');
 const { P, readJSON, config, log, localDay } = require('./util');
 const ig = require('./ig');
 
-const COLS = ['date', 'post', 'format', 'keyword', 'pillar', 'published_at', 'views', 'reach', 'likes', 'comments', 'saved', 'shares', 'total_interactions', 'keyword_comments'];
+const COLS = ['date', 'post', 'format', 'keyword', 'pillar', 'published_at', 'views', 'reach', 'likes', 'comments', 'saved', 'shares', 'total_interactions', 'keyword_comments', 'avg_watch_s', 'watch_total_s'];
+
+const sec = (ms) => (ms == null ? '' : (ms / 1000).toFixed(1));
 
 async function run() {
   const file = P('content/analytics/log.csv'); const today = localDay();
@@ -17,7 +19,7 @@ async function run() {
       if (!s.media_id || Date.now() - new Date(s.published_at) > 30 * 86400000) continue;
       try {
         const m = await ig.mediaInsights(s.media_id, s.format);
-        rows.push([today, s.repost ? `${s.post}#repost` : s.post, s.format, s.keyword, s.pillar || '', s.published_at, m.views, m.reach, m.likes, m.comments, m.saved, m.shares, m.total_interactions, ''].map((v) => (v ?? '')).join(','));
+        rows.push([today, s.repost ? `${s.post}#repost` : s.post, s.format, s.keyword, s.pillar || '', s.published_at, m.views, m.reach, m.likes, m.comments, m.saved, m.shares, m.total_interactions, '', sec(m.ig_reels_avg_watch_time), sec(m.ig_reels_video_view_total_time)].map((v) => (v ?? '')).join(','));
         n++;
       } catch (e) { log('insights failed', s.post, e.message); }
     }

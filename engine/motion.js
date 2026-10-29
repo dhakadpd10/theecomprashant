@@ -280,7 +280,11 @@ async function main() {
       '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-t', String(T.dur), '-movflags', '+faststart', out], { encoding: 'utf8' });
     if (mux.status) throw new Error(`could not add the sound: ${mux.stderr.slice(-800)}`);
     await cover(post, T, proj, dir);
-    console.log(`wrote ${out} (${T.dur}s) and cover.png`);
+    // a strip of 8 frames for the approval pull request, so a reel can be judged at a glance
+    const step = (T.dur / 8).toFixed(2);
+    const strip = spawnSync(ffmpeg, ['-v', 'error', '-y', '-i', out, '-vf', `fps=1/${step},scale=180:-1,tile=8x1`, '-frames:v', '1', '-q:v', '4', path.join(dir, 'sheet.jpg')], { encoding: 'utf8' });
+    if (strip.status) console.log(`no frame strip: ${strip.stderr.slice(-300)}`);
+    console.log(`wrote ${out} (${T.dur}s), cover.png and sheet.jpg`);
   } finally {
     if (!process.env.MOTION_KEEP) fs.rmSync(proj, { recursive: true, force: true }); else console.log('project kept at', proj);
   }

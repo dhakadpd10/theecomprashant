@@ -138,7 +138,7 @@ The page's look since 28 Oct 2026, modelled on the AI-tutorial reels that get 10
 - A thin progress bar at the top (one segment per step) and a small "STEP 1" label in the accent.
 - One clean white app card per step (rounded 32 to 36 px, soft warm shadow): a chat, a list, message rows, reply bubbles, a checklist with chips, a timer ring.
 - End on "Save." in the serif, a bookmark shape, and a dark pill "Comment KEYWORD".
-- Model: `content/story-samples/e02-host-dms/`.
+- Model: `content/story-samples/e03-host-sites/` (kind sites; e02-host-dms is the older tutorial).
 
 ## The host (post.json "host": { "name": "prashant" })
 
@@ -152,7 +152,18 @@ His mouth moves while the voice speaks, he blinks, and he glides between positio
 Layout rules with the host:
 - When he is in the corner, keep the bottom-left free: app cards sit at `left: 360px; right: 60px` from y ~470, and nothing important goes left of x 340 below y 780.
 - When he is at the centre (hook, skits), keep the stage content above y 560 (title, kicker, a badge) or to his sides.
-- Text inside cards stays at 30 to 40 px so rows fit the narrower card without touching their chips.
+- Text inside cards stays at 34 to 44 px (labels 24 px or more); cut words so rows fit the narrower card without touching their chips.
+
+## Readability and proof (29 Oct 2026 audit; the checker enforces the numbers)
+
+The first agent-written reels in the new niche stalled at 24 to 114 views. Their scripts were good; the screens lost people. Every reel now follows these rules:
+- **The hook is the biggest thing on frame 0.** The line-0 title is at least 110 px (aim for 120 to 150), 6 words or fewer, with the money word or number in the accent (`₹999`, `paid`, `3 websites`). A small top-left title above a big character reads as "cartoon standing", not "money".
+- **Show the result, not just the steps.** If the reel says AI makes something (a poster, a reply, a gig page, a plan), draw that finished thing as a full card on the payoff beat: before and after side by side or one after the other. The viewer must see what they'd get. Steps without a result look like homework.
+- **No empty cards.** Every card is full of its real content by the end of its beat: rows, messages, numbers, the prompt text. A white card with one line in it, or a chat card with no messages, is never allowed.
+- **Cards use the space.** With the host in the corner, a card runs from about y 470 to y 1100 in scene coordinates (left 360 px, right 60 px). Small floating cards in the top third leave the frame empty.
+- **Readable on a phone.** Card body text 34 to 44 px, labels at least 24 px, nothing under 24 px anywhere. If a row doesn't fit, cut words; never shrink the text.
+- **Serif titles keep their descenders.** `.mask` gets `padding-bottom: 0.18em` so italic words with p, g or y aren't clipped ("WhatsApp" lost its bottom on 28 Oct).
+- **Vary the stage.** Not every reel puts the host in the same corner: use `"right"` for some reels (then cards sit at left 60 px, right 360 px), `"hidden"` for one or two beats where a big result card needs the whole width, and `"center"` for skits.
 
 ## Honesty
 
@@ -160,7 +171,8 @@ Never invent results, revenue, clients or statistics. Anything that looks like d
 
 ## Before you return it
 
-- The hook text and the main visual are visible at 0.0 s.
+- The hook text (110 px or more) and the main visual are visible at 0.0 s.
+- Every card is full by the end of its beat, and the payoff beat shows the finished result.
 - Something changes at least every 4 seconds; the keyword is huge in the last beat.
 - Nothing in y 1330 to 1920, nothing outside x 90 to 990 except backgrounds.
 - Every id you animate exists in `scene.html`; every section has `data-from`.

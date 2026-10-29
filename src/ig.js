@@ -78,10 +78,13 @@ const conversations = () => get(`/${userId()}/conversations`, { platform: 'insta
 const sendMessage = (recipientId, text) => post(`/${userId()}/messages`, { recipient: { id: recipientId }, message: { text } });
 
 // ---------- insights ----------
+// reels also report watch time (milliseconds), which shows whether people leave in second 1 or stay to the end;
+// if Instagram rejects those two metrics the base set still comes back
 async function mediaInsights(mediaId, kind) {
-  const metrics = kind === 'reel' ? 'views,reach,likes,comments,saved,shares,total_interactions' : 'views,reach,likes,comments,saved,shares,total_interactions';
-  const r = await get(`/${mediaId}/insights`, { metric: metrics });
-  return Object.fromEntries((r.data || []).map((m) => [m.name, m.values?.[0]?.value ?? m.total_value?.value ?? null]));
+  const base = 'views,reach,likes,comments,saved,shares,total_interactions';
+  const read = async (metric) => Object.fromEntries(((await get(`/${mediaId}/insights`, { metric })).data || []).map((m) => [m.name, m.values?.[0]?.value ?? m.total_value?.value ?? null]));
+  if (kind !== 'reel') return read(base);
+  try { return await read(`${base},ig_reels_avg_watch_time,ig_reels_video_view_total_time`); } catch { return read(base); }
 }
 
 // ---------- token ----------

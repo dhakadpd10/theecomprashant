@@ -75,6 +75,24 @@ async function run({ fix = false } = {}) {
     for (let i = 0; i <= within; i++) { const day = addDays(localDay(), i); for (const sl of slotsFor(day)) if (sl.format === format && !t.has(`${day} ${sl.time}`) && slotDate(day, sl.time).getTime() > now + 15 * 60000) return { day, time: sl.time }; }
     return null;
   };
+  // "skip 3, 5" replies from the owner on approval PRs (docs: src/review.js). Applied once the week is on main,
+  // so a reply on an open PR waits for the merge; skipped slots go back to empty and step 5 plans new reels for them.
+  const owner = (process.env.GITHUB_REPOSITORY || '').split('/')[0];
+  const merged = (ghJSON('pr', 'list', '--state', 'merged', '--search', 'Approve in:title', '--limit', '8', '--json', 'number,title,mergedAt') || []).filter((p) => now - new Date(p.mergedAt) < 4 * 24 * H);
+  for (const pr of [...approvals, ...merged]) {
+    const week = (pr.title.match(/^Approve (\S+)/) || [])[1];
+    const entry = week && local.find((x) => path.basename(path.dirname(x.file)) === week);
+    if (!entry) continue;
+    const comments = (ghJSON('pr', 'view', String(pr.number), '--json', 'comments') || {}).comments || [];
+    const nums = new Set(comments.filter((c) => !owner || c.author?.login === owner).flatMap((c) => [...(c.body || '').matchAll(/\bskip\b:?([\d,\s&and]+)/gi)].flatMap((m) => (m[1].match(/\d+/g) || []).map(Number))));
+    for (const n of nums) {
+      const s = entry.plan.slots[n - 1];
+      if (!s || s.status !== 'made' || slotDate(s.day, s.time).getTime() < now + 15 * 60000) continue;
+      if (fix) { s.status = 'hold'; s.note = `skipped by ${owner || 'the owner'} in PR #${pr.number}`; changed.add(entry.file); fixed.push(`held ${s.post} (skip ${n} in PR #${pr.number})`); }
+      else add('info', `skip-${s.post}`, `would hold ${s.post} (skip ${n} in PR #${pr.number})`);
+    }
+  }
+
   for (const { file, plan } of local) for (const s of plan.slots) {
     const due = /^\d{4}-/.test(s.day) ? slotDate(s.day, s.time).getTime() : 0;
     if (s.status === 'failed' && /not on the site yet/.test(s.error || '') && now - due < 5 * H) {

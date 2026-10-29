@@ -9,7 +9,7 @@
   .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
   .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); }
   .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
-  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
   .mask > span { display: block; }
   .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
   .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
@@ -27,15 +27,15 @@
   .num { position: absolute; left: 36px; top: 132px; width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; }
   .name { position: absolute; left: 150px; right: 30px; top: 122px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 84px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
   .row { position: absolute; left: 36px; right: 36px; height: 102px; border-radius: 24px; background: #F6F1E8; }
-  .row .k { position: absolute; left: 28px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.14em; color: rgba(30,26,22,0.45); }
-  .row .v { position: absolute; left: 28px; right: 20px; top: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .k { position: absolute; left: 28px; top: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: rgba(30,26,22,0.45); }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 44px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
   .r1 { top: 262px; } .r2 { top: 378px; } .r3 { top: 494px; }
   .r3 { background: #F7E1D6; } .r3 .v { color: #7A2E12; }
 
   /* 4: the catch */
   #s4-card { top: 470px; height: 300px; }
   .crow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
-  .crow .t { position: absolute; left: 30px; right: 200px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .crow .t { position: absolute; left: 30px; right: 200px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
   .chip { position: absolute; right: 20px; top: 24px; width: 160px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
   #k1 { top: 36px; } #k2 { top: 160px; }
 
@@ -70,7 +70,7 @@
     <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">prolific.com</div></div>
     <div class="num">1</div><div class="name">Prolific</div>
     <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Paid research studies</div></div>
-    <div class="row r2"><div class="k">SUITS</div><div class="v">Anyone 18+, supported countries</div></div>
+    <div class="row r2"><div class="k">SUITS</div><div class="v">18+, supported countries</div></div>
     <div class="row r3"><div class="k">PAY</div><div class="v">Shown before you start</div></div>
   </div>
 </section>
@@ -81,7 +81,7 @@
   <div class="card site" id="s2-card">
     <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">alignerr.com</div></div>
     <div class="num">2</div><div class="name">Alignerr</div>
-    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Check AI answers in your field</div></div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Check AI answers</div></div>
     <div class="row r2"><div class="k">SUITS</div><div class="v">Subject experts</div></div>
     <div class="row r3"><div class="k">PAY</div><div class="v">Hourly, set by subject</div></div>
   </div>
@@ -94,7 +94,7 @@
     <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">outlier.ai</div></div>
     <div class="num">3</div><div class="name">Outlier</div>
     <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Write and rate AI answers</div></div>
-    <div class="row r2"><div class="k">SUITS</div><div class="v">Writers, coders, graduates</div></div>
+    <div class="row r2"><div class="k">SUITS</div><div class="v">Writers and coders</div></div>
     <div class="row r3"><div class="k">PAY</div><div class="v">Set by your skill</div></div>
   </div>
 </section>

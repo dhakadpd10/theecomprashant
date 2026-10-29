@@ -100,6 +100,17 @@ function validateScene(html, js) {
   for (const m of js.matchAll(/['"`]#([A-Za-z][\w-]*)(?!\$\{)/g)) if (!ids.has(m[1]) && !/^[0-9a-f]{3,8}$/i.test(m[1])) e.push(`scene.js animates #${m[1]}, which is not in scene.html`);
   const dup = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]).filter((id, i, a) => a.indexOf(id) !== i);
   if (dup.length) e.push(`duplicate ids: ${[...new Set(dup)].join(', ')}`);
+  // readability (docs/MOTION.md "Readability and proof"): nothing under 24 px, and the line-0 hook at 110 px or more
+  const tiny = [...html.matchAll(/font-size:\s*(\d+(?:\.\d+)?)px/g)].map((m) => +m[1]).filter((n) => n < 24);
+  if (tiny.length) e.push(`text at ${[...new Set(tiny)].join(', ')} px is unreadable on a phone: nothing under 24 px (card text 34 to 44 px, labels 24 px or more)`);
+  const hook = (html.match(/<section[^>]*data-from="@line0"[^>]*>([\s\S]*?)<\/section>/) || [])[1];
+  if (hook) {
+    const used = new Set([...hook.matchAll(/\sid="([^"]+)"/g)].map((m) => `#${m[1]}`).concat([...hook.matchAll(/\sclass="([^"]+)"/g)].flatMap((m) => m[1].split(/\s+/).map((c) => `.${c}`))));
+    const css = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => m[1]).join('\n');
+    const sizes = [...css.matchAll(/([^{}]+)\{([^}]*)\}/g)].filter((m) => (m[1].match(/[#.][\w-]+/g) || []).some((t) => used.has(t))).map((m) => +((m[2].match(/font-size:\s*(\d+)px/) || [])[1] || 0));
+    sizes.push(...[...hook.matchAll(/font-size:\s*(\d+)px/g)].map((m) => +m[1]));
+    if (Math.max(0, ...sizes) < 110) e.push('the hook must be the biggest thing on frame 0: give the line-0 title at least 110 px (aim for 120 to 150), 6 words or fewer');
+  }
   return [...new Set(e)];
 }
 

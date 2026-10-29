@@ -51,7 +51,7 @@ function postStats() {
     const s = slot[r.post] || {}, reach = num(r.reach);
     return { post: r.post, format: r.format, keyword: r.keyword, pillar: r.pillar, style: s.style || '', hook: s.hook ? `#${s.hook.id} ${s.hook.name}` : '', published: (r.published_at || '').slice(0, 16),
       views: num(r.views), reach, likes: num(r.likes), comments: num(r.comments), saves: num(r.saved), shares: num(r.shares),
-      shares_per_1k_reach: reach ? +(1000 * num(r.shares) / reach).toFixed(1) : 0, saves_per_1k_reach: reach ? +(1000 * num(r.saved) / reach).toFixed(1) : 0 };
+      kind: s.kind || '', avg_watch_s: r.avg_watch_s ? num(r.avg_watch_s) : null, shares_per_1k_reach: reach ? +(1000 * num(r.shares) / reach).toFixed(1) : 0, saves_per_1k_reach: reach ? +(1000 * num(r.saved) / reach).toFixed(1) : 0 };
   });
   const v = rows.map((r) => r.views).sort((a, b) => a - b), median = v.length ? v[Math.floor(v.length / 2)] || 1 : 1;
   for (const r of rows) r.outlier = +(r.views / median).toFixed(2);

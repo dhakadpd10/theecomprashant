@@ -1,7 +1,20 @@
 // Writes the weekly pull-request description: every post with its cover, time and keyword.
 // Merging the pull request = approving the week.
+const fs = require('fs');
 const path = require('path');
 const { P, readJSON, readText } = require('./util');
+
+// one strip of frames per reel (engine/motion.js writes sheet.jpg), numbered like the table, and the "skip" reply
+function sheets(plan, raw) {
+  const rows = plan.slots.map((s, i) => (fs.existsSync(P('content/posts', s.post, 'sheet.jpg')) ? `**${i + 1}. ${s.day} ${s.time}**: ${s.topic.replace(/\n/g, ' ')}\n<img src="${raw(`content/posts/${s.post}/sheet.jpg`)}" width="100%">\n` : '')).filter(Boolean);
+  if (!rows.length) return '';
+  return `### Look before they post
+
+Weak hook, empty card or a frame you don't like? **Reply in this pull request with the numbers to drop, like \`skip 3, 5\`.** Skipped reels never post and the agent writes new ones for those slots. It works before or after this is merged, up to an hour before the post.
+
+${rows.join('\n')}
+`;
+}
 
 function body(week, branch) {
   const repo = process.env.GITHUB_REPOSITORY || 'OWNER/theecomprashant';
@@ -21,6 +34,7 @@ function body(week, branch) {
 |---|---|---|---|---|---|---|
 ${rows.join('\n')}
 
+${sheets(plan, raw)}
 Full videos, slides and captions are in the **Files changed** tab.
 ${problems ? `\n### Couldn't make\n${problems.split('\n').map((p) => `- ${p}`).join('\n')}\n` : ''}
 ### What the agent learned

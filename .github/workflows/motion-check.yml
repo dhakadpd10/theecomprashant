@@ -40,4 +40,5 @@ jobs:
           path: |
             ${{ inputs.post || 'content/posts/m01-five-questions' }}/reel.mp4
             ${{ inputs.post || 'content/posts/m01-five-questions' }}/cover.jpg
+            ${{ inputs.post || 'content/posts/m01-five-questions' }}/sheet.jpg
             ${{ inputs.post || 'content/posts/m01-five-questions' }}/vo/heard.txt

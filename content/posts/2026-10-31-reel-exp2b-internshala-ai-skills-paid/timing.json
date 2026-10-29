@@ -1,0 +1,81 @@
+{
+  "dur": 29.05,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.168,
+      "b": 4.268,
+      "say": "Nobody tells you which four AI skills get students paid on Internshala.",
+      "show": "Nobody tells you: 4 AI skills Internshala pays."
+    },
+    {
+      "a": 4.268,
+      "voice": 4.368,
+      "end": 5.951,
+      "b": 6.051,
+      "say": "Line one: I know AI tools.",
+      "show": "Line 1: \"I know AI tools.\""
+    },
+    {
+      "a": 6.051,
+      "voice": 6.151,
+      "end": 9.004,
+      "b": 9.104,
+      "say": "Line two: I edited three video reels, link attached.",
+      "show": "Line 2: \"Edited 3 CapCut reels. Link attached.\""
+    },
+    {
+      "a": 9.104,
+      "voice": 9.204,
+      "end": 10.973,
+      "b": 11.073,
+      "say": "Four skills you can prove this weekend.",
+      "show": "4 skills you can prove this weekend."
+    },
+    {
+      "a": 11.073,
+      "voice": 11.173,
+      "end": 13.729,
+      "b": 13.829,
+      "say": "AI video editing. Canva AI design.",
+      "show": "1. AI video editing. 2. Canva AI design."
+    },
+    {
+      "a": 13.829,
+      "voice": 13.929,
+      "end": 17.556,
+      "b": 17.656,
+      "say": "Research notes with Google. Reel writing with Claude, edited by you.",
+      "show": "3. NotebookLM or Perplexity summaries. 4. Claude scripts, your edits."
+    },
+    {
+      "a": 17.656,
+      "voice": 17.756,
+      "end": 19.655,
+      "b": 19.755,
+      "say": "Attach the proof to every application.",
+      "show": "Attach the proof. Every application."
+    },
+    {
+      "a": 19.755,
+      "voice": 19.855,
+      "end": 23.911,
+      "b": 24.011,
+      "say": "The catch: proof gets you hired, not the skill line. Pay can vary by listing.",
+      "show": "The catch: proof hires you. Stipends vary."
+    },
+    {
+      "a": 24.011,
+      "voice": 24.111,
+      "end": 27.648,
+      "b": 29.05,
+      "say": "Send this to a friend who's applying, and comment SKILL for the roadmap.",
+      "show": "Send this to a friend. Comment SKILL."
+    }
+  ]
+}

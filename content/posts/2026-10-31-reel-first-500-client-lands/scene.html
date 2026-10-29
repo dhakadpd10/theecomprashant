@@ -1,0 +1,241 @@
+<style>
+  /* editorial skit: warm paper, ink, deep green accent. The host holds centre stage; every card lives above y 560 or to his side. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .blob { position: absolute; border-radius: 50%; }
+  #blob1 { left: -220px; top: 160px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(47,107,79,0.10) 0%, rgba(47,107,79,0) 70%); }
+  #blob2 { left: 560px; top: 820px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(200,150,80,0.10) 0%, rgba(200,150,80,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .scene * { box-sizing: border-box; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; width: 520px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 92px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; background: #FFFFFF; border-radius: 32px; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .muted { color: #6A625A; }
+
+  /* 0: hook, the payment notification */
+  #s0-note { left: 90px; right: 90px; top: 112px; height: 156px; }
+  #s0-tick { position: absolute; left: 30px; top: 33px; width: 90px; height: 90px; border-radius: 50%; background: var(--accent); }
+  #s0-tick svg { display: block; width: 90px; height: 90px; }
+  #s0-label { position: absolute; left: 150px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6A625A; white-space: nowrap; }
+  #s0-amt { position: absolute; left: 150px; top: 58px; width: 300px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 72px; line-height: 1.1; color: var(--ink); }
+  #s0-chip { position: absolute; right: 30px; top: 53px; width: 130px; height: 50px; border-radius: 25px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #s0-title { top: 300px; width: 820px; font-size: 110px; }
+
+  /* 1: two screenshots */
+  .shot { position: absolute; width: 202px; height: 330px; border-radius: 28px; background: #FFFFFF; border: 6px solid var(--ink); box-shadow: 0 24px 50px rgba(60,40,20,0.16); }
+  .shot .notch { position: absolute; left: 65px; top: 12px; width: 60px; height: 12px; border-radius: 6px; background: var(--ink); }
+  .shot .amt { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; color: var(--ink); }
+  .shot .ok { position: absolute; left: 71px; top: 200px; width: 48px; height: 48px; border-radius: 50%; background: var(--accent); }
+  .shot .ok svg { display: block; width: 48px; height: 48px; }
+  #s1-a { left: 640px; top: 80px; }
+  #s1-b { left: 760px; top: 60px; }
+  .flash { position: absolute; width: 202px; height: 330px; border-radius: 28px; background: #FFFFFF; opacity: 0; }
+  #s1-fa { left: 640px; top: 80px; }
+  #s1-fb { left: 760px; top: 60px; }
+
+  /* 2-3: chats */
+  .chat { left: 630px; width: 340px; top: 60px; height: 370px; }
+  .chat .head { position: absolute; left: 0; right: 0; top: 0; height: 80px; background: #F1ECE3; }
+  .chat .av { position: absolute; left: 22px; top: 18px; width: 44px; height: 44px; border-radius: 50%; background: #C9A27A; }
+  .chat .av.grp { background: var(--accent); }
+  .chat .nm { position: absolute; left: 80px; top: 21px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .bub { position: absolute; height: 60px; border-radius: 30px; padding: 0 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 60px; white-space: nowrap; }
+  .bub.out { right: 22px; background: var(--accent); color: #FFFFFF; transform-origin: right bottom; }
+  .bub.in { left: 22px; background: #F1ECE3; color: var(--ink); transform-origin: left bottom; }
+  #s2-out { top: 110px; }
+  #s2-in { top: 200px; }
+  #s2-dots { position: absolute; left: 22px; top: 200px; width: 110px; height: 60px; border-radius: 30px; background: #F1ECE3; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0; }
+  #s2-dots i { display: block; width: 14px; height: 14px; border-radius: 50%; background: #6A625A; }
+  #s3-card { top: 40px; height: 400px; }
+  #s3-out { top: 100px; }
+  #s3-i1 { top: 175px; }
+  #s3-i2 { top: 250px; }
+  #s3-i3 { top: 325px; }
+
+  /* 4: wallpaper */
+  #s4-phone { position: absolute; left: 700px; top: 40px; width: 240px; height: 390px; border-radius: 40px; background: var(--ink); box-shadow: 0 30px 60px rgba(60,40,20,0.2); }
+  #s4-phone .scr { position: absolute; left: 12px; right: 12px; top: 12px; bottom: 12px; border-radius: 30px; background: linear-gradient(160deg, #2F6B4F 0%, #1E3B2D 100%); }
+  #s4-phone .pn { position: absolute; left: 78px; top: 14px; width: 60px; height: 14px; border-radius: 7px; background: var(--ink); }
+  #s4-phone .tm { position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #F3EEE5; }
+  #s4-amt { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 60px; color: #F3EEE5; }
+
+  /* 5: the locked balance */
+  #s5-card { left: 630px; width: 340px; top: 90px; height: 300px; }
+  #s5-card .k { position: absolute; left: 30px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: #6A625A; white-space: nowrap; }
+  #s5-amt { position: absolute; left: 30px; top: 78px; width: 280px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 92px; line-height: 1.1; color: var(--ink); }
+  #s5-chip { position: absolute; left: 30px; top: 214px; width: 170px; height: 54px; border-radius: 27px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s5-lock { position: absolute; left: 850px; top: 14px; width: 110px; height: 130px; }
+  #s5-lock svg { display: block; width: 110px; height: 130px; }
+
+  /* 6: three seetis */
+  .puff { position: absolute; top: 80px; width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.95); box-shadow: 0 8px 24px rgba(60,40,20,0.12); opacity: 0; }
+  #s6-p1 { left: 655px; } #s6-p2 { left: 770px; } #s6-p3 { left: 885px; }
+  .ring { position: absolute; top: 180px; width: 100px; height: 100px; border-radius: 50%; background: #FFFFFF; border: 6px solid var(--accent); color: var(--accent); font-family: 'Archivo Black', sans-serif; font-size: 50px; display: flex; align-items: center; justify-content: center; }
+  #s6-r1 { left: 640px; } #s6-r2 { left: 755px; } #s6-r3 { left: 870px; }
+  #s6-lbl { position: absolute; left: 640px; width: 330px; top: 310px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: #6A625A; white-space: nowrap; }
+
+  /* 7: the bill */
+  #s7-card { left: 630px; width: 340px; top: 50px; height: 370px; }
+  #s7-card .k { position: absolute; left: 30px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: #6A625A; white-space: nowrap; }
+  .rrow { position: absolute; left: 30px; right: 30px; height: 56px; border-bottom: 3px dashed rgba(30,26,22,0.16); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); }
+  .rrow .a { position: absolute; left: 0; top: 8px; white-space: nowrap; }
+  .rrow .b { position: absolute; right: 0; top: 8px; white-space: nowrap; }
+  #s7-r1 { top: 84px; }
+  #s7-r2 { top: 150px; }
+  #s7-price { position: absolute; left: 30px; right: 30px; top: 208px; text-align: right; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 72px; line-height: 1.1; color: var(--ink); transform-origin: right center; }
+  #s7-over { position: absolute; right: 30px; top: 298px; height: 50px; padding: 0 22px; border-radius: 25px; background: #F7DCD5; color: #A3342A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; line-height: 50px; white-space: nowrap; transform-origin: right center; }
+
+  /* 8: net profit */
+  #s8-num { position: absolute; left: 620px; width: 340px; top: 80px; height: 160px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 160px; color: var(--ink); white-space: nowrap; }
+  #s8-math { position: absolute; left: 620px; width: 340px; top: 250px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6A625A; white-space: nowrap; }
+  #s8-stampw { position: absolute; left: 680px; top: 310px; width: 220px; height: 110px; rotate: -10deg; }
+  #s8-stamp { position: absolute; left: 0; top: 0; width: 220px; height: 110px; border: 8px solid #A3342A; border-radius: 16px; color: #A3342A; font-family: 'Bebas Neue', sans-serif; font-size: 92px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+
+  /* 9: send this to the framer */
+  #s9-frame { position: absolute; left: 650px; top: 110px; width: 300px; height: 300px; border: 20px solid #8B5E34; border-radius: 8px; background: #FBF8F2; box-shadow: 0 26px 50px rgba(60,40,20,0.2); }
+  #s9-frame .amt { position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 92px; line-height: 1.1; color: var(--ink); }
+  #s9-frame .cap { position: absolute; left: 0; right: 0; top: 176px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--accent); }
+  #s9-plane { position: absolute; left: 420px; top: 340px; width: 120px; height: 100px; }
+  #s9-plane svg { display: block; width: 120px; height: 100px; }
+
+  /* 10: save + keyword, host on the right */
+  #s10-title { width: 700px; top: 100px; font-size: 100px; }
+  #s10-mark { position: absolute; left: 860px; top: 100px; width: 80px; height: 110px; }
+  #s10-mark svg { display: block; width: 80px; height: 110px; }
+  #s10-card { left: 90px; right: 90px; top: 250px; height: 380px; }
+  #s10-card .hd { position: absolute; left: 40px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .tk { position: absolute; left: 40px; right: 40px; height: 56px; }
+  .tk .ck { position: absolute; left: 0; top: 6px; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); }
+  .tk .ck svg { display: block; width: 44px; height: 44px; }
+  .tk .t { position: absolute; left: 64px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #s10-t1 { top: 92px; } #s10-t2 { top: 160px; } #s10-t3 { top: 228px; }
+  #s10-card .ft { position: absolute; left: 40px; top: 312px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6A625A; white-space: nowrap; }
+  #s10-pill { position: absolute; left: 90px; top: 680px; width: 620px; height: 200px; border-radius: 100px; background: var(--ink); box-shadow: 0 30px 60px rgba(30,26,22,0.25); overflow: hidden; }
+  #s10-pill .c { position: absolute; left: 0; right: 0; top: 24px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #D8CFC1; }
+  #s10-pill .kw { position: absolute; left: 0; right: 0; top: 64px; height: 112px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  #s10-pill .kw b { display: block; font-family: 'Archivo Black', sans-serif; font-weight: 400; font-size: 100px; line-height: 112px; color: #8FD3AE; }
+  #s10-sticker { position: absolute; left: 560px; top: 648px; width: 150px; height: 60px; border-radius: 30px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px rgba(30,26,22,0.2); }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">A SKIT · EXAMPLE AMOUNT</div>
+  <div class="card" id="s0-note">
+    <div id="s0-tick"><svg viewBox="0 0 90 90"><path d="M25 46 L39 60 L66 31" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div id="s0-label">Received from your first client</div>
+    <div id="s0-amt">₹500</div>
+    <div id="s0-chip">SKIT</div>
+  </div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">This is <span class="it">you.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">RITUAL 1</div>
+  <div class="title"><span class="mask"><span class="l">Snap it.</span></span><span class="mask"><span class="l it">Twice.</span></span></div>
+  <div class="shot" id="s1-a"><i class="notch"></i><div class="amt">₹500</div><div class="ok"><svg viewBox="0 0 48 48"><path d="M14 25 L21 32 L35 17" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+  <div class="flash" id="s1-fa" data-layout-allow-overlap></div>
+  <div class="shot" id="s1-b" data-layout-allow-overlap><i class="notch"></i><div class="amt">₹500</div><div class="ok"><svg viewBox="0 0 48 48"><path d="M14 25 L21 32 L35 17" stroke="#FFFFFF" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+  <div class="flash" id="s1-fb" data-layout-allow-overlap></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">RITUAL 2</div>
+  <div class="title"><span class="mask"><span class="l">Send to</span></span><span class="mask"><span class="l it">mummy.</span></span></div>
+  <div class="card chat" id="s2-card">
+    <div class="head"><i class="av"></i><div class="nm">Mummy</div></div>
+    <div class="bub out" id="s2-out">₹500 aaya!</div>
+    <div id="s2-dots"><i></i><i></i><i></i></div>
+    <div class="bub in" id="s2-in" data-layout-allow-overlap>Shabash beta!</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">RITUAL 3</div>
+  <div class="title"><span class="mask"><span class="l">Hostel</span></span><span class="mask"><span class="l it">group.</span></span></div>
+  <div class="card chat" id="s3-card">
+    <div class="head"><i class="av grp"></i><div class="nm">Hostel group</div></div>
+    <div class="bub out" id="s3-out">First ₹500!</div>
+    <div class="bub in" id="s3-i1">Treat kab?</div>
+    <div class="bub in" id="s3-i2">Party!</div>
+    <div class="bub in" id="s3-i3">Treat?</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">RITUAL 4</div>
+  <div class="title"><span class="mask"><span class="l">New</span></span><span class="mask"><span class="l it">wallpaper.</span></span></div>
+  <div id="s4-phone"><div class="scr"><div class="tm">9:41</div><div id="s4-amt">₹500</div></div><i class="pn"></i></div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">RITUAL 5</div>
+  <div class="title"><span class="mask"><span class="l">Spend it?</span></span><span class="mask"><span class="l it">Never.</span></span></div>
+  <div class="card" id="s5-card"><div class="k">BALANCE</div><div id="s5-amt">₹500</div><div id="s5-chip">LOCKED</div></div>
+  <div id="s5-lock" data-layout-allow-overlap><svg viewBox="0 0 110 130"><path d="M30 62 V40 a25 25 0 0 1 50 0 V62" stroke="#1E1A16" stroke-width="12" fill="none" stroke-linecap="round"></path><rect x="8" y="56" width="94" height="68" rx="16" fill="#2F6B4F"></rect><circle cx="55" cy="84" r="10" fill="#F3EEE5"></circle><rect x="51" y="88" width="8" height="20" rx="3" fill="#F3EEE5"></rect></svg></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">EVEN THE COOKER</div>
+  <div class="title"><span class="mask"><span class="l">Three</span></span><span class="mask"><span class="l it">seetis.</span></span></div>
+  <div class="puff" id="s6-p1"></div>
+  <div class="puff" id="s6-p2"></div>
+  <div class="puff" id="s6-p3"></div>
+  <div class="ring" id="s6-r1">1</div>
+  <div class="ring" id="s6-r2">2</div>
+  <div class="ring" id="s6-r3">3</div>
+  <div id="s6-lbl">SEETI COUNT</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THEN</div>
+  <div class="title"><span class="mask"><span class="l">The</span></span><span class="mask"><span class="l it">biryani.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="k">THE BILL</div>
+    <div class="rrow" id="s7-r1"><span class="a">You made</span><span class="b">₹500</span></div>
+    <div class="rrow" id="s7-r2"><span class="a">Chicken biryani</span></div>
+    <div id="s7-price">₹540</div>
+    <div id="s7-over">₹40 over</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Net</span></span><span class="mask"><span class="l it">profit.</span></span></div>
+  <div id="s8-num">₹500</div>
+  <div id="s8-math">₹500 – ₹540</div>
+  <div id="s8-stampw" data-layout-allow-overlap><div id="s8-stamp" data-layout-allow-overlap>LOSS</div></div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="@line10">
+  <div class="step">THE FRIEND WHO FRAMED IT</div>
+  <div class="title"><span class="mask"><span class="l">Send</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <div id="s9-frame"><div class="amt">₹500</div><div class="cap">First client</div></div>
+  <div id="s9-plane"><svg viewBox="0 0 120 100"><path d="M4 48 L116 4 L90 94 L58 66 Z" fill="#2F6B4F"></path><path d="M58 66 L116 4 L48 58 L50 88 Z" fill="#1E3B2D"></path></svg></div>
+</section>
+
+<section class="scene" id="s10" data-from="@line10" data-to="end">
+  <div class="step">FREE PROMPT</div>
+  <div class="title" id="s10-title"><span class="mask"><span class="l">Save <span class="it">this.</span></span></span></div>
+  <div id="s10-mark"><svg viewBox="0 0 80 110"><path d="M0 0 H80 V110 L40 82 L0 110 Z" fill="#2F6B4F"></path></svg></div>
+  <div class="card" id="s10-card">
+    <div class="hd">First Client in 7 Days</div>
+    <div class="tk" id="s10-t1"><i class="ck"><svg viewBox="0 0 44 44"><path d="M13 23 L19 29 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Finds who will pay for your skill</div></div>
+    <div class="tk" id="s10-t2"><i class="ck"><svg viewBox="0 0 44 44"><path d="M13 23 L19 29 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Writes your messages</div></div>
+    <div class="tk" id="s10-t3"><i class="ck"><svg viewBox="0 0 44 44"><path d="M13 23 L19 29 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Plans your follow-ups</div></div>
+    <div class="ft">You still press send.</div>
+  </div>
+  <div id="s10-pill"><div class="c">Comment</div><div class="kw"><b>C</b><b>L</b><b>I</b><b>E</b><b>N</b><b>T</b></div></div>
+  <div id="s10-sticker" data-layout-allow-overlap>FREE</div>
+</section>

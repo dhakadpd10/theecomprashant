@@ -1,0 +1,143 @@
+{
+  "id": "2026-10-31-reel-exp2b-internshala-ai-skills-paid",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skills",
+  "keyword": "SKILL",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(4|Internshala|proof|catch|vary|Send|SKILL|CapCut|Canva|NotebookLM)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you which four AI skills get students paid on Internshala.",
+      "show": "Nobody tells you: 4 AI skills Internshala pays.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Line one: I know AI tools.",
+      "show": "Line 1: \"I know AI tools.\"",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Line two: I edited three video reels, link attached.",
+      "show": "Line 2: \"Edited 3 CapCut reels. Link attached.\"",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Four skills you can prove this weekend.",
+      "show": "4 skills you can prove this weekend.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "AI video editing. Canva AI design.",
+      "show": "1. AI video editing. 2. Canva AI design.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Research notes with Google. Reel writing with Claude, edited by you.",
+      "show": "3. NotebookLM or Perplexity summaries. 4. Claude scripts, your edits.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Attach the proof to every application.",
+      "show": "Attach the proof. Every application.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: proof gets you hired, not the skill line. Pay can vary by listing.",
+      "show": "The catch: proof hires you. Stipends vary.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to a friend who's applying, and comment SKILL for the roadmap.",
+      "show": "Send this to a friend. Comment SKILL.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line7.voice+0.4",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line5.end",
+    "title": [
+      "4 AI SKILLS",
+      "INTERNSHALA PAYS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "experiment": "pair 2 (skills): backfire opening vs money opening",
+    "arm": "B",
+    "hook": 3,
+    "hook_name": "Nobody Tells You",
+    "log_style": "editorial-host",
+    "slot_ist": "2026-10-31 19:30",
+    "slot_utc": "2026-10-31 14:00",
+    "free_tool": "30-Day AI Skill Roadmap",
+    "judge_at": "72h",
+    "judge_order": [
+      "sends per 1k reach",
+      "hold@3s (copied from in-app insights; if missing, the pair is void)",
+      "outlier multiple vs 120"
+    ],
+    "on_screen_notes": "The application lines in the scene are labelled 'example' on stage. No stipend figures appear anywhere."
+  }
+}

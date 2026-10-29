@@ -1,0 +1,134 @@
+{
+  "id": "2026-11-02-reel-relative-what-do-you-do-phone",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skit",
+  "keyword": "MONEY",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(rishta|Rishta|games|Fiverr|Crocin|Pune|Free|free|MONEY|money|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#7A2E57"
+  },
+  "lines": [
+    {
+      "say": "...and then a client paid me, and Chachaji heard rishta.",
+      "show": "CHACHAJI HEARD RISHTA",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Festival dinner. Chachaji asks: what do you even do on your phone all day?",
+      "show": "\"What do you even do on your phone all day?\"",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Videos for a coffee shop, with AI. So, games.",
+      "show": "\"Reels for a café, with AI.\" \"So, games.\"",
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Paid gigs online. Gigs? You look sick. Take a tablet.",
+      "show": "\"A gig on Fiverr.\" \"Fever? Take Crocin.\"",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "A client from out of town paid me. Out of town? A rishta?",
+      "show": "\"A Pune client paid me.\" \"Pune mein rishta?\"",
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "A week later. Voice note.",
+      "show": "1 week later. A voice note.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "My shop also needs one of those video things. It's free, right?",
+      "show": "\"My shop needs one. Free hai na?\"",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Send this to the cousin who gets this question every festival.",
+      "show": "Send this to the cousin who gets asked.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment MONEY for the extra cash planner.",
+      "show": "Comment MONEY for the side-income planner.",
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+1.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+1.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+1.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "bloop"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.5",
+    "title": [
+      "WHAT DO YOU EVEN DO",
+      "ON YOUR PHONE?"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

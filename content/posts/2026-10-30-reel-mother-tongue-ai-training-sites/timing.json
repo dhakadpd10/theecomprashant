@@ -1,0 +1,73 @@
+{
+  "dur": 30.13,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.79,
+      "b": 3.89,
+      "say": "Nobody tells you speaking Gujarati or Punjabi can get you paid.",
+      "show": "Nobody tells you: Gujarati or Punjabi can get you paid."
+    },
+    {
+      "a": 3.89,
+      "voice": 3.99,
+      "end": 5.967,
+      "b": 6.067,
+      "say": "Three languages, no job? Try these.",
+      "show": "3 languages. No job. Try these."
+    },
+    {
+      "a": 6.067,
+      "voice": 6.167,
+      "end": 9.01,
+      "b": 9.11,
+      "say": "The first site pays subject experts to train AI.",
+      "show": "1. Alignerr: experts train AI."
+    },
+    {
+      "a": 9.11,
+      "voice": 9.21,
+      "end": 13.495,
+      "b": 13.595,
+      "say": "Outlier: rate and write AI answers. Pay depends on skill and country.",
+      "show": "2. Outlier: rate and write AI answers."
+    },
+    {
+      "a": 13.595,
+      "voice": 13.695,
+      "end": 17.612,
+      "b": 17.712,
+      "say": "Open Train: Gujarati, Nepali, Punjabi review roles, and maths.",
+      "show": "3. OpenTrain: Gujarati, Nepali, Punjabi, maths."
+    },
+    {
+      "a": 17.712,
+      "voice": 17.812,
+      "end": 22.848,
+      "b": 22.948,
+      "say": "The catch: tests to pass, listings close, and Outlier stopped new sign-ups in some places.",
+      "show": "The catch: tests, closing listings, paused sign-ups."
+    },
+    {
+      "a": 22.948,
+      "voice": 23.048,
+      "end": 26.876,
+      "b": 26.976,
+      "say": "Send this to the friend who speaks three languages and still can't find work.",
+      "show": "Send this to your 3-language friend."
+    },
+    {
+      "a": 26.976,
+      "voice": 27.076,
+      "end": 28.726,
+      "b": 30.13,
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

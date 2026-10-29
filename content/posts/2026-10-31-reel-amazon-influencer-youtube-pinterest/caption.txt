@@ -1,0 +1,32 @@
+Comment "PRODUCT" and I'll DM you the free Weekend Digital Product: your first product, planned. Follow so the DM lands 📩
+
+👇 READ BELOW for how the reviews pay:
+
+1. Apply to Amazon's Influencer Program. Check aboutamazon.in for who can join before you start.
+
+2. Pick one category you already buy and use: phones, kitchen, skincare, study gear.
+
+3. Claude writes a 20-second review script for each product. It covers what it does, who it's for and one honest downside.
+
+4. Record it in your own voice or a free AI voice, and make the visuals in Canva AI. Your phone is enough.
+
+5. Tag the product. When someone buys through your video, Amazon pays you commission.
+
+What you get: a way to turn the gadget reviews you already give your friends for free into commission.
+
+Why it works: people look for a short review before they buy. You already know the product, and Amazon handles the checkout and delivery.
+
+The catch: it's commission only. There is no fixed pay, and you earn ₹0 until someone buys. Approval isn't guaranteed and the first sale can take weeks. Results vary.
+
+Comment "PRODUCT" for the Weekend Digital Product.
+
+If you are new here, I am Prashant. I show real ways to make money with AI, and every reel comes with a free prompt.
+
+#makemoneywithai #sideincome #amazoninfluencer
+
+---
+Please check these before posting:
+- **The tool doesn't match the reel.** "Weekend Digital Product" sounds like a prompt for building a ₹199 product. This reel is about Amazon commissions, so people who comment will get something different from what they watched. You could rename the tool or point this reel at a commission prompt.
+- **"Commission on Pins" is not confirmed.** I left Pins out of the caption. Confirm on aboutamazon.in that the India program covers Pinterest and YouTube before the reel goes out.
+- **ElevenLabs' free plan may not allow commercial use.** That's why the caption says "a free AI voice" and doesn't name it.
+- **Log fixes:** the reel JSON has the style as `motion`. It should be `editorial-host`. This is a news-kind reel using hook #2.

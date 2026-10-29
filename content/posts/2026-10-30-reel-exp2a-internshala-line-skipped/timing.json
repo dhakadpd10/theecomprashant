@@ -1,0 +1,89 @@
+{
+  "dur": 30.9,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.125,
+      "b": 4.225,
+      "say": "All those applications, zero rupees back? Stop writing 'I know AI'.",
+      "show": "40 applications, ₹0 back? Stop writing 'I know ChatGPT'."
+    },
+    {
+      "a": 4.225,
+      "voice": 4.325,
+      "end": 5.896,
+      "b": 5.996,
+      "say": "Name one skill and link the proof.",
+      "show": "Name 1 skill. Link the proof."
+    },
+    {
+      "a": 5.996,
+      "voice": 6.096,
+      "end": 7.865,
+      "b": 7.965,
+      "say": "Four skills you can prove this weekend.",
+      "show": "4 AI skills you can prove in a weekend."
+    },
+    {
+      "a": 7.965,
+      "voice": 8.065,
+      "end": 10.691,
+      "b": 10.791,
+      "say": "One, AI video editing. Attach a short reel.",
+      "show": "1. AI video editing. Attach: a short reel."
+    },
+    {
+      "a": 10.791,
+      "voice": 10.891,
+      "end": 13.461,
+      "b": 13.561,
+      "say": "Two, Canva AI design. Attach three posters.",
+      "show": "2. Canva AI design. Attach: 3 posters."
+    },
+    {
+      "a": 13.561,
+      "voice": 13.661,
+      "end": 16.899,
+      "b": 16.999,
+      "say": "Three, AI research summaries. Attach a one page brief.",
+      "show": "3. NotebookLM or Perplexity summaries. Attach: 1-page brief."
+    },
+    {
+      "a": 16.999,
+      "voice": 17.099,
+      "end": 19.976,
+      "b": 20.076,
+      "say": "Four, AI drafts you edit. Attach both versions.",
+      "show": "4. Claude drafts you edit. Attach: before + after."
+    },
+    {
+      "a": 20.076,
+      "voice": 20.176,
+      "end": 23.449,
+      "b": 23.549,
+      "say": "The catch: proof gets you hired. Stipends vary by listing.",
+      "show": "The catch: proof gets you hired. Stipends vary."
+    },
+    {
+      "a": 23.549,
+      "voice": 23.649,
+      "end": 26.982,
+      "b": 27.082,
+      "say": "Send this to the friend who's applied to every internship this month.",
+      "show": "Send this to the friend with 40 applications."
+    },
+    {
+      "a": 27.082,
+      "voice": 27.182,
+      "end": 29.496,
+      "b": 30.9,
+      "say": "And type SKILL below for the one month roadmap.",
+      "show": "Comment SKILL for the 30-day roadmap."
+    }
+  ]
+}

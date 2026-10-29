@@ -1,0 +1,134 @@
+{
+  "id": "2026-10-30-reel-claude-10k-month-phone-plan",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "MONEY",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Nobody|₹10,000|₹10000|10000|4|target|catch|weeks|Send|MONEY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you the money plan is the easy part.",
+      "show": "Nobody tells you the ₹10,000 plan is easy.",
+      "card": "THE PLAN IS THE EASY PART",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "I asked: one month, phone only, an hour a day.",
+      "show": "30 days. Phone only. 1 hour a day.",
+      "card": "Make me a 30-day plan to earn ₹10,000 using only my phone, 1 hour a day. My skills: ___. My city: ___.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Four cards back: a service, buyers, a price, week one.",
+      "show": "4 cards: service, buyers, price, week 1.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "The total adds up. A target, not a result.",
+      "show": "₹10,000 total. A target, not a result.",
+      "card": "₹10,000 · TARGET, NOT A RESULT",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "That's the plan it wrote, not money I earned.",
+      "show": "Its plan. Not money I earned.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: a first buyer usually takes weeks. Fill in real skills.",
+      "show": "The catch: a first buyer takes weeks.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who'd start if they knew where to begin.",
+      "show": "Send this to the friend who'd start.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment MONEY for the full prompt.",
+      "show": "Comment MONEY for the full prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+1.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+1.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+2.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line3+1.2",
+    "title": [
+      "A ₹10,000 PHONE PLAN",
+      "THE EXACT PROMPT"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

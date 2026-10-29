@@ -2,6 +2,30 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-10-29
+
+- **Seller niche closed at 22 reels: 2,295 views, 2,015 reach, 9 likes, 8 comments, 4 saves, 0 shares. Median 120 (the 22 rows compute to 118).**
+  - Sends per reach was 0.0 on all 22. Confidence is high that the seller content earned no sends, which supports the 28 Oct switch.
+  - Every matured episode except FAQ (263 reach) and AFTER (173) sat at 101 to 131 reach, which looks like the first test batch.
+- **New niche: n=1, under 24 hours old, so there is nothing to read.**
+  - POSTER (#14 The Callout) has 14 views, 9 reach and 1 save. Re-pull it on 31 Oct.
+  - Day-one process misses:
+    - It was logged as style 'motion' instead of 'editorial-host'.
+    - Its keyword is outside the six planned keywords.
+    - It posted at 13:55 IST, not 13:00.
+    - A retired seller reel (RTO, #2) also went out at 09:33 IST on the switch day. Check the scheduler queue for any other seller reels.
+- **Hook #2 has the widest spread, not the best results (n=7 matured episodes).**
+  - #2: 0.88x to 2.42x, median 1.01x. #1: n=3, 1.04x to 1.18x, median 1.06x. #3 and #17: n=1 each, 1.04x and 1.14x.
+  - What set the top 3 apart from the other #2 reels was theme (a message the viewer already sends, backfiring). Hunch, n=3.
+  - The 13:01 IST slot beat 19:31 IST on median views (142.5 vs 125), but that gap is the same two posts, so it is not a finding.
+- **Story episodes vs old format, final read: median views 126 (n=12) vs 60.5 (n=8).**
+  - Moderate confidence, confounded by post age and the missing follower count.
+  - Saves ran the other way: 0.6 vs 4.7 per 1k reach, from 3 saves in total. That is noise.
+- **Logging still blocks every hook and profile verdict.**
+  - Hold@3s, watch time, follows and non-follower % are on 0 of 22 posts. No follower count has been logged and no test arm has ever been logged.
+  - 9 of 12 episodes have exactly 1 like. Check whether it is one account.
+  - STORE's 6 comments and CART's 2 comments still haven't been hand-counted.
+
 ## Week of 2026-10-28
 
 - **Last week of the seller niche: 20 reels, 1,978 reach, 9 likes, 8 comments, 3 saves, 0 shares. Median 121 views.**

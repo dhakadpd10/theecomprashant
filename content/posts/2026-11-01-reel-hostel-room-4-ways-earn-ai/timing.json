@@ -1,0 +1,89 @@
+{
+  "dur": 31.33,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.78,
+      "b": 3.88,
+      "say": "Four sites pay students for AI work. Number four tests you first.",
+      "show": "4 sites pay students. #4 tests you."
+    },
+    {
+      "a": 3.88,
+      "voice": 3.98,
+      "end": 6.015,
+      "b": 6.115,
+      "say": "College students: zero joining fees.",
+      "show": "Hostel students: zero joining fees."
+    },
+    {
+      "a": 6.115,
+      "voice": 6.215,
+      "end": 8.817,
+      "b": 8.917,
+      "say": "One, Prolific. Paid studies, pay shown per study.",
+      "show": "1. Prolific: paid studies, pay per study."
+    },
+    {
+      "a": 8.917,
+      "voice": 9.017,
+      "end": 12.195,
+      "b": 12.295,
+      "say": "Two, Internshala. Freelance work, stipend set per listing.",
+      "show": "2. Internshala: stipend set per listing."
+    },
+    {
+      "a": 12.295,
+      "voice": 12.395,
+      "end": 14.944,
+      "b": 15.044,
+      "say": "Three, Top Mate. Offer notes or calls, your price.",
+      "show": "3. Topmate: sell notes or calls, your ₹ price."
+    },
+    {
+      "a": 15.044,
+      "voice": 15.144,
+      "end": 18.72,
+      "b": 18.82,
+      "say": "Four, Outlier. Expert AI training, pay by skill and country.",
+      "show": "4. Outlier: expert AI training, pay varies."
+    },
+    {
+      "a": 18.82,
+      "voice": 18.92,
+      "end": 22.338,
+      "b": 22.438,
+      "say": "The catch: Outlier tests you. Joining is paused in some places.",
+      "show": "The catch: a test, paused in some places."
+    },
+    {
+      "a": 22.438,
+      "voice": 22.538,
+      "end": 25.164,
+      "b": 25.264,
+      "say": "Prolific comes in bursts. No week-one stipend.",
+      "show": "Studies come in bursts. No week-one stipend."
+    },
+    {
+      "a": 25.264,
+      "voice": 25.364,
+      "end": 27.856,
+      "b": 27.956,
+      "say": "Send this to your roommate who's broke by day twenty.",
+      "show": "Send this to your roommate, broke by the 20th."
+    },
+    {
+      "a": 27.956,
+      "voice": 28.056,
+      "end": 29.927,
+      "b": 31.33,
+      "say": "And type SITES below to get every site.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

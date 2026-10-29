@@ -1,0 +1,159 @@
+{
+  "id": "2026-11-01-reel-hostel-room-4-ways-earn-ai",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(4|SITES|Prolific|Internshala|Topmate|Outlier|catch|zero|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4E"
+  },
+  "lines": [
+    {
+      "say": "Four sites pay students for AI work. Number four tests you first.",
+      "show": "4 sites pay students. #4 tests you.",
+      "card": "4 SITES. #4 TESTS YOU",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "College students: zero joining fees.",
+      "show": "Hostel students: zero joining fees.",
+      "card": "Kicker chip above the hook card: HOSTEL STUDENTS · NO STIPEND · ₹0 TO JOIN",
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One, Prolific. Paid studies, pay shown per study.",
+      "show": "1. Prolific: paid studies, pay per study.",
+      "card": "1 · Prolific · prolific.com · Do: paid research studies, some about AI · Pays: shown per study · For: anyone with spare hours",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Internshala. Freelance work, stipend set per listing.",
+      "show": "2. Internshala: stipend set per listing.",
+      "card": "2 · Internshala · internshala.com · Do: internships and freelance work · Pays: stipend set per listing · For: students in India",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, Top Mate. Offer notes or calls, your price.",
+      "show": "3. Topmate: sell notes or calls, your ₹ price.",
+      "card": "3 · Topmate · topmate.io · Do: sell a call or notes on a subject you're good at · Pays: you set the ₹ price · For: the topper friends ask for help",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Four, Outlier. Expert AI training, pay by skill and country.",
+      "show": "4. Outlier: expert AI training, pay varies.",
+      "card": "4 · Outlier · outlier.ai · Do: expert AI training, rate and write AI answers · Pays: depends on skill and country · For: strong in one subject",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: Outlier tests you. Joining is paused in some places.",
+      "show": "The catch: a test, paused in some places.",
+      "card": "SCREENSHOT CARD: all 4 rows (name · what you do · who it's for). Catch chip pops onto the Outlier row: 'TEST + PAUSED IN SOME PLACES'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Prolific comes in bursts. No week-one stipend.",
+      "show": "Studies come in bursts. No week-one stipend.",
+      "card": "Same screenshot card. Prolific row chip 'COMES IN BURSTS', then a stamp over the card: NOT A WEEK-ONE STIPEND",
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to your roommate who's broke by day twenty.",
+      "show": "Send this to your roommate, broke by the 20th.",
+      "card": "Screenshot card stays; a send-arrow chip 'FOR YOUR ROOMMATE' slides in at the top",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "And type SITES below to get every site.",
+      "show": "Comment SITES for the full list.",
+      "card": "END CARD: 'Save.' in the serif, bookmark shape, dark pill 'Full list: SITES', small sticker 'FREE · Websites That Pay for AI Work'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line7.voice+1.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line9.voice+0.6",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "4 SITES PAY STUDENTS",
+      "#4 TESTS YOU FIRST"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,198 @@
+<style>
+  /* editorial theme, deep green accent: your language is a paid skill, 3 real sites, the catch, the screenshot card, then SITES */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E8E0D3 100%); }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -260px; top: 180px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(47,107,79,0.11) 0%, rgba(47,107,79,0) 65%); }
+  #blob2 { left: 380px; top: 760px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(200,140,80,0.12) 0%, rgba(200,140,80,0) 65%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.05; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 10px; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* 0: hook, everything above the host */
+  #s0-step { top: 60px; }
+  #s0-title { top: 108px; }
+  .tag { position: absolute; top: 360px; height: 76px; border-radius: 38px; background: #FFFFFF; border: 3px solid rgba(30,26,22,0.15); box-shadow: 0 14px 30px rgba(60,40,20,0.10); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s0-guj { left: 90px; width: 250px; }
+  #s0-pun { left: 364px; width: 240px; }
+  #s0-paid { left: 628px; width: 210px; background: var(--accent); border-color: var(--accent); color: #FFFFFF; font-weight: 900; }
+
+  /* 1: the student with 3 languages, above the host */
+  #s1-card { left: 90px; right: 90px; top: 60px; height: 380px; }
+  .lab { position: absolute; top: 32px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.14em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  #s1-lab { left: 40px; }
+  #s1-jl { left: 540px; }
+  .lang { position: absolute; left: 40px; width: 400px; height: 72px; border-radius: 36px; background: #F6F1E8; }
+  #s1-l1 { top: 88px; } #s1-l2 { top: 176px; } #s1-l3 { top: 264px; }
+  .tick { position: absolute; display: block; left: 10px; top: 10px; width: 52px; height: 52px; border-radius: 50%; background: var(--accent); }
+  .tick svg { display: block; width: 52px; height: 52px; }
+  .lang span { position: absolute; left: 82px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .divider { position: absolute; left: 490px; top: 40px; bottom: 40px; width: 3px; background: rgba(30,26,22,0.08); }
+  #s1-zero { position: absolute; left: 540px; top: 66px; width: 300px; height: 180px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 170px; line-height: 1; color: var(--ink); }
+  #s1-ex { position: absolute; left: 540px; top: 278px; width: 200px; height: 56px; border-radius: 28px; border: 3px solid rgba(30,26,22,0.3); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.1em; color: rgba(30,26,22,0.7); display: flex; align-items: center; justify-content: center; }
+
+  /* 2-4: one website card each */
+  .site { top: 470px; height: 636px; }
+  #s4-card { top: 440px; height: 712px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 20px; height: 56px; border-radius: 28px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.7); display: flex; align-items: center; padding-left: 26px; white-space: nowrap; }
+  .num { position: absolute; left: 36px; top: 124px; width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; }
+  .name { position: absolute; left: 150px; right: 30px; top: 116px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 72px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 112px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 28px; top: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 56px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .r1 { top: 250px; } .r2 { top: 372px; } .r3 { top: 494px; }
+  .r3, .pay { background: #DCEBE2; }
+  .r3 .v, .pay .v { color: #1F4D37; }
+
+  #s4-roles { left: 36px; top: 238px; }
+  .role { position: absolute; width: 282px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s4-c1 { left: 36px; top: 288px; } #s4-c2 { left: 342px; top: 288px; }
+  #s4-c3 { left: 36px; top: 366px; } #s4-c4 { left: 342px; top: 366px; }
+  #s4-r1 { top: 454px; } #s4-r2 { top: 578px; }
+
+  /* 5: the catch */
+  #s5-card { top: 470px; height: 470px; }
+  .crow { position: absolute; left: 30px; right: 30px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .crow.tall { height: 150px; }
+  #s5-k1 { top: 30px; } #s5-k2 { top: 156px; } #s5-k3 { top: 282px; }
+  .ic { position: absolute; display: block; left: 22px; top: 21px; width: 68px; height: 68px; border-radius: 50%; background: #DCEBE2; }
+  .tall .ic { top: 41px; }
+  .ic svg { display: block; width: 68px; height: 68px; }
+  .crow .t { position: absolute; left: 112px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.25; color: var(--ink); }
+  #s5-stamp { position: absolute; left: 720px; top: 412px; width: 210px; height: 76px; border-radius: 18px; border: 6px solid var(--accent); background: #F3EEE5; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.12em; display: flex; align-items: center; justify-content: center; }
+
+  /* 6: the screenshot card */
+  #s6-title { font-size: 110px; }
+  #s6-card { top: 310px; height: 720px; }
+  #s6-head { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; display: flex; align-items: center; padding-left: 34px; }
+  .srow { position: absolute; left: 30px; right: 30px; height: 136px; border-radius: 24px; background: #F6F1E8; }
+  #s6-a { top: 110px; } #s6-b { top: 262px; } #s6-c { top: 414px; }
+  .sn0 { position: absolute; left: 20px; top: 38px; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  .sn { position: absolute; left: 100px; right: 20px; top: 14px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+  .sd { position: absolute; left: 100px; right: 20px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.7); white-space: nowrap; }
+  #s6-send { position: absolute; left: 30px; right: 30px; top: 584px; height: 104px; border-radius: 52px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 18px; }
+  #s6-send svg { display: block; width: 48px; height: 48px; }
+  #s6-send span { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: #F3EEE5; white-space: nowrap; }
+  #s6-flash { position: absolute; inset: 0; background: #FFFFFF; opacity: 0; }
+
+  /* 7: save + SITES */
+  #s7-title { top: 110px; width: 400px; right: auto; font-size: 150px; }
+  #s7-mark { position: absolute; left: 470px; top: 150px; width: 96px; height: 128px; }
+  #s7-box { position: absolute; left: 360px; right: 90px; top: 380px; height: 440px; border-radius: 40px; background: var(--ink); box-shadow: 0 30px 70px rgba(60,40,20,0.22); }
+  #s7-cm { position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.22em; color: #F3EEE5; }
+  #s7-word { position: absolute; left: 20px; right: 20px; top: 110px; height: 180px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  #s7-word .lt { display: block; font-family: var(--display); font-weight: 400; font-size: 140px; line-height: 1.2; color: #9FDDBB; }
+  #s7-free { position: absolute; left: 90px; right: 90px; top: 320px; height: 70px; border-radius: 35px; background: #F3EEE5; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">NOBODY TELLS YOU</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Your language is</span></span><span class="mask"><span class="l">a <span class="it">paid skill.</span></span></span></div>
+  <div class="tag" id="s0-guj">Gujarati</div>
+  <div class="tag" id="s0-pun">Punjabi</div>
+  <div class="tag" id="s0-paid">₹ Paid</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="card" id="s1-card">
+    <div class="lab" id="s1-lab">LANGUAGES</div>
+    <div class="lang" id="s1-l1"><i class="tick"><svg viewBox="0 0 52 52"><path d="M15 27 L23 34 L37 19" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><span>Gujarati</span></div>
+    <div class="lang" id="s1-l2"><i class="tick"><svg viewBox="0 0 52 52"><path d="M15 27 L23 34 L37 19" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><span>Hindi</span></div>
+    <div class="lang" id="s1-l3"><i class="tick"><svg viewBox="0 0 52 52"><path d="M15 27 L23 34 L37 19" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><span>English</span></div>
+    <div class="divider"></div>
+    <div class="lab" id="s1-jl">JOB OFFERS</div>
+    <div id="s1-zero">0</div>
+    <div id="s1-ex">EXAMPLE</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">SITE 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Experts</span></span><span class="mask"><span class="l it">train AI.</span></span></div>
+  <div class="card site" id="s2-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">alignerr.com</div></div>
+    <div class="num">1</div><div class="name">Alignerr</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Train AI in your field</div></div>
+    <div class="row r2"><div class="k">FOR</div><div class="v">Domain experts</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Pay varies</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">SITE 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Rate and write</span></span><span class="mask"><span class="l it">AI answers.</span></span></div>
+  <div class="card site" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">outlier.ai</div></div>
+    <div class="num">2</div><div class="name">Outlier</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Rate and write AI answers</div></div>
+    <div class="row r2"><div class="k">FOR</div><div class="v">Experts, strong writers</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Skill and country decide</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">SITE 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Language</span></span><span class="mask"><span class="l it">review roles.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">opentrain.ai/jobs</div></div>
+    <div class="num">3</div><div class="name">OpenTrain</div>
+    <div class="lab" id="s4-roles">ROLES</div>
+    <div class="role" id="s4-c1">Gujarati</div>
+    <div class="role" id="s4-c2">Nepali</div>
+    <div class="role" id="s4-c3">Punjabi</div>
+    <div class="role" id="s4-c4">Maths</div>
+    <div class="row" id="s4-r1"><div class="k">POSTED</div><div class="v">26 Oct · remote, part-time</div></div>
+    <div class="row pay" id="s4-r2"><div class="k">PAY</div><div class="v">Check the live listing</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Before you</span></span><span class="mask"><span class="l it">sign up.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="crow" id="s5-k1"><i class="ic"><svg viewBox="0 0 68 68"><rect x="20" y="20" width="28" height="28" rx="6" fill="none" stroke="#2F6B4F" stroke-width="4"></rect><path d="M26 34 L32 40 L43 27" fill="none" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Pass their tests</div></div>
+    <div class="crow" id="s5-k2"><i class="ic"><svg viewBox="0 0 68 68"><circle cx="34" cy="34" r="16" fill="none" stroke="#2F6B4F" stroke-width="4"></circle><path d="M34 25 L34 34 L41 38" fill="none" stroke="#2F6B4F" stroke-width="4" stroke-linecap="round"></path></svg></i><div class="t">Listings close</div></div>
+    <div class="crow tall" id="s5-k3"><i class="ic"><svg viewBox="0 0 68 68"><rect x="24" y="21" width="7" height="26" rx="2" fill="#2F6B4F"></rect><rect x="37" y="21" width="7" height="26" rx="2" fill="#2F6B4F"></rect></svg></i><div class="t">Outlier sign-ups paused in some places</div></div>
+  </div>
+  <div id="s5-stamp" data-layout-allow-overlap>CATCH</div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">SCREENSHOT THIS</div>
+  <div class="title" id="s6-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div id="s6-head">3 SITES · AI WORK</div>
+    <div class="srow" id="s6-a"><div class="sn0">1</div><div class="sn">Alignerr</div><div class="sd">Train AI in your field</div></div>
+    <div class="srow" id="s6-b"><div class="sn0">2</div><div class="sn">Outlier</div><div class="sd">Rate and write AI answers</div></div>
+    <div class="srow" id="s6-c"><div class="sn0">3</div><div class="sn">OpenTrain</div><div class="sd">Language and maths roles</div></div>
+    <div id="s6-send"><svg viewBox="0 0 48 48"><path d="M4 23 L44 6 L35 42 L23 31 Z" fill="#9FDDBB"></path><path d="M23 31 L44 6 L19 28 L20 39 Z" fill="#6FB592"></path></svg><span>Send to a friend</span></div>
+    <div id="s6-flash" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s7-mark" viewBox="0 0 96 128"><path d="M10 6 H86 V122 L48 94 L10 122 Z" fill="#2F6B4F"></path></svg>
+  <div id="s7-box">
+    <div id="s7-cm">COMMENT</div>
+    <div id="s7-word"><b class="lt">S</b><b class="lt">I</b><b class="lt">T</b><b class="lt">E</b><b class="lt">S</b></div>
+    <div id="s7-free">FREE · LIST + PROMPT</div>
+  </div>
+</section>

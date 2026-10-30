@@ -1,0 +1,200 @@
+<style>
+  /* explainer: one idea (it guesses the next word), one analogy (your phone keyboard), colour = meaning:
+     blue = the AI, green = true, red = made up, amber = unsure */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FAF8F4 0%, var(--bg) 55%, #E4E0D8 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -200px; top: 300px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(61,90,254,0.07) 0%, rgba(61,90,254,0) 70%); }
+  #orb2 { left: 560px; top: 900px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(232,163,23,0.07) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(27,29,36,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(27,29,36,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(30,30,60,0.13), 0 2px 0 rgba(30,30,60,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(27,29,36,0.45); }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+  .green { background: #1E9E5A; } .red { background: #D64545; } .amber { background: #E8A317; } .blue { background: var(--accent); }
+
+  /* 0: hook */
+  #s0-step { top: 110px; color: #D64545; }
+  #s0-title { top: 170px; font-size: 132px; }
+  #s0-title .it { color: #D64545; }
+  #squig { position: absolute; left: 86px; top: 458px; width: 230px; height: 40px; }
+
+  /* 1: it doesn't look anything up */
+  #s1-card { top: 470px; height: 600px; }
+  #search { position: absolute; left: 36px; right: 36px; top: 40px; height: 110px; border-radius: 55px; background: #F2F1EE; }
+  #search .t { position: absolute; left: 110px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: rgba(27,29,36,0.55); }
+  #mag { position: absolute; left: 34px; top: 30px; width: 50px; height: 50px; }
+  #strike { position: absolute; left: 30px; right: 30px; top: 53px; height: 6px; border-radius: 3px; background: #D64545; transform-origin: left center; }
+  .row { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F5F2; }
+  .row .t { position: absolute; left: 32px; right: 170px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .chip { right: 24px; top: 30px; }
+  #r1 { top: 190px; } #r2 { top: 330px; }
+  #r2 { background: #EEF1FF; }
+  #s1-note { left: 40px; top: 492px; }
+
+  /* 2: like your phone keyboard */
+  #s2-card { top: 470px; height: 620px; }
+  #typed { position: absolute; left: 40px; right: 40px; top: 40px; height: 110px; border-radius: 26px; background: #F6F5F2; padding-left: 30px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #typed-a { display: inline-block; }
+  #typed-b { display: inline-block; color: var(--accent); margin-left: 12px; }
+  #caret { display: inline-block; width: 4px; height: 46px; background: var(--accent); margin-left: 6px; }
+  .sug { position: absolute; top: 180px; width: 160px; height: 90px; border-radius: 22px; background: #ECEBE7; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 40px; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  #g1 { left: 40px; } #g2 { left: 220px; } #g3 { left: 400px; }
+  #g1.on { background: var(--accent); color: #FFFFFF; }
+  .prob { position: absolute; left: 40px; right: 40px; height: 60px; }
+  .prob .w { position: absolute; left: 0; top: 6px; width: 70px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); }
+  .prob .track { position: absolute; left: 80px; right: 110px; top: 18px; height: 26px; border-radius: 13px; background: #EFEEEA; }
+  .prob .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 13px; background: rgba(27,29,36,0.25); transform-origin: left center; }
+  .prob .pct { position: absolute; right: 0; top: 8px; width: 100px; text-align: right; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); }
+  #q1 { top: 310px; } #q2 { top: 390px; } #q3 { top: 470px; }
+  #q1 .fill { width: 62%; background: var(--accent); } #q2 .fill { width: 21%; } #q3 .fill { width: 9%; }
+  #s2-note { left: 40px; top: 556px; }
+
+  /* 3: likely isn't true (host hidden, full width) */
+  .wide { left: 90px; right: 90px; }
+  #s3-a { top: 450px; height: 230px; }
+  #s3-b { top: 710px; height: 470px; }
+  .ask { position: absolute; left: 36px; right: 36px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: rgba(27,29,36,0.6); white-space: nowrap; }
+  .cand { position: absolute; left: 36px; right: 36px; height: 56px; }
+  .cand .w { position: absolute; left: 0; top: 6px; width: 230px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .cand .track { position: absolute; left: 250px; right: 120px; top: 15px; height: 28px; border-radius: 14px; background: #EFEEEA; }
+  .cand .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 14px; background: rgba(27,29,36,0.25); transform-origin: left center; }
+  .cand .pct { position: absolute; right: 0; top: 8px; width: 110px; text-align: right; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); }
+  #ca { top: 100px; } #ca .fill { width: 92%; background: #1E9E5A; }
+  #ok { position: absolute; right: 36px; top: 168px; }
+  #cb1 { top: 92px; } #cb2 { top: 162px; } #cb3 { top: 232px; }
+  #cb1 .fill { width: 28%; } #cb2 .fill { width: 25%; } #cb3 .fill { width: 22%; }
+  #said { position: absolute; left: 36px; top: 318px; height: 100px; padding: 0 34px; border-radius: 30px; background: #EEF1FF; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); display: flex; align-items: center; white-space: nowrap; }
+  #stamp3 { position: absolute; left: 520px; top: 300px; width: 300px; height: 120px; border: 9px solid #D64545; border-radius: 18px; color: #D64545; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 52px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; transform: rotate(-10deg); }
+  #s3-note { right: 36px; top: 30px; }
+
+  /* 4: the fix */
+  #s4-card { top: 470px; height: 600px; }
+  #s4-head { left: 40px; top: 34px; }
+  #prompt { position: absolute; left: 36px; right: 36px; top: 84px; height: 370px; border-radius: 26px; background: #F6F5F2; padding: 26px 30px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.6; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .pl.hi { color: var(--accent); }
+  #send-btn { position: absolute; right: 36px; bottom: 36px; width: 180px; height: 80px; border-radius: 40px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+
+  /* 5: the result */
+  #s5-card { top: 470px; height: 600px; }
+  .ans { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F5F2; }
+  .ans .chip { left: 22px; top: 30px; width: 150px; padding: 0; }
+  .ans .t { position: absolute; left: 196px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #a1 { top: 40px; } #a2 { top: 180px; } #a3 { top: 320px; background: #FDF3DC; }
+  #s5-note { left: 40px; top: 486px; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 470px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F5F2; }
+  .chk .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 40px; color: var(--ink); }
+  .chk .chip { right: 24px; top: 30px; }
+  #k1 { top: 40px; } #k2 { top: 180px; } #k3 { top: 320px; }
+
+  /* 7: send */
+  #send { position: absolute; left: 330px; right: 60px; top: 200px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 170px; line-height: 1; color: var(--ink); }
+  #plane { position: absolute; left: 610px; top: 600px; width: 200px; height: 170px; }
+  #who { position: absolute; left: 380px; right: 80px; top: 800px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: rgba(27,29,36,0.62); }
+  #pill { position: absolute; left: 360px; right: 60px; top: 960px; height: 130px; border-radius: 65px; background: var(--ink); color: #F1EEE8; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #pill b { color: #9FB0FF; margin-left: 14px; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">WHY CHATGPT</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Made it</span></span><span class="mask"><span class="l it">up.</span></span></div>
+  <svg id="squig" viewBox="0 0 300 40"><path id="squig-p" d="M4 24 Q 40 4 76 24 T 148 24 T 220 24 T 296 24" fill="none" stroke="#D64545" stroke-width="9" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">NO LOOKING UP</div>
+  <div class="title"><span class="mask"><span class="l">It doesn't</span></span><span class="mask"><span class="l it">look it up.</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="search"><svg id="mag" viewBox="0 0 50 50"><circle cx="21" cy="21" r="14" fill="none" stroke="#1B1D24" stroke-width="5"></circle><path d="M31 31 L45 45" stroke="#1B1D24" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Look up the facts</div><i id="strike"></i></div>
+    <div class="row" id="r1"><div class="t">Checks a source</div><div class="chip red" id="c1">NO</div></div>
+    <div class="row" id="r2"><div class="t">Guesses next word</div><div class="chip green" id="c2">YES</div></div>
+    <div class="lbl" id="s1-note">UNLESS WEB SEARCH IS ON</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE TRICK</div>
+  <div class="title"><span class="mask"><span class="l">Like your</span></span><span class="mask"><span class="l it">phone keyboard.</span></span></div>
+  <div class="card" id="s2-card">
+    <div id="typed"><span id="typed-a">I'll be there in</span><span id="typed-b">5</span><i id="caret"></i></div>
+    <div class="sug" id="g1">5</div><div class="sug" id="g2">a</div><div class="sug" id="g3">10</div>
+    <div class="prob" id="q1"><div class="w">5</div><div class="track"><i class="fill"></i></div><div class="pct" id="n1">0%</div></div>
+    <div class="prob" id="q2"><div class="w">a</div><div class="track"><i class="fill"></i></div><div class="pct" id="n2">0%</div></div>
+    <div class="prob" id="q3"><div class="w">10</div><div class="track"><i class="fill"></i></div><div class="pct" id="n3">0%</div></div>
+    <div class="lbl" id="s2-note">EXAMPLE ODDS</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE PROBLEM</div>
+  <div class="title"><span class="mask"><span class="l">Likely isn't</span></span><span class="mask"><span class="l it">true.</span></span></div>
+  <div class="card wide" id="s3-a">
+    <div class="ask">The capital of France is…</div>
+    <div class="cand" id="ca"><div class="w">Paris</div><div class="track"><i class="fill"></i></div><div class="pct">92%</div></div>
+    <div class="lbl" id="s3-note">EXAMPLE</div>
+  </div>
+  <div class="card wide" id="s3-b">
+    <div class="ask">This 2019 paper was written by…</div>
+    <div class="cand" id="cb1"><div class="w">R. Mehta</div><div class="track"><i class="fill"></i></div><div class="pct">28%</div></div>
+    <div class="cand" id="cb2"><div class="w">S. Iyer</div><div class="track"><i class="fill"></i></div><div class="pct">25%</div></div>
+    <div class="cand" id="cb3"><div class="w">A. Khan</div><div class="track"><i class="fill"></i></div><div class="pct">22%</div></div>
+    <div id="said">"It was R. Mehta."</div>
+    <div id="stamp3" data-layout-allow-overlap>MADE UP</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE FIX</div>
+  <div class="title"><span class="mask"><span class="l">One line</span></span><span class="mask"><span class="l it">fixes it.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-head">ADD THIS TO YOUR PROMPT</div>
+    <div id="prompt"><span class="pl" id="l1">If you're not sure,</span><span class="pl hi" id="l2">say "I don't know."</span><span class="pl" id="l3">Show where each</span><span class="pl" id="l4">fact comes from.</span></div>
+    <div id="send-btn">Send</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Now it</span></span><span class="mask"><span class="l it">flags it.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="ans" id="a1"><div class="chip green">SURE</div><div class="t">Capital: Paris</div></div>
+    <div class="ans" id="a2"><div class="chip green">SURE</div><div class="t">Source: shown</div></div>
+    <div class="ans" id="a3"><div class="chip amber" id="u3">UNSURE</div><div class="t">Author: I don't know</div></div>
+    <div class="lbl" id="s5-note">NO MORE CONFIDENT GUESSES</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">It still</span></span><span class="mask"><span class="l it">slips.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="chk" id="k1"><div class="t">Health</div><div class="chip amber" id="h1">CHECK</div></div>
+    <div class="chk" id="k2"><div class="t">Money</div><div class="chip amber" id="h2">CHECK</div></div>
+    <div class="chk" id="k3"><div class="t">Legal</div><div class="chip amber" id="h3">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="send">Send this.</div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#3D5AFE"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#2A3FB8"></path></svg>
+  <div id="who">to the friend who trusts AI blindly</div>
+  <div id="pill">Full prompt: <b>TRUTH</b></div>
+</section>

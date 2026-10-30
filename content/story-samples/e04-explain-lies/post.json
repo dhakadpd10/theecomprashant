@@ -1,0 +1,117 @@
+{
+  "id": "e04-explain-lies",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "TRUTH",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(ChatGPT|guesses|keyboard|true|one|flags|check|Send|TRUTH)$",
+  "palette": {
+    "bg": "#F1EEE8",
+    "ink": "#1B1D24",
+    "accent": "#3D5AFE"
+  },
+  "lines": [
+    {
+      "say": "ChatGPT just made something up, and it sounded sure. Here's why.",
+      "show": "ChatGPT made it up. Here's why.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Unless it searches the web, it doesn't look anything up.",
+      "show": "It doesn't look anything up.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "It guesses the next word, just like your phone keyboard.",
+      "show": "It guesses the next word.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "A likely word isn't a true word, so wrong answers sound just as sure.",
+      "show": "Likely isn't true.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "The fix is one line. Tell it: if you're not sure, say I don't know.",
+      "show": "The fix: say I don't know.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now it flags what it can't back up, instead of guessing.",
+      "show": "Now it flags it instead of guessing.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it still slips, so check anything important.",
+      "show": "The catch: check anything important.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who trusts AI blindly, and comment TRUTH for the prompt.",
+      "show": "Send this. Comment TRUTH for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+1.2",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "WHY CHATGPT",
+      "MAKES THINGS UP"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

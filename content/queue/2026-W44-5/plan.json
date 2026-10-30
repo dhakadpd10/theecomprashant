@@ -35,7 +35,9 @@
       "keyword": "MONEY",
       "pillar": "The prompt",
       "topic": "I asked Claude for a plan to make ₹10,000 this month from my phone. Here's the prompt.",
-      "status": "made"
+      "status": "published",
+      "media_id": "18173892301481435",
+      "published_at": "2026-10-30T07:32:26.493Z"
     },
     {
       "day": "2026-10-30",

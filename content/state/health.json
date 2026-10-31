@@ -1,13 +1,16 @@
 {
-  "at": "2026-10-31T05:48:29.662Z",
+  "at": "2026-10-31T06:07:06.894Z",
   "problems": [
     {
       "kind": "human",
       "key": "gh-pat",
       "text": "The GH_PAT secret is missing, so the Instagram token can't renew itself and will stop working about 60 days after it was made. Add GH_PAT (docs/SETUP.md, step \"Token\")."
+    },
+    {
+      "kind": "info",
+      "key": "gaps",
+      "text": "2 empty slots in the next 3 days; a planner run is already going or just ran."
     }
   ],
-  "fixed": [
-    "started the planner for 2 empty slots from 2026-11-02 13:00"
-  ]
+  "fixed": []
 }

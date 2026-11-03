@@ -1,0 +1,173 @@
+<style>
+  /* editorial theme, deep green accent: one list card that fills slot by slot, the favourite as a full page, the catch, then the screenshot card and the keyword */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E8E0D2 100%); }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -220px; top: 180px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(46,106,79,0.10) 0%, rgba(46,106,79,0) 70%); }
+  #blob2 { left: 520px; top: 880px; width: 820px; height: 820px; background: radial-gradient(circle, rgba(196,148,82,0.12) 0%, rgba(196,148,82,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.02; color: var(--ink); white-space: nowrap; transform-origin: 0% 50%; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* 0: hook */
+  #s0-title { top: 120px; font-size: 120px; }
+  #s0-fee { position: absolute; left: 330px; top: 50px; height: 54px; padding: 0 22px; border-radius: 27px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.08em; display: flex; align-items: center; white-space: nowrap; }
+  .ul { position: relative; display: inline-block; }
+  .ul svg { position: absolute; left: 0; width: 100%; bottom: -0.14em; height: 0.16em; overflow: visible; }
+  #s0-ul path { stroke-dasharray: 340; }
+
+  /* the list card (lines 1 to 3, and again on the send beat) */
+  .list { top: 390px; height: 720px; }
+  .lhead { position: absolute; left: 36px; top: 32px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.14em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .row { position: absolute; left: 24px; right: 24px; height: 140px; border-radius: 26px; box-sizing: border-box; border: 3px dashed rgba(30,26,22,0.22); }
+  .row.on { background: #F6F1E8; border-color: rgba(30,26,22,0); }
+  .row.fav { background: #E2EFE7; border: 3px solid var(--accent); }
+  .q1 { top: 100px; } .q2 { top: 252px; } .q3 { top: 404px; } .q4 { top: 556px; }
+  .row .n { position: absolute; left: 22px; top: 29px; width: 76px; height: 76px; border-radius: 50%; background: rgba(30,26,22,0.08); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  .row.on .n, .row.fav .n { background: var(--accent); color: #FFFFFF; }
+  .row .nm { position: absolute; left: 120px; right: 170px; top: 20px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row.fav .nm { right: 220px; }
+  .row .ds { position: absolute; left: 120px; right: 20px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.62); white-space: nowrap; overflow: hidden; }
+  .row .ds.next { top: 40px; font-family: 'Playfair Italic', serif; font-size: 40px; color: var(--accent); transform-origin: 0% 50%; }
+  .row .tag { position: absolute; right: 20px; top: 24px; height: 50px; padding: 0 20px; border-radius: 25px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; white-space: nowrap; }
+  #sL-hl { position: absolute; left: 14px; top: 90px; width: 632px; height: 160px; border-radius: 34px; box-sizing: border-box; border: 4px solid var(--accent); }
+
+  /* 4: the favourite, as a page */
+  #s4-card { top: 390px; height: 720px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 90px; background: #F1ECE3; }
+  .dot { position: absolute; top: 35px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 19px; height: 52px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.62); display: flex; align-items: center; padding-left: 26px; }
+  #s4-av { position: absolute; left: 36px; top: 116px; width: 120px; height: 120px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #4A9471 0%, #2E6A4F 100%); }
+  #s4-av svg { display: block; width: 120px; height: 120px; }
+  #s4-name { position: absolute; left: 182px; right: 36px; top: 124px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s4-ex { position: absolute; left: 182px; right: 36px; top: 182px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .prow { position: absolute; left: 36px; right: 36px; height: 104px; border-radius: 24px; background: #F6F1E8; }
+  .prow .k { position: absolute; left: 28px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: rgba(30,26,22,0.62); }
+  .prow .v { position: absolute; left: 28px; right: 20px; top: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s4-r1 { top: 262px; } #s4-r2 { top: 378px; } #s4-r3 { top: 494px; }
+  #s4-r3 .v { right: 300px; }
+  #s4-tick { position: absolute; left: 36px; right: 36px; top: 612px; height: 82px; border-radius: 24px; background: #E2EFE7; }
+  #s4-tick svg { position: absolute; left: 22px; top: 19px; width: 44px; height: 44px; }
+  #s4-tick .t { position: absolute; left: 84px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--accent); white-space: nowrap; }
+  #s4-stamp { position: absolute; left: 690px; top: 886px; width: 270px; height: 108px; box-sizing: border-box; border: 8px solid var(--accent); border-radius: 20px; background: rgba(255,255,255,0.9); color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 46px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 5: the catch */
+  #s5-card { top: 390px; height: 630px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 30px; right: 190px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 24px; width: 150px; height: 62px; border-radius: 31px; background: #B5442A; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s5-c3 { background: var(--accent); }
+  #s5-k1 { top: 36px; } #s5-k2 { top: 160px; } #s5-k3 { top: 284px; }
+  #s5-wlab { position: absolute; left: 36px; top: 424px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: rgba(30,26,22,0.62); }
+  .weeks { position: absolute; left: 36px; right: 36px; top: 472px; height: 120px; display: flex; gap: 14px; }
+  .wk { display: flex; flex: 1; height: 120px; border-radius: 22px; background: #F6F1E8; color: rgba(30,26,22,0.62); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 6: send, with the screenshot card */
+  #s6-card { top: 300px; }
+  #s6-plane { position: absolute; left: 640px; top: 96px; width: 170px; height: 140px; }
+  #s6-sheen { position: absolute; left: 0; top: 0; width: 220px; height: 720px; background: linear-gradient(105deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%); }
+
+  /* 7: keyword */
+  #s7-save { left: 360px; right: auto; width: 440px; top: 140px; font-size: 150px; }
+  #s7-mark { position: absolute; left: 820px; top: 160px; width: 110px; height: 150px; }
+  #s7-pill { position: absolute; left: 360px; right: 60px; top: 400px; height: 320px; border-radius: 48px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #s7-pill .k { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.2em; color: #D9D0C2; }
+  #s7-word { position: absolute; left: 0; right: 0; top: 100px; height: 180px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  #s7-word .ch { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 140px; line-height: 1; color: #A8DCC1; }
+  #s7-tag { position: absolute; left: 360px; right: 60px; top: 760px; height: 76px; box-sizing: border-box; border: 3px dashed var(--accent); border-radius: 38px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; color: var(--accent); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">FROM HOME</div>
+  <div id="s0-fee">NO JOINING FEE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Homemakers:</span></span><span class="mask"><span class="l"><span class="it ul">4 ways<svg id="s0-ul" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 13 C 60 4, 120 18, 180 9 S 270 5, 296 10" fill="none" stroke="#2E6A4F" stroke-width="6" stroke-linecap="round"></path></svg></span> to earn.</span></span></div>
+</section>
+
+<section class="scene" id="sL" data-from="@line1" data-to="@line4">
+  <div class="card list" id="sL-card">
+    <div class="lhead">4 WAYS · FROM HOME</div>
+    <div class="row q1" id="sL-r1"><div class="n">1</div><div class="nm">Prolific</div><div class="ds">Paid studies, some on AI</div><div class="tag">STUDY</div></div>
+    <div class="row q2" id="sL-r2"><div class="n">2</div><div class="nm">Fiverr</div><div class="ds">1 gig, made with free AI</div><div class="tag">GIG</div></div>
+    <div class="row q3" id="sL-r3"><div class="n">3</div><div class="nm">Canva Creator</div><div class="ds">Templates, once approved</div><div class="tag">APPLY</div></div>
+    <div class="row q4" id="sL-r4"><div class="n">4</div><div class="ds next">My favourite, next</div></div>
+    <div id="sL-hl" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">WAY 1 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Get paid for</span></span><span class="mask"><span class="l it">studies.</span></span></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WAY 2 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Sell one</span></span><span class="mask"><span class="l it">Fiverr gig.</span></span></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">WAY 3 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Sell Canva</span></span><span class="mask"><span class="l it">templates.</span></span></div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">WAY 4 OF 4 · MY FAVOURITE</div>
+  <div class="title"><span class="mask"><span class="l">Sell a call on</span></span><span class="mask"><span class="l it">what you know.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url" id="s4-url">topmate.io</div></div>
+    <div id="s4-av"><svg viewBox="0 0 120 120"><circle cx="60" cy="46" r="22" fill="#F3EEE5"></circle><path d="M20 120 C 24 84, 96 84, 100 120 Z" fill="#F3EEE5"></path></svg></div>
+    <div id="s4-name">Your page</div>
+    <div id="s4-ex">EXAMPLE PAGE</div>
+    <div class="prow" id="s4-r1"><div class="k">SERVICE</div><div class="v">1:1 call, 30 min</div></div>
+    <div class="prow" id="s4-r2"><div class="k">TOPIC</div><div class="v">Home cooking tips</div></div>
+    <div class="prow" id="s4-r3"><div class="k">PRICE</div><div class="v">You set it</div></div>
+    <div id="s4-tick"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="21" fill="#2E6A4F"></circle><path d="M12 23 L19 30 L32 15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">No portfolio needed</div></div>
+  </div>
+  <div id="s4-stamp" data-layout-allow-overlap>MY PICK</div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Think <span class="it">weeks,</span></span></span><span class="mask"><span class="l">not days.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="crow" id="s5-k1"><div class="t">Canva approval</div><div class="chip" id="s5-c1">WAIT</div></div>
+    <div class="crow" id="s5-k2"><div class="t">Prolific studies</div><div class="chip" id="s5-c2">SLOW</div></div>
+    <div class="crow" id="s5-k3"><div class="t">Country listed?</div><div class="chip" id="s5-c3">CHECK</div></div>
+    <div id="s5-wlab">PLAN FOR</div>
+    <div class="weeks"><div class="wk" id="w1">WEEK 1</div><div class="wk" id="w2">WEEK 2</div><div class="wk" id="w3">WEEK 3</div><div class="wk" id="w4">AND ON</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="title" id="s6-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="s6-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2E6A4F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4D38"></path></svg>
+  <div class="card list" id="s6-card">
+    <div class="lhead">SCREENSHOT THIS</div>
+    <div class="row on q1" id="s6-r1"><div class="n">1</div><div class="nm">Prolific</div><div class="ds">Paid studies, some on AI</div><div class="tag">STUDY</div></div>
+    <div class="row on q2" id="s6-r2"><div class="n">2</div><div class="nm">Fiverr</div><div class="ds">1 gig, made with free AI</div><div class="tag">GIG</div></div>
+    <div class="row on q3" id="s6-r3"><div class="n">3</div><div class="nm">Canva Creator</div><div class="ds">Templates, once approved</div><div class="tag">APPLY</div></div>
+    <div class="row fav q4" id="s6-r4"><div class="n">4</div><div class="nm">Topmate</div><div class="ds">A call on what you know</div><div class="tag">MY PICK</div></div>
+    <div id="s6-sheen" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="title" id="s7-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s7-mark" viewBox="0 0 110 150"><path d="M10 0 H100 V150 L55 114 L10 150 Z" fill="#2E6A4F"></path></svg>
+  <div id="s7-pill"><div class="k">COMMENT</div><div id="s7-word"><div class="ch">S</div><div class="ch">I</div><div class="ch">T</div><div class="ch">E</div><div class="ch">S</div></div></div>
+  <div id="s7-tag">FREE · FULL LIST + PROMPT</div>
+</section>

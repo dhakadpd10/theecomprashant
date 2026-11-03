@@ -1,0 +1,81 @@
+{
+  "dur": 25.51,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.415,
+      "b": 3.515,
+      "say": "First day: AI is a fad. Half a year later: teach me Fiverr.",
+      "show": "Day 1: fad. Day 180: help me join Fiverr."
+    },
+    {
+      "a": 3.515,
+      "voice": 3.615,
+      "end": 5.597,
+      "b": 5.697,
+      "say": "And that's why AI is just a fad, bro.",
+      "show": "...and that's why AI is a fad, bro."
+    },
+    {
+      "a": 5.697,
+      "voice": 5.797,
+      "end": 6.794,
+      "b": 6.894,
+      "say": "Six months later.",
+      "show": "SIX MONTHS LATER"
+    },
+    {
+      "a": 6.894,
+      "voice": 6.994,
+      "end": 8.924,
+      "b": 9.024,
+      "say": "Same stall. Same friend. Whispering.",
+      "show": "Same stall. Same friend. Whispering."
+    },
+    {
+      "a": 9.024,
+      "voice": 9.124,
+      "end": 11.038,
+      "b": 11.138,
+      "say": "Bro, how do I make a Fiverr profile?",
+      "show": "Bhai, how do I make a Fiverr profile?"
+    },
+    {
+      "a": 11.138,
+      "voice": 11.238,
+      "end": 12.682,
+      "b": 12.782,
+      "say": "I just slid my chai across.",
+      "show": "I just slid my chai across."
+    },
+    {
+      "a": 12.782,
+      "voice": 12.882,
+      "end": 16.534,
+      "b": 16.634,
+      "say": "Start here: Fiverr and Contra for gigs, Prolific for paid studies.",
+      "show": "Fiverr, Contra: gigs. Prolific: paid studies."
+    },
+    {
+      "a": 16.634,
+      "voice": 16.734,
+      "end": 20.368,
+      "b": 20.468,
+      "say": "The catch: first orders take weeks, and Prolific isn't open everywhere.",
+      "show": "The catch: weeks to a first order. Not every country."
+    },
+    {
+      "a": 20.468,
+      "voice": 20.568,
+      "end": 24.114,
+      "b": 25.51,
+      "say": "Send this to the friend who still calls it a fad, and type SKILL below.",
+      "show": "Send this to the fad friend. Comment SKILL."
+    }
+  ]
+}

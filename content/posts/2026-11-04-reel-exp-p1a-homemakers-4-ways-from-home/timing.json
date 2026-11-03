@@ -1,0 +1,73 @@
+{
+  "dur": 28.55,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.222,
+      "b": 4.322,
+      "say": "Homemakers: four real ways to earn with AI from home, no joining fee.",
+      "show": "Homemakers: 4 real ways to earn from home."
+    },
+    {
+      "a": 4.322,
+      "voice": 4.422,
+      "end": 6.759,
+      "b": 6.859,
+      "say": "One, Prolific: paid studies, some about AI.",
+      "show": "1. Prolific: paid studies, some about AI."
+    },
+    {
+      "a": 6.859,
+      "voice": 6.959,
+      "end": 9.645,
+      "b": 9.745,
+      "say": "Two, Fiverr: one gig made with free Canva AI.",
+      "show": "2. Fiverr: one gig, made with free AI."
+    },
+    {
+      "a": 9.745,
+      "voice": 9.845,
+      "end": 12.785,
+      "b": 12.885,
+      "say": "Three, Canva Creator: sell templates once you're approved.",
+      "show": "3. Canva Creator: sell templates, once approved."
+    },
+    {
+      "a": 12.885,
+      "voice": 12.985,
+      "end": 17.28,
+      "b": 17.38,
+      "say": "My best pick, Top Mate: sell a call on what you know. No portfolio needed.",
+      "show": "4. Topmate: sell what you know. My favourite."
+    },
+    {
+      "a": 17.38,
+      "voice": 17.48,
+      "end": 22.064,
+      "b": 22.164,
+      "say": "The catch: Canva's approval and Prolific studies take time. Think weeks, not days.",
+      "show": "The catch: think weeks, not days."
+    },
+    {
+      "a": 22.164,
+      "voice": 22.264,
+      "end": 25.297,
+      "b": 25.397,
+      "say": "Send this to the friend who keeps asking how to earn from home.",
+      "show": "Send this to your earn-from-home friend."
+    },
+    {
+      "a": 25.397,
+      "voice": 25.497,
+      "end": 27.147,
+      "b": 28.55,
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

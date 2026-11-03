@@ -1,0 +1,81 @@
+{
+  "dur": 34.28,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.253,
+      "b": 4.353,
+      "say": "Students, you get Google AI Plus free till the end of December. Claim it now.",
+      "show": "Students: Google AI Plus free till 31 Dec."
+    },
+    {
+      "a": 4.353,
+      "voice": 4.453,
+      "end": 7.575,
+      "b": 7.675,
+      "say": "And you've got four more ways to earn, right from your college room.",
+      "show": "Part 2: 4 more ways from your hostel room."
+    },
+    {
+      "a": 7.675,
+      "voice": 7.775,
+      "end": 11.989,
+      "b": 12.089,
+      "say": "One. AI resumes and club posters on Contra. They don't take commission.",
+      "show": "1. Club resumes and posters on Contra. No commission."
+    },
+    {
+      "a": 12.089,
+      "voice": 12.189,
+      "end": 14.708,
+      "b": 14.808,
+      "say": "Two. Turn your own notes into templates on Gumroad.",
+      "show": "2. Your notes as templates on Gumroad."
+    },
+    {
+      "a": 14.808,
+      "voice": 14.908,
+      "end": 17.99,
+      "b": 18.09,
+      "say": "Three. Upwork says AI video editing's growing fastest.",
+      "show": "3. AI video editing on Upwork."
+    },
+    {
+      "a": 18.09,
+      "voice": 18.19,
+      "end": 21.572,
+      "b": 21.672,
+      "say": "Four, my top pick: you'll run the other three on free AI Plus.",
+      "show": "4. Favourite: free AI Plus runs all three."
+    },
+    {
+      "a": 21.672,
+      "voice": 21.772,
+      "end": 26.03,
+      "b": 26.13,
+      "say": "The catch: it's Plus, not Pro. You must be an adult and re-verify every year.",
+      "show": "The catch: Plus, not Pro. 18+, re-verify yearly."
+    },
+    {
+      "a": 26.13,
+      "voice": 26.23,
+      "end": 29.214,
+      "b": 29.314,
+      "say": "And don't expect orders fast. The first ones take weeks.",
+      "show": "First orders take weeks."
+    },
+    {
+      "a": 29.314,
+      "voice": 29.414,
+      "end": 32.88,
+      "b": 34.28,
+      "say": "Send this to your roommate. Comment SITES and I'll send you the full list.",
+      "show": "Send this to your roommate. Comment SITES."
+    }
+  ]
+}

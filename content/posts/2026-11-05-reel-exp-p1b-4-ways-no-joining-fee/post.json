@@ -1,0 +1,133 @@
+{
+  "id": "2026-11-05-reel-exp-p1b-4-ways-no-joining-fee",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hook": 11,
+  "arm": "B",
+  "pair": 1,
+  "log": {
+    "style": "editorial-host",
+    "format": "reel",
+    "slot_ist": "09:00",
+    "slot_utc": "03:30"
+  },
+  "hot": "^(4|1|2|3|Prolific|Fiverr|Canva|Topmate|Favourite|favourite|catch|weeks|fee|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Four real ways to earn with AI this month, no joining fee.",
+      "show": "4 real ways to earn with AI. No joining fee.",
+      "card": "4 REAL WAYS NO JOINING FEE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One, Prolific. Paid studies, some about AI.",
+      "show": "1. Prolific: paid studies, some about AI.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Fiverr. Sell AI thumbnails and video edits.",
+      "show": "2. Fiverr: sell AI thumbnails and edits.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, Canva Creator. Sell templates you design.",
+      "show": "3. Canva Creator: sell your templates.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "My top pick, Top Mate. It's Indian, and you set your price.",
+      "show": "Favourite: Topmate. Indian, and you set the price.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: approval, and it takes weeks, not days.",
+      "show": "The catch: approval, and weeks, not days.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who keeps asking how to earn from home.",
+      "show": "Send this to the friend who asks how to earn from home.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "ding"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "4 REAL WAYS TO EARN",
+      "NO JOINING FEE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

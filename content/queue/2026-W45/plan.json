@@ -1,0 +1,87 @@
+{
+  "week": "2026-W45",
+  "start": "2026-11-04",
+  "research": "I found only two real new openings from the last 14 days (20 Oct to 3 Nov). Most of what came up is 1 to 6 weeks old, or it's model news with no way to earn. I've marked the date on every item so nothing old gets presented as new. I read search summaries, not the pages themselves, so check each source link before it goes in a reel.\n\n**New in the last 14 days**\n\n1. **ElevenLabs Eleven Realtime (launched 20 Oct).** New speech-to-speech models for voice agents that answer calls and talk back. **Who earns and how:** freelancers with some tech skill could build a voice receptionist for a clinic, coaching centre or salon and charge them for it (CLIENT). **The catch:** it's a developer tool, not something a beginner can set up on a phone. Prices differ between listings. I couldn't find ElevenLabs' own launch page, only [Product Hunt](https://www.producthunt.com/products/elevenlabs-realtime).\n2. **Remote AI training gigs posted 2 Nov.** OpenTrain lists remote AI training (RLHF) roles open to India, some dated 2 Nov. One example is building Godot game scenes and systems that are used to train AI. **Who earns:** students and freelancers who can code or have a specialist skill. **The catch:** OpenTrain lists other companies' gigs, so it isn't the company's own site. Under the MONEY.md rule it can't be named in a reel unless it's already in docs/MONEY.md. Pay wasn't checked. ([OpenTrain India](https://www.opentrain.ai/jobs/country/india/))\n\n**Older but still open (fine for SITES, PRODUCT and the hostel Part 2)**\n\n3. **Free Google AI Plus for Indian college students for 1 year (claim by 31 Dec 2026).** It gives 2x Gemini limits and 400 GB of storage. **Who earns and how:** students get a better AI tool free and can use it to do paid work like resumes, notes and posts. **The catch:** it's AI Plus, not AI Pro. You must be 18+ and verify as a student every year. ([Google India blog](https://blog.google/intl/en-in/products/start-the-academic-year-with-one-year-of-gemini-on-us/), [Gemini for Students](https://gemini.google/in/students/?hl=en-IN))\n4. **Claude Docs, Slides and Design are out of beta on the Free plan (8 Oct, 26 days old).** **Who earns and how:** freelancers and students can make pitch decks, resumes and one-page flyers for local businesses with a free tool (GIG, CLIENT). **The catch:** the \"free plan\" detail came from a summary. Check it on [Anthropic's announcements page](https://www.anthropic.com/news/announcements) before saying it on camera.\n5. **YouTube Shopping affiliates in India (24 Sept).** Creators in the YouTube Partner Program with 500+ subscribers can tag products and earn commission. Amazon, AJIO, Meesho, Snapdeal and Tata CLiQ are being added alongside Flipkart, Myntra and Nykaa. **Who earns:** small faceless or review channels (PRODUCT). **The catch:** you need the Partner Program first, and some of the new stores are still \"rolling out soon\". ([Google India: 500+ subscribers](https://blog.google/intl/en-in/products/platforms/earn-earlier-expanding-youtube-shopping-to-creators-with-500-subscribers/), [YouTube blog](https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/))\n6. **Instagram Edits Assistant (around 1 Oct).** A free chatbot inside the Edits app that reads your Reels data and suggests hooks, scripts and captions. **Who earns and how:** anyone selling reels to local shops (CLIENT). **The catch:** there's a daily prompt limit, and extra use comes through a paid Meta One subscription. I couldn't find Meta's own post. ([Deccan Herald](https://www.deccanherald.com/technology/artificial-intelligence/instagram-launches-new-ai-video-assistant-for-creators-4167890), [PetaPixel](https://petapixel.com/2026/10/01/instagram-launches-ai-assistant-that-analyzes-your-reels-and-suggests-new-ideas/))\n\n**What freelancers are hired for (not new data)**\n\n7. **Upwork's February report (2025 earnings vs 2024).** Fastest-growing AI work: AI video generation and editing +329%, AI integration +178%, data annotation +154%, chatbots +71%. Basic logos, blog writing and data entry are shrinking. This fits the SKILL ranking reel. **The catch:** this is Upwork's own data, I only saw it quoted on [SelfEmployed](https://www.selfemployed.com/news/ai-freelance-skills-demand-2026/), and it's months old. Fiverr's figures come from [Fiverr's own pages](https://www.fiverr.com/resources/guides/reports/freelancing-and-future-of-work-statistics).\n\n**Scams to warn about**\n\n8. **Fake AI training task jobs (no new official warning this fortnight).** The usual pattern: a small real payout first, then \"pay a deposit to unlock bigger tasks\". Scammers now copy the wording of real AI training jobs. Rule for the reel: real AI training never charges you a registration, training, kit or GST fee. If money is lost, call 1930 or report it at cybercrime.gov.in. Some blogs also mention deepfake video calls from fake HR people. ([HerWorkCircle](https://www.herworkcircle.com/guides/ai-training-jobs-from-home-india), [Bachao.ai](https://www.bachao.ai/blog/task-scam-telegram-job-fraud-india))\n9. **Deepfake money videos.** PIB Fact Check flagged a fake AI video of FM Nirmala Sitharaman promoting a \"₹70,000 a day\" scheme (July/Aug). That's a trading scam, so it only works as a warning, never as a way to earn. ([Organiser](https://organiser.org/2026/07/31/372783/bharat/fact-check-pib-debunks-ai-deepfake-falsely-showing-fm-nirmala-sitharaman-endorsing-rs-70000-a-day-investment-scam/))\n\n**What I left out and why**\n- **Contests:** Google's Fund My Crazy (₹1 crore, closed 15 Sept) and Redrob's hackathon (closed July) are both shut. I found no creator fund open now.\n- **Government AI jobs:** NeGD (closes 4 Nov) and VNMKV (closes 16 Nov) are for experienced engineers, not beginners.\n- **ChatGPT visual ads in India:** a way for businesses to spend money on ads, not a clear way for beginners to earn.\n- **Claude Haiku 5.5:** model news only.\n- **MIB/IICT scholarships:** free courses with no cash, and from May.\n\n**For this week:** item 3 (free Gemini for students) is the strongest new real way for the hostel Part 2. Item 8 can only be one entry inside a list, because the backfire theme is parked. Nothing here is strong enough for its own news reel this week.\n\nSources:\n- [OpenTrain India jobs](https://www.opentrain.ai/jobs/country/india/)\n- [ElevenLabs Realtime on Product Hunt](https://www.producthunt.com/products/elevenlabs-realtime)\n- [Google India: one year of Gemini for students](https://blog.google/intl/en-in/products/start-the-academic-year-with-one-year-of-gemini-on-us/)\n- [Gemini for Students India](https://gemini.google/in/students/?hl=en-IN)\n- [Anthropic announcements](https://www.anthropic.com/news/announcements)\n- [Claude product announcements](https://claude.com/resources/product-announcements)\n- [Google India: YouTube Shopping for 500+ subscribers](https://blog.google/intl/en-in/products/platforms/earn-earlier-expanding-youtube-shopping-to-creators-with-500-subscribers/)\n- [YouTube blog: Made on YouTube monetization](https://blog.youtube/news-and-events/made-on-youtube-creator-monetization-shopping/)\n- [Deccan Herald: YouTube affiliate expansion](https://www.deccanherald.com/technology/youtube-expands-shopping-affiliate-programme-to-amazon-ajio-meesho-tata-cliq-and-more-in-india-4158090)\n- [Deccan Herald: Instagram AI assistant](https://www.deccanherald.com/technology/artificial-intelligence/instagram-launches-new-ai-video-assistant-for-creators-4167890)\n- [PetaPixel: Instagram Edits assistant](https://petapixel.com/2026/10/01/instagram-launches-ai-assistant-that-analyzes-your-reels-and-suggests-new-ideas/)\n- [SelfEmployed: Upwork AI skills report](https://www.selfemployed.com/news/ai-freelance-skills-demand-2026/)\n- [Fiverr freelancing statistics](https://www.fiverr.com/resources/guides/reports/freelancing-and-future-of-work-statistics)\n- [HerWorkCircle: AI training jobs real or scam](https://www.herworkcircle.com/guides/ai-training-jobs-from-home-india)\n- [Bachao.ai: Telegram task scam](https://www.bachao.ai/blog/task-scam-telegram-job-fraud-india)\n- [Organiser: PIB deepfake fact check](https://organiser.org/2026/07/31/372783/bharat/fact-check-pib-debunks-ai-deepfake-falsely-showing-fm-nirmala-sitharaman-endorsing-rs-70000-a-day-investment-scam/)\n- [Fund My Crazy 2026 listing](https://startupfunds.in/funding/fund-my-crazy-2026)\n- [CareerIndia: NeGD recruitment](https://www.careerindia.com/news/negd-ai-recruitment-2026-urgent-hiring-for-ai-ml-engineers-and-data-scientists-in-new-delhi-projects-011-67939.html)\n- [TechCrunch: ChatGPT ads in India](https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/)",
+  "slots": [
+    {
+      "day": "2026-11-04",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-04-reel-exp-p1a-homemakers-4-ways-from-home",
+      "style": "motion",
+      "hook": {
+        "id": 3,
+        "name": "Nobody Tells You",
+        "score": 61.8
+      },
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "Experiment pair 1, arm A: Homemakers, 4 real ways to earn with AI from home, no joining fee",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-04",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-04-reel-hostel-part-2-4-more-ways",
+      "style": "motion",
+      "hook": {
+        "id": 19,
+        "name": "The Deadline",
+        "score": 62.6
+      },
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "Students Part 2: 4 more ways to earn with AI from your hostel room",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-04",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-04-reel-skit-ai-is-a-fad-friend",
+      "style": "motion",
+      "hook": {
+        "id": 13,
+        "name": "Before And After, On Screen",
+        "score": 54.8
+      },
+      "keyword": "SKILL",
+      "pillar": "Money moments",
+      "topic": "My friend who said AI is a fad, six months later",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-05",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-05-reel-exp-p1b-4-ways-no-joining-fee",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 59.6
+      },
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "Experiment pair 1, arm B: 4 real ways to earn with AI this month, no joining fee",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-05",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-05-reel-199-product-in-a-weekend",
+      "style": "motion",
+      "hook": {
+        "id": 20,
+        "name": "Permission",
+        "score": 77.8
+      },
+      "keyword": "PRODUCT",
+      "pillar": "Sell your own thing",
+      "topic": "Make a ₹199 digital product with AI in a weekend",
+      "status": "made"
+    }
+  ]
+}

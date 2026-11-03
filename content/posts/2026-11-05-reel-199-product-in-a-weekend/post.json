@@ -1,0 +1,124 @@
+{
+  "id": "2026-11-05-reel-199-product-in-a-weekend",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "breakdown",
+  "keyword": "PRODUCT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹?199|₹?1,?990|Saturday|Sunday|zero|catch|Example|PRODUCT|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "You don't need design skills to sell a planner for under two hundred rupees.",
+      "show": "No design skills? Sell a ₹199 planner.",
+      "card": "₹199. ZERO DESIGN SKILLS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Saturday morning, pick one thing people ask you about.",
+      "show": "Saturday morning: pick what people ask you about.",
+      "card": "SATURDAY MORNING · Pick one thing people ask you about: an exam planner, a tiffin menu planner",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Saturday afternoon, draft it with Claude or Gemini.",
+      "show": "Saturday: draft it with Claude or Gemini.",
+      "card": "SATURDAY · Draft every page with Claude or Gemini (free)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Sunday, design it in Canva AI, and list it on Gumroad that night.",
+      "show": "Sunday: design in Canva AI, list on Gumroad.",
+      "card": "SUNDAY · Design in Canva AI. SUNDAY NIGHT · List on Gumroad or Topmate at ₹199. Each sale: 0 extra hours, the platform delivers the file",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Example: a handful of sales makes almost two thousand rupees, before fees.",
+      "show": "Example: 10 sales = ₹1,990, before fees.",
+      "card": "EXAMPLE · 10 sales × ₹199 = ₹1,990 before the platform's fee (check Gumroad's fee page)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: most first launches sell zero in week one, because buyers need to trust you.",
+      "show": "The catch: most first products sell zero.",
+      "card": "THE CATCH · Most first products sell zero in week one. Sales come from people who already trust you. First buyers: your own WhatsApp groups",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who's always making notes for everyone, and comment PRODUCT.",
+      "show": "Send this to the notes friend. Comment PRODUCT.",
+      "card": "Save. · Comment PRODUCT · Free: Weekend Digital Product",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.4",
+      "fx": "ding"
+    },
+    {
+      "at": "@line5.voice+1.0",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+2.2",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line3+1.6",
+    "title": [
+      "₹199 PRODUCT",
+      "IN ONE WEEKEND"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

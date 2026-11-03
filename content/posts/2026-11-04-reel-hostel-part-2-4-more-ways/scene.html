@@ -1,0 +1,205 @@
+<style>
+  /* editorial theme, deep green accent: hostel Part 2. Hook circles the deadline, then one website card per way, then the screenshot list with the favourite flagged, the catch, a month of waiting, and a comment card for SITES */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(30,26,22,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 60px 60px; }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -160px; top: 260px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(47,107,79,0.13) 0%, rgba(47,107,79,0) 70%); }
+  #blob2 { left: 520px; top: 980px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(200,140,80,0.14) 0%, rgba(200,140,80,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .lab { position: absolute; left: 36px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.16em; color: #6A625A; }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; top: 70px; height: 56px; padding: 0 28px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.14em; display: flex; align-items: center; }
+  #s0-title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 124px; line-height: 1.04; color: var(--ink); transform-origin: left top; }
+  #s0-title .ln { display: block; white-space: nowrap; }
+  #s0-dec { position: relative; display: inline-block; }
+  #s0-ring { position: absolute; left: -30px; top: -10px; width: calc(100% + 60px); height: calc(100% + 24px); overflow: visible; rotate: -3deg; }
+  #s0-ring ellipse { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+  /* 1: four more ways, the list with the favourite held back */
+  #s1-card { top: 470px; height: 600px; }
+  .li { position: absolute; left: 30px; right: 30px; height: 106px; border-radius: 24px; background: #F6F1E8; }
+  .li .n { position: absolute; left: 22px; top: 21px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  .li .nm { position: absolute; left: 112px; right: 110px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s1 .a1 { top: 86px; } #s1 .a2 { top: 206px; } #s1 .a3 { top: 326px; } #s1 .a4 { top: 446px; }
+  #s1 .a4 { background: #FFFFFF; border: 4px dashed rgba(47,107,79,0.5); }
+  #s1 .a4 .nm { color: var(--accent); }
+  #s1-q { position: absolute; right: 22px; top: 19px; width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+
+  /* 2-4: one website card each */
+  .site { top: 470px; height: 620px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #EEF2EC; }
+  .dot { position: absolute; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 22px; height: 52px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: #5E5750; display: flex; align-items: center; padding-left: 26px; }
+  .num { position: absolute; left: 36px; top: 132px; width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; }
+  .name { position: absolute; left: 150px; right: 30px; top: 124px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 80px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 102px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 28px; top: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: #6A625A; white-space: nowrap; }
+  .row .v { position: absolute; left: 28px; right: 24px; top: 44px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .v.short { right: 96px; }
+  .r1 { top: 262px; } .r2 { top: 378px; } .r3 { top: 494px; }
+  .r3 { background: #DCEBE2; } .r3 .v { color: #1F4D37; }
+  .ico { position: absolute; right: 24px; top: 24px; width: 54px; height: 54px; display: block; }
+
+  /* 5: the screenshot list, favourite flagged */
+  #s5-card { top: 470px; height: 620px; }
+  .it5 { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 24px; background: #F6F1E8; }
+  .it5 .n { position: absolute; left: 20px; top: 20px; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  .it5 .nm { position: absolute; left: 100px; top: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .it5 .sb { position: absolute; left: 100px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; color: #6A625A; white-space: nowrap; }
+  .it5 .on { position: absolute; right: 18px; top: 26px; width: 168px; height: 48px; border-radius: 24px; border: 3px solid var(--accent); background: #FFFFFF; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s5 .b1 { top: 86px; } #s5 .b2 { top: 196px; } #s5 .b3 { top: 306px; }
+  #s5-fav { position: absolute; left: 30px; right: 30px; top: 430px; height: 160px; border-radius: 28px; background: var(--accent); }
+  #s5-fav .n { position: absolute; left: 22px; top: 48px; width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  #s5-fav .nm { position: absolute; left: 106px; top: 38px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #FFFFFF; white-space: nowrap; }
+  #s5-fav .sb { position: absolute; left: 106px; top: 96px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #E2EEE7; white-space: nowrap; }
+  #s5-rib { position: absolute; right: 50px; top: 404px; width: 210px; height: 52px; border-radius: 26px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.12em; display: flex; align-items: center; justify-content: center; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 520px; }
+  .crow { position: absolute; left: 30px; right: 30px; height: 130px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 30px; right: 200px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 34px; width: 160px; height: 62px; border-radius: 31px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #q1 { top: 86px; } #q2 { top: 230px; } #q3 { top: 374px; }
+
+  /* 7: weeks, not days (host hidden, full width) */
+  #s7-card { left: 90px; right: 90px; top: 470px; height: 600px; }
+  .wk { position: absolute; left: 40px; right: 40px; height: 100px; display: flex; gap: 14px; }
+  .wk i { display: flex; flex: 1; height: 100px; border-radius: 18px; background: #EFE8DC; color: #6A625A; font-family: 'Inter', sans-serif; font-style: normal; font-weight: 700; font-size: 30px; align-items: center; justify-content: center; }
+  #s7 .w0 { top: 96px; } #s7 .w1 { top: 214px; } #s7 .w2 { top: 332px; } #s7 .w3 { top: 450px; }
+
+  /* 8: send to the roommate, comment SITES */
+  #s8-card { top: 470px; height: 360px; }
+  #s8-av { position: absolute; left: 30px; top: 60px; width: 92px; height: 92px; display: block; }
+  #s8-bub { position: absolute; left: 140px; right: 30px; top: 34px; height: 180px; border-radius: 40px; background: #E3EFE8; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  #s8-bub .ltr { display: block; font-family: 'Archivo Black', sans-serif; font-size: 110px; line-height: 1; color: var(--accent); }
+  #s8-k { position: absolute; left: 36px; top: 244px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.16em; color: #6A625A; }
+  #s8-v { position: absolute; left: 36px; right: 30px; top: 284px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 860px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #s8-pill b { color: #9FD8B8; margin-left: 14px; font-weight: 900; }
+  #s8-save { position: absolute; left: 90px; top: 1020px; width: 360px; height: 100px; display: flex; align-items: center; gap: 22px; }
+  #s8-save svg { display: block; width: 56px; height: 76px; }
+  #s8-save span { display: block; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="grid"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">FOR STUDENTS</div>
+  <div id="s0-title">
+    <span class="ln"><span class="it">Free</span> AI Plus</span>
+    <span class="ln">till <span id="s0-dec">31 Dec.<svg id="s0-ring" viewBox="0 0 100 100" preserveAspectRatio="none" data-layout-allow-overlap><ellipse cx="50" cy="52" rx="48" ry="45" pathLength="1" vector-effect="non-scaling-stroke"></ellipse></svg></span></span>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">PART 2</div>
+  <div class="title"><span class="mask"><span class="l">4 more</span></span><span class="mask"><span class="l it">ways.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lab">FROM YOUR HOSTEL ROOM</div>
+    <div class="li a1"><div class="n">1</div><div class="nm">Contra</div></div>
+    <div class="li a2"><div class="n">2</div><div class="nm">Gumroad</div></div>
+    <div class="li a3"><div class="n">3</div><div class="nm">Upwork</div></div>
+    <div class="li a4"><div class="n">4</div><div class="nm">My top pick</div><div id="s1-q">?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WAY 1 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Resumes and</span></span><span class="mask"><span class="l it">posters.</span></span></div>
+  <div class="card site" id="s2-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">contra.com</div></div>
+    <div class="num">1</div><div class="name">Contra</div>
+    <div class="row r1"><div class="k">YOU MAKE</div><div class="v">AI resumes</div></div>
+    <div class="row r2"><div class="k">ALSO</div><div class="v">Club event posters</div></div>
+    <div class="row r3"><div class="k">COMMISSION</div><div class="v short">None, says Contra</div><svg class="ico" id="s2-tick" viewBox="0 0 54 54"><circle cx="27" cy="27" r="25" fill="#2F6B4F"></circle><path d="M15 28 L24 37 L40 19" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">WAY 2 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Notes into</span></span><span class="mask"><span class="l it">templates.</span></span></div>
+  <div class="card site" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">gumroad.com</div></div>
+    <div class="num">2</div><div class="name">Gumroad</div>
+    <div class="row r1"><div class="k">START WITH</div><div class="v">Your own notes</div></div>
+    <div class="row r2"><div class="k">TURN INTO</div><div class="v">Templates to sell</div></div>
+    <div class="row r3"><div class="k">PRICE</div><div class="v">You set it</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">WAY 3 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">AI video</span></span><span class="mask"><span class="l it">editing.</span></span></div>
+  <div class="card site" id="s4-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">upwork.com</div></div>
+    <div class="num">3</div><div class="name">Upwork</div>
+    <div class="row r1"><div class="k">SKILL</div><div class="v">AI video editing</div></div>
+    <div class="row r2"><div class="k">UPWORK SAYS</div><div class="v short">Growing fastest</div><svg class="ico" id="s4-up" viewBox="0 0 54 54"><circle cx="27" cy="27" r="25" fill="#2F6B4F"></circle><path d="M27 40 L27 15 M16 25 L27 14 L38 25" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="row r3"><div class="k">YOU NEED</div><div class="v">Sample edits to show</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">WAY 4 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">My top</span></span><span class="mask"><span class="l it">pick.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lab">HOSTEL ROOM · PART 2</div>
+    <div class="it5 b1"><div class="n">1</div><div class="nm">Contra</div><div class="sb">RESUMES, POSTERS</div><div class="on">ON AI PLUS</div></div>
+    <div class="it5 b2"><div class="n">2</div><div class="nm">Gumroad</div><div class="sb">NOTES AS TEMPLATES</div><div class="on">ON AI PLUS</div></div>
+    <div class="it5 b3"><div class="n">3</div><div class="nm">Upwork</div><div class="sb">AI VIDEO EDITING</div><div class="on">ON AI PLUS</div></div>
+    <div id="s5-fav"><div class="n">4</div><div class="nm">Google AI Plus</div><div class="sb">FREE FOR STUDENTS</div></div>
+    <div id="s5-rib" data-layout-allow-overlap>FAVOURITE</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">READ THIS FIRST</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lab">GOOGLE AI PLUS</div>
+    <div class="crow" id="q1"><div class="t">Plus, not Pro</div><div class="chip" id="c1">NOT PRO</div></div>
+    <div class="crow" id="q2"><div class="t">Adults only</div><div class="chip" id="c2">18+</div></div>
+    <div class="crow" id="q3"><div class="t">Re-verify yearly</div><div class="chip" id="c3">YEARLY</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">AND ONE MORE</div>
+  <div class="title"><span class="mask"><span class="l">Weeks, not</span></span><span class="mask"><span class="l it">days.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lab">YOUR FIRST MONTH OF PITCHING</div>
+    <div class="wk w0"><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i></div>
+    <div class="wk w1"><i>8</i><i>9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i></div>
+    <div class="wk w2"><i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i>20</i><i>21</i></div>
+    <div class="wk w3"><i>22</i><i>23</i><i>24</i><i>25</i><i>26</i><i>27</i><i>28</i></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="step">YOUR TURN</div>
+  <div class="title"><span class="mask"><span class="l">Send it to</span></span><span class="mask"><span class="l">your <span class="it">roommate.</span></span></span></div>
+  <div class="card" id="s8-card">
+    <svg id="s8-av" viewBox="0 0 92 92"><circle cx="46" cy="46" r="46" fill="#E9E2D6"></circle><circle cx="46" cy="36" r="16" fill="#1E1A16"></circle><path d="M16 80 C20 60 72 60 76 80 Z" fill="#1E1A16"></path></svg>
+    <div id="s8-bub"><b class="ltr">S</b><b class="ltr">I</b><b class="ltr">T</b><b class="ltr">E</b><b class="ltr">S</b></div>
+    <div id="s8-k">IN YOUR DMS, FREE</div>
+    <div id="s8-v">13 sites + a fit prompt</div>
+  </div>
+  <div id="s8-pill">Comment <b>SITES</b></div>
+  <div id="s8-save"><svg viewBox="0 0 56 76"><path d="M4 4 H52 V72 L28 54 L4 72 Z" fill="#2F6B4F"></path></svg><span>Save.</span></div>
+</section>

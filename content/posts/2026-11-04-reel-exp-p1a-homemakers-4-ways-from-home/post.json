@@ -1,0 +1,130 @@
+{
+  "id": "2026-11-04-reel-exp-p1a-homemakers-4-ways-from-home",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "hook": "11",
+  "arm": "A",
+  "pair": 1,
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Homemakers|4|Topmate|favourite|catch|weeks|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6A4F"
+  },
+  "lines": [
+    {
+      "say": "Homemakers: four real ways to earn with AI from home, no joining fee.",
+      "show": "Homemakers: 4 real ways to earn from home.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One, Prolific: paid studies, some about AI.",
+      "show": "1. Prolific: paid studies, some about AI.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Fiverr: one gig made with free Canva AI.",
+      "show": "2. Fiverr: one gig, made with free AI.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, Canva Creator: sell templates once you're approved.",
+      "show": "3. Canva Creator: sell templates, once approved.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "My best pick, Top Mate: sell a call on what you know. No portfolio needed.",
+      "show": "4. Topmate: sell what you know. My favourite.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: Canva's approval and Prolific studies take time. Think weeks, not days.",
+      "show": "The catch: think weeks, not days.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who keeps asking how to earn from home.",
+      "show": "Send this to your earn-from-home friend.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "HOMEMAKERS: 4 REAL WAYS",
+      "TO EARN WITH AI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

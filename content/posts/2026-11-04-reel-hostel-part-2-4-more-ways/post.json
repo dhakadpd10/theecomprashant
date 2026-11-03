@@ -1,0 +1,136 @@
+{
+  "id": "2026-11-04-reel-hostel-part-2-4-more-ways",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skills",
+  "keyword": "SITES",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(31|Dec|4|Contra|Gumroad|Upwork|Plus|Favourite|catch|weeks|roommate|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Students, you get Google AI Plus free till the end of December. Claim it now.",
+      "show": "Students: Google AI Plus free till 31 Dec.",
+      "card": "FREE AI PLUS ENDS 31 DEC",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "And you've got four more ways to earn, right from your college room.",
+      "show": "Part 2: 4 more ways from your hostel room.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One. AI resumes and club posters on Contra. They don't take commission.",
+      "show": "1. Club resumes and posters on Contra. No commission.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two. Turn your own notes into templates on Gumroad.",
+      "show": "2. Your notes as templates on Gumroad.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three. Upwork says AI video editing's growing fastest.",
+      "show": "3. AI video editing on Upwork.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Four, my top pick: you'll run the other three on free AI Plus.",
+      "show": "4. Favourite: free AI Plus runs all three.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it's Plus, not Pro. You must be an adult and re-verify every year.",
+      "show": "The catch: Plus, not Pro. 18+, re-verify yearly.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And don't expect orders fast. The first ones take weeks.",
+      "show": "First orders take weeks.",
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to your roommate. Comment SITES and I'll send you the full list.",
+      "show": "Send this to your roommate. Comment SITES.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+1.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+1.4",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "FREE AI PLUS",
+      "ENDS 31 DEC"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,263 @@
+<style>
+  /* editorial theme, deep green accent. Kind "news": the payout limit drops, then who gets it, the catch, one screenshot card, then the free prompt. */
+  /* Render only after the post.json "checks" confirm the forum notice wording ($100 to $20, India, October payments, random, no applying). */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(60px); }
+  #blob1 { left: -120px; top: 260px; width: 560px; height: 560px; background: rgba(47,107,79,0.10); }
+  #blob2 { left: 620px; top: 900px; width: 520px; height: 520px; background: rgba(200,150,80,0.10); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 118px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 112px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .k { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: #6E6862; white-space: nowrap; }
+  .tick { position: absolute; display: block; border-radius: 50%; background: var(--accent); }
+  .tick svg { display: block; width: 100%; height: 100%; }
+
+  /* 0: hook */
+  #s0-title { top: 116px; font-size: 132px; transform-origin: left top; }
+  #s0-amt { transform-origin: left center; }
+  #s0-ul { position: absolute; left: 94px; top: 404px; width: 320px; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+
+  /* 1: the drop */
+  #s1-card { top: 470px; height: 590px; }
+  #s1-card > .k { left: 40px; top: 40px; }
+  #s1-old { position: absolute; left: 40px; top: 80px; width: 250px; height: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 140px; color: #6E6862; white-space: nowrap; }
+  #s1-strike { position: absolute; left: 36px; top: 146px; width: 236px; height: 10px; border-radius: 5px; background: var(--ink); transform-origin: left center; }
+  #s1-arrow { position: absolute; display: block; left: 292px; top: 118px; width: 80px; height: 64px; }
+  #s1-new { position: absolute; left: 392px; top: 80px; width: 230px; height: 140px; font-family: 'Playfair Italic', serif; font-weight: 700; font-size: 100px; line-height: 140px; color: var(--accent); white-space: nowrap; transform-origin: center center; }
+  #s1-track { position: absolute; left: 40px; right: 40px; top: 262px; height: 30px; border-radius: 15px; background: #ECE5D9; overflow: hidden; }
+  #s1-fill { position: absolute; display: block; left: 0; top: 0; bottom: 0; width: 35%; border-radius: 15px; background: #A9A39B; }
+  #s1-mark { position: absolute; display: block; left: 96px; top: 198px; width: 120px; height: 120px; }
+  #s1-mark .k { left: 0; right: 0; top: 0; text-align: center; color: var(--ink); }
+  #s1-mark i { position: absolute; display: block; left: 57px; top: 36px; width: 6px; height: 84px; border-radius: 3px; background: var(--ink); }
+  #s1-bal { position: absolute; left: 40px; right: 250px; top: 334px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6E6862; white-space: nowrap; }
+  #s1-paid { position: absolute; right: 40px; top: 324px; width: 190px; height: 52px; border-radius: 26px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s1-in { position: absolute; left: 36px; right: 36px; top: 420px; height: 130px; border-radius: 24px; background: #E3EFE7; }
+  .flag { position: absolute; left: 28px; top: 33px; width: 96px; height: 64px; border-radius: 8px; background: linear-gradient(#FF9933 0 33.3%, #FFFFFF 33.3% 66.6%, #138808 66.6% 100%); box-shadow: 0 0 0 2px #DCD4C6; }
+  .flag i { position: absolute; display: block; left: 37px; top: 21px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid #1A2A80; }
+  #s1-in .t { position: absolute; left: 150px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #1F4A36; white-space: nowrap; }
+
+  /* 2: the notice */
+  #s2-card { top: 470px; height: 590px; }
+  #s2-av { position: absolute; display: block; left: 36px; top: 36px; width: 72px; height: 72px; border-radius: 20px; background: #C4302B; }
+  #s2-av svg { display: block; width: 100%; height: 100%; }
+  #s2-name { position: absolute; left: 130px; right: 30px; top: 32px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s2-card .sub { left: 130px; top: 82px; }
+  .row { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { left: 28px; top: 18px; }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 54px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-r1 { top: 150px; background: #E3EFE7; } #s2-r1 .v { color: #1F4A36; }
+  #s2-r2 { top: 290px; } #s2-r3 { top: 430px; }
+
+  /* 3: who gets it */
+  #s3-card { top: 470px; height: 600px; }
+  .wrow { position: absolute; left: 36px; right: 36px; height: 160px; border-radius: 24px; background: #F6F1E8; }
+  .wrow .t { position: absolute; left: 130px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s3-r1 { top: 36px; background: #E3EFE7; } #s3-r2 { top: 216px; } #s3-r3 { top: 396px; }
+  #s3-tick { left: 24px; top: 40px; width: 80px; height: 80px; }
+  #s3-dice { position: absolute; display: block; left: 24px; top: 40px; width: 80px; height: 80px; box-sizing: border-box; border-radius: 18px; border: 5px solid var(--ink); background: #FFFFFF; }
+  #s3-dice i { position: absolute; display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+  #s3-dice .a { left: 10px; top: 10px; } #s3-dice .b { left: 28px; top: 28px; } #s3-dice .c { left: 46px; top: 46px; }
+  #s3-apply { position: absolute; display: flex; left: 24px; top: 40px; width: 150px; height: 80px; border-radius: 40px; background: #E7E1D7; color: #6E6862; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; align-items: center; justify-content: center; }
+  #s3-strike { position: absolute; display: block; left: 20px; top: 76px; width: 158px; height: 8px; border-radius: 4px; background: #B23A2A; transform-origin: left center; }
+  #s3-r3 .t { left: 200px; }
+
+  /* 4: who doesn't */
+  #s4-card { top: 470px; height: 540px; }
+  #s4-r1 { position: absolute; left: 36px; right: 36px; top: 36px; height: 150px; border-radius: 24px; background: #F7E4DF; }
+  #s4-x { position: absolute; display: block; left: 24px; top: 35px; width: 80px; height: 80px; border-radius: 50%; background: #B23A2A; }
+  #s4-x svg { display: block; width: 100%; height: 100%; }
+  #s4-r1 .t { position: absolute; left: 130px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s4-card > .k { left: 40px; top: 222px; }
+  #s4-cells { position: absolute; left: 40px; right: 40px; top: 270px; height: 96px; display: flex; gap: 10px; }
+  .cell { position: relative; display: block; flex: 1; height: 96px; box-sizing: border-box; border-radius: 14px; border: 3px dashed rgba(30,26,22,0.28); overflow: hidden; }
+  .cell b { position: absolute; display: block; left: 0; right: 0; top: 0; bottom: 0; background: var(--accent); transform-origin: center bottom; }
+  #s4-note { position: absolute; left: 40px; right: 40px; top: 396px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s4-sub { position: absolute; left: 40px; right: 40px; top: 452px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6E6862; white-space: nowrap; }
+
+  /* 5: the catch */
+  #s5-card { top: 470px; height: 500px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 200px; border-radius: 24px; background: #F6F1E8; }
+  #s5-r1 { top: 36px; background: #E3EFE7; } #s5-r2 { top: 260px; }
+  .crow .k { left: 28px; top: 36px; }
+  .crow .v { position: absolute; left: 28px; right: 220px; top: 80px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .chip { position: absolute; right: 24px; top: 64px; width: 172px; height: 72px; border-radius: 36px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s5-c1 { background: var(--accent); color: #FFFFFF; }
+  #s5-c2 { background: var(--ink); color: #F3EEE5; }
+
+  /* 6: screenshot card, full width */
+  #s6-card { left: 110px; right: 110px; top: 70px; height: 1064px; }
+  #s6-card > .k { left: 44px; top: 40px; color: var(--accent); }
+  #s6-h { position: absolute; left: 44px; right: 44px; top: 76px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .srow { position: absolute; left: 36px; right: 36px; height: 200px; border-radius: 24px; background: #F6F1E8; overflow: hidden; }
+  #s6-r1 { top: 180px; } #s6-r2 { top: 396px; } #s6-r3 { top: 612px; } #s6-r4 { top: 828px; }
+  #s6-hl { position: absolute; display: block; left: 0; right: 0; top: 0; bottom: 0; background: #E3EFE7; }
+  .srow .n { position: absolute; display: flex; left: 24px; top: 24px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; align-items: center; justify-content: center; }
+  .srow .k { left: 112px; top: 30px; }
+  .srow .v { position: absolute; left: 112px; right: 28px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.25; color: var(--ink); transform-origin: left center; }
+  #s6-r4 .v { color: #1F4A36; }
+  .br { position: absolute; display: block; width: 70px; height: 70px; box-sizing: border-box; border: 0 solid var(--accent); }
+  #br1 { left: 90px; top: 50px; border-top-width: 8px; border-left-width: 8px; border-top-left-radius: 18px; }
+  #br2 { right: 90px; top: 50px; border-top-width: 8px; border-right-width: 8px; border-top-right-radius: 18px; }
+  #br3 { left: 90px; top: 1084px; border-bottom-width: 8px; border-left-width: 8px; border-bottom-left-radius: 18px; }
+  #br4 { right: 90px; top: 1084px; border-bottom-width: 8px; border-right-width: 8px; border-bottom-right-radius: 18px; }
+  #s6-flash { position: absolute; display: block; left: 0; right: 0; top: 0; bottom: 0; background: #FFFFFF; opacity: 0; }
+
+  /* 7: send */
+  #s7-title { top: 130px; font-size: 140px; }
+  #s7-plane { position: absolute; display: block; left: 700px; top: 330px; width: 170px; height: 140px; }
+  #s7-card { top: 490px; height: 516px; }
+  #s7-card > .k { left: 40px; top: 40px; }
+  #s7-row { position: absolute; left: 36px; right: 36px; top: 90px; height: 170px; border-radius: 24px; background: #F6F1E8; }
+  #s7-av { position: absolute; display: block; left: 24px; top: 35px; width: 100px; height: 100px; border-radius: 50%; background: #D9E8DF; overflow: hidden; }
+  #s7-av svg { display: block; width: 100%; height: 100%; }
+  #s7-name { position: absolute; left: 148px; right: 100px; top: 36px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s7-sub { position: absolute; left: 148px; right: 100px; top: 92px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #6E6862; white-space: nowrap; }
+  #s7-check { right: 24px; top: 55px; width: 60px; height: 60px; }
+  #s7-msg { position: absolute; left: 36px; right: 36px; top: 290px; height: 90px; box-sizing: border-box; border-radius: 24px; border: 3px dashed rgba(30,26,22,0.25); display: flex; align-items: center; padding-left: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #s7-btn { position: absolute; display: flex; left: 36px; right: 36px; top: 404px; height: 80px; border-radius: 40px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; align-items: center; justify-content: center; }
+
+  /* 8: save + keyword */
+  #s8-title { top: 110px; font-size: 130px; }
+  #s8-mark { position: absolute; display: block; left: 440px; top: 130px; width: 90px; height: 120px; }
+  #s8-card { top: 340px; height: 450px; }
+  #s8-card > .k { left: 40px; top: 34px; color: var(--accent); }
+  #s8-name { position: absolute; left: 40px; right: 40px; top: 70px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 46px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+  .trow { position: absolute; left: 36px; right: 36px; height: 78px; border-radius: 20px; background: #F6F1E8; }
+  .trow .t { position: absolute; left: 24px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s8-t1 { top: 160px; } #s8-t2 { top: 254px; } #s8-t3 { top: 348px; }
+  #s8-t2 { background: #E3EFE7; } #s8-t2 .t { color: #1F4A36; }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 830px; height: 210px; border-radius: 48px; background: var(--ink); overflow: hidden; }
+  #s8-c { position: absolute; left: 0; right: 0; top: 28px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.2em; color: #CFE3D7; }
+  #s8-kw { position: absolute; display: flex; left: 0; right: 0; top: 70px; height: 116px; justify-content: center; align-items: center; transform-origin: center center; }
+  #s8-kw .ch { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 96px; line-height: 1; color: #9FD3B5; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">YOUTUBE PAYOUT</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stuck under</span></span><span class="mask"><span class="l it" id="s0-amt">$100?</span></span></div>
+  <div id="s0-ul" data-layout-allow-overlap></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">YOUTUBE PAYOUT TEST</div>
+  <div class="title"><span class="mask"><span class="l">Down to</span></span><span class="mask"><span class="l it">$20.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="k">MINIMUM PAYOUT</div>
+    <div id="s1-old">$100</div>
+    <div id="s1-strike" data-layout-allow-overlap></div>
+    <svg id="s1-arrow" viewBox="0 0 80 64"><path d="M6 32 H62 M44 14 L64 32 L44 50" fill="none" stroke="#2F6B4F" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div id="s1-new">$20</div>
+    <div id="s1-track"><i id="s1-fill"></i></div>
+    <div id="s1-mark" data-layout-allow-overlap><div class="k">LIMIT</div><i></i></div>
+    <div id="s1-bal">Example balance: $35</div>
+    <div id="s1-paid">PAYS OUT</div>
+    <div id="s1-in"><div class="flag"><i></i></div><div class="t">India is in the test</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">NEWS</div>
+  <div class="title"><span class="mask"><span class="l">What</span></span><span class="mask"><span class="l it">changed.</span></span></div>
+  <div class="card" id="s2-card">
+    <div id="s2-av"><svg viewBox="0 0 72 72"><path d="M28 22 L52 36 L28 50 Z" fill="#FFFFFF"></path></svg></div>
+    <div id="s2-name">YouTube</div>
+    <div class="k sub">FORUM NOTICE · REPORTED</div>
+    <div class="row" id="s2-r1"><div class="k">WHAT CHANGED</div><div class="v">$100 to $20 minimum</div></div>
+    <div class="row" id="s2-r2"><div class="k">STARTING WITH</div><div class="v">October payments</div></div>
+    <div class="row" id="s2-r3"><div class="k">SOURCE</div><div class="v">Forum notice, reported</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">WHO GETS IT</div>
+  <div class="title"><span class="mask"><span class="l">Picked at</span></span><span class="mask"><span class="l it">random.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="wrow" id="s3-r1"><i class="tick" id="s3-tick"><svg viewBox="0 0 40 40"><path d="M11 21 L17 27 L29 14" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Partner Program only</div></div>
+    <div class="wrow" id="s3-r2"><div id="s3-dice"><i class="a"></i><i class="b"></i><i class="c"></i></div><div class="t">Picked at random</div></div>
+    <div class="wrow" id="s3-r3"><div id="s3-apply">Apply</div><i id="s3-strike" data-layout-allow-overlap></i><div class="t">You can't apply</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">WHO DOESN'T</div>
+  <div class="title"><span class="mask"><span class="l">Not new</span></span><span class="mask"><span class="l it">channels.</span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-r1"><i id="s4-x"><svg viewBox="0 0 40 40"><path d="M13 13 L27 27 M27 13 L13 27" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path></svg></i><div class="t">New channels</div></div>
+    <div class="k">WATCH HOURS TO JOIN</div>
+    <div id="s4-cells">
+      <div class="cell on"><b></b></div><div class="cell on"><b></b></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      <div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+    <div id="s4-note">Lots still needed first</div>
+    <div id="s4-sub">Joining comes before payouts</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Not for</span></span><span class="mask"><span class="l it">beginners.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="crow" id="s5-r1"><div class="k">ALREADY EARNING</div><div class="v">Paid out sooner</div><div class="chip" id="s5-c1">HELPS</div></div>
+    <div class="crow" id="s5-r2"><div class="k">JUST STARTING</div><div class="v">No earnings yet</div><div class="chip" id="s5-c2">NOT YET</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="card" id="s6-card">
+    <div class="k">SCREENSHOT THIS</div>
+    <div id="s6-h">YouTube payout <span class="it">test</span></div>
+    <div class="srow" id="s6-r1"><div class="n">1</div><div class="k">WHAT CHANGED</div><div class="v">$100 to $20 minimum, from October payments</div></div>
+    <div class="srow" id="s6-r2"><div class="n">2</div><div class="k">WHO GETS IT</div><div class="v">Some Partner Program channels, at random. No applying.</div></div>
+    <div class="srow" id="s6-r3"><div class="n">3</div><div class="k">WHO DOESN'T</div><div class="v">New channels. Watch hours come first.</div></div>
+    <div class="srow" id="s6-r4"><i id="s6-hl" data-layout-allow-overlap></i><div class="n">4</div><div class="k">BEGINNERS</div><div class="v">Make original videos. Reused AI clips aren't monetised.</div></div>
+  </div>
+  <i class="br" id="br1" data-layout-allow-overlap></i><i class="br" id="br2" data-layout-allow-overlap></i><i class="br" id="br3" data-layout-allow-overlap></i><i class="br" id="br4" data-layout-allow-overlap></i>
+  <i id="s6-flash" data-layout-allow-overlap></i>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="s7-plane" viewBox="0 0 200 170" data-layout-allow-overlap><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2F6B4F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4A36"></path></svg>
+  <div class="card" id="s7-card">
+    <div class="k">FORWARD TO</div>
+    <div id="s7-row">
+      <div id="s7-av"><svg viewBox="0 0 100 100"><circle cx="50" cy="38" r="17" fill="#2F6B4F"></circle><path d="M18 96 C20 70 34 60 50 60 C66 60 80 70 82 96 Z" fill="#2F6B4F"></path></svg></div>
+      <div id="s7-name">That one friend</div>
+      <div id="s7-sub">stuck under $100</div>
+      <i class="tick" id="s7-check"><svg viewBox="0 0 40 40"><path d="M11 21 L17 27 L29 14" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></i>
+    </div>
+    <div id="s7-msg">Payout test: $100 to $20</div>
+    <div id="s7-btn">Send</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s8-mark" viewBox="0 0 90 120" data-layout-allow-overlap><path d="M6 6 H84 V114 L45 86 L6 114 Z" fill="#2F6B4F"></path></svg>
+  <div class="card" id="s8-card">
+    <div class="k">FREE PROMPT</div>
+    <div id="s8-name">Weekend Digital Product</div>
+    <div class="trow" id="s8-t1"><div class="t">Guide, template or planner</div></div>
+    <div class="trow" id="s8-t2"><div class="t">Price it ₹99 to ₹499</div></div>
+    <div class="trow" id="s8-t3"><div class="t">Sell on Topmate or Gumroad</div></div>
+  </div>
+  <div id="s8-pill">
+    <div id="s8-c">COMMENT</div>
+    <div id="s8-kw"><div class="ch">P</div><div class="ch">R</div><div class="ch">O</div><div class="ch">D</div><div class="ch">U</div><div class="ch">C</div><div class="ch">T</div></div>
+  </div>
+</section>

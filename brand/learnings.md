@@ -2,6 +2,23 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-04
+
+- **No new evidence: this pull matches the 3 Nov pull row for row.**
+  - Hostel is still at 1,212 views, 1,047 reach, 16 sends and 26 saves.
+  - The newest logged reel is 2 Nov 03:30 UTC. The 2 Nov 07:30 and 14:00 UTC slots have nothing in the log.
+  - Re-pull with a timestamp. Then check whether those two slots were posted and not logged, or skipped.
+- **New-niche baseline recomputed with exp2b left out: 56.5 views and 50 reach** (10 reels, 28 to 31 Oct). It was 50 views with exp2b in.
+  - On this baseline hostel is 21.5x.
+  - The three skits are 2.05x to 2.53x, with 0 sends, saves or comments.
+  - Every training-sites and fee reel is under 0.6x.
+- **Possible lift after hostel (hunch, n=3).**
+  - The other 1 to 2 Nov reels already sit at 0.83x to 1.23x of 116, all under 72 hours old. The 28 to 31 Oct median is 0.49x.
+  - Without a daily follower count we can't say whether hostel brought followers who now see the next reels.
+- **Nothing in the data separates hook from profile yet.**
+  - Hold@3s, follows and non-follower % are on 0 of 36 posts. Kind is blank on 36 of 36, and style is logged 'motion' on 15 of 15 new reels.
+  - The 3 Nov plan (#11 named-viewer experiment, hostel Part 2, one carousel) carries over unchanged.
+
 ## Week of 2026-11-03
 
 - **First real hit, n=1: the hostel room reel (1 Nov, #11 Numbered With A Favourite, SITES).**

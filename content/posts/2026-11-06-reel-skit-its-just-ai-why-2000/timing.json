@@ -1,0 +1,89 @@
+{
+  "dur": 24.41,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.102,
+      "b": 3.202,
+      "say": "...and that's when he said, so much money? But AI made it na?",
+      "show": "₹2,000? But AI made it na?"
+    },
+    {
+      "a": 3.202,
+      "voice": 3.302,
+      "end": 5.123,
+      "b": 5.223,
+      "say": "I said, AI helps. He leaned in.",
+      "show": "I said, AI helps. He leaned in."
+    },
+    {
+      "a": 5.223,
+      "voice": 5.323,
+      "end": 6.444,
+      "b": 6.544,
+      "say": "Then why am I paying you?",
+      "show": "Then why am I paying you?"
+    },
+    {
+      "a": 6.544,
+      "voice": 6.644,
+      "end": 7.728,
+      "b": 7.828,
+      "say": "Then came the big one.",
+      "show": "Then came the big one."
+    },
+    {
+      "a": 7.828,
+      "voice": 7.928,
+      "end": 9.467,
+      "b": 9.567,
+      "say": "My nephew also uses AI.",
+      "show": "My nephew also has ChatGPT."
+    },
+    {
+      "a": 9.567,
+      "voice": 9.667,
+      "end": 11,
+      "b": 11.1,
+      "say": "Fine, uncle. Get it from him.",
+      "show": "Fine, uncle. Get it from him."
+    },
+    {
+      "a": 11.1,
+      "voice": 11.2,
+      "end": 13.007,
+      "b": 13.107,
+      "say": "Two hours later, uncle on WhatsApp.",
+      "show": "2 hours later. Uncle on WhatsApp."
+    },
+    {
+      "a": 13.107,
+      "voice": 13.207,
+      "end": 15.788,
+      "b": 15.888,
+      "say": "The nephew's video. Just fix this one, small thing.",
+      "show": "Nephew's reel. 'Just fix this, small thing.'"
+    },
+    {
+      "a": 15.888,
+      "voice": 15.988,
+      "end": 19.011,
+      "b": 19.111,
+      "say": "Charge for the brief, the revisions, the deadline. Not the tool.",
+      "show": "Charge for the brief, revisions, deadline. Not the tool."
+    },
+    {
+      "a": 19.111,
+      "voice": 19.211,
+      "end": 23.015,
+      "b": 24.41,
+      "say": "Send this to the friend who undercharges, and comment CLIENT for the prompt.",
+      "show": "Send this to the friend who undercharges. Comment CLIENT."
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "dur": 28.54,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.921,
+      "b": 4.021,
+      "say": "Nobody tells you the reported half million deal from Meta skips India.",
+      "show": "Instagram's reported $500K offer skips India."
+    },
+    {
+      "a": 4.021,
+      "voice": 4.121,
+      "end": 7.067,
+      "b": 7.167,
+      "say": "It's a US and Brazil test with hand-picked creators.",
+      "show": "A test: US and Brazil, hand-picked creators."
+    },
+    {
+      "a": 7.167,
+      "voice": 7.267,
+      "end": 9.791,
+      "b": 9.891,
+      "say": "That number comes from a news report, not from Meta.",
+      "show": "The figure: Business Insider, not Instagram."
+    },
+    {
+      "a": 9.891,
+      "voice": 9.991,
+      "end": 11.982,
+      "b": 12.082,
+      "say": "Three ways you earn here without being picked.",
+      "show": "3 ways to earn without being picked."
+    },
+    {
+      "a": 12.082,
+      "voice": 12.182,
+      "end": 13.63,
+      "b": 13.73,
+      "say": "Brand deals with local shops.",
+      "show": "1. Brand deals with local shops."
+    },
+    {
+      "a": 13.73,
+      "voice": 13.83,
+      "end": 15.542,
+      "b": 15.642,
+      "say": "A guide or template made with AI.",
+      "show": "2. A guide or template made with AI."
+    },
+    {
+      "a": 15.642,
+      "voice": 15.742,
+      "end": 17.983,
+      "b": 18.083,
+      "say": "Paid one-on-one calls on things you know well.",
+      "show": "3. Paid 1:1 calls on what you know."
+    },
+    {
+      "a": 18.083,
+      "voice": 18.183,
+      "end": 21.45,
+      "b": 21.55,
+      "say": "The catch: you build it, fans take months, first sales stay small.",
+      "show": "The catch: months of building. Small first sales."
+    },
+    {
+      "a": 21.55,
+      "voice": 21.65,
+      "end": 24.236,
+      "b": 24.336,
+      "say": "Send this to the friend who forwarded you that headline.",
+      "show": "Send this to the friend who forwarded it."
+    },
+    {
+      "a": 24.336,
+      "voice": 24.436,
+      "end": 27.136,
+      "b": 28.54,
+      "say": "Comment PRODUCT for the free copy-paste AI text.",
+      "show": "Comment PRODUCT for the free prompt."
+    }
+  ]
+}

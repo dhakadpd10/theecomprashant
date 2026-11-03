@@ -1,0 +1,152 @@
+{
+  "id": "2026-11-05-reel-youtube-payout-100-to-20",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "news",
+  "hook": "10",
+  "format": "reel",
+  "keyword": "PRODUCT",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(\\$?100|\\$?20|India|random|apply|catch|original|Send|PRODUCT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "If your YouTube earnings are stuck under the payout limit, this changes things.",
+      "show": "Stuck under $100? This changes things.",
+      "card": "STUCK UNDER $100?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Down to a fifth of that. India is in the test.",
+      "show": "Down to $20. India is in the test.",
+      "card": "$100 to $20 · YouTube payout test · India included",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "YouTube told creators on its forum, reports say.",
+      "show": "YouTube told creators on its forum, reports say.",
+      "card": "NEWS · What changed: minimum payout $100 to $20, starting with October payments. Source: YouTube forum notice (reported)",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Partner Program channels only, picked at random. You can't apply.",
+      "show": "Partner Program channels only, at random. Can't apply.",
+      "card": "Who gets it: some Partner Program channels, picked at random. You can't apply.",
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "New channels still need lots of watch hours.",
+      "show": "New channels still need lots of watch hours.",
+      "card": "Who doesn't: new channels. Joining still needs lots of watch hours.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "The catch: this helps people already earning, not beginners.",
+      "show": "The catch: it helps people already earning.",
+      "card": "THE CATCH: helps people already earning, not beginners",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "So make original videos. Reused AI clips won't earn.",
+      "show": "Make original videos. Reused AI clips don't pay.",
+      "card": "SCREENSHOT CARD · What changed: $100 to $20 minimum, from October payments | Who gets it: some Partner Program channels, at random, no applying | Who doesn't: new channels, watch hours first | Beginners: make original videos. Reused AI clips aren't monetised.",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend whose YouTube earnings are stuck under the payout limit.",
+      "show": "Send this to the friend stuck under $100.",
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment PRODUCT for the free prompt.",
+      "show": "Comment PRODUCT for the free prompt.",
+      "card": "Save. · Free prompt: Weekend Digital Product · Comment PRODUCT",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.3",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line1+1.2",
+    "title": [
+      "$100 DOWN TO $20",
+      "YOUTUBE PAYOUT TEST"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "checks": [
+    "Before render: confirm the YouTube forum notice exists in this week's research notes and says $100 to $20, India included, from October payments, Partner Program channels picked at random, no applying. If any part isn't in the notice, change the line or drop the reel.",
+    "Indian AdSense accounts may show the payout minimum in rupees. Keep the currency on screen exactly as the notice states it. If the notice gives a rupee figure for India, use that figure.",
+    "Spoken length is about 86 words. That runs near the top of the 20 to 30 second range at speed 1.05. If the render is over 30 s, cut 'So' from line 6 and 'still' from line 4 first.",
+    "This week's strategy keeps hook #10 for skits. It is used here because the planner asked for it. Log hook 10 with kind news so it isn't mixed into the skit spread.",
+    "5 Nov 03:30 UTC (09:00 IST) is experiment pair 1 B (sites, #11). Post this at 13:00 IST (07:30 UTC) or 19:30 IST. As news with #10, it keeps both sequencing rules intact.",
+    "Log at publish: hook 10, kind news, style editorial-host, keyword PRODUCT, format reel, the actual slot in IST."
+  ]
+}

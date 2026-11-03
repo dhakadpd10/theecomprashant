@@ -1,0 +1,65 @@
+{
+  "dur": 27.87,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.087,
+      "b": 4.187,
+      "say": "Nobody tells tutors this: three websites pay for the subject you teach.",
+      "show": "Nobody tells tutors: 3 sites pay for your subject."
+    },
+    {
+      "a": 4.187,
+      "voice": 4.287,
+      "end": 8.126,
+      "b": 8.226,
+      "say": "One, Aligner. Experts check and write AI answers in their subject.",
+      "show": "1. Alignerr: check and write AI answers."
+    },
+    {
+      "a": 8.226,
+      "voice": 8.326,
+      "end": 11.302,
+      "b": 11.402,
+      "say": "Two, Gumroad. Sell a notes pack you made with AI's help.",
+      "show": "2. Gumroad: sell your AI-made notes pack."
+    },
+    {
+      "a": 11.402,
+      "voice": 11.502,
+      "end": 15.54,
+      "b": 15.64,
+      "say": "Three, the best fit for tutors: Top mate. Students book paid doubt calls.",
+      "show": "3. Topmate: students book paid doubt calls."
+    },
+    {
+      "a": 15.64,
+      "voice": 15.74,
+      "end": 18.607,
+      "b": 18.707,
+      "say": "The catch: Aligner needs approval and real expertise.",
+      "show": "The catch: Alignerr needs approval and expertise."
+    },
+    {
+      "a": 18.707,
+      "voice": 18.807,
+      "end": 22.663,
+      "b": 22.763,
+      "say": "Gumroad needs your own students. Top mate calls come slow at first.",
+      "show": "Gumroad needs your students. Topmate starts slow."
+    },
+    {
+      "a": 22.763,
+      "voice": 22.863,
+      "end": 26.466,
+      "b": 27.87,
+      "say": "Send this to the best teacher you know, and comment SITES for the full list.",
+      "show": "Send this to the best teacher. Comment SITES."
+    }
+  ]
+}

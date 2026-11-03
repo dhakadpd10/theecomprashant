@@ -1,0 +1,157 @@
+{
+  "id": "2026-11-07-reel-instagram-500k-not-for-india",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "news",
+  "keyword": "PRODUCT",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(\\$500K|500K|India|Business|Insider|3|catch|Send|PRODUCT|free)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#24508F"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you the reported half million deal from Meta skips India.",
+      "show": "Instagram's reported $500K offer skips India.",
+      "card": "$500K. NOT FOR INDIA",
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "It's a US and Brazil test with hand-picked creators.",
+      "show": "A test: US and Brazil, hand-picked creators.",
+      "card": "26 Oct: Features allows videos up to 90 minutes. Test in the US and Brazil only. Hand-picked creators. No ad revenue share yet.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "That number comes from a news report, not from Meta.",
+      "show": "The figure: Business Insider, not Instagram.",
+      "card": "Source of the $ range: Business Insider's report. Not Instagram.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Three ways you earn here without being picked.",
+      "show": "3 ways to earn without being picked.",
+      "card": "3 WAYS. NO INVITE NEEDED.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Brand deals with local shops.",
+      "show": "1. Brand deals with local shops.",
+      "card": "1. Brand deals with local businesses",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "A guide or template made with AI.",
+      "show": "2. A guide or template made with AI.",
+      "card": "2. Your own digital product: a guide or template made with AI (Gumroad, Topmate)",
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Paid one-on-one calls on things you know well.",
+      "show": "3. Paid 1:1 calls on what you know.",
+      "card": "3. Paid 1:1 calls on what you know (Topmate)",
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The catch: you build it, fans take months, first sales stay small.",
+      "show": "The catch: months of building. Small first sales.",
+      "card": "THE CATCH: you build it yourself. An audience takes months. The first sale is small.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who forwarded you that headline.",
+      "show": "Send this to the friend who forwarded it.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment PRODUCT for the free copy-paste AI text.",
+      "show": "Comment PRODUCT for the free prompt.",
+      "card": "Save. Comment PRODUCT: Weekend Digital Product prompt, free",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+1.0",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line7.voice+0.5",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "$500K. NOT FOR INDIA",
+      "3 WAYS YOU EARN INSTEAD"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

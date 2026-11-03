@@ -1,0 +1,89 @@
+{
+  "dur": 33.04,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 5.113,
+      "b": 5.213,
+      "say": "These four AI skills are what clients are paying for more this year. Upwork's own numbers.",
+      "show": "4 AI skills clients pay more for. Upwork's numbers."
+    },
+    {
+      "a": 5.213,
+      "voice": 5.313,
+      "end": 7.677,
+      "b": 7.777,
+      "say": "Four, chatbot building. Three, tagging data.",
+      "show": "4. Chatbot building. 3. Data labelling."
+    },
+    {
+      "a": 7.777,
+      "voice": 7.877,
+      "end": 9.199,
+      "b": 9.299,
+      "say": "Two, AI integration.",
+      "show": "2. AI integration."
+    },
+    {
+      "a": 9.299,
+      "voice": 9.399,
+      "end": 13.475,
+      "b": 13.575,
+      "say": "One: AI video creation and editing. It grew more than four times.",
+      "show": "1. AI video creation and editing: up 329%."
+    },
+    {
+      "a": 13.575,
+      "voice": 13.675,
+      "end": 18.013,
+      "b": 18.113,
+      "say": "My top pick. A free phone editing app and one sample reel is enough to start.",
+      "show": "My favourite: free CapCut plus 1 sample reel."
+    },
+    {
+      "a": 18.113,
+      "voice": 18.213,
+      "end": 19.908,
+      "b": 20.008,
+      "say": "The catch: this is demand, not pay.",
+      "show": "The catch: this is demand, not pay."
+    },
+    {
+      "a": 20.008,
+      "voice": 20.108,
+      "end": 23.116,
+      "b": 23.216,
+      "say": "Basic logo, blog and copywriting gigs are shrinking.",
+      "show": "Basic logo, blog and copywriting gigs are shrinking."
+    },
+    {
+      "a": 23.216,
+      "voice": 23.316,
+      "end": 25.471,
+      "b": 25.571,
+      "say": "And a first client takes weeks, and a sample.",
+      "show": "A first client takes weeks, and a sample."
+    },
+    {
+      "a": 25.571,
+      "voice": 25.671,
+      "end": 29.102,
+      "b": 29.202,
+      "say": "Send this to the friend who keeps saying he'll learn AI next month.",
+      "show": "Send this to the friend learning AI next month."
+    },
+    {
+      "a": 29.202,
+      "voice": 29.302,
+      "end": 31.641,
+      "b": 33.04,
+      "say": "And comment SKILL for the free one-month roadmap.",
+      "show": "Comment SKILL for the free 30-day roadmap."
+    }
+  ]
+}

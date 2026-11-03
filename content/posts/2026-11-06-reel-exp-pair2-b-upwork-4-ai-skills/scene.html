@@ -1,0 +1,193 @@
+<style>
+  /* editorial theme, deep green accent: warm paper, ink, one clean white card per beat, host on the right after the hook */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(70px); }
+  #blobA { left: -160px; top: 260px; width: 640px; height: 640px; background: rgba(47,107,79,0.11); }
+  #blobB { left: 540px; top: 640px; width: 560px; height: 560px; background: rgba(201,154,91,0.14); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .acc { color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .lab { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.74); white-space: nowrap; }
+  .txt { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+
+  /* 0: hook */
+  #s0-src { position: absolute; left: 360px; top: 48px; width: 320px; height: 64px; border-radius: 32px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; }
+  #s0-title { top: 110px; font-size: 128px; transform-origin: left top; }
+  #s0-arrow { position: absolute; left: 770px; top: 260px; width: 190px; height: 150px; display: block; }
+
+  /* 1: ranked slots */
+  #s1-card { top: 400px; height: 748px; }
+  .rk { position: absolute; left: 36px; right: 36px; height: 104px; display: block; }
+  .slot { position: absolute; left: 0; right: 0; top: 0; bottom: 0; border-radius: 24px; border: 3px dashed rgba(30,26,22,0.2); }
+  .n { position: absolute; left: 16px; top: 16px; width: 72px; height: 72px; border-radius: 50%; background: var(--ink); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  .fill { position: absolute; left: 100px; right: 10px; top: 10px; bottom: 10px; border-radius: 18px; background: #F3EDE2; }
+  .fill .txt { left: 24px; top: 0; bottom: 0; display: flex; align-items: center; }
+  #rk1 { top: 36px; } #rk2 { top: 156px; } #rk3 { top: 276px; } #rk4 { top: 396px; }
+  #rk1 .fill { background: var(--accent); } #rk1 .txt { color: #FFFFFF; } #rk1 .n { background: var(--accent); }
+  #s1-stat { position: absolute; left: 36px; right: 36px; top: 528px; height: 190px; border-radius: 24px; background: #E4EEE7; }
+  #s1-num { position: absolute; left: 28px; top: 8px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.15; color: var(--accent); white-space: nowrap; }
+  #s1-lab { left: 30px; top: 140px; }
+  #s1-up { position: absolute; right: 30px; top: 30px; width: 96px; height: 96px; display: block; }
+
+  /* 2: the favourite */
+  #s2-card { top: 290px; height: 640px; }
+  #s2-star { position: absolute; left: 30px; top: 30px; width: 64px; height: 64px; display: block; }
+  #s2-lab { left: 112px; top: 28px; color: var(--accent); }
+  #s2-name { left: 112px; top: 60px; }
+  #s2-phone { position: absolute; left: 30px; top: 140px; width: 180px; height: 440px; border-radius: 30px; background: var(--ink); display: block; }
+  #s2-phone .scr { position: absolute; left: 10px; right: 10px; top: 10px; bottom: 10px; border-radius: 22px; background: linear-gradient(165deg, #2F6B4F 0%, #6E8F5E 50%, #C99A5B 100%); overflow: hidden; }
+  #s2-play { position: absolute; left: 40px; top: 130px; width: 80px; height: 80px; display: block; }
+  #s2-tag { position: absolute; left: 14px; right: 14px; top: 250px; height: 44px; border-radius: 12px; background: rgba(30,26,22,0.88); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; }
+  .clipbar { position: absolute; top: 340px; height: 28px; border-radius: 8px; }
+  #cl1 { left: 12px; width: 44px; background: #F3EEE5; } #cl2 { left: 62px; width: 34px; background: #FFD9A8; } #cl3 { left: 102px; width: 44px; background: #F3EEE5; }
+  #s2-head { position: absolute; left: 12px; top: 326px; width: 4px; height: 56px; border-radius: 2px; background: #FFFFFF; display: block; }
+  .need { position: absolute; left: 236px; right: 30px; height: 108px; border-radius: 24px; background: #F6F1E8; }
+  .need .tick { position: absolute; left: 18px; top: 32px; width: 44px; height: 44px; display: block; }
+  .need .txt { left: 78px; top: 0; bottom: 0; display: flex; align-items: center; }
+  #nd1 { top: 150px; } #nd2 { top: 278px; } #nd3 { top: 406px; }
+  #s2-cost { position: absolute; left: 236px; right: 30px; top: 540px; height: 72px; border-radius: 36px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.12em; display: flex; align-items: center; justify-content: center; }
+
+  /* 3: the catch */
+  #s3-card { top: 290px; height: 560px; }
+  .blk { position: absolute; left: 36px; right: 36px; border-radius: 24px; background: #F6F1E8; }
+  #c1 { top: 30px; height: 120px; } #c2 { top: 170px; height: 220px; } #c3 { top: 410px; height: 120px; }
+  #c1 .txt { left: 28px; top: 0; bottom: 0; display: flex; align-items: center; }
+  #c1-chip { position: absolute; right: 20px; top: 28px; width: 200px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #c2-lab { left: 28px; top: 24px; color: #9A2A1F; }
+  .gig { position: absolute; top: 84px; width: 168px; height: 104px; border-radius: 22px; background: #FFFFFF; border: 3px solid rgba(30,26,22,0.12); display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); }
+  #g1 { left: 24px; } #g2 { left: 210px; } #g3 { left: 396px; }
+  .dn { display: block; width: 30px; height: 30px; }
+  #s3-clock { position: absolute; left: 24px; top: 28px; width: 64px; height: 64px; display: block; }
+  #c3 .txt { left: 110px; top: 0; bottom: 0; display: flex; align-items: center; }
+
+  /* 4: send */
+  #s4-send { position: absolute; left: 90px; right: 90px; top: 90px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.02; color: var(--ink); }
+  #s4-who { position: absolute; left: 90px; width: 420px; top: 290px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: var(--ink); }
+  #s4-plane { position: absolute; left: 540px; top: 280px; width: 170px; height: 145px; display: block; }
+  #s4-card { top: 500px; height: 270px; }
+  #s4-lab { left: 30px; top: 28px; }
+  #s4-task { left: 30px; top: 68px; }
+  #s4-next { position: absolute; left: 30px; top: 150px; width: 250px; height: 76px; border-radius: 38px; background: #ECE6DC; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s4-strike { position: absolute; left: 40px; top: 185px; width: 230px; height: 6px; border-radius: 3px; background: #B3261E; transform-origin: left center; display: block; }
+  #s4-today { position: absolute; left: 310px; top: 150px; width: 200px; height: 76px; border-radius: 38px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+
+  /* 5: the keyword */
+  #s5-card { top: 120px; height: 430px; }
+  .row { position: absolute; left: 24px; right: 24px; height: 110px; border-radius: 24px; background: #F6F1E8; }
+  .row .lab { left: 24px; top: 14px; }
+  .row .txt { left: 24px; top: 48px; }
+  #r1 { top: 24px; } #r2 { top: 156px; } #r3 { top: 288px; }
+  #s5-save { position: absolute; left: 90px; top: 590px; width: 340px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.02; color: var(--ink); white-space: nowrap; }
+  #s5-book { position: absolute; left: 450px; top: 606px; width: 84px; height: 116px; display: block; }
+  #s5-pill { position: absolute; left: 60px; right: 360px; top: 780px; height: 210px; border-radius: 40px; background: var(--ink); overflow: hidden; }
+  #s5-c { position: absolute; left: 0; right: 0; top: 26px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.3em; color: #F3EEE5; }
+  #s5-kw { position: absolute; left: 0; right: 0; top: 60px; height: 140px; display: flex; justify-content: center; gap: 6px; }
+  #s5-kw .k { display: block; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.1; color: #9FD4B5; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blobA"></div>
+<div class="blob" id="blobB"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">THIS YEAR</div>
+  <div id="s0-src">SOURCE: UPWORK</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="acc">4</span> AI skills</span></span><span class="mask"><span class="l">in <span class="it">demand.</span></span></span></div>
+  <svg id="s0-arrow" data-layout-allow-overlap viewBox="0 0 190 150"><path id="s0-line" d="M10 130 L70 80 L105 105 L175 25" fill="none" stroke="#2F6B4F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="240"></path><path id="s0-head" d="M132 25 L175 25 L175 68" fill="none" stroke="#2F6B4F" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="90"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line4">
+  <div class="step">UPWORK'S TOP 4</div>
+  <div class="title"><span class="mask"><span class="l">Fastest</span></span><span class="mask"><span class="l it">growing.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="rk" id="rk1"><div class="slot"></div><div class="n">1</div><div class="fill"><div class="txt">AI video editing</div></div></div>
+    <div class="rk" id="rk2"><div class="slot"></div><div class="n">2</div><div class="fill"><div class="txt">AI integration</div></div></div>
+    <div class="rk" id="rk3"><div class="slot"></div><div class="n">3</div><div class="fill"><div class="txt">Data labelling</div></div></div>
+    <div class="rk" id="rk4"><div class="slot"></div><div class="n">4</div><div class="fill"><div class="txt">Chatbot building</div></div></div>
+    <div id="s1-stat">
+      <div id="s1-num">+329%</div>
+      <div class="lab" id="s1-lab">AI VIDEO DEMAND · UPWORK</div>
+      <svg id="s1-up" viewBox="0 0 96 96"><circle cx="48" cy="48" r="46" fill="#2F6B4F"></circle><path d="M48 72 V26 M30 44 L48 26 L66 44" stroke="#FFFFFF" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line4" data-to="@line5">
+  <div class="step">MY TOP PICK</div>
+  <div class="title"><span class="mask"><span class="l">My <span class="it">favourite.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <svg id="s2-star" viewBox="0 0 64 64"><path d="M32 4 L40 24 L62 24 L44 37 L51 58 L32 45 L13 58 L20 37 L2 24 L24 24 Z" fill="#2F6B4F"></path></svg>
+    <div class="lab" id="s2-lab">THE SKILL</div>
+    <div class="txt" id="s2-name">AI video editing</div>
+    <div id="s2-phone">
+      <div class="scr">
+        <svg id="s2-play" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="#FFFFFF"></circle><path d="M32 24 L58 40 L32 56 Z" fill="#2F6B4F"></path></svg>
+        <div id="s2-tag">SAMPLE</div>
+        <div class="clipbar" id="cl1"></div><div class="clipbar" id="cl2"></div><div class="clipbar" id="cl3"></div>
+        <div id="s2-head"></div>
+      </div>
+    </div>
+    <div class="need" id="nd1"><svg class="tick" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2F6B4F"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="txt">Your phone</div></div>
+    <div class="need" id="nd2"><svg class="tick" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2F6B4F"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="txt">Free editor</div></div>
+    <div class="need" id="nd3"><svg class="tick" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2F6B4F"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="txt">1 sample reel</div></div>
+    <div id="s2-cost">FREE TO START</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line5" data-to="@line8">
+  <div class="step">BEFORE YOU START</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="blk" id="c1"><div class="txt">Demand, not pay</div><div id="c1-chip">PAY VARIES</div></div>
+    <div class="blk" id="c2">
+      <div class="lab" id="c2-lab">SHRINKING</div>
+      <div class="gig" id="g1"><span>Logo</span><svg class="dn" viewBox="0 0 30 30"><path d="M15 4 V24 M6 16 L15 25 L24 16" stroke="#B3261E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div class="gig" id="g2"><span>Blog</span><svg class="dn" viewBox="0 0 30 30"><path d="M15 4 V24 M6 16 L15 25 L24 16" stroke="#B3261E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      <div class="gig" id="g3"><span>Copy</span><svg class="dn" viewBox="0 0 30 30"><path d="M15 4 V24 M6 16 L15 25 L24 16" stroke="#B3261E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+    <div class="blk" id="c3">
+      <svg id="s3-clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="none" stroke="#1E1A16" stroke-width="5"></circle><line id="s3-hand" x1="32" y1="32" x2="32" y2="12" stroke="#2F6B4F" stroke-width="5" stroke-linecap="round"></line></svg>
+      <div class="txt">Weeks, plus a sample</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line8" data-to="@line9">
+  <div id="s4-send"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s4-who">to the friend learning AI next month</div>
+  <svg id="s4-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2F6B4F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4A36"></path></svg>
+  <div class="card" id="s4-card">
+    <div class="lab" id="s4-lab">THEIR TO-DO</div>
+    <div class="txt" id="s4-task">Learn AI</div>
+    <div id="s4-next">NEXT MONTH</div>
+    <div id="s4-strike" data-layout-allow-overlap></div>
+    <div id="s4-today">TODAY</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line9" data-to="end">
+  <div class="step">FREE · 30-DAY ROADMAP</div>
+  <div class="card" id="s5-card">
+    <div class="row" id="r1"><div class="lab">PICKS</div><div class="txt">1 skill that suits you</div></div>
+    <div class="row" id="r2"><div class="lab">PLANS</div><div class="txt">30 days, free to learn</div></div>
+    <div class="row" id="r3"><div class="lab">SHOW BUYERS</div><div class="txt">1 portfolio piece</div></div>
+  </div>
+  <div id="s5-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s5-book" viewBox="0 0 84 116"><path d="M8 4 H76 V112 L42 84 L8 112 Z" fill="#2F6B4F"></path></svg>
+  <div id="s5-pill">
+    <div id="s5-c">COMMENT</div>
+    <div id="s5-kw"><span class="k">S</span><span class="k">K</span><span class="k">I</span><span class="k">L</span><span class="k">L</span></div>
+  </div>
+</section>

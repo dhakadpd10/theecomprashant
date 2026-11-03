@@ -1,0 +1,132 @@
+{
+  "id": "2026-11-06-reel-3-places-not-fiverr",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|STEAL|Prolific|Internshala|Contra|pay|pays|catch|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4E"
+  },
+  "lines": [
+    {
+      "say": "Steal this list: three sites that'll pay you for AI work. Not Fiverr.",
+      "show": "Steal this: 3 sites that pay, not Fiverr.",
+      "card": "STEAL THIS. NOT FIVERR",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "One, Prolific. Paid studies, a few on AI, and each one shows you what it pays.",
+      "show": "1. Prolific: paid studies, each lists its pay.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Internshala. That's where Indian companies post AI content and video tasks.",
+      "show": "2. Internshala: AI content and video tasks.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, Contra. There's no commission, so what the client pays, you keep.",
+      "show": "3. Contra: no commission. Client pays, you keep.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Screenshot this. I've put all three on one card.",
+      "show": "Screenshot this: all 3 on one card.",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Here's the catch: none of them sends you work. Prolific depends on eligibility and country.",
+      "show": "Catch: no site sends work. Prolific: eligibility, country.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to your friend who quit Fiverr after a week.",
+      "show": "Send this to the friend who quit Fiverr.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Type SITES below and I'll send you the whole list.",
+      "show": "Comment SITES for the full list.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.2",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.4",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line4+0.9",
+    "title": [
+      "STEAL THIS LIST",
+      "3 SITES THAT PAY, NOT FIVERR"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

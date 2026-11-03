@@ -1,0 +1,136 @@
+{
+  "id": "2026-11-07-reel-exp-pair2-a-9to5-upwork-4-ai-skills",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skills",
+  "hook": "11",
+  "arm": "A",
+  "pair": 2,
+  "format": "reel",
+  "slot": "09:00 IST",
+  "keyword": "SKILL",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(4|71|154|178|329|CapCut|favourite|catch|Send|SKILL)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "Office job? After work, these four AI skills are what clients want more this year.",
+      "show": "9-to-5? After office: 4 AI skills clients want more.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "From Upwork's February report. At four, chatbot building, growing fast.",
+      "show": "4. Chatbot building: up 71% (Upwork)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, data tagging for AI, more than double.",
+      "show": "3. Data labelling: up 154%",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Then, AI integration, nearly triple.",
+      "show": "2. AI integration: up 178%",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "And the top spot, AI video editing, over four times bigger.",
+      "show": "1. AI video editing: up 329%",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "My top pick, because a free video app and a single sample reel get you started.",
+      "show": "My favourite: free CapCut plus one sample reel.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "The catch: growth isn't pay, and your first client can take weeks.",
+      "show": "The catch: growth isn't pay. Clients take weeks.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who keeps saying he'll learn AI next month. Comment SKILL.",
+      "show": "Send it to that friend. Comment SKILL.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.end-0.4",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "4 AI SKILLS",
+      "CLIENTS WANT MORE IN 2026"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

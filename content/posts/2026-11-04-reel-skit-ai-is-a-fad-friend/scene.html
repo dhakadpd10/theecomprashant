@@ -1,0 +1,211 @@
+<style>
+  /* editorial theme, skit: a chai stall, Day 1 vs Day 180, then the 3 real places, the catch, the share sheet and the keyword */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E9E2D6 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(70px); }
+  #blob1 { left: 600px; top: 240px; width: 480px; height: 480px; background: rgba(46,106,79,0.10); }
+  #blob2 { left: -140px; top: 700px; width: 520px; height: 520px; background: rgba(214,150,96,0.14); }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+
+  /* 0: hook, two rows: DAY 1 fad. / DAY 180 Fiverr. */
+  #s0-title { position: absolute; left: 90px; width: 900px; top: 50px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1.05; color: var(--ink); }
+  #s0-title .l { display: flex; align-items: center; }
+  .dchip { display: block; flex: 0 0 250px; width: 250px; height: 84px; margin-right: 34px; border-radius: 42px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-style: normal; font-weight: 900; font-size: 40px; letter-spacing: 0.08em; line-height: 84px; text-align: center; }
+  .dchip.g { background: var(--accent); color: #FFFFFF; }
+  .w { display: block; position: relative; white-space: nowrap; }
+  #s0-strike { display: block; position: absolute; left: -8px; right: -8px; top: 54%; height: 12px; border-radius: 6px; background: var(--ink); transform-origin: left center; }
+  #s0-under { display: block; position: absolute; left: 0; right: 0; bottom: -18px; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+
+  /* the chai stall (lines 1, 3, 4, 5) */
+  .awn { position: absolute; left: 0; right: 0; top: 0; height: 100px; background: repeating-linear-gradient(90deg, var(--accent) 0px, var(--accent) 90px, #FBF8F2 90px, #FBF8F2 180px); box-shadow: 0 12px 26px rgba(60,40,20,0.14); }
+  .awn::after { content: ''; position: absolute; left: 0; right: 0; top: 100px; height: 44px; background: radial-gradient(circle at 45px 0px, var(--accent) 44px, transparent 45px) 0 0 / 180px 44px repeat-x, radial-gradient(circle at 135px 0px, #FBF8F2 44px, transparent 45px) 0 0 / 180px 44px repeat-x; }
+  .sign { position: absolute; left: 740px; top: 152px; width: 200px; height: 70px; border-radius: 16px; background: #FFFDF6; border: 3px solid var(--ink); font-family: 'Permanent Marker', cursive; font-size: 40px; line-height: 64px; text-align: center; color: var(--ink); }
+  .day { position: absolute; left: 90px; top: 158px; width: 230px; height: 58px; border-radius: 29px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.14em; line-height: 58px; text-align: center; }
+  .day.g { background: var(--accent); color: #FFFFFF; }
+  .bub { position: absolute; top: 240px; height: 170px; border-radius: 44px; background: #FFFFFF; box-shadow: 0 24px 56px rgba(60,40,20,0.14); transform-origin: 50% 100%; display: flex; align-items: center; justify-content: center; }
+  .bub::after { content: ''; position: absolute; left: 50%; margin-left: -24px; bottom: -22px; width: 48px; height: 48px; background: #FFFFFF; border-radius: 6px; rotate: 45deg; }
+
+  /* 1: Day 1, the friend's verdict */
+  #s1-bub { left: 150px; width: 780px; }
+  #s1-say { display: flex; align-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1; color: var(--ink); white-space: nowrap; }
+  #s1-fad { display: block; margin-right: 28px; }
+
+  /* 2: six months later, the day counter */
+  #s2-cal { position: absolute; left: 290px; width: 500px; top: 200px; height: 620px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.16); overflow: hidden; }
+  #s2-cal .hd { position: absolute; left: 0; right: 0; top: 0; height: 140px; background: var(--accent); }
+  #s2-cal .hole { position: absolute; top: 24px; width: 30px; height: 30px; border-radius: 50%; background: #F3EEE5; }
+  #s2-cal .h1 { left: 120px; } #s2-cal .h2 { left: 350px; }
+  #s2-cal .lab { position: absolute; left: 0; right: 0; top: 66px; height: 50px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.2em; color: #FFFFFF; }
+  #s2-num { position: absolute; left: 0; right: 0; top: 170px; height: 400px; text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 300px; line-height: 400px; color: var(--ink); }
+  #s2-title { position: absolute; left: 90px; width: 900px; top: 870px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 90px; line-height: 1.05; color: var(--ink); }
+
+  /* 3: whispering */
+  #s3-bub { left: 290px; width: 500px; border: 4px dashed rgba(30,26,22,0.3); gap: 22px; }
+  #s3 .dt { display: block; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); }
+  #s3-psst { display: block; margin-left: 16px; font-family: 'Permanent Marker', cursive; font-size: 72px; line-height: 1.2; color: var(--accent); }
+
+  /* 4: the search */
+  #s4-search { position: absolute; left: 90px; width: 900px; top: 250px; height: 140px; border-radius: 70px; background: #FFFFFF; border: 3px solid rgba(46,106,79,0.35); box-shadow: 0 24px 56px rgba(60,40,20,0.14); }
+  #s4-mag { position: absolute; left: 40px; top: 38px; width: 60px; height: 60px; display: block; }
+  #s4-q { position: absolute; left: 124px; top: 0; width: 640px; height: 134px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 134px; color: var(--ink); white-space: nowrap; }
+  #s4-q b { color: var(--accent); font-weight: 900; }
+  #s4-cur { display: inline-block; width: 4px; height: 48px; margin-left: 6px; vertical-align: middle; background: var(--accent); }
+  #s4-go { position: absolute; right: 20px; top: 19px; width: 96px; height: 96px; border-radius: 50%; background: var(--accent); }
+  #s4-go svg { display: block; }
+
+  /* 5: the chai and the napkin */
+  #s5-chai { position: absolute; left: 150px; top: 200px; width: 150px; height: 230px; display: block; }
+  #s5-nap { position: absolute; left: 330px; width: 500px; top: 186px; height: 250px; border-radius: 18px; background: #FFFDF6; border: 2px solid rgba(30,26,22,0.08); box-shadow: 0 24px 56px rgba(60,40,20,0.14); }
+  #s5-nap .h { position: absolute; left: 40px; top: 22px; width: 420px; font-family: 'Permanent Marker', cursive; font-size: 60px; line-height: 1.2; color: var(--accent); white-space: nowrap; }
+  #s5-nap .n { position: absolute; left: 40px; top: 118px; width: 420px; font-family: 'Permanent Marker', cursive; font-size: 40px; line-height: 1.2; color: var(--ink); }
+
+  /* 6-8: title + one app card (host on the right, card at left 60, right edge 720) */
+  .ttl { position: absolute; left: 90px; width: 900px; top: 60px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.02; color: var(--ink); }
+  .panel { position: absolute; left: 60px; width: 660px; top: 320px; height: 680px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .ph { position: absolute; left: 36px; right: 36px; top: 34px; height: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.16em; color: rgba(30,26,22,0.65); white-space: nowrap; }
+  .row { position: absolute; left: 30px; right: 30px; height: 170px; border-radius: 26px; background: #F6F1E8; }
+  .ra { top: 96px; } .rb { top: 284px; } .rc { top: 472px; }
+  .row .n { position: absolute; left: 22px; top: 50px; width: 70px; height: 70px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  .row .nm { position: absolute; left: 112px; top: 34px; width: 300px; height: 50px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; line-height: 50px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .u { position: absolute; left: 112px; top: 96px; width: 300px; height: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; line-height: 34px; color: rgba(30,26,22,0.7); white-space: nowrap; }
+  .row .chip { position: absolute; right: 20px; top: 54px; width: 160px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: center; }
+
+  /* 7: the catch rows */
+  .row .k { position: absolute; left: 30px; top: 32px; width: 380px; height: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; line-height: 34px; color: rgba(30,26,22,0.7); white-space: nowrap; }
+  .row .v { position: absolute; left: 30px; top: 78px; width: 390px; height: 56px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 56px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s7 .row .chip { width: 150px; }
+
+  /* 8a: the share sheet */
+  #s8a-plane { position: absolute; left: 780px; top: 70px; width: 160px; height: 136px; display: block; }
+  .row .av { position: absolute; left: 22px; top: 44px; width: 82px; height: 82px; border-radius: 50%; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #s8a .ra { background: #E2EDE6; }
+  #s8a .ra .av { background: var(--accent); color: #FFFFFF; }
+  #s8a .row .nm { left: 128px; top: 60px; width: 280px; }
+  .btn { position: absolute; right: 20px; top: 54px; width: 150px; height: 62px; border-radius: 31px; background: var(--ink); }
+  .btn .bl { position: absolute; left: 0; right: 0; top: 0; height: 62px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; line-height: 62px; text-align: center; color: #FFFFFF; }
+
+  /* 8b: the keyword and the roadmap it sends */
+  #s8b-title { position: absolute; left: 90px; width: 900px; top: 30px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1; color: var(--ink); transform-origin: left center; }
+  #s8b-panel { top: 400px; height: 630px; }
+  #s8b-hd { position: absolute; left: 0; right: 0; top: 0; height: 150px; background: var(--accent); }
+  #s8b-hd .k { position: absolute; left: 36px; top: 30px; height: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.16em; line-height: 34px; color: #FFFFFF; white-space: nowrap; }
+  #s8b-hd .t { position: absolute; left: 36px; top: 74px; width: 590px; height: 50px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; line-height: 50px; color: #FFFFFF; white-space: nowrap; }
+  .trow { position: absolute; left: 30px; right: 30px; height: 112px; border-radius: 24px; background: #F6F1E8; }
+  .t1 { top: 178px; } .t2 { top: 302px; } .t3 { top: 426px; }
+  .trow .tick { display: block; position: absolute; left: 20px; top: 24px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); }
+  .trow .tick svg { display: block; }
+  .trow .tx { position: absolute; left: 108px; top: 0; width: 470px; height: 112px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 112px; color: var(--ink); white-space: nowrap; }
+  #s8b-ft { position: absolute; left: 36px; right: 36px; top: 568px; height: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; line-height: 34px; color: rgba(30,26,22,0.7); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="grain"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-title">
+    <span class="mask"><span class="l"><i class="dchip" id="s0-d1">DAY 1</i><span class="w" id="s0-fad">fad.<i id="s0-strike" data-layout-allow-overlap></i></span></span></span>
+    <span class="mask"><span class="l"><i class="dchip g" id="s0-d180">DAY 180</i><span class="w it" id="s0-fiv">Fiverr.<i id="s0-under" data-layout-allow-overlap></i></span></span></span>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="awn"></div>
+  <div class="sign">CHAI</div>
+  <div class="day">DAY 1</div>
+  <div class="bub" id="s1-bub"><div id="s1-say"><span class="it" id="s1-fad">Fad,</span><span>bro.</span></div></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div id="s2-cal">
+    <div class="hd"><i class="hole h1"></i><i class="hole h2"></i><div class="lab">DAY</div></div>
+    <div id="s2-num">1</div>
+  </div>
+  <div id="s2-title"><span class="mask"><span class="l">Six months <span class="it">later.</span></span></span></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="awn"></div>
+  <div class="sign">CHAI</div>
+  <div class="day g">DAY 180</div>
+  <div class="bub" id="s3-bub"><i class="dt"></i><i class="dt"></i><i class="dt"></i><span id="s3-psst">psst...</span></div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="awn"></div>
+  <div class="sign">CHAI</div>
+  <div class="day g">DAY 180</div>
+  <div id="s4-search">
+    <svg id="s4-mag" viewBox="0 0 60 60"><circle cx="25" cy="25" r="16" fill="none" stroke="#1E1A16" stroke-width="6"></circle><path d="M37 37 L52 52" stroke="#1E1A16" stroke-width="7" stroke-linecap="round"></path></svg>
+    <div id="s4-q">how to make a <b>Fiverr</b> profile<i id="s4-cur"></i></div>
+    <div id="s4-go"><svg viewBox="0 0 96 96" width="96" height="96"><path d="M30 48 H64 M50 34 L64 48 L50 62" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="awn"></div>
+  <div class="sign">CHAI</div>
+  <div class="day g">DAY 180</div>
+  <svg id="s5-chai" viewBox="0 0 150 230">
+    <g id="s5-steam" fill="none" stroke="#1E1A16" stroke-opacity="0.35" stroke-width="5" stroke-linecap="round">
+      <path d="M50 66 C40 52 60 42 50 26 C44 16 52 10 50 4"></path>
+      <path d="M76 70 C66 54 86 44 76 28 C70 18 78 12 76 6"></path>
+      <path d="M102 66 C92 52 112 42 102 26"></path>
+    </g>
+    <path d="M18 84 L132 84 L119 224 L31 224 Z" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path>
+    <path d="M24 112 L126 112 L117 218 L33 218 Z" fill="#B8692C"></path>
+    <path d="M24 112 L126 112 L124 128 L26 128 Z" fill="#E8C9A0"></path>
+    <path d="M42 140 L46 206 M75 140 L75 206 M108 140 L104 206" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="5"></path>
+  </svg>
+  <div id="s5-nap">
+    <div class="h">Start here:</div>
+    <div class="n">Fiverr, Contra, Prolific</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="ttl"><span class="mask"><span class="l">Start <span class="it">here.</span></span></span></div>
+  <div class="panel">
+    <div class="ph">3 REAL PLACES</div>
+    <div class="row ra"><div class="n">1</div><div class="nm">Fiverr</div><div class="u">fiverr.com</div><div class="chip">GIGS</div></div>
+    <div class="row rb"><div class="n">2</div><div class="nm">Contra</div><div class="u">contra.com</div><div class="chip">GIGS</div></div>
+    <div class="row rc"><div class="n">3</div><div class="nm">Prolific</div><div class="u">prolific.com</div><div class="chip">STUDIES</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="ttl"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="panel">
+    <div class="ph">BEFORE YOU START</div>
+    <div class="row ra"><div class="k">FIRST ORDER</div><div class="v">Takes weeks</div><div class="chip">WAIT</div></div>
+    <div class="row rb"><div class="k">PROLIFIC</div><div class="v">Not every country</div><div class="chip">CHECK</div></div>
+    <div class="row rc"><div class="k">JOINING FEE?</div><div class="v">Real sites pay you</div><div class="chip">NEVER</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8a" data-from="@line8" data-to="@line8.voice+2.0">
+  <div class="ttl"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="s8a-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2E6A4F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F4A37"></path></svg>
+  <div class="panel">
+    <div class="ph">SEND TO</div>
+    <div class="row ra"><div class="av">F</div><div class="nm">Fad friend</div><div class="btn" id="s8a-btn"><div class="bl" id="s8a-send">SEND</div><div class="bl" id="s8a-sent" data-layout-allow-overlap>SENT</div></div></div>
+    <div class="row rb"><div class="av">R</div><div class="nm">Roommate</div><div class="btn"><div class="bl">SEND</div></div></div>
+    <div class="row rc"><div class="av">O</div><div class="nm">Office group</div><div class="btn"><div class="bl">SEND</div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8b" data-from="@line8.voice+2.0" data-to="end">
+  <div id="s8b-title"><span class="mask"><span class="l">Comment</span></span><span class="mask"><span class="l it">SKILL.</span></span></div>
+  <div class="panel" id="s8b-panel">
+    <div id="s8b-hd"><div class="k">FREE PROMPT</div><div class="t">30-Day AI Skill Roadmap</div></div>
+    <div class="trow t1"><i class="tick"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="tx">1 skill that suits you</div></div>
+    <div class="trow t2"><i class="tick"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="tx">A free 30-day plan</div></div>
+    <div class="trow t3"><i class="tick"><svg viewBox="0 0 64 64" width="64" height="64"><path d="M18 33 L28 43 L47 22" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="tx">1 portfolio piece</div></div>
+    <div id="s8b-ft">Paste into Claude or ChatGPT</div>
+  </div>
+</section>

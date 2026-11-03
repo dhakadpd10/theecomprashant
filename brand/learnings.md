@@ -2,6 +2,30 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-03
+
+- **First real hit, n=1: the hostel room reel (1 Nov, #11 Numbered With A Favourite, SITES).**
+  - It got 1,212 views, 1,047 reach, 16 sends and 26 saves: 10.45x the 116 median, with 15.3 sends and 24.8 saves per 1k reach.
+  - It holds 16 of the 17 new-niche sends and 26 of 30 saves. The other 14 new reels together got 946 reach, 1 send and 4 saves.
+  - It is the only new reel that named who it was for and where, the only #11 and a 4-item list, so the cause can't be pinned down. Hunch. It was about 2 days old at the pull.
+- **Outside that reel, the new niche reaches fewer people than the seller episodes did.**
+  - The 11 reels posted 28 to 31 Oct have a median of 50 views and 46 reach, against the old 101 to 131 floor.
+  - Only hostel and the relative skit (134) broke 130 reach.
+  - Possible cause: seller-era followers don't care about side income. Unproven without the follower count and non-follower %.
+- **Weak spots (hunches):**
+  - AI training sites as a whole-reel topic is 3 for 3 at the bottom (0.14x to 0.54x, 0 sends).
+  - In the new niche, #3 is 0 for 5 above 0.83x and #2 is 0 for 4 above 1.01x. Both are confounded with topic.
+  - Skits sit at 1.00x to 1.23x with the longest watch times and zero sends or saves.
+- **The backfire vs money-opening experiment is void.**
+  - The sites pair got 33 vs 16 views and 0 sends each.
+  - The skills pair's B arm got 1 view, likely a publishing fault.
+  - The prompt pair never ran, and hold@3s wasn't copied.
+- **Logging.**
+  - New: average watch time now arrives on motion reels (24 of 36).
+  - Still missing: hold@3s, follows, non-follower %, the daily follower count, kind (blank on 36 of 36) and an arm column.
+  - Style was logged 'motion' instead of 'editorial-host' on 15 of 15.
+  - Timing is fixed: 14 of 15 new reels went out within 2 minutes of the slot.
+
 ## Week of 2026-10-29
 
 - **Seller niche closed at 22 reels: 2,295 views, 2,015 reach, 9 likes, 8 comments, 4 saves, 0 shares. Median 120 (the 22 rows compute to 118).**

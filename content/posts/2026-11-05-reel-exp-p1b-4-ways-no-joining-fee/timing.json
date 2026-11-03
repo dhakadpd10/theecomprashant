@@ -1,0 +1,73 @@
+{
+  "dur": 24.25,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.41,
+      "b": 3.51,
+      "say": "Four real ways to earn with AI this month, no joining fee.",
+      "show": "4 real ways to earn with AI. No joining fee."
+    },
+    {
+      "a": 3.51,
+      "voice": 3.61,
+      "end": 5.947,
+      "b": 6.047,
+      "say": "One, Prolific. Paid studies, some about AI.",
+      "show": "1. Prolific: paid studies, some about AI."
+    },
+    {
+      "a": 6.047,
+      "voice": 6.147,
+      "end": 9.016,
+      "b": 9.116,
+      "say": "Two, Fiverr. Sell AI thumbnails and video edits.",
+      "show": "2. Fiverr: sell AI thumbnails and edits."
+    },
+    {
+      "a": 9.116,
+      "voice": 9.216,
+      "end": 11.823,
+      "b": 11.923,
+      "say": "Three, Canva Creator. Sell templates you design.",
+      "show": "3. Canva Creator: sell your templates."
+    },
+    {
+      "a": 11.923,
+      "voice": 12.023,
+      "end": 15.159,
+      "b": 15.259,
+      "say": "My top pick, Top Mate. It's Indian, and you set your price.",
+      "show": "Favourite: Topmate. Indian, and you set the price."
+    },
+    {
+      "a": 15.259,
+      "voice": 15.359,
+      "end": 17.762,
+      "b": 17.862,
+      "say": "The catch: approval, and it takes weeks, not days.",
+      "show": "The catch: approval, and weeks, not days."
+    },
+    {
+      "a": 17.862,
+      "voice": 17.962,
+      "end": 20.995,
+      "b": 21.095,
+      "say": "Send this to the friend who keeps asking how to earn from home.",
+      "show": "Send this to the friend who asks how to earn from home."
+    },
+    {
+      "a": 21.095,
+      "voice": 21.195,
+      "end": 22.845,
+      "b": 24.25,
+      "say": "Type SITES below for the full list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

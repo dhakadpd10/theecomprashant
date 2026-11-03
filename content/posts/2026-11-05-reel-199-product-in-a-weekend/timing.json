@@ -1,0 +1,65 @@
+{
+  "dur": 29.09,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.795,
+      "b": 3.895,
+      "say": "You don't need design skills to sell a planner for under two hundred rupees.",
+      "show": "No design skills? Sell a ₹199 planner."
+    },
+    {
+      "a": 3.895,
+      "voice": 3.995,
+      "end": 6.686,
+      "b": 6.786,
+      "say": "Saturday morning, pick one thing people ask you about.",
+      "show": "Saturday morning: pick what people ask you about."
+    },
+    {
+      "a": 6.786,
+      "voice": 6.886,
+      "end": 9.747,
+      "b": 9.847,
+      "say": "Saturday afternoon, draft it with Claude or Gemini.",
+      "show": "Saturday: draft it with Claude or Gemini."
+    },
+    {
+      "a": 9.847,
+      "voice": 9.947,
+      "end": 13.829,
+      "b": 13.929,
+      "say": "Sunday, design it in Canva AI, and list it on Gumroad that night.",
+      "show": "Sunday: design in Canva AI, list on Gumroad."
+    },
+    {
+      "a": 13.929,
+      "voice": 14.029,
+      "end": 18.411,
+      "b": 18.511,
+      "say": "Example: a handful of sales makes almost two thousand rupees, before fees.",
+      "show": "Example: 10 sales = ₹1,990, before fees."
+    },
+    {
+      "a": 18.511,
+      "voice": 18.611,
+      "end": 23.083,
+      "b": 23.183,
+      "say": "The catch: most first launches sell zero in week one, because buyers need to trust you.",
+      "show": "The catch: most first products sell zero."
+    },
+    {
+      "a": 23.183,
+      "voice": 23.283,
+      "end": 27.693,
+      "b": 29.09,
+      "say": "Send this to the friend who's always making notes for everyone, and comment PRODUCT.",
+      "show": "Send this to the notes friend. Comment PRODUCT."
+    }
+  ]
+}

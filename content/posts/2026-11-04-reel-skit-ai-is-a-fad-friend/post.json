@@ -1,0 +1,157 @@
+{
+  "id": "2026-11-04-reel-skit-ai-is-a-fad-friend",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skit",
+  "keyword": "SKILL",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(1|180|fad|Fiverr|Contra|Prolific|chai|SIX|MONTHS|LATER|catch|Send|SKILL)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6A4F"
+  },
+  "lines": [
+    {
+      "say": "First day: AI is a fad. Half a year later: teach me Fiverr.",
+      "show": "Day 1: fad. Day 180: help me join Fiverr.",
+      "card": "DAY 1  /  DAY 180",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "And that's why AI is just a fad, bro.",
+      "show": "...and that's why AI is a fad, bro.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Six months later.",
+      "show": "SIX MONTHS LATER",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Same stall. Same friend. Whispering.",
+      "show": "Same stall. Same friend. Whispering.",
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Bro, how do I make a Fiverr profile?",
+      "show": "Bhai, how do I make a Fiverr profile?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "I just slid my chai across.",
+      "show": "I just slid my chai across.",
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "smug",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Start here: Fiverr and Contra for gigs, Prolific for paid studies.",
+      "show": "Fiverr, Contra: gigs. Prolific: paid studies.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The catch: first orders take weeks, and Prolific isn't open everywhere.",
+      "show": "The catch: weeks to a first order. Not every country.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who still calls it a fad, and type SKILL below.",
+      "show": "Send this to the fad friend. Comment SKILL.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line8.end+0.3",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "DAY 1: AI IS A FAD",
+      "DAY 180: HELP ME JOIN FIVERR"
+    ]
+  },
+  "endcard": {
+    "title": "3 real places to start",
+    "items": [
+      "Fiverr (fiverr.com): AI gigs",
+      "Contra (contra.com): no commission",
+      "Prolific (prolific.com): paid studies"
+    ],
+    "pill": "Free roadmap: SKILL"
+  },
+  "caption": "Comment SKILL for the free 30-Day AI Skill Roadmap.\n\nWhere your friend can start this week:\n1. Fiverr (fiverr.com): sell gigs like AI thumbnails or AI video editing.\n2. Contra (contra.com): a freelance profile with no commission.\n3. Prolific (prolific.com): paid research studies, some of them about AI.\n\nWhat you need: a phone, the free tier of any AI tool, and one skill you can show in a sample.\n\nThe catch: the first order can take weeks, and Prolific isn't open in every country, so check yours before signing up. Never pay a joining fee. Real sites pay you.\n\nSend this to the friend who still calls it a fad.\n\nComment SKILL and I'll DM you the roadmap. Results vary.\n\n#makemoneywithai #sidehustleindia #aiskills",
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "hook": "#13 Before And After, On Screen",
+    "hook_secondary": "#21 Mid-Sentence Start (line 1, cold open at the chai stall)",
+    "kind": "skit",
+    "style": "editorial-host",
+    "keyword": "SKILL",
+    "format": "reel",
+    "slot_ist": "",
+    "tweak": "untested: skit ends on one card with 3 real places to start (Fiverr, Contra, Prolific)",
+    "keyword_placement": "caption line 1, end card, and spoken once as SKILL in the last line after the send line (house rule in docs/MONEY.md and the checker; the brief asked for caption and end card only)"
+  }
+}

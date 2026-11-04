@@ -1,0 +1,340 @@
+<style>
+  /* explainer: one idea (a deepfake ad is a real clip with fake words), one analogy (a dubbed film).
+     colour = meaning: green = real / safe, red = fake / scam, amber = be careful, blue = what you check */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(43,79,216,0.08) 0%, rgba(43,79,216,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(198,47,47,0.06) 0%, rgba(198,47,47,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 76px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 130px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .it2 { font-family: 'Playfair Italic', serif; font-style: normal; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6E6862; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #157A45; } .red { background: #C62F2F; } .amber { background: #E8A317; color: #1E1A16; } .blue { background: var(--accent); }
+  .row { position: absolute; left: 36px; right: 36px; border-radius: 26px; background: #F6F5F2; }
+  .row .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .row .chip { right: 24px; top: 50%; margin-top: -30px; }
+  .blk { position: absolute; left: 30px; right: 30px; border-radius: 26px; background: #F6F5F2; }
+  .stamp { position: absolute; box-sizing: border-box; border: 8px solid #C62F2F; border-radius: 18px; color: #C62F2F; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 54px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.72); }
+
+  /* 0: hook */
+  #s0-step { top: 60px; color: #C62F2F; }
+  #s0-title { top: 110px; font-size: 124px; transform-origin: left top; }
+  #s0-stamp { left: 730px; top: 284px; width: 220px; height: 104px; }
+
+  /* 1: the ad your parents saw */
+  #s1-card { top: 450px; height: 600px; }
+  #s1-ava { position: absolute; left: 30px; top: 30px; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #E8A317, #C62F2F); }
+  #s1-name { position: absolute; left: 122px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s1-spon { left: 122px; top: 72px; }
+  #s1-video { position: absolute; left: 30px; right: 30px; top: 126px; height: 310px; border-radius: 24px; background: linear-gradient(160deg, #2E3550 0%, #151824 100%); overflow: hidden; }
+  #s1-fig { position: absolute; left: 170px; top: 24px; width: 260px; height: 286px; }
+  #s1-live { left: 20px; top: 20px; }
+  #s1-banner { position: absolute; left: 0; right: 0; bottom: 40px; height: 78px; background: #C62F2F; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+  #s1-track { position: absolute; left: 20px; right: 20px; bottom: 16px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.25); }
+  #s1-play { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 4px; background: #FFFFFF; transform-origin: left center; }
+  #s1-apply { position: absolute; left: 30px; top: 466px; width: 300px; height: 96px; border-radius: 48px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  #s1-note { right: 36px; top: 502px; }
+
+  /* 2: like a dubbed film */
+  #s2-card { top: 450px; height: 620px; }
+  #s2-screen { position: absolute; left: 30px; right: 30px; top: 30px; height: 300px; border-radius: 24px; background: #151824; overflow: hidden; }
+  .sprk { position: absolute; left: 0; right: 0; height: 22px; background: repeating-linear-gradient(90deg, rgba(243,238,229,0.45) 0 22px, transparent 22px 44px); }
+  #sp1 { top: 8px; } #sp2 { bottom: 8px; }
+  #s2-face { position: absolute; left: 100px; top: 50px; width: 200px; height: 200px; }
+  #s2-wave { position: absolute; left: 350px; top: 95px; width: 210px; height: 110px; display: flex; align-items: center; gap: 14px; }
+  #s2-wave i { display: block; width: 18px; border-radius: 9px; background: #E05555; }
+  #w1 { height: 40px; } #w2 { height: 80px; } #w3 { height: 110px; } #w4 { height: 70px; } #w5 { height: 100px; } #w6 { height: 50px; } #w7 { height: 30px; }
+  #s2 .row { height: 110px; }
+  #s2-r1 { top: 360px; } #s2-r2 { top: 490px; }
+
+  /* 3: the recipe (host hidden, full width) */
+  #s3-card { top: 440px; height: 660px; }
+  #s3 .row { height: 120px; }
+  #s3-r1 { top: 36px; } #s3-r2 { top: 176px; } #s3-r3 { top: 316px; }
+  #s3 .row .t { left: 128px; }
+  .ico { position: absolute; left: 20px; top: 20px; width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+  .ico svg { display: block; width: 48px; height: 48px; }
+  #s3-res { position: absolute; left: 36px; right: 36px; top: 470px; height: 156px; border-radius: 30px; background: var(--ink); }
+  #s3-res .t { position: absolute; left: 40px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; color: #F3EEE5; white-space: nowrap; }
+  #s3-res .chip { right: 30px; top: 48px; }
+
+  /* 4: pay first */
+  #s4-card { top: 450px; height: 620px; }
+  #s4-head { left: 36px; top: 34px; }
+  #s4 .row { height: 110px; }
+  #s4-r1 { top: 84px; }
+  #s4-fee { position: absolute; left: 36px; right: 36px; top: 220px; height: 230px; border-radius: 26px; background: #FBF1EE; }
+  #s4-fee-l { left: 32px; top: 24px; }
+  #s4-ex { right: 28px; top: 24px; }
+  #s4-amt { position: absolute; left: 28px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 104px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  #s4-pay { position: absolute; left: 36px; right: 36px; top: 476px; height: 110px; border-radius: 55px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #s4-stamp { left: 370px; top: 268px; width: 240px; height: 110px; }
+
+  /* 5: flagged */
+  #s5-card { top: 450px; height: 620px; }
+  #s5-shield { position: absolute; left: 36px; top: 36px; width: 110px; height: 130px; }
+  #s5-i4c { position: absolute; left: 170px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 104px; line-height: 1.1; color: var(--accent); white-space: nowrap; }
+  #s5-sub { left: 174px; top: 148px; }
+  #s5 .row { height: 100px; }
+  #s5-r1 { top: 206px; } #s5-r2 { top: 322px; } #s5-r3 { top: 438px; }
+  .thumb { position: absolute; left: 18px; top: 20px; width: 90px; height: 60px; border-radius: 14px; background: linear-gradient(160deg, #2E3550, #151824); overflow: hidden; }
+  .thumb i { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; display: block; background: #C62F2F; }
+  #s5 .row .t { left: 128px; font-size: 36px; }
+  #s5 .row .chip { right: 18px; top: 20px; margin-top: 0; }
+  #s5-note { left: 36px; top: 562px; }
+
+  /* 6: three checks (the payoff) */
+  #s6-card { top: 450px; height: 590px; }
+  #s6-dots { position: absolute; left: 32px; top: 32px; width: 100px; height: 24px; display: flex; gap: 12px; }
+  #s6-dots i { display: block; width: 22px; height: 22px; border-radius: 50%; }
+  #s6-head { left: 130px; top: 28px; }
+  #s6-badge { position: absolute; right: 30px; top: 16px; width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #s6 .row { height: 130px; }
+  #s6-r1 { top: 96px; } #s6-r2 { top: 246px; } #s6-r3 { top: 396px; }
+  #s6-ring { position: absolute; left: 36px; right: 36px; top: 96px; height: 130px; box-sizing: border-box; border-radius: 26px; border: 5px solid var(--accent); }
+
+  /* 7: report it */
+  #s7-card { top: 450px; height: 620px; }
+  #s7-a { top: 30px; height: 262px; }
+  #s7-a-l { left: 28px; top: 22px; }
+  #s7-url { position: absolute; left: 24px; right: 24px; top: 64px; height: 84px; border-radius: 42px; background: #FFFFFF; box-shadow: 0 8px 20px rgba(60,40,20,0.08); }
+  #s7-lock { position: absolute; left: 26px; top: 22px; width: 36px; height: 40px; }
+  #s7-url-t { position: absolute; left: 80px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s7-btn { position: absolute; left: 24px; top: 172px; width: 330px; height: 68px; border-radius: 34px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #s7-tap { position: absolute; left: 250px; top: 166px; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  #s7-b { top: 316px; height: 274px; }
+  #s7-b-l { left: 28px; top: 22px; }
+  #s7-num { position: absolute; left: 24px; top: 56px; height: 130px; display: flex; }
+  #s7-num div { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 104px; line-height: 1.2; color: var(--accent); }
+  #s7-call { position: absolute; right: 28px; top: 66px; width: 120px; height: 120px; border-radius: 50%; background: #157A45; display: flex; align-items: center; justify-content: center; }
+  #s7-call svg { display: block; width: 64px; height: 64px; }
+  #s7-b-n { left: 28px; top: 212px; }
+
+  /* 8: the catch */
+  #s8-card { top: 450px; height: 560px; }
+  #s8 .blk { height: 230px; }
+  #s8-a { top: 30px; } #s8-b { top: 290px; background: #EEF1FF; }
+  .pic { position: absolute; left: 28px; top: 30px; width: 170px; height: 170px; border-radius: 22px; overflow: hidden; }
+  #s8-face { background: linear-gradient(160deg, #2E3550, #151824); }
+  #s8-face svg { position: absolute; left: 15px; top: 15px; width: 140px; height: 140px; }
+  #s8-src { background: #FFFFFF; }
+  #s8-src svg { position: absolute; left: 45px; top: 20px; width: 80px; height: 80px; }
+  #s8-src-t { position: absolute; left: 0; right: 0; top: 112px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; color: var(--accent); }
+  #s8 .blk .t { position: absolute; left: 226px; top: 40px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s8 .blk .chip { left: 226px; top: 120px; }
+  #s8-mag { position: absolute; left: 500px; top: 80px; width: 120px; height: 120px; }
+
+  /* 9: send this, comment SAFE */
+  #s9-title { top: 60px; }
+  #s9-who { top: 196px; }
+  #s9-chat { top: 270px; height: 520px; background: #EFE9DF; }
+  #s9-bar { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #1F5C45; }
+  #s9-gava { position: absolute; left: 28px; top: 18px; width: 60px; height: 60px; border-radius: 50%; background: #F3EEE5; }
+  #s9-gname { position: absolute; left: 108px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #FFFFFF; white-space: nowrap; }
+  #s9-bub { position: absolute; left: 56px; right: 24px; top: 120px; height: 376px; border-radius: 26px 6px 26px 26px; background: #FFFFFF; box-shadow: 0 10px 24px rgba(60,40,20,0.10); transform-origin: right top; }
+  #s9-ct { position: absolute; left: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .tk { position: absolute; left: 28px; right: 24px; height: 60px; }
+  .tk i { position: absolute; left: 0; top: 8px; width: 44px; height: 44px; border-radius: 50%; background: #157A45; display: block; }
+  .tk i svg { display: block; width: 44px; height: 44px; }
+  .tk .t { position: absolute; left: 62px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s9-k1 { top: 86px; } #s9-k2 { top: 160px; } #s9-k3 { top: 234px; }
+  #s9-bl { left: 28px; top: 318px; }
+  #s9-free { position: absolute; left: 820px; top: 236px; width: 140px; height: 64px; border-radius: 32px; background: #E8A317; color: #1E1A16; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s9-pill { position: absolute; left: 360px; right: 60px; top: 830px; height: 180px; border-radius: 90px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; }
+  #s9-c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #s9-kw { display: flex; }
+  #s9-kw div { display: block; font-family: var(--display); font-size: 104px; line-height: 1; color: #A9B9FF; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i><i><b id="p9"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">DEEPFAKE ADS</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Seeing isn't</span></span><span class="mask"><span class="l it">believing.</span></span></div>
+  <div class="stamp" id="s0-stamp" data-layout-allow-overlap>FAKE</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">AFTER DINNER</div>
+  <div class="title"><span class="mask"><span class="l">Free</span></span><span class="mask"><span class="l it">money?</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-ava"></div>
+    <div id="s1-name">Scheme Updates</div>
+    <div class="lbl" id="s1-spon">SPONSORED</div>
+    <div id="s1-video">
+      <svg id="s1-fig" viewBox="0 0 260 286">
+        <path d="M40 286 C40 210 80 180 130 180 C180 180 220 210 220 286 Z" fill="#3A4466"></path>
+        <path d="M110 182 L130 214 L150 182 Z" fill="#F3EEE5"></path>
+        <rect x="116" y="148" width="28" height="38" fill="#C99A78"></rect>
+        <ellipse cx="130" cy="108" rx="48" ry="56" fill="#D9A984"></ellipse>
+        <path d="M82 100 C82 52 178 52 178 100 C170 76 150 68 130 68 C110 68 90 76 82 100 Z" fill="#8C8C8C"></path>
+        <circle cx="112" cy="104" r="5" fill="#2B2B2B"></circle>
+        <circle cx="148" cy="104" r="5" fill="#2B2B2B"></circle>
+        <ellipse id="s1-mouth" cx="130" cy="136" rx="14" ry="7" fill="#6B2B2B"></ellipse>
+      </svg>
+      <div class="chip red" id="s1-live">LIVE</div>
+      <div id="s1-banner" data-layout-allow-overlap>FREE MONEY</div>
+      <div id="s1-track"><i id="s1-play"></i></div>
+    </div>
+    <div id="s1-apply">Apply now</div>
+    <div class="lbl" id="s1-note">EXAMPLE AD</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE ANALOGY</div>
+  <div class="title"><span class="mask"><span class="l">Like a</span></span><span class="mask"><span class="l it">dubbed film.</span></span></div>
+  <div class="card" id="s2-card">
+    <div id="s2-screen">
+      <i class="sprk" id="sp1"></i><i class="sprk" id="sp2"></i>
+      <svg id="s2-face" viewBox="0 0 200 200">
+        <path d="M30 200 C30 160 60 150 100 150 C140 150 170 160 170 200 Z" fill="#3A4466"></path>
+        <ellipse cx="100" cy="90" rx="54" ry="62" fill="#D9A984"></ellipse>
+        <path d="M46 84 C46 30 154 30 154 84 C146 58 126 48 100 48 C74 48 54 58 46 84 Z" fill="#2B2B2B"></path>
+        <circle cx="80" cy="88" r="6" fill="#2B2B2B"></circle>
+        <circle cx="120" cy="88" r="6" fill="#2B2B2B"></circle>
+        <ellipse id="s2-mouth" cx="100" cy="124" rx="18" ry="9" fill="#6B2B2B"></ellipse>
+      </svg>
+      <div id="s2-wave"><i id="w1"></i><i id="w2"></i><i id="w3"></i><i id="w4"></i><i id="w5"></i><i id="w6"></i><i id="w7"></i></div>
+    </div>
+    <div class="row" id="s2-r1"><div class="t">His mouth</div><div class="chip green" id="s2-c1">REAL</div></div>
+    <div class="row" id="s2-r2"><div class="t">The words</div><div class="chip red" id="s2-c2">DUBBED</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE RECIPE</div>
+  <div class="title"><span class="mask"><span class="l">How it's</span></span><span class="mask"><span class="l it">made.</span></span></div>
+  <div class="card wide" id="s3-card">
+    <div class="row" id="s3-r1">
+      <div class="ico green" id="s3-i1"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="4" fill="none" stroke="#FFFFFF" stroke-width="4"></rect><path d="M20 17 L31 24 L20 31 Z" fill="#FFFFFF"></path></svg></div>
+      <div class="t">Real clip</div><div class="chip green" id="s3-c1">REAL</div>
+    </div>
+    <div class="row" id="s3-r2">
+      <div class="ico red" id="s3-i2"><svg viewBox="0 0 48 48"><path d="M8 24 V24 M16 16 V32 M24 9 V39 M32 16 V32 M40 21 V27" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path></svg></div>
+      <div class="t">+ Copied voice</div><div class="chip red" id="s3-c2">AI</div>
+    </div>
+    <div class="row" id="s3-r3">
+      <div class="ico red" id="s3-i3"><svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="4" fill="none" stroke="#FFFFFF" stroke-width="4"></rect><path d="M16 16 H32 M16 24 H32 M16 32 H26" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"></path></svg></div>
+      <div class="t">+ New script</div><div class="chip red" id="s3-c3">FAKE</div>
+    </div>
+    <div id="s3-res"><div class="t">= Deepfake ad</div><div class="chip red" id="s3-c4">SCAM</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE TRAP</div>
+  <div class="title"><span class="mask"><span class="l">Pay a fee</span></span><span class="mask"><span class="l it">first?</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-head">FAKE SCHEME PAGE · EXAMPLE</div>
+    <div class="row" id="s4-r1"><div class="t">Free money</div><div class="chip green" id="s4-c1">APPROVED</div></div>
+    <div id="s4-fee">
+      <div class="lbl" id="s4-fee-l">FEE TO PAY FIRST</div>
+      <div class="lbl" id="s4-ex">EXAMPLE</div>
+      <div id="s4-amt">₹499</div>
+    </div>
+    <div id="s4-pay">Pay with UPI</div>
+    <div class="stamp" id="s4-stamp" data-layout-allow-overlap>SCAM</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">IN THE NEWS</div>
+  <div class="title"><span class="mask"><span class="l">Already</span></span><span class="mask"><span class="l it">flagged.</span></span></div>
+  <div class="card" id="s5-card">
+    <svg id="s5-shield" viewBox="0 0 110 130"><path d="M55 4 L104 22 V62 C104 96 82 118 55 126 C28 118 6 96 6 62 V22 Z" fill="#2B4FD8"></path><path d="M32 64 L49 81 L80 48" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div id="s5-i4c">I4C</div>
+    <div class="lbl" id="s5-sub">GOVT. CYBERCRIME CENTRE</div>
+    <div class="row" id="s5-r1"><div class="thumb"><i></i></div><div class="t">Scheme ad</div><div class="chip red" id="s5-c1">FLAGGED</div></div>
+    <div class="row" id="s5-r2"><div class="thumb"><i></i></div><div class="t">Free cash ad</div><div class="chip red" id="s5-c2">FLAGGED</div></div>
+    <div class="row" id="s5-r3"><div class="thumb"><i></i></div><div class="t">Fake CM clip</div><div class="chip red" id="s5-c3">FLAGGED</div></div>
+    <div class="lbl" id="s5-note">PER NEWS REPORTS · EXAMPLE ADS</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CHECK</div>
+  <div class="title"><span class="mask"><span class="l">Check</span></span><span class="mask"><span class="l it">three things.</span></span></div>
+  <div class="card" id="s6-card">
+    <div id="s6-dots"><i style="background:#C62F2F"></i><i style="background:#E8A317"></i><i style="background:#157A45"></i></div>
+    <div class="lbl" id="s6-head">BEFORE YOU TRUST AN AD</div>
+    <div id="s6-badge">3</div>
+    <div class="row" id="s6-r1"><div class="t">.gov.in site?</div><div class="chip green" id="s6-c1">NEEDED</div></div>
+    <div class="row" id="s6-r2"><div class="t">Pay first?</div><div class="chip red" id="s6-c2">SCAM</div></div>
+    <div class="row" id="s6-r3"><div class="t">From an ad?</div><div class="chip amber" id="s6-c3">CAREFUL</div></div>
+    <div id="s6-ring" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">WHAT TO DO</div>
+  <div class="title"><span class="mask"><span class="l">Got one?</span></span><span class="mask"><span class="l it">Report it.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="blk" id="s7-a">
+      <div class="lbl" id="s7-a-l">WEBSITE</div>
+      <div id="s7-url">
+        <svg id="s7-lock" viewBox="0 0 36 40"><path d="M10 18 V12 C10 2 26 2 26 12 V18" fill="none" stroke="#157A45" stroke-width="5"></path><rect x="4" y="17" width="28" height="21" rx="5" fill="#157A45"></rect></svg>
+        <div id="s7-url-t">cybercrime.gov.in</div>
+      </div>
+      <div id="s7-btn">File a complaint</div>
+      <div id="s7-tap" data-layout-allow-overlap></div>
+    </div>
+    <div class="blk" id="s7-b">
+      <div class="lbl" id="s7-b-l">OR CALL</div>
+      <div id="s7-num"><div id="s7-d1">1</div><div id="s7-d2">9</div><div id="s7-d3">3</div><div id="s7-d4">0</div></div>
+      <div id="s7-call"><svg viewBox="0 0 72 72"><path d="M18 10 C14 10 10 14 10 18 C10 40 32 62 54 62 C58 62 62 58 62 54 L62 46 L48 40 L42 46 C34 42 30 38 26 30 L32 24 L26 10 Z" fill="#FFFFFF"></path></svg></div>
+      <div class="lbl" id="s7-b-n">NATIONAL CYBER CRIME HELPLINE</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check the</span></span><span class="mask"><span class="l it">source.</span></span></div>
+  <div class="card" id="s8-card">
+    <div class="blk" id="s8-a">
+      <div class="pic" id="s8-face"><svg viewBox="0 0 200 200"><path d="M30 200 C30 160 60 150 100 150 C140 150 170 160 170 200 Z" fill="#3A4466"></path><ellipse cx="100" cy="90" rx="54" ry="62" fill="#D9A984"></ellipse><path d="M46 84 C46 30 154 30 154 84 C146 58 126 48 100 48 C74 48 54 58 46 84 Z" fill="#8C8C8C"></path><circle cx="80" cy="88" r="6" fill="#2B2B2B"></circle><circle cx="120" cy="88" r="6" fill="#2B2B2B"></circle><path d="M84 122 Q100 132 116 122" fill="none" stroke="#6B2B2B" stroke-width="6" stroke-linecap="round"></path></svg></div>
+      <div class="t">The face</div>
+      <div class="chip red" id="s8-c1">CAN LIE</div>
+    </div>
+    <div class="blk" id="s8-b">
+      <div class="pic" id="s8-src"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="#2B4FD8" stroke-width="6"></circle><ellipse cx="40" cy="40" rx="14" ry="32" fill="none" stroke="#2B4FD8" stroke-width="5"></ellipse><path d="M10 40 H70 M16 24 H64 M16 56 H64" stroke="#2B4FD8" stroke-width="4"></path></svg><div id="s8-src-t">.gov.in</div></div>
+      <div class="t">The source</div>
+      <div class="chip green" id="s8-c2">CHECK THIS</div>
+    </div>
+    <svg id="s8-mag" viewBox="0 0 120 120" data-layout-allow-overlap><circle cx="50" cy="50" r="36" fill="rgba(255,255,255,0.35)" stroke="#1E1A16" stroke-width="10"></circle><path d="M77 77 L108 108" stroke="#1E1A16" stroke-width="14" stroke-linecap="round"></path></svg>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="title" id="s9-title"><span class="mask"><span class="l">Send <span class="it2">this.</span></span></span></div>
+  <div class="step" id="s9-who">TO YOUR FAMILY GROUP</div>
+  <div class="card" id="s9-chat">
+    <div id="s9-bar"><div id="s9-gava"></div><div id="s9-gname">Family group</div></div>
+    <div id="s9-bub">
+      <div id="s9-ct">Family AI Safety Card</div>
+      <div class="tk" id="s9-k1"><i id="s9-t1"><svg viewBox="0 0 44 44"><path d="M12 23 L19 30 L32 15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Made for your family</div></div>
+      <div class="tk" id="s9-k2"><i id="s9-t2"><svg viewBox="0 0 44 44"><path d="M12 23 L19 30 L32 15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">Step-by-step privacy</div></div>
+      <div class="tk" id="s9-k3"><i id="s9-t3"><svg viewBox="0 0 44 44"><path d="M12 23 L19 30 L32 15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></i><div class="t">WhatsApp version</div></div>
+      <div class="lbl" id="s9-bl">ONE PAGE · FREE</div>
+    </div>
+  </div>
+  <div id="s9-free" data-layout-allow-overlap>FREE</div>
+  <div id="s9-pill"><div id="s9-c">Comment</div><div id="s9-kw"><div id="s9-L1">S</div><div id="s9-L2">A</div><div id="s9-L3">F</div><div id="s9-L4">E</div></div></div>
+</section>

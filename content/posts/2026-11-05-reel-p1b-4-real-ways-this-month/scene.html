@@ -1,0 +1,16 @@
+<style>
+  /* ARM B PATCH: line 0 only. Generic opener, no named person or place.
+     Host is centre from frame y 570 down, so everything here sits above frame y 540 (section y 420). */
+  #s0-step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  #s0-title { position: absolute; left: 90px; top: 112px; width: 860px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 124px; line-height: 1.0; color: var(--ink); transform-origin: left top; }
+  #s0-title .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  #s0-title .mask > span { display: block; }
+  #s0-title .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  #s0-pw { position: relative; display: inline-block; transform-origin: center bottom; }
+  #s0-swash { position: absolute; left: 2%; bottom: -16px; width: 96%; height: 24px; }
+</style>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-step">NOBODY TELLS YOU</div>
+  <div id="s0-title"><span class="mask"><span class="l">Which AI</span></span><span class="mask"><span class="l">work <span class="it" id="s0-pw">pays?<svg id="s0-swash" viewBox="0 0 300 24" preserveAspectRatio="none"><path id="s0-swash-p" d="M4 16 Q 80 4 150 14 T 296 10" fill="none" stroke="#C8552B" stroke-width="7" stroke-linecap="round" stroke-dasharray="320" stroke-dashoffset="320"></path></svg></span></span></span></div>
+</section>

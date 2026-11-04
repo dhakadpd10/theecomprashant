@@ -1,0 +1,298 @@
+<style>
+  /* Tutorial explainer, hostel Part 2: one free AI turns one skill into a Fiverr gig.
+     Analogy: a gig is a dhaba menu (1 dish, 3 plates). Colour = meaning:
+     blue = you and your gig, green = done / live / free, amber = the catch. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,91,211,0.08) 0%, rgba(47,91,211,0) 70%); }
+  #orb2 { left: 560px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 70px; height: 40px; display: flex; align-items: center; gap: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .it.ok { color: #157A44; }
+  .it.warn { color: #94600A; }
+
+  .card { position: absolute; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,45,20,0.13), 0 2px 0 rgba(70,45,20,0.05); overflow: hidden; }
+  .L { left: 60px; right: 360px; }
+  .W { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+  .green { background: #157A44; } .blue { background: var(--accent); }
+  .row { position: absolute; left: 36px; right: 36px; border-radius: 24px; background: #F6F5F2; }
+  .row .t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .row .chip { right: 22px; }
+  .pk { display: flex; align-items: center; justify-content: center; height: 72px; padding: 0 22px; border-radius: 36px; border: 3px solid var(--accent); background: #EEF2FD; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; white-space: nowrap; }
+  .ph { position: absolute; top: 100px; width: 90px; height: 160px; border-radius: 14px; box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    background: linear-gradient(#C9D6F7, #C9D6F7) 10px 12px / 70px 70px no-repeat, linear-gradient(#DCDAD6, #DCDAD6) 10px 96px / 70px 10px no-repeat, linear-gradient(#DCDAD6, #DCDAD6) 10px 116px / 48px 10px no-repeat, #FFFFFF; }
+
+  /* 0: hook */
+  #s0-step { top: 70px; }
+  #s0-title { top: 120px; font-size: 124px; }
+  #s0-free { position: absolute; left: 800px; top: 40px; width: 150px; height: 150px; border-radius: 50%; background: #157A44; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; line-height: 1.05; letter-spacing: 0.06em; box-shadow: 0 16px 34px rgba(21,122,68,0.3); }
+  #s0-free span { display: block; }
+
+  /* 1: the hostel room, ready to go */
+  #s1-dot { display: block; width: 18px; height: 18px; border-radius: 50%; background: #C8352B; }
+  #s1-card { top: 410px; height: 620px; }
+  #s1-card .row { height: 110px; }
+  #s1-card .chip { top: 25px; }
+  #r1 { top: 36px; } #r2 { top: 166px; } #r3 { top: 296px; background: #EEF2FD; } #r4 { top: 426px; }
+  #s1-note { left: 40px; top: 568px; }
+
+  /* 2: the dhaba menu */
+  #s2-card { top: 410px; height: 640px; background: #23312A; }
+  #s2-card .lbl { color: rgba(246,238,219,0.8); }
+  #s2-head { left: 40px; top: 32px; }
+  #s2-ex { right: 40px; top: 32px; }
+  #s2-col { right: 40px; top: 222px; }
+  .slot { position: absolute; left: 36px; right: 36px; border-radius: 22px; border: 3px dashed rgba(246,238,219,0.45); background: rgba(246,238,219,0); }
+  .slot .in { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+  #dish { top: 84px; height: 110px; }
+  #dish .in { display: flex; align-items: center; padding-left: 30px; font-family: 'Permanent Marker', cursive; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #pl1 { top: 262px; height: 100px; } #pl2 { top: 382px; height: 100px; } #pl3 { top: 502px; height: 100px; }
+  .plate { position: absolute; left: 20px; top: 10px; width: 80px; height: 80px; display: block; }
+  .slot .nm { position: absolute; left: 120px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .slot .v { position: absolute; right: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--accent); }
+
+  /* progress bar for the three steps */
+  #bar { position: absolute; left: 90px; right: 90px; top: 24px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  /* 3: step 1, the free AI app */
+  #s3-card { top: 410px; height: 660px; }
+  .dots3 { position: absolute; left: 36px; top: 34px; display: flex; gap: 10px; }
+  .dots3 i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #DCD8D1; }
+  #s3-app { left: 120px; top: 28px; }
+  #s3-ask { position: absolute; right: 36px; top: 84px; width: 480px; height: 170px; border-radius: 28px 28px 8px 28px; background: #E8EEFC; }
+  #s3-paste { position: absolute; left: 28px; top: 24px; height: 52px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--accent); white-space: nowrap; }
+  #s3-paste svg { display: block; width: 28px; height: 38px; }
+  #s3-skill { position: absolute; left: 28px; top: 96px; display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s3-dots { position: absolute; left: 36px; top: 282px; width: 120px; height: 56px; border-radius: 28px; background: #F2F0EC; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  #s3-dots i { display: block; width: 14px; height: 14px; border-radius: 50%; background: #9A958E; }
+  #s3-rl { right: 36px; top: 294px; }
+  #s3-card .row { height: 70px; }
+  #s3-card .chip { height: 50px; top: 10px; }
+  #a1 { top: 350px; } #a2 { top: 428px; } #a3 { top: 506px; } #a4 { top: 584px; }
+
+  /* 4: step 2, Canva makes the gig image */
+  #s4-card { top: 410px; height: 580px; }
+  #s4-lbl { left: 36px; top: 28px; }
+  #canvas { position: absolute; left: 36px; right: 36px; top: 76px; height: 360px; border-radius: 22px; overflow: hidden; background: #EDEBE6; }
+  #cv-bg { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: linear-gradient(135deg, #2F5BD3 0%, #1B2F7A 100%); }
+  #cv-txt { position: absolute; left: 36px; top: 80px; width: 330px; }
+  .cvm { display: block; overflow: hidden; padding-bottom: 0.08em; }
+  .cvm > span { display: block; font-family: var(--display); font-size: 56px; line-height: 1.05; color: #FFFFFF; white-space: nowrap; }
+  #cv-sub { left: 36px; top: 262px; color: rgba(255,255,255,0.88); }
+  #ph1 { left: 380px; } #ph2 { left: 435px; } #ph3 { left: 490px; }
+  #tools { position: absolute; left: 36px; top: 470px; display: flex; gap: 16px; }
+  .tool { display: flex; align-items: center; justify-content: center; height: 70px; padding: 0 26px; border-radius: 35px; background: #ECEBE7; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; }
+
+  /* 5: step 3, the Fiverr gig form (host hidden, full width) */
+  #s5-card { top: 400px; height: 770px; }
+  .fld { position: absolute; left: 36px; right: 36px; height: 88px; border-radius: 20px; border: 3px solid #E6E3DD; background: #FAF9F6; }
+  .fld .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #f1l { left: 36px; top: 30px; } #f1b { top: 64px; }
+  #f2l { left: 36px; top: 180px; }
+  #s5-pks { position: absolute; left: 36px; top: 214px; display: flex; gap: 18px; }
+  #f3l { left: 36px; top: 320px; } #f3b { top: 354px; }
+  #f3t { color: rgba(30,26,22,0.7); }
+  #f4l { left: 36px; top: 470px; }
+  #f4-th { position: absolute; left: 36px; top: 504px; width: 170px; height: 102px; border-radius: 14px; background: linear-gradient(135deg, #2F5BD3 0%, #1B2F7A 100%); }
+  #f4-t { position: absolute; left: 236px; top: 504px; height: 102px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5-free { position: absolute; left: 36px; top: 650px; height: 80px; padding: 0 30px; border-radius: 40px; background: #157A44; color: #FFFFFF; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.04em; white-space: nowrap; }
+  #s5-pub { position: absolute; right: 36px; top: 642px; width: 260px; height: 96px; border-radius: 48px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; }
+
+  /* 6: the result, the gig page */
+  #s6-card { top: 410px; height: 650px; }
+  #g-lbl { left: 36px; top: 26px; }
+  #g-img { position: absolute; left: 36px; right: 36px; top: 70px; height: 260px; border-radius: 22px; overflow: hidden; background: linear-gradient(135deg, #2F5BD3 0%, #1B2F7A 100%); }
+  #g-imgt { position: absolute; left: 30px; top: 40px; width: 300px; font-family: var(--display); font-size: 34px; line-height: 1.2; color: #FFFFFF; }
+  #s6 .ph { top: 60px; }
+  #g-live { position: absolute; left: 330px; top: 270px; width: 200px; height: 84px; border: 7px solid #157A44; border-radius: 16px; background: rgba(255,255,255,0.95); color: #157A44; display: flex; align-items: center; justify-content: center; gap: 12px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.12em; }
+  #g-live i { display: block; width: 18px; height: 18px; border-radius: 50%; background: #157A44; }
+  #g-sel { position: absolute; left: 36px; right: 36px; top: 356px; height: 60px; display: flex; align-items: center; gap: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #g-sel svg { display: block; width: 56px; height: 56px; }
+  #g-title { position: absolute; left: 36px; right: 36px; top: 432px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; color: var(--ink); }
+  #g-tabs { position: absolute; left: 36px; top: 548px; display: flex; gap: 14px; }
+  #g-tabs .pk { padding: 0 18px; }
+
+  /* 7: the catch */
+  #s7-step { color: #94600A; }
+  #s7-a { top: 410px; height: 290px; }
+  #s7-al { left: 36px; top: 28px; } #s7-ex { right: 36px; top: 28px; }
+  #wk { position: absolute; left: 36px; right: 36px; top: 80px; height: 120px; display: flex; gap: 16px; }
+  .wk { flex: 1; height: 120px; border-radius: 22px; background: #F2F0EC; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s7-an { left: 36px; top: 228px; }
+  #s7-b { top: 730px; height: 270px; }
+  #s7-bl { left: 36px; top: 28px; }
+  #sp { position: absolute; left: 36px; right: 36px; top: 80px; height: 100px; border-radius: 24px; overflow: hidden; background: var(--accent); }
+  #sp-you { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: #FFFFFF; white-space: nowrap; }
+  #sp-fv { position: absolute; right: 0; top: 0; bottom: 0; width: 20%; background: #E8A317; transform-origin: right center; }
+  #sp-fvt { position: absolute; right: 0; top: 0; bottom: 0; width: 20%; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); }
+  #s7-fee { left: 36px; top: 210px; }
+
+  /* 8: send + keyword */
+  #s8 .title { font-size: 96px; }
+  #s8-chat { top: 390px; height: 180px; }
+  #s8-av { position: absolute; left: 30px; top: 45px; width: 90px; height: 90px; display: block; }
+  #s8-dots { position: absolute; left: 140px; top: 62px; width: 120px; height: 56px; border-radius: 28px; background: #F2F0EC; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  #s8-dots i { display: block; width: 14px; height: 14px; border-radius: 50%; background: #9A958E; }
+  #s8-bub { position: absolute; left: 140px; right: 30px; top: 40px; height: 100px; border-radius: 8px 30px 30px 30px; background: #F2F0EC; display: flex; align-items: center; padding-left: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .tile { position: absolute; top: 610px; width: 170px; height: 200px; border-radius: 30px; border: 4px dashed rgba(47,91,211,0.5); background: rgba(255,255,255,0); overflow: hidden; }
+  #gk1 { left: 90px; } #gk2 { left: 280px; } #gk3 { left: 470px; }
+  .tile .ch { display: block; position: absolute; left: 0; right: 0; top: 16px; text-align: center; font-family: var(--display); font-size: 150px; line-height: 1; color: var(--accent); }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 850px; height: 110px; border-radius: 55px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; white-space: nowrap; }
+  #s8-pill b { color: #A9BEFF; font-weight: 900; margin: 0 10px; }
+  #s8-save { position: absolute; left: 90px; top: 990px; height: 120px; display: flex; align-items: center; gap: 24px; }
+  #bm { display: block; width: 64px; height: 90px; }
+  #s8-save .sv { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">HOSTEL ROOM · PART 2</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Your skill.</span></span><span class="mask"><span class="l">A Fiverr <span class="it">gig.</span></span></span></div>
+  <div id="s0-free" data-layout-allow-overlap><span>FREE</span><span>AI</span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step" id="s1-step"><i id="s1-dot"></i>LIVE FROM THE HOSTEL</div>
+  <div class="title"><span class="mask"><span class="l">Done</span></span><span class="mask"><span class="l it">live.</span></span></div>
+  <div class="card L" id="s1-card">
+    <div class="row" id="r1"><div class="t">Your phone</div><div class="chip green" id="c1">READY</div></div>
+    <div class="row" id="r2"><div class="t">Hostel Wi-Fi</div><div class="chip green" id="c2">READY</div></div>
+    <div class="row" id="r3"><div class="t">1 skill: captions</div><div class="chip blue" id="c3">YOURS</div></div>
+    <div class="row" id="r4"><div class="t">Cost to start</div><div class="chip green" id="c4">₹0</div></div>
+    <div class="lbl" id="s1-note">EXAMPLE SKILL · ALL FREE TOOLS</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">1 dish,</span></span><span class="mask"><span class="l">3 <span class="it">plates.</span></span></span></div>
+  <div class="card L" id="s2-card">
+    <div class="lbl" id="s2-head">DHABA MENU = YOUR GIG</div>
+    <div class="lbl" id="s2-ex">EXAMPLE</div>
+    <div class="slot" id="dish"><div class="in">Dish: Insta captions</div></div>
+    <div class="lbl" id="s2-col">CAPTIONS</div>
+    <div class="slot" id="pl1"><div class="in"><svg class="plate" viewBox="0 0 80 80"><circle cx="40" cy="40" r="22" fill="none" stroke="#1E1A16" stroke-width="5"></circle><circle cx="40" cy="40" r="11" fill="#2F5BD3"></circle></svg><div class="nm">Half · Basic</div><div class="v">5</div></div></div>
+    <div class="slot" id="pl2"><div class="in"><svg class="plate" viewBox="0 0 80 80"><circle cx="40" cy="40" r="29" fill="none" stroke="#1E1A16" stroke-width="5"></circle><circle cx="40" cy="40" r="15" fill="#2F5BD3"></circle></svg><div class="nm">Full · Standard</div><div class="v">15</div></div></div>
+    <div class="slot" id="pl3"><div class="in"><svg class="plate" viewBox="0 0 80 80"><circle cx="40" cy="40" r="36" fill="none" stroke="#1E1A16" stroke-width="5"></circle><circle cx="30" cy="34" r="8" fill="#2F5BD3"></circle><circle cx="50" cy="34" r="8" fill="#2F5BD3"></circle><circle cx="40" cy="52" r="8" fill="#2F5BD3"></circle></svg><div class="nm">Thali · Premium</div><div class="v">30</div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="sb" data-from="@line3" data-to="@line6">
+  <div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1 · FREE AI APP</div>
+  <div class="title"><span class="mask"><span class="l">Paste your</span></span><span class="mask"><span class="l it">skill.</span></span></div>
+  <div class="card L" id="s3-card">
+    <div class="dots3"><i></i><i></i><i></i></div>
+    <div class="lbl" id="s3-app">GEMINI OR CHATGPT</div>
+    <div id="s3-ask">
+      <div id="s3-paste"><svg viewBox="0 0 28 38"><path d="M20 10 V27 A6 6 0 0 1 8 27 V8 A4 4 0 0 1 16 8 V25 A2 2 0 0 1 12 25 V12" fill="none" stroke="#2F5BD3" stroke-width="3.5" stroke-linecap="round"></path></svg>Gig prompt, pasted</div>
+      <div id="s3-skill">My skill: captions</div>
+    </div>
+    <div id="s3-dots"><i></i><i></i><i></i></div>
+    <div class="lbl" id="s3-rl">AI REPLY</div>
+    <div class="row" id="a1"><div class="t">Gig title</div><div class="chip green" id="ac1">READY</div></div>
+    <div class="row" id="a2"><div class="t">3 packages</div><div class="chip green" id="ac2">READY</div></div>
+    <div class="row" id="a3"><div class="t">Description</div><div class="chip green" id="ac3">READY</div></div>
+    <div class="row" id="a4"><div class="t">First proposals</div><div class="chip green" id="ac4">READY</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2 · FREE CANVA</div>
+  <div class="title"><span class="mask"><span class="l">Make the</span></span><span class="mask"><span class="l it">image.</span></span></div>
+  <div class="card L" id="s4-card">
+    <div class="lbl" id="s4-lbl">YOUR GIG IMAGE</div>
+    <div id="canvas">
+      <div id="cv-bg"></div>
+      <div id="cv-txt"><span class="cvm"><span>Insta</span></span><span class="cvm"><span>captions</span></span></div>
+      <div class="lbl" id="cv-sub">WRITTEN FOR YOU</div>
+      <div class="ph" id="ph1" data-layout-allow-overlap></div>
+      <div class="ph" id="ph2" data-layout-allow-overlap></div>
+      <div class="ph" id="ph3" data-layout-allow-overlap></div>
+    </div>
+    <div id="tools"><div class="tool" id="tl1">TEXT</div><div class="tool" id="tl2">SHAPES</div><div class="tool" id="tl3">DOWNLOAD</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3 · FIVERR GIG FORM</div>
+  <div class="title"><span class="mask"><span class="l">Fill the</span></span><span class="mask"><span class="l it">form.</span></span></div>
+  <div class="card W" id="s5-card">
+    <div class="lbl" id="f1l">GIG TITLE</div>
+    <div class="fld" id="f1b"><div class="t" id="f1t">I will write your Instagram captions</div></div>
+    <div class="lbl" id="f2l">PACKAGES</div>
+    <div id="s5-pks"><div class="pk">Basic</div><div class="pk">Standard</div><div class="pk">Premium</div></div>
+    <div class="lbl" id="f3l">DESCRIPTION</div>
+    <div class="fld" id="f3b"><div class="t" id="f3t">Pasted from your AI reply</div></div>
+    <div class="lbl" id="f4l">GALLERY</div>
+    <div id="f4-th"></div>
+    <div id="f4-t">Your Canva image</div>
+    <div id="s5-free" data-layout-allow-overlap>FREE TO JOIN</div>
+    <div id="s5-pub">Publish</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Gig is</span></span><span class="mask"><span class="l it ok">live.</span></span></div>
+  <div class="card L" id="s6-card">
+    <div class="lbl" id="g-lbl">YOUR GIG PAGE</div>
+    <div id="g-img">
+      <div id="g-imgt">INSTA CAPTIONS</div>
+      <div class="ph" id="gph1" style="left: 380px;"></div>
+      <div class="ph" id="gph2" style="left: 435px;" data-layout-allow-overlap></div>
+      <div class="ph" id="gph3" style="left: 490px;" data-layout-allow-overlap></div>
+    </div>
+    <div id="g-live" data-layout-allow-overlap><i></i>LIVE</div>
+    <div id="g-sel"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#2F5BD3"></circle><circle cx="28" cy="22" r="10" fill="#FFFFFF"></circle><path d="M10 48 Q28 30 46 48" fill="#FFFFFF"></path></svg>You · new seller</div>
+    <div id="g-title">I will write your Instagram captions</div>
+    <div id="g-tabs"><div class="pk">Basic</div><div class="pk">Standard</div><div class="pk">Premium</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step" id="s7-step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">The</span></span><span class="mask"><span class="l it warn">catch.</span></span></div>
+  <div class="card L" id="s7-a">
+    <div class="lbl" id="s7-al">FIRST ORDER</div>
+    <div class="lbl" id="s7-ex">EXAMPLE WAIT</div>
+    <div id="wk"><div class="wk" id="w1">Wk 1</div><div class="wk" id="w2">Wk 2</div><div class="wk" id="w3">Wk 3</div><div class="wk" id="w4">Wk 4+</div></div>
+    <div class="lbl" id="s7-an">OFTEN WEEKS, NOT DAYS</div>
+  </div>
+  <div class="card L" id="s7-b">
+    <div class="lbl" id="s7-bl">EACH ORDER</div>
+    <div id="sp"><div id="sp-you">You 100%</div><i id="sp-fv"></i><div id="sp-fvt" data-layout-allow-overlap>0%</div></div>
+    <div class="lbl" id="s7-fee">FIVERR KEEPS 20% OF EACH ORDER</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title"><span class="mask"><span class="l">Send it to</span></span><span class="mask"><span class="l">your <span class="it">roommate.</span></span></span></div>
+  <div class="card L" id="s8-chat">
+    <svg id="s8-av" viewBox="0 0 90 90"><circle cx="45" cy="45" r="45" fill="#E8A317"></circle><circle cx="45" cy="36" r="15" fill="#FFFFFF"></circle><path d="M18 76 Q45 48 72 76" fill="#FFFFFF"></path></svg>
+    <div id="s8-dots" data-layout-allow-overlap><i></i><i></i><i></i></div>
+    <div id="s8-bub" data-layout-allow-overlap>I'll start next sem.</div>
+  </div>
+  <div class="tile" id="gk1"><span class="ch">G</span></div>
+  <div class="tile" id="gk2"><span class="ch">I</span></div>
+  <div class="tile" id="gk3"><span class="ch">G</span></div>
+  <div id="s8-pill">Comment <b>GIG</b> for the free prompt</div>
+  <div id="s8-save"><svg id="bm" viewBox="0 0 64 90"><path id="bm-p" d="M6 6 H58 V84 L32 64 L6 84 Z" fill="rgba(47,91,211,0)" stroke="#2F5BD3" stroke-width="6" stroke-linejoin="round"></path></svg><div class="sv">Save.</div></div>
+</section>

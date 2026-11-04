@@ -1,0 +1,139 @@
+{
+  "id": "2026-11-05-reel-canva-craft-shop-poster",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "CRAFT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Canva|Craft|free|cardboard|poster|samsoa|painter|layout|words|readable|₹15|check|Pro|Send|CRAFT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4BD8"
+  },
+  "lines": [
+    {
+      "say": "Watch Canva's new free AI turn this cardboard sign into a poster.",
+      "show": "Canva's free AI: cardboard to poster.",
+      "card": "CARDBOARD TO POSTER",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "You've seen it. Most AI pictures spell samosa as samsoa.",
+      "show": "Most AI garbles the words.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Canva Craft's different. It works like a signboard painter.",
+      "show": "Canva Craft works like a signboard painter.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "It pencils in the layout and the words first. Then it paints.",
+      "show": "Layout and words first, then the picture.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Fresh samosa, price and all. You can read every word.",
+      "show": "Fresh samosa ₹15 (EXAMPLE)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "And it's open to every Canva user, whether you run a shop or teach tuition.",
+      "show": "Open to every Canva user.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Here's the catch. Check every letter before you print.",
+      "show": "The catch: check every letter first.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Canva Brush, the editing one, isn't free. You'll need paid Pro.",
+      "show": "Canva Brush editing is Pro only.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the shop owner who's still writing prices on cardboard. Comment CRAFT.",
+      "show": "Send this. Comment CRAFT for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0",
+      "fx": "click"
+    },
+    {
+      "at": "@line1.voice+1.0",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+0.5",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.0",
+    "title": [
+      "CARDBOARD TO POSTER",
+      "CANVA'S FREE AI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

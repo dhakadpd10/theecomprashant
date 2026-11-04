@@ -1,0 +1,89 @@
+{
+  "dur": 36.08,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.684,
+      "b": 3.784,
+      "say": "Seeing is believing? Not anymore. This CM never said those words.",
+      "show": "Seeing is believing? Not anymore."
+    },
+    {
+      "a": 3.784,
+      "voice": 3.884,
+      "end": 6.885,
+      "b": 6.985,
+      "say": "Your parents saw this after dinner, on Facebook: free money.",
+      "show": "Parents, after dinner: free money?"
+    },
+    {
+      "a": 6.985,
+      "voice": 7.085,
+      "end": 9.843,
+      "b": 9.943,
+      "say": "Think of a dubbed film: his mouth, someone else's words.",
+      "show": "Like a dubbed film."
+    },
+    {
+      "a": 9.943,
+      "voice": 10.043,
+      "end": 12.8,
+      "b": 12.9,
+      "say": "A real clip, plus a copied voice, plus a new script.",
+      "show": "Real clip + copied voice + new script."
+    },
+    {
+      "a": 12.9,
+      "voice": 13,
+      "end": 15.309,
+      "b": 15.409,
+      "say": "Then it asks you to pay a fee first, from your phone.",
+      "show": "Then: pay ₹499 first. (EXAMPLE)"
+    },
+    {
+      "a": 15.409,
+      "voice": 15.509,
+      "end": 19.143,
+      "b": 19.243,
+      "say": "News reports say the government's cybercrime team flagged these ads.",
+      "show": "News reports say I4C flagged these."
+    },
+    {
+      "a": 19.243,
+      "voice": 19.343,
+      "end": 22.554,
+      "b": 22.654,
+      "say": "So check three things. A government site? Pay first? From an ad?",
+      "show": "On .gov.in? Pay first? From an ad?"
+    },
+    {
+      "a": 22.654,
+      "voice": 22.754,
+      "end": 27.466,
+      "b": 27.566,
+      "say": "Got one? Report it on the cybercrime government website, or call nineteen thirty.",
+      "show": "Report: cybercrime.gov.in or call 1930"
+    },
+    {
+      "a": 27.566,
+      "voice": 27.666,
+      "end": 31.027,
+      "b": 31.127,
+      "say": "The catch: some fakes look perfect. Check the source, not the face.",
+      "show": "Catch: check the source, not the face."
+    },
+    {
+      "a": 31.127,
+      "voice": 31.227,
+      "end": 34.68,
+      "b": 36.08,
+      "say": "Send this to your family WhatsApp group, and comment SAFE for the card.",
+      "show": "Send this. Comment SAFE for the card."
+    }
+  ]
+}

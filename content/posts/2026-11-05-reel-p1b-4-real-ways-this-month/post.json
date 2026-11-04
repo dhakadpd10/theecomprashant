@@ -1,0 +1,131 @@
+{
+  "id": "2026-11-05-reel-p1b-4-real-ways-this-month",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "_todo": [
+    "Do not render until every <<COPY ...>> string below is replaced word for word from arm A's post.json (2026-11-04, homemakers). The placeholders name arm A's lines in words: 'line one' is arm A lines[1], and so on up to 'line seven' for lines[7]. The 4 ways and their pay must come from arm A, which uses docs/MONEY.md. They are not filled in here, so no pay rate is invented.",
+    "Arm A's 'say' text already passed the checker, so copying it keeps numbers spelled as words. Do not retype it.",
+    "Overwrite hot, palette, every lines[n].host, sfx and cover.at with arm A's values. The values here are only placeholders of the right type, so the file parses.",
+    "Remove any named-viewer words (homemakers, home) from arm A's hot regex.",
+    "Only these differ from arm A: lines[0].say, lines[0].show, the first card in scene.html ('WHICH AI WORK PAYS', Playfair 110 px or more, 'pays' in accent italic) and cover.title (only if arm A's title names the homemakers).",
+    "The hook id is #3, not the #11 line in the brief, because pair 1 needs the same hook id in both arms and arm A used #3.",
+    "If arm B is already built, ignore this file and post the built one unchanged.",
+    "Log at publish: hook #3, kind 'money-list (carry-over)', style 'editorial-host', arm B, pair 1, keyword SITES, format reel, money angle yes, slot 5 Nov 09:00 IST (03:30 UTC). Keep it out of the kind count and the explainer-era median."
+  ],
+  "hot": "^(Nobody|pays|month|free|catch|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#C8552B"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells you which AI work actually pays this month. So I'll show you.",
+      "show": "Which AI work actually pays?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "<<COPY arm A line one say>>",
+      "show": "<<COPY arm A lines[1].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "<<COPY arm A line two say>>",
+      "show": "<<COPY arm A lines[2].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "<<COPY arm A line three say>>",
+      "show": "<<COPY arm A lines[3].show>>",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "<<COPY arm A line four say>>",
+      "show": "<<COPY arm A lines[4].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "<<COPY arm A line five say, the payoff line>>",
+      "show": "<<COPY arm A lines[5].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "<<COPY arm A line six say, the catch spoken out loud>>",
+      "show": "<<COPY arm A lines[6].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "<<COPY arm A line seven say, the send line and SITES>>",
+      "show": "<<COPY arm A lines[7].show>>",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line3+0.9",
+    "title": [
+      "WHICH AI WORK",
+      "ACTUALLY PAYS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "dur": 33.75,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.033,
+      "b": 4.133,
+      "say": "Watch Canva's new free AI turn this cardboard sign into a poster.",
+      "show": "Canva's free AI: cardboard to poster."
+    },
+    {
+      "a": 4.133,
+      "voice": 4.233,
+      "end": 7.607,
+      "b": 7.707,
+      "say": "You've seen it. Most AI pictures spell samosa as samsoa.",
+      "show": "Most AI garbles the words."
+    },
+    {
+      "a": 7.707,
+      "voice": 7.807,
+      "end": 10.849,
+      "b": 10.949,
+      "say": "Canva Craft's different. It works like a signboard painter.",
+      "show": "Canva Craft works like a signboard painter."
+    },
+    {
+      "a": 10.949,
+      "voice": 11.049,
+      "end": 14.086,
+      "b": 14.186,
+      "say": "It pencils in the layout and the words first. Then it paints.",
+      "show": "Layout and words first, then the picture."
+    },
+    {
+      "a": 14.186,
+      "voice": 14.286,
+      "end": 17.153,
+      "b": 17.253,
+      "say": "Fresh samosa, price and all. You can read every word.",
+      "show": "Fresh samosa ₹15 (EXAMPLE)"
+    },
+    {
+      "a": 17.253,
+      "voice": 17.353,
+      "end": 21.439,
+      "b": 21.539,
+      "say": "And it's open to every Canva user, whether you run a shop or teach tuition.",
+      "show": "Open to every Canva user."
+    },
+    {
+      "a": 21.539,
+      "voice": 21.639,
+      "end": 23.95,
+      "b": 24.05,
+      "say": "Here's the catch. Check every letter before you print.",
+      "show": "The catch: check every letter first."
+    },
+    {
+      "a": 24.05,
+      "voice": 24.15,
+      "end": 27.369,
+      "b": 27.469,
+      "say": "Canva Brush, the editing one, isn't free. You'll need paid Pro.",
+      "show": "Canva Brush editing is Pro only."
+    },
+    {
+      "a": 27.469,
+      "voice": 27.569,
+      "end": 32.349,
+      "b": 33.75,
+      "say": "Send this to the shop owner who's still writing prices on cardboard. Comment CRAFT.",
+      "show": "Send this. Comment CRAFT for the prompt."
+    }
+  ]
+}

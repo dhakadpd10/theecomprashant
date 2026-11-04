@@ -1,0 +1,73 @@
+{
+  "dur": 19.96,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.199,
+      "b": 4.299,
+      "say": "Nobody tells you which AI work actually pays this month. So I'll show you.",
+      "show": "Which AI work actually pays?"
+    },
+    {
+      "a": 4.299,
+      "voice": 4.399,
+      "end": 5.736,
+      "b": 5.836,
+      "say": "<<COPY arm A line one say>>",
+      "show": "<<COPY arm A lines[1].show>>"
+    },
+    {
+      "a": 5.836,
+      "voice": 5.936,
+      "end": 7.295,
+      "b": 7.395,
+      "say": "<<COPY arm A line two say>>",
+      "show": "<<COPY arm A lines[2].show>>"
+    },
+    {
+      "a": 7.395,
+      "voice": 7.495,
+      "end": 8.813,
+      "b": 8.913,
+      "say": "<<COPY arm A line three say>>",
+      "show": "<<COPY arm A lines[3].show>>"
+    },
+    {
+      "a": 8.913,
+      "voice": 9.013,
+      "end": 10.329,
+      "b": 10.429,
+      "say": "<<COPY arm A line four say>>",
+      "show": "<<COPY arm A lines[4].show>>"
+    },
+    {
+      "a": 10.429,
+      "voice": 10.529,
+      "end": 12.621,
+      "b": 12.721,
+      "say": "<<COPY arm A line five say, the payoff line>>",
+      "show": "<<COPY arm A lines[5].show>>"
+    },
+    {
+      "a": 12.721,
+      "voice": 12.821,
+      "end": 15.577,
+      "b": 15.677,
+      "say": "<<COPY arm A line six say, the catch spoken out loud>>",
+      "show": "<<COPY arm A lines[6].show>>"
+    },
+    {
+      "a": 15.677,
+      "voice": 15.777,
+      "end": 18.562,
+      "b": 19.96,
+      "say": "<<COPY arm A line seven say, the send line and SITES>>",
+      "show": "<<COPY arm A lines[7].show>>"
+    }
+  ]
+}

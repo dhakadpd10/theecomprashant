@@ -4,6 +4,30 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-11-04
 
+- **The pull is moving again, but the log still has gaps.**
+  - Hostel went from 1,212 to 1,216 views, and three 4 Nov reels appeared, so the snapshot is not frozen.
+  - The pull still has no timestamp.
+  - Five slots have no row: 2 Nov 07:30 and 14:00 UTC, and all three on 3 Nov.
+  - Hostel Part 2 went out at 06:46 UTC (12:16 IST), off-slot and 44 minutes before the 13:00 reel.
+- **Sends cluster on 'N ways' lists aimed at a named person in a named place (hunch, n=3 against 3).**
+  - Hostel got 16 sends, homemakers (pair 1 A) 3 and hostel Part 2 3.
+  - The three SITES reels without a named person and place got 0.
+  - The sending reels used three different hooks (#11, #3 and #19), so hostel's hit looks less like a #11 effect than last week's read suggested.
+  - Two of the three are hours old, and their sends haven't been checked for Prashant's own.
+  - Confounds: the sending reels are mixed lists, while the non-sending reels are about training sites only.
+- **Money-era baseline recomputed.** With hostel and the 20-buyers prompt now past 72 hours, it is 79.5 views and 71.5 reach (n=12, exp2b excluded).
+  - It becomes 96 views and 89 reach once Canva vs Gumroad passes 72 hours.
+  - Seller episodes had a median of 126 views. Only 2 of 18 new-niche reels have broken 130 reach.
+- **First explainer (voice clone, #2, SAFE): 5.5s average watch against the non-skit money median of 4.2s (n=13). It has 0 sends and 0 saves.**
+  - It is n=1 and hours old, so this is nothing yet.
+  - Watch time still doesn't track sends: the sending reels watched 3.5 to 6.0s.
+- **Logging still blocks every hook and profile verdict.**
+  - Hold@3s, follows and non-follower % are on 0 of 39 reels, and kind is blank on 39 of 39.
+  - Style is 'motion' on all 18 new-niche reels, including the explainer.
+  - Arm and pair live only in slugs. There is still no daily follower count.
+
+## Week of 2026-11-04
+
 - **The data is still frozen: this pull matches the 3 Nov pull row for row, across all 36 reels.**
   - The newest logged reel is 2 Nov 03:30 UTC. Every slot from 2 Nov 07:30 UTC onward is missing from the log.
   - Not one view moved, on old reels or new. That points to a stale snapshot or a stalled scheduler, not a quiet page.

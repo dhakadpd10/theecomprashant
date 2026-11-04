@@ -1,0 +1,144 @@
+{
+  "id": "2026-11-04-reel-explain-voice-clone-call-back",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "SAFE",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|AI|copies|voice|mimic|UPI|now|Hang|back|phone|catch|pause|1930|family|SAFE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2A4FD6"
+  },
+  "lines": [
+    {
+      "say": "Stop paying when beta's voice calls in a panic. Call back first.",
+      "show": "Stop paying. Call back first.",
+      "card": "HANG UP. CALL BACK.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "AI copies a voice from posted clips, like the wedding mimic copying mama.",
+      "show": "AI copies a voice, like a sangeet mimic.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "The copy calls: accident, send money on UPI now.",
+      "show": "Accident. Send money on UPI now.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Hang up, call back on the number you saved, then decide.",
+      "show": "Hang up. Call back. Then decide.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The mimic copies mama's voice, not mama's phone.",
+      "show": "Copies mama's voice. Not mama's phone.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it only works if you pause.",
+      "show": "The catch: it only works if you pause.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Money gone? Ring nineteen thirty fast. Getting it back isn't certain.",
+      "show": "Money gone? Call 1930. Recovery isn't certain.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the family group, the one where mummy reads everything.",
+      "show": "Send this to the family group.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Type SAFE below and get the family checklist.",
+      "show": "Comment SAFE for the card.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0+0.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line2.voice+1.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+1.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+2.6",
+      "fx": "ding"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "THAT CALL WASN'T",
+      "YOUR SON"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

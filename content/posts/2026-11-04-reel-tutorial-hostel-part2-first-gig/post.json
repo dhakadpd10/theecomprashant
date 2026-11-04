@@ -1,0 +1,140 @@
+{
+  "id": "2026-11-04-reel-tutorial-hostel-part2-first-gig",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "GIG",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hook": "18",
+  "part": 2,
+  "series": "hostel",
+  "money_angle": true,
+  "hot": "^(free|skill|gig|Gig|menu|dhaba|plates|live|weeks|twenty|20|roommate|GIG)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F5BD3"
+  },
+  "lines": [
+    {
+      "say": "Watch one free AI turn your skill into a Fiverr gig.",
+      "show": "1 free AI. Your skill. A Fiverr gig.",
+      "card": "1 SKILL. GIG LIVE TONIGHT",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Still in your college room? Here's the one I'd start with, done live.",
+      "show": "Still in the hostel room? Done live.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "A gig is a food stall menu: one dish, three plates.",
+      "show": "A gig is a dhaba menu: 1 dish, 3 plates.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one: paste the gig prompt and your skill into a free AI app, like Gemini.",
+      "show": "Step 1: gig prompt + your skill, free ChatGPT or Gemini.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Step two: free Canva makes the image.",
+      "show": "Step 2: free Canva makes the image.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step three: Fiverr's gig form. Free to join.",
+      "show": "Step 3: Fiverr's gig form. Free to join.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Your menu board is live.",
+      "show": "Your menu board is live.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: first orders often take weeks. Fiverr keeps one fifth of each order.",
+      "show": "The catch: first orders take weeks. Fiverr keeps 20%.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to your roommate who keeps saying he'll start freelancing next sem. Type GIG below.",
+      "show": "Send it to your roommate. Comment GIG.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.end-0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line8.voice+1.4",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line6+0.8",
+    "title": [
+      "1 SKILL, 1 FREE AI",
+      "GIG LIVE TONIGHT"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

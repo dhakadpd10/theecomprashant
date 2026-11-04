@@ -1,0 +1,73 @@
+{
+  "dur": 27.21,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.77,
+      "b": 3.87,
+      "say": "Stop typing nice poster. Most image tools can't clear that up.",
+      "show": "Stop typing 'nice poster'."
+    },
+    {
+      "a": 3.87,
+      "voice": 3.97,
+      "end": 8.383,
+      "b": 8.483,
+      "say": "They don't draw. They clean up random noise step by step, like wiping a foggy mirror.",
+      "show": "AI doesn't draw. It un-blurs."
+    },
+    {
+      "a": 8.483,
+      "voice": 8.583,
+      "end": 11.166,
+      "b": 11.266,
+      "say": "Your words guide each wipe. Red auto, rain, night.",
+      "show": "Your words guide each wipe."
+    },
+    {
+      "a": 11.266,
+      "voice": 11.366,
+      "end": 13.785,
+      "b": 13.885,
+      "say": "Nice poster guides nothing, so the fog stays.",
+      "show": "Vague words leave the fog."
+    },
+    {
+      "a": 13.885,
+      "voice": 13.985,
+      "end": 16.385,
+      "b": 16.485,
+      "say": "Name the thing, weather and time, and it wipes clear.",
+      "show": "Thing, weather, time: wiped clear."
+    },
+    {
+      "a": 16.485,
+      "voice": 16.585,
+      "end": 20.245,
+      "b": 20.345,
+      "say": "The catch: text and hands still often go wrong. Check before posting.",
+      "show": "The catch: check text and hands."
+    },
+    {
+      "a": 20.345,
+      "voice": 20.445,
+      "end": 24.055,
+      "b": 24.155,
+      "say": "Send this to the friend whose AI pictures always come out strange.",
+      "show": "Send this to the friend with strange AI pictures."
+    },
+    {
+      "a": 24.155,
+      "voice": 24.255,
+      "end": 25.807,
+      "b": 27.21,
+      "say": "Comment BRIEF for the Brief Builder.",
+      "show": "Comment BRIEF for the Brief Builder."
+    }
+  ]
+}

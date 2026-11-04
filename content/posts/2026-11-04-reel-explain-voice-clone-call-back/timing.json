@@ -1,0 +1,81 @@
+{
+  "dur": 29.53,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.64,
+      "b": 3.74,
+      "say": "Stop paying when beta's voice calls in a panic. Call back first.",
+      "show": "Stop paying. Call back first."
+    },
+    {
+      "a": 3.74,
+      "voice": 3.84,
+      "end": 8.044,
+      "b": 8.144,
+      "say": "AI copies a voice from posted clips, like the wedding mimic copying mama.",
+      "show": "AI copies a voice, like a sangeet mimic."
+    },
+    {
+      "a": 8.144,
+      "voice": 8.244,
+      "end": 11.307,
+      "b": 11.407,
+      "say": "The copy calls: accident, send money on UPI now.",
+      "show": "Accident. Send money on UPI now."
+    },
+    {
+      "a": 11.407,
+      "voice": 11.507,
+      "end": 14.056,
+      "b": 14.156,
+      "say": "Hang up, call back on the number you saved, then decide.",
+      "show": "Hang up. Call back. Then decide."
+    },
+    {
+      "a": 14.156,
+      "voice": 14.256,
+      "end": 16.78,
+      "b": 16.88,
+      "say": "The mimic copies mama's voice, not mama's phone.",
+      "show": "Copies mama's voice. Not mama's phone."
+    },
+    {
+      "a": 16.88,
+      "voice": 16.98,
+      "end": 18.635,
+      "b": 18.735,
+      "say": "The catch: it only works if you pause.",
+      "show": "The catch: it only works if you pause."
+    },
+    {
+      "a": 18.735,
+      "voice": 18.835,
+      "end": 22.094,
+      "b": 22.194,
+      "say": "Money gone? Ring nineteen thirty fast. Getting it back isn't certain.",
+      "show": "Money gone? Call 1930. Recovery isn't certain."
+    },
+    {
+      "a": 22.194,
+      "voice": 22.294,
+      "end": 25.632,
+      "b": 25.732,
+      "say": "Send this to the family group, the one where mummy reads everything.",
+      "show": "Send this to the family group."
+    },
+    {
+      "a": 25.732,
+      "voice": 25.832,
+      "end": 28.131,
+      "b": 29.53,
+      "say": "Type SAFE below and get the family checklist.",
+      "show": "Comment SAFE for the card."
+    }
+  ]
+}

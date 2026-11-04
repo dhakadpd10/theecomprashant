@@ -4,6 +4,28 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-11-04
 
+- **The data is still frozen: this pull matches the 3 Nov pull row for row, across all 36 reels.**
+  - The newest logged reel is 2 Nov 03:30 UTC. Every slot from 2 Nov 07:30 UTC onward is missing from the log.
+  - Not one view moved, on old reels or new. That points to a stale snapshot or a stalled scheduler, not a quiet page.
+  - Treat it as a pipeline fault until a timestamped pull shows otherwise. Hostel stopping at 1,212 is not a finding.
+- **The evidence is unchanged. One reel carries the new niche.**
+  - Hostel (#11, SITES) is 21.5x the new-niche median of 56.5. It holds 16 of 17 sends, 26 of 30 saves and 53% of new-niche reach (1,047 of 1,993).
+  - Its named viewer, named place, #11 hook and 4-item card all coincide, so the cause can't be separated. n=1, hunch.
+  - Only 2 of 15 new reels broke 130 reach.
+- **The explainer format goes live today with no explainer data yet. These priors carry over:**
+  - Naming the viewer and place (n=1). This is now the experiment.
+  - The screenshot card (hostel's 26 saves).
+  - Whole-reel training-sites topics are weak (0 for 3).
+  - Skits get reach without action (0 sends in 3). The new format drops them.
+  - Non-skit money reels held a median of 4.4s (n=11). That is the watch-time bar explainers have to beat. Watch time did not predict reach before, so read it next to sends.
+- **Logging still blocks every hook and profile verdict.**
+  - Hold@3s, follows and non-follower % are on 0 of 36 posts.
+  - Kind is blank on 36 of 36. Style is 'motion' on 15 of 15 new reels.
+  - There is no daily follower count and no arm or pair column.
+- **If a fresh pull shows the 1 Nov reels are past 72 hours, the money-era baseline moves from 56.5 to 96 views (50 to 89 reach).** Recompute it before reading any multiple.
+
+## Week of 2026-11-04
+
 - **No new evidence: this pull matches the 3 Nov pull row for row.**
   - Hostel is still at 1,212 views, 1,047 reach, 16 sends and 26 saves.
   - The newest logged reel is 2 Nov 03:30 UTC. The 2 Nov 07:30 and 14:00 UTC slots have nothing in the log.

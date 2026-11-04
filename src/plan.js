@@ -29,7 +29,7 @@ function pyJSON(script, input) { // run one of the skill scripts on some text, r
   try { return JSON.parse(r.stdout); } catch { return null; }
 }
 
-const SYSTEM = () => `You are Theecomprashant, the content agent for an Instagram page about real ways to make money with AI, run by Prashant (an Indian founder who builds AI systems for brands). The audience is broad: students, 9-to-5ers, freelancers, homemakers and small business owners in India who want a side income with AI. You write reels and carousels in a fixed house format and you never invent results, clients or revenue. Example numbers must be labelled as examples. Every post gives away a real free tool reached by commenting one keyword.
+const SYSTEM = () => `You are Theecomprashant, the content agent for an Instagram page of value-first AI explainer reels (one useful AI idea per reel, explained so visually that a beginner gets it), run by Prashant (an Indian founder who builds AI systems for brands). The audience is broad: students, 9-to-5ers, freelancers, homemakers and small business owners in India who use AI on their phone, or want to. You write reels and carousels in a fixed house format and you never invent results, clients or revenue. Example numbers must be labelled as examples. Every post gives away a real free tool reached by commenting one keyword.
 
 ${brand()}`;
 
@@ -98,7 +98,7 @@ async function weeklyReport(summary, week) { // a GitHub issue, so Prashant gets
 async function research() {
   const text = await ask({
     system: SYSTEM(), effort: 'medium', web: true, maxTokens: 16000,
-    prompt: `Search the web for what changed in the last 14 days that opens a real way to earn money with AI, for beginners in India: new paid programs (AI training platforms hiring, student programs, creator funds, contests with prizes), new free AI tools or features that make a sellable service easier (Claude, ChatGPT, Gemini, Canva, CapCut, ElevenLabs, Instagram, YouTube), freelance demand people are discussing, and new scams to warn about. Return 6 to 10 short bullets, each with what it is, who can earn from it and how, and a source link from the company itself where possible. Skip pure model news with no way to earn.`,
+    prompt: `Search the web for what changed in the last 14 days in AI that a beginner in India could use or would wonder about: new free AI tools and features (Claude, ChatGPT, Gemini, NotebookLM, Canva, CapCut, Meta AI, phone built-in AI), things people are confused or wrong about (how AI works, privacy, mistakes it makes), useful how-tos people are searching for, and scams that use AI. Return 6 to 10 short bullets, each with what it is, why a beginner would care, and a source link from the company itself where possible. Skip benchmark and funding news.`,
   });
   return text;
 }
@@ -173,7 +173,7 @@ ${researchNotes || 'none'}
 Reel styles: ${storyCount} of the ${reels} reels are "story": a 3D cartoon episode where Bunty (a loud, lovable Jaipur kurta-brand founder) hits a real D2C problem and Prashant fixes it with AI on his phone, then a twist and the free tool. Plan each one as a story: Bunty's specific pain (a number or a moment), the mistake behind it, the fix the free tool delivers, and a funny twist. Vary the problems week to week (COD returns, product pages, ads, WhatsApp, pricing, reviews, festive sales, repeat orders, support), never the same mistake twice in a row.${motionCount ? ` ${motionCount} reels are "motion" (motion graphics for numbers, steps and news).` : ''}${worldReels - motionCount > 0 ? ` The rest are "world" (character panels judging the viewer's thing).` : ''}
 ${worldReels ? `Every non-story reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).` : 'Story reels need no world.'}
 
-${cfg.motion?.host ? `Every reel is a "motion" reel in the editorial theme, hosted by Prashant as a 2D character with his pressure cooker (it whistles when the money moment lands). The page is about real ways to make money with AI. Give each reel a "kind" from docs/MONEY.md, in about this mix: ${Object.entries(cfg.motion.mix || {}).map(([k, v]) => `${Math.round(v * 100)}% "${k}"`).join(', ')}. Never the same kind twice in a row. Audience: students, 9-to-5ers, freelancers, homemakers and small business owners in India who want a side income with AI, so every topic must be something a viewer would send to a friend. The free tools are prompts: pick the keyword whose tool fits the reel.
+${cfg.motion?.host ? `Every reel is a "motion" reel in the editorial theme, hosted by Prashant as a 2D character with his pressure cooker (it whistles on the "now I get it" moment). Every reel is a value-first AI explainer. Give each reel a "kind" from docs/EXPLAINER.md, in about this mix: ${Object.entries(cfg.motion.mix || {}).map(([k, v]) => `${Math.round(v * 100)}% "${k}"`).join(', ')}. Never the same kind twice in a row. Audience: students, 9-to-5ers, freelancers, homemakers and small business owners in India who use AI on their phone, so every topic must teach one useful thing a viewer would send to a friend. The free tools are prompts: pick the keyword whose tool fits the reel.
 
 ` : ''}Two kinds of story reel (Adley Kinsman's "entertain the masses, educate the interested, sell to the committed"):
 - ${skitCount} are kind "skit": pure comedy about D2C founder life for reach, no lesson and no fix. One premise you get in a second (a contrast like "Bunty when they pay online vs cash on delivery", a choice game, an escalation, a feeling every founder knows), ending on a punchline. The keyword is the free tool closest to the skit's theme; only the caption asks for it.
@@ -183,8 +183,12 @@ Spread the skits out: never two skits in a row.
 Her system in full (use it for every angle and hook):
 ${readText(P('docs/ADLEY.md'))}
 
-The niche, formats and honesty rules (docs/MONEY.md, Prashant's 28 Oct 2026 decision; this outranks everything below when they clash):
-${readText(P('docs/MONEY.md'))}
+The format, kinds, story arc and honesty rules (docs/EXPLAINER.md, Prashant's 30 Oct 2026 decision; this outranks everything below when they clash):
+${readText(P('docs/EXPLAINER.md'))}
+
+When a reel touches money, these honesty rules and platforms also apply (docs/MONEY.md):
+${readText(P('docs/MONEY.md')).split('## The six reel kinds')[0].split('## Honesty')[1] || ''}
+${(readText(P('docs/MONEY.md')).split('## Platforms we can name')[1] || '').split('## Topic bank')[0]}
 
 Pick topics the way the million-view accounts do:
 ${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}
@@ -199,7 +203,7 @@ Hook formulas (id name: best for). Pick the one that fits each reel's angle, fol
 ${hooks.map((h) => `${h.id} ${h.name}: ${h.best_for}`).join('\n')}
 
 Rules: reels are one idea told as a story with stakes; carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"${cfg.motion?.host ? 'SITES' : 'STORE'}","pillar":"${cfg.motion?.host ? 'Get paid' : 'Sell more'}","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"${cfg.motion?.host ? 'motion' : 'story'}","kind":"${cfg.motion?.host ? 'sites' : 'teach'}"${cfg.motion?.host ? ',"world":"desk"' : ''},"hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"${cfg.motion?.host ? 'TRUTH' : 'STORE'}","pillar":"${cfg.motion?.host ? 'How AI works' : 'Sell more'}","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"${cfg.motion?.host ? 'motion' : 'story'}","kind":"${cfg.motion?.host ? 'explain' : 'teach'}"${cfg.motion?.host ? ',"world":"desk"' : ''},"hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
 (style, kind and hook_formula only for reels, plus "world" for non-story reels; new_tools may be {}).`,
   });
 }
@@ -268,7 +272,7 @@ async function pickHook(d) {
     const res = await askJSON({
       system: SYSTEM(), effort: 'medium',
       validate: (v) => (Array.isArray(v.hooks) && v.hooks.length === 3 && v.hooks.every((h) => ids.includes(h.id) && h.spoken && h.on_screen) && new Set(v.hooks.map((h) => h.id)).size === 3 ? [] : ['return {"hooks":[three {"id","spoken","on_screen"} with three different formula ids]}']),
-      prompt: `${UNATTENDED}\n\nWrite three hook options for this reel, each off a different formula (the planner suggested #${d.hook_formula}; include it). The spoken line is the first sentence of the voiceover (under 3 seconds, 5 to 12 words, numbers as digits here); the on-screen line is 6 words or fewer. Never invent results: example numbers must be clearly examples or public data.\n\nAdley Kinsman's hook rules (apply all): every hook makes the viewer feel something (shock, embarrassment, envy, relief) and opens a curiosity gap; the "duh" test: if someone could answer it with "duh", rewrite it; open on the thing people want (money in their account, a first client, a side income next to their job), not on the tool; put a rupee figure or a named, real website, company or person in the first line when the reel has one; create an itch the reel only scratches at the end.${d.kind === 'skit' ? ' This reel is a comedy skit: the hook is the premise the viewer gets in one second (a contrast like "when they pay online vs cash on delivery", a choice game, an escalation), not a lesson.' : ''}\n\nReel: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword}.\n\nRules:\n- ${H.rules.join('\n- ')}\n\nFormulas:\n${JSON.stringify(H.hooks.map(card))}\n${feedback}\nReturn JSON only: {"hooks":[{"id":5,"spoken":"...","on_screen":"..."}]}`,
+      prompt: `${UNATTENDED}\n\nWrite three hook options for this reel, each off a different formula (the planner suggested #${d.hook_formula}; include it). The spoken line is the first sentence of the voiceover (under 3 seconds, 5 to 12 words, numbers as digits here); the on-screen line is 6 words or fewer. Never invent results: example numbers must be clearly examples or public data.\n\nAdley Kinsman's hook rules (apply all): every hook makes the viewer feel something (shock, embarrassment, envy, relief) and opens a curiosity gap; the "duh" test: if someone could answer it with "duh", rewrite it; open on the surprising truth or the result people want (a better answer, hours saved, a mistake they stop making), not on the tool; a named, real tool or a number in the first line beats a vague claim; create an itch the reel only scratches at the end.${d.kind === 'skit' ? ' This reel is a comedy skit: the hook is the premise the viewer gets in one second (a contrast like "when they pay online vs cash on delivery", a choice game, an escalation), not a lesson.' : ''}\n\nReel: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword}.\n\nRules:\n- ${H.rules.join('\n- ')}\n\nFormulas:\n${JSON.stringify(H.hooks.map(card))}\n${feedback}\nReturn JSON only: {"hooks":[{"id":5,"spoken":"...","on_screen":"..."}]}`,
     });
     const scored = pyJSON('skills/ig-reel/hookscore.py', res.hooks.map((h) => h.spoken.replace(/\n/g, ' ')).join('\n'));
     const opts = res.hooks.map((h, i) => ({ ...h, name: H.hooks.find((x) => x.id === h.id).name, score: scored?.[i]?.score ?? null, verdict: scored?.[i]?.verdict, weakest: scored?.[i]?.weakest }));
@@ -327,7 +331,7 @@ const USAGE_LIMIT = /usage limit|session limit|hit your .*limit/i;
 const MOTION_DOC = () => readText(P('docs/MOTION.md'));
 const MOTION_EXAMPLE = 'm01-five-questions';
 // with the 2D host on (config motion.host), the model reel is the hosted editorial sample
-const mex = (file) => (config().motion?.host ? readText(P('content/story-samples/e03-host-sites', file)) : example(MOTION_EXAMPLE, file));
+const mex = (file) => (config().motion?.host ? readText(P('content/story-samples/e04-explain-lies', file)) : example(MOTION_EXAMPLE, file));
 function motion(dir, ...args) {
   const r = spawnSync('node', [P('engine/motion.js'), dir, ...args], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
   return { ok: r.status === 0, out: (r.stdout || '') + (r.stderr || '') };
@@ -364,16 +368,15 @@ async function writeScene(dir, spec, tool) {
 
 // the three kinds of hosted reel (config motion.mix) and what each one is for
 const HOST_KIND = {
-  sites: 'This reel is kind "sites": "N websites that pay you for AI work". 3 to 5 real platforms from the list in docs/MONEY.md (or one this week\'s research found on the company\'s own site), each on one clean card: name, domain, what you do there, what the site says it pays (or "pay varies"), who it suits. The best one last. The host presents from the corner. End with the send line and the keyword card.',
-  prompt: 'This reel is kind "prompt": "I asked Claude to [make me money from X]. Here\'s the prompt." Show the prompt being typed in a chat card, then the answer arriving as 3 to 4 short cards (the ideas, a price in rupees, the first step). The free tool behind the keyword is the full prompt. The host reacts (think, then shock or smug).',
-  breakdown: 'This reel is kind "breakdown": one AI side income taken apart in rupees: what you sell, who pays, a beginner price, the free tools that do the work, hours per order, where to find the first buyer, and the catch said out loud. Numbers are realistic and labelled as examples where they are not public.',
-  news: 'This reel is kind "news": one real thing from this week\'s research that opens a way to earn (a program, a fund, a tool, a rule change). Name the company or person in the first line (borrowed authority), say who can earn and how, and what to do today. Never invent the news: it must be in the research notes.',
-  skills: 'This reel is kind "skills": "N AI skills people pay for in 2026", or a tier list ranking AI side hustles from S to D, each with one honest line. Opinionated so people comment, useful so people save. The host points and reacts per tier.',
-  skit: 'This reel is kind "skit": the host acts out a relatable money moment for reach (salary day vs day 5, the friend who says AI is a fad, the relative who asks what you do), centre stage most of the time, few cards, ending on a punchline; the lesson is one line at most and the caption carries the keyword.',
+  explain: 'This reel is kind "explain": how or why one thing in AI works, with ONE analogy from daily life kept through the whole reel. Hook = the surprising truth; then the mechanism as 2 or 3 diagrams that build piece by piece; then the payoff (what to do about it) and the catch. Model: the example below.',
+  tutorial: 'This reel is kind "tutorial": one useful thing done with AI in 3 steps, each step its own diagram card (the input, what to type, what comes back), and the FINISHED result shown as a full card on the payoff beat. Hook = the result first.',
+  prompt: 'This reel is kind "prompt": one prompt that makes AI much better at something. Show the plain answer (weak, red or grey), the prompt typing in, then the better answer (green) side by side or one after the other. The keyword DMs the full prompt.',
+  tool: 'This reel is kind "tool": one free AI tool or new feature (it must be in this week\'s research or be a well-known free tool): what it does, the result on screen, who it is for, and the catch. Never invent features or prices.',
+  compare: 'This reel is kind "compare": two or three tools or methods on the SAME task, shown in matching columns or rows, scored with the same chips, ending in one clear verdict and who should pick which. Only claims you can stand behind; say "in our test" for judgement calls.',
 };
 function hostBrief(cfg, d) {
   if (!cfg.motion?.host) return '';
-  return `\n\n${HOST_KIND[d.kind] || HOST_KIND.sites}\nSet "theme": "${cfg.motion.theme || 'editorial'}" and "host": { "name": "prashant" }, and give every line a "host" object (see "The host" in the guide). The cooker whistles once, on the money moment.\n\nThe niche and its rules (follow all of them, including the send line, the keyword card and honesty):\n${readText(P('docs/MONEY.md')).split('## Topic bank')[0]}\n\nWhat the million-view reels do:\n${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}\n\nAdley Kinsman's hook rules:\n${readText(P('docs/ADLEY.md')).split('## Her rules, the way we apply them')[1] || ''}`;
+  return `\n\n${HOST_KIND[d.kind] || HOST_KIND.explain}\nSet "theme": "${cfg.motion.theme || 'editorial'}" and "host": { "name": "prashant" }, and give every line a "host" object (see "The host" in the guide). The cooker whistles once, on the "now I get it" moment.\n\nThe explainer playbook (follow all of it: one idea, one analogy, diagrams that build, colour = meaning, the motion rules, the send line, the keyword card and honesty):\n${readText(P('docs/EXPLAINER.md')).split('## Topic bank')[0]}\n\nWhat the million-view reels do:\n${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}\n\nAdley Kinsman's hook rules:\n${readText(P('docs/ADLEY.md')).split('## Her rules, the way we apply them')[1] || ''}`;
 }
 async function makeMotionReel(d, id, dir) {
   const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);

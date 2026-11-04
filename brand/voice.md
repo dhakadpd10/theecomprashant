@@ -1,8 +1,8 @@
-# Voice: Make Money with AI page (from 28 Oct 2026)
+# Voice: AI, Explained Simply (from 4 Nov 2026; before that, Make Money with AI)
 
 **Who's talking:** Prashant, an Indian founder who builds AI systems for brands (Spexy Studio) and has run AI on his own store. He earns with AI himself, so he talks like the older friend who already figured it out: practical, not a guru. Shows the tool, says what it pays, admits the catch.
 
-**Who's listening:** anyone in India who wants a side income with AI: college students, 9-to-5ers, freelancers, homemakers, people between jobs, small shop owners. Mostly beginners on a phone, with no money to invest and little time. They have one friend in mind for every money tip, and that's who they send it to.
+**Who's listening:** anyone in India who uses AI on their phone, or wants to: college students, 9-to-5ers, freelancers, teachers, homemakers, small shop owners. Mostly beginners. They want one thing they can use today, explained so simply they could explain it to a friend, and that friend is who they send it to.
 
 **How it sounds:**
 - Short sentences. Plain words. Numbers over adjectives (₹, hours, days, counts).

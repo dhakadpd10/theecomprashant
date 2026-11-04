@@ -1,5 +1,5 @@
 {
-  "name": "Prashant | Make Money with AI",
+  "name": "Prashant | AI, Explained Simply",
   "handle": "@prashant.ai",
   "timezone_offset": "+05:30",
   "paused": {
@@ -20,7 +20,7 @@
       "format": "reel"
     }
   ],
-  "bio_line": "If you are new here, I am Prashant. I show real ways to make money with AI, and every reel comes with a free prompt.",
+  "bio_line": "If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.",
   "repost": {
     "min_outlier": 2,
     "min_views": 1000,
@@ -44,14 +44,13 @@
     "host": true,
     "theme": "editorial",
     "mix": {
-      "sites": 0.25,
+      "explain": 0.3,
+      "tutorial": 0.25,
       "prompt": 0.2,
-      "breakdown": 0.15,
-      "news": 0.1,
-      "skills": 0.15,
-      "skit": 0.15
+      "tool": 0.15,
+      "compare": 0.1
     },
-    "note": "28 Oct 2026: every reel is an editorial motion reel hosted by the 2D Prashant character, about making money with AI; mix = the six kinds in docs/MONEY.md"
+    "note": "30 Oct 2026: every reel is a value-first AI explainer (docs/EXPLAINER.md), editorial theme, hosted by the 2D Prashant character; mix = explain / tutorial / prompt / tool / compare"
   },
   "models": {
     "writer": "claude-opus-5-5",
@@ -135,6 +134,10 @@
     "GIG": {
       "tool": "gig",
       "title": "AI Gig Builder"
+    },
+    "TRUTH": {
+      "tool": "truth",
+      "title": "No-Guessing Prompt"
     }
   },
   "limits": {

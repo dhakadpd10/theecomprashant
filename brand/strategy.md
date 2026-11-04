@@ -1,8 +1,9 @@
 # Strategy for the week of 2026-11-04
 
-# Strategy for the week of 2026-11-04
-
 ## Prashant's standing decisions (these outrank everything below)
+
+### 30 Oct 2026 (live 4 Nov): every reel is a value-first AI explainer
+The playbook is docs/EXPLAINER.md and it outranks the 28 Oct money rules below. One useful AI idea per reel, one analogy, diagrams that build piece by piece, colour = meaning, the finished result on screen, the catch, then the send line and the keyword. Kinds: explain, tutorial, prompt, tool, compare. No skits and no pure news. The money angle is fine when the idea saves time or earns money, and then MONEY.md's honesty rules apply. Sample: content/story-samples/e04-explain-lies. Why: money reels held only 4.1 to 4.6 seconds of watch time on 25-second reels.
 
 ### 28 Oct 2026: new niche, make money with AI
 The page is about real ways to make money with AI, for a broad Indian audience: students, 9-to-5ers, freelancers, homemakers and small business owners. The playbook is docs/MONEY.md. Apply it to every reel:

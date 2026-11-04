@@ -1,0 +1,162 @@
+{
+  "id": "2026-11-06-reel-skit-its-just-ai-why-2000",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skit",
+  "keyword": "CLIENT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(₹2,000|₹2000|2,000|2000|AI|paying|nephew|ChatGPT|small|brief|revisions|deadline|tool|undercharges|CLIENT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#7A2E5C"
+  },
+  "lines": [
+    {
+      "say": "...and that's when he said, so much money? But AI made it na?",
+      "show": "₹2,000? But AI made it na?",
+      "card": "₹2,000? BUT AI MADE IT NA",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "I said, AI helps. He leaned in.",
+      "show": "I said, AI helps. He leaned in.",
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Then why am I paying you?",
+      "show": "Then why am I paying you?",
+      "card": "THEN WHY AM I PAYING YOU?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Then came the big one.",
+      "show": "Then came the big one.",
+      "host": {
+        "at": "center",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "My nephew also uses AI.",
+      "show": "My nephew also has ChatGPT.",
+      "card": "MY NEPHEW ALSO HAS CHATGPT",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Fine, uncle. Get it from him.",
+      "show": "Fine, uncle. Get it from him.",
+      "host": {
+        "at": "center",
+        "pose": "wave",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Two hours later, uncle on WhatsApp.",
+      "show": "2 hours later. Uncle on WhatsApp.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "The nephew's video. Just fix this one, small thing.",
+      "show": "Nephew's reel. 'Just fix this, small thing.'",
+      "card": "WhatsApp bubble from Uncle: the nephew's reel attached, 'just fix this one, small thing'",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "cooker",
+        "mood": "shock",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Charge for the brief, the revisions, the deadline. Not the tool.",
+      "show": "Charge for the brief, revisions, deadline. Not the tool.",
+      "card": "WHAT YOU CHARGE FOR: 1. THE BRIEF 2. THE REVISIONS 3. THE DEADLINE. NOT THE TOOL. (Skit. ₹2,000 is an example price.)",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend who undercharges, and comment CLIENT for the prompt.",
+      "show": "Send this to the friend who undercharges. Comment CLIENT.",
+      "card": "Quiet end card: Free prompt: First Client in 7 Days. Comment CLIENT",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.2",
+    "title": [
+      "BUT AI MADE IT NA?",
+      "WHY ₹2,000?"
+    ]
+  },
+  "caption": "Comment CLIENT for the full prompt: First Client in 7 Days, free.\n\nWhat a client actually pays you for (not the tool):\n1. The brief. Turning \"make it nice\" into a clear plan.\n2. The revisions. Say up front how many are included.\n3. The deadline. Delivering on time, every time, is the job.\n\nWhat you need to start: one sample reel, a price you've written down before the call, and a free tool like CapCut or Canva AI.\n\n₹2,000 here is a skit number, not a rate card. Price for your city and your work.\n\nThe catch: some clients will still pick the nephew. Let them. Quote the same price next time.\n\nSend this to the friend who undercharges.\n\nComment CLIENT and I'll DM you the prompt.\n\nResults vary.\n\n#sideincome #freelancingindia #aitools",
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "hook_id": 21,
+    "hook_name": "Mid-Sentence Start",
+    "kind": "skit",
+    "style": "editorial-host",
+    "format": "reel",
+    "keyword": "CLIENT",
+    "free_tool": "First Client in 7 Days",
+    "slot_ist": "13:00",
+    "tweak": "skit that ends on a real card: 3 things you charge for (the brief, the revisions, the deadline), not the tool. Keyword CLIENT is said once, in the last spoken line after the send line, and shown on a quiet end card (checker requirement, per docs/MONEY.md). It is never said or shown earlier in the reel."
+  }
+}

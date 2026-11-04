@@ -1,0 +1,81 @@
+{
+  "dur": 29.3,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.899,
+      "b": 3.999,
+      "say": "If your YouTube earnings are stuck under the payout limit, this changes things.",
+      "show": "Stuck under $100? This changes things."
+    },
+    {
+      "a": 3.999,
+      "voice": 4.099,
+      "end": 6.338,
+      "b": 6.438,
+      "say": "Down to a fifth of that. India is in the test.",
+      "show": "Down to $20. India is in the test."
+    },
+    {
+      "a": 6.438,
+      "voice": 6.538,
+      "end": 9.181,
+      "b": 9.281,
+      "say": "YouTube told creators on its forum, reports say.",
+      "show": "YouTube told creators on its forum, reports say."
+    },
+    {
+      "a": 9.281,
+      "voice": 9.381,
+      "end": 13.113,
+      "b": 13.213,
+      "say": "Partner Program channels only, picked at random. You can't apply.",
+      "show": "Partner Program channels only, at random. Can't apply."
+    },
+    {
+      "a": 13.213,
+      "voice": 13.313,
+      "end": 15.534,
+      "b": 15.634,
+      "say": "New channels still need lots of watch hours.",
+      "show": "New channels still need lots of watch hours."
+    },
+    {
+      "a": 15.634,
+      "voice": 15.734,
+      "end": 18.629,
+      "b": 18.729,
+      "say": "The catch: this helps people already earning, not beginners.",
+      "show": "The catch: it helps people already earning."
+    },
+    {
+      "a": 18.729,
+      "voice": 18.829,
+      "end": 22.052,
+      "b": 22.152,
+      "say": "So make original videos. Reused AI clips won't earn.",
+      "show": "Make original videos. Reused AI clips don't pay."
+    },
+    {
+      "a": 22.152,
+      "voice": 22.252,
+      "end": 26.014,
+      "b": 26.114,
+      "say": "Send this to the friend whose YouTube earnings are stuck under the payout limit.",
+      "show": "Send this to the friend stuck under $100."
+    },
+    {
+      "a": 26.114,
+      "voice": 26.214,
+      "end": 27.903,
+      "b": 29.3,
+      "say": "Comment PRODUCT for the free prompt.",
+      "show": "Comment PRODUCT for the free prompt."
+    }
+  ]
+}

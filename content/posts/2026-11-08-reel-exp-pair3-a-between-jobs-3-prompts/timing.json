@@ -1,0 +1,81 @@
+{
+  "dur": 27.66,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.631,
+      "b": 2.731,
+      "say": "Between jobs? You don't need a new skill to get paid.",
+      "show": "Between jobs? No new skill needed to get paid."
+    },
+    {
+      "a": 2.731,
+      "voice": 2.831,
+      "end": 5.116,
+      "b": 5.216,
+      "say": "These three prompts turn your skills into paid work.",
+      "show": "3 prompts turn your skills into paid work."
+    },
+    {
+      "a": 5.216,
+      "voice": 5.316,
+      "end": 8.455,
+      "b": 8.555,
+      "say": "Prompt one lists every skill you've used, even the small ones.",
+      "show": "1. Every skill you've used, even small ones."
+    },
+    {
+      "a": 8.555,
+      "voice": 8.655,
+      "end": 11.439,
+      "b": 11.539,
+      "say": "Two, my top pick, matches each skill to a real site.",
+      "show": "2. My favourite: each skill matched to a site."
+    },
+    {
+      "a": 11.539,
+      "voice": 11.639,
+      "end": 14.317,
+      "b": 14.417,
+      "say": "Fiverr, Upwork, Topmate and more, plus what to post.",
+      "show": "Fiverr, Upwork, Internshala, Topmate + what to post."
+    },
+    {
+      "a": 14.417,
+      "voice": 14.517,
+      "end": 17.076,
+      "b": 17.176,
+      "say": "Three turns the top match into your first-week plan.",
+      "show": "3. Your top match, as a first-week plan."
+    },
+    {
+      "a": 17.176,
+      "voice": 17.276,
+      "end": 19.677,
+      "b": 19.777,
+      "say": "The catch: you get a plan, not pay. It takes weeks.",
+      "show": "The catch: a plan, not pay. It takes weeks."
+    },
+    {
+      "a": 19.777,
+      "voice": 19.877,
+      "end": 22.659,
+      "b": 22.759,
+      "say": "And AI can get a site's rules wrong, so check the site.",
+      "show": "AI can get site rules wrong. Check them."
+    },
+    {
+      "a": 22.759,
+      "voice": 22.859,
+      "end": 26.265,
+      "b": 27.66,
+      "say": "Send this to the friend who says they have no skills, and comment MONEY.",
+      "show": "Send to the friend with no skills. Comment MONEY."
+    }
+  ]
+}

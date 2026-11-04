@@ -1,0 +1,125 @@
+{
+  "id": "2026-11-07-reel-tutors-3-sites-pay-for-your-subject",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "sites",
+  "hook": "#3",
+  "keyword": "SITES",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|tutors|paid|Alignerr|Gumroad|Topmate|catch|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4E"
+  },
+  "lines": [
+    {
+      "say": "Nobody tells tutors this: three websites pay for the subject you teach.",
+      "show": "Nobody tells tutors: 3 sites pay for your subject.",
+      "card": "TUTORS 3 SITES PAY YOU",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "One, Aligner. Experts check and write AI answers in their subject.",
+      "show": "1. Alignerr: check and write AI answers.",
+      "card": "1 · ALIGNERR · alignerr.com · AI training by Labelbox: check and write AI answers in your subject · Pay: varies, as the site states · Suits: real subject experts",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, Gumroad. Sell a notes pack you made with AI's help.",
+      "show": "2. Gumroad: sell your AI-made notes pack.",
+      "card": "2 · GUMROAD · gumroad.com · Sell a notes or practice-question pack you made with AI help · Pay: you set the price · Suits: teachers with students or followers",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, the best fit for tutors: Top mate. Students book paid doubt calls.",
+      "show": "3. Topmate: students book paid doubt calls.",
+      "card": "3 · TOPMATE · topmate.io · Indian platform: students book paid 1:1 doubt calls with you · Pay: you set the price · Suits: tutors who already have a few students · BEST FIT",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: Aligner needs approval and real expertise.",
+      "show": "The catch: Alignerr needs approval and expertise.",
+      "card": "SCREENSHOT · SITE / WHAT YOU SELL / DAY 1 NEEDS · Alignerr / your subject knowledge / apply and pass approval · Gumroad / a notes or question pack / one finished PDF · Topmate / 1:1 doubt calls / a profile and a price",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Gumroad needs your own students. Top mate calls come slow at first.",
+      "show": "Gumroad needs your students. Topmate starts slow.",
+      "card": "THE CATCH · Alignerr: approval + real expertise · Gumroad: no students or followers, no sales · Topmate: first bookings take time",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Send this to the best teacher you know, and comment SITES for the full list.",
+      "show": "Send this to the best teacher. Comment SITES.",
+      "card": "Save. · Full list + prompt: SITES",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "TUTORS: 3 SITES",
+      "PAY FOR YOUR SUBJECT"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

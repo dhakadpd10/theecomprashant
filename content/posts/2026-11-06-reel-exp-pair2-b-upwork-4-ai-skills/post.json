@@ -1,0 +1,155 @@
+{
+  "id": "2026-11-06-reel-exp-pair2-b-upwork-4-ai-skills",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "skills",
+  "keyword": "SKILL",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hook": "#11",
+  "arm": "B",
+  "pair": 2,
+  "slot": "09:00 IST",
+  "hot": "^(4|329|Upwork's|Upwork|CapCut|favourite|catch|demand|Send|SKILL)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4F"
+  },
+  "lines": [
+    {
+      "say": "These four AI skills are what clients are paying for more this year. Upwork's own numbers.",
+      "show": "4 AI skills clients pay more for. Upwork's numbers.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Four, chatbot building. Three, tagging data.",
+      "show": "4. Chatbot building. 3. Data labelling.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, AI integration.",
+      "show": "2. AI integration.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "One: AI video creation and editing. It grew more than four times.",
+      "show": "1. AI video creation and editing: up 329%.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "My top pick. A free phone editing app and one sample reel is enough to start.",
+      "show": "My favourite: free CapCut plus 1 sample reel.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "The catch: this is demand, not pay.",
+      "show": "The catch: this is demand, not pay.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Basic logo, blog and copywriting gigs are shrinking.",
+      "show": "Basic logo, blog and copywriting gigs are shrinking.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And a first client takes weeks, and a sample.",
+      "show": "A first client takes weeks, and a sample.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend who keeps saying he'll learn AI next month.",
+      "show": "Send this to the friend learning AI next month.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "And comment SKILL for the free one-month roadmap.",
+      "show": "Comment SKILL for the free 30-day roadmap.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line1.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line9.voice+0.6",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line3+1.4",
+    "title": [
+      "UPWORK'S 4 AI SKILLS",
+      "CLIENTS WANT MORE OF"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "dur": 31.05,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.732,
+      "b": 4.832,
+      "say": "Office job? After work, these four AI skills are what clients want more this year.",
+      "show": "9-to-5? After office: 4 AI skills clients want more."
+    },
+    {
+      "a": 4.832,
+      "voice": 4.932,
+      "end": 8.952,
+      "b": 9.052,
+      "say": "From Upwork's February report. At four, chatbot building, growing fast.",
+      "show": "4. Chatbot building: up 71% (Upwork)"
+    },
+    {
+      "a": 9.052,
+      "voice": 9.152,
+      "end": 11.385,
+      "b": 11.485,
+      "say": "Next, data tagging for AI, more than double.",
+      "show": "3. Data labelling: up 154%"
+    },
+    {
+      "a": 11.485,
+      "voice": 11.585,
+      "end": 13.501,
+      "b": 13.601,
+      "say": "Then, AI integration, nearly triple.",
+      "show": "2. AI integration: up 178%"
+    },
+    {
+      "a": 13.601,
+      "voice": 13.701,
+      "end": 17.244,
+      "b": 17.344,
+      "say": "And the top spot, AI video editing, over four times bigger.",
+      "show": "1. AI video editing: up 329%"
+    },
+    {
+      "a": 17.344,
+      "voice": 17.444,
+      "end": 21.6,
+      "b": 21.7,
+      "say": "My top pick, because a free video app and a single sample reel get you started.",
+      "show": "My favourite: free CapCut plus one sample reel."
+    },
+    {
+      "a": 21.7,
+      "voice": 21.8,
+      "end": 25.029,
+      "b": 25.129,
+      "say": "The catch: growth isn't pay, and your first client can take weeks.",
+      "show": "The catch: growth isn't pay. Clients take weeks."
+    },
+    {
+      "a": 25.129,
+      "voice": 25.229,
+      "end": 29.647,
+      "b": 31.05,
+      "say": "Send this to the friend who keeps saying he'll learn AI next month. Comment SKILL.",
+      "show": "Send it to that friend. Comment SKILL."
+    }
+  ]
+}

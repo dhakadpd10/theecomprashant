@@ -1,0 +1,230 @@
+<style>
+  /* editorial theme, deep green accent: hook with Fiverr struck out, one site card per site, a money flow for Contra, a screenshot card, an inbox at zero, a forwarded chat, keyword tiles */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E8E1D4 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; }
+  #blob1 { left: -240px; top: 160px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(46,107,78,0.14) 0%, rgba(46,107,78,0) 70%); }
+  #blob2 { left: 560px; top: 560px; width: 620px; height: 620px; background: radial-gradient(circle, rgba(196,146,72,0.13) 0%, rgba(196,146,72,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 146px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+
+  /* 0: hook */
+  #s0-step { top: 60px; }
+  #s0-title { top: 110px; font-size: 128px; white-space: nowrap; }
+  #s0-title .l2 { display: flex; align-items: center; }
+  #s0-pay { display: block; transform-origin: left bottom; }
+  #s0-nf { position: relative; display: flex; align-items: center; height: 96px; margin-left: 40px; padding: 0 32px; border: 4px solid var(--ink); border-radius: 48px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: var(--ink); }
+  #s0-strike { position: absolute; display: block; left: 20px; right: 20px; top: 42px; height: 8px; border-radius: 4px; background: #A8321F; transform-origin: left center; }
+
+  /* 1-3: one site card each */
+  .site { top: 470px; height: 620px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F1ECE3; }
+  .dot { position: absolute; display: block; top: 38px; width: 20px; height: 20px; border-radius: 50%; background: rgba(30,26,22,0.18); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 22px; height: 52px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.68); display: flex; align-items: center; padding-left: 26px; }
+  .num { position: absolute; left: 36px; top: 128px; width: 92px; height: 92px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 50px; display: flex; align-items: center; justify-content: center; }
+  .name { position: absolute; left: 150px; right: 30px; top: 126px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 72px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 102px; border-radius: 24px; background: #F6F1E8; }
+  .row .k { position: absolute; left: 28px; top: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: rgba(30,26,22,0.68); }
+  .row .v { position: absolute; left: 28px; right: 20px; top: 44px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .r1 { top: 262px; } .r2 { top: 378px; } .r3 { top: 494px; }
+  .r3 { background: #DCEBE2; } .r3 .v { color: #1F4D37; } .r3 .k { color: #2E5A44; }
+
+  /* 3: Contra money flow */
+  .mbox { position: absolute; top: 386px; width: 262px; height: 150px; border-radius: 24px; background: #F6F1E8; }
+  #s3-pay { left: 36px; }
+  #s3-keep { right: 36px; background: var(--accent); }
+  .mk { position: absolute; left: 24px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .mv { position: absolute; left: 24px; top: 64px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 48px; color: var(--ink); white-space: nowrap; }
+  #s3-keep .mk { color: rgba(255,255,255,0.88); }
+  #s3-keep .mv { color: #FFFFFF; }
+  #s3-arrow { position: absolute; left: 310px; top: 441px; width: 40px; height: 40px; display: block; }
+  #s3-ex { position: absolute; left: 36px; top: 566px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  #s3-chip { position: absolute; right: 36px; top: 554px; width: 270px; height: 48px; border-radius: 24px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+
+  /* 4: the screenshot card, full width */
+  #s4-step { top: 50px; }
+  #s4-title { top: 100px; font-size: 96px; white-space: nowrap; }
+  #s4-card { position: absolute; left: 120px; right: 120px; top: 280px; height: 790px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 34px 80px rgba(60,40,20,0.16), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  #s4-head { position: absolute; left: 30px; right: 30px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.1em; color: var(--accent); white-space: nowrap; }
+  .lrow { position: absolute; left: 30px; right: 30px; height: 196px; border-radius: 24px; background: #F6F1E8; }
+  #s4-r1 { top: 96px; } #s4-r2 { top: 306px; } #s4-r3 { top: 516px; }
+  .lnum { position: absolute; left: 28px; top: 58px; width: 80px; height: 80px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; display: flex; align-items: center; justify-content: center; }
+  .lname { position: absolute; left: 136px; top: 24px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 56px; line-height: 1.15; color: var(--ink); white-space: nowrap; }
+  .lurl { position: absolute; right: 24px; top: 34px; height: 52px; padding: 0 20px; border-radius: 26px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: rgba(30,26,22,0.68); display: flex; align-items: center; white-space: nowrap; }
+  .ldet { position: absolute; left: 136px; right: 24px; top: 116px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s4-foot { position: absolute; left: 30px; right: 30px; top: 728px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .cn { position: absolute; display: block; width: 64px; height: 64px; border-color: var(--ink); border-style: solid; border-width: 0; }
+  #cn1 { left: 96px; top: 256px; border-top-width: 8px; border-left-width: 8px; border-top-left-radius: 18px; }
+  #cn2 { right: 96px; top: 256px; border-top-width: 8px; border-right-width: 8px; border-top-right-radius: 18px; }
+  #cn3 { left: 96px; top: 1030px; border-bottom-width: 8px; border-left-width: 8px; border-bottom-left-radius: 18px; }
+  #cn4 { right: 96px; top: 1030px; border-bottom-width: 8px; border-right-width: 8px; border-bottom-right-radius: 18px; }
+  #s4-flash { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: #FFFFFF; opacity: 0; }
+
+  /* 5: the catch */
+  #s5-card { top: 470px; height: 660px; }
+  #s5-k { position: absolute; left: 36px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  #s5-zero { position: absolute; left: 36px; top: 66px; width: 130px; height: 180px; display: block; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 170px; line-height: 180px; color: var(--ink); }
+  #s5-from { position: absolute; left: 190px; right: 36px; top: 132px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 106px; border-radius: 24px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 28px; right: 180px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 20px; top: 22px; width: 140px; height: 62px; border-radius: 31px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #k1 { top: 272px; } #k2 { top: 394px; } #k3 { top: 516px; }
+
+  /* 6: forwarded chat */
+  #s6-card { top: 470px; height: 620px; }
+  #s6-head { position: absolute; left: 0; right: 0; top: 0; height: 116px; background: #F1ECE3; }
+  #s6-av { position: absolute; display: block; left: 30px; top: 26px; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(160deg, #C9A77C 0%, #8E6A45 100%); }
+  #s6-name { position: absolute; left: 116px; right: 30px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s6-sub { position: absolute; left: 116px; right: 30px; top: 64px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 24px; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  #s6-bub { position: absolute; right: 30px; top: 146px; width: 440px; height: 290px; border-radius: 28px 28px 8px 28px; background: var(--accent); transform-origin: right bottom; }
+  #s6-bub .bl { position: absolute; left: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(255,255,255,0.88); }
+  #s6-bub .bt { position: absolute; left: 28px; top: 52px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; color: #FFFFFF; white-space: nowrap; }
+  #s6-bub .bi { position: absolute; left: 28px; right: 20px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #FFFFFF; white-space: nowrap; }
+  #s6-i1 { top: 120px; } #s6-i2 { top: 166px; } #s6-i3 { top: 212px; }
+  #s6-sent { position: absolute; right: 30px; top: 452px; width: 150px; height: 40px; display: flex; align-items: center; justify-content: flex-end; gap: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.72); }
+  #s6-sent svg { display: block; width: 40px; height: 22px; }
+  #s6-typing { position: absolute; left: 30px; top: 520px; width: 140px; height: 66px; border-radius: 33px; background: #EFE9DF; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s6-typing .td { display: block; width: 16px; height: 16px; border-radius: 50%; background: rgba(30,26,22,0.4); }
+
+  /* 7: keyword */
+  #s7-title { white-space: nowrap; }
+  #s7-bm { position: absolute; left: 400px; top: 178px; width: 80px; height: 110px; display: block; }
+  #s7-card { top: 430px; height: 680px; }
+  #s7-av { position: absolute; display: block; left: 36px; top: 30px; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(160deg, #6FA88A 0%, var(--accent) 100%); }
+  #s7-lab { position: absolute; left: 120px; top: 48px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  #s7-stkw { position: absolute; right: 30px; top: 26px; width: 150px; height: 56px; rotate: 6deg; }
+  #s7-stk { display: flex; width: 150px; height: 56px; border-radius: 28px; background: #E9B949; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; align-items: center; justify-content: center; }
+  #s7-bubble { position: absolute; left: 36px; right: 36px; top: 116px; height: 156px; border-radius: 28px; background: #F6F1E8; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .tile { display: flex; width: 100px; height: 140px; border-radius: 20px; background: var(--accent); color: #FFFFFF; font-family: 'Archivo Black', sans-serif; font-size: 96px; line-height: 1; align-items: center; justify-content: center; }
+  #s7-reply { position: absolute; left: 36px; right: 36px; top: 296px; height: 140px; border-radius: 28px; background: #DCEBE2; }
+  #s7-reply .rk { position: absolute; left: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #2E5A44; }
+  #s7-reply .rv { position: absolute; left: 28px; right: 24px; top: 64px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #1F4D37; white-space: nowrap; }
+  #s7-pill { position: absolute; left: 36px; right: 36px; top: 466px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #s7-pill b { color: #8FD1AE; margin-left: 14px; font-weight: 900; }
+  #s7-note { position: absolute; left: 36px; right: 36px; top: 612px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.72); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">STEAL THIS LIST</div>
+  <div class="title" id="s0-title">
+    <span class="mask"><span class="l">3 sites that</span></span>
+    <span class="mask"><span class="l l2"><span class="it" id="s0-pay">pay.</span><span id="s0-nf">Fiverr<i id="s0-strike" data-layout-allow-overlap></i></span></span></span>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">SITE 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Get paid for</span></span><span class="mask"><span class="l it">studies.</span></span></div>
+  <div class="card site" id="s1-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">prolific.com</div></div>
+    <div class="num">1</div><div class="name">Prolific</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Paid research studies</div></div>
+    <div class="row r2"><div class="k">ON AI</div><div class="v">Some studies test AI</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Listed on every study</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">SITE 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Indian</span></span><span class="mask"><span class="l it">companies.</span></span></div>
+  <div class="card site" id="s2-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">internshala.com</div></div>
+    <div class="num">2</div><div class="name">Internshala</div>
+    <div class="row r1"><div class="k">WHO POSTS</div><div class="v">Indian companies</div></div>
+    <div class="row r2"><div class="k">TASKS</div><div class="v">AI content and video</div></div>
+    <div class="row r3"><div class="k">PAY</div><div class="v">Stipend on each listing</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">SITE 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Zero</span></span><span class="mask"><span class="l it">commission.</span></span></div>
+  <div class="card site" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">contra.com</div></div>
+    <div class="num">3</div><div class="name">Contra</div>
+    <div class="row r1"><div class="k">WHAT YOU DO</div><div class="v">Freelance projects</div></div>
+    <div class="mbox" id="s3-pay"><div class="mk">CLIENT PAYS</div><div class="mv">₹5,000</div></div>
+    <svg id="s3-arrow" viewBox="0 0 40 40"><path d="M6 20 H30 M22 11 L32 20 L22 29" stroke="#1E1A16" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="mbox" id="s3-keep"><div class="mk">YOU KEEP</div><div class="mv" id="s3-keepv">₹5,000</div></div>
+    <div id="s3-ex">EXAMPLE NUMBERS</div>
+    <div id="s3-chip">0% COMMISSION</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step" id="s4-step">ALL 3 ON ONE CARD</div>
+  <div class="title" id="s4-title"><span class="mask"><span class="l">Screenshot <span class="it">this.</span></span></span></div>
+  <div id="s4-card">
+    <div id="s4-head">3 SITES THAT PAY · NOT FIVERR</div>
+    <div class="lrow" id="s4-r1"><div class="lnum">1</div><div class="lname">Prolific</div><div class="lurl">prolific.com</div><div class="ldet">Paid studies, pay listed</div></div>
+    <div class="lrow" id="s4-r2"><div class="lnum">2</div><div class="lname">Internshala</div><div class="lurl">internshala.com</div><div class="ldet">AI content and video tasks</div></div>
+    <div class="lrow" id="s4-r3"><div class="lnum">3</div><div class="lname">Contra</div><div class="lurl">contra.com</div><div class="ldet">No commission, you keep it</div></div>
+    <div id="s4-foot">Check each site's own page first.</div>
+  </div>
+  <i class="cn" id="cn1" data-layout-allow-overlap></i>
+  <i class="cn" id="cn2" data-layout-allow-overlap></i>
+  <i class="cn" id="cn3" data-layout-allow-overlap></i>
+  <i class="cn" id="cn4" data-layout-allow-overlap></i>
+  <div id="s4-flash" data-layout-allow-overlap></div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Here's the</span></span><span class="mask"><span class="l it">catch.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-k">NEW WORK SENT TO YOU</div>
+    <div id="s5-zero">0</div>
+    <div id="s5-from">from all 3 sites</div>
+    <div class="crow" id="k1"><div class="t">You find the work</div><div class="chip" id="c1">YOU</div></div>
+    <div class="crow" id="k2"><div class="t">Prolific: eligible?</div><div class="chip" id="c2">CHECK</div></div>
+    <div class="crow" id="k3"><div class="t">Country accepted?</div><div class="chip" id="c3">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">FORWARD IT</div>
+  <div class="title"><span class="mask"><span class="l">Send</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <div class="card" id="s6-card">
+    <div id="s6-head"><i id="s6-av"></i><div id="s6-name">Your friend</div><div id="s6-sub">Quit Fiverr after a week</div></div>
+    <div id="s6-bub">
+      <div class="bl">FORWARDED</div>
+      <div class="bt">3 sites that pay</div>
+      <div class="bi" id="s6-i1">1 · Prolific</div>
+      <div class="bi" id="s6-i2">2 · Internshala</div>
+      <div class="bi" id="s6-i3">3 · Contra</div>
+    </div>
+    <div id="s6-sent"><span>Sent</span><svg viewBox="0 0 40 22"><path d="M2 12 L8 18 L20 4 M16 16 L18 18 L38 4" stroke="#2E6B4E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div id="s6-typing"><i class="td"></i><i class="td"></i><i class="td"></i></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="step">FREE · LIST + PROMPT</div>
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s7-bm" viewBox="0 0 80 110" data-layout-allow-overlap><path d="M6 6 H74 V104 L40 78 L6 104 Z" fill="#2E6B4E"></path><path d="M6 6 H74 V22 H6 Z" fill="#245740"></path></svg>
+  <div class="card" id="s7-card">
+    <i id="s7-av"></i>
+    <div id="s7-lab">YOUR COMMENT</div>
+    <div id="s7-stkw"><div id="s7-stk">FREE</div></div>
+    <div id="s7-bubble"><div class="tile">S</div><div class="tile">I</div><div class="tile">T</div><div class="tile">E</div><div class="tile">S</div></div>
+    <div id="s7-reply"><div class="rk">IN YOUR DMS</div><div class="rv">The full list + prompt</div></div>
+    <div id="s7-pill">Comment <b>SITES</b></div>
+    <div id="s7-note">Never pay a fee to join.</div>
+  </div>
+</section>

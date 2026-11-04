@@ -1,0 +1,73 @@
+{
+  "dur": 31.55,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.807,
+      "b": 3.907,
+      "say": "Steal this list: three sites that'll pay you for AI work. Not Fiverr.",
+      "show": "Steal this: 3 sites that pay, not Fiverr."
+    },
+    {
+      "a": 3.907,
+      "voice": 4.007,
+      "end": 8.446,
+      "b": 8.546,
+      "say": "One, Prolific. Paid studies, a few on AI, and each one shows you what it pays.",
+      "show": "1. Prolific: paid studies, each lists its pay."
+    },
+    {
+      "a": 8.546,
+      "voice": 8.646,
+      "end": 13.532,
+      "b": 13.632,
+      "say": "Two, Internshala. That's where Indian companies post AI content and video tasks.",
+      "show": "2. Internshala: AI content and video tasks."
+    },
+    {
+      "a": 13.632,
+      "voice": 13.732,
+      "end": 17.239,
+      "b": 17.339,
+      "say": "Three, Contra. There's no commission, so what the client pays, you keep.",
+      "show": "3. Contra: no commission. Client pays, you keep."
+    },
+    {
+      "a": 17.339,
+      "voice": 17.439,
+      "end": 19.921,
+      "b": 20.021,
+      "say": "Screenshot this. I've put all three on one card.",
+      "show": "Screenshot this: all 3 on one card."
+    },
+    {
+      "a": 20.021,
+      "voice": 20.121,
+      "end": 24.749,
+      "b": 24.849,
+      "say": "Here's the catch: none of them sends you work. Prolific depends on eligibility and country.",
+      "show": "Catch: no site sends work. Prolific: eligibility, country."
+    },
+    {
+      "a": 24.849,
+      "voice": 24.949,
+      "end": 27.581,
+      "b": 27.681,
+      "say": "Send this to your friend who quit Fiverr after a week.",
+      "show": "Send this to the friend who quit Fiverr."
+    },
+    {
+      "a": 27.681,
+      "voice": 27.781,
+      "end": 30.152,
+      "b": 31.55,
+      "say": "Type SITES below and I'll send you the whole list.",
+      "show": "Comment SITES for the full list."
+    }
+  ]
+}

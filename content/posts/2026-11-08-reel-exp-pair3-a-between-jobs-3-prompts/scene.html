@@ -1,0 +1,184 @@
+<style>
+  /* editorial theme, kind "prompt": warm paper, ink, deep green accent, serif titles with one italic accent word, one clean app card per prompt */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #blob1 { position: absolute; left: -160px; top: 260px; width: 760px; height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(47,107,79,0.10) 0%, rgba(47,107,79,0) 65%); }
+  #blob2 { position: absolute; left: 520px; top: 900px; width: 720px; height: 720px; border-radius: 50%; background: radial-gradient(circle, rgba(200,140,80,0.10) 0%, rgba(200,140,80,0) 65%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 140px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; width: 860px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+
+  .card { position: absolute; left: 60px; right: 360px; top: 350px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.14), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .lab { position: absolute; left: 30px; top: 32px; width: 420px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: #6B635A; white-space: nowrap; }
+  .tag { position: absolute; right: 30px; top: 24px; height: 50px; padding: 0 20px; border-radius: 25px; background: #E3EEE7; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; }
+  .tick { position: absolute; left: 22px; top: 17px; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); }
+  .tick::after { content: ''; position: absolute; left: 14px; top: 7px; width: 9px; height: 17px; border-right: 5px solid #FFFFFF; border-bottom: 5px solid #FFFFFF; transform: rotate(45deg); }
+
+  /* 0: hook */
+  #s0-step { top: 50px; }
+  #s0-title { top: 110px; font-size: 120px; transform-origin: left top; }
+  #s0 .row2 { display: flex; gap: 0.24em; }
+  #s0-paid { display: block; transform-origin: left center; }
+
+  /* 1: the three prompts */
+  #s1-card { height: 640px; }
+  .prow { position: absolute; left: 30px; right: 30px; height: 150px; border-radius: 24px; background: #F4EFE6; }
+  .pn { position: absolute; left: 24px; top: 35px; width: 80px; height: 80px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  .pk { position: absolute; left: 128px; top: 26px; width: 300px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: #6B635A; }
+  .pv { position: absolute; left: 128px; right: 20px; top: 66px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s1-r1 { top: 110px; } #s1-r2 { top: 280px; } #s1-r3 { top: 450px; }
+
+  /* 2: prompt 1, every skill */
+  #s2-card { height: 680px; }
+  .pbox { position: absolute; left: 30px; right: 30px; top: 80px; height: 140px; border-radius: 24px; background: #F4EFE6; }
+  .pt { position: absolute; left: 24px; right: 24px; height: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 46px; color: var(--ink); white-space: nowrap; }
+  #s2-t1 { top: 22px; } #s2-t2 { top: 72px; }
+  #s2 .lab2 { top: 258px; }
+  #s2 .tag2 { top: 250px; }
+  .srow { position: absolute; left: 30px; right: 30px; height: 74px; border-radius: 20px; background: #F4EFE6; }
+  .sv { position: absolute; left: 86px; right: 20px; top: 0; height: 74px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 74px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-a { top: 310px; } #s2-b { top: 396px; } #s2-c { top: 482px; } #s2-d { top: 568px; }
+
+  /* 3-4: prompt 2, skill matched to a real site */
+  #s3-card { height: 636px; }
+  #s3-pick { position: absolute; left: 90px; top: 245px; width: 280px; height: 76px; border-radius: 38px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s3-pick svg { display: block; width: 32px; height: 32px; }
+  .mrow { position: absolute; left: 30px; right: 30px; height: 88px; border-radius: 22px; background: #F4EFE6; }
+  .mk { position: absolute; left: 24px; top: 0; width: 310px; height: 88px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 88px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .slot { position: absolute; right: 16px; top: 12px; width: 214px; height: 58px; border-radius: 32px; border: 3px dashed rgba(30,26,22,0.25); }
+  .site { position: absolute; left: -3px; top: -3px; width: 220px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+  #s3-m1 { top: 96px; } #s3-m2 { top: 196px; } #s3-m3 { top: 296px; } #s3-m4 { top: 396px; }
+  #s3-post { position: absolute; left: 30px; right: 30px; top: 504px; height: 108px; border-radius: 22px; background: #DCE9E1; }
+  #s3-post .pk2 { position: absolute; left: 24px; top: 14px; width: 300px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: #2A5C44; }
+  #s3-post .pv2 { position: absolute; left: 24px; right: 24px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+
+  /* 5: prompt 3, the finished 7-day plan (host hidden, full width) */
+  #s5-card { left: 90px; right: 90px; top: 270px; height: 830px; }
+  #s5-hv { position: absolute; left: 30px; right: 220px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .day { position: absolute; left: 30px; right: 30px; height: 86px; border-radius: 20px; background: #F4EFE6; }
+  .dn { position: absolute; left: 18px; top: 18px; width: 130px; height: 50px; border-radius: 25px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .dv { position: absolute; left: 172px; right: 20px; top: 0; height: 86px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 86px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #d1 { top: 130px; } #d2 { top: 226px; } #d3 { top: 322px; } #d4 { top: 418px; } #d5 { top: 514px; } #d6 { top: 610px; } #d7 { top: 706px; }
+  #d7 { background: #DCE9E1; }
+
+  /* 6-7: the catch */
+  #s6-card { height: 580px; }
+  .crow { position: absolute; left: 30px; right: 30px; height: 104px; border-radius: 22px; background: #F4EFE6; }
+  .ct { position: absolute; left: 26px; right: 190px; top: 0; height: 104px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 104px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; right: 18px; top: 22px; width: 150px; height: 60px; border-radius: 30px; background: var(--ink); color: #F2EDE3; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #c3 { background: var(--accent); color: #FFFFFF; }
+  #k1 { top: 84px; } #k2 { top: 200px; } #k3 { top: 316px; }
+  #s6-note { position: absolute; left: 30px; right: 30px; top: 440px; height: 110px; border-radius: 22px; background: #DCE9E1; }
+  #s6-note .tick { top: 34px; }
+  #s6-note .nt { position: absolute; left: 86px; right: 20px; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 45px; color: var(--ink); }
+
+  /* 8: send + keyword */
+  #s7 .title { top: 70px; font-size: 150px; }
+  #s7-who { position: absolute; left: 90px; right: 90px; top: 290px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.25; color: #5A534B; }
+  #kw-card { position: absolute; left: 90px; right: 360px; top: 430px; height: 400px; border-radius: 36px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #kw-lab { position: absolute; left: 30px; right: 30px; top: 46px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: 0.2em; color: #F2EDE3; }
+  #kw { position: absolute; left: 20px; right: 20px; top: 110px; height: 170px; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: var(--display); font-size: 130px; color: #8FD1AE; }
+  #kw .kl { display: block; }
+  #kw-sub { position: absolute; left: 30px; right: 30px; top: 300px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #CFC7BA; }
+  #sticker { position: absolute; left: 560px; top: 392px; width: 170px; height: 76px; border-radius: 38px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(30,26,22,0.2); }
+  #save { position: absolute; left: 90px; top: 870px; width: 300px; height: 70px; display: flex; align-items: center; gap: 18px; }
+  #save svg { display: block; width: 46px; height: 60px; }
+  #save .sw { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div id="blob1"></div>
+<div id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">YOU DON'T NEED A NEW SKILL</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Between jobs?</span></span><span class="mask"><span class="l row2"><span>Get</span><span class="it" id="s0-paid">paid.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">YOUR SKILLS INTO PAID WORK</div>
+  <div class="title"><span class="mask"><span class="l">3 <span class="it">prompts.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lab">SIDE-INCOME PLANNER</div><div class="tag">FREE</div>
+    <div class="prow" id="s1-r1"><div class="pn">1</div><div class="pk">PROMPT 1</div><div class="pv">List every skill</div></div>
+    <div class="prow" id="s1-r2"><div class="pn">2</div><div class="pk">PROMPT 2</div><div class="pv">Match to real sites</div></div>
+    <div class="prow" id="s1-r3"><div class="pn">3</div><div class="pk">PROMPT 3</div><div class="pv">Build a 7-day plan</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">PROMPT 1 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Every <span class="it">skill.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lab">YOU TYPE</div>
+    <div class="pbox"><div class="pt" id="s2-t1">List all my skills,</div><div class="pt" id="s2-t2">even the small ones.</div></div>
+    <div class="lab lab2">IT FINDS</div><div class="tag tag2">EXAMPLE</div>
+    <div class="srow" id="s2-a"><i class="tick"></i><div class="sv">Canva posts</div></div>
+    <div class="srow" id="s2-b"><i class="tick"></i><div class="sv">Excel sheets</div></div>
+    <div class="srow" id="s2-c"><i class="tick"></i><div class="sv">Guiding juniors</div></div>
+    <div class="srow" id="s2-d"><i class="tick"></i><div class="sv">English writing</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line5">
+  <div class="step">PROMPT 2 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">My <span class="it">favourite.</span></span></span></div>
+  <div id="s3-pick" data-layout-allow-overlap><svg viewBox="0 0 32 32"><polygon points="16,2 20,12 31,12 22,19 25,30 16,23 7,30 10,19 1,12 12,12" fill="#FFFFFF"></polygon></svg><span>TOP PICK</span></div>
+  <div class="card" id="s3-card">
+    <div class="lab">SKILL TO SITE</div><div class="tag">EXAMPLE</div>
+    <div class="mrow" id="s3-m1"><div class="mk">Canva posts</div><div class="slot"><div class="site" id="s3-x1">Fiverr</div></div></div>
+    <div class="mrow" id="s3-m2"><div class="mk">Excel sheets</div><div class="slot"><div class="site" id="s3-x2">Upwork</div></div></div>
+    <div class="mrow" id="s3-m3"><div class="mk">Guiding juniors</div><div class="slot"><div class="site" id="s3-x3">Topmate</div></div></div>
+    <div class="mrow" id="s3-m4"><div class="mk">English writing</div><div class="slot"><div class="site" id="s3-x4">Internshala</div></div></div>
+    <div id="s3-post"><div class="pk2">WHAT TO POST</div><div class="pv2">Fiverr gig: Canva posts</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">PROMPT 3 OF 3</div>
+  <div class="title"><span class="mask"><span class="l">Your <span class="it">first week.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lab">TOP MATCH</div><div class="tag">EXAMPLE</div>
+    <div id="s5-hv">Canva posts on Fiverr</div>
+    <div class="day" id="d1"><div class="dn">DAY 1</div><div class="dv">Set up your Fiverr profile</div></div>
+    <div class="day" id="d2"><div class="dn">DAY 2</div><div class="dv">Make 3 sample Canva posts</div></div>
+    <div class="day" id="d3"><div class="dn">DAY 3</div><div class="dv">Post your first gig</div></div>
+    <div class="day" id="d4"><div class="dn">DAY 4</div><div class="dv">Message 5 local shops</div></div>
+    <div class="day" id="d5"><div class="dn">DAY 5</div><div class="dv">Share samples on WhatsApp</div></div>
+    <div class="day" id="d6"><div class="dn">DAY 6</div><div class="dv">Follow up on every reply</div></div>
+    <div class="day" id="d7"><div class="dn">DAY 7</div><div class="dv">Check what worked, adjust</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step">BE HONEST WITH YOURSELF</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lab">BEFORE YOU START</div>
+    <div class="crow" id="k1"><div class="ct">A plan, not pay</div><div class="chip" id="c1">PLAN</div></div>
+    <div class="crow" id="k2"><div class="ct">Takes weeks</div><div class="chip" id="c2">WEEKS</div></div>
+    <div class="crow" id="k3"><div class="ct">Rules can be wrong</div><div class="chip" id="c3">CHECK</div></div>
+    <div id="s6-note"><i class="tick"></i><div class="nt">Read the site's own rules page.</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line8" data-to="end">
+  <div class="title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s7-who">to the friend who says they have no skills.</div>
+  <div id="kw-card">
+    <div id="kw-lab">COMMENT</div>
+    <div id="kw"><span class="kl">M</span><span class="kl">O</span><span class="kl">N</span><span class="kl">E</span><span class="kl">Y</span></div>
+    <div id="kw-sub">prompt + 7-day plan</div>
+  </div>
+  <div id="sticker" data-layout-allow-overlap>FREE</div>
+  <div id="save"><svg viewBox="0 0 46 60"><path d="M4 4 H42 V56 L23 42 L4 56 Z" fill="#2F6B4F"></path></svg><div class="sw">Save.</div></div>
+</section>

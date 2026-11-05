@@ -1,0 +1,151 @@
+{
+  "id": "2026-11-07-reel-exp-pair2-arm-a-plain-vs-brief-prompt",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "hook": "13",
+  "arm": "A",
+  "pair": 2,
+  "money_angle": false,
+  "slot": "2026-11-07 09:00 IST (03:30 UTC)",
+  "keyword": "BRIEF",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(same|2|chai|regular|Role|Goal|Format|5|clean|facts|shape|Send|BRIEF)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E4FD8"
+  },
+  "lines": [
+    {
+      "say": "After your office job, here's the same question with two very different answers.",
+      "show": "After office: same question, 2 answers.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "You ask for a weekly update. You get long, vague, useless.",
+      "show": "Plain ask: long, vague, useless.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It's like saying 'one tea'. You get whatever they're making.",
+      "show": "'One chai' gets whatever they make.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "So order like a regular. Job: act as my team lead.",
+      "show": "Role: act as my team lead.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Goal: my manager reads it in a minute.",
+      "show": "Goal: read in 1 minute.",
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Format: five short lines.",
+      "show": "Format: 5 short lines.",
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Same question, and now you've got five clean lines, ready to send.",
+      "show": "Now: 5 clean lines, ready to send.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: you give it the facts, it only fixes the shape.",
+      "show": "The catch: you give the facts.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who rewrites every AI answer by hand.",
+      "show": "Send this to the friend who rewrites by hand.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment BRIEF and I'll send you the prompt.",
+      "show": "Comment BRIEF for the prompt.",
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.7",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.0",
+    "title": [
+      "SAME QUESTION",
+      "TWO ANSWERS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

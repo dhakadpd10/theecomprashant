@@ -1,0 +1,87 @@
+{
+  "week": "2026-W45-5",
+  "start": "2026-11-05",
+  "research": "I found 8 items from the last 14 days (21 Oct to 4 Nov) worth using. Two are older or inferred, and each is flagged. I couldn't find a company link for every item, and each bullet says which source it rests on.\n\n**New free tools and features**\n\n1. **Free textbooks inside Gemini Notebook, including S Chand (29 Oct).** In a notebook, tap \"Add sources\", then \"Textbooks\". You get hundreds of free books from OpenStax, Open Textbook Library and the Indian publisher S Chand. You can ask questions and get answers that cite the page, or turn a chapter into flashcards and quizzes. Gemini Notebook is the new name for NotebookLM. **Why a beginner cares:** a student can revise from a real textbook for free, and the answers point to the page they came from. **Catch:** Google's post doesn't say which countries get it. One outlet says India and the US, so test it on an Indian account before filming. [Google blog](https://blog.google/innovation-and-ai/products/gemini-notebook/new-access-textbooks/)\n\n2. **Gemini can now edit files inside the chat (29 to 30 Oct).** You can ask for a PDF, Doc, Sheet or slides and then change them in the conversation without exporting. Reports say every Gemini user gets it at no cost. **Why a beginner cares:** you could write a resume, a shop price list or an assignment PDF from your phone. **Catch:** reports say editing Docs and Sheets works only on the web for now. PDF editing works on mobile. [Gemini release notes (India)](https://gemini.google/in/release-notes/?hl=en-IN), [Android Headlines](https://www.androidheadlines.com/2026/10/gemini-edit-files-docs-pdf-directly-in-chat.html)\n\n3. **Canva Craft, Canva's own image model (22 Oct).** It's in Dream Lab for all users. Canva trained it on its own design templates, so it's built for posters and layouts where the text has to be readable. **Why a beginner cares:** shop owners and freelancers can make a poster with readable text in an app they already use. **Catch:** I found no details on how many free generations you get. The ranking claims are Canva's own. [Canva newsroom](https://www.canva.com/newsroom/news/canva-craft/), [TechCrunch](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/)\n\n4. **ChatGPT added two Hindi voices, Neer and Leher (15 to 16 Oct, about 6 days before the window).** They came with the GPT-Live-1.1 voice update and reportedly reach all users. **Why a beginner cares:** you can talk to ChatGPT in Hindi with a natural accent. **Catch:** proper Hinglish (mixing Hindi and English) hasn't shipped yet, and some users report glitches picking a voice. I found no OpenAI page for this. [Beebom](https://gadgets.beebom.com/news/chatgpt-new-hindi-voices-released-openai-latest-india-festive-campaign), [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n\n**What people will be confused about**\n\n5. **\"Is my free ChatGPT Go year ending?\" (my inference, please verify).** OpenAI's free 12-month Go offer for India opened to sign-ups on 4 Nov 2025. That means the earliest free years run out about now. **Why a beginner cares:** many students took it, and they'll want to know if money comes out after the year ends. I didn't confirm what happens when it ends, so a safe tip is: check Settings → Subscription inside ChatGPT, not in any email link. [TechCrunch (Oct 2025)](https://techcrunch.com/2025/10/27/openai-offers-free-chatgpt-go-for-one-year-to-all-users-in-india/)\n\n**Scams using AI**\n\n6. **PNB warns about AI voice cloning (26 Oct).** Punjab National Bank warned customers about cloned voices of relatives asking for urgent money. It also warned about deepfake police videos used in \"digital arrest\" scams. **Why a beginner cares:** a voice you recognise no longer proves who is calling. The fix: agree a family safe word, call back on the number you already have, and report on 1930 or cybercrime.gov.in. This fits the SAFE keyword. [NewsMobile](https://www.newsmobile.in/fraud-and-scam/pnb-alerts-customers-to-ai-voice-cloning-deepfake-and-phishing-frauds/) (I couldn't find PNB's own notice.)\n\n7. **PIB Fact Check flagged a fake video of the Defence Minister (31 Oct).** Someone took real footage of Rajnath Singh and swapped in AI-made audio. **Why a beginner cares:** \"the video looks real\" doesn't make it real, because the face is genuine and only the words are fake. The same trick appeared earlier in fake Finance Minister videos pushing an investment scheme. [Organiser](https://organiser.org/2026/11/04/423900/bharat/fact-check-ai-generated-video-falsely-shows-rajnath-singh-criticising-indian-army-amid-india-china-border-tensions/), [earlier PIB example](https://newsonair.gov.in/pib-fact-check-debunks-fake-ai-generated-video-claiming-endorsement-by-fm-nirmala-sitharaman/). Organiser is a partisan outlet, so check PIB Fact Check's X post before quoting.\n\n8. **Fake AI billing emails and login pages (Sept to Oct 2026).** These are \"your ChatGPT payment failed\" emails with a 48-hour deadline, and fake ChatGPT, Gemini or Claude pages that steal your password and OTP. **Why a beginner cares:** this ties straight into item 5, because people worried about renewals are easy targets. Rule: check billing only inside the official app. [GBlock report](https://www.gblock.app/articles/fake-ai-ads-portals-bitb-phishing-mfa-2026), [summary with the Cofense campaign](https://nofakey-ai.github.io/blog/fake-ai-subscription-cancellation-scam.html). Both are secondary sources.\n\n**What I left out and why:**\n- **CapCut, Meta AI and phone built-in AI (Galaxy AI, Pixel, Apple):** I found nothing new in this window.\n- **Claude Duet (21 Oct):** US-only, paid, waitlist.\n- **Gemini auto browse in Chrome (7 Oct):** paid plans only.\n- **ChatGPT Finances:** US-only.\n- **Viral AI photo-trend privacy warnings:** the latest I found is from September 2026 (Delhi Police), so it's not new.\n\n**How these could fill this week's slots:**\n- Items 1 and 2 suit a tutorial or tool reel, with students in a hostel or library as the named viewer.\n- Item 3 suits a tool reel for a shop owner at the counter.\n- Items 6 to 8 suit the backfire theme and the remaining #2 hook slots.\n- Item 5 only works once you've confirmed what really happens when the free year ends.\n\nSources:\n- [Google blog: Gemini Notebook textbooks](https://blog.google/innovation-and-ai/products/gemini-notebook/new-access-textbooks/)\n- [Gemini release notes (India)](https://gemini.google/in/release-notes/?hl=en-IN)\n- [Android Headlines: Gemini file editing](https://www.androidheadlines.com/2026/10/gemini-edit-files-docs-pdf-directly-in-chat.html)\n- [Canva newsroom: Introducing Canva Craft](https://www.canva.com/newsroom/news/canva-craft/)\n- [TechCrunch: Canva's first image model](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/)\n- [Beebom: ChatGPT Hindi voices](https://gadgets.beebom.com/news/chatgpt-new-hindi-voices-released-openai-latest-india-festive-campaign)\n- [OpenAI ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [TechCrunch: Free ChatGPT Go in India (2025)](https://techcrunch.com/2025/10/27/openai-offers-free-chatgpt-go-for-one-year-to-all-users-in-india/)\n- [NewsMobile: PNB voice-clone alert](https://www.newsmobile.in/fraud-and-scam/pnb-alerts-customers-to-ai-voice-cloning-deepfake-and-phishing-frauds/)\n- [Organiser: Rajnath Singh deepfake fact check](https://organiser.org/2026/11/04/423900/bharat/fact-check-ai-generated-video-falsely-shows-rajnath-singh-criticising-indian-army-amid-india-china-border-tensions/)\n- [Newsonair: PIB debunks FM deepfake](https://newsonair.gov.in/pib-fact-check-debunks-fake-ai-generated-video-claiming-endorsement-by-fm-nirmala-sitharaman/)\n- [GBlock: Fake AI login portals](https://www.gblock.app/articles/fake-ai-ads-portals-bitb-phishing-mfa-2026)\n- [Fake AI subscription cancellation scam](https://nofakey-ai.github.io/blog/fake-ai-subscription-cancellation-scam.html)",
+  "slots": [
+    {
+      "day": "2026-11-05",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-05-reel-fake-ai-payment-email-explain",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 78.8
+      },
+      "keyword": "SAFE",
+      "pillar": "How AI works",
+      "topic": "That 'your ChatGPT payment failed' email is fake: how a copied login page takes your password and OTP",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-06",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-06-reel-exp-pair2-arm-b-plain-vs-brief-prompt",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 83.2
+      },
+      "keyword": "BRIEF",
+      "pillar": "Better prompts",
+      "topic": "Experiment pair 2, arm B: same question, two answers, a plain prompt vs a role, goal and format prompt (general opener)",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-06",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-06-reel-chatgpt-hindi-voices-tool",
+      "style": "motion",
+      "hook": {
+        "id": 24,
+        "name": "The Reveal",
+        "score": 84.4
+      },
+      "keyword": "BOLO",
+      "pillar": "Tools worth knowing",
+      "topic": "ChatGPT now talks in Hindi: the new voices Neer and Leher, and who should use them",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-06",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-06-reel-hostel-tutorial-fiverr-gig-page",
+      "style": "motion",
+      "hook": {
+        "id": 20,
+        "name": "Permission",
+        "score": 80.8
+      },
+      "keyword": "GIG",
+      "pillar": "Do it with AI",
+      "topic": "Hostel room, one evening: build a Fiverr gig page with free AI, step by step, finished on screen",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-07",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-07-reel-exp-pair2-arm-a-plain-vs-brief-prompt",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 94.8
+      },
+      "keyword": "BRIEF",
+      "pillar": "Better prompts",
+      "topic": "Experiment pair 2, arm A: 9-to-5ers after office, same question, two answers, a plain prompt vs a role, goal and format prompt",
+      "status": "made"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "2026-11-06-reel-hostel-tutorial-fiverr-gig-page",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "GIG",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(portfolio|3|three|samples|stall|GIG|free|dollars|EXAMPLE|catch|order|weeks|none|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1F6B52"
+  },
+  "lines": [
+    {
+      "say": "You don't need a portfolio. You need three Canva samples.",
+      "show": "No portfolio. Just 3 Canva samples.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Same student room. Your Fiverr gig is a stall at the fest.",
+      "show": "Your gig is a fest stall.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step one: ask a free AI what you can sell.",
+      "show": "Step 1: what can I sell?",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Next step: the GIG prompt writes the board and menu, priced in dollars.",
+      "show": "Step 2: title, 3 packages, in dollars.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Step three: three Canva thumbnails, the samples on your table.",
+      "show": "Step 3: 3 samples on the table.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Your stall's open. A full gig page, in one evening.",
+      "show": "Stall's open. Gig page done.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: live isn't an order. The first can take weeks.",
+      "show": "The catch: live isn't an order.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Many gigs get none. And joining is free, no fee anywhere.",
+      "show": "Many get none. Joining is free.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to your roommate who's good at Canva. Type GIG, get the free prompt.",
+      "show": "Send this. Comment GIG for the builder.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+1.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+1.3",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "NO PORTFOLIO NEEDED",
+      "A FIVERR GIG, ONE EVENING"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

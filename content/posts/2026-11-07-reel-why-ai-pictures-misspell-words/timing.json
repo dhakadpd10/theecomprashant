@@ -1,0 +1,89 @@
+{
+  "dur": 37.13,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.43,
+      "b": 3.53,
+      "say": "Stop typing your whole shop name into your AI poster prompt.",
+      "show": "Stop typing your full shop name."
+    },
+    {
+      "a": 3.53,
+      "voice": 3.63,
+      "end": 5.817,
+      "b": 5.917,
+      "say": "Look at his poster. The name is spelled wrong.",
+      "show": "His poster: Shrama Genral Store."
+    },
+    {
+      "a": 5.917,
+      "voice": 6.017,
+      "end": 10.586,
+      "b": 10.686,
+      "say": "Here's why. Many AI image tools start from noise and clean it up, step by step.",
+      "show": "Many tools clean up noise, step by step."
+    },
+    {
+      "a": 10.686,
+      "voice": 10.786,
+      "end": 14.756,
+      "b": 14.856,
+      "say": "It's like a blurry photo coming into focus. Big things get clear first.",
+      "show": "Like a blurry photo coming into focus."
+    },
+    {
+      "a": 14.856,
+      "voice": 14.956,
+      "end": 18.994,
+      "b": 19.094,
+      "say": "Tiny letters stay fuzzy. It doesn't read them. It sees shapes, not spelling.",
+      "show": "Letters are shapes, not spelling."
+    },
+    {
+      "a": 19.094,
+      "voice": 19.194,
+      "end": 23.074,
+      "b": 23.174,
+      "say": "Here's the fix. One to three words, in quotes. Or just add text in Canva.",
+      "show": "1 to 3 words. In quotes. Or Canva."
+    },
+    {
+      "a": 23.174,
+      "voice": 23.274,
+      "end": 25.083,
+      "b": 25.183,
+      "say": "Now the name is spelled right. Fixed.",
+      "show": "Sharma General Store. Fixed."
+    },
+    {
+      "a": 25.183,
+      "voice": 25.283,
+      "end": 29.786,
+      "b": 29.886,
+      "say": "Here's the catch. Newer models do better. Still, check every letter, phone numbers most.",
+      "show": "The catch: check every letter, phone numbers most."
+    },
+    {
+      "a": 29.886,
+      "voice": 29.986,
+      "end": 33.597,
+      "b": 33.697,
+      "say": "Send this to the shop owner friend who printed a poster with a typo.",
+      "show": "Send this to your shop owner friend."
+    },
+    {
+      "a": 33.697,
+      "voice": 33.797,
+      "end": 35.727,
+      "b": 37.13,
+      "say": "Comment CRAFT and I'll send you the prompt.",
+      "show": "Comment CRAFT for the prompt."
+    }
+  ]
+}

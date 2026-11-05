@@ -1,0 +1,157 @@
+{
+  "id": "2026-11-06-reel-exp-pair2-arm-b-plain-vs-brief-prompt",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "format": "reel",
+  "hook": "#2",
+  "arm": "B",
+  "pair": 2,
+  "money_angle": false,
+  "slot": "2026-11-06 09:00 IST (03:30 UTC)",
+  "keyword": "BRIEF",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|3|three|role|Role|goal|Goal|format|Format|chai|cutting|Cutting|adrak|facts|Send|BRIEF)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F4BD8"
+  },
+  "lines": [
+    {
+      "say": "Stop asking AI in one line. Give it three things.",
+      "show": "Stop 1-line prompts. Give it 3 things.",
+      "card": "STOP 1-LINE PROMPTS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Same question. Two very different answers.",
+      "show": "Same question. Two very different answers.",
+      "card": "Two empty chat bubbles, side by side. No person, no place.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Weekly update for your manager? One line gets a long, generic wall.",
+      "show": "1 line: a long, generic wall.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Like ordering just one chai.",
+      "show": "Like ordering just \"one chai\".",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Who it is: my manager's helper.",
+      "show": "Role: my team lead's assistant.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Goal: three wins, one blocker, one ask.",
+      "show": "Goal: 3 wins, 1 blocker, 1 ask.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Format: five short bullets, nothing more.",
+      "show": "Format: 5 bullets, under 60 words.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Cutting chai, less sugar, extra ginger. Your update, done.",
+      "show": "Cutting chai, less sugar, extra adrak.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: AI doesn't know your work. You give facts, it fixes the shape.",
+      "show": "The catch: you give the facts.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who rewrites every AI answer by hand. Comment BRIEF.",
+      "show": "Send this. Comment BRIEF for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.0",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.1",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line7+1.4",
+    "title": [
+      "STOP 1-LINE PROMPTS",
+      "GIVE AI 3 THINGS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

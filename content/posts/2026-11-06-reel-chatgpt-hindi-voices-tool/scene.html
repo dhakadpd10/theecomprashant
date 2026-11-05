@@ -1,0 +1,234 @@
+<style>
+  /* tool reel: ChatGPT voice mode's two Hindi voices. One idea (talk to it in Hindi, it talks back in Hindi), one analogy (calling the cousin who knows everything).
+     colour = meaning: blue = the AI and its voices, green = works, red = trips it up, amber = sometimes glitchy */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(46,75,198,0.08) 0%, rgba(46,75,198,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.07) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: var(--body); font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 146px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .num { color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.13), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: var(--body); font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.6); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #1E8A50; } .red { background: #C8402F; } .amber { background: #A8670F; } .blue { background: var(--accent); }
+
+  /* 0: hook (host centre, so everything sits above y 560 or to his sides) */
+  #s0-step { top: 62px; }
+  #s0-title { top: 108px; font-size: 120px; line-height: 1; transform-origin: left center; }
+  #squig { position: absolute; left: 290px; top: 372px; width: 440px; height: 40px; }
+  .vchip { position: absolute; top: 560px; width: 220px; height: 100px; border-radius: 50px; background: #FFFFFF; box-shadow: 0 22px 50px rgba(70,50,30,0.14); display: flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s0-neer { left: 90px; }
+  #s0-leher { left: 740px; }
+  .wave { display: flex; align-items: center; gap: 5px; width: 40px; height: 44px; }
+  .wave i { display: block; width: 6px; height: 40px; border-radius: 3px; background: var(--accent); }
+  .vlbl { top: 680px; width: 220px; text-align: center; }
+  #s0-l1 { left: 90px; } #s0-l2 { left: 740px; }
+
+  /* 1: who it's for */
+  #s1-card { top: 470px; height: 610px; }
+  .row { position: absolute; left: 36px; right: 36px; height: 104px; border-radius: 26px; background: #F7F4EE; }
+  .row .t { position: absolute; left: 118px; right: 180px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .row .chip { right: 22px; top: 22px; width: 150px; padding: 0; }
+  .av { position: absolute; left: 22px; top: 17px; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 32px; color: #FFFFFF; }
+  #s1-e { top: 36px; background: #FBEDEA; }
+  #s1-e .t { left: 32px; right: 290px; font-size: 40px; font-weight: 800; }
+  #s1-e .chip { width: 240px; }
+  #s1-strike { position: absolute; left: 26px; top: 50px; width: 176px; height: 6px; border-radius: 3px; background: #C8402F; transform-origin: left center; }
+  #s1-note { left: 40px; top: 162px; }
+  #r1 { top: 200px; } #r2 { top: 318px; } #r3 { top: 436px; }
+
+  /* 2: the analogy, a call to the cousin */
+  #s2-card { top: 470px; height: 620px; }
+  .ring { position: absolute; left: 250px; top: 40px; width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); box-sizing: border-box; }
+  #s2-av { position: absolute; left: 250px; top: 40px; width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(160deg, #E3A77A, #C8552B); overflow: hidden; }
+  #s2-av svg { display: block; width: 160px; height: 160px; }
+  #s2-name { position: absolute; left: 0; right: 0; top: 218px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 44px; color: var(--ink); }
+  #s2-sub { left: 0; right: 0; top: 282px; text-align: center; }
+  #s2-time { position: absolute; left: 0; right: 0; top: 322px; text-align: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--accent); }
+  #s2-bub { position: absolute; left: 110px; right: 110px; top: 392px; height: 100px; border-radius: 50px; background: #EEF1FF; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 800; font-size: 40px; color: var(--ink); }
+  #s2-end { position: absolute; left: 290px; top: 516px; width: 80px; height: 80px; border-radius: 50%; background: #C8402F; display: flex; align-items: center; justify-content: center; }
+  #s2-end svg { display: block; width: 44px; height: 24px; }
+
+  /* 3: step 1, voice mode and the two voices (host hidden, full width) */
+  #s3-card { top: 450px; height: 640px; }
+  #vm { position: absolute; left: 36px; right: 36px; top: 36px; height: 130px; border-radius: 30px; background: #F7F4EE; }
+  #vm-btn { position: absolute; left: 16px; top: 15px; width: 100px; height: 100px; border-radius: 50%; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 7px; }
+  #vm-btn i { display: block; width: 8px; border-radius: 4px; background: #FFFFFF; }
+  #vm .t { position: absolute; left: 146px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 44px; color: var(--ink); }
+  #vm-on { right: 26px; top: 35px; width: 110px; padding: 0; }
+  #s3-pick { left: 40px; top: 198px; }
+  .vrow { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F7F4EE; border: 4px solid rgba(46,75,198,0); box-sizing: border-box; }
+  #v1 { top: 240px; } #v2 { top: 380px; }
+  .radio { position: absolute; left: 28px; top: 30px; width: 52px; height: 52px; border-radius: 50%; border: 5px solid rgba(30,26,22,0.3); box-sizing: border-box; }
+  .dot { position: absolute; left: 40px; top: 42px; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); }
+  .vrow .t { position: absolute; left: 112px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 44px; color: var(--ink); }
+  .vrow .chip { right: 24px; top: 26px; width: 150px; padding: 0; }
+  #s3-foot { left: 40px; top: 548px; }
+
+  /* 4: step 2, just ask (full width) */
+  #s4-card { top: 450px; height: 640px; }
+  #listen { position: absolute; left: 36px; right: 36px; top: 36px; height: 200px; border-radius: 30px; background: #F7F4EE; }
+  #listen .lbl { left: 30px; top: 22px; }
+  #wv { position: absolute; left: 0; right: 0; top: 64px; height: 120px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #wv i { display: block; width: 14px; height: 110px; border-radius: 7px; background: var(--accent); }
+  #ask { position: absolute; left: 150px; right: 36px; top: 266px; height: 200px; border-radius: 40px 40px 10px 40px; background: var(--accent); padding: 34px 40px; box-sizing: border-box; }
+  .ql { display: block; font-family: var(--body); font-weight: 800; font-size: 42px; line-height: 1.5; color: #FFFFFF; white-space: nowrap; overflow: hidden; }
+  #mean { position: absolute; left: 36px; right: 36px; top: 498px; height: 104px; border-radius: 26px; background: #F7F4EE; }
+  #mean .lbl { left: 30px; top: 40px; }
+  #mean .t { position: absolute; left: 160px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+
+  /* 5: the result, it talks back in Hindi */
+  #s5-card { top: 470px; height: 600px; }
+  #spk-ring { position: absolute; left: 36px; top: 36px; width: 96px; height: 96px; border-radius: 50%; border: 4px solid var(--accent); box-sizing: border-box; }
+  #spk { position: absolute; left: 36px; top: 36px; width: 96px; height: 96px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #spk svg { display: block; width: 52px; height: 52px; }
+  #s5-name { position: absolute; left: 152px; top: 36px; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s5-st { left: 152px; top: 94px; }
+  #s5-wv { position: absolute; right: 36px; top: 50px; width: 150px; height: 70px; display: flex; align-items: center; justify-content: center; gap: 9px; }
+  #s5-wv i { display: block; width: 10px; height: 60px; border-radius: 5px; background: var(--accent); }
+  #reply { position: absolute; left: 36px; right: 36px; top: 160px; height: 232px; border-radius: 30px; background: #F7F4EE; padding: 30px 34px; box-sizing: border-box; }
+  .rl { display: block; font-family: var(--body); font-weight: 700; font-size: 36px; line-height: 1.5; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #o1 { left: 36px; top: 420px; }
+  #o2 { left: 260px; top: 420px; }
+  #s5-note { left: 40px; top: 522px; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 500px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F7F4EE; }
+  .chk .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 800; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .chk .chip { right: 24px; top: 30px; width: 190px; padding: 0; }
+  #k1 { top: 36px; } #k2 { top: 176px; background: #FBEDEA; } #k3 { top: 316px; }
+  #s6-note { left: 40px; top: 454px; }
+
+  /* 7: send + keyword, with a preview of the free starter card */
+  #s7-send { position: absolute; left: 90px; top: 50px; width: 640px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.1; color: var(--ink); }
+  #s7-who { position: absolute; left: 90px; top: 200px; width: 600px; font-family: var(--body); font-weight: 700; font-size: 34px; line-height: 1.3; color: rgba(30,26,22,0.66); }
+  #s7-card { top: 340px; height: 470px; }
+  #s7-kick { left: 36px; top: 32px; color: var(--accent); }
+  #s7-head { position: absolute; left: 36px; top: 70px; font-family: var(--body); font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .tk { position: absolute; left: 36px; right: 36px; height: 84px; }
+  .tk .ok { position: absolute; left: 0; top: 16px; width: 52px; height: 52px; border-radius: 50%; background: #1E8A50; display: flex; align-items: center; justify-content: center; }
+  .tk .ok svg { display: block; width: 28px; height: 22px; }
+  .tk .t { position: absolute; left: 76px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #t1 { top: 150px; } #t2 { top: 250px; } #t3 { top: 350px; }
+  #pill { position: absolute; left: 60px; right: 360px; top: 850px; height: 160px; border-radius: 80px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; }
+  #pill-c { display: block; font-family: var(--body); font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #bolo { display: flex; gap: 2px; }
+  #bolo i { display: block; font-style: normal; font-family: var(--display); font-size: 84px; line-height: 1; color: #A9B8FF; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">CHATGPT VOICE MODE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="num">2</span> Hindi voices</span></span><span class="mask"><span class="l" id="s0-line2">for <span class="it">mummy.</span></span></span></div>
+  <svg id="squig" viewBox="0 0 300 40" data-layout-allow-overlap><path id="squig-p" d="M4 24 Q 40 4 76 24 T 148 24 T 220 24 T 296 24" fill="none" stroke="#2E4BC6" stroke-width="9" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg>
+  <div class="vchip" id="s0-neer"><span class="wave"><i id="s0-a0"></i><i id="s0-a1"></i><i id="s0-a2"></i><i id="s0-a3"></i></span>Neer</div>
+  <div class="vchip" id="s0-leher"><span class="wave"><i id="s0-b0"></i><i id="s0-b1"></i><i id="s0-b2"></i><i id="s0-b3"></i></span>Leher</div>
+  <div class="lbl vlbl" id="s0-l1">HINDI VOICE</div>
+  <div class="lbl vlbl" id="s0-l2">HINDI VOICE</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">WHO IT'S FOR</div>
+  <div class="title"><span class="mask"><span class="l">Mummy needs</span></span><span class="mask"><span class="l">no <span class="it">English.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="row" id="s1-e"><div class="t">English</div><i id="s1-strike" data-layout-allow-overlap></i><div class="chip red" id="s1-ec">NOT NEEDED</div></div>
+    <div class="lbl" id="s1-note">SHE JUST SPEAKS HINDI</div>
+    <div class="row" id="r1"><div class="av blue">M</div><div class="t">Mummy</div><div class="chip green" id="c1">HINDI</div></div>
+    <div class="row" id="r2"><div class="av" style="background:#C8552B">D</div><div class="t">Dadi, Nani</div><div class="chip green" id="c2">HINDI</div></div>
+    <div class="row" id="r3"><div class="av" style="background:#1E8A50">P</div><div class="t">Papa</div><div class="chip green" id="c3">HINDI</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THINK OF IT AS</div>
+  <div class="title"><span class="mask"><span class="l">Like calling</span></span><span class="mask"><span class="l">that <span class="it">cousin.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="ring" id="ring1"></div>
+    <div class="ring" id="ring2"></div>
+    <div id="s2-av"><svg viewBox="0 0 160 160"><circle cx="80" cy="66" r="30" fill="#FFF5EA"></circle><path d="M26 160 C32 112 128 112 134 160 Z" fill="#FFF5EA"></path></svg></div>
+    <div id="s2-name">Cousin</div>
+    <div class="lbl" id="s2-sub">KNOWS EVERYTHING</div>
+    <div id="s2-time">00:00</div>
+    <div id="s2-bub">"Haan, bolo?"</div>
+    <div id="s2-end"><svg viewBox="0 0 44 24"><path d="M2 14 Q22 -2 42 14 L38 22 L30 18 L30 12 Q22 9 14 12 L14 18 L6 22 Z" fill="#FFFFFF"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Pick a Hindi</span></span><span class="mask"><span class="l it">voice.</span></span></div>
+  <div class="card wide" id="s3-card">
+    <div id="vm"><div id="vm-btn"><i style="height:24px"></i><i style="height:46px"></i><i style="height:34px"></i><i style="height:52px"></i><i style="height:26px"></i></div><div class="t">Voice mode</div><div class="chip blue" id="vm-on">ON</div></div>
+    <div class="lbl" id="s3-pick">CHOOSE A VOICE</div>
+    <div class="vrow" id="v1"><div class="radio"></div><div class="dot" id="d1"></div><div class="t">Neer</div><div class="chip blue" id="v1c">HINDI</div></div>
+    <div class="vrow" id="v2"><div class="radio"></div><div class="t">Leher</div><div class="chip blue" id="v2c">HINDI</div></div>
+    <div class="lbl" id="s3-foot">TWO NEW HINDI VOICES. PICK EITHER ONE.</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Then just</span></span><span class="mask"><span class="l it">ask.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div id="listen"><div class="lbl">LISTENING</div><div id="wv"><i id="s4-w0"></i><i id="s4-w1"></i><i id="s4-w2"></i><i id="s4-w3"></i><i id="s4-w4"></i><i id="s4-w5"></i><i id="s4-w6"></i><i id="s4-w7"></i><i id="s4-w8"></i><i id="s4-w9"></i><i id="s4-w10"></i><i id="s4-w11"></i><i id="s4-w12"></i><i id="s4-w13"></i><i id="s4-w14"></i></div></div>
+    <div id="ask"><span class="ql" id="q1">Aloo aur paneer hai,</span><span class="ql" id="q2">dinner mein kya banau?</span></div>
+    <div id="mean"><div class="lbl">MEANS</div><div class="t">What can I cook tonight?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">It talks back,</span></span><span class="mask"><span class="l">in <span class="it">Hindi.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div id="spk-ring"></div>
+    <div id="spk"><svg viewBox="0 0 52 52"><path d="M6 19 L16 19 L28 8 L28 44 L16 33 L6 33 Z" fill="#FFFFFF"></path><path d="M35 18 Q41 26 35 34" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path><path d="M40 12 Q50 26 40 40" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"></path></svg></div>
+    <div id="s5-name">Neer</div>
+    <div class="lbl" id="s5-st">SPEAKING</div>
+    <div id="s5-wv"><i id="s5-w0"></i><i id="s5-w1"></i><i id="s5-w2"></i><i id="s5-w3"></i><i id="s5-w4"></i><i id="s5-w5"></i><i id="s5-w6"></i></div>
+    <div id="reply"><span class="rl" id="y1">Aloo paneer ki sabzi</span><span class="rl" id="y2">banao, ya paratha.</span><span class="rl" id="y3">Pyaaz-tamatar hai?</span></div>
+    <div class="chip green" id="o1">OUT LOUD</div>
+    <div class="chip blue" id="o2">HINDI</div>
+    <div class="lbl" id="s5-note">EXAMPLE REPLY</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">No Hinglish</span></span><span class="mask"><span class="l it">yet.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="chk" id="k1"><div class="t">Pure Hindi</div><div class="chip green" id="h1">WORKS</div></div>
+    <div class="chk" id="k2"><div class="t">Hinglish</div><div class="chip red" id="h2">TRIPS UP</div></div>
+    <div class="chk" id="k3"><div class="t">Voice picker</div><div class="chip amber" id="h3">GLITCHY</div></div>
+    <div class="lbl" id="s6-note">SOME USERS REPORT IT</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-send">Send this.</div>
+  <div id="s7-who">to the friend whose mummy only sends voice notes</div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-kick">FREE STARTER CARD</div>
+    <div id="s7-head">Hindi Voice-Mode Card</div>
+    <div class="tk" id="t1"><div class="ok" id="ok1"><svg viewBox="0 0 28 22"><path d="M3 11 L11 19 L25 3" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Switch to a Hindi voice</div></div>
+    <div class="tk" id="t2"><div class="ok" id="ok2"><svg viewBox="0 0 28 22"><path d="M3 11 L11 19 L25 3" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">10 questions in Hindi</div></div>
+    <div class="tk" id="t3"><div class="ok" id="ok3"><svg viewBox="0 0 28 22"><path d="M3 11 L11 19 L25 3" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">WhatsApp or print</div></div>
+  </div>
+  <div id="pill"><span id="pill-c">Comment</span><span id="bolo"><i id="b1">B</i><i id="b2">O</i><i id="b3">L</i><i id="b4">O</i></span></div>
+</section>

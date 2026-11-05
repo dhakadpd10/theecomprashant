@@ -1,0 +1,89 @@
+{
+  "dur": 33.27,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.011,
+      "b": 4.111,
+      "say": "Stop tapping 'update payment' in that AI bill email. Open the app.",
+      "show": "Stop tapping that email. Open the app."
+    },
+    {
+      "a": 4.111,
+      "voice": 4.211,
+      "end": 6.074,
+      "b": 6.174,
+      "say": "Payment failed. Update in two days.",
+      "show": "Payment failed. Update in 48 hours."
+    },
+    {
+      "a": 6.174,
+      "voice": 6.274,
+      "end": 10.838,
+      "b": 10.938,
+      "say": "India's free year of the Go plan started a year ago, so people are checking renewals.",
+      "show": "Free Go year opened Nov 2025. Renewals now."
+    },
+    {
+      "a": 10.938,
+      "voice": 11.038,
+      "end": 14.087,
+      "b": 14.187,
+      "say": "Reports show the link leads to a photocopied shop counter.",
+      "show": "The link opens a photocopied counter."
+    },
+    {
+      "a": 14.187,
+      "voice": 14.287,
+      "end": 16.904,
+      "b": 17.004,
+      "say": "Same shop name. The address has one wrong letter.",
+      "show": "Same signboard. One wrong letter."
+    },
+    {
+      "a": 17.004,
+      "voice": 17.104,
+      "end": 20.185,
+      "b": 20.285,
+      "say": "Your password and OTP drop into a stranger's drawer.",
+      "show": "Your OTP lands in a stranger's drawer."
+    },
+    {
+      "a": 20.285,
+      "voice": 20.385,
+      "end": 22.909,
+      "b": 23.009,
+      "say": "Open the app yourself: Settings, then Subscription.",
+      "show": "Open the app: Settings, then Subscription."
+    },
+    {
+      "a": 23.009,
+      "voice": 23.109,
+      "end": 26.272,
+      "b": 26.372,
+      "say": "The catch: careful fakes look perfect. Always open the app.",
+      "show": "The catch: fakes can look perfect."
+    },
+    {
+      "a": 26.372,
+      "voice": 26.472,
+      "end": 28.106,
+      "b": 28.206,
+      "say": "Lost money? Call nineteen thirty.",
+      "show": "Lost money? Call 1930 or cybercrime.gov.in"
+    },
+    {
+      "a": 28.206,
+      "voice": 28.306,
+      "end": 31.869,
+      "b": 33.27,
+      "say": "Send this to the friend who took the free AI year. Comment SAFE.",
+      "show": "Send this. Comment SAFE for the card."
+    }
+  ]
+}

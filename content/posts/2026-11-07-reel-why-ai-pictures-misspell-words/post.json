@@ -1,0 +1,147 @@
+{
+  "id": "2026-11-07-reel-why-ai-pictures-misspell-words",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "CRAFT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|noise|blurry|focus|shapes|spelling|3|quotes|Canva|Fixed|catch|letter|Send|CRAFT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2747C4"
+  },
+  "lines": [
+    {
+      "say": "Stop typing your whole shop name into your AI poster prompt.",
+      "show": "Stop typing your full shop name.",
+      "card": "STOP TYPING YOUR SHOP NAME",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Look at his poster. The name is spelled wrong.",
+      "show": "His poster: Shrama Genral Store.",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Here's why. Many AI image tools start from noise and clean it up, step by step.",
+      "show": "Many tools clean up noise, step by step.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "It's like a blurry photo coming into focus. Big things get clear first.",
+      "show": "Like a blurry photo coming into focus.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Tiny letters stay fuzzy. It doesn't read them. It sees shapes, not spelling.",
+      "show": "Letters are shapes, not spelling.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Here's the fix. One to three words, in quotes. Or just add text in Canva.",
+      "show": "1 to 3 words. In quotes. Or Canva.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now the name is spelled right. Fixed.",
+      "show": "Sharma General Store. Fixed.",
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch. Newer models do better. Still, check every letter, phone numbers most.",
+      "show": "The catch: check every letter, phone numbers most.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the shop owner friend who printed a poster with a typo.",
+      "show": "Send this to your shop owner friend.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment CRAFT and I'll send you the prompt.",
+      "show": "Comment CRAFT for the prompt.",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+0.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "WHY AI SPELLS",
+      "YOUR SHOP NAME WRONG"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

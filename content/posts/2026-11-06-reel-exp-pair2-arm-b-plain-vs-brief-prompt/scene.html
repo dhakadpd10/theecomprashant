@@ -1,0 +1,247 @@
+<style>
+  /* prompt explainer: one idea (a 1-line ask gets a generic wall; give it role, goal, format),
+     one analogy (ordering "one chai" vs "cutting, less sugar, extra adrak").
+     colour = meaning: red = the 1-line way, blue = the brief, green = done, amber = needs you */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,75,216,0.08) 0%, rgba(47,75,216,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,130,60,0.09) 0%, rgba(200,130,60,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .it.bad { color: #C23A3A; }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .blue { background: var(--accent); } .red { background: #C23A3A; } .green { background: #17804A; }
+  .amber { background: #E8A317; color: var(--ink); } .ink { background: var(--ink); }
+
+  /* 0: hook (host centre: everything above y 560) */
+  #s0-step { top: 60px; }
+  #s0-title { top: 110px; font-size: 124px; line-height: 1; transform-origin: 0% 50%; }
+  .x { position: relative; display: inline-block; }
+  .tilt { position: absolute; left: -10px; right: -10px; top: 46%; height: 14px; display: block; rotate: -3deg; }
+  #s0-strike { display: block; width: 100%; height: 14px; border-radius: 7px; background: #C23A3A; transform-origin: left center; }
+  #s0-badge { position: absolute; left: 700px; top: 262px; width: 180px; height: 180px; border-radius: 50%; background: var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(47,75,216,0.3); }
+  #s0-badge-n { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 0.9; color: #FFFFFF; }
+  #s0-badge-t { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.12em; color: #FFFFFF; }
+
+  /* 1: same ask, two answers */
+  #s1-card { top: 470px; height: 600px; }
+  #s1-q { position: absolute; left: 140px; right: 36px; top: 34px; height: 92px; border-radius: 46px 46px 12px 46px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  .col { position: absolute; top: 160px; width: 282px; height: 410px; border-radius: 26px; }
+  #s1-a { left: 36px; background: #FBEDEC; }
+  #s1-b { left: 342px; background: #EEF1FF; }
+  .col .chip { left: 20px; top: 20px; }
+  .sk { position: absolute; left: 22px; height: 14px; border-radius: 7px; background: rgba(194,58,58,0.3); transform-origin: left center; display: block; }
+  .bl { position: absolute; left: 60px; height: 16px; border-radius: 8px; background: rgba(47,75,216,0.38); transform-origin: left center; display: block; }
+  .bl::before { content: ''; position: absolute; left: -36px; top: -4px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); }
+  .col .lbl { left: 22px; top: 356px; }
+
+  /* 2: the 1-line way (host hidden, full width) */
+  #s2-card { top: 450px; height: 680px; }
+  #s2-l1 { left: 40px; top: 30px; }
+  #s2-in { position: absolute; left: 40px; right: 40px; top: 72px; height: 100px; border-radius: 26px; background: #F6F5F2; }
+  #s2-in-t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s2-in-c { right: 20px; top: 20px; }
+  #s2-l2 { left: 40px; top: 206px; }
+  #s2-count { right: 40px; top: 188px; width: 230px; padding: 0; }
+  #s2-wall { position: absolute; left: 40px; right: 40px; top: 264px; height: 376px; border-radius: 26px; background: #F6F5F2; overflow: hidden; }
+  #s2-wall-t { position: absolute; left: 32px; right: 32px; top: 24px; margin: 0; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 36px; line-height: 1.45; color: rgba(30,26,22,0.8); }
+  #s2-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; display: block; background: linear-gradient(rgba(246,245,242,0), #F6F5F2 85%); }
+  #s2-stamp-w { position: absolute; left: 470px; top: 400px; width: 340px; height: 130px; rotate: -8deg; }
+  #s2-stamp { width: 340px; height: 130px; box-sizing: border-box; border: 9px solid #C23A3A; border-radius: 18px; background: rgba(255,255,255,0.88); color: #C23A3A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 56px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+
+  /* 3: the chai analogy */
+  #s3-card { top: 470px; height: 556px; }
+  #s3-l { left: 36px; top: 30px; }
+  #s3-order { position: absolute; left: 36px; right: 36px; top: 70px; height: 116px; border-radius: 26px; background: #F6F5F2; }
+  #s3-cup { position: absolute; left: 22px; top: 13px; width: 90px; height: 90px; }
+  #s3-order .t { position: absolute; left: 130px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .orow { position: absolute; left: 36px; right: 36px; height: 96px; border-radius: 24px; background: #FFFFFF; border: 3px dashed rgba(30,26,22,0.2); box-sizing: border-box; }
+  .orow .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); }
+  .orow .chip { right: 18px; top: 15px; width: 60px; padding: 0; }
+  #s3-r1 { top: 206px; } #s3-r2 { top: 316px; } #s3-r3 { top: 426px; }
+
+  /* 4-6: the brief fills, one slot per line */
+  #s4-card { top: 470px; height: 620px; }
+  #s4-l { left: 36px; top: 26px; }
+  #s4-ask { position: absolute; left: 36px; right: 36px; top: 64px; height: 86px; border-radius: 24px; background: #F6F5F2; padding-left: 28px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .slot { position: absolute; left: 36px; right: 36px; height: 130px; border-radius: 24px; border: 3px dashed rgba(30,26,22,0.22); background-color: rgba(238,241,255,0); box-sizing: border-box; }
+  .slot .chip { left: 20px; top: 14px; height: 44px; padding: 0 18px; }
+  .slot .t { position: absolute; left: 24px; right: 20px; top: 66px; height: 48px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 48px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s4-r1 { top: 166px; } #s4-r2 { top: 312px; } #s4-r3 { top: 458px; }
+
+  /* 7: the result */
+  #s7-chips { position: absolute; left: 90px; top: 300px; height: 64px; display: flex; gap: 14px; }
+  .tea { display: flex; align-items: center; height: 64px; padding: 0 24px; border-radius: 32px; background: #EEF1FF; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; white-space: nowrap; }
+  #s7-card { top: 470px; height: 620px; }
+  #s7-l { left: 36px; top: 30px; }
+  #s7-tick { position: absolute; right: 30px; top: 14px; width: 56px; height: 56px; border-radius: 50%; background: #17804A; display: block; }
+  #s7-tick svg { position: absolute; left: 12px; top: 12px; width: 32px; height: 32px; }
+  .res { position: absolute; left: 30px; right: 30px; height: 96px; border-radius: 22px; background: #F6F5F2; }
+  .res .chip { left: 16px; top: 18px; width: 160px; padding: 0; }
+  .res .t { position: absolute; left: 196px; right: 16px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s7-r1 { top: 80px; } #s7-r2 { top: 184px; } #s7-r3 { top: 288px; } #s7-r4 { top: 392px; } #s7-r5 { top: 496px; }
+
+  /* 8: the catch */
+  #s8-card { top: 470px; height: 540px; }
+  #s8-warn { position: absolute; left: 30px; right: 30px; top: 30px; height: 110px; border-radius: 26px; background: #FDF3DC; }
+  #s8-bang { position: absolute; left: 24px; top: 28px; width: 54px; height: 54px; border-radius: 50%; background: #E8A317; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  #s8-warn .t { position: absolute; left: 96px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s8-h1 { left: 34px; top: 170px; } #s8-h2 { left: 346px; top: 170px; color: var(--accent); }
+  .frow { position: absolute; width: 288px; height: 86px; border-radius: 22px; }
+  .frow .t { position: absolute; left: 24px; right: 12px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .you { left: 30px; background: #F6F5F2; }
+  .ai { left: 342px; background: #EEF1FF; }
+  .ai .t { color: var(--accent); }
+  #s8-a1, #s8-b1 { top: 212px; } #s8-a2, #s8-b2 { top: 314px; } #s8-a3, #s8-b3 { top: 416px; }
+
+  /* 9: send + keyword */
+  #s9-send { position: absolute; left: 90px; right: 90px; top: 100px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; line-height: 1.1; color: var(--ink); }
+  #s9-who { position: absolute; left: 120px; right: 120px; top: 300px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: rgba(30,26,22,0.7); }
+  #s9-card { top: 470px; height: 400px; }
+  #s9-av { position: absolute; left: 36px; top: 34px; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #F2C14E, #C8552B); display: block; }
+  #s9-l { left: 136px; top: 62px; }
+  #s9-word { position: absolute; left: 0; right: 0; top: 140px; height: 170px; display: flex; justify-content: center; align-items: center; gap: 6px; }
+  .lt { display: block; font-family: var(--display); font-size: 150px; line-height: 1; color: var(--accent); }
+  #s9-l2 { left: 0; right: 0; top: 330px; text-align: center; }
+  #s9-pill { position: absolute; left: 360px; right: 60px; top: 920px; height: 120px; border-radius: 60px; background: var(--ink); color: #F1EEE8; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s9-pill b { color: #A9B8FF; margin: 0 12px; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">PROMPT TIP</div>
+  <div class="title" id="s0-title">
+    <span class="mask"><span class="l"><span class="it">Stop</span> <span class="x" id="s0-x">1-line<i class="tilt" data-layout-allow-overlap><b id="s0-strike" data-layout-allow-overlap></b></i></span></span></span>
+    <span class="mask"><span class="l">prompts.</span></span>
+  </div>
+  <div id="s0-badge" data-layout-allow-overlap><div id="s0-badge-n">3</div><div id="s0-badge-t">THINGS</div></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">SAME QUESTION</div>
+  <div class="title"><span class="mask"><span class="l">Same ask,</span></span><span class="mask"><span class="l">two <span class="it">answers.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-q">Write my weekly update</div>
+    <div class="col" id="s1-a">
+      <div class="chip red">1 LINE</div>
+      <i class="sk" style="top:100px; right:22px"></i>
+      <i class="sk" style="top:130px; right:40px"></i>
+      <i class="sk" style="top:160px; right:22px"></i>
+      <i class="sk" style="top:190px; right:30px"></i>
+      <i class="sk" style="top:220px; right:22px"></i>
+      <i class="sk" style="top:250px; right:54px"></i>
+      <i class="sk" style="top:280px; right:22px"></i>
+      <i class="sk" style="top:310px; right:90px"></i>
+      <div class="lbl">LONG, VAGUE</div>
+    </div>
+    <div class="col" id="s1-b">
+      <div class="chip blue">3 THINGS</div>
+      <i class="bl" style="top:108px; width:160px"></i>
+      <i class="bl" style="top:156px; width:130px"></i>
+      <i class="bl" style="top:204px; width:170px"></i>
+      <i class="bl" style="top:252px; width:120px"></i>
+      <i class="bl" style="top:300px; width:150px"></i>
+      <div class="lbl">SHORT, SHARP</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE 1-LINE WAY</div>
+  <div class="title"><span class="mask"><span class="l">One line,</span></span><span class="mask"><span class="l">a long <span class="it bad">wall.</span></span></span></div>
+  <div class="card wide" id="s2-card">
+    <div class="lbl" id="s2-l1">YOU TYPED</div>
+    <div id="s2-in"><div id="s2-in-t">Write my weekly update.</div><div class="chip red" id="s2-in-c">1 LINE</div></div>
+    <div class="lbl" id="s2-l2">AI REPLIED · EXAMPLE</div>
+    <div class="chip ink" id="s2-count">0 WORDS</div>
+    <div id="s2-wall"><p id="s2-wall-t">Dear Sir, I hope this message finds you well. I am writing to share a detailed update on the various tasks and activities I have been working on this week. Overall, it has been a productive and eventful week, with steady progress across several important areas. I have been actively collaborating with the team and contributing to ongoing projects.</p><i id="s2-fade" data-layout-allow-overlap></i></div>
+    <div id="s2-stamp-w" data-layout-allow-overlap><div id="s2-stamp" data-layout-allow-overlap>GENERIC</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">LIKE A CHAI STALL</div>
+  <div class="title"><span class="mask"><span class="l">Just one</span></span><span class="mask"><span class="l it">chai.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-l">YOUR ORDER</div>
+    <div id="s3-order">
+      <svg id="s3-cup" viewBox="0 0 90 90"><path d="M18 22 L72 22 L64 80 L26 80 Z" fill="#F3E3C8" stroke="#1E1A16" stroke-width="4" stroke-linejoin="round"></path><path d="M21 42 L69 42 L64 80 L26 80 Z" fill="#B5793B"></path><path d="M36 4 Q 42 10 36 16 M52 4 Q 58 10 52 16" stroke="#1E1A16" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"></path></svg>
+      <div class="t">One chai, please.</div>
+    </div>
+    <div class="orow" id="s3-r1"><div class="t">Size</div><div class="chip amber" id="s3-q1">?</div></div>
+    <div class="orow" id="s3-r2"><div class="t">Sugar</div><div class="chip amber" id="s3-q2">?</div></div>
+    <div class="orow" id="s3-r3"><div class="t">Ginger</div><div class="chip amber" id="s3-q3">?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line7">
+  <div class="step">THE BRIEF</div>
+  <div class="title"><span class="mask"><span class="l">Give it</span></span><span class="mask"><span class="l it">3 things.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-l">YOUR PROMPT</div>
+    <div id="s4-ask">Write my weekly update.</div>
+    <div class="slot" id="s4-r1"><div class="chip blue" id="s4-c1">1 · ROLE</div><div class="t" id="s4-t1">My team lead's assistant</div></div>
+    <div class="slot" id="s4-r2"><div class="chip blue" id="s4-c2">2 · GOAL</div><div class="t" id="s4-t2">3 wins, 1 blocker, 1 ask</div></div>
+    <div class="slot" id="s4-r3"><div class="chip blue" id="s4-c3">3 · FORMAT</div><div class="t" id="s4-t3">5 bullets, under 60 words</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Update, <span class="it">done.</span></span></span></div>
+  <div id="s7-chips"><div class="tea" id="s7-k1">CUTTING</div><div class="tea" id="s7-k2">LESS SUGAR</div><div class="tea" id="s7-k3">EXTRA ADRAK</div></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-l">EXAMPLE UPDATE · 5 BULLETS</div>
+    <div id="s7-tick"><svg viewBox="0 0 32 32"><path d="M6 17 L13 24 L26 9" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="res" id="s7-r1"><div class="chip green">WIN</div><div class="t">Invoice form live</div></div>
+    <div class="res" id="s7-r2"><div class="chip green">WIN</div><div class="t">14 tickets closed</div></div>
+    <div class="res" id="s7-r3"><div class="chip green">WIN</div><div class="t">2 interns trained</div></div>
+    <div class="res" id="s7-r4"><div class="chip amber">BLOCKER</div><div class="t">Design files late</div></div>
+    <div class="res" id="s7-r5"><div class="chip blue">ASK</div><div class="t">Sign off Fri demo</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">You bring</span></span><span class="mask"><span class="l">the <span class="it">facts.</span></span></span></div>
+  <div class="card" id="s8-card">
+    <div id="s8-warn"><div id="s8-bang">!</div><div class="t">It can't see your work.</div></div>
+    <div class="lbl" id="s8-h1">YOU GIVE</div>
+    <div class="lbl" id="s8-h2">AI FIXES</div>
+    <div class="frow you" id="s8-a1"><div class="t">Your wins</div></div>
+    <div class="frow you" id="s8-a2"><div class="t">Your blocker</div></div>
+    <div class="frow you" id="s8-a3"><div class="t">Your ask</div></div>
+    <div class="frow ai" id="s8-b1"><div class="t">Order</div></div>
+    <div class="frow ai" id="s8-b2"><div class="t">Length</div></div>
+    <div class="frow ai" id="s8-b3"><div class="t">Tone</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div id="s9-send">Send <span class="it">this.</span></div>
+  <div id="s9-who">to the friend who rewrites every AI answer by hand</div>
+  <div class="card" id="s9-card">
+    <div id="s9-av"></div>
+    <div class="lbl" id="s9-l">COMMENT THIS WORD</div>
+    <div id="s9-word"><span class="lt">B</span><span class="lt">R</span><span class="lt">I</span><span class="lt">E</span><span class="lt">F</span></div>
+    <div class="lbl" id="s9-l2">FREE PROMPT · ANY CHAT AI</div>
+  </div>
+  <div id="s9-pill">Comment<b>BRIEF</b>for the prompt</div>
+</section>

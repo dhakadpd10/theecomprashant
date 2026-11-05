@@ -1,0 +1,182 @@
+{
+  "id": "2026-11-05-reel-fake-ai-payment-email-explain",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "hook_id": 2,
+  "money_angle": false,
+  "keyword": "SAFE",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|email|app|EXAMPLE|photocopied|copy|wrong|letter|drawer|stranger's|Settings|Subscription|catch|perfect|1930|Send|SAFE)$",
+  "palette": {
+    "bg": "#F2EEE6",
+    "ink": "#1C1A17",
+    "accent": "#2F4FD8"
+  },
+  "lines": [
+    {
+      "say": "Stop tapping 'update payment' in that AI bill email. Open the app.",
+      "show": "Stop tapping that email. Open the app.",
+      "card": "STOP TAPPING THAT EMAIL",
+      "visual": "Frame 0: title 'STOP TAPPING THAT EMAIL' at 120 px or more above y 560, with 'EMAIL' in Playfair Italic in the accent. Beside the host, a phone mock-up on a hostel desk shows a red 'Payment failed' banner. A small amber 'EXAMPLE' tag sits on the phone. This is our own mock screen, not a real email.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Payment failed. Update in two days.",
+      "show": "Payment failed. Update in 48 hours.",
+      "card": "EXAMPLE",
+      "visual": "Full email card, our own mock, labelled EXAMPLE: sender row, subject 'Payment failed', body 'Update within 48 hours', and a red 'Update payment' button. A 48-hour timer ring ticks down in amber.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "India's free year of the Go plan started a year ago, so people are checking renewals.",
+      "show": "Free Go year opened Nov 2025. Renewals now.",
+      "card": "FREE GO YEAR: NOV 2025",
+      "visual": "A calendar chip 'Nov 2025' pops beside the email card, and a small 'Renewal?' amber chip wobbles. The email card stays on screen, full.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Reports show the link leads to a photocopied shop counter.",
+      "show": "The link opens a photocopied counter.",
+      "card": "REAL vs COPY",
+      "visual": "Diagram 1, full width: two shop counters side by side with the same signboard ('ChatGPT') and the same login form. The real one has a green 'REAL' tag and the copy has a red 'COPY' tag. They build in order: the counters, then the signboards, then the forms, then the tags. Small 'Source: reports' label.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Same shop name. The address has one wrong letter.",
+      "show": "Same signboard. One wrong letter.",
+      "card": "ONE WRONG LETTER",
+      "visual": "Diagram 2: an address-bar strip types out a look-alike address, our own EXAMPLE and not a real scam domain. It types letter by letter, then one letter turns red and a red ring draws around it. A buzz plays on 'wrong'.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Your password and OTP drop into a stranger's drawer.",
+      "show": "Your OTP lands in a stranger's drawer.",
+      "card": "STRANGER'S DRAWER",
+      "visual": "Diagram 3: the copy counter's form fills with dots for the password and a 6-box OTP. A red arrow draws itself from the form down into an open drawer labelled 'stranger'. The OTP chip drops in, and the drawer slides shut with a click.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Open the app yourself: Settings, then Subscription.",
+      "show": "Open the app: Settings, then Subscription.",
+      "card": "Check billing only inside the app: Settings, then Subscription. Never from an email link.",
+      "visual": "Payoff, full rule card titled 'The real counter' with 'app' in Playfair Italic in the accent. Three rows tick green on the beat: 1 Open the app yourself, 2 Settings, 3 Subscription. A red strike draws across a small 'email link' chip at the bottom.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: careful fakes look perfect. Always open the app.",
+      "show": "The catch: fakes can look perfect.",
+      "card": "THE CATCH",
+      "visual": "The two counters return small and identical, and an amber 'Address check: not enough' chip appears. A green 'Open the app yourself' chip pops below it as the answer.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Lost money? Call nineteen thirty.",
+      "show": "Lost money? Call 1930 or cybercrime.gov.in",
+      "card": "1930 · cybercrime.gov.in",
+      "visual": "A helpline card with '1930' large in ink and 'cybercrime.gov.in' below it as plain text, not a link. A pop plays as the number lands.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend who took the free AI year. Comment SAFE.",
+      "show": "Send this. Comment SAFE for the card.",
+      "card": "Comment SAFE",
+      "visual": "End card: 'Save.' in the serif with a bookmark shape, a quiet dark pill 'Comment SAFE', and a small sticker 'FREE · Family AI Safety Card'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+1.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+1.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line8.voice+0.9",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "STOP TAPPING",
+      "THAT CHATGPT EMAIL"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "hook_id": 2,
+    "kind": "explain",
+    "style": "editorial-host",
+    "format": "reel",
+    "keyword": "SAFE",
+    "money_angle": "no",
+    "arm": null,
+    "pair": null
+  },
+  "preflight": [
+    "Confirm the SAFE keyword has a live Family AI Safety Card on the tools page and in docs/EXPLAINER.md before posting. If it is missing, add the tool or answer SAFE DMs by hand.",
+    "Every email, address and OTP on screen is our own mock and is labelled EXAMPLE. No real victim, no real scam domain.",
+    "Claims from secondary sources (GBlock, Cofense summary) are worded as 'reports show', with no statistics. Say nothing about what happens when the free Go year ends."
+  ]
+}

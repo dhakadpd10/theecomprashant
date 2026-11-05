@@ -1,0 +1,89 @@
+{
+  "dur": 30.3,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.925,
+      "b": 3.025,
+      "say": "Stop asking AI in one line. Give it three things.",
+      "show": "Stop 1-line prompts. Give it 3 things."
+    },
+    {
+      "a": 3.025,
+      "voice": 3.125,
+      "end": 5.407,
+      "b": 5.507,
+      "say": "Same question. Two very different answers.",
+      "show": "Same question. Two very different answers."
+    },
+    {
+      "a": 5.507,
+      "voice": 5.607,
+      "end": 9.527,
+      "b": 9.627,
+      "say": "Weekly update for your manager? One line gets a long, generic wall.",
+      "show": "1 line: a long, generic wall."
+    },
+    {
+      "a": 9.627,
+      "voice": 9.727,
+      "end": 11.14,
+      "b": 11.24,
+      "say": "Like ordering just one chai.",
+      "show": "Like ordering just \"one chai\"."
+    },
+    {
+      "a": 11.24,
+      "voice": 11.34,
+      "end": 12.911,
+      "b": 13.011,
+      "say": "Who it is: my manager's helper.",
+      "show": "Role: my team lead's assistant."
+    },
+    {
+      "a": 13.011,
+      "voice": 13.111,
+      "end": 14.971,
+      "b": 15.071,
+      "say": "Goal: three wins, one blocker, one ask.",
+      "show": "Goal: 3 wins, 1 blocker, 1 ask."
+    },
+    {
+      "a": 15.071,
+      "voice": 15.171,
+      "end": 17.211,
+      "b": 17.311,
+      "say": "Format: five short bullets, nothing more.",
+      "show": "Format: 5 bullets, under 60 words."
+    },
+    {
+      "a": 17.311,
+      "voice": 17.411,
+      "end": 20.312,
+      "b": 20.412,
+      "say": "Cutting chai, less sugar, extra ginger. Your update, done.",
+      "show": "Cutting chai, less sugar, extra adrak."
+    },
+    {
+      "a": 20.412,
+      "voice": 20.512,
+      "end": 24.219,
+      "b": 24.319,
+      "say": "The catch: AI doesn't know your work. You give facts, it fixes the shape.",
+      "show": "The catch: you give the facts."
+    },
+    {
+      "a": 24.319,
+      "voice": 24.419,
+      "end": 28.899,
+      "b": 30.3,
+      "say": "Send this to the friend who rewrites every AI answer by hand. Comment BRIEF.",
+      "show": "Send this. Comment BRIEF for the prompt."
+    }
+  ]
+}

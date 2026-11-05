@@ -1,0 +1,27 @@
+Comment "BRIEF" and I'll DM you the free Brief Builder: turn a one-line ask into a 3-part prompt. Follow so the DM lands 📩
+
+👇 READ BELOW for how the Brief Builder works:
+
+1. You ask AI in one line: "write my weekly update for my manager." It doesn't know what you need, so it guesses and gives you a long, generic wall of text.
+
+2. Role: tell it who it is. Example: "You are my team lead's assistant."
+
+3. Goal: tell it what the answer must contain. Example: "3 wins, 1 blocker, 1 ask."
+
+4. Format: tell it the shape and the length. Example: "5 short bullets, under 60 words."
+
+5. Paste in your real facts from the week. It fits them into that shape, and your update is ready to send.
+
+What you get: a prompt that asks you for the role, the goal and the format, then writes the full brief for you. You can use it for updates, emails, messages or anything else you ask AI for.
+
+Why it works: a one-line prompt is like ordering "one chai." You get a chai, but not the one you wanted. "Cutting chai, less sugar, extra adrak" gets you exactly yours. AI works the same way: the more clearly you say who, what and how, the less it has to guess.
+
+The catch: AI doesn't know your work. It can't invent your wins or your blocker. You give it the facts, and it fixes the shape.
+
+It's completely free. Paste it into Claude or ChatGPT and try it on your next update.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+Comment "BRIEF" for the Brief Builder.
+
+#aiforbeginners #promptengineering #aitools

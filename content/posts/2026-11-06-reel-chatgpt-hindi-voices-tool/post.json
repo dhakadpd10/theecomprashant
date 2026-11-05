@@ -1,0 +1,136 @@
+{
+  "id": "2026-11-06-reel-chatgpt-hindi-voices-tool",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "hook": "24",
+  "keyword": "BOLO",
+  "tool": "Hindi Voice-Mode Starter Card",
+  "money_angle": false,
+  "format": "reel",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "notes": "Before filming, verify on an Indian account in the ChatGPT app that voice mode offers Neer and Leher and that the aloo-paneer question gets a spoken Hindi reply. No OpenAI page was found, so the script says 'new Hindi voices in voice mode' only and makes no launch claim. The reply on the payoff card is labelled EXAMPLE. It does not say voice mode is free.",
+  "hot": "^(2|Hindi|mummy|English|cousin|Neer|Leher|catch|BOLO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E4BC6"
+  },
+  "lines": [
+    {
+      "say": "Two new Hindi voices in this AI app aren't for you. They're for mummy.",
+      "show": "ChatGPT's 2 new Hindi voices: for mummy.",
+      "card": "NEER OR LEHER",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Mummy in her kitchen doesn't need English for this. Neither does your grandma.",
+      "show": "Parents, grandparents, mummy: no English needed.",
+      "card": "NO ENGLISH NEEDED",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "It's like calling that cousin who knows everything. But in Hindi.",
+      "show": "Like calling the cousin who knows everything.",
+      "card": "THE COUSIN WHO KNOWS",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Open voice mode and pick one of the two Hindi voices. Then just ask:",
+      "show": "Voice mode. Pick Neer or Leher. Ask:",
+      "card": "VOICE MODE",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "In Hindi: what can I cook tonight with potatoes and cheese at home?",
+      "show": "Aloo aur paneer hai, dinner mein kya banau?",
+      "card": "JUST ASK",
+      "cut": false,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "And the cousin talks back. Out loud, in Hindi.",
+      "show": "It answers out loud, in Hindi.",
+      "card": "JAWAB, HINDI MEIN",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: mixed Hindi and English trips it up, and some report voice-picking glitches.",
+      "show": "The catch: no Hinglish yet. Some glitches.",
+      "card": "THE CATCH",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend with a mummy who only sends voice notes. Type BOLO below.",
+      "show": "Send this. Comment BOLO for the card.",
+      "card": "COMMENT BOLO",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+1.2",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.end",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.8",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "NEER OR LEHER",
+      "CHATGPT IN HINDI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

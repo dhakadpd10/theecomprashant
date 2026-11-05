@@ -1,0 +1,27 @@
+Comment "BRIEF" and I'll DM you the free Brief Builder: turn any plain ask into a sharp brief. Follow so the DM lands 📩
+
+👇 READ BELOW
+
+1. A plain ask like "write my weekly update" gets you a long, vague answer. It's like saying "one chai" at a stall: you get whatever they're making.
+
+2. Role: tell the AI who to be. "Act as my team lead."
+
+3. Goal: tell it who reads it and how fast. "My manager reads it in a minute."
+
+4. Format: tell it the shape. "Five short lines."
+
+5. Add your facts: what you did, what's stuck, what's next. Same question, and now you get five clean lines, ready to send.
+
+What you get: a fill-in prompt that wraps any task in a role, a goal and a format, so the first answer is closer to usable.
+
+Why it works: a plain ask leaves the AI guessing who it's for and how long it should be, so it guesses long. Role, goal and format answer those questions before it starts writing.
+
+The catch: it fixes the shape, not the facts. You still tell it what really happened. Leave the facts out and it fills the gap with vague lines.
+
+It's completely free. Paste it into ChatGPT, Claude or Gemini and use it on your next update.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+Comment "BRIEF" for the Brief Builder.
+
+#aiprompts #chatgpt #learnai

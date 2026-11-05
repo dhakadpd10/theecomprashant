@@ -1,0 +1,81 @@
+{
+  "dur": 30.57,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.029,
+      "b": 3.129,
+      "say": "You don't need a portfolio. You need three Canva samples.",
+      "show": "No portfolio. Just 3 Canva samples."
+    },
+    {
+      "a": 3.129,
+      "voice": 3.229,
+      "end": 6.256,
+      "b": 6.356,
+      "say": "Same student room. Your Fiverr gig is a stall at the fest.",
+      "show": "Your gig is a fest stall."
+    },
+    {
+      "a": 6.356,
+      "voice": 6.456,
+      "end": 8.719,
+      "b": 8.819,
+      "say": "Step one: ask a free AI what you can sell.",
+      "show": "Step 1: what can I sell?"
+    },
+    {
+      "a": 8.819,
+      "voice": 8.919,
+      "end": 12.489,
+      "b": 12.589,
+      "say": "Next step: the GIG prompt writes the board and menu, priced in dollars.",
+      "show": "Step 2: title, 3 packages, in dollars."
+    },
+    {
+      "a": 12.589,
+      "voice": 12.689,
+      "end": 15.838,
+      "b": 15.938,
+      "say": "Step three: three Canva thumbnails, the samples on your table.",
+      "show": "Step 3: 3 samples on the table."
+    },
+    {
+      "a": 15.938,
+      "voice": 16.038,
+      "end": 18.741,
+      "b": 18.841,
+      "say": "Your stall's open. A full gig page, in one evening.",
+      "show": "Stall's open. Gig page done."
+    },
+    {
+      "a": 18.841,
+      "voice": 18.941,
+      "end": 21.799,
+      "b": 21.899,
+      "say": "The catch: live isn't an order. The first can take weeks.",
+      "show": "The catch: live isn't an order."
+    },
+    {
+      "a": 21.899,
+      "voice": 21.999,
+      "end": 25.076,
+      "b": 25.176,
+      "say": "Many gigs get none. And joining is free, no fee anywhere.",
+      "show": "Many get none. Joining is free."
+    },
+    {
+      "a": 25.176,
+      "voice": 25.276,
+      "end": 29.173,
+      "b": 30.57,
+      "say": "Send this to your roommate who's good at Canva. Type GIG, get the free prompt.",
+      "show": "Send this. Comment GIG for the builder."
+    }
+  ]
+}

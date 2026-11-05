@@ -2,6 +2,32 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-05
+
+- **This pull is effectively the 4 Nov afternoon pull again, so there is no new evidence.**
+  - Hostel reach went from 1,047 to 1,048; views held at 1,216.
+  - The 4 Nov reels show the same sends, saves and watch times as last read.
+  - Still no pull timestamp, and no row yet for the 4 Nov 19:30 IST slot.
+  - Hostel gained only 4 views across the last two pulls, so it has stopped travelling (about 3.5 days old). Any Part 2 or tutorial riding on it should not wait.
+- **Sends are a named-viewer hunch, not a reach finding (n=3 against 3).**
+  - Of 23 new-niche sends, 22 sit on hostel (16), homemakers (3) and hostel Part 2 (3).
+  - Homemakers (0.75x, 75 reach) and Part 2 (0.98x, 89 reach) did not beat the median on reach.
+  - Their 3 sends each could be one or two accounts, and neither has been hand-checked.
+  - Pair 1 B on 5 Nov is the first like-for-like read.
+- **Money-era baseline at this pull's numbers:**
+  - 79.5 views and 71.5 reach (n=12).
+  - 96 and 89 once Canva vs Gumroad passes 72 hours (4 Nov 14:01 UTC).
+  - 101.5 and 89.5 once the relative skit passes 72 hours (5 Nov 03:30 UTC).
+  - The 4 Nov reels enter on 7 Nov. Recompute before judging pair 1.
+- **Still reach without action:**
+  - Skits: 1.08x to 1.34x, 0 sends and 0 saves on 3 reels.
+  - Watch time doesn't track sends: the senders watched 3.5 to 6.0s against a 4.2s median.
+  - The one explainer (voice clone, 5.5s, 0 sends) is n=1 and hours old.
+- **Logging still blocks hook and profile verdicts.**
+  - Hold@3s, follows and non-follower % are on 0 of 39 reels.
+  - Kind is blank on 39 of 39, and style is 'motion' on 18 of 18 new-niche reels.
+  - Arm and pair live only in slugs. There is no daily follower count.
+
 ## Week of 2026-11-04
 
 - **The pull is moving again, but the log still has gaps.**

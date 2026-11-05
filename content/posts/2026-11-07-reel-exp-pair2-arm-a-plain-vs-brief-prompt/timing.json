@@ -1,0 +1,89 @@
+{
+  "dur": 31.31,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.231,
+      "b": 4.331,
+      "say": "After your office job, here's the same question with two very different answers.",
+      "show": "After office: same question, 2 answers."
+    },
+    {
+      "a": 4.331,
+      "voice": 4.431,
+      "end": 7.375,
+      "b": 7.475,
+      "say": "You ask for a weekly update. You get long, vague, useless.",
+      "show": "Plain ask: long, vague, useless."
+    },
+    {
+      "a": 7.475,
+      "voice": 7.575,
+      "end": 10.249,
+      "b": 10.349,
+      "say": "It's like saying 'one tea'. You get whatever they're making.",
+      "show": "'One chai' gets whatever they make."
+    },
+    {
+      "a": 10.349,
+      "voice": 10.449,
+      "end": 13.567,
+      "b": 13.667,
+      "say": "So order like a regular. Job: act as my team lead.",
+      "show": "Role: act as my team lead."
+    },
+    {
+      "a": 13.667,
+      "voice": 13.767,
+      "end": 15.586,
+      "b": 15.686,
+      "say": "Goal: my manager reads it in a minute.",
+      "show": "Goal: read in 1 minute."
+    },
+    {
+      "a": 15.686,
+      "voice": 15.786,
+      "end": 17.205,
+      "b": 17.305,
+      "say": "Format: five short lines.",
+      "show": "Format: 5 short lines."
+    },
+    {
+      "a": 17.305,
+      "voice": 17.405,
+      "end": 20.994,
+      "b": 21.094,
+      "say": "Same question, and now you've got five clean lines, ready to send.",
+      "show": "Now: 5 clean lines, ready to send."
+    },
+    {
+      "a": 21.094,
+      "voice": 21.194,
+      "end": 24.227,
+      "b": 24.327,
+      "say": "Here's the catch: you give it the facts, it only fixes the shape.",
+      "show": "The catch: you give the facts."
+    },
+    {
+      "a": 24.327,
+      "voice": 24.427,
+      "end": 27.849,
+      "b": 27.949,
+      "say": "Send this to the friend who rewrites every AI answer by hand.",
+      "show": "Send this to the friend who rewrites by hand."
+    },
+    {
+      "a": 27.949,
+      "voice": 28.049,
+      "end": 29.913,
+      "b": 31.31,
+      "say": "Comment BRIEF and I'll send you the prompt.",
+      "show": "Comment BRIEF for the prompt."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "dur": 28.2,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.55,
+      "b": 3.65,
+      "say": "Your Fresh stock today poster doesn't need a designer by evening.",
+      "show": "No designer needed by evening."
+    },
+    {
+      "a": 3.65,
+      "voice": 3.75,
+      "end": 7.417,
+      "b": 7.517,
+      "say": "Canva Craft, Canva's own image model, is open to all users.",
+      "show": "Canva Craft: open to all users."
+    },
+    {
+      "a": 7.517,
+      "voice": 7.617,
+      "end": 10.862,
+      "b": 10.962,
+      "say": "One prompt in Canva's image tool gives up to four options.",
+      "show": "1 prompt in Dream Lab. Up to 4 options."
+    },
+    {
+      "a": 10.962,
+      "voice": 11.062,
+      "end": 13.616,
+      "b": 13.716,
+      "say": "Like print shop samples, only faster. Pick one.",
+      "show": "Like print shop samples. Pick one."
+    },
+    {
+      "a": 13.716,
+      "voice": 13.816,
+      "end": 16.394,
+      "b": 16.494,
+      "say": "It writes the words in many languages, Canva says.",
+      "show": "Text in 55 languages, Canva says."
+    },
+    {
+      "a": 16.494,
+      "voice": 16.594,
+      "end": 18.393,
+      "b": 18.493,
+      "say": "Print it, tape it up. Done by evening.",
+      "show": "Print it. Tape it up. Done."
+    },
+    {
+      "a": 18.493,
+      "voice": 18.593,
+      "end": 22.33,
+      "b": 22.43,
+      "say": "The catch: every plan caps AI monthly. Check every letter first.",
+      "show": "Catch: AI is capped. Check every letter."
+    },
+    {
+      "a": 22.43,
+      "voice": 22.53,
+      "end": 26.802,
+      "b": 28.2,
+      "say": "Send this to the shop owner who still pays for every poster. Comment CRAFT.",
+      "show": "Send this. Comment CRAFT."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "dur": 30.81,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.516,
+      "b": 3.616,
+      "say": "Don't revise with AI that guesses. Make it open your textbook.",
+      "show": "Stop letting AI guess. Make it open your textbook."
+    },
+    {
+      "a": 3.616,
+      "voice": 3.716,
+      "end": 6.979,
+      "b": 7.079,
+      "say": "It's exam week. You're in the library, chapter open on your phone.",
+      "show": "Exam week, library, a chapter on your phone."
+    },
+    {
+      "a": 7.079,
+      "voice": 7.179,
+      "end": 11.357,
+      "b": 11.457,
+      "say": "This Gemini tool's the topper with the book open. It won't answer from memory.",
+      "show": "The topper with the book open, not memory."
+    },
+    {
+      "a": 11.457,
+      "voice": 11.557,
+      "end": 13.853,
+      "b": 13.953,
+      "say": "Step one: tap Add sources, then Textbooks.",
+      "show": "Step 1: Add sources, then Textbooks."
+    },
+    {
+      "a": 13.953,
+      "voice": 14.053,
+      "end": 15.791,
+      "b": 15.891,
+      "say": "Two: you pick your book, like S Chand.",
+      "show": "Step 2: pick OpenStax or S Chand."
+    },
+    {
+      "a": 15.891,
+      "voice": 15.991,
+      "end": 18.317,
+      "b": 18.417,
+      "say": "Three: ask it for a study guide and a short quiz.",
+      "show": "Step 3: study guide and 10-question quiz."
+    },
+    {
+      "a": 18.417,
+      "voice": 18.517,
+      "end": 20.825,
+      "b": 20.925,
+      "say": "Now every answer you get points back to the book.",
+      "show": "Every answer points back to the book."
+    },
+    {
+      "a": 20.925,
+      "voice": 21.025,
+      "end": 26.186,
+      "b": 26.286,
+      "say": "Here's the catch: one free-account review found three Indian books, and the India search is buggy.",
+      "show": "The catch: 3 Indian books, buggy filter."
+    },
+    {
+      "a": 26.286,
+      "voice": 26.386,
+      "end": 29.413,
+      "b": 30.81,
+      "say": "Send this to your study-group friend. Then type STUDY below.",
+      "show": "Send this to your study group. Comment STUDY."
+    }
+  ]
+}

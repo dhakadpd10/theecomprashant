@@ -1,0 +1,140 @@
+{
+  "id": "2026-11-08-reel-prm-write-like-me",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "STYLE",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Stop|ChatGPT'?s?|3|bank|own|tailor|kurta|Paste|tone|you|catch|Read|Send|STYLE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E4FD1"
+  },
+  "lines": [
+    {
+      "say": "Stop sending clients ChatGPT's first reply. Paste three of yours first.",
+      "show": "Stop sending ChatGPT's first reply. Paste 3 of yours.",
+      "card": "STOP SENDING ROBOT REPLIES",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "On the bus home, your reply sounds like a bank notice.",
+      "show": "Your reply sounds like a bank notice.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "AI writes in its own voice until you show yours.",
+      "show": "It writes in its own voice.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Like a tailor copying your old kurta.",
+      "show": "Like a tailor copying your old kurta.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Paste three real messages. Add: match my length, words and tone.",
+      "show": "Paste 3 real messages. Match my tone.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Now it sounds like you.",
+      "show": "Now it sounds like you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: three real samples, and read it before sending.",
+      "show": "The catch: 3 samples. Read before sending.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend whose messages suddenly sound like ChatGPT.",
+      "show": "Send this to that friend.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Type STYLE below to get it free.",
+      "show": "Comment STYLE for the prompt.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.2",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+1.5",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "MAKE AI WRITE",
+      "LIKE YOU"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

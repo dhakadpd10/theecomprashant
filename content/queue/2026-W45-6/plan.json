@@ -1,0 +1,71 @@
+{
+  "week": "2026-W45-6",
+  "start": "2026-11-07",
+  "research": "I found 9 items. Three of them fall a few days outside the 14 days (before 22 Oct), and I've marked those. Several dates come only from news coverage, not the company's own page, so I've flagged anything to check before it goes into a reel.\n\n**New free tools and features**\n\n1. **Gemini Notebook (the new name for NotebookLM) now has free textbooks, including S Chand (29 Oct).** In a notebook, tap \"Add sources\", then \"Textbooks\". The books include OpenStax and S Chand, rolling out in the US and India. *Why it matters:* students get a free study guide and quiz maker built on a real textbook, not on whatever the AI guesses. *The catch:* one hands-on review found only 3 Indian school books (Lakhmir Singh Science, Classes 6 to 8), and the India filter was buggy on a free account. Source: [blog.google](https://blog.google/innovation-and-ai/products/gemini-notebook/new-access-textbooks/)\n2. **Gemini can now make and edit files in the chat (29 Oct).** You can create, preview and edit documents and PDFs without leaving Gemini. It's a global rollout. *Why it matters:* \"fix this PDF on my phone\" is a real everyday problem. *Check:* the date is from news coverage. Look in the [Gemini India release notes](https://gemini.google/in/release-notes/?hl=en-IN) before you film. Coverage: [ETV Bharat](https://www.etvbharat.com/en/technology/gemini-new-features-gemini-notebook-free-textbooks-gemini-edit-pdf-docs-sheet-gemini-immersive-education-enn26103004754)\n3. **Canva Craft, Canva's own image model, is open to all users (22 Oct).** It's in Dream Lab. You get up to 4 options per prompt, and Canva says it can write text on images in 55 languages. *Why it matters:* free posters and shop banners in a tool beginners already use. *The catch:* every plan caps AI use each month, and one report wrongly says it's paid-only. Canva's own post says all users. Source: [canva.com newsroom](https://www.canva.com/newsroom/news/canva-craft/)\n4. **WhatsApp is testing separate Meta AI chats (4 Nov, beta).** You can open several Meta AI threads, each with its own name. *Why it matters:* this is the AI most Indians already have on their phone. *The catch:* it's only for some Android beta testers right now, so don't present it as live. Coverage: [Sammy Fans, citing WABetaInfo](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n5. **Gemini in Chrome \"auto browse\" has come to India.** It fills forms and orders groceries for you. *The catch:* it's paid only (AI Pro and Ultra), and Android is English-only for now. That makes it good for a \"do you need this?\" reel, but it's not a free tool. Source: [Google India blog](https://blog.google/intl/en-in/products/bringing-gemini-in-chrome-with-auto-browse-to-india/)\n\n**Privacy and confusion**\n\n6. **ChatGPT \"locked chats\" (20 Oct, just outside the 14 days).** You can hide chosen chats behind a 4-digit PIN, and it's rolling out to Free users too. *Why it matters:* this is a perfect \"people are wrong about this\" topic. Locked does not mean encrypted. It doesn't change how long OpenAI keeps the chat or whether it's used for training, and resetting the PIN deletes every locked chat for good. Source: [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes), with detail from [Notebookcheck](https://www.notebookcheck.net/ChatGPT-can-now-lock-chats-behind-a-PIN-but-they-are-not-encrypted.1431008.0.html)\n7. **AI-made images in India now get an AI label on Android (Google's October system update, exact date unclear).** There are some exceptions. *Why it matters:* it answers \"how do I know if a photo is AI?\", but missing labels don't prove a photo is real. *Check:* I couldn't open Google's own release notes page, so confirm the wording there. Coverage: [NewsBytes](https://www.newsbytesapp.com/news/science/google-releases-october-2026-update-across-android-devices-and-platforms/tldr)\n\n**Scams that use AI**\n\n8. **Banks are warning about voice clones (PNB on 20 Oct and SBI on 16 Oct, both just outside the 14 days, for Cyber Security Awareness Month).** Scammers fake a relative's voice and invent an emergency to rush a UPI transfer. Reports say 3 to 5 seconds of audio can be enough, and a Mumbai senior citizen reportedly lost ₹50 lakh. *Why it matters:* every family is a target. Practical advice: agree a family safe word, call back on the number you already have, report to 1930, and know that \"digital arrest\" doesn't exist in Indian law. Sources: [Daily Pioneer (PNB)](https://dailypioneer.com/india/pnb-warns-customers-against-rising-ai-cyber-scams), [The420 (SBI)](https://the420.in/sbi-warns-ai-voice-cloning-cyber-fraud-guidelines/), [Free Press Journal](https://www.freepressjournal.in/mumbai/mumbai-cyber-fraud-69-year-old-senior-citizen-loses-50-lakh-in-ai-voice-cloning-scam)\n\n**Phone built-in AI**\n\n9. **Samsung Galaxy AI is adding Gujarati to Now Nudge (reported 20 Oct, rolling out over the coming weeks).** Hindi and Gujarati already work for Galaxy AI's translation and transcription, but Bixby still has no Hindi. *Why it matters:* it answers \"does my phone's AI speak my language?\" Coverage: [Techzei](https://techzei.com/galaxy-ai-bixby-new-languages/)\n\n**What I left out or couldn't confirm**\n- **Claude:** reports mention a CarPlay voice mode (29 Oct) and Claude Duet, a waitlisted agent for paid plans only. Both come from news coverage, and neither is free or useful for a beginner in India. I left them out. [Anthropic announcements](https://claude.com/resources/product-announcements)\n- **CapCut:** I found no launch in these 14 days.\n- **Apple:** I found nothing Hindi-specific.\n\n**How these fit this week's plan**\n- **Voice-clone scam (#8):** an explain reel with a #2 hook (one of the two #2 uses left) and the SAFE keyword, once SAFE has its tool.\n- **Locked chats (#6):** an explain reel about a common mistake.\n- **Gemini Notebook textbooks (#1):** a tutorial for a student in a hostel or library. It isn't a SITES topic, so it can sit next to the SITES posts without breaking the \"never two SITES in a row\" rule.\n- **Canva Craft (#3):** a tool reel for small shop owners.",
+  "slots": [
+    {
+      "day": "2026-11-07",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-07-reel-tut-gemini-notebook-textbook-quiz",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 80
+      },
+      "keyword": "STUDY",
+      "pillar": "Do it with AI",
+      "topic": "Make a study guide and quiz from a real textbook in Gemini Notebook (formerly NotebookLM), free",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-07",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-07-reel-cmp-cv-chatgpt-gemini-claude",
+      "style": "motion",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 61.2
+      },
+      "keyword": "RESUME",
+      "pillar": "Which one wins",
+      "topic": "ChatGPT vs Gemini vs Claude for rewriting your CV, judged on one real old CV",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-08",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-08-reel-exp-pair3-a-why-chatgpt-makes-things-up-betw",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 54.4
+      },
+      "keyword": "TRUTH",
+      "pillar": "How AI works",
+      "topic": "Experiment pair 3, arm A: why ChatGPT makes things up, and the one line that cuts the guessing (people between jobs)",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-08",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-08-reel-tool-canva-craft-shop-poster",
+      "style": "motion",
+      "hook": {
+        "id": 20,
+        "name": "Permission",
+        "score": 60.8
+      },
+      "keyword": "CRAFT",
+      "pillar": "Tools worth knowing",
+      "topic": "Canva Craft: Canva's own image model, now open to all users, makes a shop poster with readable text",
+      "status": "made"
+    }
+  ]
+}

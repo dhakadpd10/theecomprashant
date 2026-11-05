@@ -1,0 +1,272 @@
+<style>
+  /* tutorial: Gemini's textbook sources. Colour = meaning:
+     blue = the tool and your taps, green = from the book, red = guessing and the catch, amber = exam pressure */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(35,70,200,0.08) 0%, rgba(35,70,200,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(23,122,68,0.07) 0%, rgba(23,122,68,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 140px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); white-space: nowrap; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', 'Playfair Display', serif; color: var(--accent); }
+  .it.gr { color: #177A44; }
+  .it.rd { color: #C23A30; }
+  .card { position: absolute; left: 360px; right: 60px; top: 450px; height: 620px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.13), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; line-height: 1.3; color: #6B655E; }
+  .ctext { position: absolute; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .chip { position: absolute; height: 56px; padding: 0 20px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .chip.st { position: relative; }
+  .green { background: #177A44; } .red { background: #C23A30; } .blue { background: var(--accent); }
+  .amber { background: #E8A317; color: var(--ink); } .grey { background: #E7E2D9; color: var(--ink); }
+  .row { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F6F5F2; }
+  .row .t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+
+  /* 0: hook (host at centre: everything above frame y 560) */
+  #s0-title { top: 110px; font-size: 128px; }
+  #s0-guess { display: inline-block; }
+  #s0-squig { position: absolute; left: 250px; top: 398px; width: 360px; height: 36px; }
+  #s0-closed { position: absolute; left: 700px; top: 262px; width: 240px; height: 160px; }
+  #s0-open { position: absolute; left: 700px; top: 262px; width: 240px; height: 160px; }
+
+  /* 1: exam week in the library */
+  #s1-head { left: 36px; top: 34px; }
+  #s1-ex { right: 36px; top: 42px; }
+  #s1 .ln { position: absolute; left: 36px; height: 20px; border-radius: 10px; background: #E6E1D8; transform-origin: left center; display: block; }
+  #ln1 { top: 116px; width: 540px; } #ln2 { top: 160px; width: 500px; } #ln3 { top: 204px; width: 560px; }
+  #ln4 { top: 248px; width: 430px; } #ln5 { top: 292px; width: 520px; } #ln6 { top: 336px; width: 360px; }
+  #s1-hl { position: absolute; left: 28px; top: 196px; width: 578px; height: 36px; border-radius: 10px; background: rgba(232,163,23,0.4); transform-origin: left center; display: block; }
+  #s1-tags { position: absolute; left: 36px; top: 396px; display: flex; gap: 16px; }
+  #s1-warn { left: 36px; right: 36px; top: 486px; color: #C23A30; }
+
+  /* 2: memory vs the book (host hidden, full width) */
+  #s2-l { left: 90px; right: auto; width: 420px; height: 650px; }
+  #s2-r { left: 540px; right: auto; width: 450px; height: 650px; }
+  #s2-lp { left: 28px; top: 30px; }
+  #s2-rp { left: 28px; top: 30px; }
+  #s2-think { position: absolute; left: 100px; top: 125px; width: 220px; height: 220px; border-radius: 50%; background: #FBE9E6; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; color: #C23A30; }
+  #s2-book { position: absolute; left: 95px; top: 150px; width: 260px; height: 190px; }
+  #s2-l .row, #s2-r .row { left: 24px; right: 24px; }
+  #s2-l1, #s2-r1 { top: 380px; } #s2-l2, #s2-r2 { top: 510px; }
+  .ico { position: absolute; left: 22px; top: 33px; width: 44px; height: 44px; }
+  #s2-l2 .t, #s2-r2 .t { left: 82px; }
+  #s2-l2 .t { color: #C23A30; } #s2-r2 .t { color: #177A44; }
+  #s2-strike { position: absolute; left: 40px; right: 40px; top: 432px; height: 6px; border-radius: 3px; background: #C23A30; transform-origin: left center; display: block; }
+  #s2-stamp { position: absolute; left: 720px; top: 735px; width: 230px; height: 84px; border: 7px solid var(--accent); border-radius: 16px; box-sizing: border-box; background: rgba(255,255,255,0.92); color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; }
+
+  /* 3: step 1, add sources then textbooks */
+  #s3-head { left: 36px; top: 34px; }
+  #s3-gem { right: 36px; top: 42px; }
+  #s3-btn { position: absolute; left: 36px; top: 110px; width: 340px; height: 96px; border-radius: 48px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  .mrow { position: absolute; left: 36px; right: 36px; height: 96px; border-radius: 24px; background: #F6F5F2; }
+  .mrow .t { position: absolute; left: 96px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); }
+  .mrow .mi { position: absolute; left: 28px; top: 26px; width: 44px; height: 44px; }
+  #m1 { top: 250px; } #m2 { top: 360px; } #m3 { top: 470px; }
+  #m3 .t { color: var(--accent); font-weight: 900; }
+  #m3-go { position: absolute; right: 26px; top: 24px; width: 48px; height: 48px; }
+  #s3-tap { position: absolute; left: 170px; top: 122px; width: 72px; height: 72px; border-radius: 50%; border: 5px solid var(--accent); background: rgba(35,70,200,0.18); box-sizing: border-box; }
+
+  /* 4: step 2, pick the book */
+  #s4-search { position: absolute; left: 36px; right: 36px; top: 36px; height: 90px; border-radius: 45px; background: #F2F0EB; }
+  #s4-search svg { position: absolute; left: 28px; top: 22px; width: 46px; height: 46px; }
+  #s4-search .t { position: absolute; left: 92px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #6B655E; }
+  .cover { position: absolute; top: 150px; width: 264px; height: 330px; border-radius: 22px; overflow: hidden; box-shadow: 0 16px 30px rgba(40,25,10,0.18); }
+  #bk1 { left: 36px; background: linear-gradient(160deg, #3A7C84 0%, #1F4C52 100%); }
+  #bk2 { left: 330px; background: linear-gradient(160deg, #8A3442 0%, #5A1C28 100%); }
+  .cover .spine { position: absolute; left: 0; top: 0; bottom: 0; width: 18px; background: rgba(0,0,0,0.22); display: block; }
+  .cover .pub { position: absolute; left: 40px; top: 36px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: #FFFFFF; white-space: nowrap; }
+  .cover .sub { position: absolute; left: 40px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: #F3EEE5; }
+  .cover .art { position: absolute; left: 40px; right: 24px; bottom: 30px; height: 130px; border-radius: 16px; background: rgba(255,255,255,0.14); }
+  .cover .art b { position: absolute; left: 24px; top: 30px; width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.3); display: block; }
+  .cover .art u { position: absolute; left: 110px; right: 20px; top: 44px; height: 14px; border-radius: 7px; background: rgba(255,255,255,0.3); display: block; }
+  .cover .art s { position: absolute; left: 110px; right: 50px; top: 74px; height: 14px; border-radius: 7px; background: rgba(255,255,255,0.2); display: block; }
+  #s4-ring { position: absolute; left: 318px; top: 138px; width: 288px; height: 354px; border: 6px solid #177A44; border-radius: 30px; box-sizing: border-box; }
+  #s4-tick { position: absolute; left: 560px; top: 116px; width: 72px; height: 72px; }
+  #s4-row { top: 510px; height: 84px; }
+  #s4-row .chip { right: 14px; top: 14px; }
+
+  /* 5: step 3, ask for a study guide and a quiz */
+  #s5-lbl { left: 36px; top: 30px; }
+  #s5-box { position: absolute; left: 36px; right: 36px; top: 80px; height: 290px; border-radius: 26px; background: #F6F5F2; }
+  .pl { position: absolute; left: 30px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; display: block; }
+  #pl1 { top: 26px; } #pl2 { top: 80px; color: var(--accent); } #pl3 { top: 134px; }
+  #s5-go { position: absolute; right: 22px; bottom: 22px; width: 150px; height: 70px; border-radius: 35px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .tile { position: absolute; top: 400px; width: 282px; height: 190px; border-radius: 26px; background: #EEF1FB; }
+  #tile1 { left: 36px; } #tile2 { left: 342px; }
+  .tile svg { position: absolute; left: 24px; top: 22px; width: 54px; height: 54px; }
+  .tile .t { position: absolute; left: 24px; top: 88px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .tile .lbl { left: 24px; top: 140px; color: #177A44; }
+
+  /* 6: the result, every answer points to the book */
+  #s6-card { height: 650px; }
+  #s6-head { left: 36px; top: 34px; }
+  #s6-ex { right: 36px; top: 34px; }
+  .q { position: absolute; left: 36px; right: 36px; height: 116px; border-radius: 26px; background: #F6F5F2; }
+  .q .num { position: absolute; left: 22px; top: 32px; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; display: flex; align-items: center; justify-content: center; }
+  .q .t { position: absolute; left: 92px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .q .chip { right: 22px; top: 30px; width: 118px; padding: 0; }
+  #q1 { top: 84px; } #q2 { top: 216px; } #q3 { top: 348px; }
+  #q4 { top: 480px; background: #EAF5EE; }
+  #q4 .t { left: 30px; right: 30px; color: #177A44; }
+
+  /* 7: the catch */
+  #s7 .step { color: #C23A30; }
+  #s7-card { height: 650px; }
+  .krow { position: absolute; left: 36px; right: 36px; border-radius: 26px; background: #F6F5F2; }
+  #k1 { top: 30px; height: 120px; }
+  #k1 .lbl { left: 30px; top: 16px; }
+  #k1 .ctext { left: 30px; top: 54px; }
+  #k2 { top: 170px; height: 240px; background: #FBEFEC; }
+  #s7-num { position: absolute; left: 30px; top: 40px; width: 90px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1; color: #C23A30; }
+  #k2 .ctext { left: 140px; top: 50px; }
+  #k2-a { left: 140px; top: 112px; }
+  #k2-b { left: 140px; top: 150px; }
+  #k3 { top: 430px; height: 120px; }
+  #k3 .ctext { left: 30px; top: 0; bottom: 0; display: flex; align-items: center; }
+  #s7-buggy { position: absolute; right: 24px; top: 20px; width: 190px; height: 80px; border: 6px solid #C23A30; border-radius: 16px; box-sizing: border-box; color: #C23A30; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s7-note { left: 36px; top: 584px; }
+
+  /* 8: save, send, comment STUDY */
+  #s8-save { position: absolute; left: 90px; top: 70px; width: 360px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.02; color: var(--ink); }
+  #s8-bm { position: absolute; left: 470px; top: 100px; width: 84px; height: 120px; }
+  #s8-send { position: absolute; left: 90px; right: 90px; top: 300px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #6B655E; }
+  #s8-card { position: absolute; left: 360px; right: 60px; top: 420px; height: 520px; border-radius: 40px; background: var(--ink); box-shadow: 0 30px 70px rgba(70,50,30,0.22); overflow: hidden; }
+  #s8-com { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #F3EEE5; }
+  #s8-word { position: absolute; left: 0; right: 0; top: 100px; height: 150px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  #s8-word i { display: block; font-style: normal; font-family: var(--display); font-size: 120px; line-height: 1; color: #A9B8FF; }
+  #s8-tool { position: absolute; left: 0; right: 0; top: 278px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: #F3EEE5; }
+  #s8-stk { position: absolute; left: 0; right: 0; top: 348px; height: 56px; display: flex; justify-content: center; }
+  #s8-hint { left: 30px; right: 30px; top: 440px; text-align: center; color: #CFC9BF; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">EXAM REVISION</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop letting</span></span><span class="mask"><span class="l">AI <span class="it rd" id="s0-guess">guess.</span></span></span></div>
+  <svg id="s0-squig" data-layout-allow-overlap viewBox="0 0 360 36"><path id="s0-squig-p" d="M4 20 Q 34 4 64 20 T 124 20 T 184 20 T 244 20 T 304 20 T 356 20" fill="none" stroke="#C23A30" stroke-width="8" stroke-linecap="round" stroke-dasharray="460" stroke-dashoffset="460"></path></svg>
+  <svg id="s0-closed" data-layout-allow-overlap viewBox="0 0 240 160"><rect x="60" y="10" width="120" height="140" rx="10" fill="#2B2620"></rect><rect x="60" y="10" width="20" height="140" rx="6" fill="#1E1A16"></rect><rect x="94" y="40" width="70" height="10" rx="5" fill="#F3EEE5"></rect><rect x="94" y="60" width="48" height="10" rx="5" fill="#F3EEE5" opacity="0.6"></rect><circle cx="190" cy="30" r="26" fill="#C23A30"></circle><path d="M182 24 Q182 14 190 14 Q198 14 198 22 Q198 28 190 31 L190 36" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path><circle cx="190" cy="44" r="3.5" fill="#FFFFFF"></circle></svg>
+  <svg id="s0-open" data-layout-allow-overlap viewBox="0 0 240 160"><path d="M120 34 Q80 18 20 26 L20 144 Q80 136 120 152 Z" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path><path d="M120 34 Q160 18 220 26 L220 144 Q160 136 120 152 Z" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path><path d="M38 56 L102 62 M38 78 L102 84 M38 100 L92 105" stroke="#B9B2A7" stroke-width="6" stroke-linecap="round"></path><path d="M138 62 L202 56" stroke="#177A44" stroke-width="10" stroke-linecap="round"></path><path d="M138 84 L202 78 M138 106 L190 101" stroke="#B9B2A7" stroke-width="6" stroke-linecap="round"></path><circle cx="208" cy="24" r="22" fill="#177A44"></circle><path d="M198 24 L205 31 L218 17" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">PICTURE THIS</div>
+  <div class="title"><span class="mask"><span class="l">Exam week.</span></span><span class="mask"><span class="l it">Library.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="ctext" id="s1-head">Chapter: Friction</div>
+    <div class="lbl" id="s1-ex">EXAMPLE</div>
+    <i class="ln" id="ln1"></i><i class="ln" id="ln2"></i><i class="ln" id="ln3"></i><i class="ln" id="ln4"></i><i class="ln" id="ln5"></i><i class="ln" id="ln6"></i>
+    <i id="s1-hl" data-layout-allow-overlap></i>
+    <div id="s1-tags"><div class="chip st amber" id="s1-c1">EXAM WEEK</div><div class="chip st grey" id="s1-c2">LIBRARY</div><div class="chip st blue" id="s1-c3">ON PHONE</div></div>
+    <div class="lbl" id="s1-warn">A PLAIN CHAT MAY JUST GUESS</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">Memory vs</span></span><span class="mask"><span class="l">the <span class="it gr">book.</span></span></span></div>
+  <div class="card" id="s2-l">
+    <div class="chip red" id="s2-lp">FROM MEMORY</div>
+    <div id="s2-think">?</div>
+    <div class="row" id="s2-l1"><div class="t">Sounds right</div></div>
+    <div class="row" id="s2-l2"><svg class="ico" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#C23A30"></circle><path d="M15 15 L29 29 M29 15 L15 29" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path></svg><div class="t">No source</div></div>
+    <i id="s2-strike" data-layout-allow-overlap></i>
+  </div>
+  <div class="card" id="s2-r">
+    <div class="chip green" id="s2-rp">BOOK OPEN</div>
+    <svg id="s2-book" viewBox="0 0 240 160"><path d="M120 34 Q80 18 20 26 L20 144 Q80 136 120 152 Z" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path><path d="M120 34 Q160 18 220 26 L220 144 Q160 136 120 152 Z" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path><path d="M38 56 L102 62 M38 78 L102 84 M38 100 L92 105" stroke="#B9B2A7" stroke-width="6" stroke-linecap="round"></path><path d="M138 62 L202 56" stroke="#177A44" stroke-width="10" stroke-linecap="round"></path><path d="M138 84 L202 78 M138 106 L190 101" stroke="#B9B2A7" stroke-width="6" stroke-linecap="round"></path></svg>
+    <div class="row" id="s2-r1"><div class="t">Reads the chapter</div></div>
+    <div class="row" id="s2-r2"><svg class="ico" viewBox="0 0 44 44"><circle cx="22" cy="22" r="20" fill="#177A44"></circle><path d="M13 22 L20 29 L32 15" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">Shows the page</div></div>
+  </div>
+  <div id="s2-stamp" data-layout-allow-overlap>TOPPER</div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Tap Add</span></span><span class="mask"><span class="l it">sources.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="ctext" id="s3-head">New notebook</div>
+    <div class="lbl" id="s3-gem">IN GEMINI</div>
+    <div id="s3-btn">+ Add sources</div>
+    <div class="mrow" id="m1"><svg class="mi" viewBox="0 0 44 44"><path d="M10 4 H28 L36 12 V40 H10 Z" fill="none" stroke="#6B655E" stroke-width="4" stroke-linejoin="round"></path></svg><div class="t">Files</div></div>
+    <div class="mrow" id="m2"><svg class="mi" viewBox="0 0 44 44"><rect x="4" y="15" width="22" height="14" rx="7" fill="none" stroke="#6B655E" stroke-width="4"></rect><rect x="18" y="15" width="22" height="14" rx="7" fill="none" stroke="#6B655E" stroke-width="4"></rect></svg><div class="t">Links</div></div>
+    <div class="mrow" id="m3"><svg class="mi" viewBox="0 0 44 44"><path d="M22 10 Q14 5 4 7 V37 Q14 35 22 40 Q30 35 40 37 V7 Q30 5 22 10 Z" fill="none" stroke="#2346C8" stroke-width="4" stroke-linejoin="round"></path><path d="M22 10 V40" stroke="#2346C8" stroke-width="4"></path></svg><div class="t">Textbooks</div><svg id="m3-go" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#2346C8"></circle><path d="M18 14 L28 24 L18 34" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div id="s3-tap" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Pick your</span></span><span class="mask"><span class="l it">book.</span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-search"><svg viewBox="0 0 46 46"><circle cx="19" cy="19" r="13" fill="none" stroke="#6B655E" stroke-width="5"></circle><path d="M29 29 L42 42" stroke="#6B655E" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Search textbooks</div></div>
+    <div class="cover" id="bk1"><i class="spine"></i><div class="pub">OpenStax</div><div class="sub">PHYSICS</div><div class="art"><b></b><u></u><s></s></div></div>
+    <div class="cover" id="bk2"><i class="spine"></i><div class="pub">S Chand</div><div class="sub">SCIENCE</div><div class="art"><b></b><u></u><s></s></div></div>
+    <div id="s4-ring" data-layout-allow-overlap></div>
+    <svg id="s4-tick" data-layout-allow-overlap viewBox="0 0 72 72"><circle cx="36" cy="36" r="33" fill="#177A44" stroke="#FFFFFF" stroke-width="5"></circle><path d="M22 37 L32 47 L51 26" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="row" id="s4-row"><div class="t">S Chand added</div><div class="chip green" id="s4-chip">ADDED</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Ask for a</span></span><span class="mask"><span class="l it">quiz.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-lbl">TYPE THIS</div>
+    <div id="s5-box">
+      <span class="pl" id="pl1">Make a study guide</span>
+      <span class="pl" id="pl2">and a 10-question</span>
+      <span class="pl" id="pl3">quiz from my book.</span>
+      <div id="s5-go">SEND</div>
+    </div>
+    <div class="tile" id="tile1"><svg viewBox="0 0 54 54"><rect x="9" y="4" width="36" height="46" rx="6" fill="none" stroke="#2346C8" stroke-width="4"></rect><path d="M17 17 H37 M17 27 H37 M17 37 H30" stroke="#2346C8" stroke-width="4" stroke-linecap="round"></path></svg><div class="t">Study guide</div><div class="lbl" id="rd1">READY</div></div>
+    <div class="tile" id="tile2"><svg viewBox="0 0 54 54"><rect x="5" y="6" width="16" height="16" rx="4" fill="none" stroke="#2346C8" stroke-width="4"></rect><path d="M9 14 L13 18 L19 10" fill="none" stroke="#2346C8" stroke-width="3" stroke-linecap="round"></path><path d="M28 14 H49" stroke="#2346C8" stroke-width="4" stroke-linecap="round"></path><rect x="5" y="32" width="16" height="16" rx="4" fill="none" stroke="#2346C8" stroke-width="4"></rect><path d="M28 40 H49" stroke="#2346C8" stroke-width="4" stroke-linecap="round"></path></svg><div class="t">10-Q quiz</div><div class="lbl" id="rd2">READY</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Back to the</span></span><span class="mask"><span class="l it gr">book.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-head">QUIZ · 10 QUESTIONS</div>
+    <div class="lbl" id="s6-ex">EXAMPLE</div>
+    <div class="q" id="q1"><div class="num">1</div><div class="t">Define friction.</div><div class="chip green" id="src1">p. 141</div></div>
+    <div class="q" id="q2"><div class="num">2</div><div class="t">Define pressure.</div><div class="chip green" id="src2">p. 128</div></div>
+    <div class="q" id="q3"><div class="num">3</div><div class="t">What is sound?</div><div class="chip green" id="src3">p. 162</div></div>
+    <div class="q" id="q4"><div class="t">+ 7 more, each sourced</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Few Indian</span></span><span class="mask"><span class="l it rd">books.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="krow" id="k1"><div class="lbl">CHECKED BY</div><div class="ctext">One review, free account</div></div>
+    <div class="krow" id="k2"><div id="s7-num">0</div><div class="ctext">Indian books</div><div class="lbl" id="k2-a">LAKHMIR SINGH SCIENCE</div><div class="lbl" id="k2-b">CLASSES 6 TO 8</div></div>
+    <div class="krow" id="k3"><div class="ctext">India filter</div><div id="s7-buggy">BUGGY</div></div>
+    <div class="lbl" id="s7-note">CHECK YOUR SHELF FIRST</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="s8-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s8-bm" viewBox="0 0 84 120"><path d="M8 4 H76 V114 L42 88 L8 114 Z" fill="#2346C8"></path></svg>
+  <div id="s8-send">Then send it to your study-group friend.</div>
+  <div id="s8-card">
+    <div id="s8-com">Comment</div>
+    <div id="s8-word"><i>S</i><i>T</i><i>U</i><i>D</i><i>Y</i></div>
+    <div id="s8-tool">Study From Any Chapter</div>
+    <div id="s8-stk"><div class="chip st blue" id="s8-free">FREE · CHAPTER PHOTO OR PDF</div></div>
+    <div class="lbl" id="s8-hint">WORKS IN CLAUDE · HINDI TOO</div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+Comment "TRUTH" and I'll DM you the free No-Guessing Prompt. It makes AI tell you what it isn't sure of 📩
+
+👇 Here's how it works:
+
+1. You ask ChatGPT about a company: when it started, who runs it, what it sells. You get 3 answers in the same sure voice. One is wrong. Say it gives 2014 when the real year is 2016 (an example).
+
+2. Why? It doesn't look facts up. It predicts the next likely word, the way your phone keyboard does. Likely isn't true. So the wrong year sounds just as sure as the right ones.
+
+3. The fix is one line. Paste it above your question: "If you are not sure, say I don't know and tell me what to check."
+
+4. Ask the same question again. This time you get what it's sure of, plus a flag on the parts it isn't, and what to check.
+
+5. Check those flagged parts on the company's own website before you use them.
+
+What you get: one line you can paste above any fact question. The AI points to the shaky parts instead of filling the gap with a guess.
+
+Why it works: by default, AI fills every gap with its most likely answer. Tell it "I don't know" is allowed, and it stops having to guess.
+
+The catch: you'll get fewer guesses, not zero. It can still be wrong and still sound sure. For dates, names and numbers, check the company's own site every time.
+
+It's free, and it works in ChatGPT, Claude and Gemini.
+
+Comment "TRUTH" for the No-Guessing Prompt.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+#chatgpt #aitips #learnai

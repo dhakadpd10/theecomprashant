@@ -1,0 +1,27 @@
+Comment "STUDY" and I'll DM you the free Study From Any Chapter: a quiz from your own textbook. Follow so the DM lands 📩
+
+👇 READ BELOW for how it works:
+
+1. Ask an AI chatbot about your chapter and it answers from memory. Sometimes it guesses, and the guess sounds just as sure as the right answer. In exam week, that costs you marks.
+
+2. Open the Gemini tool, tap Add sources, then Textbooks.
+
+3. Pick your book, like an OpenStax title or S Chand.
+
+4. Ask it for a study guide and a 10-question quiz. The free prompt does this part for you.
+
+5. Every answer comes with a source chip that points back to the book, so you can check it.
+
+What you get: a study guide and a 10-question quiz built from the chapter you actually have to learn.
+
+Why it works: think of the topper who keeps the book open instead of answering from memory. When the AI has to answer from your book, you can tap back to the page and see where each answer came from.
+
+The catch: one hands-on review on a free account found only 3 Indian school books (Lakhmir Singh Science, Classes 6 to 8), and the India search filter was buggy. Check that your book is there before exam week.
+
+It's completely free. Paste the prompt in and run it on your next chapter.
+
+Comment "STUDY" for the Study From Any Chapter prompt.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+#studytips #examprep #aitools

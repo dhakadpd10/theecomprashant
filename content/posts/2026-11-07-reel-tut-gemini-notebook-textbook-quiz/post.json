@@ -1,0 +1,149 @@
+{
+  "id": "2026-11-07-reel-tut-gemini-notebook-textbook-quiz",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "hook_id": "#2",
+  "keyword": "STUDY",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(guess|guesses|textbook|Textbooks|book|open|OpenStax|Chand|quiz|10|3|catch|STUDY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2346C8"
+  },
+  "lines": [
+    {
+      "say": "Don't revise with AI that guesses. Make it open your textbook.",
+      "show": "Stop letting AI guess. Make it open your textbook.",
+      "card": "STOP LETTING AI GUESS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "It's exam week. You're in the library, chapter open on your phone.",
+      "show": "Exam week, library, a chapter on your phone.",
+      "card": "EXAM WEEK · COLLEGE LIBRARY",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "This Gemini tool's the topper with the book open. It won't answer from memory.",
+      "show": "The topper with the book open, not memory.",
+      "card": "FROM MEMORY (red) vs BOOK OPEN (green)",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Step one: tap Add sources, then Textbooks.",
+      "show": "Step 1: Add sources, then Textbooks.",
+      "card": "STEP 1 · Add sources → Textbooks",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: you pick your book, like S Chand.",
+      "show": "Step 2: pick OpenStax or S Chand.",
+      "card": "STEP 2 · Pick the book (show the real shelf on filming day)",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three: ask it for a study guide and a short quiz.",
+      "show": "Step 3: study guide and 10-question quiz.",
+      "card": "STEP 3 · Study guide + 10-question quiz",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Now every answer you get points back to the book.",
+      "show": "Every answer points back to the book.",
+      "card": "10-QUESTION QUIZ · each answer with its source chip from the book",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: one free-account review found three Indian books, and the India search is buggy.",
+      "show": "The catch: 3 Indian books, buggy filter.",
+      "card": "THE CATCH · one hands-on review, free account: 3 Indian school books (Lakhmir Singh Science, Classes 6 to 8), India filter buggy",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to your study-group friend. Then type STUDY below.",
+      "show": "Send this to your study group. Comment STUDY.",
+      "card": "Save. · Comment STUDY · Study From Any Chapter, free",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+1.0",
+      "fx": "bloop"
+    },
+    {
+      "at": "@line7.voice+1.1",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.0",
+    "title": [
+      "TEXTBOOK TO QUIZ",
+      "FREE, IN 3 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

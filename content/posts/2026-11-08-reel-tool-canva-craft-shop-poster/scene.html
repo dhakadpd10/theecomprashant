@@ -1,0 +1,245 @@
+<style>
+  /* tool reel: Canva Craft makes a readable shop poster. One idea, one analogy (print shop samples).
+     Colour = meaning: blue = the AI / your pick, green = done or right, red = wrong or capped, amber = check it. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,91,211,0.08) 0%, rgba(47,91,211,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 84px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .chip { position: absolute; height: 56px; padding: 0 20px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #17784A; } .red { background: #B83227; } .amber { background: #F2C14E; color: var(--ink); } .blue { background: var(--accent); }
+  .row { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 24px; background: #F6F3EE; }
+  .row .t { position: absolute; left: 30px; right: 170px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .chip { right: 22px; top: 22px; }
+
+  /* mini posters: the same four options from Dream Lab become the print shop proofs */
+  .v1 { background: #FCE7C8; } .v1 .h, .v1 .s { background: #1E1A16; } .v1 .o { background: #E8732C; } .v1 .b { background: #2F5BD3; }
+  .v2 { background: #2F5BD3; } .v2 .h, .v2 .s { background: #FFFFFF; } .v2 .o { background: #F2C14E; } .v2 .b { background: #F2C14E; }
+  .v3 { background: #1F6B4A; } .v3 .h, .v3 .s { background: #FFFFFF; } .v3 .o { background: #F28C3A; } .v3 .b { background: #F2C14E; }
+  .v4 { background: #F6D9E3; } .v4 .h, .v4 .s { background: #6B1F3A; } .v4 .o { background: #2E9E5A; } .v4 .b { background: #6B1F3A; }
+
+  /* 0: hook */
+  #s0-step { top: 70px; }
+  #s0-title { top: 120px; font-size: 132px; }
+  #s0-stamp { position: absolute; left: 600px; top: 320px; width: 340px; height: 104px; box-sizing: border-box; border: 8px solid var(--accent); border-radius: 20px; background: rgba(243,238,229,0.92); color: var(--accent); display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; white-space: nowrap; }
+  #s0-clock { display: block; width: 48px; height: 48px; }
+
+  /* 1: the tool */
+  #s1-card { top: 450px; height: 590px; }
+  #s1-logo { position: absolute; left: 30px; top: 30px; width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, #2F5BD3, #7B4FD6); display: flex; align-items: center; justify-content: center; }
+  #s1-logo svg { display: block; width: 44px; height: 44px; }
+  #s1-name { position: absolute; left: 136px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s1-sub { left: 136px; top: 82px; }
+  .row .k { position: absolute; left: 30px; top: 0; bottom: 0; width: 160px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .row .v { position: absolute; left: 200px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s1-r1 { top: 150px; } #s1-r2 { top: 270px; } #s1-r3 { top: 390px; background: #EEF2FC; }
+  #s1-note { left: 36px; top: 528px; }
+
+  /* 2: one prompt, up to four options */
+  #s2-card { top: 450px; height: 650px; }
+  #s2-head { left: 30px; top: 26px; }
+  #s2-ex { right: 30px; top: 26px; }
+  #s2-box { position: absolute; left: 30px; right: 30px; top: 66px; height: 150px; box-sizing: border-box; border-radius: 24px; background: #F6F3EE; border: 3px solid rgba(47,91,211,0.35); padding: 20px 26px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.55; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-up { left: 30px; top: 258px; color: var(--accent); }
+  #s2-go { position: absolute; right: 30px; top: 234px; width: 240px; height: 72px; border-radius: 36px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; }
+  #s2-go svg { display: block; width: 28px; height: 28px; }
+  .th { position: absolute; width: 290px; height: 140px; border-radius: 20px; overflow: hidden; }
+  .th i { position: absolute; display: block; }
+  .th .h { left: 20px; top: 22px; width: 150px; height: 26px; border-radius: 8px; }
+  .th .s { left: 20px; top: 62px; width: 104px; height: 14px; border-radius: 7px; opacity: 0.7; }
+  .th .b { left: 20px; bottom: 22px; width: 72px; height: 20px; border-radius: 10px; }
+  .th .o { right: 24px; top: 26px; width: 88px; height: 88px; border-radius: 50%; }
+  #s2-t1 { left: 30px; top: 330px; } #s2-t2 { left: 340px; top: 330px; }
+  #s2-t3 { left: 30px; top: 490px; } #s2-t4 { left: 340px; top: 490px; }
+
+  /* 3: like print shop samples (host hidden, full width) */
+  #s3-card { top: 450px; height: 590px; }
+  #s3-head { left: 36px; top: 30px; }
+  .pf { position: absolute; top: 90px; width: 186px; height: 340px; border-radius: 14px; background: #FFFDF8; box-shadow: 0 14px 30px rgba(60,40,20,0.14); }
+  #s3-p1 { left: 42px; } #s3-p2 { left: 252px; } #s3-p3 { left: 462px; } #s3-p4 { left: 672px; }
+  .pf .mini { position: absolute; left: 14px; right: 14px; top: 14px; height: 250px; border-radius: 10px; overflow: hidden; }
+  .mini i { position: absolute; display: block; }
+  .mini .h { left: 14px; top: 20px; width: 112px; height: 22px; border-radius: 7px; }
+  .mini .s { left: 14px; top: 54px; width: 80px; height: 14px; border-radius: 7px; opacity: 0.7; }
+  .mini .o { left: 40px; top: 96px; width: 78px; height: 78px; border-radius: 50%; }
+  .mini .b { left: 14px; bottom: 18px; width: 60px; height: 16px; border-radius: 8px; }
+  .pf .lt { position: absolute; left: 0; right: 0; top: 280px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); }
+  .pf .tape { position: absolute; left: 53px; top: -14px; width: 80px; height: 28px; background: rgba(242,193,78,0.75); rotate: -4deg; }
+  #s3-ring { position: absolute; left: 446px; top: 62px; width: 218px; height: 386px; box-sizing: border-box; border: 6px solid var(--accent); border-radius: 22px; }
+  #s3-pick { left: 462px; top: 470px; width: 186px; padding: 0; }
+  #s3-note { left: 36px; top: 486px; }
+
+  /* 4: it writes the words */
+  #s4-card { top: 450px; height: 560px; }
+  #s4-num { position: absolute; left: 36px; top: 20px; width: 190px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.1; color: var(--accent); }
+  #s4-l1 { left: 240px; top: 48px; color: var(--ink); }
+  #s4-l2 { left: 240px; top: 86px; }
+  #s4-r1 { top: 170px; } #s4-r2 { top: 290px; } #s4-r3 { top: 410px; }
+
+  /* 5: the finished poster, taped up */
+  #s5-wall { position: absolute; left: 60px; top: 410px; width: 660px; height: 700px; border-radius: 36px; overflow: hidden; background: repeating-linear-gradient(180deg, #D8D1C4 0px, #D8D1C4 22px, #C9C1B3 22px, #C9C1B3 26px); box-shadow: 0 30px 70px rgba(60,40,20,0.13); }
+  #s5-poster { position: absolute; left: 80px; top: 40px; width: 500px; height: 620px; border-radius: 10px; background: #1F6B4A; box-shadow: 0 24px 50px rgba(20,30,20,0.3); }
+  #s5-kick { position: absolute; left: 40px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.1em; color: #F2C14E; white-space: nowrap; }
+  #s5-head { position: absolute; left: 40px; top: 90px; width: 430px; font-family: 'Archivo Black', sans-serif; font-size: 100px; line-height: 1; color: #FFFFFF; }
+  #s5-head div { display: block; }
+  .fruit { position: absolute; top: 410px; width: 90px; height: 90px; border-radius: 50%; }
+  #s5-f1 { left: 40px; background: radial-gradient(circle at 35% 35%, #FFB877 0%, #F28C3A 60%); }
+  #s5-f2 { left: 150px; background: radial-gradient(circle at 35% 35%, #F27A6E 0%, #D9483B 60%); }
+  #s5-f3 { left: 260px; background: radial-gradient(circle at 35% 35%, #FFE08F 0%, #F2C14E 60%); }
+  #s5-foot { position: absolute; left: 40px; top: 540px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #FCE7C8; white-space: nowrap; }
+  #s5-tag { right: 30px; top: 534px; }
+  .tape { position: absolute; top: 22px; width: 130px; height: 42px; background: rgba(246,226,170,0.92); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  #s5-tape1 { left: 40px; } #s5-tape2 { left: 490px; }
+  #s5-done { position: absolute; left: 530px; top: 590px; width: 100px; height: 100px; border-radius: 50%; background: #17784A; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px rgba(20,60,40,0.3); }
+  #s5-done svg { display: block; width: 60px; height: 60px; }
+
+  /* 6: the catch */
+  #s6-card { top: 450px; height: 600px; }
+  #s6-l1 { left: 30px; top: 28px; color: var(--ink); }
+  #s6-l2 { right: 30px; top: 28px; }
+  #s6-track { position: absolute; left: 30px; right: 30px; top: 74px; height: 34px; border-radius: 17px; background: #EFEBE4; overflow: hidden; }
+  #s6-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 17px; background: #F2C14E; transform-origin: left center; }
+  #s6-l3 { left: 30px; top: 140px; }
+  #s6-cap { right: 30px; top: 124px; }
+  #s6-r1 { top: 200px; } #s6-r2 { top: 320px; } #s6-r3 { top: 440px; }
+  #s6-r1 { background: #FBEDEA; } #s6-r2 { background: #E9F4EE; }
+  .bad { color: #B83227; text-decoration: underline wavy #B83227; margin-left: 10px; margin-right: 10px; }
+
+  /* 7: send + keyword */
+  #s7-send { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  #s7-plane { position: absolute; left: 740px; top: 300px; width: 170px; height: 145px; }
+  #s7-who { position: absolute; left: 90px; width: 600px; top: 290px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: rgba(30,26,22,0.68); }
+  #s7-pill { position: absolute; left: 60px; width: 640px; top: 450px; height: 270px; border-radius: 48px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #s7-cm { position: absolute; left: 0; right: 0; top: 38px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; letter-spacing: 0.14em; color: #D9D1C4; }
+  #s7-kw { position: absolute; left: 0; right: 0; top: 96px; display: flex; justify-content: center; font-family: 'Archivo Black', sans-serif; font-size: 120px; line-height: 1.1; color: #A9BDFF; }
+  #s7-kw .k { display: inline-block; }
+  #s7-save { position: absolute; left: 90px; top: 780px; height: 90px; display: flex; align-items: center; gap: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s7-save svg { display: block; width: 54px; height: 72px; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">FRESH STOCK TODAY POSTER</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">No <span class="it">designer</span></span></span><span class="mask"><span class="l">needed.</span></span></div>
+  <div id="s0-stamp" data-layout-allow-overlap><svg id="s0-clock" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="none" stroke="#2F5BD3" stroke-width="5"></circle><path d="M24 13 L24 25 L32 30" fill="none" stroke="#2F5BD3" stroke-width="5" stroke-linecap="round"></path></svg>BY EVENING</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">STEP 1 · THE TOOL</div>
+  <div class="title"><span class="mask"><span class="l">Canva</span></span><span class="mask"><span class="l it">Craft.</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-logo"><svg viewBox="0 0 44 44"><path d="M22 0 C24 14 30 20 44 22 C30 24 24 30 22 44 C20 30 14 24 0 22 C14 20 20 14 22 0 Z" fill="#FFFFFF"></path></svg></div>
+    <div id="s1-name">Canva Craft</div>
+    <div class="lbl" id="s1-sub">CANVA'S OWN IMAGE MODEL</div>
+    <div class="row" id="s1-r1"><div class="k">Maker</div><div class="v">Canva</div></div>
+    <div class="row" id="s1-r2"><div class="k">Makes</div><div class="v">Images</div></div>
+    <div class="row" id="s1-r3"><div class="k">Open to</div><div class="v">All users</div><div class="chip blue" id="s1-open">OPEN</div></div>
+    <div class="lbl" id="s1-note">PER CANVA</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 2 · DREAM LAB</div>
+  <div class="title"><span class="mask"><span class="l">One prompt,</span></span><span class="mask"><span class="l">up to <span class="it">four.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lbl" id="s2-head">YOUR PROMPT</div>
+    <div class="lbl" id="s2-ex">EXAMPLE</div>
+    <div id="s2-box"><span class="pl" id="s2-l1">Poster: Fresh stock today</span><span class="pl" id="s2-l2">fruit stall, clear text</span></div>
+    <div class="lbl" id="s2-up">UP TO 4</div>
+    <div id="s2-go"><svg viewBox="0 0 44 44"><path d="M22 0 C24 14 30 20 44 22 C30 24 24 30 22 44 C20 30 14 24 0 22 C14 20 20 14 22 0 Z" fill="#FFFFFF"></path></svg>Generate</div>
+    <div class="th v1" id="s2-t1"><i class="h"></i><i class="s"></i><i class="b"></i><i class="o"></i></div>
+    <div class="th v2" id="s2-t2"><i class="h"></i><i class="s"></i><i class="b"></i><i class="o"></i></div>
+    <div class="th v3" id="s2-t3"><i class="h"></i><i class="s"></i><i class="b"></i><i class="o"></i></div>
+    <div class="th v4" id="s2-t4"><i class="h"></i><i class="s"></i><i class="b"></i><i class="o"></i></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">Like print</span></span><span class="mask"><span class="l">shop <span class="it">samples.</span></span></span></div>
+  <div class="card wide" id="s3-card">
+    <div class="lbl" id="s3-head">PRINT SHOP PROOFS</div>
+    <div id="s3-ring" data-layout-allow-overlap></div>
+    <div class="pf" id="s3-p1"><i class="tape"></i><div class="mini v1"><i class="h"></i><i class="s"></i><i class="o"></i><i class="b"></i></div><div class="lt">A</div></div>
+    <div class="pf" id="s3-p2"><i class="tape"></i><div class="mini v2"><i class="h"></i><i class="s"></i><i class="o"></i><i class="b"></i></div><div class="lt">B</div></div>
+    <div class="pf" id="s3-p3" data-layout-allow-overlap><i class="tape"></i><div class="mini v3"><i class="h"></i><i class="s"></i><i class="o"></i><i class="b"></i></div><div class="lt">C</div></div>
+    <div class="pf" id="s3-p4"><i class="tape"></i><div class="mini v4"><i class="h"></i><i class="s"></i><i class="o"></i><i class="b"></i></div><div class="lt">D</div></div>
+    <div class="lbl" id="s3-note">SAME IDEA, ONLY FASTER</div>
+    <div class="chip blue" id="s3-pick">PICKED</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3 · THE WORDS</div>
+  <div class="title"><span class="mask"><span class="l">It writes</span></span><span class="mask"><span class="l">the <span class="it">words.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-num">0</div>
+    <div class="lbl" id="s4-l1">LANGUAGES</div>
+    <div class="lbl" id="s4-l2">CANVA SAYS</div>
+    <div class="row" id="s4-r1"><div class="t">Headline text</div><div class="chip green" id="s4-c1">READABLE</div></div>
+    <div class="row" id="s4-r2"><div class="t">English</div><div class="chip green" id="s4-c2">IN LIST</div></div>
+    <div class="row" id="s4-r3"><div class="t">Your language</div><div class="chip amber" id="s4-c3">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 4 · PRINT</div>
+  <div class="title"><span class="mask"><span class="l">Taped up.</span></span><span class="mask"><span class="l it">Done.</span></span></div>
+  <div id="s5-wall">
+    <div id="s5-poster">
+      <div id="s5-kick">SHARMA FRUITS</div>
+      <div id="s5-head"><div>FRESH</div><div>STOCK</div><div>TODAY</div></div>
+      <i class="fruit" id="s5-f1"></i><i class="fruit" id="s5-f2"></i><i class="fruit" id="s5-f3"></i>
+      <div id="s5-foot">Open tonight</div>
+      <div class="chip amber" id="s5-tag">EXAMPLE</div>
+    </div>
+    <i class="tape" id="s5-tape1" data-layout-allow-overlap></i>
+    <i class="tape" id="s5-tape2" data-layout-allow-overlap></i>
+    <div id="s5-done" data-layout-allow-overlap><svg viewBox="0 0 100 100"><path d="M18 52 L40 74 L84 28" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check every</span></span><span class="mask"><span class="l it">letter.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-l1">MONTHLY AI LIMIT</div>
+    <div class="lbl" id="s6-l2">EXAMPLE</div>
+    <div id="s6-track"><i id="s6-fill"></i></div>
+    <div class="lbl" id="s6-l3">VARIES BY PLAN</div>
+    <div class="chip red" id="s6-cap">CAPPED</div>
+    <div class="row" id="s6-r1"><div class="t">Fresh<span class="bad">stcok</span>today</div><div class="chip red" id="s6-c1">TYPO</div></div>
+    <div class="row" id="s6-r2"><div class="t">Fresh stock today</div><div class="chip green" id="s6-c2">FIXED</div></div>
+    <div class="row" id="s6-r3"><div class="t">Price, date, phone</div><div class="chip amber" id="s6-c3">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-send">Send <span class="it">this.</span></div>
+  <svg id="s7-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2F5BD3"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1F3F9E"></path></svg>
+  <div id="s7-who">to the shop owner who still pays for every poster</div>
+  <div id="s7-pill">
+    <div id="s7-cm">COMMENT</div>
+    <div id="s7-kw"><span class="k">C</span><span class="k">R</span><span class="k">A</span><span class="k">F</span><span class="k">T</span></div>
+  </div>
+  <div id="s7-save"><svg viewBox="0 0 54 72"><path d="M4 4 L50 4 L50 68 L27 52 L4 68 Z" fill="#2F5BD3"></path></svg>Free prompt. Save it.</div>
+</section>

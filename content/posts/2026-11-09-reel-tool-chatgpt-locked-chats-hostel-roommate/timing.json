@@ -1,0 +1,81 @@
+{
+  "dur": 30.72,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.104,
+      "b": 4.204,
+      "say": "Stop deleting your AI chats every time your roommate borrows your phone.",
+      "show": "Stop deleting ChatGPT chats."
+    },
+    {
+      "a": 4.204,
+      "voice": 4.304,
+      "end": 5.996,
+      "b": 6.096,
+      "say": "Shared room. 'Just checking one thing.'",
+      "show": "Hostel room. 'Just checking one thing.'"
+    },
+    {
+      "a": 6.096,
+      "voice": 6.196,
+      "end": 9.168,
+      "b": 9.268,
+      "say": "Lock that chat instead, like a locker inside your cupboard.",
+      "show": "Lock one chat, like a locker."
+    },
+    {
+      "a": 9.268,
+      "voice": 9.368,
+      "end": 12.027,
+      "b": 12.127,
+      "say": "Set a four digit PIN in settings, then lock it.",
+      "show": "Settings: set a 4 digit PIN."
+    },
+    {
+      "a": 12.127,
+      "voice": 12.227,
+      "end": 13.791,
+      "b": 13.891,
+      "say": "Fingerprint or face works too.",
+      "show": "Fingerprint or face works too."
+    },
+    {
+      "a": 13.891,
+      "voice": 13.991,
+      "end": 17.206,
+      "b": 17.306,
+      "say": "The cupboard opens, the locker doesn't. Free users get it too.",
+      "show": "Cupboard opens. Locker doesn't. Free too."
+    },
+    {
+      "a": 17.306,
+      "voice": 17.406,
+      "end": 20.143,
+      "b": 20.243,
+      "say": "The catch: it's rolling out slowly. Your app may not have it.",
+      "show": "The catch: it's rolling out slowly."
+    },
+    {
+      "a": 20.243,
+      "voice": 20.343,
+      "end": 25.115,
+      "b": 25.215,
+      "say": "Forgetting the PIN deletes nothing. Resetting it deletes every locked chat, forever.",
+      "show": "Forgetting is fine. Resetting deletes them all."
+    },
+    {
+      "a": 25.215,
+      "voice": 25.315,
+      "end": 29.32,
+      "b": 30.72,
+      "say": "Send this to the friend who always borrows your phone. Type PRIVATE below.",
+      "show": "Send this. Comment PRIVATE for the card."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "2026-11-09-reel-prompt-write-like-me-9to5-after-office",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "hook": 2,
+  "keyword": "STYLE",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(ChatGPT|3|three|well|tailor|measurements|sign-off|signoff|you|typos|bank|STYLE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4FCF"
+  },
+  "lines": [
+    {
+      "say": "Stop asking AI for leave messages before showing it three of yours.",
+      "show": "Show it 3 of yours first.",
+      "card": "NO MORE 'FINDS YOU WELL'",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Bus home, you ask for a sick leave message.",
+      "show": "Bus home: 'sick leave message to my manager'",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "You get: I hope this message finds you well.",
+      "show": "'I hope this message finds you well.'",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It's never seen you write. A tailor without measurements.",
+      "show": "It's never seen how you write.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Paste three messages you sent. Those are your measurements.",
+      "show": "Paste 3 messages you sent.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Ask it to note your sentence length, words and sign-off.",
+      "show": "Note my length, words, sign-off. Then write.",
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Now: fever since morning, off today, back tomorrow. That's you.",
+      "show": "After: it sounds like you.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it learns your mistakes as well. Read first. Never paste others' chats.",
+      "show": "Copies typos too. Never paste others' chats.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the colleague whose messages all sound like a bank. Comment STYLE.",
+      "show": "Send this. Comment STYLE for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "MAKE AI WRITE",
+      "LIKE YOU, NOT A ROBOT"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

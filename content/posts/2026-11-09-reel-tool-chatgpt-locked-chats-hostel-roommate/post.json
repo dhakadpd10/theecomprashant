@@ -1,0 +1,138 @@
+{
+  "id": "2026-11-09-reel-tool-chatgpt-locked-chats-hostel-roommate",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "PRIVATE",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(ChatGPT|roommate|locker|PIN|Fingerprint|face|Free|catch|deletes|Send|PRIVATE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B50D6"
+  },
+  "lines": [
+    {
+      "say": "Stop deleting your AI chats every time your roommate borrows your phone.",
+      "show": "Stop deleting ChatGPT chats.",
+      "card": "STOP DELETING YOUR CHATS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Shared room. 'Just checking one thing.'",
+      "show": "Hostel room. 'Just checking one thing.'",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Lock that chat instead, like a locker inside your cupboard.",
+      "show": "Lock one chat, like a locker.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Set a four digit PIN in settings, then lock it.",
+      "show": "Settings: set a 4 digit PIN.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Fingerprint or face works too.",
+      "show": "Fingerprint or face works too.",
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The cupboard opens, the locker doesn't. Free users get it too.",
+      "show": "Cupboard opens. Locker doesn't. Free too.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it's rolling out slowly. Your app may not have it.",
+      "show": "The catch: it's rolling out slowly.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Forgetting the PIN deletes nothing. Resetting it deletes every locked chat, forever.",
+      "show": "Forgetting is fine. Resetting deletes them all.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who always borrows your phone. Type PRIVATE below.",
+      "show": "Send this. Comment PRIVATE for the card.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.1",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+1.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+2.6",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line8.voice+2.8",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "STOP DELETING YOUR CHATS",
+      "LOCK ONE WITH A PIN"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

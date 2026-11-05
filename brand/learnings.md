@@ -2,6 +2,32 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-06
+
+- **The pull moved, so this is a reading again, but a thin one, and it still has no timestamp.**
+  - Hostel went from 1,216 to 1,219 views. Reach held at 1,048.
+  - Two rows appeared: the hostel tutorial (4 Nov 14:01 UTC, GIG, #18) and the deepfake explainer (5 Nov 07:31 UTC, SAFE, #22). That accounts for the 4 Nov 19:30 IST slot.
+  - Pair 1 B (5 Nov 03:30 UTC) still has no row, even though a later 5 Nov reel does. It was probably skipped, so the fallback (6 Nov 09:00 IST) applies unless the app shows it live.
+- **Sends are unchanged and still rest on three reels.**
+  - 22 of 23 new-niche sends sit on hostel, homemakers and hostel Part 2: named viewer, named place, mixed list.
+  - 36 of 41 rows on the page have 0 shares.
+  - This is a hunch (n=3 against 3) with no sends hand-checked.
+  - The hostel tutorial names the student but is not a list, and it has 0 sends at under a day old. If it stays at 0 at 72 hours (7 Nov 14:01 UTC), that points at the list shape more than the named viewer.
+- **Explainer era: 3 reels, 0 sends, 0 saves, and none at 72 hours yet.**
+  - Voice clone: 90 reach, 5.6s.
+  - Tutorial: 46 reach, 2.8s.
+  - Deepfake: 26 reach, 3.3s, hours old.
+  - Nothing to read. The explainer median starts once 5 explainers are 72 hours old.
+- **Baselines, assuming this pull is from after 5 Nov 07:31 UTC:**
+  - Page median: 107 views (n=41).
+  - Money era: 101.5 views and 89.5 reach (n=14), now that the relative skit is past 72 hours.
+  - From 7 Nov, homemakers and hostel Part 2 enter, making it 106.5 views and 90.5 reach (n=16) on today's numbers.
+  - Outside hostel, only 2 of 20 new-niche reels have broken 130 reach.
+- **For the third audit running, none of the logging fixes landed.**
+  - Kind is blank on 41 of 41, and style is 'motion' on 20 of 20 new-niche rows.
+  - There are no arm or pair columns, no pull timestamp and no daily follower count.
+  - Hold@3s, follows and non-follower % are on 0 of 41, so hook problem or profile problem is still unknown.
+
 ## Week of 2026-11-05
 
 - **This pull is the 5 Nov pull again, row for row. That is the second repeat, so treat it as a stale snapshot.**

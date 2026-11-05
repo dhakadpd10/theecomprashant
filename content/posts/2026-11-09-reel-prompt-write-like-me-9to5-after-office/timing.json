@@ -1,0 +1,81 @@
+{
+  "dur": 31.04,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.074,
+      "b": 4.174,
+      "say": "Stop asking AI for leave messages before showing it three of yours.",
+      "show": "Show it 3 of yours first."
+    },
+    {
+      "a": 4.174,
+      "voice": 4.274,
+      "end": 6.345,
+      "b": 6.445,
+      "say": "Bus home, you ask for a sick leave message.",
+      "show": "Bus home: 'sick leave message to my manager'"
+    },
+    {
+      "a": 6.445,
+      "voice": 6.545,
+      "end": 8.664,
+      "b": 8.764,
+      "say": "You get: I hope this message finds you well.",
+      "show": "'I hope this message finds you well.'"
+    },
+    {
+      "a": 8.764,
+      "voice": 8.864,
+      "end": 11.466,
+      "b": 11.566,
+      "say": "It's never seen you write. A tailor without measurements.",
+      "show": "It's never seen how you write."
+    },
+    {
+      "a": 11.566,
+      "voice": 11.666,
+      "end": 14.367,
+      "b": 14.467,
+      "say": "Paste three messages you sent. Those are your measurements.",
+      "show": "Paste 3 messages you sent."
+    },
+    {
+      "a": 14.467,
+      "voice": 14.567,
+      "end": 17.298,
+      "b": 17.398,
+      "say": "Ask it to note your sentence length, words and sign-off.",
+      "show": "Note my length, words, sign-off. Then write."
+    },
+    {
+      "a": 17.398,
+      "voice": 17.498,
+      "end": 20.654,
+      "b": 20.754,
+      "say": "Now: fever since morning, off today, back tomorrow. That's you.",
+      "show": "After: it sounds like you."
+    },
+    {
+      "a": 20.754,
+      "voice": 20.854,
+      "end": 25.248,
+      "b": 25.348,
+      "say": "The catch: it learns your mistakes as well. Read first. Never paste others' chats.",
+      "show": "Copies typos too. Never paste others' chats."
+    },
+    {
+      "a": 25.348,
+      "voice": 25.448,
+      "end": 29.643,
+      "b": 31.04,
+      "say": "Send this to the colleague whose messages all sound like a bank. Comment STYLE.",
+      "show": "Send this. Comment STYLE for the prompt."
+    }
+  ]
+}

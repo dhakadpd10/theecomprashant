@@ -1,0 +1,182 @@
+{
+  "id": "2026-11-07-reel-cmp-cv-chatgpt-gemini-claude",
+  "status": "DRAFT: do not render or schedule until every {{...}} below is replaced with the real filming-day result",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "compare",
+  "keyword": "RESUME",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(real|invented|darzi|kept|least|every|RESUME)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F4BD8"
+  },
+  "lines": [
+    {
+      "say": "Three AI apps get one real CV. Red means invented.",
+      "show": "ChatGPT vs Gemini vs Claude. Red = invented.",
+      "card": "CHATGPT vs GEMINI vs CLAUDE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Midnight, between jobs, CV too long.",
+      "show": "Midnight. Between jobs. 2-page CV.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Same prompt, all three free, one-page goal.",
+      "show": "Same prompt. All 3 free. 1 page.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Like a good tailor: shorter, never a new pocket.",
+      "show": "Like a darzi: shorter, no new pockets.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Green kept a real fact. Red invented one.",
+      "show": "Green = real fact. Red = invented.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "In our test, {{WINNER}} kept the most and invented the least.",
+      "show": "Our test: {{WINNER}} kept most, invented least.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: all three can make up skills you don't have. Read every line before applying.",
+      "show": "The catch: read every line before applying.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who is applying this week, and comment RESUME.",
+      "show": "Send this. Comment RESUME for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+1.3",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.6",
+    "title": [
+      "CHATGPT vs GEMINI vs CLAUDE",
+      "WHO INVENTS ON YOUR CV?"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "core_idea": "The best CV tool is the one that keeps your real facts and adds none.",
+  "analogy": "A good darzi: takes the shirt in, never sews on a pocket you didn't have. Kept on every beat; 'pocket' = an invented skill or number.",
+  "beats": {
+    "line0": "Frame 0: 'CHATGPT vs GEMINI vs CLAUDE' at 120 px or more in Playfair, three empty column headers below with a small red chip 'INVENTED'. Host centre, stage content above y 560.",
+    "line1": "Phone card: the old 2-page CV (real, redacted), page counter '2 PAGES' in amber, a 'between jobs' kicker with a night clock.",
+    "line2": "The one prompt types into a prompt box, then fans out into three columns (one per app, labelled 'FREE').",
+    "line3": "Darzi diagram: a shirt outline gets taken in (green check), a ghost pocket appears and is struck red (X).",
+    "line4": "Host hidden, full width (left 90, right 90). Three matching columns, the same rows in each, chips build top to bottom: green = fact kept, red = invented skill or number. One-page meter under each column fills to its real page count. Counts are the real filming-day counts.",
+    "line5": "Payoff: the winning tool's real one-page CV as a full card (redacted), green ticks down the margin, verdict chip '{{WINNER}}: KEPT MOST, INVENTED LEAST'. Small 'WHO PICKS WHICH' strip: '{{PICK_LINE}}'.",
+    "line6": "The catch: one red line from the test circled in amber with 'READ EVERY LINE'.",
+    "line7": "End card: 'Save.' in serif, bookmark shape, dark pill 'Comment RESUME', sticker 'FREE PROMPT'."
+  },
+  "test": {
+    "rule": "Run on filming day: same real CV, same prompt, free tier of ChatGPT, Gemini and Claude, fresh chat each, no memory or custom instructions. Screenshot every output. The verdict is whatever the screenshots show; nothing on screen is drawn from memory or guessed.",
+    "cv_source": "{{whose CV, written consent, and what is redacted: name, phone, email, employer if asked}}",
+    "prompt_used": "{{exact prompt, identical across all three}}",
+    "date_run": "{{YYYY-MM-DD}}",
+    "results": {
+      "chatgpt": {
+        "facts_kept": "{{n of N}}",
+        "invented": "{{list each}}",
+        "pages": "{{n}}"
+      },
+      "gemini": {
+        "facts_kept": "{{n of N}}",
+        "invented": "{{list each}}",
+        "pages": "{{n}}"
+      },
+      "claude": {
+        "facts_kept": "{{n of N}}",
+        "invented": "{{list each}}",
+        "pages": "{{n}}"
+      }
+    },
+    "WINNER": "{{the tool with the most facts kept and fewest inventions; if two tie, rewrite line 5 to say so, never pick one}}",
+    "PICK_LINE": "{{one short, test-backed line on who should pick which, e.g. which one fit one page; leave it out if the test does not support it}}",
+    "if_winner_missed_one_page": "Keep line 5 as written and show its real page count on the meter. Do not claim it fit."
+  },
+  "log": {
+    "hook": "#17",
+    "kind": "compare",
+    "style": "editorial-host",
+    "format": "reel",
+    "keyword": "RESUME",
+    "money_angle": "no",
+    "arm": null,
+    "pair": null,
+    "slot_ist": "7 Nov 13:00 IST (07:30 UTC), not the 09:00 experiment slot"
+  },
+  "_todo": [
+    "Confirm the RESUME tool (One-Page CV and Cover Note Prompt) is on the tools page and in docs/EXPLAINER.md before posting. Never leave a keyword without a tool.",
+    "Confirm the 7 Nov 09:00 arm is a different kind (it is a prompt explainer) and not hook #17.",
+    "The 'between jobs' opener sits one slot before pair 3 A (same named viewer, 8 Nov 09:00 on schedule). If that slot is used, move this reel to 7 Nov 13:00 rather than 19:30 and note the overlap as a possible confound.",
+    "Spoken word count is 80. Recheck that the reel lands at 20 to 30 seconds once {{WINNER}} is filled."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "dur": 26.17,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.697,
+      "b": 3.797,
+      "say": "Three AI apps get one real CV. Red means invented.",
+      "show": "ChatGPT vs Gemini vs Claude. Red = invented."
+    },
+    {
+      "a": 3.797,
+      "voice": 3.897,
+      "end": 5.961,
+      "b": 6.061,
+      "say": "Midnight, between jobs, CV too long.",
+      "show": "Midnight. Between jobs. 2-page CV."
+    },
+    {
+      "a": 6.061,
+      "voice": 6.161,
+      "end": 8.469,
+      "b": 8.569,
+      "say": "Same prompt, all three free, one-page goal.",
+      "show": "Same prompt. All 3 free. 1 page."
+    },
+    {
+      "a": 8.569,
+      "voice": 8.669,
+      "end": 10.925,
+      "b": 11.025,
+      "say": "Like a good tailor: shorter, never a new pocket.",
+      "show": "Like a darzi: shorter, no new pockets."
+    },
+    {
+      "a": 11.025,
+      "voice": 11.125,
+      "end": 13.559,
+      "b": 13.659,
+      "say": "Green kept a real fact. Red invented one.",
+      "show": "Green = real fact. Red = invented."
+    },
+    {
+      "a": 13.659,
+      "voice": 13.759,
+      "end": 16.521,
+      "b": 16.621,
+      "say": "In our test, {{WINNER}} kept the most and invented the least.",
+      "show": "Our test: {{WINNER}} kept most, invented least."
+    },
+    {
+      "a": 16.621,
+      "voice": 16.721,
+      "end": 21.262,
+      "b": 21.362,
+      "say": "The catch: all three can make up skills you don't have. Read every line before applying.",
+      "show": "The catch: read every line before applying."
+    },
+    {
+      "a": 21.362,
+      "voice": 21.462,
+      "end": 24.768,
+      "b": 26.17,
+      "say": "Send this to the friend who is applying this week, and comment RESUME.",
+      "show": "Send this. Comment RESUME for the prompt."
+    }
+  ]
+}

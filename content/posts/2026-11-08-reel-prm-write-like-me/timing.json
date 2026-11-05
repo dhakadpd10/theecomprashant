@@ -1,0 +1,81 @@
+{
+  "dur": 27.83,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.674,
+      "b": 4.774,
+      "say": "Stop sending clients ChatGPT's first reply. Paste three of yours first.",
+      "show": "Stop sending ChatGPT's first reply. Paste 3 of yours."
+    },
+    {
+      "a": 4.774,
+      "voice": 4.874,
+      "end": 7.667,
+      "b": 7.767,
+      "say": "On the bus home, your reply sounds like a bank notice.",
+      "show": "Your reply sounds like a bank notice."
+    },
+    {
+      "a": 7.767,
+      "voice": 7.867,
+      "end": 10.44,
+      "b": 10.54,
+      "say": "AI writes in its own voice until you show yours.",
+      "show": "It writes in its own voice."
+    },
+    {
+      "a": 10.54,
+      "voice": 10.64,
+      "end": 12.419,
+      "b": 12.519,
+      "say": "Like a tailor copying your old kurta.",
+      "show": "Like a tailor copying your old kurta."
+    },
+    {
+      "a": 12.519,
+      "voice": 12.619,
+      "end": 16.317,
+      "b": 16.417,
+      "say": "Paste three real messages. Add: match my length, words and tone.",
+      "show": "Paste 3 real messages. Match my tone."
+    },
+    {
+      "a": 16.417,
+      "voice": 16.517,
+      "end": 17.649,
+      "b": 17.749,
+      "say": "Now it sounds like you.",
+      "show": "Now it sounds like you."
+    },
+    {
+      "a": 17.749,
+      "voice": 17.849,
+      "end": 20.582,
+      "b": 20.682,
+      "say": "The catch: three real samples, and read it before sending.",
+      "show": "The catch: 3 samples. Read before sending."
+    },
+    {
+      "a": 20.682,
+      "voice": 20.782,
+      "end": 24.738,
+      "b": 24.838,
+      "say": "Send this to the friend whose messages suddenly sound like ChatGPT.",
+      "show": "Send this to that friend."
+    },
+    {
+      "a": 24.838,
+      "voice": 24.938,
+      "end": 26.427,
+      "b": 27.83,
+      "say": "Type STYLE below to get it free.",
+      "show": "Comment STYLE for the prompt."
+    }
+  ]
+}

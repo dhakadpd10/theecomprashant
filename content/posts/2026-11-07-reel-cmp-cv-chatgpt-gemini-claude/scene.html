@@ -1,0 +1,276 @@
+<style>
+  /* DRAFT TEMPLATE (post.json status is DRAFT). Do not render or schedule yet.
+     Every {{...}} on stage is a filming-day result. Replace each one with what the screenshots show. Never guess.
+     s4 (the cover frame): .tv text in each column = facts kept "n/N" and invented "n". .mval = real page count.
+       On each meter fill, swap the class "pgtbd" for "pg1" (1 page) or "pg2" (2 pages). {{DATE_RUN}} = test date.
+     s5: {{WINNER}} chip. {{PICK_LINE}}: delete #s5-pick if the test does not support a pick line.
+       If the winner missed one page, the rule is the same: show its real count, and never claim it fit.
+       If two tools tie, rewrite the title and chips to say so.
+     s6: {{invented line}} = one real invented line copied from a screenshot.
+     Colour = meaning: green #17784A = real fact kept, red #C23535 = invented, amber #E39B12 = check it, blue = the prompt / the AI. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,75,216,0.08) 0%, rgba(47,75,216,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(23,120,74,0.07) 0%, rgba(23,120,74,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,45,20,0.12), 0 2px 0 rgba(70,45,20,0.05); overflow: hidden; }
+  .side { left: 60px; right: 360px; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: #6B645C; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #17784A; } .red { background: #C23535; } .amber { background: #E39B12; color: var(--ink); } .blue { background: var(--accent); }
+  .row { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F4F1EC; }
+  .row .t { position: absolute; left: 30px; right: 200px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .chip { right: 24px; top: 25px; }
+
+  /* 0: hook, host centre, everything above scene y 440 */
+  #s0-title { top: 50px; font-size: 110px; line-height: 1.0; }
+  #s0-chip { left: 500px; top: 330px; height: 64px; border-radius: 32px; font-size: 28px; }
+
+  /* 1: midnight, the 2-page CV */
+  #s1-card { top: 400px; height: 680px; }
+  #s1-clock { position: absolute; left: 36px; top: 36px; width: 80px; height: 80px; border-radius: 40px; border: 6px solid var(--ink); box-sizing: border-box; }
+  #s1-hour { position: absolute; left: 31px; top: 14px; width: 6px; height: 26px; border-radius: 3px; background: var(--ink); }
+  #s1-hand { position: absolute; left: 31px; top: 8px; width: 6px; height: 32px; border-radius: 3px; background: var(--accent); transform-origin: 50% 100%; }
+  #s1-time { position: absolute; left: 140px; top: 36px; height: 80px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); }
+  #s1-pages { right: 36px; top: 46px; }
+  .sheet { position: absolute; top: 150px; width: 270px; height: 380px; border-radius: 16px; background: #FBFAF7; border: 3px solid #E4DED3; box-sizing: border-box; }
+  #s1-a { left: 45px; } #s1-b { left: 345px; }
+  .sheet .nm { position: absolute; left: 24px; top: 28px; width: 160px; height: 30px; border-radius: 6px; background: var(--ink); }
+  .sheet .sk { position: absolute; left: 24px; right: 24px; height: 14px; border-radius: 7px; background: #E2DCD1; transform-origin: left center; }
+  .sheet .k1 { top: 86px; } .sheet .k2 { top: 114px; right: 70px; } .sheet .k3 { top: 142px; }
+  .sheet .k4 { top: 192px; right: 50px; } .sheet .k5 { top: 220px; } .sheet .k6 { top: 248px; right: 90px; }
+  .sheet .k7 { top: 298px; } .sheet .k8 { top: 326px; right: 60px; }
+  #s1-pa { left: 45px; top: 550px; } #s1-pb { left: 345px; top: 550px; }
+  #s1-note { left: 45px; top: 610px; }
+
+  /* 2: same prompt, three free apps */
+  #s2-card { top: 400px; height: 650px; }
+  #s2-box { position: absolute; left: 36px; right: 36px; top: 36px; height: 210px; border-radius: 26px; background: #F4F1EC; }
+  #s2-blbl { left: 30px; top: 22px; }
+  #s2-typed { position: absolute; left: 30px; top: 66px; height: 56px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--accent); white-space: nowrap; }
+  .mini { height: 50px; font-size: 24px; background: #E6DFD3; color: var(--ink); }
+  #s2-c1 { left: 30px; top: 138px; } #s2-c2 { left: 236px; top: 138px; }
+  #s2-fan { position: absolute; left: 0; top: 250px; width: 660px; height: 120px; }
+  .tile { position: absolute; top: 380px; width: 190px; height: 230px; border-radius: 26px; background: #F4F1EC; }
+  #s2-t1 { left: 25px; } #s2-t2 { left: 235px; } #s2-t3 { left: 445px; }
+  .tile .nm { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .tile .chip { left: 40px; right: 40px; top: 130px; padding: 0; }
+
+  /* 3: the darzi */
+  #s3-card { top: 400px; height: 680px; }
+  #s3-shirt { position: absolute; left: 130px; top: 30px; width: 400px; height: 360px; display: block; }
+  #s3-shirt svg { display: block; width: 400px; height: 360px; }
+  #s3-pocket { position: absolute; left: 345px; top: 170px; width: 62px; height: 62px; border: 5px dashed #C23535; border-radius: 8px; box-sizing: border-box; }
+  #s3-x { position: absolute; left: 330px; top: 155px; width: 92px; height: 92px; display: block; }
+  #s3-al { position: absolute; left: 40px; top: 220px; width: 70px; height: 40px; display: block; }
+  #s3-ar { position: absolute; left: 550px; top: 220px; width: 70px; height: 40px; display: block; }
+  #s3-r1 { top: 420px; } #s3-r2 { top: 550px; }
+
+  /* 4: the test, host hidden, full width (cover frame) */
+  #s4-card { top: 380px; height: 720px; }
+  #s4-leg { position: absolute; left: 36px; right: 36px; top: 28px; height: 40px; display: flex; align-items: center; gap: 28px; }
+  .lg { display: flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.06em; color: #6B645C; white-space: nowrap; }
+  .dot { display: block; width: 22px; height: 22px; border-radius: 11px; }
+  .pgmark { display: block; width: 6px; height: 30px; border-radius: 3px; background: var(--ink); }
+  .col { position: absolute; top: 96px; width: 260px; height: 520px; }
+  #s4-c1 { left: 36px; } #s4-c2 { left: 320px; } #s4-c3 { left: 604px; }
+  .col .hd { position: absolute; left: 0; right: 0; top: 0; height: 60px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .tl2 { position: absolute; left: 0; right: 0; height: 150px; border-radius: 24px; }
+  .col .kept { top: 76px; background: #17784A; }
+  .col .inv { top: 246px; background: #C23535; }
+  .tl2 .tl { position: absolute; left: 0; right: 0; top: 22px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: #FFFFFF; }
+  .tl2 .tv { position: absolute; left: 0; right: 0; top: 66px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: #FFFFFF; white-space: nowrap; }
+  .col .mlbl { left: 0; top: 424px; }
+  .col .mval { position: absolute; right: 0; top: 412px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .track { position: absolute; left: 0; right: 0; top: 476px; height: 30px; border-radius: 15px; background: #ECE6DC; }
+  .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 15px; background: var(--accent); transform-origin: left center; }
+  .fill.pg1 { width: 50%; } .fill.pg2 { width: 100%; }
+  .fill.pgtbd { width: 100%; background: repeating-linear-gradient(45deg, #CFC7BA 0 10px, #E6DFD3 10px 20px); }
+  .tick { position: absolute; left: 127px; top: -8px; width: 6px; height: 46px; border-radius: 3px; background: var(--ink); }
+  #s4-src { left: 36px; top: 650px; }
+
+  /* 5: the payoff, the winner's one-page CV */
+  #s5-card { top: 390px; height: 640px; }
+  #s5-name { position: absolute; left: 90px; top: 36px; width: 260px; height: 40px; border-radius: 8px; background: var(--ink); }
+  #s5-red { left: 90px; top: 84px; }
+  #s5-who { right: 30px; top: 30px; }
+  .sec { position: absolute; left: 90px; right: 36px; height: 110px; }
+  .sec .sh { position: absolute; left: 0; top: 0; height: 44px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .sec .sb { position: absolute; left: 0; height: 16px; border-radius: 8px; background: #E2DCD1; transform-origin: left center; }
+  .sec .b1 { top: 58px; right: 40px; } .sec .b2 { top: 86px; right: 160px; }
+  #s5-x1 { top: 140px; } #s5-x2 { top: 270px; } #s5-x3 { top: 400px; }
+  .tk { position: absolute; left: 26px; width: 46px; height: 46px; border-radius: 23px; background: #17784A; display: block; }
+  .tk svg { display: block; width: 46px; height: 46px; }
+  #s5-k1 { top: 140px; } #s5-k2 { top: 270px; } #s5-k3 { top: 400px; }
+  #s5-v1 { left: 36px; top: 548px; }
+  #s5-v2 { left: 250px; top: 548px; background: #FFFFFF; border: 4px solid #C23535; color: #C23535; box-sizing: border-box; }
+  #s5-pick { position: absolute; left: 60px; right: 360px; top: 1060px; height: 110px; border-radius: 28px; background: #E9E2D6; }
+  #s5-pick .lbl { left: 30px; top: 12px; }
+  #s5-pick .t { position: absolute; left: 30px; right: 30px; top: 50px; height: 48px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+
+  /* 6: the catch */
+  #s6-card { top: 400px; height: 570px; }
+  #s6-r1 { top: 36px; } #s6-r2 { top: 166px; } #s6-r3 { top: 296px; background: #FBE9E7; } #s6-r4 { top: 426px; }
+  #s6-r3 .t { color: #C23535; }
+  #s6-ring { position: absolute; left: 10px; top: 286px; width: 640px; height: 130px; display: block; }
+  #s6-scan { position: absolute; left: 0; right: 0; top: 20px; height: 140px; background: linear-gradient(180deg, rgba(47,75,216,0) 0%, rgba(47,75,216,0.12) 50%, rgba(47,75,216,0) 100%); }
+  #s6-stamp { position: absolute; left: 90px; top: 1020px; width: 420px; height: 90px; border-radius: 20px; background: #E39B12; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.04em; color: var(--ink); white-space: nowrap; }
+
+  /* 7: end card */
+  #s7-save { position: absolute; left: 90px; top: 110px; width: 520px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 170px; line-height: 1; color: var(--ink); }
+  #s7-bm { position: absolute; left: 620px; top: 150px; width: 100px; height: 150px; display: block; }
+  #s7-who { position: absolute; left: 90px; right: 360px; top: 380px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.3; color: #5E574F; }
+  #s7-pill { position: absolute; left: 90px; right: 360px; top: 540px; height: 170px; border-radius: 85px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 18px; }
+  #s7-pill .cm { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F1EEE8; }
+  #s7-kw { display: flex; }
+  #s7-kw .kl { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 72px; color: #A9B8FF; }
+  #s7-stw { position: absolute; left: 110px; top: 770px; width: 330px; height: 84px; display: block; }
+  #s7-stw .stick { position: absolute; inset: 0; border-radius: 20px; background: #E39B12; rotate: -5deg; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="title" id="s0-title"><span class="mask"><span class="l">ChatGPT <span class="it">vs</span></span></span><span class="mask"><span class="l">Gemini <span class="it">vs</span></span></span><span class="mask"><span class="l">Claude</span></span></div>
+  <div class="chip red" id="s0-chip" data-layout-allow-overlap>RED = INVENTED</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">BETWEEN JOBS</div>
+  <div class="title"><span class="mask"><span class="l">2 pages,</span></span><span class="mask"><span class="l">too <span class="it">long.</span></span></span></div>
+  <div class="card side" id="s1-card">
+    <div id="s1-clock"><i id="s1-hour"></i><i id="s1-hand"></i></div>
+    <div id="s1-time">Midnight</div>
+    <div class="chip amber" id="s1-pages">2 PAGES</div>
+    <div class="sheet" id="s1-a"><i class="nm"></i><i class="sk k1"></i><i class="sk k2"></i><i class="sk k3"></i><i class="sk k4"></i><i class="sk k5"></i><i class="sk k6"></i><i class="sk k7"></i><i class="sk k8"></i></div>
+    <div class="sheet" id="s1-b"><i class="nm"></i><i class="sk k1"></i><i class="sk k2"></i><i class="sk k3"></i><i class="sk k4"></i><i class="sk k5"></i><i class="sk k6"></i><i class="sk k7"></i><i class="sk k8"></i></div>
+    <div class="lbl" id="s1-pa">PAGE 1</div>
+    <div class="lbl" id="s1-pb">PAGE 2</div>
+    <div class="lbl" id="s1-note">REAL CV · DETAILS HIDDEN</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE TEST</div>
+  <div class="title"><span class="mask"><span class="l">One prompt,</span></span><span class="mask"><span class="l">three <span class="it">apps.</span></span></span></div>
+  <div class="card side" id="s2-card">
+    <div id="s2-box">
+      <div class="lbl" id="s2-blbl">SAME PROMPT · FRESH CHAT</div>
+      <div id="s2-typed">Goal: 1 page</div>
+      <div class="chip mini" id="s2-c1">NO MEMORY</div>
+      <div class="chip mini" id="s2-c2">SAME CV</div>
+    </div>
+    <svg id="s2-fan" viewBox="0 0 660 120">
+      <path id="s2-f1" d="M330 0 C330 60 120 50 120 120" stroke="#2F4BD8" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"></path>
+      <path id="s2-f2" d="M330 0 L330 120" stroke="#2F4BD8" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"></path>
+      <path id="s2-f3" d="M330 0 C330 60 540 50 540 120" stroke="#2F4BD8" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="260" stroke-dashoffset="260"></path>
+    </svg>
+    <div class="tile" id="s2-t1"><div class="nm">ChatGPT</div><div class="chip blue">FREE</div></div>
+    <div class="tile" id="s2-t2"><div class="nm">Gemini</div><div class="chip blue">FREE</div></div>
+    <div class="tile" id="s2-t3"><div class="nm">Claude</div><div class="chip blue">FREE</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE ANALOGY</div>
+  <div class="title"><span class="mask"><span class="l">Like a</span></span><span class="mask"><span class="l it">darzi.</span></span></div>
+  <div class="card side" id="s3-card">
+    <div id="s3-shirt"><svg viewBox="0 0 400 360"><path d="M140 20 L100 30 L20 90 L60 150 L100 120 L100 340 L300 340 L300 120 L340 150 L380 90 L300 30 L260 20 Q200 70 140 20 Z" fill="#F5F1EA" stroke="#1E1A16" stroke-width="6" stroke-linejoin="round"></path><path d="M200 62 L200 330" stroke="#1E1A16" stroke-width="3" stroke-dasharray="10 10" fill="none"></path></svg></div>
+    <svg id="s3-al" viewBox="0 0 70 40"><path d="M4 20 H56 M42 6 L60 20 L42 34" stroke="#17784A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <svg id="s3-ar" viewBox="0 0 70 40"><path d="M66 20 H14 M28 6 L10 20 L28 34" stroke="#17784A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div id="s3-pocket" data-layout-allow-overlap></div>
+    <svg id="s3-x" viewBox="0 0 92 92" data-layout-allow-overlap><path id="s3-x1" d="M14 14 L78 78" stroke="#C23535" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="110" stroke-dashoffset="110"></path><path id="s3-x2" d="M78 14 L14 78" stroke="#C23535" stroke-width="10" stroke-linecap="round" fill="none" stroke-dasharray="110" stroke-dashoffset="110"></path></svg>
+    <div class="row" id="s3-r1"><div class="t">Take it in</div><div class="chip green" id="s3-g1">OK</div></div>
+    <div class="row" id="s3-r2"><div class="t">New pocket</div><div class="chip red" id="s3-g2">NO</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE RESULTS</div>
+  <div class="title"><span class="mask"><span class="l">Kept vs</span></span><span class="mask"><span class="l it">invented.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div id="s4-leg">
+      <div class="lg"><i class="dot green"></i>REAL FACT KEPT</div>
+      <div class="lg"><i class="dot red"></i>INVENTED</div>
+      <div class="lg"><i class="pgmark"></i>= 1 PAGE</div>
+    </div>
+    <div class="col" id="s4-c1">
+      <div class="hd">ChatGPT</div>
+      <div class="tl2 kept"><div class="tl">KEPT</div><div class="tv">{{n/N}}</div></div>
+      <div class="tl2 inv"><div class="tl">INVENTED</div><div class="tv">{{n}}</div></div>
+      <div class="lbl mlbl">PAGES</div><div class="mval">{{p}}</div>
+      <div class="track"><i class="fill pgtbd"></i><i class="tick" data-layout-allow-overlap></i></div>
+    </div>
+    <div class="col" id="s4-c2">
+      <div class="hd">Gemini</div>
+      <div class="tl2 kept"><div class="tl">KEPT</div><div class="tv">{{n/N}}</div></div>
+      <div class="tl2 inv"><div class="tl">INVENTED</div><div class="tv">{{n}}</div></div>
+      <div class="lbl mlbl">PAGES</div><div class="mval">{{p}}</div>
+      <div class="track"><i class="fill pgtbd"></i><i class="tick" data-layout-allow-overlap></i></div>
+    </div>
+    <div class="col" id="s4-c3">
+      <div class="hd">Claude</div>
+      <div class="tl2 kept"><div class="tl">KEPT</div><div class="tv">{{n/N}}</div></div>
+      <div class="tl2 inv"><div class="tl">INVENTED</div><div class="tv">{{n}}</div></div>
+      <div class="lbl mlbl">PAGES</div><div class="mval">{{p}}</div>
+      <div class="track"><i class="fill pgtbd"></i><i class="tick" data-layout-allow-overlap></i></div>
+    </div>
+    <div class="lbl" id="s4-src">OUR TEST · {{DATE_RUN}} · FREE TIERS</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE WINNER</div>
+  <div class="title"><span class="mask"><span class="l">Kept most,</span></span><span class="mask"><span class="l">invented <span class="it">least.</span></span></span></div>
+  <div class="card side" id="s5-card">
+    <i id="s5-name"></i>
+    <div class="lbl" id="s5-red">REDACTED</div>
+    <div class="chip blue" id="s5-who">{{WINNER}}</div>
+    <div class="tk" id="s5-k1"><svg viewBox="0 0 46 46"><path d="M13 24 L20 31 L33 16" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="tk" id="s5-k2"><svg viewBox="0 0 46 46"><path d="M13 24 L20 31 L33 16" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="tk" id="s5-k3"><svg viewBox="0 0 46 46"><path d="M13 24 L20 31 L33 16" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="sec" id="s5-x1"><div class="sh">Experience</div><i class="sb b1"></i><i class="sb b2"></i></div>
+    <div class="sec" id="s5-x2"><div class="sh">Skills</div><i class="sb b1"></i><i class="sb b2"></i></div>
+    <div class="sec" id="s5-x3"><div class="sh">Education</div><i class="sb b1"></i><i class="sb b2"></i></div>
+    <div class="chip green" id="s5-v1">KEPT MOST</div>
+    <div class="chip" id="s5-v2">INVENTED LEAST</div>
+  </div>
+  <div id="s5-pick"><div class="lbl">WHO PICKS WHICH</div><div class="t">{{PICK_LINE}}</div></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Read every</span></span><span class="mask"><span class="l it">line.</span></span></div>
+  <div class="card side" id="s6-card">
+    <div id="s6-scan" data-layout-allow-overlap></div>
+    <div class="row" id="s6-r1"><div class="t">Job title</div><div class="chip green" id="s6-g1">OK</div></div>
+    <div class="row" id="s6-r2"><div class="t">Dates</div><div class="chip green" id="s6-g2">OK</div></div>
+    <div class="row" id="s6-r3"><div class="t">{{invented line}}</div><div class="chip red" id="s6-g3">NOT YOU</div></div>
+    <div class="row" id="s6-r4"><div class="t">Degree</div><div class="chip green" id="s6-g4">OK</div></div>
+    <svg id="s6-ring" viewBox="0 0 640 130" data-layout-allow-overlap><ellipse id="s6-ring-e" cx="320" cy="65" rx="310" ry="58" stroke="#E39B12" stroke-width="7" fill="none" stroke-dasharray="1500" stroke-dashoffset="1500"></ellipse></svg>
+  </div>
+  <div id="s6-stamp">READ EVERY LINE</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s7-bm" viewBox="0 0 100 150"><path d="M10 6 H90 V144 L50 112 L10 144 Z" fill="#2F4BD8"></path></svg>
+  <div id="s7-who">Send it to the friend applying this week.</div>
+  <div id="s7-pill"><span class="cm">Comment</span><span id="s7-kw"><span class="kl">R</span><span class="kl">E</span><span class="kl">S</span><span class="kl">U</span><span class="kl">M</span><span class="kl">E</span></span></div>
+  <div id="s7-stw"><div class="stick">FREE PROMPT</div></div>
+</section>

@@ -1,0 +1,148 @@
+{
+  "id": "2026-11-08-reel-exp-pair3-a-why-chatgpt-makes-things-up-betw",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "arm": "A",
+  "pair": 3,
+  "hook": "#2",
+  "format": "reel",
+  "money": false,
+  "viewer": "people between jobs",
+  "judge": "2026-11-12T03:30:00Z",
+  "keyword": "TRUTH",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(ChatGPTs?|predicts|keyboard|flags|TRUTH)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F4BD8"
+  },
+  "lines": [
+    {
+      "say": "Stop trusting the AI's company facts the night before your interview.",
+      "show": "Stop trusting ChatGPT's company facts.",
+      "card": "STOP TRUSTING ITS COMPANY FACTS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It sounded sure. The year was wrong.",
+      "show": "Sure. And the year was wrong.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "It predicts the next word, like your phone keyboard.",
+      "show": "It predicts the next word, like your keyboard.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Likely isn't true, so a wrong year slips in.",
+      "show": "Likely isn't true. Wrong year slips in.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "The fix: if unsure, say I don't know and tell me what to check.",
+      "show": "Fix: say I don't know, and what to check.",
+      "card": "If you are not sure, say I don't know and tell me what to check.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Same question. Now it stops guessing and flags what to check.",
+      "show": "Same question. Now it flags what to check.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: fewer guesses, not zero. Check the company's own site.",
+      "show": "The catch: fewer guesses, not zero.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who copies AI answers without checking.",
+      "show": "Send this to the friend who never checks.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment TRUTH for the prompt.",
+      "show": "Comment TRUTH for the prompt.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.end-0.3",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+1.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "bloop"
+    }
+  ],
+  "cover": {
+    "at": "@line3.voice+2.0",
+    "title": [
+      "WHY CHATGPT",
+      "MAKES THINGS UP"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

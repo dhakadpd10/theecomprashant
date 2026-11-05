@@ -4,6 +4,25 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-11-05
 
+- **This pull is the 5 Nov pull again, row for row. That is the second repeat, so treat it as a stale snapshot.**
+  - Hostel is at 1,216 views and 1,048 reach. The newest row is 4 Nov 07:30 UTC, and there is no timestamp.
+  - There are no rows for 4 Nov 14:00 UTC or for pair 1 B (5 Nov 03:30 UTC).
+  - Nothing here is new evidence. Fix the pipeline before reading anything.
+- **The evidence is unchanged, and one reel still carries the new niche.**
+  - Hostel holds 16 of 23 new-niche sends, 26 of 31 new-niche saves and 47% of new-niche reach.
+  - The other 17 new-niche reels together got 1,192 reach, 7 sends and 5 saves.
+  - 34 of 39 reels on the page have 0 sends.
+- **The named-viewer send hunch still rests on n=3 against 3, with no sends hand-checked.**
+  - Pair 1 can only be read if B actually went out. If it was skipped, it moves to the next 09:00 IST slot and every judge date moves back one day.
+- **Money-era baseline by date: 96 views and 89 reach (n=13) since 4 Nov 14:01 UTC.**
+  - It becomes 101.5 and 89.5 (n=14) from 5 Nov 03:30 UTC.
+  - Both are computed on frozen numbers. Recompute on the first timestamped pull before judging pair 1.
+- **None of the 4 to 5 Nov logging fixes landed.**
+  - Kind is blank on 39 of 39, style is 'motion' on 18 of 18 new-niche rows, there are no arm or pair columns, and there is no daily follower count.
+  - Hold@3s, follows and non-follower % are on 0 of 39, so hook problem or profile problem is still unknown.
+
+## Week of 2026-11-05
+
 - **This pull is effectively the 4 Nov afternoon pull again, so there is no new evidence.**
   - Hostel reach went from 1,047 to 1,048; views held at 1,216.
   - The 4 Nov reels show the same sends, saves and watch times as last read.

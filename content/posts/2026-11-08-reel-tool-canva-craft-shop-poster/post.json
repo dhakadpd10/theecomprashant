@@ -1,0 +1,131 @@
+{
+  "id": "2026-11-08-reel-tool-canva-craft-shop-poster",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "hook": "#20 Permission",
+  "keyword": "CRAFT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(designer|Craft|CRAFT|all|4|Pick|55|languages|Done|letter|Send|evening)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F5BD3"
+  },
+  "lines": [
+    {
+      "say": "Your Fresh stock today poster doesn't need a designer by evening.",
+      "show": "No designer needed by evening.",
+      "card": "NO DESIGNER NEEDED",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Canva Craft, Canva's own image model, is open to all users.",
+      "show": "Canva Craft: open to all users.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One prompt in Canva's image tool gives up to four options.",
+      "show": "1 prompt in Dream Lab. Up to 4 options.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Like print shop samples, only faster. Pick one.",
+      "show": "Like print shop samples. Pick one.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "It writes the words in many languages, Canva says.",
+      "show": "Text in 55 languages, Canva says.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Print it, tape it up. Done by evening.",
+      "show": "Print it. Tape it up. Done.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: every plan caps AI monthly. Check every letter first.",
+      "show": "Catch: AI is capped. Check every letter.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the shop owner who still pays for every poster. Comment CRAFT.",
+      "show": "Send this. Comment CRAFT.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+1.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.7",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+1.4",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "NO DESIGNER NEEDED",
+      "CANVA CRAFT SHOP POSTER"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

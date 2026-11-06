@@ -1,0 +1,71 @@
+{
+  "week": "2026-W45-7",
+  "start": "2026-11-08",
+  "research": "I found 9 things from 22 Oct to 5 Nov 2026 worth a beginner's attention. Where a date comes only from news coverage and not the company itself, I've said so.\n\n**New free tools and features**\n\n1. **Canva Craft, Canva's own image maker (22 Oct).** You type a description and Canva makes the picture, inside the Dream Lab tab. Canva says it's open to all users, and free accounts have usage limits. *Why care:* poster and thumbnail pictures without leaving Canva. Canva also claims text on the image works in 55 languages, but that's Canva's own claim, so test Hindi before saying it on camera. [Canva newsroom](https://www.canva.com/newsroom/news/canva-craft/) · [TechCrunch](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model)\n\n2. **Gemini can now fix the files it makes (around 29 Oct).** You can open a file Gemini made in the chat, edit it full screen, or ask it to change one part. Coverage says this works for all users in every language, but only PDFs can be edited on the phone. Docs, Sheets and Slides need the website. *Why care:* \"make my resume as a PDF, then fix line 3\" now happens in one place. I didn't find Google's own post for this update. [Google's earlier post on making files](https://blog.google/innovation-and-ai/products/gemini-app/generate-files-in-gemini/) · [Android Police](https://www.androidpolice.com/gemini-create-preview-edit-pdf-files-docs-directly-inside-your-chat/)\n\n3. **NotebookLM, now called Gemini Notebook, works inside the Gemini chat (23 Oct).** Type @Gemini Notebook in a chat to start a notebook, add sources or pull answers from your notes. It's on by default outside Europe, but rolling out slowly. *Why care:* students can ask questions about their own notes without switching apps. Many people also still don't know NotebookLM was renamed in July. [Google Workspace Updates](https://workspaceupdates.googleblog.com/2026/10/take-actions-on-your-notebooks-from-Gemini-Notebook-directly-in-the-Gemini-app.html) · [Google help page](https://support.google.com/gemini/answer/16972047?hl=en)\n\n4. **WhatsApp is testing separate Meta AI chats (4 Nov, beta only).** You'd get one chat per topic and an AI filter in the Chats tab. It's in the Android beta only, with no date for everyone. *Why care:* this is the AI most Indians already have. Say \"coming\", not \"live\". [Sammy Fans](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n\n**Privacy and confusion**\n\n5. **ChatGPT Locked Chats (from 20 Oct, 16 days ago).** You can hide a chat behind a 4-digit PIN, or your fingerprint or face on the phone. It's for Free users too, rolling out slowly. *The catch people get wrong:* forgetting the PIN doesn't delete anything, but resetting it deletes every locked chat for good. [OpenAI help, in Hindi](https://help.openai.com/hi-in/articles/20001411-using-locked-chats-in-chatgpt) · [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n\n6. **Claude Personal Finance (5 Nov): Indians can't use it yet.** It connects to bank accounts in read-only mode and answers money questions in plain language. It's for paid users in the US only, through Plaid. *Why care:* it'll get shared as \"AI that manages your money\". It can't move money, and it doesn't work in India. [9to5Mac](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n\n7. **Siri still has no Hindi, but Samsung Galaxy AI does.** Apple's AI features, including the new Siri AI, still don't support Hindi. Samsung lists Hindi among 24 Galaxy AI languages, including Live Translate on calls. The Samsung date is from mid-October, so it's older than the others. *Why care:* \"why doesn't my iPhone AI speak Hindi?\" is a real question. [Samsung Newsroom](https://news.samsung.com/global/samsung-expands-language-support-across-ai-experiences-on-galaxy) · [MacObserver](https://www.macobserver.com/tips/round-ups/will-siri-ai-support-hindi-india/)\n\n**Scams**\n\n8. **PNB warns about cloned voices and fake \"digital arrest\" videos (late Oct).** The scams include a fake call about a relative's arrest and deepfake police on video. One report says 3 to 4 seconds of someone's recorded voice can be enough to copy it. The fix is simple: hang up, call back on a number you know, and agree a family code word. [NewsMobile on PNB's alert](https://www.newsmobile.in/fraud-and-scam/pnb-alerts-customers-to-ai-voice-cloning-deepfake-and-phishing-frauds/)\n\n9. **CERT-In warns banks about AI-driven fraud (this week).** CERT-In, the government's cyber security agency, says a campaign called \"Crafty Falcon\" uses free AI tools and fake copies of banking apps. *Why care:* only install bank apps from the Play Store or the App Store, never from a link sent on WhatsApp. [Business Standard](https://www.business-standard.com/industry/banking/cert-in-warns-banks-fintech-firms-of-ai-driven-fund-transfer-fraud-126110500550_1.html)\n\n**Before planning around these:**\n- **Old news to skip:** the fake deepfake ads of the Finance Minister and PM Modi promising daily returns are from July and August. ChatGPT's unlimited free text chats are from around August.\n- **Not verified:** a reported 29 Oct update making free ChatGPT answers shorter appears only in a dated third-party summary. I left it out.\n- **Scheduling:** items 8 and 9 fit the SAFE keyword. SAFE has 1 slot left this week, and it can't go out before the voice clone reel is read on 7 Nov 07:30 UTC.\n- **Best non-scam picks:** items 1 to 3 are the strongest for tool or tutorial reels, which this week needs 4 each of. None of them has a keyword yet. Each needs one from docs/EXPLAINER.md with a matching free tool before it's scheduled.\n\nSources:\n- [Canva newsroom: Introducing Canva Craft](https://www.canva.com/newsroom/news/canva-craft/)\n- [TechCrunch: Canva releases its first image generation model](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model)\n- [Google blog: Generate files in Gemini](https://blog.google/innovation-and-ai/products/gemini-app/generate-files-in-gemini/)\n- [Android Police: Gemini edit files in chat](https://www.androidpolice.com/gemini-create-preview-edit-pdf-files-docs-directly-inside-your-chat/)\n- [Google Workspace Updates: Gemini Notebook in Gemini app](https://workspaceupdates.googleblog.com/2026/10/take-actions-on-your-notebooks-from-Gemini-Notebook-directly-in-the-Gemini-app.html)\n- [Google Gemini help: Notebooks](https://support.google.com/gemini/answer/16972047?hl=en)\n- [Sammy Fans: WhatsApp separate Meta AI chats](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n- [OpenAI help: Using locked chats (Hindi)](https://help.openai.com/hi-in/articles/20001411-using-locked-chats-in-chatgpt)\n- [OpenAI: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [9to5Mac: Claude Personal Finance](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n- [Samsung Newsroom: Galaxy AI language support](https://news.samsung.com/global/samsung-expands-language-support-across-ai-experiences-on-galaxy)\n- [MacObserver: Will Siri AI support Hindi](https://www.macobserver.com/tips/round-ups/will-siri-ai-support-hindi-india/)\n- [NewsMobile: PNB alert](https://www.newsmobile.in/fraud-and-scam/pnb-alerts-customers-to-ai-voice-cloning-deepfake-and-phishing-frauds/)\n- [Business Standard: CERT-In warning](https://www.business-standard.com/industry/banking/cert-in-warns-banks-fintech-firms-of-ai-driven-fund-transfer-fraud-126110500550_1.html)",
+  "slots": [
+    {
+      "day": "2026-11-08",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-08-reel-tutorial-fridge-to-week-dinners-homemaker",
+      "style": "motion",
+      "hook": {
+        "id": 18,
+        "name": "Cold Open Demo",
+        "score": 57.2
+      },
+      "keyword": "FRIDGE",
+      "pillar": "Do it with AI",
+      "topic": "Turn what's in your fridge into a week of dinners and a 5-item shopping list, in 3 steps",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-09",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-09-reel-exp-pair3-b-why-chatgpt-makes-things-up-gene",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 94.8
+      },
+      "keyword": "TRUTH",
+      "pillar": "How AI works",
+      "topic": "Experiment pair 3, arm B: why ChatGPT makes things up, and the one line that cuts the guessing (general opener)",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-09",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-09-reel-prompt-write-like-me-9to5-after-office",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 84.4
+      },
+      "keyword": "STYLE",
+      "pillar": "Better prompts",
+      "topic": "The prompt that makes AI write like you, not like a robot: before and after on one real leave message",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-09",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-09-reel-tool-chatgpt-locked-chats-hostel-roommate",
+      "style": "motion",
+      "hook": {
+        "id": 2,
+        "name": "Negative Command",
+        "score": 50.8
+      },
+      "keyword": "PRIVATE",
+      "pillar": "Tools worth knowing",
+      "topic": "ChatGPT Locked Chats: hide one chat behind a PIN or your fingerprint, free, and the reset that deletes everything",
+      "status": "made"
+    }
+  ]
+}

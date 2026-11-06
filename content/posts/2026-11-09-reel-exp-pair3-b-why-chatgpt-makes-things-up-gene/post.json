@@ -1,0 +1,126 @@
+{
+  "id": "2026-11-09-reel-exp-pair3-b-why-chatgpt-makes-things-up-gene",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "TRUTH",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "arm": "B",
+  "pair": 3,
+  "hook_id": 2,
+  "money_angle": false,
+  "hot": "^(1|guesses|keyboard|true|sure|flags|check|TRUTH)$",
+  "palette": {
+    "bg": "#F1EEE8",
+    "ink": "#1B1D24",
+    "accent": "#3D5AFE"
+  },
+  "lines": [
+    {
+      "say": "Stop trusting the first AI answer. Add this one line first.",
+      "show": "Stop trusting answer 1. Add 1 line.",
+      "card": "STOP TRUSTING ANSWER 1",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Unless it searches the web, it doesn't look anything up.",
+      "show": "It doesn't look anything up.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "It guesses the next word, like your phone keyboard.",
+      "show": "It guesses the next word.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "A likely word isn't always true, so wrong answers sound sure.",
+      "show": "Likely isn't true.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "The line: if you're not sure, say I'm not sure.",
+      "show": "The line: say I'm not sure.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now it flags what it can't back up.",
+      "show": "Now it flags what it can't back up.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it still slips. Check anything important.",
+      "show": "The catch: check anything important.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who trusts AI blindly. Comment TRUTH for the prompt.",
+      "show": "Send this. Comment TRUTH for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+1.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line3+0.9",
+    "title": [
+      "WHY CHATGPT",
+      "MAKES THINGS UP"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

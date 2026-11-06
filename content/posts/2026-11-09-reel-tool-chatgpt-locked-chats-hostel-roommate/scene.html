@@ -1,0 +1,283 @@
+<style>
+  /* tool explainer: one idea (lock one chat, not the whole phone), one analogy (a locker inside your cupboard).
+     colour = meaning: blue = locked and private, grey = open to anyone holding the phone, red = deleted, green = safe */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(43,80,214,0.08) 0%, rgba(43,80,214,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 96px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.13), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; left: 36px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .row { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 24px; background: #F6F3EE; }
+  .row .t { position: absolute; left: 30px; right: 170px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .row .t.ic { left: 96px; }
+  .ico { position: absolute; left: 30px; top: 50%; margin-top: -24px; width: 40px; height: 48px; display: block; }
+  .ico2 { position: absolute; left: 26px; top: 50%; margin-top: -24px; width: 48px; height: 48px; display: block; }
+  .chip { position: absolute; right: 22px; top: 50%; margin-top: -30px; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #17844A; } .red { background: #C23B3B; } .blue { background: var(--accent); } .ink { background: var(--ink); }
+  .amber { background: #E8A317; color: var(--ink); }
+
+  /* 0: hook */
+  #s0-title { top: 110px; font-size: 116px; }
+  #s0-bin { position: absolute; left: 812px; top: 256px; width: 120px; height: 130px; display: block; }
+  #s0-no { position: absolute; left: 792px; top: 236px; width: 160px; height: 160px; display: block; }
+  #s0-squig { position: absolute; left: 390px; top: 382px; width: 320px; height: 36px; display: block; }
+
+  /* 1: one phone, two people */
+  #s1-card { top: 450px; height: 580px; }
+  #s1-lbl { top: 30px; }
+  #s1 .row { height: 96px; }
+  #s1 .row .t { right: 30px; }
+  #s1-r1 { top: 76px; } #s1-r2 { top: 186px; } #s1-r3 { top: 296px; }
+  #s1-scan { position: absolute; left: 36px; right: 36px; top: 76px; height: 96px; border-radius: 24px; background: rgba(194,59,59,0.10); border: 4px solid rgba(194,59,59,0.55); box-sizing: border-box; }
+  #s1-av { position: absolute; left: 36px; top: 434px; width: 72px; height: 72px; border-radius: 36px; background: radial-gradient(circle at 50% 36%, #8A8279 0 28%, rgba(0,0,0,0) 29%), radial-gradient(circle at 50% 100%, #8A8279 0 42%, rgba(0,0,0,0) 43%), #E3DCD0; }
+  #s1-bub { position: absolute; left: 126px; right: 36px; top: 400px; height: 140px; border-radius: 30px 30px 30px 8px; background: #EFEAE2; display: flex; align-items: center; padding: 0 28px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.25; color: var(--ink); }
+
+  /* 2: the analogy, full width (host hidden) */
+  #s2-card { top: 450px; height: 680px; }
+  #s2-lbl { top: 28px; left: 40px; }
+  #s2-cup { position: absolute; left: 36px; right: 36px; top: 76px; height: 568px; border: 10px solid #D8CDB8; border-radius: 26px; background: #FBF8F2; box-sizing: border-box; }
+  .sh { position: absolute; left: 26px; width: 440px; height: 100px; border-radius: 20px; background: #EFEAE2; }
+  .sh .t { position: absolute; left: 26px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s2-a { top: 40px; } #s2-b { top: 165px; } #s2-c { top: 290px; } #s2-d { top: 415px; }
+  #s2-lk { position: absolute; left: 496px; right: 26px; top: 26px; bottom: 26px; border: 8px solid var(--accent); border-radius: 22px; background: #EEF1FF; box-sizing: border-box; }
+  #s2-shackle { position: absolute; left: 85px; top: 56px; width: 100px; height: 90px; border: 16px solid var(--accent); border-bottom: none; border-radius: 50px 50px 0 0; box-sizing: border-box; }
+  #s2-body { position: absolute; left: 65px; top: 134px; width: 140px; height: 110px; border-radius: 20px; background: var(--accent); }
+  #s2-kh { position: absolute; left: 58px; top: 30px; width: 24px; height: 24px; border-radius: 12px; background: #EEF1FF; }
+  #s2-ks { position: absolute; left: 65px; top: 48px; width: 10px; height: 30px; border-radius: 5px; background: #EEF1FF; }
+  #s2-lt { position: absolute; left: 20px; right: 20px; top: 268px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.25; color: var(--ink); }
+  #s2-ll { position: absolute; left: 0; right: 0; bottom: 30px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: var(--accent); }
+
+  /* 3: set the PIN */
+  #s3-card { top: 450px; height: 580px; }
+  #s3-lbl { top: 30px; }
+  #s3-r1 { top: 76px; }
+  #s3-tog { position: absolute; right: 26px; top: 25px; width: 110px; height: 60px; border-radius: 30px; background: #CFC8BD; }
+  #s3-knob { position: absolute; left: 6px; top: 6px; width: 48px; height: 48px; border-radius: 24px; background: #FFFFFF; box-shadow: 0 3px 8px rgba(30,26,22,0.2); }
+  #s3-r2 { top: 206px; height: 150px; }
+  #s3-r2 .t2 { position: absolute; left: 30px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .dot { position: absolute; top: 80px; width: 46px; height: 46px; border-radius: 23px; border: 4px solid var(--accent); box-sizing: border-box; }
+  .dot .in { position: absolute; left: 6px; top: 6px; width: 26px; height: 26px; border-radius: 13px; background: var(--accent); display: block; }
+  #s3-o1 { left: 30px; } #s3-o2 { left: 100px; } #s3-o3 { left: 170px; } #s3-o4 { left: 240px; }
+  #s3-r3 { top: 376px; background: #EEF1FF; }
+  #s3-note { top: 516px; }
+
+  /* 4: fingerprint or face */
+  #s4-card { top: 450px; height: 490px; }
+  #s4-lbl { top: 30px; }
+  #s4-r1 { top: 76px; } #s4-r2 { top: 206px; } #s4-r3 { top: 336px; }
+
+  /* 5: the result, what the roommate sees */
+  #s5-card { top: 450px; height: 640px; }
+  #s5-lbl { top: 30px; }
+  #s5-r1 { top: 84px; } #s5-r2 { top: 214px; }
+  #s5-r3 { top: 344px; height: 120px; background: #EEF1FF; }
+  .bb { position: absolute; left: 96px; height: 24px; border-radius: 12px; background: rgba(43,80,214,0.28); }
+  #s5-b1 { top: 32px; width: 260px; } #s5-b2 { top: 66px; width: 180px; }
+  #s5-r4 { top: 494px; background: #FDF3DC; }
+
+  /* 6: the catch */
+  #s6-card { top: 450px; height: 520px; }
+  #s6-lbl { top: 30px; }
+  .ph { position: absolute; top: 80px; width: 120px; height: 200px; border-radius: 26px; border: 6px solid #D9D3C8; background: #F6F3EE; box-sizing: border-box; }
+  .ph.has { border-color: var(--accent); background: #EEF1FF; }
+  .ph .spk { position: absolute; left: 34px; top: 12px; width: 40px; height: 8px; border-radius: 4px; background: #D9D3C8; }
+  .ph svg { position: absolute; left: 34px; top: 70px; width: 40px; height: 48px; display: block; }
+  #s6-p1 { left: 36px; } #s6-p2 { left: 192px; } #s6-p3 { left: 348px; } #s6-p4 { left: 504px; }
+  #s6-you { top: 310px; }
+  #s6-note { top: 452px; }
+
+  /* 7: forget vs reset */
+  #s7 .it { color: #C23B3B; }
+  #s7-card { top: 450px; height: 640px; }
+  #s7-lbl { top: 30px; }
+  #s7-r1 { top: 76px; } #s7-r2 { top: 206px; }
+  #s7-lbl2 { top: 346px; }
+  .lr { position: absolute; left: 36px; right: 36px; height: 96px; border-radius: 24px; background: #EEF1FF; }
+  .lr .t { position: absolute; left: 96px; right: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s7-l1 { top: 390px; } #s7-l2 { top: 500px; }
+  .strike { position: absolute; left: 90px; right: 40px; top: 46px; height: 5px; border-radius: 3px; background: #C23B3B; transform-origin: left center; }
+  #s7-gone { position: absolute; left: 340px; top: 445px; width: 220px; height: 96px; border: 8px solid #C23B3B; border-radius: 16px; background: rgba(255,255,255,0.9); color: #C23B3B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.14em; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+
+  /* 8: send + keyword */
+  #s8-send { top: 40px; }
+  #s8-who { position: absolute; left: 90px; right: 90px; top: 170px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: rgba(30,26,22,0.7); }
+  #s8-card { top: 300px; height: 430px; }
+  #s8-lbl { top: 30px; }
+  #s8-head { position: absolute; left: 36px; right: 36px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .nr { position: absolute; left: 36px; right: 36px; height: 76px; border-radius: 20px; background: #FBEDEA; }
+  .nr .d { position: absolute; left: 26px; top: 28px; width: 20px; height: 20px; border-radius: 10px; background: #C23B3B; }
+  .nr .t { position: absolute; left: 64px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s8-n1 { top: 132px; } #s8-n2 { top: 222px; } #s8-n3 { top: 312px; }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 780px; height: 240px; border-radius: 40px; background: var(--ink); }
+  #s8-cm { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #F3EEE5; }
+  #s8-kw { position: absolute; left: 0; right: 0; top: 86px; height: 130px; display: flex; justify-content: center; align-items: center; }
+  #s8-kw .k { display: block; font-family: var(--display); font-size: 100px; line-height: 1; color: #A9BBFF; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">SHARED PHONE, HOSTEL ROOM</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Stop deleting</span></span><span class="mask"><span class="l">your <span class="it">chats.</span></span></span></div>
+  <svg id="s0-bin" data-layout-allow-overlap viewBox="0 0 120 130"><path d="M44 14 V6 H76 V14" fill="none" stroke="#1E1A16" stroke-width="6" stroke-linejoin="round"></path><rect x="10" y="14" width="100" height="12" rx="6" fill="#1E1A16"></rect><path d="M20 34 H100 L92 124 H28 Z" fill="none" stroke="#1E1A16" stroke-width="7" stroke-linejoin="round"></path><path d="M46 50 V108 M60 50 V108 M74 50 V108" stroke="#1E1A16" stroke-width="6" stroke-linecap="round"></path></svg>
+  <svg id="s0-no" data-layout-allow-overlap viewBox="0 0 160 160"><circle cx="80" cy="80" r="66" fill="none" stroke="#C23B3B" stroke-width="14"></circle><path d="M33 33 L127 127" stroke="#C23B3B" stroke-width="14" stroke-linecap="round"></path></svg>
+  <svg id="s0-squig" data-layout-allow-overlap viewBox="0 0 320 36"><path id="s0-squig-p" d="M4 22 Q 40 4 76 22 T 148 22 T 220 22 T 292 22" fill="none" stroke="#2B50D6" stroke-width="8" stroke-linecap="round" stroke-dasharray="400" stroke-dashoffset="400"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE PROBLEM</div>
+  <div class="title"><span class="mask"><span class="l">One phone,</span></span><span class="mask"><span class="l">two <span class="it">people.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-lbl">YOUR CHATS &middot; EXAMPLE</div>
+    <div class="row" id="s1-r1"><div class="t">Text to my crush</div></div>
+    <div class="row" id="s1-r2"><div class="t">Tell parents my marks?</div></div>
+    <div class="row" id="s1-r3"><div class="t">Money I owe Rahul</div></div>
+    <div id="s1-scan" data-layout-allow-overlap></div>
+    <div id="s1-av"></div>
+    <div id="s1-bub">&ldquo;Just checking one thing.&rdquo;</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">A locker</span></span><span class="mask"><span class="l">in the <span class="it">cupboard.</span></span></span></div>
+  <div class="card wide" id="s2-card">
+    <div class="lbl" id="s2-lbl">CUPBOARD = ALL YOUR CHATS</div>
+    <div id="s2-cup">
+      <div class="sh" id="s2-a"><div class="t">Notes: OS unit 3</div></div>
+      <div class="sh" id="s2-b"><div class="t">Maggi in a kettle?</div></div>
+      <div class="sh" id="s2-c"><div class="t">Trip budget</div></div>
+      <div class="sh" id="s2-d"><div class="t">Cover letter</div></div>
+      <div id="s2-lk">
+        <div id="s2-body"><i id="s2-kh"></i><i id="s2-ks"></i></div>
+        <div id="s2-shackle" data-layout-allow-overlap></div>
+        <div id="s2-lt">Text to my crush</div>
+        <div id="s2-ll">LOCKER</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Set a</span></span><span class="mask"><span class="l">4-digit <span class="it">PIN.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-lbl">SETTINGS &middot; ILLUSTRATION</div>
+    <div class="row" id="s3-r1"><div class="t">Chat lock</div><div id="s3-tog"><i id="s3-knob"></i></div></div>
+    <div class="row" id="s3-r2">
+      <div class="t2">Set a 4-digit PIN</div>
+      <div class="dot" id="s3-o1"><i class="in" id="s3-d1"></i></div>
+      <div class="dot" id="s3-o2"><i class="in" id="s3-d2"></i></div>
+      <div class="dot" id="s3-o3"><i class="in" id="s3-d3"></i></div>
+      <div class="dot" id="s3-o4"><i class="in" id="s3-d4"></i></div>
+    </div>
+    <div class="row" id="s3-r3">
+      <svg class="ico" id="s3-lock" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg>
+      <div class="t ic">Text to my crush</div>
+      <div class="chip blue" id="s3-chip">LOCK</div>
+    </div>
+    <div class="lbl" id="s3-note">EXAMPLE CHAT</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Or your</span></span><span class="mask"><span class="l it">fingerprint.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-lbl">UNLOCK WITH &middot; ILLUSTRATION</div>
+    <div class="row" id="s4-r1">
+      <svg class="ico2" id="s4-i1" viewBox="0 0 48 48"><circle cx="9" cy="24" r="6" fill="#2B50D6"></circle><circle cx="19" cy="24" r="6" fill="#2B50D6"></circle><circle cx="29" cy="24" r="6" fill="#2B50D6"></circle><circle cx="39" cy="24" r="6" fill="#2B50D6"></circle></svg>
+      <div class="t ic">PIN</div><div class="chip green" id="s4-c1">ON</div>
+    </div>
+    <div class="row" id="s4-r2">
+      <svg class="ico2" id="s4-i2" viewBox="0 0 48 48"><path d="M10 36 C6 24 12 8 24 8 C36 8 42 22 38 36" fill="none" stroke="#2B50D6" stroke-width="4" stroke-linecap="round"></path><path d="M16 40 C12 28 16 16 24 16 C32 16 34 28 32 40" fill="none" stroke="#2B50D6" stroke-width="4" stroke-linecap="round"></path><path d="M24 25 L24 42" stroke="#2B50D6" stroke-width="4" stroke-linecap="round"></path></svg>
+      <div class="t ic">Fingerprint</div><div class="chip green" id="s4-c2">ON</div>
+    </div>
+    <div class="row" id="s4-r3">
+      <svg class="ico2" id="s4-i3" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="none" stroke="#2B50D6" stroke-width="4"></circle><circle cx="17" cy="20" r="3" fill="#2B50D6"></circle><circle cx="31" cy="20" r="3" fill="#2B50D6"></circle><path d="M16 30 Q24 37 32 30" fill="none" stroke="#2B50D6" stroke-width="4" stroke-linecap="round"></path></svg>
+      <div class="t ic">Face</div><div class="chip green" id="s4-c3">ON</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Cupboard opens.</span></span><span class="mask"><span class="l">Locker <span class="it">doesn't.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-lbl">WHAT YOUR ROOMMATE SEES</div>
+    <div class="row" id="s5-r1"><div class="t">Notes: OS unit 3</div><div class="chip green" id="s5-c1">OPEN</div></div>
+    <div class="row" id="s5-r2"><div class="t">Maggi in a kettle?</div><div class="chip green" id="s5-c2">OPEN</div></div>
+    <div class="row" id="s5-r3">
+      <svg class="ico" id="s5-lock" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg>
+      <i class="bb" id="s5-b1"></i><i class="bb" id="s5-b2"></i>
+      <div class="chip blue" id="s5-c3">LOCKED</div>
+    </div>
+    <div class="row" id="s5-r4"><div class="t">Free plan too</div><div class="chip ink" id="s5-c4">FREE</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Rolling out</span></span><span class="mask"><span class="l it">slowly.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-lbl">ROLLOUT &middot; ILLUSTRATION</div>
+    <div class="ph has" id="s6-p1"><i class="spk"></i><svg id="s6-l1" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg></div>
+    <div class="ph" id="s6-p2"><i class="spk"></i></div>
+    <div class="ph has" id="s6-p3"><i class="spk"></i><svg id="s6-l3" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg></div>
+    <div class="ph" id="s6-p4"><i class="spk"></i></div>
+    <div class="row" id="s6-you"><div class="t">Your app</div><div class="chip amber" id="s6-c">NOT YET?</div></div>
+    <div class="lbl" id="s6-note">MISSING? CHECK BACK LATER</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">READ THIS TWICE</div>
+  <div class="title"><span class="mask"><span class="l">Reset wipes</span></span><span class="mask"><span class="l">them <span class="it">all.</span></span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-lbl">PIN OPTIONS &middot; ILLUSTRATION</div>
+    <div class="row" id="s7-r1"><div class="t">Forgot PIN</div><div class="chip green" id="s7-c1">SAFE</div></div>
+    <div class="row" id="s7-r2"><div class="t">Reset PIN</div><div class="chip red" id="s7-c2">WIPES</div></div>
+    <div class="lbl" id="s7-lbl2">YOUR LOCKED CHATS &middot; EXAMPLE</div>
+    <div class="lr" id="s7-l1">
+      <svg class="ico" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg>
+      <div class="t">Text to my crush</div><i class="strike" id="s7-s1" data-layout-allow-overlap></i>
+    </div>
+    <div class="lr" id="s7-l2">
+      <svg class="ico" viewBox="0 0 40 48"><path d="M11 22 V15 a9 9 0 0 1 18 0 V22" fill="none" stroke="#2B50D6" stroke-width="5" stroke-linecap="round"></path><rect x="4" y="21" width="32" height="25" rx="7" fill="#2B50D6"></rect></svg>
+      <div class="t">Money I owe Rahul</div><i class="strike" id="s7-s2" data-layout-allow-overlap></i>
+    </div>
+    <div id="s7-gone" data-layout-allow-overlap>GONE</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title" id="s8-send"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s8-who">to the friend who always borrows your phone</div>
+  <div class="card" id="s8-card">
+    <div class="lbl" id="s8-lbl">FREE CARD &middot; EXAMPLE ROWS</div>
+    <div id="s8-head">What not to type into AI</div>
+    <div class="nr" id="s8-n1"><i class="d"></i><div class="t">OTPs, passwords</div></div>
+    <div class="nr" id="s8-n2"><i class="d"></i><div class="t">Aadhaar, PAN</div></div>
+    <div class="nr" id="s8-n3"><i class="d"></i><div class="t">Bank, UPI PIN</div></div>
+  </div>
+  <div id="s8-pill">
+    <div id="s8-cm">Comment</div>
+    <div id="s8-kw"><div class="k">P</div><div class="k">R</div><div class="k">I</div><div class="k">V</div><div class="k">A</div><div class="k">T</div><div class="k">E</div></div>
+  </div>
+</section>

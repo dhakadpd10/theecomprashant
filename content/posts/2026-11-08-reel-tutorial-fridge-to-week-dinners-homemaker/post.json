@@ -1,0 +1,152 @@
+{
+  "id": "2026-11-08-reel-tutorial-fridge-to-week-dinners-homemaker",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "FRIDGE",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(cabbage|7|dinners|sabziwala|exact|only|5|catch|Check|FRIDGE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2D4FC4"
+  },
+  "lines": [
+    {
+      "say": "Watch half a cabbage and six eggs become seven dinners.",
+      "show": "Half a cabbage, 6 eggs, 7 dinners.",
+      "card": "FRIDGE → 7 DINNERS",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Seven pm. Asking AI what to cook is like telling the vegetable seller, something good.",
+      "show": "7 pm. Like telling the sabziwala 'something good'.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "One: type or snap exactly what you have.",
+      "show": "1. Type or snap exactly what you have.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: paste the prompt. Only these items.",
+      "show": "2. Paste the prompt: only these items.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Three: seven dinners, five things to buy.",
+      "show": "3. 7 dinners + 5 things to buy.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Exact list in, real dinners out.",
+      "show": "Exact list in. Real dinners out.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it can't see what's going bad, or your family's allergies.",
+      "show": "The catch: it can't see spoilage or allergies.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It may add things you don't have, so check.",
+      "show": "It may add items you don't have. Check.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Send this to the friend who asks what to cook every evening. Comment FRIDGE.",
+      "show": "Send this. Comment FRIDGE for the planner.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.0",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.5",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+0.8",
+    "title": [
+      "YOUR FRIDGE, 7 DINNERS",
+      "IN 3 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "kind": "tutorial",
+    "style": "editorial-host",
+    "hook": "#18",
+    "keyword": "FRIDGE",
+    "tool": "Fridge-to-Week Meal Planner",
+    "format": "reel",
+    "money_angle": "no",
+    "arm": null,
+    "pair": null,
+    "slot_ist": "2026-11-08 19:30 IST"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "dur": 25.01,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.69,
+      "b": 3.79,
+      "say": "Stop trusting the first AI answer. Add this one line first.",
+      "show": "Stop trusting answer 1. Add 1 line."
+    },
+    {
+      "a": 3.79,
+      "voice": 3.89,
+      "end": 6.494,
+      "b": 6.594,
+      "say": "Unless it searches the web, it doesn't look anything up.",
+      "show": "It doesn't look anything up."
+    },
+    {
+      "a": 6.594,
+      "voice": 6.694,
+      "end": 9.019,
+      "b": 9.119,
+      "say": "It guesses the next word, like your phone keyboard.",
+      "show": "It guesses the next word."
+    },
+    {
+      "a": 9.119,
+      "voice": 9.219,
+      "end": 12.507,
+      "b": 12.607,
+      "say": "A likely word isn't always true, so wrong answers sound sure.",
+      "show": "Likely isn't true."
+    },
+    {
+      "a": 12.607,
+      "voice": 12.707,
+      "end": 14.735,
+      "b": 14.835,
+      "say": "The line: if you're not sure, say I'm not sure.",
+      "show": "The line: say I'm not sure."
+    },
+    {
+      "a": 14.835,
+      "voice": 14.935,
+      "end": 16.568,
+      "b": 16.668,
+      "say": "Now it flags what it can't back up.",
+      "show": "Now it flags what it can't back up."
+    },
+    {
+      "a": 16.668,
+      "voice": 16.768,
+      "end": 19.097,
+      "b": 19.197,
+      "say": "The catch: it still slips. Check anything important.",
+      "show": "The catch: check anything important."
+    },
+    {
+      "a": 19.197,
+      "voice": 19.297,
+      "end": 23.613,
+      "b": 25.01,
+      "say": "Send this to the friend who trusts AI blindly. Comment TRUTH for the prompt.",
+      "show": "Send this. Comment TRUTH for the prompt."
+    }
+  ]
+}

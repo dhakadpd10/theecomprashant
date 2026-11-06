@@ -1,0 +1,81 @@
+{
+  "dur": 27.74,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.899,
+      "b": 2.999,
+      "say": "Watch half a cabbage and six eggs become seven dinners.",
+      "show": "Half a cabbage, 6 eggs, 7 dinners."
+    },
+    {
+      "a": 2.999,
+      "voice": 3.099,
+      "end": 8.095,
+      "b": 8.195,
+      "say": "Seven pm. Asking AI what to cook is like telling the vegetable seller, something good.",
+      "show": "7 pm. Like telling the sabziwala 'something good'."
+    },
+    {
+      "a": 8.195,
+      "voice": 8.295,
+      "end": 10.296,
+      "b": 10.396,
+      "say": "One: type or snap exactly what you have.",
+      "show": "1. Type or snap exactly what you have."
+    },
+    {
+      "a": 10.396,
+      "voice": 10.496,
+      "end": 12.659,
+      "b": 12.759,
+      "say": "Two: paste the prompt. Only these items.",
+      "show": "2. Paste the prompt: only these items."
+    },
+    {
+      "a": 12.759,
+      "voice": 12.859,
+      "end": 14.87,
+      "b": 14.97,
+      "say": "Three: seven dinners, five things to buy.",
+      "show": "3. 7 dinners + 5 things to buy."
+    },
+    {
+      "a": 14.97,
+      "voice": 15.07,
+      "end": 16.734,
+      "b": 16.834,
+      "say": "Exact list in, real dinners out.",
+      "show": "Exact list in. Real dinners out."
+    },
+    {
+      "a": 16.834,
+      "voice": 16.934,
+      "end": 20.057,
+      "b": 20.157,
+      "say": "The catch: it can't see what's going bad, or your family's allergies.",
+      "show": "The catch: it can't see spoilage or allergies."
+    },
+    {
+      "a": 20.157,
+      "voice": 20.257,
+      "end": 22.124,
+      "b": 22.224,
+      "say": "It may add things you don't have, so check.",
+      "show": "It may add items you don't have. Check."
+    },
+    {
+      "a": 22.224,
+      "voice": 22.324,
+      "end": 26.341,
+      "b": 27.74,
+      "say": "Send this to the friend who asks what to cook every evening. Comment FRIDGE.",
+      "show": "Send this. Comment FRIDGE for the planner."
+    }
+  ]
+}

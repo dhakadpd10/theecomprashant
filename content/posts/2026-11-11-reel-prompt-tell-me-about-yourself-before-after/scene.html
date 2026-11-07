@@ -1,0 +1,230 @@
+<style>
+  /* prompt reel: one idea (3 facts in order beat a memorised answer), one analogy (packing a bag),
+     colour = meaning: blue = NOW, green = PROOF, terracotta = WHY THIS JOB, red = vague / don't */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(43,89,195,0.08) 0%, rgba(43,89,195,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(185,71,42,0.07) 0%, rgba(185,71,42,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.14), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6B6560; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .blue { background: var(--accent); } .red { background: #C93C3C; } .green { background: #18774A; } .ink { background: var(--ink); color: #F3EEE5; }
+
+  /* 0: hook (host centre, everything above y 560) */
+  #s0-step { top: 50px; color: #6B6560; }
+  #s0-old { display: inline-block; }
+  #s0-strike { position: absolute; left: -8px; right: -8px; top: 18px; height: 6px; border-radius: 3px; background: #C93C3C; display: block; transform-origin: left center; }
+  #s0-title { top: 108px; font-size: 124px; }
+  #s0-line { position: absolute; left: 86px; top: 374px; width: 470px; height: 32px; }
+
+  /* 1: the night before */
+  #s1-card { top: 470px; height: 590px; }
+  #s1-cal { position: absolute; left: 36px; top: 36px; width: 76px; height: 76px; box-sizing: border-box; border-radius: 18px; background: #FFFFFF; border: 4px solid var(--ink); overflow: hidden; }
+  #s1-cal i { position: absolute; left: 0; right: 0; top: 0; height: 20px; display: block; background: var(--accent); }
+  #s1-cal b { position: absolute; left: 12px; right: 12px; top: 32px; height: 6px; border-radius: 3px; display: block; background: rgba(30,26,22,0.3); box-shadow: 0 14px 0 rgba(30,26,22,0.3); }
+  #s1-int { position: absolute; left: 134px; top: 36px; height: 76px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); }
+  #s1-tom { right: 36px; top: 44px; }
+  .row { position: absolute; left: 36px; right: 36px; border-radius: 26px; background: #F6F2EA; }
+  .row .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s1-r { top: 150px; height: 110px; }
+  #s1-r .t { left: 100px; }
+  #s1-moon { position: absolute; left: 30px; top: 30px; width: 50px; height: 50px; }
+  #s1-no { right: 22px; top: 25px; }
+  #s1-you { left: 40px; top: 292px; }
+  #s1-input { position: absolute; left: 36px; right: 36px; top: 330px; height: 116px; box-sizing: border-box; border-radius: 26px; border: 3px solid var(--accent); background: #F7F9FE; padding-left: 28px; display: flex; align-items: center; }
+  #s1-text { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s1-send { position: absolute; right: 36px; top: 474px; width: 160px; height: 76px; border-radius: 38px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+
+  /* 2: basic prompt, vague answer */
+  #s2-card { top: 470px; height: 570px; }
+  #s2-you { position: absolute; right: 36px; top: 32px; height: 84px; padding: 0 30px; border-radius: 42px 42px 12px 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; white-space: nowrap; transform-origin: right center; }
+  #s2-lbl { left: 40px; top: 150px; }
+  #s2-note { right: 40px; top: 150px; color: #C93C3C; }
+  #s2-r1 { top: 196px; height: 104px; } #s2-r2 { top: 316px; height: 104px; } #s2-r3 { top: 436px; height: 104px; }
+  #s2-card .chip { right: 22px; top: 22px; }
+
+  /* 3: the analogy, everything in the bag */
+  #s3-card { top: 470px; height: 600px; }
+  #s3-lbl { left: 40px; top: 40px; }
+  #s3-no { right: 36px; top: 24px; }
+  #s3-bag { position: absolute; left: 110px; top: 300px; width: 440px; height: 270px; display: block; transform-origin: 50% 100%; }
+  .tag { position: absolute; height: 64px; padding: 0 24px; border-radius: 32px; border: 3px solid rgba(30,26,22,0.14); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); display: flex; align-items: center; white-space: nowrap; box-shadow: 0 10px 24px rgba(70,50,30,0.14); }
+  #t1 { left: 40px; top: 150px; background: #FCEDEA; }
+  #t2 { left: 340px; top: 128px; background: #EEF2FB; }
+  #t3 { left: 190px; top: 232px; background: #FFF5DB; }
+  #t4 { left: 440px; top: 240px; background: #EAF4EE; }
+  #t5 { left: 36px; top: 322px; background: #FFFFFF; }
+  #t6 { left: 320px; top: 350px; background: #FCEDEA; }
+
+  /* 4: the prompt packs three, in order (host hidden, full width) */
+  #s4-card { top: 440px; height: 650px; }
+  #s4-lbl { left: 40px; top: 36px; }
+  .slot { position: absolute; left: 40px; right: 40px; height: 160px; box-sizing: border-box; border-radius: 28px; border: 3px dashed rgba(30,26,22,0.25); }
+  #k1 { top: 90px; --c: #2B59C3; --t: #EEF2FB; }
+  #k2 { top: 270px; --c: #18774A; --t: #E8F3EC; }
+  #k3 { top: 450px; --c: #B9472A; --t: #FBEDE6; }
+  .slot .bg { position: absolute; left: -3px; right: -3px; top: -3px; bottom: -3px; display: block; border-radius: 28px; border: 3px solid var(--c); background: var(--t); box-sizing: border-box; }
+  .slot .num, .slot .numf { position: absolute; left: 30px; top: 32px; width: 90px; height: 90px; box-sizing: border-box; border-radius: 50%; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; display: flex; align-items: center; justify-content: center; }
+  .slot .num { border: 4px dashed rgba(30,26,22,0.3); color: #6B6560; }
+  .slot .numf { background: var(--c); color: #FFFFFF; }
+  .slot .name { position: absolute; left: 150px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; color: var(--ink); white-space: nowrap; }
+  .slot .sub { position: absolute; left: 150px; top: 86px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #4F4A45; white-space: nowrap; }
+  .slot .tick { position: absolute; right: 30px; top: 37px; width: 80px; height: 80px; border-radius: 50%; background: var(--c); }
+  .slot .tick svg { display: block; width: 80px; height: 80px; }
+
+  /* 5: the result, a 30-second answer built from the three parts */
+  #s5-card { top: 420px; height: 700px; }
+  .pill2 { position: absolute; top: 32px; height: 84px; box-sizing: border-box; border-radius: 42px; border: 3px dashed rgba(30,26,22,0.3); background: #F6F2EA; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s5-cv { left: 36px; width: 180px; }
+  #s5-job { left: 232px; width: 196px; }
+  #s5-go { position: absolute; right: 36px; top: 32px; width: 130px; height: 84px; border-radius: 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #s5-lbl { left: 40px; top: 150px; }
+  #s5-timer { position: absolute; right: 36px; top: 138px; width: 120px; height: 52px; border-radius: 26px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+  .blk { position: absolute; left: 36px; right: 36px; height: 144px; border-radius: 24px; background: var(--t); overflow: hidden; }
+  .blk::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: var(--c); }
+  .blk .tg { position: absolute; left: 34px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.12em; color: var(--c); white-space: nowrap; }
+  .blk .tx { position: absolute; left: 34px; right: 24px; top: 48px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.22; color: var(--ink); }
+  #b1 { top: 206px; --c: #2B59C3; --t: #EEF2FB; }
+  #b2 { top: 366px; --c: #18774A; --t: #E8F3EC; }
+  #b3 { top: 526px; --c: #B9472A; --t: #FBEDE6; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 560px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F6F2EA; }
+  .chk .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .chk .chip { right: 22px; top: 25px; width: 110px; padding: 0; }
+  .st { position: absolute; left: -4px; right: -4px; top: 52px; height: 5px; border-radius: 3px; display: block; background: #C93C3C; transform-origin: left center; }
+  #c1 { top: 36px; } #c2 { top: 162px; } #c3 { top: 288px; } #c4 { top: 414px; }
+
+  /* 7: send + keyword */
+  #s7-send { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1; color: var(--ink); }
+  #s7-who { position: absolute; left: 90px; right: 90px; top: 272px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.3; color: #6B6560; }
+  #s7-card { top: 430px; height: 450px; }
+  #s7-av { position: absolute; left: 36px; top: 34px; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #2B59C3, #7FA0E8); overflow: hidden; }
+  #s7-av svg { display: block; width: 72px; height: 72px; }
+  #s7-you { position: absolute; left: 128px; top: 34px; height: 72px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #6B6560; white-space: nowrap; }
+  #s7-word { position: absolute; left: 36px; right: 36px; top: 130px; height: 180px; border-radius: 30px; background: #EEF2FB; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  .L { display: block; font-family: var(--display); font-size: 150px; line-height: 1; color: var(--accent); }
+  #s7-free { position: absolute; left: 36px; top: 344px; height: 76px; padding: 0 26px; border-radius: 38px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; white-space: nowrap; }
+  #s7-save { position: absolute; right: 36px; top: 344px; height: 76px; display: flex; align-items: center; gap: 14px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s7-bm { display: block; width: 44px; height: 60px; }
+  #s7-pill { position: absolute; left: 60px; right: 360px; top: 920px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s7-pill b { color: #9DB6F2; margin-left: 14px; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step"><span id="s0-old">LEARN IT BY HEART</span><i id="s0-strike" data-layout-allow-overlap></i></div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Just <span class="it">3</span> facts.</span></span><span class="mask"><span class="l">In order.</span></span></div>
+  <svg id="s0-line" viewBox="0 0 470 32"><path id="s0-line-p" d="M6 22 Q 120 6 235 16 T 464 12" fill="none" stroke="#2B59C3" stroke-width="9" stroke-linecap="round" stroke-dasharray="520" stroke-dashoffset="520"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">BETWEEN JOBS</div>
+  <div class="title"><span class="mask"><span class="l">The night</span></span><span class="mask"><span class="l it">before.</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-cal"><i></i><b></b></div>
+    <div id="s1-int">Interview</div>
+    <div class="chip blue" id="s1-tom">TOMORROW</div>
+    <div class="row" id="s1-r"><svg id="s1-moon" viewBox="0 0 50 50"><path d="M30 5 A21 21 0 1 0 46 32 A16 16 0 1 1 30 5 Z" fill="#E8A317"></path></svg><div class="t">Answer ready?</div><div class="chip red" id="s1-no">NOT YET</div></div>
+    <div class="lbl" id="s1-you">YOU TYPE</div>
+    <div id="s1-input"><div id="s1-text">Tell me about yourself.</div></div>
+    <div id="s1-send">Send</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">BASIC PROMPT</div>
+  <div class="title"><span class="mask"><span class="l">Sounds like</span></span><span class="mask"><span class="l it">everyone.</span></span></div>
+  <div class="card" id="s2-card">
+    <div id="s2-you">Tell me about yourself.</div>
+    <div class="lbl" id="s2-lbl">THE ANSWER</div>
+    <div class="lbl" id="s2-note">COULD BE ANYONE</div>
+    <div class="row" id="s2-r1"><div class="t">Hardworking</div><div class="chip red" id="v1">VAGUE</div></div>
+    <div class="row" id="s2-r2"><div class="t">Passionate</div><div class="chip red" id="v2">VAGUE</div></div>
+    <div class="row" id="s2-r3"><div class="t">Team player</div><div class="chip red" id="v3">VAGUE</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">LIKE PACKING</div>
+  <div class="title"><span class="mask"><span class="l">Everything</span></span><span class="mask"><span class="l">in the <span class="it">bag.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-lbl">IT ALL GOES IN</div>
+    <svg id="s3-bag" viewBox="0 0 440 270"><path d="M140 84 C140 14 300 14 300 84" fill="none" stroke="#5A4632" stroke-width="16" stroke-linecap="round"></path><rect x="10" y="70" width="420" height="190" rx="44" fill="#8A6A4A"></rect><rect x="10" y="70" width="420" height="44" rx="22" fill="#6E5238"></rect><path d="M60 180 H380" stroke="#6E5238" stroke-width="6" stroke-dasharray="14 10"></path></svg>
+    <div class="tag" id="t1" data-layout-allow-overlap>Hardworking</div>
+    <div class="tag" id="t2" data-layout-allow-overlap>Passionate</div>
+    <div class="tag" id="t3" data-layout-allow-overlap>Team player</div>
+    <div class="tag" id="t4" data-layout-allow-overlap>Hobbies</div>
+    <div class="tag" id="t5" data-layout-allow-overlap>Class 10 marks</div>
+    <div class="tag" id="t6" data-layout-allow-overlap>Every job ever</div>
+    <div class="chip red" id="s3-no" data-layout-allow-overlap>NO ORDER</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE PROMPT</div>
+  <div class="title"><span class="mask"><span class="l">Pack only</span></span><span class="mask"><span class="l it">three.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div class="lbl" id="s4-lbl">IT ASKS FOR, IN ORDER</div>
+    <div class="slot" id="k1"><i class="bg"></i><div class="num">1</div><div class="numf" data-layout-allow-overlap>1</div><div class="name">Now</div><div class="sub">Who you are today</div><div class="tick"><svg viewBox="0 0 80 80"><path d="M22 41 L35 54 L58 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+    <div class="slot" id="k2"><i class="bg"></i><div class="num">2</div><div class="numf" data-layout-allow-overlap>2</div><div class="name">Proof</div><div class="sub">One real result</div><div class="tick"><svg viewBox="0 0 80 80"><path d="M22 41 L35 54 L58 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+    <div class="slot" id="k3"><i class="bg"></i><div class="num">3</div><div class="numf" data-layout-allow-overlap>3</div><div class="name">Why this job</div><div class="sub">Why it fits this role</div><div class="tick"><svg viewBox="0 0 80 80"><path d="M22 41 L35 54 L58 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">30 seconds,</span></span><span class="mask"><span class="l">all <span class="it">you.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="pill2" id="s5-cv">Your CV</div>
+    <div class="pill2" id="s5-job">Job post</div>
+    <div id="s5-go">GO</div>
+    <div class="lbl" id="s5-lbl">EXAMPLE ANSWER</div>
+    <div id="s5-timer">0:00</div>
+    <div class="blk" id="b1"><div class="tg">NOW</div><div class="tx">I'm a sales executive with 4 years in retail.</div></div>
+    <div class="blk" id="b2"><div class="tg">PROOF</div><div class="tx">I looked after 40 shop accounts across Pune.</div></div>
+    <div class="blk" id="b3"><div class="tg">WHY THIS JOB</div><div class="tx">Your team sells to shops, so I can start fast.</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Your facts,</span></span><span class="mask"><span class="l">your <span class="it">words.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="chk" id="c1"><div class="t">Real facts only</div><div class="chip green" id="h1">DO</div></div>
+    <div class="chk" id="c2"><div class="t">Made-up wins<i class="st" id="x2" data-layout-allow-overlap></i></div><div class="chip red" id="h2">NO</div></div>
+    <div class="chk" id="c3"><div class="t">Your own words</div><div class="chip green" id="h3">DO</div></div>
+    <div class="chk" id="c4"><div class="t">Learn it by heart<i class="st" id="x4" data-layout-allow-overlap></i></div><div class="chip red" id="h4">NO</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-send">Send this.</div>
+  <div id="s7-who">to the friend with an interview this week</div>
+  <div class="card" id="s7-card">
+    <div id="s7-av"><svg viewBox="0 0 72 72"><circle cx="36" cy="28" r="12" fill="#FFFFFF"></circle><path d="M14 66 C16 48 56 48 58 66 Z" fill="#FFFFFF"></path></svg></div>
+    <div id="s7-you">Your comment</div>
+    <div id="s7-word"><div class="L" id="L1">I</div><div class="L" id="L2">N</div><div class="L" id="L3">T</div><div class="L" id="L4">R</div><div class="L" id="L5">O</div></div>
+    <div id="s7-free">FREE PROMPT</div>
+    <div id="s7-save"><svg id="s7-bm" viewBox="0 0 44 60"><path d="M4 4 H40 V56 L22 42 L4 56 Z" fill="#2B59C3"></path></svg>Save.</div>
+  </div>
+  <div id="s7-pill">Comment <b>INTRO</b></div>
+</section>

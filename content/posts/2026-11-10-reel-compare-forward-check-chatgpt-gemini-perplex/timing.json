@@ -1,0 +1,73 @@
+{
+  "dur": 32.78,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 5.043,
+      "b": 5.143,
+      "say": "Three AI apps, side by side. I gave them one fake UPI forward. One rule.",
+      "show": "ChatGPT vs Gemini vs Perplexity. 1 forward. 1 rule."
+    },
+    {
+      "a": 5.143,
+      "voice": 5.243,
+      "end": 9.272,
+      "b": 9.372,
+      "say": "Say a homemaker gets this: UPI will charge a fee on every payment.",
+      "show": "Forward: 'UPI will charge 2%' (EXAMPLE)"
+    },
+    {
+      "a": 9.372,
+      "voice": 9.472,
+      "end": 13.059,
+      "b": 13.159,
+      "say": "You ask three people next door. You'd trust the one with the newspaper, right?",
+      "show": "Trust the neighbour with the newspaper."
+    },
+    {
+      "a": 13.159,
+      "voice": 13.259,
+      "end": 17.254,
+      "b": 17.354,
+      "say": "All three got the same forward. My one rule: show me a source I can open.",
+      "show": "Same forward. Rule: a source I can open."
+    },
+    {
+      "a": 17.354,
+      "voice": 17.454,
+      "end": 20.151,
+      "b": 20.251,
+      "say": "In our test, a tick means the link actually opens.",
+      "show": "In our test: tick = link opens."
+    },
+    {
+      "a": 20.251,
+      "voice": 20.351,
+      "end": 23.5,
+      "b": 23.6,
+      "say": "Go with the top one. Tap its link and you're on the real source.",
+      "show": "Pick #1. Its link opens the real source."
+    },
+    {
+      "a": 23.6,
+      "voice": 23.7,
+      "end": 26.57,
+      "b": 26.67,
+      "say": "Here's the catch. Sources can be wrong too, so check the site.",
+      "show": "Catch: sources can be wrong too."
+    },
+    {
+      "a": 26.67,
+      "voice": 26.77,
+      "end": 31.385,
+      "b": 32.78,
+      "say": "Send this to the relative who forwards first. Comment FORWARD and I'll send the prompt.",
+      "show": "Send this. Comment FORWARD for the prompt."
+    }
+  ]
+}

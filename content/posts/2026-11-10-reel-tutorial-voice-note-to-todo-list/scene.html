@@ -1,0 +1,329 @@
+<style>
+  /* tutorial: voice note to to-do list. One idea (a rant becomes a short list), one analogy (a friend who hands you a chit).
+     Colour = meaning: blue = the AI and your action, amber = urgent, red = a problem or a dropped word. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D4 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(44,75,214,0.08) 0%, rgba(44,75,214,0) 70%); }
+  #orb2 { left: 520px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 104px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.0; color: var(--ink); white-space: nowrap; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; font-style: normal; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,20,0.13), 0 2px 0 rgba(70,50,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: #6B635A; white-space: nowrap; }
+  .txt { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .chip { position: absolute; height: 56px; padding: 0 22px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .blue { background: var(--accent); }
+  .red { background: #B8322F; }
+  .play { position: absolute; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .wv { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; gap: 6px; }
+  .wv i { display: block; width: 8px; border-radius: 4px; background: rgba(30,26,22,0.32); transform-origin: center center; }
+  .flag { position: absolute; width: 64px; height: 64px; border-radius: 18px; background: #E8A317; display: flex; align-items: center; justify-content: center; }
+  .flag svg { width: 34px; height: 34px; }
+
+  /* 0: hook (host centre, everything above y 450 in scene) */
+  #s0-step { top: 50px; transform-origin: left center; }
+  #s0-title { top: 86px; font-size: 118px; transform-origin: left top; }
+  #s0-vn { position: absolute; left: 90px; top: 378px; width: 560px; height: 76px; border-radius: 38px; background: #FFFFFF; box-shadow: 0 18px 40px rgba(70,50,20,0.14); }
+  #s0-play { left: 10px; top: 10px; width: 56px; height: 56px; }
+  #s0-play svg { width: 24px; height: 24px; }
+  #s0-wv { left: 82px; }
+  #s0-len { position: absolute; left: 380px; top: 0; height: 76px; display: flex; align-items: center; }
+  #s0-dot { position: absolute; left: 496px; top: 28px; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); }
+  #s0-stamp { position: absolute; left: 680px; top: 372px; width: 280px; height: 88px; box-sizing: border-box; border: 6px solid #B8322F; border-radius: 16px; color: #B8322F; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+
+  /* 1: metro home, 2-minute rant */
+  #s1-card { top: 450px; height: 620px; }
+  #s1-head { left: 36px; top: 32px; }
+  #route { position: absolute; left: 36px; right: 36px; top: 88px; height: 110px; }
+  #trk { position: absolute; left: 15px; right: 15px; top: 27px; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #trk-f { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+  .stn { position: absolute; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: #FFFFFF; border: 7px solid var(--ink); box-sizing: border-box; }
+  #stA { left: 0; }
+  #stB { right: 0; border-color: var(--accent); }
+  #train { position: absolute; left: 120px; top: 8px; width: 84px; height: 46px; border-radius: 14px; background: var(--ink); }
+  #train i { position: absolute; top: 10px; width: 18px; height: 14px; border-radius: 4px; background: #F3EEE5; }
+  #train i:nth-child(1) { left: 12px; } #train i:nth-child(2) { left: 34px; } #train i:nth-child(3) { left: 56px; }
+  #lA { left: 0; top: 68px; }
+  #lB { right: 0; top: 68px; }
+  #s1-vn { position: absolute; left: 36px; right: 36px; top: 230px; height: 130px; border-radius: 65px; background: #EEF1FF; }
+  #s1-play { left: 23px; top: 23px; width: 84px; height: 84px; }
+  #s1-play svg { width: 34px; height: 34px; }
+  #s1-wv { left: 130px; gap: 7px; }
+  #s1-wv i { width: 10px; border-radius: 5px; background: rgba(44,75,214,0.45); }
+  #s1-time { position: absolute; left: 456px; top: 0; height: 130px; display: flex; align-items: center; }
+  .row { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F6F2EA; }
+  .row .txt { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; }
+  .row .chip { right: 24px; top: 27px; }
+  #s1-row { top: 392px; }
+  #s1-note { left: 36px; top: 540px; }
+
+  /* 2: the analogy, a friend's chit */
+  #s2-card { top: 450px; height: 640px; }
+  #s2-head { left: 36px; top: 30px; }
+  .frag { position: absolute; height: 70px; padding: 0 22px; border-radius: 35px; background: #F3EEE5; display: flex; align-items: center; }
+  .frag .sk { position: absolute; left: 16px; right: 16px; top: 33px; height: 4px; border-radius: 2px; background: #6B635A; transform-origin: left center; }
+  #f1 { left: 36px; top: 76px; } #f2 { left: 184px; top: 76px; }
+  #f3 { left: 60px; top: 162px; } #f4 { left: 376px; top: 162px; }
+  #f5 { left: 36px; top: 248px; } #f6 { left: 270px; top: 248px; }
+  #s2-arrow { position: absolute; left: 300px; top: 330px; width: 60px; height: 70px; }
+  #chit { position: absolute; left: 70px; right: 70px; top: 410px; height: 200px; border-radius: 14px; background: repeating-linear-gradient(180deg, #FFF6DC 0px, #FFF6DC 58px, #EADFC2 58px, #EADFC2 60px); box-shadow: 0 14px 30px rgba(70,50,20,0.16); }
+  .cl { position: absolute; left: 34px; display: block; font-family: 'Permanent Marker', cursive; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #c1 { top: 8px; } #c2 { top: 68px; } #c3 { top: 128px; }
+
+  /* 3: step 1, speak it into the keyboard mic */
+  #s3-card { top: 450px; height: 640px; }
+  #s3-head { left: 36px; top: 30px; }
+  #s3-field { position: absolute; left: 36px; right: 36px; top: 80px; height: 290px; border-radius: 26px; background: #F6F2EA; }
+  .ty { position: absolute; left: 30px; display: block; }
+  #y1 { top: 34px; } #y2 { top: 112px; } #y3 { top: 190px; }
+  #caret { display: inline-block; width: 4px; height: 42px; background: var(--accent); margin-left: 6px; vertical-align: middle; }
+  #kb { position: absolute; left: 36px; right: 36px; top: 400px; height: 140px; }
+  .key { position: absolute; top: 25px; width: 80px; height: 90px; border-radius: 16px; background: #ECE6DB; display: flex; align-items: center; justify-content: center; }
+  #s3-k1 { left: 0; } #s3-k2 { left: 96px; } #s3-k3 { left: 192px; } #s3-k4 { left: 288px; }
+  #ring { position: absolute; right: 30px; top: 10px; width: 120px; height: 120px; border-radius: 50%; border: 6px solid var(--accent); box-sizing: border-box; opacity: 0; }
+  #mic { position: absolute; right: 30px; top: 10px; width: 120px; height: 120px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #mic svg { width: 56px; height: 56px; }
+  #s3-note { left: 36px; top: 572px; }
+
+  /* 4: step 2, paste the prompt (host hidden, full width) */
+  #s4-card { top: 450px; height: 640px; }
+  .dot3 { position: absolute; top: 36px; width: 18px; height: 18px; border-radius: 50%; }
+  #s4-d1 { left: 36px; background: #E06B5B; } #s4-d2 { left: 64px; background: #E8A317; } #s4-d3 { left: 92px; background: #3FAE6A; }
+  #s4-head { left: 136px; top: 30px; }
+  #s4-p { position: absolute; left: 36px; right: 36px; top: 88px; height: 190px; border-radius: 26px; background: #EEF1FF; }
+  #s4-plbl { left: 30px; top: 22px; color: var(--accent); }
+  .pl { position: absolute; left: 30px; display: block; }
+  #pl1 { top: 66px; } #pl2 { top: 120px; }
+  #s4-t { position: absolute; left: 36px; right: 36px; top: 298px; height: 160px; border-radius: 26px; background: #F6F2EA; }
+  #s4-tlbl { left: 30px; top: 22px; }
+  #s4-tt { position: absolute; left: 30px; top: 76px; display: block; }
+  #s4-warn { left: 36px; top: 510px; color: #B8322F; }
+  #s4-send { position: absolute; right: 36px; top: 484px; width: 200px; height: 96px; border-radius: 48px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: #FFFFFF; }
+
+  /* 5: step 3, sorted by time, urgent in amber */
+  #s5-card { top: 450px; height: 640px; }
+  #s5-head { left: 36px; top: 30px; }
+  .tr { position: absolute; left: 24px; right: 24px; height: 110px; border-radius: 24px; background: #F6F2EA; }
+  .tr .tc { position: absolute; left: 18px; top: 25px; width: 130px; height: 60px; border-radius: 30px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  .tr .txt { position: absolute; left: 166px; top: 0; bottom: 0; display: flex; align-items: center; }
+  .tr .flag { right: 18px; top: 23px; }
+  #s5-r1 { top: 76px; } #s5-r2 { top: 200px; } #s5-r3 { top: 324px; } #s5-r4 { top: 448px; }
+  #s5-note { left: 36px; top: 588px; }
+
+  /* 6: the result, one ticked chit */
+  #s6-vn { position: absolute; left: 60px; top: 280px; width: 300px; height: 76px; border-radius: 38px; background: #FFFFFF; box-shadow: 0 18px 40px rgba(70,50,20,0.14); }
+  #s6-play { left: 12px; top: 12px; width: 52px; height: 52px; }
+  #s6-play svg { width: 22px; height: 22px; }
+  #s6-wv { left: 76px; }
+  #s6-len { position: absolute; left: 200px; top: 0; height: 76px; display: flex; align-items: center; }
+  #s6-arrow { position: absolute; left: 380px; top: 298px; width: 90px; height: 40px; }
+  #s6-jobs { position: absolute; left: 490px; top: 280px; width: 220px; height: 76px; border-radius: 38px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: #FFFFFF; white-space: nowrap; }
+  #s6-card { top: 396px; height: 660px; }
+  #s6-h { position: absolute; left: 36px; top: 28px; font-weight: 900; }
+  #s6-note { right: 36px; top: 38px; }
+  .dr { position: absolute; left: 24px; right: 24px; height: 120px; border-radius: 24px; background: #F6F2EA; }
+  .dr.urg { background: #FCE6B0; }
+  .dr .cb { position: absolute; left: 24px; top: 32px; width: 56px; height: 56px; border-radius: 14px; border: 4px solid rgba(30,26,22,0.3); box-sizing: border-box; }
+  .dr .tk { position: absolute; left: 24px; top: 32px; width: 56px; height: 56px; border-radius: 14px; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .dr .tk svg { width: 34px; height: 34px; }
+  .dr .txt { position: absolute; left: 104px; top: 16px; }
+  .dr .lbl { left: 104px; top: 70px; color: #5A5249; }
+  .dr .flag { right: 18px; top: 28px; }
+  #d6-1 { top: 96px; } #d6-2 { top: 230px; } #d6-3 { top: 364px; } #d6-4 { top: 498px; }
+
+  /* 7: the catch, noise drops words */
+  #s7-card { top: 450px; height: 620px; }
+  #s7-head { left: 36px; top: 32px; }
+  #s7-nz { left: 250px; top: 22px; bottom: auto; height: 50px; gap: 5px; }
+  #s7-nz i { width: 7px; background: rgba(184,50,47,0.5); }
+  #heard { position: absolute; left: 24px; right: 24px; top: 96px; height: 124px; border-radius: 24px; background: #F6F2EA; display: flex; align-items: center; gap: 14px; padding-left: 30px; box-sizing: border-box; }
+  #gap { display: flex; width: 110px; height: 70px; border-radius: 16px; border: 4px dashed #B8322F; box-sizing: border-box; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: #B8322F; }
+  .ck { position: absolute; left: 24px; right: 24px; height: 110px; border-radius: 24px; background: #F6F2EA; }
+  .ck .txt { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; }
+  .ck .chip { right: 24px; top: 27px; }
+  #s7-c1 { top: 246px; } #s7-c2 { top: 376px; }
+  #s7-note { left: 36px; top: 530px; }
+
+  /* 8: send + keyword */
+  #s8-title { top: 50px; right: auto; width: 440px; font-size: 140px; }
+  #plane { position: absolute; left: 540px; top: 130px; width: 180px; height: 150px; }
+  #who { position: absolute; left: 90px; width: 600px; top: 410px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: #6B635A; }
+  #key { position: absolute; left: 60px; right: 360px; top: 560px; height: 380px; border-radius: 36px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #key-l { left: 40px; top: 36px; color: #F3EEE5; }
+  #kw { position: absolute; left: 40px; top: 78px; height: 160px; display: flex; gap: 6px; transform-origin: left center; }
+  #kw div { display: block; font-family: var(--display); font-size: 140px; line-height: 160px; color: #A9B8FF; }
+  #free { position: absolute; left: 40px; top: 276px; height: 64px; padding: 0 26px; border-radius: 32px; background: #F3EEE5; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.1em; display: flex; align-items: center; white-space: nowrap; }
+  #bm { position: absolute; left: 340px; top: 276px; width: 44px; height: 64px; }
+  #bm-l { left: 400px; top: 292px; color: #F3EEE5; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">3 STEPS FIX IT</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Voice note</span></span><span class="mask"><span class="l it">never replayed?</span></span></div>
+  <div id="s0-vn">
+    <div class="play" id="s0-play"><svg viewBox="0 0 20 20"><path d="M6 4 L16 10 L6 16 Z" fill="#FFFFFF"></path></svg></div>
+    <div class="wv" id="s0-wv"><i style="height:18px"></i><i style="height:30px"></i><i style="height:22px"></i><i style="height:40px"></i><i style="height:26px"></i><i style="height:48px"></i><i style="height:34px"></i><i style="height:20px"></i><i style="height:44px"></i><i style="height:30px"></i><i style="height:52px"></i><i style="height:24px"></i><i style="height:38px"></i><i style="height:46px"></i><i style="height:28px"></i><i style="height:36px"></i><i style="height:22px"></i><i style="height:42px"></i><i style="height:30px"></i><i style="height:18px"></i></div>
+    <div class="txt" id="s0-len">2:00</div>
+    <div id="s0-dot"></div>
+  </div>
+  <div id="s0-stamp" data-layout-allow-overlap>0 PLAYS</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">METRO HOME</div>
+  <div class="title"><span class="mask"><span class="l">2-minute <span class="it">rant.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">NOTES TO SELF</div>
+    <div id="route">
+      <div id="trk"><i id="trk-f"></i></div>
+      <div class="stn" id="stA"></div>
+      <div class="stn" id="stB"></div>
+      <div id="train" data-layout-allow-overlap><i></i><i></i><i></i></div>
+      <div class="lbl" id="lA">OFFICE</div>
+      <div class="lbl" id="lB">HOME</div>
+    </div>
+    <div id="s1-vn">
+      <div class="play" id="s1-play"><svg viewBox="0 0 20 20"><path d="M6 4 L16 10 L6 16 Z" fill="#FFFFFF"></path></svg></div>
+      <div class="wv" id="s1-wv"><i style="height:26px"></i><i style="height:44px"></i><i style="height:32px"></i><i style="height:60px"></i><i style="height:38px"></i><i style="height:70px"></i><i style="height:48px"></i><i style="height:28px"></i><i style="height:64px"></i><i style="height:42px"></i><i style="height:74px"></i><i style="height:34px"></i><i style="height:56px"></i><i style="height:66px"></i><i style="height:40px"></i><i style="height:52px"></i><i style="height:30px"></i><i style="height:46px"></i></div>
+      <div class="txt" id="s1-time">0:00</div>
+    </div>
+    <div class="row" id="s1-row"><div class="txt">Replayed</div><div class="chip red" id="s1-never">NEVER</div></div>
+    <div class="lbl" id="s1-note">EXAMPLE</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THINK OF IT LIKE</div>
+  <div class="title"><span class="mask"><span class="l">A friend's <span class="it">chit.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lbl" id="s2-head">YOU SAY</div>
+    <div class="frag txt" id="f1">umm<i class="sk" id="sk1" data-layout-allow-overlap></i></div>
+    <div class="frag txt" id="f2">Ravi's report</div>
+    <div class="frag txt" id="f3">so basically<i class="sk" id="sk3" data-layout-allow-overlap></i></div>
+    <div class="frag txt" id="f4">light bill</div>
+    <div class="frag txt" id="f5">you know<i class="sk" id="sk5" data-layout-allow-overlap></i></div>
+    <div class="frag txt" id="f6">Mom's ticket</div>
+    <svg id="s2-arrow" viewBox="0 0 60 70"><path id="s2-arrow-p" d="M30 4 V56 M12 40 L30 60 L48 40" fill="none" stroke="#2C4BD6" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="140" stroke-dashoffset="140"></path></svg>
+    <div id="chit">
+      <span class="cl" id="c1">1. Ravi's report</span>
+      <span class="cl" id="c2">2. Pay light bill</span>
+      <span class="cl" id="c3">3. Mom's ticket</span>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Say <span class="it">it.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-head">TAP THE KEYBOARD MIC</div>
+    <div id="s3-field">
+      <span class="txt ty" id="y1">So tomorrow, umm,</span>
+      <span class="txt ty" id="y2">send Ravi the report,</span>
+      <span class="txt ty" id="y3">pay the light bill<i id="caret"></i></span>
+    </div>
+    <div id="kb">
+      <div class="key txt" id="s3-k1">Q</div>
+      <div class="key txt" id="s3-k2">W</div>
+      <div class="key txt" id="s3-k3">E</div>
+      <div class="key txt" id="s3-k4">R</div>
+      <div id="ring" data-layout-allow-overlap></div>
+      <div id="mic"><svg viewBox="0 0 40 40"><rect x="14" y="5" width="12" height="20" rx="6" fill="#FFFFFF"></rect><path d="M9 19 a11 11 0 0 0 22 0" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"></path><path d="M20 30 V36" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"></path></svg></div>
+    </div>
+    <div class="lbl" id="s3-note">OR ANY VOICE-TO-TEXT APP</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste the <span class="it">prompt.</span></span></span></div>
+  <div class="card wide" id="s4-card">
+    <div class="dot3" id="s4-d1"></div><div class="dot3" id="s4-d2"></div><div class="dot3" id="s4-d3"></div>
+    <div class="lbl" id="s4-head">NEW CHAT</div>
+    <div id="s4-p">
+      <div class="lbl" id="s4-plbl">THE TODO PROMPT</div>
+      <span class="txt pl" id="pl1">Turn this voice note into</span>
+      <span class="txt pl" id="pl2">a short to-do list.</span>
+    </div>
+    <div id="s4-t">
+      <div class="lbl" id="s4-tlbl">YOUR TRANSCRIPT</div>
+      <span class="txt" id="s4-tt">So tomorrow, umm, send Ravi the</span>
+    </div>
+    <div class="lbl" id="s4-warn">REMOVE OTPs AND PASSWORDS</div>
+    <div id="s4-send">Send</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Sorted by <span class="it">time.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-head">SORTED BY TIME</div>
+    <div class="tr" id="s5-r1" data-layout-allow-overlap><div class="tc">9:30 AM</div><div class="txt">Ravi's report</div><div class="flag" id="s5-f1"><svg viewBox="0 0 30 30"><path d="M8 4 V27" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round"></path><path d="M9 5 H24 L20 11 L24 17 H9 Z" fill="#1E1A16"></path></svg></div></div>
+    <div class="tr" id="s5-r2" data-layout-allow-overlap><div class="tc">11 AM</div><div class="txt">Pay light bill</div><div class="flag" id="s5-f2"><svg viewBox="0 0 30 30"><path d="M8 4 V27" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round"></path><path d="M9 5 H24 L20 11 L24 17 H9 Z" fill="#1E1A16"></path></svg></div></div>
+    <div class="tr" id="s5-r3" data-layout-allow-overlap><div class="tc">6 PM</div><div class="txt">Mom's ticket</div></div>
+    <div class="tr" id="s5-r4" data-layout-allow-overlap><div class="tc">8 PM</div><div class="txt">Buy milk</div></div>
+    <div class="lbl" id="s5-note">EXAMPLE LIST</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">One ticked <span class="it">chit.</span></span></span></div>
+  <div id="s6-vn">
+    <div class="play" id="s6-play"><svg viewBox="0 0 20 20"><path d="M6 4 L16 10 L6 16 Z" fill="#FFFFFF"></path></svg></div>
+    <div class="wv" id="s6-wv"><i style="height:16px"></i><i style="height:30px"></i><i style="height:22px"></i><i style="height:38px"></i><i style="height:26px"></i><i style="height:34px"></i><i style="height:20px"></i><i style="height:28px"></i></div>
+    <div class="txt" id="s6-len">2:00</div>
+  </div>
+  <svg id="s6-arrow" viewBox="0 0 90 40"><path d="M4 20 H78 M62 6 L80 20 L62 34" fill="none" stroke="#1E1A16" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div id="s6-jobs">4 JOBS</div>
+  <div class="card" id="s6-card">
+    <div class="txt" id="s6-h">Tomorrow</div>
+    <div class="lbl" id="s6-note">EXAMPLE</div>
+    <div class="dr urg" id="d6-1"><div class="cb"></div><div class="tk" id="tk1" data-layout-allow-overlap><svg viewBox="0 0 30 30"><path d="M7 15 L13 21 L23 9" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="txt">Ravi's report</div><div class="lbl">9:30 AM</div><div class="flag" id="s6-f1"><svg viewBox="0 0 30 30"><path d="M8 4 V27" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round"></path><path d="M9 5 H24 L20 11 L24 17 H9 Z" fill="#1E1A16"></path></svg></div></div>
+    <div class="dr urg" id="d6-2"><div class="cb"></div><div class="tk" id="tk2" data-layout-allow-overlap><svg viewBox="0 0 30 30"><path d="M7 15 L13 21 L23 9" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="txt">Pay light bill</div><div class="lbl">11 AM</div><div class="flag" id="s6-f2"><svg viewBox="0 0 30 30"><path d="M8 4 V27" stroke="#1E1A16" stroke-width="3.5" stroke-linecap="round"></path><path d="M9 5 H24 L20 11 L24 17 H9 Z" fill="#1E1A16"></path></svg></div></div>
+    <div class="dr" id="d6-3"><div class="cb"></div><div class="tk" id="tk3" data-layout-allow-overlap><svg viewBox="0 0 30 30"><path d="M7 15 L13 21 L23 9" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="txt">Mom's ticket</div><div class="lbl">6 PM</div></div>
+    <div class="dr" id="d6-4"><div class="cb"></div><div class="tk" id="tk4" data-layout-allow-overlap><svg viewBox="0 0 30 30"><path d="M7 15 L13 21 L23 9" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="txt">Buy milk</div><div class="lbl">8 PM</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Noise drops <span class="it">words.</span></span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-head">METRO NOISE</div>
+    <div class="wv" id="s7-nz"><i style="height:20px"></i><i style="height:40px"></i><i style="height:28px"></i><i style="height:48px"></i><i style="height:18px"></i><i style="height:36px"></i><i style="height:44px"></i><i style="height:24px"></i><i style="height:50px"></i><i style="height:30px"></i><i style="height:42px"></i><i style="height:22px"></i><i style="height:38px"></i><i style="height:46px"></i><i style="height:26px"></i><i style="height:34px"></i></div>
+    <div id="heard"><div class="txt">Send</div><div id="gap">?</div><div class="txt">the report</div></div>
+    <div class="ck" id="s7-c1"><div class="txt">Names</div><div class="chip blue" id="s7-h1">CHECK</div></div>
+    <div class="ck" id="s7-c2"><div class="txt">Dates</div><div class="chip blue" id="s7-h2">CHECK</div></div>
+    <div class="lbl" id="s7-note">READ IT BEFORE YOU ACT</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Send</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2C4BD6"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1D3399"></path></svg>
+  <div id="who">to the colleague who always says remind me</div>
+  <div id="key">
+    <div class="lbl" id="key-l">COMMENT</div>
+    <div id="kw"><div id="kw1">T</div><div id="kw2">O</div><div id="kw3">D</div><div id="kw4">O</div></div>
+    <div id="free">FREE PROMPT</div>
+    <svg id="bm" viewBox="0 0 44 64"><path d="M4 4 H40 V60 L22 46 L4 60 Z" fill="#F3EEE5"></path></svg>
+    <div class="lbl" id="bm-l">SAVE IT</div>
+  </div>
+</section>

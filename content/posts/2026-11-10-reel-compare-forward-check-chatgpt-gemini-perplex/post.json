@@ -1,0 +1,123 @@
+{
+  "id": "2026-11-10-reel-compare-forward-check-chatgpt-gemini-perplex",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "compare",
+  "keyword": "FORWARD",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(rule|EXAMPLE|newspaper|source|tick|real|wrong|Send|FORWARD)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4ACB"
+  },
+  "lines": [
+    {
+      "say": "Three AI apps, side by side. I gave them one fake UPI forward. One rule.",
+      "show": "ChatGPT vs Gemini vs Perplexity. 1 forward. 1 rule.",
+      "card": "CHATGPT vs GEMINI vs PERPLEXITY",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Say a homemaker gets this: UPI will charge a fee on every payment.",
+      "show": "Forward: 'UPI will charge 2%' (EXAMPLE)",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "You ask three people next door. You'd trust the one with the newspaper, right?",
+      "show": "Trust the neighbour with the newspaper.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "All three got the same forward. My one rule: show me a source I can open.",
+      "show": "Same forward. Rule: a source I can open.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "In our test, a tick means the link actually opens.",
+      "show": "In our test: tick = link opens.",
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Go with the top one. Tap its link and you're on the real source.",
+      "show": "Pick #1. Its link opens the real source.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch. Sources can be wrong too, so check the site.",
+      "show": "Catch: sources can be wrong too.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the relative who forwards first. Comment FORWARD and I'll send the prompt.",
+      "show": "Send this. Comment FORWARD for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "ding"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line4.end-0.2",
+    "title": [
+      "WHICH AI CATCHES",
+      "A FAKE FORWARD?"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,212 @@
+<style>
+  /* compare: one idea (ask the AI that shows a source you can open), one analogy (the neighbour with the newspaper).
+     colour = meaning: blue = the rule / a source, green = it opened, red = the fake, amber = not sure / check it.
+     HONESTY HOLD: the order of #rk1..#rk3 (which app is #1, which chips are tick vs ?) is an EXAMPLE placeholder.
+     It must match Prashant's real, screenshotted test before this renders. Swap the .nm names to reorder. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D4 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(43,74,203,0.07) 0%, rgba(43,74,203,0) 70%); }
+  #orb2 { left: 520px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.12), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .card.l { left: 60px; right: 360px; }
+  .card.w { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: rgba(30,26,22,0.5); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+  .grn { background: #17804A; } .red { background: #C23B3B; } .amb { background: #F2C14E; color: #1E1A16; } .blu { background: var(--accent); }
+
+  /* 0: hook (host centre, everything above frame y 560) */
+  #s0-step { top: 70px; font-size: 32px; letter-spacing: 0.08em; }
+  #s0-title { top: 120px; font-size: 124px; line-height: 1.0; transform-origin: left center; }
+  #s0-ul { position: absolute; left: 180px; top: 372px; width: 300px; height: 34px; }
+
+  /* 1: the forward */
+  #s1-card { top: 470px; height: 600px; }
+  #s1-head { position: absolute; left: 36px; top: 32px; height: 80px; display: flex; align-items: center; }
+  #s1-av { display: block; width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #E9C9A8, #C8955F); }
+  #s1-grp { margin-left: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); }
+  #s1-fwd { position: absolute; left: 36px; top: 140px; height: 44px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 30px; color: rgba(30,26,22,0.6); white-space: nowrap; }
+  #s1-fwd svg { width: 44px; height: 30px; margin-right: 12px; }
+  #s1-bub { position: absolute; left: 36px; right: 36px; top: 200px; height: 290px; box-sizing: border-box; padding: 28px 30px; border-radius: 26px; background: #DFF3D2; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.35; color: var(--ink); transform-origin: left bottom; }
+  #s1-bub b { color: #C23B3B; font-weight: 900; }
+  #s1-note { left: 40px; top: 528px; }
+  #s1-tag { position: absolute; left: 520px; top: 420px; width: 210px; height: 96px; box-sizing: border-box; border: 8px solid #C23B3B; border-radius: 16px; background: rgba(255,255,255,0.92); color: #C23B3B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+
+  /* 2: the neighbours */
+  #s2-card { top: 470px; height: 610px; }
+  .nb { position: absolute; left: 30px; right: 30px; height: 150px; border-radius: 26px; background: #F6F3EE; }
+  .nb .ic { position: absolute; left: 22px; top: 40px; width: 70px; height: 70px; }
+  .nb .t { position: absolute; left: 112px; right: 180px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .nb .chip { right: 22px; top: 45px; width: 140px; }
+  #n1 { top: 36px; } #n2 { top: 206px; } #n3 { top: 376px; background: #EEF1FF; }
+  #n3-ring { position: absolute; left: 0; top: 0; right: 0; bottom: 0; box-sizing: border-box; border: 5px solid var(--accent); border-radius: 26px; }
+  #s2-note { left: 40px; top: 552px; }
+
+  /* 3: same forward, one rule (host hidden, full width) */
+  #s3-fw { position: absolute; left: 290px; width: 500px; top: 440px; height: 96px; border-radius: 48px; background: #DFF3D2; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s3-lines { position: absolute; left: 0; top: 536px; width: 1080px; height: 104px; }
+  .app { position: absolute; top: 640px; width: 270px; height: 330px; border-radius: 30px; background: #FFFFFF; box-shadow: 0 24px 60px rgba(60,40,20,0.12); }
+  #ap1 { left: 105px; } #ap2 { left: 405px; } #ap3 { left: 705px; }
+  .app .lg { position: absolute; left: 87px; top: 34px; width: 96px; height: 96px; border-radius: 50%; background: #3B342D; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; display: flex; align-items: center; justify-content: center; }
+  .app .nm { position: absolute; left: 10px; right: 10px; top: 150px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .app .mb { position: absolute; left: 24px; right: 24px; top: 220px; height: 76px; border-radius: 22px; background: #DFF3D2; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  #s3-rule { position: absolute; left: 105px; right: 105px; top: 1010px; height: 130px; border-radius: 65px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s3-rule svg { width: 56px; height: 56px; margin-right: 20px; }
+  #s3-rule b { color: #9FB0FF; font-weight: 900; margin: 0 12px; }
+
+  /* 4: the scorecard (host hidden, full width) */
+  #s4-card { top: 440px; height: 680px; }
+  #s4-leg { position: absolute; left: 36px; top: 30px; height: 64px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s4-leg i { display: block; width: 72px; height: 52px; border-radius: 26px; background: #17804A; margin-right: 16px; }
+  #s4-leg svg { width: 72px; height: 52px; }
+  #s4-note { right: 36px; top: 48px; color: var(--accent); }
+  .rk { position: absolute; left: 30px; right: 30px; height: 160px; border-radius: 28px; background: #F6F3EE; }
+  #rk1 { top: 120px; background: #EEF1FF; } #rk2 { top: 300px; } #rk3 { top: 480px; }
+  .rk .n { position: absolute; left: 28px; top: 0; bottom: 0; width: 90px; display: flex; align-items: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 52px; color: var(--ink); }
+  .rk .nm { position: absolute; left: 128px; top: 0; bottom: 0; width: 270px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .rk .lk { position: absolute; left: 420px; top: 50px; width: 170px; height: 60px; border-radius: 30px; background: #E9E4DB; color: rgba(30,26,22,0.7); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  .rk .lk svg { width: 30px; height: 30px; margin-right: 10px; }
+  .rk .chip { right: 28px; top: 40px; width: 190px; height: 80px; border-radius: 40px; font-size: 30px; }
+  .rk .chip svg { width: 40px; height: 40px; margin-right: 8px; }
+  #c2, #c3 { font-size: 44px; }
+  #rk1-ring { position: absolute; left: 0; top: 0; right: 0; bottom: 0; box-sizing: border-box; border: 5px solid var(--accent); border-radius: 28px; }
+
+  /* 5: the payoff: tap the link, the real source opens */
+  #s5-ans { top: 450px; height: 230px; }
+  #s5-head { left: 36px; top: 28px; color: var(--accent); }
+  #s5-ex { right: 36px; top: 28px; }
+  #s5-txt { position: absolute; left: 36px; right: 36px; top: 72px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s5-cite { position: absolute; left: 36px; top: 142px; height: 62px; padding: 0 26px; border-radius: 31px; background: #EEF1FF; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; display: flex; align-items: center; white-space: nowrap; }
+  #s5-cite svg { width: 30px; height: 30px; margin-right: 10px; }
+  #s5-tap { position: absolute; left: 245px; top: 568px; width: 110px; height: 110px; box-sizing: border-box; border-radius: 50%; border: 6px solid var(--accent); }
+  #s5-page { top: 710px; height: 390px; }
+  #s5-url { position: absolute; left: 24px; right: 24px; top: 24px; height: 72px; border-radius: 36px; background: #F2F1EE; display: flex; align-items: center; padding-left: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: rgba(30,26,22,0.6); white-space: nowrap; }
+  #s5-url svg { width: 30px; height: 34px; margin-right: 14px; }
+  #s5-h { position: absolute; left: 40px; top: 120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 48px; color: var(--ink); white-space: nowrap; }
+  .pb { position: absolute; left: 40px; height: 18px; border-radius: 9px; background: #E6E1D8; transform-origin: left center; }
+  #pb1 { top: 200px; width: 540px; } #pb2 { top: 236px; width: 480px; } #pb3 { top: 272px; width: 320px; }
+  #s5-ok { right: 30px; bottom: 30px; width: 250px; height: 64px; font-size: 28px; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 500px; }
+  .ck { position: absolute; left: 30px; right: 30px; height: 128px; border-radius: 26px; background: #F6F3EE; }
+  .ck .t { position: absolute; left: 30px; right: 190px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .ck .chip { right: 24px; top: 34px; width: 150px; }
+  #k1 { top: 36px; } #k2 { top: 186px; } #k3 { top: 336px; }
+  #s6-stamp { position: absolute; left: 360px; top: 400px; width: 360px; height: 100px; box-sizing: border-box; border: 8px solid #C23B3B; border-radius: 16px; background: rgba(255,255,255,0.92); color: #C23B3B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 7: send + keyword (host right) */
+  #s7-send { position: absolute; left: 90px; right: 380px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 140px; line-height: 1.0; color: var(--ink); }
+  #s7-arrow { position: absolute; left: 470px; top: 150px; width: 200px; height: 170px; }
+  #s7-who { position: absolute; left: 90px; right: 380px; top: 480px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: rgba(30,26,22,0.62); }
+  #s7-pill { position: absolute; left: 90px; right: 380px; top: 650px; height: 150px; border-radius: 75px; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+  #s7-c { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; margin-right: 16px; white-space: nowrap; }
+  #s7-kw { display: flex; }
+  #s7-kw .k { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 56px; color: #9FB0FF; }
+  #s7-free { position: absolute; left: 90px; top: 840px; height: 70px; padding: 0 28px; border-radius: 35px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; display: flex; align-items: center; white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">CHATGPT vs GEMINI vs PERPLEXITY</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">3 AI apps.</span></span><span class="mask"><span class="l">1 <span class="it">rule.</span></span></span></div>
+  <svg id="s0-ul" viewBox="0 0 300 34" data-layout-allow-overlap><path id="s0-ul-p" d="M4 20 Q 40 4 76 20 T 148 20 T 220 20 T 296 20" fill="none" stroke="#2B4ACB" stroke-width="8" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">STEP 1 · THE FORWARD</div>
+  <div class="title"><span class="mask"><span class="l">One fake</span></span><span class="mask"><span class="l it">forward.</span></span></div>
+  <div class="card l" id="s1-card">
+    <div id="s1-head"><i id="s1-av"></i><div id="s1-grp">Family group</div></div>
+    <div id="s1-fwd"><svg viewBox="0 0 44 30"><path d="M4 26 C6 14 12 9 22 9 L22 2 L32 13 L22 24 L22 17 C14 17 9 20 4 26 Z" fill="rgba(30,26,22,0.45)"></path><path d="M26 2 L40 13 L26 24" fill="none" stroke="rgba(30,26,22,0.45)" stroke-width="3" stroke-linejoin="round"></path></svg><span>Forwarded many times</span></div>
+    <div id="s1-bub">From next month, UPI will charge <b>2%</b> on every payment. Share now!</div>
+    <div class="lbl" id="s1-note">EXAMPLE FORWARD</div>
+  </div>
+  <div id="s1-tag" data-layout-allow-overlap>FAKE?</div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 2 · NEXT DOOR</div>
+  <div class="title"><span class="mask"><span class="l">Ask next</span></span><span class="mask"><span class="l it">door.</span></span></div>
+  <div class="card l" id="s2-card">
+    <div class="nb" id="n1"><svg class="ic" viewBox="0 0 70 70"><circle cx="35" cy="22" r="14" fill="#9A8E80"></circle><path d="M10 66 C10 46 22 38 35 38 C48 38 60 46 60 66 Z" fill="#9A8E80"></path></svg><div class="t">Heard it too.</div><div class="chip amb" id="nc1">HEARD</div></div>
+    <div class="nb" id="n2"><svg class="ic" viewBox="0 0 70 70"><circle cx="35" cy="22" r="14" fill="#9A8E80"></circle><path d="M10 66 C10 46 22 38 35 38 C48 38 60 46 60 66 Z" fill="#9A8E80"></path></svg><div class="t">Sounds right.</div><div class="chip amb" id="nc2">GUESS</div></div>
+    <div class="nb" id="n3"><svg class="ic" viewBox="0 0 70 70"><rect x="6" y="12" width="58" height="46" rx="6" fill="#FFFFFF" stroke="#2B4ACB" stroke-width="4"></rect><rect x="14" y="20" width="20" height="16" fill="#2B4ACB"></rect><path d="M40 22 H56 M40 30 H56 M14 44 H56 M14 51 H46" stroke="#1E1A16" stroke-width="3" stroke-linecap="round"></path></svg><div class="t">See the paper.</div><div class="chip grn" id="nc3">PROOF</div><i id="n3-ring" data-layout-allow-overlap></i></div>
+    <div class="lbl" id="s2-note">WHO WOULD YOU TRUST?</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 3 · THE RULE</div>
+  <div class="title"><span class="mask"><span class="l">Show me a</span></span><span class="mask"><span class="l it">source.</span></span></div>
+  <div id="s3-fw">Same forward, all 3</div>
+  <svg id="s3-lines" viewBox="0 0 1080 104"><path d="M540 0 L240 104" fill="none" stroke="rgba(30,26,22,0.35)" stroke-width="5" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="340"></path><path d="M540 0 L540 104" fill="none" stroke="rgba(30,26,22,0.35)" stroke-width="5" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="340"></path><path d="M540 0 L840 104" fill="none" stroke="rgba(30,26,22,0.35)" stroke-width="5" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="340"></path></svg>
+  <div class="app" id="ap1"><div class="lg">C</div><div class="nm">ChatGPT</div><div class="mb" id="mb1">2% fee?</div></div>
+  <div class="app" id="ap2"><div class="lg">G</div><div class="nm">Gemini</div><div class="mb" id="mb2">2% fee?</div></div>
+  <div class="app" id="ap3"><div class="lg">P</div><div class="nm">Perplexity</div><div class="mb" id="mb3">2% fee?</div></div>
+  <div id="s3-rule"><svg viewBox="0 0 56 56"><path d="M24 32 L32 24" stroke="#9FB0FF" stroke-width="5" stroke-linecap="round"></path><path d="M22 20 L28 14 A9 9 0 0 1 42 28 L36 34" fill="none" stroke="#9FB0FF" stroke-width="5" stroke-linecap="round"></path><path d="M34 36 L28 42 A9 9 0 0 1 14 28 L20 22" fill="none" stroke="#9FB0FF" stroke-width="5" stroke-linecap="round"></path></svg>Rule: a <b>source</b> I can open</div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 4 · THE TEST</div>
+  <div class="title"><span class="mask"><span class="l">Does it</span></span><span class="mask"><span class="l it">open?</span></span></div>
+  <div class="card w" id="s4-card">
+    <div id="s4-leg"><i><svg viewBox="0 0 72 52"><path id="leg-tk" d="M22 27 L32 37 L50 16" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="50" stroke-dashoffset="50"></path></svg></i>= the link opens</div>
+    <div class="lbl" id="s4-note">EXAMPLE RESULT</div>
+    <div class="rk" id="rk1"><div class="n">#1</div><div class="nm">Perplexity</div><div class="lk" id="lk1"><svg viewBox="0 0 30 30"><path d="M11 19 L19 11 M10 14 L7 17 A5 5 0 0 0 13 23 L16 20 M20 16 L23 13 A5 5 0 0 0 17 7 L14 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>link</div><div class="chip grn" id="c1"><svg viewBox="0 0 40 40"><path id="c1-tk" d="M8 21 L17 30 L33 11" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="44" stroke-dashoffset="44"></path></svg>OPENS</div><i id="rk1-ring" data-layout-allow-overlap></i></div>
+    <div class="rk" id="rk2"><div class="n">#2</div><div class="nm">ChatGPT</div><div class="lk"><svg viewBox="0 0 30 30"><path d="M11 19 L19 11 M10 14 L7 17 A5 5 0 0 0 13 23 L16 20 M20 16 L23 13 A5 5 0 0 0 17 7 L14 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>link</div><div class="chip amb" id="c2">?</div></div>
+    <div class="rk" id="rk3"><div class="n">#3</div><div class="nm">Gemini</div><div class="lk"><svg viewBox="0 0 30 30"><path d="M11 19 L19 11 M10 14 L7 17 A5 5 0 0 0 13 23 L16 20 M20 16 L23 13 A5 5 0 0 0 17 7 L14 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>link</div><div class="chip amb" id="c3">?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">STEP 5 · TAP IT</div>
+  <div class="title"><span class="mask"><span class="l">Tap the</span></span><span class="mask"><span class="l it">link.</span></span></div>
+  <div class="card l" id="s5-ans">
+    <div class="lbl" id="s5-head">#1 ANSWER</div>
+    <div class="lbl" id="s5-ex">EXAMPLE</div>
+    <div id="s5-txt">No sign of a new 2% fee.</div>
+    <div id="s5-cite"><svg viewBox="0 0 30 30"><path d="M11 19 L19 11 M10 14 L7 17 A5 5 0 0 0 13 23 L16 20 M20 16 L23 13 A5 5 0 0 0 17 7 L14 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>[1] Official notice</div>
+  </div>
+  <div id="s5-tap" data-layout-allow-overlap></div>
+  <div class="card l" id="s5-page">
+    <div id="s5-url"><svg viewBox="0 0 30 34"><rect x="4" y="14" width="22" height="18" rx="4" fill="#17804A"></rect><path d="M9 14 V10 A6 6 0 0 1 21 10 V14" fill="none" stroke="#17804A" stroke-width="3.5"></path></svg>official site</div>
+    <div id="s5-h">Official notice</div>
+    <i class="pb" id="pb1"></i><i class="pb" id="pb2"></i><i class="pb" id="pb3"></i>
+    <div class="chip grn" id="s5-ok">REAL SOURCE</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Sources can be</span></span><span class="mask"><span class="l it">wrong.</span></span></div>
+  <div class="card l" id="s6-card">
+    <div class="ck" id="k1"><div class="t">Official site?</div><div class="chip amb" id="h1">CHECK</div></div>
+    <div class="ck" id="k2"><div class="t">Recent date?</div><div class="chip amb" id="h2">CHECK</div></div>
+    <div class="ck" id="k3"><div class="t">Says the same?</div><div class="chip amb" id="h3">CHECK</div></div>
+  </div>
+  <div id="s6-stamp" data-layout-allow-overlap>CAN BE WRONG</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-send"><span class="mask"><span class="l">Send</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <svg id="s7-arrow" viewBox="0 0 200 170" data-layout-allow-overlap><path d="M112 18 L192 84 L112 150 L112 110 C62 110 32 128 10 160 C18 98 52 60 112 56 Z" fill="#2B4ACB"></path></svg>
+  <div id="s7-who">to the relative who forwards first</div>
+  <div id="s7-pill"><div id="s7-c">Comment</div><div id="s7-kw"><div class="k">F</div><div class="k">O</div><div class="k">R</div><div class="k">W</div><div class="k">A</div><div class="k">R</div><div class="k">D</div></div></div>
+  <div id="s7-free">FREE · PASTE ANY FORWARD</div>
+</section>

@@ -1,0 +1,139 @@
+{
+  "id": "2026-11-10-reel-tutorial-voice-note-to-todo-list",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "hook_id": "#10",
+  "keyword": "TODO",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(voice|note|3|three|chit|1|2|TODO|amber|urgent|ticked|catch|names|dates|Send)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2C4BD6"
+  },
+  "lines": [
+    {
+      "say": "If tomorrow's jobs are stuck in a voice note you'll never replay, three steps fix it.",
+      "show": "Voice note you never replay? 3 steps fix it.",
+      "card": "VOICE NOTE YOU NEVER REPLAY?",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Metro home, you rant for two minutes. You don't replay it.",
+      "show": "Metro home. 2-minute rant. Never replayed.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Think of a friend who hears it all and hands you a short list.",
+      "show": "A friend who hands back a chit.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Step one: say it, or upload the voice note you've got.",
+      "show": "Step 1: speak or upload it.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two: paste in my list prompt.",
+      "show": "Step 2: paste the TODO prompt.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Step three: it's sorted by time, and urgent jobs are in amber.",
+      "show": "Step 3: by time, urgent in amber.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now your whole rant fits on one short, ticked list.",
+      "show": "The whole rant, one ticked chit.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: noise can drop words, so check names and dates.",
+      "show": "The catch: check names and dates.",
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the colleague who's always saying remind me. Comment TODO for the prompt.",
+      "show": "Send it. Comment TODO for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.9",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.0",
+    "title": [
+      "VOICE NOTE TO",
+      "TO-DO IN 3 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

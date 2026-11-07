@@ -1,0 +1,71 @@
+{
+  "week": "2026-W46",
+  "start": "2026-11-09",
+  "research": "I found 9 updates from the last 14 days (24 Oct to 7 Nov). The best confirmed ones are from Google and OpenAI. I found nothing new for CapCut or for the AI built into phones, and no new study on AI mistakes from this window.\n\n**New tools and features**\n\n1. **Gemini can now edit files inside the chat.** You can create and edit documents, PDFs, slides and spreadsheets without leaving Gemini. Google says it's for all users in every language Gemini supports. PDFs work on phone and web; other file types are web only. *Why a beginner cares:* making and fixing a resume or a shop price list in one chat, for free, on a phone. [Google blog](https://blog.google/innovation-and-ai/products/gemini-app/edit-files-directly/)\n\n2. **Gemini's \"immersive explorations\" work in Hindi.** These are interactive visual explainers, free for all users in English, Hindi and a few other languages. For now you open them from Gemini's student hub; Google says they'll come into normal chats soon. *Why:* a student can learn any topic in Hindi with pictures. This fits this week's test for a phone-first, Indian-language tool reel (the follow-up to BOLO). [Google blog](https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/)\n\n3. **Gemini \"Gems\" become \"Skills\" on 17 Nov.** On personal accounts, Gems become read-only that day and Google moves them over to Skills on its own. Some files inside Gems won't move over, so download them before 17 Dec. *Why:* anyone who saved a custom Gem will wonder where it went. This also has a real date, so it's one of the few things hook #19 (The Deadline) can be used for. [Google help page](https://support.google.com/gemini/answer/18560919?hl=en)\n\n4. **ChatGPT Images 2.6 can make GIFs (4 Nov).** You can ask for a looping animation, or upload a sketch and have the character wave. You can also save a photo and reuse it in later chats. I couldn't confirm whether GIFs work on the free plan. *Why:* making WhatsApp stickers and greetings from a doodle. [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) · [System card](https://deploymentsafety.openai.com/chatgpt-images-2-6)\n\n5. **ChatGPT locked chats (PIN-protected).** You can hide chosen chats from your history and search behind a 4-digit PIN or your phone's lock. It's for Free, Go, Plus and Pro. **Catch:** if you reset the PIN, all locked chats are deleted for good. *Why:* privacy on a phone the family shares. One source dates it 20 Oct, which is just outside the 14 days. [OpenAI help page](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n\n6. **Canva Craft, Canva's own image maker (22 Oct, just outside the window).** It's in Dream Lab for all users. It can write text inside images in 55 languages, and each image uses more of your monthly AI allowance than simpler tools. *Why:* posters with Hindi or Tamil text inside the image. [Canva newsroom](https://www.canva.com/newsroom/news/canva-craft/)\n\n**Things beginners would wonder about**\n\n7. **Claude Personal Finance (5 Nov).** You link your bank accounts and Claude can read balances and spending, but can't move money. It's **US only and paid plans only**. *Why:* people in India will see the headlines and ask whether they can use it. The honest answer is not yet, and it's also a good way into \"should you give AI access to your bank?\" [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes) · [9to5Mac](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n\n8. **NotebookLM added free textbooks (29 Oct).** You add them from the \"Add sources\" menu, and they cover subjects in the US and India. The date and details come from blogs; Google's own page only shows a headline. *Why:* free study material for students, ready to quiz yourself on. [Glasp guide](https://glasp.co/articles/notebooklm-2026) · [Google education post (headline only)](https://blog.google/products-and-platforms/products/education/google-ai-educator-series-global-expansion-november-2026/)\n\n**Scams**\n\n9. **AI fraud warnings in India.** The government's cybercrime centre (I4C) warned banks and fintech companies about AI-driven attacks (early Nov). That warning is aimed at banks, not ordinary users. A 6 Nov report on deepfake bank fraud against consumers says to report to the **1930 helpline**, but I couldn't find that advisory on any government site. Voice cloning from 3 to 4 seconds of speech is an industry claim, not an official number. SAFE is resting this week, so keep this for later. [Free Press Journal](https://www.freepressjournal.in/tech/i4c-cert-in-warn-banks-and-fintech-firms-of-ai-driven-cyberattacks-flag-risk-of-multi-crore-financial-fraud) · [Careerindia](https://www.careerindia.com/features/ai-deepfake-bank-fraud-safety-guide-for-indian-students-2026-011-68211.html)\n\n**What I couldn't find or confirm:**\n- **WhatsApp:** separate Meta AI chats have only been spotted in a test (beta) version. Don't present it as live. [Sammy Fans](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n- **Phones and CapCut:** no India or Hindi launches in this window.\n- **Studies on AI mistakes:** the newest is about 51 days old.\n\nSources:\n- [Google: edit files in Gemini](https://blog.google/innovation-and-ai/products/gemini-app/edit-files-directly/)\n- [Google: immersive explorations](https://blog.google/innovation-and-ai/products/gemini-app/immersive-explorations-student-hub/)\n- [Google help: Gems to Skills](https://support.google.com/gemini/answer/18560919?hl=en)\n- [OpenAI ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [OpenAI: Images 2.6 system card](https://deploymentsafety.openai.com/chatgpt-images-2-6)\n- [OpenAI help: locked chats](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n- [Canva: Introducing Canva Craft](https://www.canva.com/newsroom/news/canva-craft/)\n- [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes)\n- [9to5Mac: Claude Personal Finance](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n- [Glasp: NotebookLM 2026](https://glasp.co/articles/notebooklm-2026)\n- [Google education post](https://blog.google/products-and-platforms/products/education/google-ai-educator-series-global-expansion-november-2026/)\n- [Free Press Journal: I4C/CERT-In warning](https://www.freepressjournal.in/tech/i4c-cert-in-warn-banks-and-fintech-firms-of-ai-driven-cyberattacks-flag-risk-of-multi-crore-financial-fraud)\n- [Careerindia: deepfake bank fraud](https://www.careerindia.com/features/ai-deepfake-bank-fraud-safety-guide-for-indian-students-2026-011-68211.html)\n- [Sammy Fans: WhatsApp Meta AI chats](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)",
+  "slots": [
+    {
+      "day": "2026-11-10",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-10-reel-pair1-b-money-list-general-opener",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 84.4
+      },
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "Experiment pair 1, arm B (carry-over money list): the same 4 real ways to earn with AI as pair 1 A, opened for everyone instead of 'homemakers at home'",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-10",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-10-reel-compare-forward-check-chatgpt-gemini-perplex",
+      "style": "motion",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 62.6
+      },
+      "keyword": "FORWARD",
+      "pillar": "Which one wins",
+      "topic": "ChatGPT vs Gemini vs Perplexity: which one catches a fake WhatsApp forward, judged on one forward",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-10",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-10-reel-tutorial-voice-note-to-todo-list",
+      "style": "motion",
+      "hook": {
+        "id": 10,
+        "name": "If This, Then Watch",
+        "score": 56.8
+      },
+      "keyword": "TODO",
+      "pillar": "Do it with AI",
+      "topic": "Turn a rambling voice note into a ticked to-do list with times, in 3 steps",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-11",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-11-reel-tool-gemini-immersive-explorations-hindi",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 83
+      },
+      "keyword": "STUDY",
+      "pillar": "Tools worth knowing",
+      "topic": "Gemini's immersive explorations now work in Hindi: learn any topic as a moving picture, free",
+      "status": "made"
+    }
+  ]
+}

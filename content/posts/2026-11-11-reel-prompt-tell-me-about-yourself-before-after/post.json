@@ -1,0 +1,133 @@
+{
+  "id": "2026-11-11-reel-prompt-tell-me-about-yourself-before-after",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "INTRO",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|three|facts|order|bag|Now|now|Proof|proof|job|30|30-second|real|words|INTRO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B59C3"
+  },
+  "lines": [
+    {
+      "say": "You don't need to learn an answer by heart. You need three facts, in order.",
+      "show": "No memorised answer. Just 3 facts, in order.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Between jobs, night before, you type: tell me about yourself.",
+      "show": "Between jobs, night before: tell me about yourself.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Basic prompt: hardworking, passionate, team player.",
+      "show": "Plain prompt: hardworking, passionate, team player.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "That's packing for a trip by throwing everything in.",
+      "show": "Like throwing everything in the bag.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "The prompt packs three, in order: now, proof, why this job.",
+      "show": "Now. Proof. Why this job.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Add your real facts. Out comes a half-minute answer that's you.",
+      "show": "Your facts in. A 30-second answer that's you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: give it real facts, then say it in your own words.",
+      "show": "The catch: real facts, then your own words.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend with an interview this week. Comment INTRO for the prompt.",
+      "show": "Send this. Comment INTRO for the prompt.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+2.0",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+2.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+2.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.2",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line5.end-0.2",
+    "title": [
+      "TELL ME ABOUT YOURSELF",
+      "IN 30 SECONDS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

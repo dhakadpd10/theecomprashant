@@ -1,0 +1,164 @@
+{
+  "id": "2026-11-10-reel-pair1-b-money-list-general-opener",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "SITES",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(4|four|real|3|three|nobody|Fiverr|Internshala|Outlier|shop|dollars|catch|Send|SITES)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1F6F4A"
+  },
+  "lines": [
+    {
+      "say": "Four real ways AI pays you. Number three nobody uses.",
+      "show": "4 real ways AI pays you. #3 nobody uses.",
+      "card": "4 WAYS #3 IS THE ONE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Use AI daily? Make it pay.",
+      "show": "Use AI daily? Make it pay.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "One: Fiver. Sell AI captions or cover pictures, paid in dollars.",
+      "show": "1. Fiverr: AI gigs, paid in dollars.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: Internshala, for AI internships.",
+      "show": "2. Internshala: AI internships.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three, the one nobody uses: the shop near your house.",
+      "show": "3. The shop near your house.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Make one AI video for their shop, then ask their price.",
+      "show": "One AI reel for their shop. Ask their price.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Four: Outlier. It pays you to check AI answers.",
+      "show": "4. Outlier: pays to check AI answers.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: pay varies, and sites don't accept everyone.",
+      "show": "The catch: pay varies. Not everyone gets in.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who scrolls all day. Comment SITES.",
+      "show": "Send this. Comment SITES for the list.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.2",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "4 WAYS AI PAYS YOU",
+      "#3 IS THE ONE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "arm": "B",
+    "pair": 1,
+    "hook_id": "#3",
+    "kind": "money-list (carry-over)",
+    "planned_kind": "tool",
+    "style": "editorial-host",
+    "format": "reel",
+    "keyword": "SITES",
+    "free_tool": "Websites That Pay for AI Work",
+    "money_angle": "yes",
+    "slot_ist": "2026-11-10 09:00 IST",
+    "slot_utc": "2026-11-10 03:30 UTC",
+    "judge_at_utc": "2026-11-13 03:30 UTC",
+    "confound": "6-day gap between arms: A posted 4 Nov 03:31 UTC, B posts 10 Nov 03:30 UTC. Note it beside the verdict. If the result turns on pair 1 alone, call the experiment inconclusive and run a pair 4.",
+    "precondition": "Before posting, confirm in the app that pair 1 B did not go out on 5 Nov. If it is live from 5 Nov, do not post this. Log the live reel as arm B, pair 1, and judge pair 1 on 8 Nov 03:30 UTC. Fill this slot with a tool reel from docs/EXPLAINER.md's bank on hook #11. It must not be a compare, must not use SITES and must not use #3.",
+    "blockers": [
+      "MATCH TO PAIR 1 A BEFORE RENDER. The pair 1 A post.json was not in my context, so lines 1 to 8 are a best guess using real platforms. They are not a copy of A. Replace them word for word with A's lines 1 onward: same 4 ways, same order, same favourite, list card, catch, send line and end card. Only line 0 and its first card may differ. Otherwise the pair is not like-for-like and cannot be judged.",
+      "Confirm all 4 ways are in docs/MONEY.md, including whether each one accepts India. Outlier's availability in India is not checked. No pay rates are stated on screen, so none can be wrong.",
+      "Hook id conflict. The hook template labels this opener #11. The pair rules say the hook id must match A, which is #3, and #3 is capped to pair 1 B only. It is logged as #3. Do not count it toward #11's cap of 6.",
+      "Caption: reuse pair 1 A's caption unchanged. It is not included here because it was not in my context. It must start with 'Comment SITES', end with 'Results vary.' and use the same 3 hashtags.",
+      "SITES cap: this and the 8 Nov carousel are the week's only 2 SITES posts. Neither 9 Nov slot can be SITES. The 10 Nov 13:00 reel must not be SITES, #3 or a money list."
+    ]
+  }
+}

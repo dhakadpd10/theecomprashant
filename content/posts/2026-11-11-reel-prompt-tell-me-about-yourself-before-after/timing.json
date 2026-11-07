@@ -1,0 +1,73 @@
+{
+  "dur": 27.42,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.604,
+      "b": 3.704,
+      "say": "You don't need to learn an answer by heart. You need three facts, in order.",
+      "show": "No memorised answer. Just 3 facts, in order."
+    },
+    {
+      "a": 3.704,
+      "voice": 3.804,
+      "end": 6.758,
+      "b": 6.858,
+      "say": "Between jobs, night before, you type: tell me about yourself.",
+      "show": "Between jobs, night before: tell me about yourself."
+    },
+    {
+      "a": 6.858,
+      "voice": 6.958,
+      "end": 9.478,
+      "b": 9.578,
+      "say": "Basic prompt: hardworking, passionate, team player.",
+      "show": "Plain prompt: hardworking, passionate, team player."
+    },
+    {
+      "a": 9.578,
+      "voice": 9.678,
+      "end": 12.099,
+      "b": 12.199,
+      "say": "That's packing for a trip by throwing everything in.",
+      "show": "Like throwing everything in the bag."
+    },
+    {
+      "a": 12.199,
+      "voice": 12.299,
+      "end": 15.298,
+      "b": 15.398,
+      "say": "The prompt packs three, in order: now, proof, why this job.",
+      "show": "Now. Proof. Why this job."
+    },
+    {
+      "a": 15.398,
+      "voice": 15.498,
+      "end": 18.628,
+      "b": 18.728,
+      "say": "Add your real facts. Out comes a half-minute answer that's you.",
+      "show": "Your facts in. A 30-second answer that's you."
+    },
+    {
+      "a": 18.728,
+      "voice": 18.828,
+      "end": 21.586,
+      "b": 21.686,
+      "say": "The catch: give it real facts, then say it in your own words.",
+      "show": "The catch: real facts, then your own words."
+    },
+    {
+      "a": 21.686,
+      "voice": 21.786,
+      "end": 26.019,
+      "b": 27.42,
+      "say": "Send this to the friend with an interview this week. Comment INTRO for the prompt.",
+      "show": "Send this. Comment INTRO for the prompt."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "dur": 28.51,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.633,
+      "b": 3.733,
+      "say": "Four real ways AI pays you. Number three nobody uses.",
+      "show": "4 real ways AI pays you. #3 nobody uses."
+    },
+    {
+      "a": 3.733,
+      "voice": 3.833,
+      "end": 5.383,
+      "b": 5.483,
+      "say": "Use AI daily? Make it pay.",
+      "show": "Use AI daily? Make it pay."
+    },
+    {
+      "a": 5.483,
+      "voice": 5.583,
+      "end": 9.558,
+      "b": 9.658,
+      "say": "One: Fiver. Sell AI captions or cover pictures, paid in dollars.",
+      "show": "1. Fiverr: AI gigs, paid in dollars."
+    },
+    {
+      "a": 9.658,
+      "voice": 9.758,
+      "end": 11.777,
+      "b": 11.877,
+      "say": "Two: Internshala, for AI internships.",
+      "show": "2. Internshala: AI internships."
+    },
+    {
+      "a": 11.877,
+      "voice": 11.977,
+      "end": 14.667,
+      "b": 14.767,
+      "say": "Three, the one nobody uses: the shop near your house.",
+      "show": "3. The shop near your house."
+    },
+    {
+      "a": 14.767,
+      "voice": 14.867,
+      "end": 17.876,
+      "b": 17.976,
+      "say": "Make one AI video for their shop, then ask their price.",
+      "show": "One AI reel for their shop. Ask their price."
+    },
+    {
+      "a": 17.976,
+      "voice": 18.076,
+      "end": 20.87,
+      "b": 20.97,
+      "say": "Four: Outlier. It pays you to check AI answers.",
+      "show": "4. Outlier: pays to check AI answers."
+    },
+    {
+      "a": 20.97,
+      "voice": 21.07,
+      "end": 23.752,
+      "b": 23.852,
+      "say": "The catch: pay varies, and sites don't accept everyone.",
+      "show": "The catch: pay varies. Not everyone gets in."
+    },
+    {
+      "a": 23.852,
+      "voice": 23.952,
+      "end": 27.107,
+      "b": 28.51,
+      "say": "Send this to the friend who scrolls all day. Comment SITES.",
+      "show": "Send this. Comment SITES for the list."
+    }
+  ]
+}

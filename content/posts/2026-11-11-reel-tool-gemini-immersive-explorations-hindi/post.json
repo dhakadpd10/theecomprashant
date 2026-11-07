@@ -1,0 +1,140 @@
+{
+  "id": "2026-11-11-reel-tool-gemini-immersive-explorations-hindi",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "STUDY",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Hindi|cramming|senior|draws|free|moving|2|wins|clicks|catch|wrong|textbook|Send|STUDY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2D4FC4"
+  },
+  "lines": [
+    {
+      "say": "Three topics you can stop cramming, because Gemini draws them in Hindi.",
+      "show": "3 topics you can stop cramming.",
+      "card": "STOP CRAMMING. #2 WINS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Library. Reading that one chapter, again and again.",
+      "show": "Library. Same English chapter, again.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It's the senior who draws it instead of reading it.",
+      "show": "Like a senior drawing it for you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Immersive explorations: free, in Hindi, as a moving picture.",
+      "show": "Free, in Hindi, as a moving picture.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One, photosynthesis. Three, blood circulation.",
+      "show": "#1 Photosynthesis. #3 Blood circulation.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Two wins: the water cycle, moving. Now it clicks.",
+      "show": "#2 wins: the water cycle. It clicks.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: for now, only from the student hub.",
+      "show": "The catch: student hub only, for now.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "AI pictures can get facts wrong. Check your textbook.",
+      "show": "AI can get facts wrong. Check your textbook.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the roommate who understands better in Hindi. Type STUDY below.",
+      "show": "Send this. Comment STUDY for the tool.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.9",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+0.8",
+    "title": [
+      "3 TOPICS GEMINI",
+      "DRAWS IN HINDI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

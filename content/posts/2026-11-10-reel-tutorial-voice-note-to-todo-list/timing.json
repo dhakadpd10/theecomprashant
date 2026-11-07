@@ -1,0 +1,81 @@
+{
+  "dur": 31.28,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.519,
+      "b": 4.619,
+      "say": "If tomorrow's jobs are stuck in a voice note you'll never replay, three steps fix it.",
+      "show": "Voice note you never replay? 3 steps fix it."
+    },
+    {
+      "a": 4.619,
+      "voice": 4.719,
+      "end": 7.428,
+      "b": 7.528,
+      "say": "Metro home, you rant for two minutes. You don't replay it.",
+      "show": "Metro home. 2-minute rant. Never replayed."
+    },
+    {
+      "a": 7.528,
+      "voice": 7.628,
+      "end": 10.562,
+      "b": 10.662,
+      "say": "Think of a friend who hears it all and hands you a short list.",
+      "show": "A friend who hands back a chit."
+    },
+    {
+      "a": 10.662,
+      "voice": 10.762,
+      "end": 13.249,
+      "b": 13.349,
+      "say": "Step one: say it, or upload the voice note you've got.",
+      "show": "Step 1: speak or upload it."
+    },
+    {
+      "a": 13.349,
+      "voice": 13.449,
+      "end": 15.24,
+      "b": 15.34,
+      "say": "Step two: paste in my list prompt.",
+      "show": "Step 2: paste the TODO prompt."
+    },
+    {
+      "a": 15.34,
+      "voice": 15.44,
+      "end": 18.867,
+      "b": 18.967,
+      "say": "Step three: it's sorted by time, and urgent jobs are in amber.",
+      "show": "Step 3: by time, urgent in amber."
+    },
+    {
+      "a": 18.967,
+      "voice": 19.067,
+      "end": 21.616,
+      "b": 21.716,
+      "say": "Now your whole rant fits on one short, ticked list.",
+      "show": "The whole rant, one ticked chit."
+    },
+    {
+      "a": 21.716,
+      "voice": 21.816,
+      "end": 25.023,
+      "b": 25.123,
+      "say": "Here's the catch: noise can drop words, so check names and dates.",
+      "show": "The catch: check names and dates."
+    },
+    {
+      "a": 25.123,
+      "voice": 25.223,
+      "end": 29.881,
+      "b": 31.28,
+      "say": "Send this to the colleague who's always saying remind me. Comment TODO for the prompt.",
+      "show": "Send it. Comment TODO for the prompt."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+Comment "TODO" and I'll DM you the free Voice Note to To-Do List: your rant, sorted into a list. Follow so the DM lands 📩
+
+👇 READ BELOW for how it works:
+
+1. Metro home, you rant into your phone for 2 minutes about tomorrow's jobs. You never replay it, so half of it is gone by morning.
+
+2. Open your AI app and tap the mic to say it again. Or upload the voice note, if your app takes audio files.
+
+3. Paste in the TODO prompt I DM you.
+
+4. It hands back one short list, sorted by time, with the urgent jobs flagged.
+
+5. Read it once, fix any name or date it got wrong, and tick jobs off as you go.
+
+What you get: one short list for tomorrow, in the order you need it, instead of a voice note you'll never play again.
+
+Why it works: a voice note keeps things in the order you thought of them. The prompt makes the AI act like a friend who heard the whole rant. It pulls out each job, puts a time on it and hands you a short list.
+
+The catch: noise on the metro can drop words, and AI can mishear names and dates. Check those before you trust the list.
+
+It's completely free. Try it on tonight's ride home.
+
+Comment "TODO" for the prompt.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+#aiforbeginners #productivity #todolist

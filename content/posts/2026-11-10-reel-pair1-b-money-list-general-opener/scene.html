@@ -1,0 +1,232 @@
+<style>
+  /* Pair 1 B (general opener). One list card that fills slot by slot. Way 3 (the shop near you) is the favourite.
+     Colour = meaning: green = a real way that pays, amber = check first, red = never. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -240px; top: 220px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(31,111,74,0.08) 0%, rgba(31,111,74,0) 70%); }
+  #orb2 { left: 520px; top: 880px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(200,85,43,0.07) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; white-space: nowrap; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .acc { color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: #6B6259; white-space: nowrap; }
+
+  /* 0: hook (host at centre, everything above y 560 on frame) */
+  #s0-step { top: 50px; }
+  #s0-title { top: 110px; font-size: 116px; line-height: 1.0; transform-origin: 0% 50%; }
+  #s0-badge { position: absolute; left: 800px; top: 96px; width: 150px; height: 150px; border-radius: 50%; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 64px; box-shadow: 0 18px 40px rgba(31,111,74,0.3); }
+
+  /* 1: you use AI daily */
+  #s1-card { top: 470px; height: 520px; }
+  #s1-h { left: 32px; top: 32px; }
+  #s1-ex { right: 32px; top: 32px; }
+  .use { position: absolute; left: 32px; right: 32px; height: 110px; }
+  .use .nm { position: absolute; left: 0; top: 6px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .use .tm { position: absolute; right: 0; top: 6px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: #6B6259; white-space: nowrap; }
+  .use .trk { position: absolute; left: 0; right: 0; top: 72px; height: 16px; border-radius: 8px; background: #EFEAE1; }
+  .use .fl { display: block; position: absolute; left: 0; top: 0; bottom: 0; border-radius: 8px; background: var(--accent); transform-origin: left center; }
+  #s1-u1 { top: 100px; } #s1-u2 { top: 230px; }
+  #s1-f1 { width: 72%; } #s1-f2 { width: 32%; }
+  #s1-u3 { position: absolute; left: 32px; right: 32px; top: 360px; height: 120px; border-radius: 26px; background: #FBEDE6; }
+  #s1-u3 .nm { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s1-zero { position: absolute; right: 28px; top: 26px; height: 68px; width: 120px; display: flex; align-items: center; justify-content: flex-end; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: #A83E1B; }
+
+  /* the list card (s2 and s6) */
+  #s2-card, #s6-card { top: 470px; height: 620px; }
+  .slot { position: absolute; left: 30px; right: 30px; height: 126px; border-radius: 26px; border: 3px dashed rgba(30,26,22,0.22); box-sizing: border-box; }
+  .q1 { top: 30px; } .q2 { top: 172px; } .q3 { top: 314px; } .q4 { top: 456px; }
+  .full, .ghost { position: absolute; left: 0; right: 0; top: 0; bottom: 0; border-radius: 23px; }
+  .full { background: #F6F2EA; }
+  .num { position: absolute; left: 18px; top: 25px; width: 70px; height: 70px; border-radius: 35px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; }
+  .num.off { background: #E9E3D8; color: #5E554C; }
+  .name { position: absolute; left: 108px; right: 24px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.2; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .sub { position: absolute; left: 108px; right: 24px; top: 68px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; color: #5E554C; white-space: nowrap; overflow: hidden; }
+  .ghost .name, .ghost .sub { color: #6B6259; }
+  #s2-f1 .name { right: 100px; }
+  #s2-coin { position: absolute; right: 24px; top: 12px; width: 56px; height: 56px; border-radius: 28px; background: #E8A317; color: var(--ink); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; }
+  .slot.fav { border: 3px solid var(--accent); }
+  .slot.fav .full { background: #E2F0E7; }
+  .slot.fav .sub, .slot.fav .name { right: 90px; }
+  #s6-star { position: absolute; right: 22px; top: 35px; width: 50px; height: 50px; display: block; }
+
+  /* 4: the shop near your house (host hidden, full width) */
+  #s4-card { left: 90px; right: 90px; top: 460px; height: 650px; }
+  #s4-awn { position: absolute; left: 0; right: 0; top: 0; height: 110px; background: repeating-linear-gradient(90deg, #1F6F4A 0px, #1F6F4A 75px, #F3EEE5 75px, #F3EEE5 150px); transform-origin: center top; }
+  #s4-sign { position: absolute; left: 170px; right: 170px; top: 140px; height: 100px; border-radius: 18px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 0.12em; transform-origin: center top; }
+  .shelf { position: absolute; top: 280px; width: 300px; height: 230px; border-radius: 16px; background: #F1E9DC; }
+  #s4-shl { left: 60px; } #s4-shr { left: 540px; }
+  .plank { position: absolute; left: 0; right: 0; height: 8px; background: rgba(30,26,22,0.25); }
+  .pk1 { top: 100px; } .pk2 { top: 212px; }
+  .pr { position: absolute; display: block; width: 54px; border-radius: 10px 10px 6px 6px; }
+  .x1 { left: 18px; } .x2 { left: 88px; } .x3 { left: 158px; } .x4 { left: 228px; }
+  .y1 { top: 30px; height: 70px; } .y2 { top: 136px; height: 76px; }
+  .k1 { background: #1F6F4A; } .k2 { background: #C8552B; } .k3 { background: #E8A317; } .k4 { background: #2F5D8A; }
+  #s4-jar { position: absolute; left: 400px; top: 320px; width: 100px; height: 80px; border-radius: 18px; border: 5px solid var(--accent); background: rgba(31,111,74,0.15); box-sizing: border-box; }
+  #s4-ctr { position: absolute; left: 380px; top: 400px; width: 140px; height: 140px; border-radius: 14px 14px 0 0; background: #3A322B; }
+  #s4-ground { position: absolute; left: 0; right: 0; top: 540px; height: 110px; background: #F6F2EA; }
+  #s4-pin { position: absolute; left: 50px; top: 562px; width: 46px; height: 64px; display: block; }
+  #s4-near { position: absolute; left: 116px; top: 574px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.08em; color: var(--ink); white-space: nowrap; }
+  #s4-walk { position: absolute; left: 520px; width: 260px; top: 598px; height: 8px; border-radius: 4px; background: repeating-linear-gradient(90deg, #1F6F4A 0px, #1F6F4A 22px, rgba(31,111,74,0) 22px, rgba(31,111,74,0) 38px); }
+  #s4-home { position: absolute; left: 790px; top: 562px; width: 60px; height: 64px; display: block; }
+  #s4-stamp { position: absolute; left: 560px; top: 300px; width: 290px; height: 110px; border: 8px solid var(--accent); border-radius: 18px; background: rgba(255,255,255,0.94); color: var(--accent); box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 64px; letter-spacing: 0.08em; }
+
+  /* 5: the result, one AI reel sent to the shop, then ask their price */
+  #s5-card { top: 470px; height: 640px; }
+  #s5-head { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #F6F2EA; }
+  #s5-av { position: absolute; left: 24px; top: 18px; width: 60px; height: 60px; border-radius: 30px; background: repeating-linear-gradient(90deg, #1F6F4A 0px, #1F6F4A 12px, #F3EEE5 12px, #F3EEE5 24px); }
+  #s5-nm { position: absolute; left: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5-ex { right: 24px; top: 34px; }
+  #s5-b1 { position: absolute; right: 30px; top: 120px; width: 520px; height: 290px; border-radius: 28px 28px 8px 28px; background: #DDEFE3; }
+  #s5-thumb { position: absolute; left: 14px; right: 14px; top: 14px; height: 200px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, #1F6F4A 0%, #5E8C4A 45%, #D98B3A 100%); }
+  #s5-mini { position: absolute; left: 0; right: 0; top: 0; height: 34px; background: repeating-linear-gradient(90deg, #C8552B 0px, #C8552B 30px, #F3EEE5 30px, #F3EEE5 60px); }
+  #s5-tag { position: absolute; left: 14px; top: 48px; height: 40px; padding: 0 14px; border-radius: 20px; background: var(--ink); color: #FFFFFF; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; white-space: nowrap; }
+  #s5-play { position: absolute; left: 204px; top: 58px; width: 84px; height: 84px; border-radius: 42px; background: rgba(255,255,255,0.94); display: flex; align-items: center; justify-content: center; }
+  #s5-play svg { display: block; width: 34px; height: 38px; margin-left: 6px; }
+  #s5-cap { position: absolute; left: 0; right: 0; bottom: 0; height: 54px; background: rgba(30,26,22,0.8); color: #FFFFFF; display: flex; align-items: center; padding-left: 18px; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 30px; white-space: nowrap; }
+  #s5-t1 { position: absolute; left: 24px; right: 16px; top: 228px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s5-b2 { position: absolute; right: 30px; top: 430px; height: 84px; padding: 0 28px; border-radius: 28px 28px 8px 28px; background: #DDEFE3; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5-typ { position: absolute; left: 30px; top: 540px; width: 140px; height: 70px; border-radius: 35px; background: #F1ECE4; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s5-typ .dt { display: block; width: 16px; height: 16px; border-radius: 8px; background: #8A8178; }
+
+  /* 7: the catch */
+  #s7-card { top: 470px; height: 470px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F2EA; }
+  .chk .t { position: absolute; left: 32px; right: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chk .ic { position: absolute; right: 26px; top: 30px; width: 60px; height: 60px; display: block; }
+  #s7-r1 { top: 40px; } #s7-r2 { top: 180px; } #s7-r3 { top: 320px; }
+
+  /* 8: send + keyword */
+  #s8-send { position: absolute; left: 340px; right: 60px; top: 110px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  #s8-who { position: absolute; left: 380px; right: 80px; top: 280px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: #5E554C; }
+  #s8-pill { position: absolute; left: 360px; right: 60px; top: 430px; height: 270px; border-radius: 60px; background: var(--ink); }
+  #s8-c { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: #EDE7DC; }
+  #s8-word { position: absolute; left: 0; right: 0; top: 100px; height: 140px; display: flex; justify-content: center; gap: 4px; }
+  .ltr { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 110px; line-height: 140px; color: #8FD3AE; }
+  #s8-stk { position: absolute; left: 420px; top: 750px; height: 80px; padding: 0 34px; border-radius: 40px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 0.04em; white-space: nowrap; }
+  #s8-save { position: absolute; left: 360px; right: 60px; top: 870px; height: 70px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+  #s8-save svg { display: block; width: 44px; height: 60px; }
+  #s8-save span { display: block; font-family: 'Playfair Italic', serif; font-size: 38px; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">4 WAYS. #3 IS THE ONE.</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="acc">4</span> real ways</span></span><span class="mask"><span class="l">AI <span class="it">pays</span> you.</span></span></div>
+  <div id="s0-badge" data-layout-allow-overlap>#3</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step" id="s1-k">YOU, EVERY DAY</div>
+  <div class="title"><span class="mask"><span class="l">Make it</span></span><span class="mask"><span class="l it">pay.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-h">AI APPS TODAY</div>
+    <div class="lbl" id="s1-ex">EXAMPLE</div>
+    <div class="use" id="s1-u1"><div class="nm">ChatGPT</div><div class="tm">1h 20m</div><div class="trk"><i class="fl" id="s1-f1"></i></div></div>
+    <div class="use" id="s1-u2"><div class="nm">Gemini</div><div class="tm">35m</div><div class="trk"><i class="fl" id="s1-f2"></i></div></div>
+    <div id="s1-u3"><div class="nm">Paid for it</div><div id="s1-zero">₹0</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line4">
+  <div class="step" id="s2-k1">WAY 1</div>
+  <div class="step" id="s2-k2" data-layout-allow-overlap>WAY 2</div>
+  <div class="title"><span class="mask"><span class="l">4 ways that</span></span><span class="mask"><span class="l"><span class="it">pay</span> you.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="slot q1" id="s2-r1"><div class="full" id="s2-f1"><div class="num" id="s2-n1">1</div><div class="name">Fiverr</div><div class="sub">Gigs, paid in dollars</div><div id="s2-coin">$</div></div></div>
+    <div class="slot q2" id="s2-r2"><div class="full" id="s2-f2"><div class="num" id="s2-n2">2</div><div class="name">Internshala</div><div class="sub">AI internships</div></div></div>
+    <div class="slot q3" id="s2-r3"><div class="ghost"><div class="num off">3</div><div class="name">Way 3</div><div class="sub">The one nobody uses</div></div></div>
+    <div class="slot q4" id="s2-r4"><div class="ghost"><div class="num off">4</div><div class="name">Way 4</div><div class="sub">Coming up</div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step" id="s4-k">WAY 3. THE ONE.</div>
+  <div class="title"><span class="mask"><span class="l">The shop</span></span><span class="mask"><span class="l">near <span class="it">you.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-awn"></div>
+    <div id="s4-sign">KIRANA STORE</div>
+    <div class="shelf" id="s4-shl">
+      <i class="plank pk1"></i><i class="plank pk2"></i>
+      <i class="pr x1 y1 k1"></i><i class="pr x2 y1 k2"></i><i class="pr x3 y1 k3"></i><i class="pr x4 y1 k4"></i>
+      <i class="pr x1 y2 k3"></i><i class="pr x2 y2 k4"></i><i class="pr x3 y2 k1"></i><i class="pr x4 y2 k2"></i>
+    </div>
+    <div id="s4-jar"></div>
+    <div id="s4-ctr"></div>
+    <div class="shelf" id="s4-shr">
+      <i class="plank pk1"></i><i class="plank pk2"></i>
+      <i class="pr x1 y1 k2"></i><i class="pr x2 y1 k3"></i><i class="pr x3 y1 k4"></i><i class="pr x4 y1 k1"></i>
+      <i class="pr x1 y2 k4"></i><i class="pr x2 y2 k1"></i><i class="pr x3 y2 k2"></i><i class="pr x4 y2 k3"></i>
+    </div>
+    <div id="s4-ground"></div>
+    <svg id="s4-pin" viewBox="0 0 46 64"><path d="M23 2 C10 2 2 12 2 24 C2 40 23 62 23 62 C23 62 44 40 44 24 C44 12 36 2 23 2 Z" fill="#C8552B"></path><circle cx="23" cy="23" r="8" fill="#FFFFFF"></circle></svg>
+    <div id="s4-near">NEAR YOUR HOUSE</div>
+    <div id="s4-walk"></div>
+    <svg id="s4-home" viewBox="0 0 60 64"><path d="M4 30 L30 6 L56 30" fill="none" stroke="#1E1A16" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><rect x="12" y="30" width="36" height="30" rx="4" fill="#1E1A16"></rect><rect x="25" y="42" width="10" height="18" rx="2" fill="#F3EEE5"></rect></svg>
+    <div id="s4-stamp" data-layout-allow-overlap>THE ONE</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step" id="s5-k">WAY 3. HOW.</div>
+  <div class="title"><span class="mask"><span class="l">Then ask</span></span><span class="mask"><span class="l it">their price.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-head"><div id="s5-av"></div><div id="s5-nm">Corner shop</div><div class="lbl" id="s5-ex">EXAMPLE</div></div>
+    <div id="s5-b1">
+      <div id="s5-thumb">
+        <div id="s5-mini"></div>
+        <div id="s5-tag">AI REEL</div>
+        <div id="s5-play"><svg viewBox="0 0 34 38"><path d="M2 2 L32 19 L2 36 Z" fill="#1F6F4A"></path></svg></div>
+        <div id="s5-cap">Fresh stock daily</div>
+      </div>
+      <div id="s5-t1">Made this for your shop.</div>
+    </div>
+    <div id="s5-b2">What would you pay?</div>
+    <div id="s5-typ"><i class="dt"></i><i class="dt"></i><i class="dt"></i></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step" id="s6-k">WAY 4</div>
+  <div class="title"><span class="mask"><span class="l">All</span></span><span class="mask"><span class="l it">four.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="slot q1"><div class="full"><div class="num">1</div><div class="name">Fiverr</div><div class="sub">Gigs, paid in dollars</div></div></div>
+    <div class="slot q2"><div class="full"><div class="num">2</div><div class="name">Internshala</div><div class="sub">AI internships</div></div></div>
+    <div class="slot q3 fav" id="s6-r3"><div class="full"><div class="num">3</div><div class="name">Shop near you</div><div class="sub">One AI reel for them</div><svg id="s6-star" viewBox="0 0 50 50"><path d="M25 3 L31 18 L47 19 L35 29 L39 45 L25 36 L11 45 L15 29 L3 19 L19 18 Z" fill="#1F6F4A"></path></svg></div></div>
+    <div class="slot q4" id="s6-r4"><div class="full" id="s6-f4"><div class="num" id="s6-n4">4</div><div class="name">Outlier</div><div class="sub">Checks AI answers</div></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step" id="s7-k">BEFORE YOU START</div>
+  <div class="title"><span class="mask"><span class="l">The</span></span><span class="mask"><span class="l it">catch.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="chk" id="s7-r1"><div class="t">Pay varies by site</div><svg class="ic" id="s7-i1" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#E8A317"></circle><path d="M14 34 L22 24 L30 34 L38 24 L46 34" fill="none" stroke="#1E1A16" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="chk" id="s7-r2"><div class="t">Not all get in</div><svg class="ic" id="s7-i2" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#E8A317"></circle><path d="M30 14 L30 34" stroke="#1E1A16" stroke-width="6" stroke-linecap="round"></path><circle cx="30" cy="44" r="4" fill="#1E1A16"></circle></svg></div>
+    <div class="chk" id="s7-r3"><div class="t">Never pay to join</div><svg class="ic" id="s7-i3" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#B83A2A"></circle><circle cx="30" cy="30" r="15" fill="none" stroke="#FFFFFF" stroke-width="5"></circle><path d="M19 41 L41 19" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="s8-send">Send <span class="it">this.</span></div>
+  <div id="s8-who">to the friend who scrolls all day</div>
+  <div id="s8-pill">
+    <div id="s8-c">Comment</div>
+    <div id="s8-word"><span class="ltr">S</span><span class="ltr">I</span><span class="ltr">T</span><span class="ltr">E</span><span class="ltr">S</span></div>
+  </div>
+  <div id="s8-stk">FREE LIST + PROMPT</div>
+  <div id="s8-save"><svg viewBox="0 0 44 60"><path d="M4 4 L40 4 L40 56 L22 42 L4 56 Z" fill="#1F6F4A"></path></svg><span>Save it.</span></div>
+</section>

@@ -2,6 +2,41 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-07
+
+- **The pull moved a little and still has no timestamp. The plan was missed in two places.**
+  - Hostel went from 1,219 to 1,221 views. Reach held at 1,048.
+  - Three rows appeared:
+    - fake AI payment email (5 Nov 15:24 UTC, SAFE, #2)
+    - pair 2 B (6 Nov 03:30 UTC, BRIEF, #2)
+    - the ChatGPT Hindi voices tool (6 Nov 07:30 UTC, BOLO, #24)
+  - There is no row for 6 Nov 14:00 UTC, so the pull is from between 6 Nov 07:30 and 14:00 UTC, or that slot is missing.
+  - Pair 1 B still has no row, and its fallback slot went to pair 2 B. The scheduler ran the 'B went out on 5 Nov' schedule without that being confirmed.
+  - A third SAFE explainer went out, against the cap and 84 minutes after its slot.
+- **Explainers have 0 sends and 0 saves on 6 reels and 455 reach. Low confidence: none is 72 hours old yet.**
+  - The carry-over lists from the same days got 6 sends and 3 saves on 193 reach.
+  - At the non-hostel new-niche rate, about 2 sends and 2 saves were expected. So 0 is weak evidence, but it points the same way as the list-shape hunch.
+  - The hostel tutorial (named student, no list) is the clean test. Read it at 7 Nov 14:01 UTC.
+- **One tool reel got reach without action (n=1, hours old).**
+  - BOLO: 162 reach, 1.76x, 6.7s, and 0 sends, saves or comments.
+  - It is the first explainer and the third new-niche reel to pass 130 reach.
+  - Watch time again fails to track sends: the senders sit at 3.7 to 6.0s.
+- **SAFE is 0 for 3, and #2 has 0 sends on 7 new-niche reels (median 0.63x).**
+  - Both are tangled with topic. Rest them; don't ban them.
+  - Whole-reel training sites stays 0 for 3.
+- **Baselines, and the fourth audit without logging fixes.**
+  - Page median: 106.5 on 44 rows. The outlier column uses 107.
+  - Money era from 7 Nov: 106.5 views and 90.5 reach (n=16).
+  - The explainer-era median starts 9 Nov 03:30 UTC. On today's numbers it would be 57 views and 51 reach.
+  - Still missing:
+    - kind (blank on 44 of 44)
+    - style ('motion' on 23 of 23 new-niche rows)
+    - arm and pair columns
+    - pull timestamp
+    - follower count
+    - hold@3s, follows and non-follower %
+  - Hook problem vs profile problem is still unknown.
+
 ## Week of 2026-11-06
 
 - **The pull moved, so this is a reading again, but a thin one, and it still has no timestamp.**

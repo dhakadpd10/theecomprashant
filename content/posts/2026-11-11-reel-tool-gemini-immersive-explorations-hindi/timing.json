@@ -1,0 +1,81 @@
+{
+  "dur": 29.33,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.936,
+      "b": 4.036,
+      "say": "Three topics you can stop cramming, because Gemini draws them in Hindi.",
+      "show": "3 topics you can stop cramming."
+    },
+    {
+      "a": 4.036,
+      "voice": 4.136,
+      "end": 6.627,
+      "b": 6.727,
+      "say": "Library. Reading that one chapter, again and again.",
+      "show": "Library. Same English chapter, again."
+    },
+    {
+      "a": 6.727,
+      "voice": 6.827,
+      "end": 9.164,
+      "b": 9.264,
+      "say": "It's the senior who draws it instead of reading it.",
+      "show": "Like a senior drawing it for you."
+    },
+    {
+      "a": 9.264,
+      "voice": 9.364,
+      "end": 12.706,
+      "b": 12.806,
+      "say": "Immersive explorations: free, in Hindi, as a moving picture.",
+      "show": "Free, in Hindi, as a moving picture."
+    },
+    {
+      "a": 12.806,
+      "voice": 12.906,
+      "end": 15.602,
+      "b": 15.702,
+      "say": "One, photosynthesis. Three, blood circulation.",
+      "show": "#1 Photosynthesis. #3 Blood circulation."
+    },
+    {
+      "a": 15.702,
+      "voice": 15.802,
+      "end": 18.321,
+      "b": 18.421,
+      "say": "Two wins: the water cycle, moving. Now it clicks.",
+      "show": "#2 wins: the water cycle. It clicks."
+    },
+    {
+      "a": 18.421,
+      "voice": 18.521,
+      "end": 20.561,
+      "b": 20.661,
+      "say": "The catch: for now, only from the student hub.",
+      "show": "The catch: student hub only, for now."
+    },
+    {
+      "a": 20.661,
+      "voice": 20.761,
+      "end": 23.593,
+      "b": 23.693,
+      "say": "AI pictures can get facts wrong. Check your textbook.",
+      "show": "AI can get facts wrong. Check your textbook."
+    },
+    {
+      "a": 23.693,
+      "voice": 23.793,
+      "end": 27.925,
+      "b": 29.33,
+      "say": "Send this to the roommate who understands better in Hindi. Type STUDY below.",
+      "show": "Send this. Comment STUDY for the tool."
+    }
+  ]
+}

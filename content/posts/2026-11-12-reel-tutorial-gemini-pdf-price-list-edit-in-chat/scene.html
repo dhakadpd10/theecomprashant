@@ -1,0 +1,283 @@
+<style>
+  /* tutorial: shop rate list in Gemini, 3 steps. Colour = meaning: green = the fix / done, brick = PDF and the old price, amber = the catch.
+     Host on the right all reel (cards at left 60, right 360) except step 2, where the before/after needs the full width. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E5DDCF 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(31,111,74,0.08) 0%, rgba(31,111,74,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,140,60,0.08) 0%, rgba(200,140,60,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 140px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 62px; width: 860px; font-family: var(--body); font-weight: 700; font-size: 28px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 116px; line-height: 1; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; top: 470px; height: 630px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,25,0.14), 0 2px 0 rgba(70,50,25,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: var(--body); font-weight: 700; font-size: 28px; letter-spacing: 0.12em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; background: var(--accent); white-space: nowrap; }
+  .body { font-family: var(--body); font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+
+  /* 0: hook, three steps, #2 circled */
+  #s0-title { font-size: 128px; }
+  .tile { position: absolute; left: 60px; right: 360px; height: 170px; border-radius: 30px; background: #FFFFFF; box-shadow: 0 24px 56px rgba(70,50,25,0.12), 0 2px 0 rgba(70,50,25,0.05); }
+  .tile .num { position: absolute; left: 30px; top: 40px; width: 90px; height: 90px; border-radius: 45px; background: #EDE6DA; font-family: var(--display); font-size: 38px; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  .tile .body { position: absolute; left: 146px; top: 0; height: 170px; display: flex; align-items: center; }
+  #t1 { top: 470px; } #t2 { top: 670px; } #t3 { top: 870px; }
+  #t2 .num { background: var(--accent); color: #FFFFFF; }
+  #t2-chip { right: 26px; top: 55px; }
+  #s0-ring { position: absolute; left: 46px; top: 656px; width: 688px; height: 198px; }
+
+  /* 1: the cardboard rate list */
+  #s1-board { position: absolute; left: 60px; right: 360px; top: 470px; height: 630px; border-radius: 20px; background: repeating-linear-gradient(90deg, rgba(90,60,20,0.07) 0 6px, rgba(0,0,0,0) 6px 22px), linear-gradient(160deg, #D4AD78 0%, #C39760 60%, #B7894F 100%); box-shadow: 0 30px 70px rgba(70,50,25,0.18); }
+  .mk { position: absolute; left: 44px; right: 44px; height: 110px; font-family: 'Permanent Marker', cursive; font-size: 52px; color: #2A1E12; }
+  .mk .n { position: absolute; left: 0; top: 20px; white-space: nowrap; }
+  .mk .p { position: absolute; right: 0; top: 20px; white-space: nowrap; }
+  #m1 { top: 60px; } #m2 { top: 180px; } #m3 { top: 300px; } #m4 { top: 420px; }
+  #m1-old { right: 110px; }
+  #m1-new { color: #6E1D12; }
+  #m1-strike { position: absolute; right: 104px; top: 58px; width: 108px; height: 8px; border-radius: 4px; background: #6E1D12; transform-origin: left center; }
+  #s1-note { left: 44px; top: 560px; color: #2A1E12; }
+
+  /* 2: step 1, ask for the PDF */
+  #spark { position: absolute; left: 30px; top: 26px; width: 40px; height: 40px; }
+  #s2-head { left: 84px; top: 30px; }
+  #ubub { position: absolute; right: 28px; top: 84px; width: 560px; height: 150px; box-sizing: border-box; padding: 22px 28px; border-radius: 30px 30px 8px 30px; background: #E4EFE8; font-family: var(--body); font-weight: 700; font-size: 38px; line-height: 1.25; color: var(--ink); transform-origin: right bottom; }
+  #page { position: absolute; left: 28px; top: 262px; width: 400px; height: 244px; border-radius: 18px; background: #FFFFFF; border: 3px solid #E6DED1; box-sizing: border-box; }
+  #page-h { left: 24px; top: 18px; }
+  .pr { position: absolute; left: 24px; right: 24px; height: 50px; }
+  .pr .n { position: absolute; left: 0; top: 0; }
+  .pr .p { position: absolute; right: 0; top: 0; }
+  #pr1 { top: 70px; } #pr2 { top: 124px; } #pr3 { top: 178px; }
+  #pdf { left: 456px; top: 262px; width: 150px; padding: 0; background: #A8321F; }
+  #s2-ex { left: 456px; top: 340px; }
+  #inp { position: absolute; left: 28px; right: 28px; top: 526px; height: 78px; border-radius: 39px; background: #F4EFE7; }
+  #inp-t { position: absolute; left: 30px; top: 0; height: 78px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 28px; color: rgba(30,26,22,0.75); white-space: nowrap; }
+  #go { position: absolute; right: 9px; top: 9px; width: 60px; height: 60px; border-radius: 30px; background: var(--accent); }
+  #go svg { position: absolute; left: 0; top: 0; width: 60px; height: 60px; }
+
+  /* 3: step 2, fix it in chat (host hidden, full width) */
+  .wide { left: 90px; right: 90px; }
+  #s3-ask { top: 430px; height: 160px; }
+  #s3-ask .lbl { left: 32px; top: 24px; }
+  #s3-say { position: absolute; left: 32px; top: 76px; }
+  .half { position: absolute; top: 630px; width: 400px; height: 480px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,25,0.14), 0 2px 0 rgba(70,50,25,0.05); overflow: hidden; }
+  #s3-b { left: 90px; } #s3-c { left: 590px; }
+  .half .lbl { left: 28px; top: 26px; }
+  .rw { position: absolute; left: 24px; right: 24px; height: 86px; border-radius: 22px; background: #F6F2EB; }
+  .rw .n { position: absolute; left: 22px; top: 0; height: 86px; display: flex; align-items: center; }
+  .rw .p { position: absolute; right: 22px; top: 0; height: 86px; display: flex; align-items: center; }
+  .rw.a { top: 84px; } .rw.b { top: 184px; } .rw.c { top: 284px; }
+  #c-new { color: var(--accent); }
+  #c-strike { position: absolute; right: 16px; top: 40px; width: 82px; height: 6px; border-radius: 3px; background: #A8321F; transform-origin: left center; }
+  #s3-ex { left: 28px; top: 400px; }
+  #s3-chip { left: 24px; right: 24px; top: 388px; }
+  #arrow { position: absolute; left: 496px; top: 830px; width: 88px; height: 60px; }
+
+  /* 4: step 3, share or print */
+  #s4-wa { left: 30px; top: 26px; }
+  #s4-chat { position: absolute; left: 24px; right: 24px; top: 72px; height: 200px; border-radius: 24px; background: #EFE9DE; }
+  #fb { position: absolute; right: 20px; top: 20px; width: 470px; height: 160px; border-radius: 24px 24px 8px 24px; background: #D9F0DC; transform-origin: right bottom; }
+  #fb-thumb { position: absolute; left: 18px; top: 18px; width: 96px; height: 124px; border-radius: 10px; background: #FFFFFF; }
+  #fb-thumb i { position: absolute; left: 12px; height: 8px; border-radius: 4px; background: #D9D2C6; }
+  #fb-thumb .tag { position: absolute; left: 6px; width: 84px; bottom: 10px; height: 38px; border-radius: 8px; background: #A8321F; color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+  #fb-name { position: absolute; left: 136px; top: 28px; }
+  #fb-meta { left: 136px; top: 92px; }
+  #ticks { position: absolute; right: 18px; bottom: 16px; width: 54px; height: 32px; }
+  #s4-pr { left: 30px; top: 298px; }
+  #paper { position: absolute; left: 200px; top: 478px; width: 260px; height: 136px; background: #FFFFFF; border: 3px solid #E6DED1; border-top: none; box-sizing: border-box; }
+  #paper i { position: absolute; left: 20px; height: 10px; border-radius: 5px; background: #D9D2C6; }
+  #paper-t { left: 20px; top: 70px; color: var(--ink); }
+  #printer { position: absolute; left: 150px; top: 350px; width: 360px; height: 150px; border-radius: 26px; background: #2B2621; }
+  #printer .slot { position: absolute; left: 50px; right: 50px; bottom: 22px; height: 12px; border-radius: 6px; background: #0E0C0A; }
+  #led { position: absolute; right: 30px; top: 30px; width: 18px; height: 18px; border-radius: 9px; background: #5FD39A; }
+  #done { right: 28px; top: 540px; }
+
+  /* 5: the pencil register */
+  #reg { position: absolute; left: 60px; right: 360px; top: 470px; height: 630px; border-radius: 24px; background: linear-gradient(90deg, rgba(0,0,0,0) 0 92px, rgba(190,60,50,0.45) 92px 95px, rgba(0,0,0,0) 95px), repeating-linear-gradient(180deg, rgba(0,0,0,0) 0 98px, rgba(60,110,170,0.22) 98px 100px), #FFFCF4; box-shadow: 0 30px 70px rgba(70,50,25,0.14), 0 2px 0 rgba(70,50,25,0.05); overflow: hidden; }
+  #s5-ex { left: 118px; top: 30px; }
+  .pn { position: absolute; left: 118px; right: 40px; height: 100px; font-family: 'Permanent Marker', cursive; font-size: 50px; color: #4A453F; }
+  .pn .n { position: absolute; left: 0; top: 22px; white-space: nowrap; }
+  .pn .p { position: absolute; right: 0; top: 22px; white-space: nowrap; }
+  #pn1 { top: 100px; } #pn2 { top: 200px; } #pn3 { top: 300px; } #pn4 { top: 400px; }
+  #pn1-new { color: var(--accent); }
+  #eraser { position: absolute; right: 30px; top: 112px; width: 150px; height: 76px; border-radius: 14px; background: linear-gradient(90deg, #E8A3A3 0 62%, #6A7C8C 62% 70%, #4A5A6A 70%); box-shadow: 0 10px 20px rgba(70,50,25,0.18); }
+  #pencil { position: absolute; left: 540px; top: 60px; width: 100px; height: 100px; }
+  #stamp5 { position: absolute; left: 150px; top: 510px; width: 380px; height: 96px; box-sizing: border-box; border: 8px solid var(--accent); border-radius: 16px; color: var(--accent); font-family: var(--body); font-weight: 900; font-size: 50px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; background: rgba(255,252,244,0.9); }
+
+  /* 6: the catch */
+  #k0 { position: absolute; left: 24px; right: 24px; top: 28px; height: 130px; border-radius: 26px; background: #FBF0DA; }
+  #k0 .body { position: absolute; left: 28px; top: 0; height: 130px; display: flex; align-items: center; }
+  #k0-chip { right: 24px; top: 35px; background: #8C5A0E; }
+  #s6-h { left: 30px; top: 196px; }
+  #s6-ex { right: 30px; top: 196px; }
+  .ck { position: absolute; left: 24px; right: 24px; height: 100px; border-radius: 22px; background: #F6F2EB; }
+  .ck .box { position: absolute; left: 22px; top: 22px; width: 56px; height: 56px; border-radius: 14px; border: 4px solid rgba(30,26,22,0.25); box-sizing: border-box; }
+  .ck .tk { position: absolute; left: 22px; top: 22px; width: 56px; height: 56px; border-radius: 14px; background: var(--accent); }
+  .ck .tk svg { position: absolute; left: 0; top: 0; width: 56px; height: 56px; }
+  .ck .n { position: absolute; left: 100px; top: 0; height: 100px; display: flex; align-items: center; }
+  .ck .p { position: absolute; right: 26px; top: 0; height: 100px; display: flex; align-items: center; }
+  #ck1 { top: 250px; } #ck2 { top: 366px; } #ck3 { top: 482px; }
+
+  /* 7: send this */
+  #send { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 140px; line-height: 1; color: var(--ink); }
+  #s7-box { position: absolute; left: 90px; top: 400px; width: 470px; height: 380px; }
+  #s7-flaps { position: absolute; left: 0; top: 0; width: 470px; height: 80px; }
+  #s7-face { position: absolute; left: 0; top: 80px; width: 470px; height: 300px; border-radius: 8px; background: repeating-linear-gradient(90deg, rgba(90,60,20,0.07) 0 6px, rgba(0,0,0,0) 6px 22px), linear-gradient(160deg, #D4AD78 0%, #C39760 60%, #B7894F 100%); box-shadow: 0 30px 60px rgba(70,50,25,0.18); }
+  .bx { position: absolute; left: 40px; font-family: 'Permanent Marker', cursive; font-size: 50px; color: #2A1E12; white-space: nowrap; }
+  #bx1 { top: 60px; } #bx2 { top: 160px; }
+  #plane { position: absolute; left: 580px; top: 300px; width: 140px; height: 120px; }
+  #who { position: absolute; left: 60px; width: 620px; top: 830px; font-family: var(--body); font-weight: 700; font-size: 38px; line-height: 1.3; color: rgba(30,26,22,0.78); }
+
+  /* 8: the keyword */
+  #s8-lbl { left: 90px; top: 70px; }
+  #tiles { position: absolute; left: 133px; top: 120px; width: 814px; height: 170px; display: flex; gap: 14px; }
+  .tl { display: block; width: 124px; height: 170px; border-radius: 24px; background: var(--accent); color: #FFFFFF; font-family: var(--display); font-size: 110px; line-height: 170px; text-align: center; }
+  #save { position: absolute; left: 90px; top: 350px; width: 300px; height: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; line-height: 1.2; color: var(--ink); }
+  #bookmark { position: absolute; left: 400px; top: 368px; width: 80px; height: 110px; }
+  #pill { position: absolute; left: 60px; right: 360px; top: 600px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: var(--body); font-weight: 700; font-size: 38px; display: flex; align-items: center; justify-content: center; }
+  #pill b { color: #8FD3AE; margin-left: 12px; font-weight: 900; }
+  #s8-sub { left: 60px; top: 752px; }
+  #sticker { position: absolute; left: 60px; top: 820px; width: 560px; height: 64px; box-sizing: border-box; border-radius: 32px; border: 4px solid var(--accent); color: var(--accent); font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">3 STEPS. #2 IS THE ONE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Rate list</span></span><span class="mask"><span class="l">in <span class="it">Gemini.</span></span></span></div>
+  <div class="tile" id="t1"><div class="num">1</div><div class="body">Ask for the PDF</div></div>
+  <div class="tile" id="t2"><div class="num">2</div><div class="body">Fix in chat</div><div class="chip" id="t2-chip">MOST MISS</div></div>
+  <div class="tile" id="t3"><div class="num">3</div><div class="body">Send or print</div></div>
+  <svg id="s0-ring" viewBox="0 0 688 198" data-layout-allow-overlap><rect id="s0-ring-p" x="3" y="3" width="682" height="192" rx="36" fill="none" stroke="#1F6F4A" stroke-width="6" stroke-dasharray="1760" stroke-dashoffset="1760"></rect></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE OLD WAY</div>
+  <div class="title"><span class="mask"><span class="l">Still by</span></span><span class="mask"><span class="l it">hand?</span></span></div>
+  <div id="s1-board">
+    <div class="mk" id="m1"><div class="n">Chai</div><div class="p" id="m1-old">₹10</div><i id="m1-strike" data-layout-allow-overlap></i><div class="p" id="m1-new">₹12</div></div>
+    <div class="mk" id="m2"><div class="n">Samosa</div><div class="p">₹15</div></div>
+    <div class="mk" id="m3"><div class="n">Bun maska</div><div class="p">₹25</div></div>
+    <div class="mk" id="m4"><div class="n">Biscuit</div><div class="p">₹5</div></div>
+    <div class="lbl" id="s1-note">EXAMPLE</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Ask for the</span></span><span class="mask"><span class="l it">PDF.</span></span></div>
+  <div class="card" id="s2-card">
+    <svg id="spark" viewBox="0 0 40 40"><path d="M20 0 C22 12 28 18 40 20 C28 22 22 28 20 40 C18 28 12 22 0 20 C12 18 18 12 20 0 Z" fill="#1F6F4A"></path></svg>
+    <div class="lbl" id="s2-head">GEMINI</div>
+    <div id="ubub">Tea stall rates as a PDF.</div>
+    <div id="page">
+      <div class="lbl" id="page-h">TEA STALL RATES</div>
+      <div class="pr" id="pr1"><div class="n body">Chai</div><div class="p body">₹10</div></div>
+      <div class="pr" id="pr2"><div class="n body">Samosa</div><div class="p body">₹15</div></div>
+      <div class="pr" id="pr3"><div class="n body">Bun maska</div><div class="p body">₹25</div></div>
+    </div>
+    <div class="chip" id="pdf">PDF</div>
+    <div class="lbl" id="s2-ex">EXAMPLE</div>
+    <div id="inp"><div id="inp-t">Tea stall rates as a PDF.</div><div id="go"><svg viewBox="0 0 60 60"><path d="M16 30 H42 M32 20 L42 30 L32 40" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 2 · MOST MISS THIS</div>
+  <div class="title"><span class="mask"><span class="l">Fix it</span></span><span class="mask"><span class="l">in <span class="it">chat.</span></span></span></div>
+  <div class="card wide" id="s3-ask">
+    <div class="lbl">YOU TYPE, SAME CHAT</div>
+    <div class="body" id="s3-say">Make chai ₹15. Keep the rest.</div>
+  </div>
+  <div class="half" id="s3-b">
+    <div class="lbl">BEFORE</div>
+    <div class="rw a"><div class="n body">Chai</div><div class="p body">₹10</div></div>
+    <div class="rw b"><div class="n body">Samosa</div><div class="p body">₹15</div></div>
+    <div class="rw c"><div class="n body">Bun maska</div><div class="p body">₹25</div></div>
+    <div class="lbl" id="s3-ex">EXAMPLE</div>
+  </div>
+  <svg id="arrow" viewBox="0 0 88 60"><path d="M6 30 H74 M56 12 L76 30 L56 48" fill="none" stroke="#1F6F4A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div class="half" id="s3-c">
+    <div class="lbl">AFTER</div>
+    <div class="rw a" id="c-chai"><div class="n body">Chai</div><div class="p body" id="c-old">₹10</div><i id="c-strike" data-layout-allow-overlap></i><div class="p body" id="c-new" data-layout-allow-overlap>₹15</div></div>
+    <div class="rw b"><div class="n body">Samosa</div><div class="p body">₹15</div></div>
+    <div class="rw c"><div class="n body">Bun maska</div><div class="p body">₹25</div></div>
+    <div class="chip" id="s3-chip">ONLY 1 LINE</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Send or</span></span><span class="mask"><span class="l it">print.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-wa">WHATSAPP</div>
+    <div id="s4-chat">
+      <div id="fb">
+        <div id="fb-thumb"><i style="top: 16px; width: 70px;"></i><i style="top: 34px; width: 56px;"></i><i style="top: 52px; width: 64px;"></i><div class="tag">PDF</div></div>
+        <div class="body" id="fb-name">Rate list.pdf</div>
+        <div class="lbl" id="fb-meta">1 PAGE</div>
+        <svg id="ticks" viewBox="0 0 54 32"><path id="ticks-p" d="M3 17 L11 25 L27 6 M23 21 L27 25 L45 6" fill="none" stroke="#1F6F4A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="120" stroke-dashoffset="120"></path></svg>
+      </div>
+    </div>
+    <div class="lbl" id="s4-pr">PRINT</div>
+    <div id="paper" data-layout-allow-overlap><i style="top: 22px; width: 200px;"></i><i style="top: 44px; width: 150px;"></i><div class="lbl" id="paper-t">CHAI ₹15</div></div>
+    <div id="printer"><div class="slot"></div><i id="led"></i></div>
+    <div class="chip" id="done">DONE</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">LIKE A PENCIL REGISTER</div>
+  <div class="title"><span class="mask"><span class="l">Rub out</span></span><span class="mask"><span class="l it">one line.</span></span></div>
+  <div id="reg">
+    <div class="lbl" id="s5-ex">EXAMPLE</div>
+    <div class="pn" id="pn1"><div class="n">Chai</div><div class="p" id="pn1-old">₹10</div><div class="p" id="pn1-new" data-layout-allow-overlap>₹15</div></div>
+    <div class="pn" id="pn2"><div class="n">Samosa</div><div class="p">₹15</div></div>
+    <div class="pn" id="pn3"><div class="n">Bun maska</div><div class="p">₹25</div></div>
+    <div class="pn" id="pn4"><div class="n">Biscuit</div><div class="p">₹5</div></div>
+    <div id="eraser" data-layout-allow-overlap></div>
+    <svg id="pencil" viewBox="0 0 100 100" data-layout-allow-overlap><path d="M30 88 L96 22 L80 6 L14 72 Z" fill="#E8B23A"></path><path d="M14 72 L30 88 L4 98 Z" fill="#E9D3B0"></path><path d="M4 98 L10 96 L8 90 Z" fill="#3A3530"></path><path d="M80 6 L96 22 L100 18 L84 2 Z" fill="#D98A8A"></path></svg>
+    <div id="stamp5" data-layout-allow-overlap>SAME PAGE</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Two</span></span><span class="mask"><span class="l it">catches.</span></span></div>
+  <div class="card" id="s6-card">
+    <div id="k0"><div class="body">Phone: PDF only</div><div class="chip" id="k0-chip">LIMIT</div></div>
+    <div class="lbl" id="s6-h">CHECK EVERY PRICE</div>
+    <div class="lbl" id="s6-ex">EXAMPLE</div>
+    <div class="ck" id="ck1"><div class="box"></div><div class="tk" id="tk1"><svg viewBox="0 0 56 56"><path d="M15 29 L25 39 L42 18" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="n body">Chai</div><div class="p body">₹15</div></div>
+    <div class="ck" id="ck2"><div class="box"></div><div class="tk" id="tk2"><svg viewBox="0 0 56 56"><path d="M15 29 L25 39 L42 18" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="n body">Samosa</div><div class="p body">₹15</div></div>
+    <div class="ck" id="ck3"><div class="box"></div><div class="tk" id="tk3"><svg viewBox="0 0 56 56"><path d="M15 29 L25 39 L42 18" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="n body">Bun maska</div><div class="p body">₹25</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div id="send"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s7-box">
+    <svg id="s7-flaps" viewBox="0 0 470 80"><path d="M0 80 L30 0 L235 0 L235 80 Z" fill="#B98A50"></path><path d="M235 80 L235 0 L440 0 L470 80 Z" fill="#C99B62"></path></svg>
+    <div id="s7-face"><div class="bx" id="bx1">CHAI ₹10</div><div class="bx" id="bx2">SAMOSA ₹15</div></div>
+  </div>
+  <svg id="plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#1F6F4A"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#164F35"></path></svg>
+  <div id="who">to the uncle with his rate list on a cardboard box</div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="lbl" id="s8-lbl">COMMENT THIS WORD</div>
+  <div id="tiles"><div class="tl">L</div><div class="tl">E</div><div class="tl">T</div><div class="tl">T</div><div class="tl">E</div><div class="tl">R</div></div>
+  <div id="save">Save.</div>
+  <svg id="bookmark" viewBox="0 0 80 110"><path d="M0 0 H80 V110 L40 82 L0 110 Z" fill="#1F6F4A"></path></svg>
+  <div id="pill">Comment <b>LETTER</b></div>
+  <div class="lbl" id="s8-sub">THE EXACT WORDS TO USE</div>
+  <div id="sticker">FREE · ANY AI CHAT APP</div>
+</section>

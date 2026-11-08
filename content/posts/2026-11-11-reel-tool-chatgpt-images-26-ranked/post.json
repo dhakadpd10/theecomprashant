@@ -1,0 +1,139 @@
+{
+  "id": "2026-11-11-reel-tool-chatgpt-images-26-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "STICKER",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(doodle|name|3|three|50|faster|2|GIFs|1|contact|watercolour|GIF|catch|slowly|agreed|Send|STICKER)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#6B2D5C"
+  },
+  "lines": [
+    {
+      "say": "I saved this doodle once. Watch what one name does.",
+      "show": "Saved once. Called by name.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "At home making good morning images? OpenAI's image tool got three upgrades.",
+      "show": "Making family good-morning images at home?",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three: faster, about one and a half times, says OpenAI.",
+      "show": "3. About 50% faster, says OpenAI.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: moving pictures that loop, from a sketch.",
+      "show": "2. Looping GIFs from a sketch.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "One: save a photo once, like a contact. Call it by name.",
+      "show": "1. Save it like a contact. Call it by name.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Now a painted look, then a moving loop, if you have it.",
+      "show": "A watercolour. Then a GIF, if you have it.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: moving loops roll out slowly. No published length or limits.",
+      "show": "The catch: slow rollout, no published limits.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Free plan limits apply. Don't save anyone who hasn't agreed.",
+      "show": "Free limits apply. Only save people who agreed.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the one who makes every greeting in your family group. Comment STICKER.",
+      "show": "Send this. Comment STICKER for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.3",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "CHATGPT IMAGES 2.6",
+      "SAVE ONCE, CALL BY NAME"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

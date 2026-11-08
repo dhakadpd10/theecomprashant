@@ -1,0 +1,246 @@
+<style>
+  /* prompt explainer: one idea (give AI your measurements, and make it ask 3 questions before it writes),
+     one analogy (the tailor and the free-size kurta).
+     colour = meaning: red = free-size / generic, blue = made for you, green = true facts */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DED1 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(46,91,186,0.08) 0%, rgba(46,91,186,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.07) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .it.bad { color: #C23B3B; }
+  .card { position: absolute; left: 60px; right: 360px; top: 420px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.14), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6B655E; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 18px; border-radius: 30px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; }
+  .green { background: #1E8A50; } .red { background: #C23B3B; } .blue { background: var(--accent); }
+
+  /* 0: hook */
+  #s0-title { top: 105px; font-size: 124px; transform-origin: left top; }
+  #s0-line { position: absolute; left: 92px; top: 392px; width: 640px; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+  .qb { position: absolute; width: 150px; height: 116px; border-radius: 30px; background: var(--accent); color: #FFFFFF; font-family: var(--display); font-size: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(46,91,186,0.25); }
+  .qb::after { content: ''; position: absolute; bottom: -22px; left: 34px; border-left: 18px solid transparent; border-right: 18px solid transparent; border-top: 24px solid var(--accent); }
+  #qb1 { left: 90px; top: 470px; } #qb2 { left: 800px; top: 600px; } #qb3 { left: 100px; top: 790px; }
+  #qb2::after { left: auto; right: 34px; }
+
+  /* 1: the free-size answer */
+  #s1-card { height: 640px; }
+  #s1-head { left: 36px; top: 32px; }
+  #ask { position: absolute; left: 36px; top: 80px; height: 96px; padding: 0 30px; border-radius: 28px 28px 28px 8px; background: #EFE9DF; display: flex; align-items: center; font: 700 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; }
+  #ai1 { position: absolute; left: 36px; top: 212px; width: 64px; height: 64px; border-radius: 32px; background: var(--accent); color: #FFFFFF; font: 900 24px 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; }
+  #generic { position: absolute; left: 120px; right: 36px; top: 204px; padding: 26px 28px; border-radius: 28px; background: #F6F5F2; font: 700 34px/1.38 'Inter', sans-serif; color: #5E574F; }
+  #s1-stamp { position: absolute; left: 150px; top: 420px; width: 400px; height: 96px; box-sizing: border-box; border: 8px solid #C23B3B; border-radius: 18px; background: rgba(255,255,255,0.88); color: #C23B3B; font: 900 34px 'Inter', sans-serif; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s1-note { left: 36px; top: 576px; }
+
+  /* 2: the tailor */
+  #s2-card { height: 640px; }
+  .meas { position: absolute; top: 34px; width: 180px; height: 64px; box-sizing: border-box; border-radius: 20px; border: 3px dashed rgba(30,26,22,0.3); color: #6B655E; font: 900 24px 'Inter', sans-serif; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #m1 { left: 36px; } #m2 { left: 240px; } #m3 { left: 444px; }
+  #kurta { position: absolute; display: block; left: 70px; top: 126px; width: 360px; height: 396px; }
+  #string { position: absolute; display: block; left: 370px; top: 150px; width: 80px; height: 60px; }
+  #tag { position: absolute; left: 430px; top: 196px; width: 170px; height: 64px; border-radius: 16px; background: #C23B3B; color: #FFFFFF; font: 900 24px 'Inter', sans-serif; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s2-note { left: 36px; top: 574px; }
+
+  /* 3: your measurements (host hidden, full width) */
+  #s3-card { height: 660px; }
+  #tape { position: absolute; left: 36px; right: 36px; top: 32px; height: 48px; border-radius: 10px; background: repeating-linear-gradient(90deg, rgba(30,26,22,0.5) 0 3px, transparent 3px 30px) top left / 100% 20px no-repeat, #E9C46A; transform-origin: left center; }
+  .slot { position: absolute; left: 36px; right: 36px; height: 104px; box-sizing: border-box; border-radius: 24px; border: 3px dashed rgba(30,26,22,0.25); background: rgba(244,239,230,0); }
+  .slot .k { left: 20px; top: 19px; width: 150px; }
+  .slot .v { position: absolute; left: 196px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font: 700 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #f0 { top: 108px; } #f1 { top: 228px; } #f2 { top: 348px; } #f3 { top: 468px; }
+  #s3-note { left: 36px; top: 606px; }
+
+  /* 4: the prompt */
+  #s4-card { height: 640px; }
+  #s4-head { left: 36px; top: 34px; }
+  #timer { position: absolute; right: 30px; top: 22px; height: 52px; padding: 0 20px; border-radius: 26px; background: var(--accent); color: #FFFFFF; font: 900 24px 'Inter', sans-serif; letter-spacing: 0.06em; display: flex; align-items: center; }
+  #pbox { position: absolute; left: 36px; right: 36px; top: 88px; height: 256px; box-sizing: border-box; border-radius: 24px; background: #F6F5F2; padding: 18px 26px; }
+  .pl { display: block; position: relative; height: 54px; font: 800 34px/54px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #mark { position: absolute; left: 0; top: 8px; width: 510px; height: 40px; border-radius: 10px; background: rgba(46,91,186,0.16); transform-origin: left center; }
+  #pl4 b { position: relative; color: var(--accent); font-weight: 900; }
+  #s4-ai { left: 36px; top: 364px; }
+  .aq { position: absolute; left: 36px; right: 36px; height: 62px; }
+  .aq .n { position: absolute; left: 0; top: 7px; width: 48px; height: 48px; border-radius: 24px; background: var(--accent); color: #FFFFFF; font: 900 24px 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; }
+  .aq .t { position: absolute; left: 66px; right: 0; top: 0; height: 62px; display: flex; align-items: center; font: 700 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #aq1 { top: 404px; } #aq2 { top: 472px; } #aq3 { top: 540px; }
+
+  /* 5: the result */
+  #s5-card { height: 640px; }
+  #s5-head { left: 36px; top: 32px; }
+  #intro { position: absolute; left: 36px; right: 36px; top: 80px; }
+  .sent { display: block; margin-bottom: 12px; font: 700 34px/1.36 'Inter', sans-serif; color: var(--ink); }
+  .sent .f { color: var(--accent); }
+  #s5-stamp { position: absolute; left: 120px; top: 534px; width: 420px; height: 80px; box-sizing: border-box; border: 7px solid var(--accent); border-radius: 18px; color: var(--accent); font: 900 34px 'Inter', sans-serif; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+
+  /* 6: the catch */
+  #s6-card { height: 480px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F5F2; }
+  .chk .t { position: absolute; left: 30px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font: 800 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; }
+  .chk .chip { right: 24px; top: 30px; width: 100px; }
+  #k1 { top: 40px; } #k2 { top: 180px; } #k3 { top: 320px; background: #FBE9E7; }
+
+  /* 7: practise */
+  #s7-card { height: 620px; }
+  .tk { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F6F5F2; }
+  .tk .t { position: absolute; left: 30px; right: 110px; top: 0; bottom: 0; display: flex; align-items: center; font: 800 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; }
+  .tk .ok { position: absolute; display: block; right: 24px; top: 23px; width: 64px; height: 64px; }
+  #t1 { top: 36px; } #t2 { top: 166px; }
+  #wave { position: absolute; left: 36px; right: 36px; top: 300px; height: 284px; border-radius: 26px; background: #EEF2FB; }
+  #mic { position: absolute; display: block; left: 28px; top: 50px; width: 80px; height: 130px; }
+  #bars { position: absolute; left: 136px; right: 24px; top: 40px; height: 150px; display: flex; align-items: center; justify-content: space-between; }
+  .wb { display: block; width: 18px; height: 140px; border-radius: 9px; background: var(--accent); }
+  #s7-note { left: 28px; top: 226px; }
+
+  /* 8: send + keyword */
+  #send { position: absolute; left: 90px; top: 100px; width: 630px; font: 700 110px/1.1 'Playfair Display', serif; color: var(--ink); white-space: nowrap; }
+  #cal { position: absolute; left: 90px; top: 300px; width: 200px; height: 180px; border-radius: 24px; background: #FFFFFF; box-shadow: 0 20px 50px rgba(70,50,30,0.14); overflow: hidden; }
+  #cal-top { height: 58px; background: var(--accent); color: #FFFFFF; font: 900 24px 'Inter', sans-serif; letter-spacing: 0.12em; display: flex; align-items: center; justify-content: center; }
+  #cal-mid { height: 122px; color: var(--ink); font: 900 24px 'Inter', sans-serif; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #who { position: absolute; left: 320px; top: 316px; width: 400px; font: 700 34px/1.35 'Inter', sans-serif; color: #4A443D; }
+  #pill { position: absolute; left: 60px; right: 360px; top: 540px; height: 250px; border-radius: 48px; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+  #pill-a { font: 700 34px 'Inter', sans-serif; color: #EFE8DC; white-space: nowrap; }
+  #kw { display: flex; gap: 4px; }
+  .kl { display: block; font-family: var(--display); font-size: 110px; line-height: 1.05; color: #9DB8F2; }
+  #bm { position: absolute; display: block; left: 90px; top: 840px; width: 56px; height: 78px; }
+  #save { position: absolute; left: 166px; top: 856px; font: 700 34px 'Inter', sans-serif; color: var(--ink); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">BEFORE IT WRITES A WORD</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">AI asks you</span></span><span class="mask"><span class="l"><span class="it">3 questions.</span></span></span></div>
+  <i id="s0-line" data-layout-allow-overlap></i>
+  <div class="qb" id="qb1" data-layout-allow-overlap>Q1</div>
+  <div class="qb" id="qb2" data-layout-allow-overlap>Q2</div>
+  <div class="qb" id="qb3" data-layout-allow-overlap>Q3</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">BETWEEN JOBS · THIS WEEK</div>
+  <div class="title"><span class="mask"><span class="l">You get</span></span><span class="mask"><span class="l it bad">this.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">THE INTERVIEWER ASKS</div>
+    <div id="ask">Tell me about yourself.</div>
+    <div id="ai1">AI</div>
+    <div id="generic">I am a hardworking, passionate team player who loves to learn new things.</div>
+    <div id="s1-stamp" data-layout-allow-overlap>SAYS NOTHING</div>
+    <div class="lbl" id="s1-note">EXAMPLE · AI GIVEN NO DETAILS</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE TAILOR</div>
+  <div class="title"><span class="mask"><span class="l">Free-size</span></span><span class="mask"><span class="l it bad">kurta.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="meas" id="m1">CHEST ?</div>
+    <div class="meas" id="m2">LENGTH ?</div>
+    <div class="meas" id="m3">SLEEVE ?</div>
+    <svg id="kurta" viewBox="0 0 400 440">
+      <path d="M168 18 Q200 46 232 18 L330 46 L392 206 L344 226 L318 150 L336 432 L64 432 L82 150 L56 226 L8 206 L70 46 Z" fill="#DCD2C2" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path>
+      <path d="M200 40 L200 140" stroke="#1E1A16" stroke-width="4" stroke-linecap="round"></path>
+      <circle cx="200" cy="66" r="5" fill="#1E1A16"></circle><circle cx="200" cy="94" r="5" fill="#1E1A16"></circle><circle cx="200" cy="122" r="5" fill="#1E1A16"></circle>
+      <path d="M86 362 L82 432 M314 362 L318 432" stroke="#1E1A16" stroke-width="4" stroke-linecap="round"></path>
+      <path id="you" d="M178 34 Q200 54 222 34 L290 58 L330 190 L300 200 L282 150 L292 400 L108 400 L118 150 L100 200 L70 190 L110 58 Z" fill="none" stroke="#2E5BBA" stroke-width="6" stroke-dasharray="14 10" stroke-linejoin="round"></path>
+    </svg>
+    <svg id="string" viewBox="0 0 80 60" data-layout-allow-overlap><path d="M4 18 Q40 4 72 52" fill="none" stroke="#1E1A16" stroke-width="3" stroke-dasharray="6 6"></path></svg>
+    <div id="tag" data-layout-allow-overlap>FREE SIZE</div>
+    <div class="lbl" id="s2-note">BLUE LINE = YOUR SIZE</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 1 · MEASURE</div>
+  <div class="title"><span class="mask"><span class="l">Your</span></span><span class="mask"><span class="l it">measurements.</span></span></div>
+  <div class="card wide" id="s3-card">
+    <div id="tape"></div>
+    <div class="slot" id="f0"><div class="chip blue k">ROLE</div><div class="v">Customer support, Pune</div></div>
+    <div class="slot" id="f1"><div class="chip green k">FACT 1</div><div class="v">Ran our shop counter, 2 years</div></div>
+    <div class="slot" id="f2"><div class="chip green k">FACT 2</div><div class="v">Speak Hindi, Marathi, English</div></div>
+    <div class="slot" id="f3"><div class="chip green k">FACT 3</div><div class="v">Answered WhatsApp orders daily</div></div>
+    <div class="lbl" id="s3-note">EXAMPLE · REMOVE PHONE NO. AND ADDRESS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 2 · THE PROMPT</div>
+  <div class="title"><span class="mask"><span class="l">4 lines.</span></span><span class="mask"><span class="l it">Ask first.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-head">YOUR PROMPT</div>
+    <div id="timer">UNDER 1 MIN</div>
+    <div id="pbox">
+      <span class="pl" id="pl1">Write my interview intro.</span>
+      <span class="pl" id="pl2">Job: [paste the job post]</span>
+      <span class="pl" id="pl3">Use only my 3 true facts.</span>
+      <span class="pl" id="pl4"><i id="mark" data-layout-allow-overlap></i><b>Ask me 3 questions first.</b></span>
+    </div>
+    <div class="lbl" id="s4-ai">AI ASKS YOU · EXAMPLE</div>
+    <div class="aq" id="aq1"><div class="n">1</div><div class="t">Why this role?</div></div>
+    <div class="aq" id="aq2"><div class="n">2</div><div class="t">A win you're proud of?</div></div>
+    <div class="aq" id="aq3"><div class="n">3</div><div class="t">Why the gap in your CV?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Now it</span></span><span class="mask"><span class="l it">fits.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-head">EXAMPLE · FROM YOUR 3 FACTS</div>
+    <div id="intro">
+      <div class="sent" id="e1">I ran my family's <span class="f">shop counter</span> for two years.</div>
+      <div class="sent" id="e2">I handle customers in <span class="f">Hindi, Marathi and English</span>.</div>
+      <div class="sent" id="e3">I answered our <span class="f">WhatsApp orders</span> every day.</div>
+      <div class="sent" id="e4">So customer support is work I already do.</div>
+    </div>
+    <div id="s5-stamp" data-layout-allow-overlap>MADE TO MEASURE</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">It can't</span></span><span class="mask"><span class="l it bad">invent.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="chk" id="k1"><div class="t">Polish your words</div><div class="chip green" id="h1">YES</div></div>
+    <div class="chk" id="k2"><div class="t">Fix the order</div><div class="chip green" id="h2">YES</div></div>
+    <div class="chk" id="k3"><div class="t">Invent experience</div><div class="chip red" id="h3">NO</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">STEP 3 · PRACTISE</div>
+  <div class="title"><span class="mask"><span class="l">Say it</span></span><span class="mask"><span class="l it">out loud.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="tk" id="t1"><div class="t">Only true things</div><svg class="ok" id="ok1" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#1E8A50"></circle><path d="M18 33 L28 43 L46 23" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="tk" id="t2"><div class="t">No made-up jobs</div><svg class="ok" id="ok2" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#1E8A50"></circle><path d="M18 33 L28 43 L46 23" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div id="wave">
+      <svg id="mic" viewBox="0 0 80 130"><rect x="22" y="6" width="36" height="66" rx="18" fill="#2E5BBA"></rect><path d="M10 52 Q10 92 40 92 Q70 92 70 52" fill="none" stroke="#1E1A16" stroke-width="6" stroke-linecap="round"></path><path d="M40 92 L40 118 M24 120 L56 120" stroke="#1E1A16" stroke-width="6" stroke-linecap="round"></path></svg>
+      <div id="bars"><i class="wb" id="w0"></i><i class="wb" id="w1"></i><i class="wb" id="w2"></i><i class="wb" id="w3"></i><i class="wb" id="w4"></i><i class="wb" id="w5"></i><i class="wb" id="w6"></i><i class="wb" id="w7"></i><i class="wb" id="w8"></i><i class="wb" id="w9"></i><i class="wb" id="w10"></i><i class="wb" id="w11"></i><i class="wb" id="w12"></i><i class="wb" id="w13"></i></div>
+      <div class="lbl" id="s7-note">TO A FRIEND OR A MIRROR</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="send">Send <span class="it">this.</span></div>
+  <div id="cal"><div id="cal-top">MONDAY</div><div id="cal-mid">INTERVIEW</div></div>
+  <div id="who">to the friend with an interview on Monday</div>
+  <div id="pill">
+    <div id="pill-a">Comment for the free prompt</div>
+    <div id="kw"><span class="kl" id="kl1">I</span><span class="kl" id="kl2">N</span><span class="kl" id="kl3">T</span><span class="kl" id="kl4">R</span><span class="kl" id="kl5">O</span></div>
+  </div>
+  <svg id="bm" viewBox="0 0 56 78"><path d="M4 4 H52 V74 L28 56 L4 74 Z" fill="#2E5BBA"></path></svg>
+  <div id="save">Save it for Monday.</div>
+</section>

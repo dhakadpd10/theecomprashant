@@ -1,0 +1,139 @@
+{
+  "id": "2026-11-12-reel-prompt-tell-me-about-yourself-before-after",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "INTRO",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|questions|tailor|measurements|role|true|4|40|fits|catch|experience|Monday|INTRO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E5BBA"
+  },
+  "lines": [
+    {
+      "say": "Watch what happens when AI asks you three questions first.",
+      "show": "AI asks you 3 questions first.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Between jobs, interview this week? You get this.",
+      "show": "Interview this week? You get this.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "A tailor without your measurements hands you a ready-made kurta.",
+      "show": "No measurements, free-size kurta.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Give AI your measurements: the job, three true facts.",
+      "show": "Your measurements: role, 3 true facts.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Four lines, under a minute. Ask me three questions first.",
+      "show": "4 lines, 40 seconds. Ask me 3 questions first.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now it fits. It sounds like you.",
+      "show": "Now it fits. It sounds like you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it polishes, but can't invent experience.",
+      "show": "The catch: it can't invent experience.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Use only true things, then say it out loud.",
+      "show": "Only true things. Practise out loud.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the friend with an interview on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+1.1",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+1.7",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "AI ASKS YOU",
+      "3 QUESTIONS FIRST"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

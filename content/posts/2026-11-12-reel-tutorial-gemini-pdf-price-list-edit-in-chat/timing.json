@@ -1,0 +1,81 @@
+{
+  "dur": 34.4,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.675,
+      "b": 4.775,
+      "say": "Your shop rate list in Gemini, step by step. The middle step most people miss.",
+      "show": "Shop rate list in Gemini. 3 steps."
+    },
+    {
+      "a": 4.775,
+      "voice": 4.875,
+      "end": 6.667,
+      "b": 6.767,
+      "say": "You're still making price lists by hand?",
+      "show": "Still writing prices by hand?"
+    },
+    {
+      "a": 6.767,
+      "voice": 6.867,
+      "end": 9.934,
+      "b": 10.034,
+      "say": "Step one: you ask Gemini for a price list PDF.",
+      "show": "Step 1: ask Gemini for a price list PDF."
+    },
+    {
+      "a": 10.034,
+      "voice": 10.134,
+      "end": 13.596,
+      "b": 13.696,
+      "say": "Next, you fix it right there in the chat. Just tell it the new tea price.",
+      "show": "Step 2: say 'make chai ₹15'."
+    },
+    {
+      "a": 13.696,
+      "voice": 13.796,
+      "end": 17.08,
+      "b": 17.18,
+      "say": "Last step: share it from your phone, or put it on paper. That's it.",
+      "show": "Step 3: WhatsApp it or print it."
+    },
+    {
+      "a": 17.18,
+      "voice": 17.28,
+      "end": 21.234,
+      "b": 21.334,
+      "say": "It's like a pencil register. You rub out one line, and it's the same page.",
+      "show": "Pencil register: one line rubbed out."
+    },
+    {
+      "a": 21.334,
+      "voice": 21.434,
+      "end": 25.559,
+      "b": 25.659,
+      "say": "The catch: on your phone it's PDFs only. And you've got to check every price.",
+      "show": "Catch: PDFs only on phone. Check prices."
+    },
+    {
+      "a": 25.659,
+      "voice": 25.759,
+      "end": 29.612,
+      "b": 29.712,
+      "say": "Send this to the uncle who's still got his rate list on a cardboard box.",
+      "show": "Send this to the cardboard-box uncle."
+    },
+    {
+      "a": 29.712,
+      "voice": 29.812,
+      "end": 32.995,
+      "b": 34.4,
+      "say": "Type LETTER below, and I'll send you the exact words to use.",
+      "show": "Comment LETTER for the prompt."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "week": "2026-W46-2",
+  "start": "2026-11-11",
+  "research": "I found 9 usable items. Six are from the last 14 days (25 Oct to 8 Nov). Three are slightly older (20 to 22 Oct) but are still rolling out or still current in India, and each one says so. I found nothing dated in the last 14 days for CapCut, NotebookLM, phone built-in AI (no new Hindi updates) or new privacy studies, so none of them made the list.\n\n**New tools and features**\n\n1. **ChatGPT Images 2.6 (4 Nov).** Images are about 50% faster, ChatGPT can make looping GIFs, and you can save a reference photo and call it by name later (OpenAI's example: save your dog as \"Pepper\", then ask for \"@Pepper as a watercolour\"). *Why care:* you get GIFs from a sketch, and the same face or product in every image without uploading it again. *Catch:* the GIF feature is reaching accounts gradually, and OpenAI hasn't said how long GIFs can be or what the limits are. [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) · [OpenAI announcement](https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901)\n\n2. **Gemini can now edit the files it creates, inside the chat (29 Oct).** You can ask for a PDF, doc or sheet, then type into it or ask Gemini to change parts of it without downloading anything. *Why care:* you can make and fix a CV, a notice or a price list on your phone. *Catch:* on the phone, only PDFs can be edited. Docs, Sheets and slides need the web version. [Google Workspace Updates](https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html?m=1)\n\n3. **Canva Craft, Canva's own image model (22 Oct, just outside the window).** It's free for all users in Dream Lab and plans the layout and text before it draws. *Why care:* you can make posters and posts with readable text on the free plan. *Catch:* it uses up your monthly free AI allowance faster than Canva's other AI tools. Also, CRAFT is resting this week and only answers DMs. [Canva Newsroom](https://www.canva.com/newsroom/news/canva-craft/)\n\n4. **Locked chats in ChatGPT (from 20 Oct, still rolling out to Free and Go).** You can hide chosen chats behind a PIN so they don't show in your history or search. *Why care:* this matters if you share a phone or laptop at home or in a hostel. *Catch:* if you reset the PIN, every locked chat is deleted for good. Also, a locked chat is hidden from people using your phone, not from OpenAI. [OpenAI help: locked chats](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n\n**Things people will wonder about**\n\n5. **Claude Personal Finance (5 Nov), US only.** It links your bank and card accounts read-only and answers questions about your spending, on Pro and higher plans. *Why care:* people in India will see it trending and ask if they can use it. They can't yet. A beginner-safe version is to paste a statement you've already downloaded and hidden your account numbers in, and ask Claude for a spending summary. [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes) · [9to5Mac](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n\n6. **Meta AI inside WhatsApp, beta only (31 Oct to 5 Nov).** Testers are getting separate Meta AI chats in the chat list, AI photo extension to 9:16 (the shape of a WhatsApp Status) and AI cover photos. *Why care:* this will reach most of the audience through WhatsApp. *Catch:* it's beta only, and WhatsApp hasn't announced a public date. This is reporting from WhatsApp beta testers, not Meta, so don't make a reel on it yet. [Sammy Fans](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/) · [Techgenyz](https://techgenyz.com/whatsapp-meta-ai-chats-powerful-android-beta-upgrade/)\n\n7. **Google Pay AI shopping pilot in India (2 Nov).** It has virtual try-on and \"find similar products\", under the Discover icon. *Why care:* it's the first AI try-on many people will see inside an app they already use for UPI. *Catch:* only some users have it so far. [Deccan Herald](https://www.deccanherald.com/technology/artificial-intelligence/google-pay-gets-a-new-in-app-ai-shopping-experience-feature-in-india-4204285)\n\n**Scams**\n\n8. **PNB warning on AI voice clones and deepfakes (20 Oct).** Scammers copy a relative's voice or face to stage an emergency and ask for urgent money. PNB also warns about deepfake \"police\" videos threatening \"digital arrest\" and about phishing messages that look like real bank messages. *Why care:* this is the most common AI scam aimed at Indian families. *The fix:* hang up, call back on the number you already have saved, and agree a family code word. Report on 1930 or cybercrime.gov.in. I couldn't find PNB's own notice, only news reports of it. [NewKerala](https://www.newkerala.com/news/a/pnb-warns-customers-against-ai-voice-cloning-deepfake-681.htm) · [Daily Pioneer](https://dailypioneer.com/india/pnb-warns-customers-against-rising-ai-cyber-scams)\n\n9. **AI-made fake job offers and fake government apps (Maharashtra Cyber Police, early October).** Scammers use AI to make job offers with fake company details and reviews, and push fake government apps. *Why care:* students and people between jobs are the target, which fits the \"spot a fake AI task job\" topic. This one is older than 14 days, so use it as background. [Free Press Journal](https://www.freepressjournal.in/mumbai/maharashtra-cyber-police-warn-citizens-against-qr-code-ai-voice-fake-government-app-and-job-scams)\n\n**Possible slot matches:**\n- **Images 2.6:** fits a tool slot (9 Nov 19:30 or 11 Nov 13:00, #11, ranked card). One item could be \"3 things it does now: GIFs, saved references, speed\".\n- **Gemini file editing:** fits the 10 Nov 13:00 tutorial (#18). Open on the finished CV PDF.\n\nBoth need a keyword that has a real tool on the tools page. RESUME could fit the Gemini CV tutorial, but check it isn't too close to the 7 Nov CV compare. Several sources above are news or blog coverage, not the company's own page, so check the company page before any price or limit goes on a card.\n\nSources:\n- [OpenAI ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [OpenAI: Images 2.6 announcement](https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901)\n- [OpenAI: Images 2.6 system card](https://deploymentsafety.openai.com/chatgpt-images-2-6)\n- [OpenAI help: Using locked chats](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n- [Google Workspace Updates: edit files in Gemini](https://workspaceupdates.googleblog.com/2026/10/create-preview-and-edit-files-directly-in-the-Gemini-app.html?m=1)\n- [GSMArena: Gemini file editing](https://gsmarena.com/gemini_now_lets_you_edit_the_files_it_creates_right_in_the_chat-news-75277.php)\n- [Canva Newsroom: Introducing Canva Craft](https://www.canva.com/newsroom/news/canva-craft/)\n- [Canva: Craft API](https://www.canva.com/ai-research/craft-api/)\n- [TechCrunch: Canva Craft](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/)\n- [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes)\n- [9to5Mac: Claude Personal Finance](https://9to5mac.com/2026/11/05/anthropic-upgrades-claude-with-new-personal-finance-feature/)\n- [Sammy Fans: WhatsApp Meta AI chats](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n- [Techgenyz: WhatsApp Meta AI beta](https://techgenyz.com/whatsapp-meta-ai-chats-powerful-android-beta-upgrade/)\n- [Deccan Herald: Google Pay AI shopping](https://www.deccanherald.com/technology/artificial-intelligence/google-pay-gets-a-new-in-app-ai-shopping-experience-feature-in-india-4204285)\n- [NewKerala: PNB warning](https://www.newkerala.com/news/a/pnb-warns-customers-against-ai-voice-cloning-deepfake-681.htm)\n- [Daily Pioneer: PNB warning](https://dailypioneer.com/india/pnb-warns-customers-against-rising-ai-cyber-scams)\n- [Free Press Journal: Maharashtra Cyber Police](https://www.freepressjournal.in/mumbai/maharashtra-cyber-police-warn-citizens-against-qr-code-ai-voice-fake-government-app-and-job-scams)",
+  "slots": [
+    {
+      "day": "2026-11-11",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-11-reel-tool-chatgpt-images-26-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 18,
+        "name": "Cold Open Demo",
+        "score": 77.8
+      },
+      "keyword": "STICKER",
+      "pillar": "Tools worth knowing",
+      "topic": "ChatGPT Images 2.6 (4 Nov): 3 new things, ranked, with a saved reference photo you call by name as the favourite",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-11",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-11-reel-compare-group-chat-recap-chatgpt-gemini-clau",
+      "style": "motion",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 61.2
+      },
+      "keyword": "RECAP",
+      "pillar": "Which one wins",
+      "topic": "ChatGPT vs Gemini vs Claude: which one turns 300 unread WhatsApp group messages into a 5-line recap, judged on one chat",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-12",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-12-reel-tutorial-gemini-pdf-price-list-edit-in-chat",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 59
+      },
+      "keyword": "LETTER",
+      "pillar": "Do it with AI",
+      "topic": "Make a one-page price list PDF in Gemini and fix it inside the chat on your phone, in 3 steps",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-12",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-12-reel-explain-ai-photo-restore-guesses-faces",
+      "style": "motion",
+      "hook": {
+        "id": 9,
+        "name": "The Steal",
+        "score": 54.2
+      },
+      "keyword": "PHOTO",
+      "pillar": "How AI works",
+      "topic": "Why AI 'fixing' nani's old photo can quietly change her face, and the prompt that keeps it closer",
+      "status": "made"
+    }
+  ]
+}

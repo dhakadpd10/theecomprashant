@@ -1,0 +1,141 @@
+{
+  "id": "2026-11-12-reel-explain-ai-photo-restore-guesses-faces",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "PHOTO",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Steal|3line|threeline|nani's|face|faces|rangoli|guess|guesses|gaps|nothing|Closer|original|restored|Send|PHOTO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B50C8"
+  },
+  "lines": [
+    {
+      "say": "Steal this three-line prompt that stops AI changing grandma's face.",
+      "show": "Steal this 3-line prompt.",
+      "card": "3 LINES SAME FACE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Repaired grandma's photo for the family group? Look closer.",
+      "show": "Fixed nani's photo for the family group?",
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Old photos lose detail, like a half-wiped drawing.",
+      "show": "Lost detail, like a half-wiped rangoli.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "AI fills the gaps from what's left.",
+      "show": "AI fills the gaps from what's left.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "So that sharp face is a guess.",
+      "show": "That sharp face is a guess.",
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Tell it: don't change faces, add nothing, list your guesses.",
+      "show": "Don't change faces. Add nothing. List guesses.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now it's closer, and it names every guess.",
+      "show": "Closer, and every guess listed.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: faces can drift, and free plans cap edits.",
+      "show": "Catch: faces drift. Free plans cap edits.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Keep the original. Say it's restored.",
+      "show": "Keep the original. Say it's restored.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the cousin restoring old photos for the family group. Type PHOTO below.",
+      "show": "Send this. Comment PHOTO for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "3 LINES",
+      "SAME FACE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

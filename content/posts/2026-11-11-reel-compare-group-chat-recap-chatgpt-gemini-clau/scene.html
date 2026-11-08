@@ -1,0 +1,255 @@
+<style>
+  /* compare reel, RECAP. Colour = meaning: blue = the AI and the prompt, amber = the hidden due date, green = caught or nothing invented, red = missed or invented.
+     BLOCKED FOR RENDER (post.json "_pending"): every {{TOKEN}} below must be filled from the real run, together with lines 5 and 6, before the voice is recorded again.
+     {{P1}} {{P2}} {{P3}} = the free plan name for ChatGPT, Gemini, Claude, copied from each app's own site on the day of the run (keep it short, e.g. the word the site uses).
+     {{A1}} {{A2}} {{A3}} = ChatGPT / Gemini / Claude, best first (caught the date and invented nothing ranks highest).
+     {{D1}} {{D2}} {{D3}} = CAUGHT or MISSED; {{D1C}} {{D2C}} {{D3C}} = green or red.
+     {{V1}} {{V2}} {{V3}} = NONE or ADDED; {{V1C}} {{V2C}} {{V3C}} = green or red.
+     {{PICK}} = the same text as line 6's caption.
+     Also fix the RECAP tool page ("paste into Claude") so it matches the winner. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FAF7F1 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,91,211,0.08) 0%, rgba(47,91,211,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(244,193,79,0.10) 0%, rgba(244,193,79,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 46px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 96px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; line-height: 1; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; white-space: nowrap; }
+  .it { font-family: 'Playfair Italic', serif; font-style: normal; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,20,0.13), 0 2px 0 rgba(70,50,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: #6E6860; white-space: nowrap; }
+  .txt { position: absolute; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .chip { position: absolute; height: 60px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; overflow: hidden; white-space: nowrap; }
+  .green { background: #17804A; } .red { background: #C23B3B; } .amber { background: #F4C14F; color: var(--ink); } .blue { background: var(--accent); } .grey { background: #6B6660; }
+
+  /* 0: hook (host centre: content above y 440 or at his sides) */
+  #s0-badge { position: absolute; left: 640px; top: 34px; width: 300px; height: 56px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s0-title { font-size: 120px; transform-origin: left center; }
+  #s0-hl { position: absolute; left: 185px; top: 300px; width: 540px; height: 52px; border-radius: 10px; background: rgba(244,193,79,0.75); transform-origin: left center; }
+  .bub { position: absolute; border-radius: 26px; background: #FFFFFF; box-shadow: 0 16px 36px rgba(70,50,20,0.12); }
+  .bub i { position: absolute; left: 24px; height: 14px; border-radius: 7px; background: #E2DDD4; }
+  #b1 { left: 90px; top: 500px; width: 190px; height: 84px; } #b1 i:nth-child(1) { top: 22px; width: 130px; } #b1 i:nth-child(2) { top: 48px; width: 90px; }
+  #b2 { left: 110px; top: 630px; width: 170px; height: 84px; } #b2 i:nth-child(1) { top: 22px; width: 110px; } #b2 i:nth-child(2) { top: 48px; width: 70px; }
+  #b3 { left: 820px; top: 520px; width: 160px; height: 84px; } #b3 i:nth-child(1) { top: 22px; width: 100px; } #b3 i:nth-child(2) { top: 48px; width: 80px; }
+  #b4 { left: 820px; top: 650px; width: 160px; height: 90px; background: #F4C14F; }
+  #b4 svg { position: absolute; left: 50px; top: 15px; width: 60px; height: 60px; }
+
+  /* 1: 300 unread (host right) */
+  #s1-card { top: 400px; height: 640px; }
+  #s1-ava { position: absolute; left: 28px; top: 20px; width: 60px; height: 60px; border-radius: 30px; background: #E4EAFB; }
+  #s1-name { left: 104px; top: 0; height: 100px; font-size: 36px; }
+  #s1-count { position: absolute; right: 28px; top: 22px; width: 130px; height: 56px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .msg { position: absolute; left: 28px; right: 28px; height: 84px; border-radius: 24px; background: #F3F1EC; }
+  .msg .txt { left: 28px; right: 28px; top: 0; bottom: 0; }
+  #m1 { top: 120px; } #m2 { top: 216px; } #m3 { top: 312px; } #m4 { top: 408px; } #m5 { top: 504px; }
+  #s1-note { left: 28px; top: 598px; }
+
+  /* 2: the chai stall friend */
+  #s2-card { top: 400px; height: 560px; }
+  #cup { position: absolute; left: 28px; top: 22px; width: 56px; height: 56px; }
+  #s2-name { left: 104px; top: 0; height: 100px; font-size: 36px; }
+  #s2-ex { right: 28px; top: 38px; }
+  .rec { position: absolute; left: 28px; right: 28px; height: 110px; border-radius: 26px; background: #F6F5F2; }
+  .rec .txt { left: 28px; right: 160px; top: 0; bottom: 0; }
+  .rec .chip { right: 22px; top: 25px; width: 120px; }
+  #e1 { top: 120px; background: #FDF1D6; } #e2 { top: 250px; } #e3 { top: 380px; }
+  #s2-note { left: 28px; top: 508px; }
+
+  /* 3: same chat, one prompt, three apps (host hidden) */
+  #s3-prompt { position: absolute; left: 90px; right: 90px; top: 390px; height: 90px; border-radius: 30px; background: var(--ink); }
+  #s3-pt { left: 34px; right: 34px; top: 0; bottom: 0; color: #F3EEE5; }
+  #s3-note { left: 90px; top: 500px; }
+  .col { position: absolute; top: 556px; width: 280px; height: 500px; border-radius: 32px; background: #FFFFFF; box-shadow: 0 26px 60px rgba(70,50,20,0.12); overflow: hidden; }
+  #s3-c1 { left: 90px; } #s3-c2 { left: 400px; } #s3-c3 { left: 710px; }
+  .col .app { position: absolute; left: 0; right: 0; top: 26px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); }
+  .col .lbl { left: 20px; right: 20px; top: 84px; text-align: center; letter-spacing: 0.02em; overflow: hidden; }
+  .col .ln { position: absolute; left: 24px; height: 26px; border-radius: 13px; background: #E8E4DC; }
+  .col .ln:nth-of-type(1) { top: 160px; width: 200px; } .col .ln:nth-of-type(2) { top: 206px; width: 160px; }
+  .col .ln:nth-of-type(3) { top: 252px; width: 220px; background: #F4C14F; } .col .ln:nth-of-type(4) { top: 298px; width: 140px; }
+  .col .chip { left: 30px; right: 30px; top: 400px; }
+
+  /* 4: the two questions (host hidden) */
+  #s4-card { top: 400px; height: 640px; }
+  .hd { position: absolute; top: 34px; width: 250px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; }
+  #s4-h1 { left: 330px; color: #8A5A00; } #s4-h2 { left: 610px; color: #C23B3B; }
+  .sr { position: absolute; left: 30px; right: 30px; height: 140px; border-radius: 26px; background: #F6F5F2; }
+  .sr .txt { left: 30px; width: 240px; top: 0; bottom: 0; font-size: 36px; }
+  .cell { position: absolute; top: 22px; width: 250px; height: 96px; border: 4px dashed rgba(30,26,22,0.22); border-radius: 22px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: #6B6660; }
+  .cell.d { left: 300px; } .cell.v { left: 580px; }
+  #t1 { top: 110px; } #t2 { top: 270px; } #t3 { top: 430px; }
+  #s4-note { left: 30px; top: 594px; }
+
+  /* 5-6: the result and the pick (host right) */
+  #s5-card { top: 280px; height: 560px; }
+  #s5-h1 { left: 320px; top: 32px; width: 150px; text-align: center; letter-spacing: 0.04em; }
+  #s5-h2 { left: 480px; top: 32px; width: 150px; text-align: center; letter-spacing: 0.04em; }
+  .rk { position: absolute; left: 20px; right: 20px; height: 120px; border-radius: 26px; background: #F6F5F2; }
+  .rk .n { position: absolute; left: 16px; top: 30px; width: 60px; height: 60px; border-radius: 30px; background: #6B6660; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .rk .txt { left: 90px; width: 196px; top: 0; bottom: 0; font-size: 34px; }
+  .rk .chip { top: 30px; width: 150px; }
+  .rk .chip.d { left: 300px; } .rk .chip.v { left: 460px; }
+  #k1 { top: 84px; background: #EAF0FD; } #k1 .n { background: var(--accent); }
+  #k2 { top: 224px; } #k3 { top: 364px; }
+  #s5-note { left: 30px; top: 502px; }
+  #s6-pick { position: absolute; left: 60px; right: 360px; top: 880px; height: 150px; border-radius: 40px; background: var(--ink); padding: 0 34px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.2; color: #F3EEE5; overflow: hidden; }
+
+  /* 7: the catch */
+  #s7-card { top: 280px; height: 560px; }
+  #s7-l1 { left: 28px; top: 30px; } #s7-l2 { left: 28px; top: 226px; }
+  #s7-msg { position: absolute; left: 28px; right: 28px; top: 76px; height: 110px; border-radius: 26px; background: #F6F5F2; }
+  #s7-mt { left: 28px; right: 160px; top: 0; bottom: 0; }
+  #s7-strike { position: absolute; left: 20px; right: 160px; top: 52px; height: 6px; border-radius: 3px; background: #C23B3B; transform-origin: left center; }
+  #s7-del { right: 18px; top: 25px; width: 130px; }
+  #s7-track { position: absolute; left: 28px; right: 28px; top: 278px; height: 56px; border-radius: 28px; background: #EFEEEA; overflow: hidden; }
+  #s7-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 72%; background: var(--accent); transform-origin: left center; }
+  #s7-over { position: absolute; left: 72%; right: 0; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, rgba(194,59,59,0.35) 0 14px, rgba(194,59,59,0.12) 14px 28px); }
+  #s7-cap { position: absolute; left: 457px; top: 262px; width: 12px; height: 88px; border-radius: 6px; background: #C23B3B; }
+  #s7-capl { left: 420px; top: 362px; color: #C23B3B; }
+  #s7-tip { left: 28px; right: 28px; top: 416px; height: 50px; }
+  #s7-note { left: 28px; top: 490px; }
+
+  /* 8: send this */
+  #s8-title { left: 90px; right: 300px; top: 110px; font-size: 140px; }
+  #bell { position: absolute; left: 90px; top: 370px; width: 200px; height: 200px; }
+  #s8-who { position: absolute; left: 320px; width: 400px; top: 392px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: var(--ink); }
+  #s8-card { top: 620px; height: 260px; }
+  .gr { position: absolute; left: 28px; right: 28px; height: 100px; border-radius: 26px; background: #F6F5F2; }
+  .gr .txt { left: 28px; right: 180px; top: 0; bottom: 0; }
+  .gr .chip { right: 20px; top: 20px; width: 140px; }
+  #g1 { top: 24px; } #g2 { top: 136px; }
+
+  /* 9: the keyword */
+  #s9-title { left: 90px; right: 400px; top: 100px; font-size: 140px; }
+  #bm { position: absolute; left: 470px; top: 130px; width: 90px; height: 130px; }
+  #s9-pill { position: absolute; left: 60px; right: 360px; top: 360px; height: 320px; border-radius: 60px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #s9-cl { left: 0; right: 0; top: 44px; text-align: center; color: #D9D2C5; letter-spacing: 0.3em; }
+  #s9-word { position: absolute; left: 0; right: 0; top: 100px; height: 180px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  #s9-word span { display: block; font-family: var(--display); font-size: 140px; line-height: 1; color: #A9BCFF; }
+  #s9-tag { position: absolute; left: 90px; top: 730px; width: 400px; height: 84px; border-radius: 42px; background: #F4C14F; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i><i><b id="p9"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">EXAMPLE SOCIETY GROUP</div>
+  <div id="s0-badge">300 UNREAD</div>
+  <div id="s0-hl" data-layout-allow-overlap></div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><i class="it">300</i> messages.</span></span><span class="mask"><span class="l">1 due date.</span></span></div>
+  <div class="bub" id="b1"><i></i><i></i></div>
+  <div class="bub" id="b2"><i></i><i></i></div>
+  <div class="bub" id="b3"><i></i><i></i></div>
+  <div class="bub" id="b4"><svg viewBox="0 0 60 60"><rect x="6" y="12" width="48" height="42" rx="8" fill="none" stroke="#1E1A16" stroke-width="5"></rect><path d="M6 26 H54" stroke="#1E1A16" stroke-width="5"></path><path d="M18 6 V16 M42 6 V16" stroke="#1E1A16" stroke-width="5" stroke-linecap="round"></path></svg></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">AFTER OFFICE</div>
+  <div class="title"><span class="mask"><span class="l">300 <i class="it">unread.</i></span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-ava"></div>
+    <div class="txt" id="s1-name">Society Group</div>
+    <div id="s1-count">0</div>
+    <div class="msg" id="m1"><div class="txt">Good morning all</div></div>
+    <div class="msg" id="m2"><div class="txt">Forwarded: Diwali wishes</div></div>
+    <div class="msg" id="m3"><div class="txt">Who parked at the gate?</div></div>
+    <div class="msg" id="m4"><div class="txt">Maintenance due by 15th</div></div>
+    <div class="msg" id="m5"><div class="txt">Puja photos, please</div></div>
+    <div class="lbl" id="s1-note">EXAMPLE CHAT</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WHAT YOU WANT</div>
+  <div class="title"><span class="mask"><span class="l">Only what</span></span><span class="mask"><span class="l it">matters.</span></span></div>
+  <div class="card" id="s2-card">
+    <svg id="cup" viewBox="0 0 56 56"><path d="M8 18 H40 V38 Q40 50 24 50 Q8 50 8 38 Z" fill="#C9A27A"></path><path d="M40 22 Q52 22 52 30 Q52 38 40 38" fill="none" stroke="#C9A27A" stroke-width="5"></path><path d="M18 4 Q14 9 18 13 M28 4 Q24 9 28 13" fill="none" stroke="#B8B0A4" stroke-width="3" stroke-linecap="round"></path></svg>
+    <div class="txt" id="s2-name">Chai stall friend</div>
+    <div class="lbl" id="s2-ex">EXAMPLE</div>
+    <div class="rec" id="e1"><div class="txt">Maintenance by 15th</div><div class="chip amber" id="e1c">DO</div></div>
+    <div class="rec" id="e2"><div class="txt">Keep the gate clear</div><div class="chip blue" id="e2c">NOTE</div></div>
+    <div class="rec" id="e3"><div class="txt">Skip: wishes, photos</div><div class="chip grey" id="e3c">SKIP</div></div>
+    <div class="lbl" id="s2-note">3 LINES, NOT 300</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE TEST</div>
+  <div class="title"><span class="mask"><span class="l">Same chat.</span></span><span class="mask"><span class="l it">3 apps.</span></span></div>
+  <div id="s3-prompt"><div class="txt" id="s3-pt">Prompt: 5-line recap + what I must do</div></div>
+  <div class="lbl" id="s3-note">SAME EXAMPLE CHAT IN ALL 3</div>
+  <div class="col" id="s3-c1"><div class="app">ChatGPT</div><div class="lbl">{{P1}}</div><i class="ln"></i><i class="ln"></i><i class="ln"></i><i class="ln"></i><div class="chip blue" id="s3-k1">PROMPT</div></div>
+  <div class="col" id="s3-c2"><div class="app">Gemini</div><div class="lbl">{{P2}}</div><i class="ln"></i><i class="ln"></i><i class="ln"></i><i class="ln"></i><div class="chip blue" id="s3-k2">PROMPT</div></div>
+  <div class="col" id="s3-c3"><div class="app">Claude</div><div class="lbl">{{P3}}</div><i class="ln"></i><i class="ln"></i><i class="ln"></i><i class="ln"></i><div class="chip blue" id="s3-k3">PROMPT</div></div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">WHAT WE CHECKED</div>
+  <div class="title"><span class="mask"><span class="l">Two</span></span><span class="mask"><span class="l it">questions.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div class="hd" id="s4-h1">Due date?</div>
+    <div class="hd" id="s4-h2">Invented?</div>
+    <div class="sr" id="t1"><div class="txt">ChatGPT</div><div class="cell d">?</div><div class="cell v">?</div></div>
+    <div class="sr" id="t2"><div class="txt">Gemini</div><div class="cell d">?</div><div class="cell v">?</div></div>
+    <div class="sr" id="t3"><div class="txt">Claude</div><div class="cell d">?</div><div class="cell v">?</div></div>
+    <div class="lbl" id="s4-note">SAME EXAMPLE CHAT · FREE PLANS</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line7">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">In our <i class="it">test.</i></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-h1">DUE DATE</div>
+    <div class="lbl" id="s5-h2">INVENTED</div>
+    <div class="rk" id="k1"><div class="n">1</div><div class="txt">{{A1}}</div><div class="chip d {{D1C}}" id="k1d">{{D1}}</div><div class="chip v {{V1C}}" id="k1v">{{V1}}</div></div>
+    <div class="rk" id="k2"><div class="n">2</div><div class="txt">{{A2}}</div><div class="chip d {{D2C}}" id="k2d">{{D2}}</div><div class="chip v {{V2C}}" id="k2v">{{V2}}</div></div>
+    <div class="rk" id="k3"><div class="n">3</div><div class="txt">{{A3}}</div><div class="chip d {{D3C}}" id="k3d">{{D3}}</div><div class="chip v {{V3C}}" id="k3v">{{V3}}</div></div>
+    <div class="lbl" id="s5-note">SAME EXAMPLE CHAT · FREE PLANS</div>
+  </div>
+  <div id="s6-pick">{{PICK}}</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">The <i class="it">catch.</i></span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-l1">1. DELETE NUMBERS FIRST</div>
+    <div id="s7-msg"><div class="txt" id="s7-mt">Call me: +91 ••••• •••••</div><i id="s7-strike"></i><div class="chip red" id="s7-del">DELETE</div></div>
+    <div class="lbl" id="s7-l2">2. LONG PASTES GET CAPPED</div>
+    <div id="s7-track"><i id="s7-fill"></i><i id="s7-over"></i></div>
+    <div id="s7-cap" data-layout-allow-overlap></div>
+    <div class="lbl" id="s7-capl">LIMIT</div>
+    <div class="txt" id="s7-tip">Long chat? Paste it in parts.</div>
+    <div class="lbl" id="s7-note">LIMIT VARIES BY APP AND PLAN</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Send <i class="it">this.</i></span></span></div>
+  <svg id="bell" viewBox="0 0 200 200"><path d="M100 30 Q150 30 150 90 V128 L168 150 H32 L50 128 V90 Q50 30 100 30 Z" fill="#1E1A16"></path><circle cx="100" cy="166" r="16" fill="#1E1A16"></circle><path id="slash" d="M30 30 L172 172" stroke="#C23B3B" stroke-width="16" stroke-linecap="round" stroke-dasharray="210" stroke-dashoffset="210"></path></svg>
+  <div id="s8-who">to the friend who muted the group</div>
+  <div class="card" id="s8-card">
+    <div class="gr" id="g1"><div class="txt">Society Group</div><div class="chip grey" id="g1c">MUTED</div></div>
+    <div class="gr" id="g2"><div class="txt">Meeting</div><div class="chip red" id="g2c">MISSED</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div class="title" id="s9-title"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="bm" viewBox="0 0 90 130"><path d="M8 8 H82 V122 L45 94 L8 122 Z" fill="#2F5BD3"></path></svg>
+  <div id="s9-pill">
+    <div class="lbl" id="s9-cl">COMMENT</div>
+    <div id="s9-word"><span id="w1">R</span><span id="w2">E</span><span id="w3">C</span><span id="w4">A</span><span id="w5">P</span></div>
+  </div>
+  <div id="s9-tag">FREE RECAP PROMPT</div>
+</section>

@@ -1,0 +1,81 @@
+{
+  "dur": 27.03,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.194,
+      "b": 3.294,
+      "say": "Watch what happens when AI asks you three questions first.",
+      "show": "AI asks you 3 questions first."
+    },
+    {
+      "a": 3.294,
+      "voice": 3.394,
+      "end": 5.763,
+      "b": 5.863,
+      "say": "Between jobs, interview this week? You get this.",
+      "show": "Interview this week? You get this."
+    },
+    {
+      "a": 5.863,
+      "voice": 5.963,
+      "end": 9.035,
+      "b": 9.135,
+      "say": "A tailor without your measurements hands you a ready-made kurta.",
+      "show": "No measurements, free-size kurta."
+    },
+    {
+      "a": 9.135,
+      "voice": 9.235,
+      "end": 11.904,
+      "b": 12.004,
+      "say": "Give AI your measurements: the job, three true facts.",
+      "show": "Your measurements: role, 3 true facts."
+    },
+    {
+      "a": 12.004,
+      "voice": 12.104,
+      "end": 15.11,
+      "b": 15.21,
+      "say": "Four lines, under a minute. Ask me three questions first.",
+      "show": "4 lines, 40 seconds. Ask me 3 questions first."
+    },
+    {
+      "a": 15.21,
+      "voice": 15.31,
+      "end": 16.825,
+      "b": 16.925,
+      "say": "Now it fits. It sounds like you.",
+      "show": "Now it fits. It sounds like you."
+    },
+    {
+      "a": 16.925,
+      "voice": 17.025,
+      "end": 19.625,
+      "b": 19.725,
+      "say": "The catch: it polishes, but can't invent experience.",
+      "show": "The catch: it can't invent experience."
+    },
+    {
+      "a": 19.725,
+      "voice": 19.825,
+      "end": 21.997,
+      "b": 22.097,
+      "say": "Use only true things, then say it out loud.",
+      "show": "Only true things. Practise out loud."
+    },
+    {
+      "a": 22.097,
+      "voice": 22.197,
+      "end": 25.627,
+      "b": 27.03,
+      "say": "Send this to the friend with an interview on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO for the prompt."
+    }
+  ]
+}

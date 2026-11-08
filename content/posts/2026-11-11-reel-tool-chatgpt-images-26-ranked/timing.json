@@ -1,0 +1,81 @@
+{
+  "dur": 33.13,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.939,
+      "b": 3.039,
+      "say": "I saved this doodle once. Watch what one name does.",
+      "show": "Saved once. Called by name."
+    },
+    {
+      "a": 3.039,
+      "voice": 3.139,
+      "end": 7.97,
+      "b": 8.07,
+      "say": "At home making good morning images? OpenAI's image tool got three upgrades.",
+      "show": "Making family good-morning images at home?"
+    },
+    {
+      "a": 8.07,
+      "voice": 8.17,
+      "end": 11.268,
+      "b": 11.368,
+      "say": "Three: faster, about one and a half times, says OpenAI.",
+      "show": "3. About 50% faster, says OpenAI."
+    },
+    {
+      "a": 11.368,
+      "voice": 11.468,
+      "end": 13.541,
+      "b": 13.641,
+      "say": "Two: moving pictures that loop, from a sketch.",
+      "show": "2. Looping GIFs from a sketch."
+    },
+    {
+      "a": 13.641,
+      "voice": 13.741,
+      "end": 16.779,
+      "b": 16.879,
+      "say": "One: save a photo once, like a contact. Call it by name.",
+      "show": "1. Save it like a contact. Call it by name."
+    },
+    {
+      "a": 16.879,
+      "voice": 16.979,
+      "end": 19.51,
+      "b": 19.61,
+      "say": "Now a painted look, then a moving loop, if you have it.",
+      "show": "A watercolour. Then a GIF, if you have it."
+    },
+    {
+      "a": 19.61,
+      "voice": 19.71,
+      "end": 23.708,
+      "b": 23.808,
+      "say": "The catch: moving loops roll out slowly. No published length or limits.",
+      "show": "The catch: slow rollout, no published limits."
+    },
+    {
+      "a": 23.808,
+      "voice": 23.908,
+      "end": 27.354,
+      "b": 27.454,
+      "say": "Free plan limits apply. Don't save anyone who hasn't agreed.",
+      "show": "Free limits apply. Only save people who agreed."
+    },
+    {
+      "a": 27.454,
+      "voice": 27.554,
+      "end": 31.729,
+      "b": 33.13,
+      "say": "Send this to the one who makes every greeting in your family group. Comment STICKER.",
+      "show": "Send this. Comment STICKER for the prompt."
+    }
+  ]
+}

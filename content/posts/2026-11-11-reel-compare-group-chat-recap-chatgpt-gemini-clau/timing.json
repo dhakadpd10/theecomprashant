@@ -1,0 +1,89 @@
+{
+  "dur": 32.53,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 5.305,
+      "b": 5.405,
+      "say": "So many society group messages, one hidden due date. Three free AI apps. Who finds it?",
+      "show": "300 messages. 1 hidden due date."
+    },
+    {
+      "a": 5.405,
+      "voice": 5.505,
+      "end": 8.513,
+      "b": 8.613,
+      "say": "Home from office, and the group is full of unread messages.",
+      "show": "Home from office. 300 unread."
+    },
+    {
+      "a": 8.613,
+      "voice": 8.713,
+      "end": 11.797,
+      "b": 11.897,
+      "say": "You want the chai stall friend who tells you only what matters.",
+      "show": "The chai stall friend: only what matters."
+    },
+    {
+      "a": 11.897,
+      "voice": 11.997,
+      "end": 14.603,
+      "b": 14.703,
+      "say": "Same example chat, one prompt, three free plans.",
+      "show": "Same EXAMPLE chat. 1 prompt. 3 free plans."
+    },
+    {
+      "a": 14.703,
+      "voice": 14.803,
+      "end": 17.098,
+      "b": 17.198,
+      "say": "Did it catch the due date? Did it invent anything?",
+      "show": "Caught the due date? Invented anything?"
+    },
+    {
+      "a": 17.198,
+      "voice": 17.298,
+      "end": 20.182,
+      "b": 20.282,
+      "say": "In our test, {{WINNER}} caught the due date and invented nothing.",
+      "show": "{{WINNER}} caught it. Nothing invented."
+    },
+    {
+      "a": 20.282,
+      "voice": 20.382,
+      "end": 21.502,
+      "b": 21.602,
+      "say": "Go with {{WHO_PICKS_WHICH}}.",
+      "show": "{{WHO_PICKS_WHICH_SHORT}}"
+    },
+    {
+      "a": 21.602,
+      "voice": 21.702,
+      "end": 25.85,
+      "b": 25.95,
+      "say": "The catch: strip other people's numbers first, and free plans cap long pastes.",
+      "show": "Catch: delete numbers first. Pastes are capped."
+    },
+    {
+      "a": 25.95,
+      "voice": 26.05,
+      "end": 28.931,
+      "b": 29.031,
+      "say": "Send this to the friend who muted the group and missed the meeting.",
+      "show": "Send this to the friend who muted the group."
+    },
+    {
+      "a": 29.031,
+      "voice": 29.131,
+      "end": 31.126,
+      "b": 32.53,
+      "say": "Comment RECAP for the short recap prompt.",
+      "show": "Comment RECAP for the prompt."
+    }
+  ]
+}

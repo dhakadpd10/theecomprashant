@@ -1,0 +1,89 @@
+{
+  "dur": 31.01,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.1,
+      "b": 4.2,
+      "say": "Steal this three-line prompt that stops AI changing grandma's face.",
+      "show": "Steal this 3-line prompt."
+    },
+    {
+      "a": 4.2,
+      "voice": 4.3,
+      "end": 7.417,
+      "b": 7.517,
+      "say": "Repaired grandma's photo for the family group? Look closer.",
+      "show": "Fixed nani's photo for the family group?"
+    },
+    {
+      "a": 7.517,
+      "voice": 7.617,
+      "end": 10.396,
+      "b": 10.496,
+      "say": "Old photos lose detail, like a half-wiped drawing.",
+      "show": "Lost detail, like a half-wiped rangoli."
+    },
+    {
+      "a": 10.496,
+      "voice": 10.596,
+      "end": 12.407,
+      "b": 12.507,
+      "say": "AI fills the gaps from what's left.",
+      "show": "AI fills the gaps from what's left."
+    },
+    {
+      "a": 12.507,
+      "voice": 12.607,
+      "end": 14.068,
+      "b": 14.168,
+      "say": "So that sharp face is a guess.",
+      "show": "That sharp face is a guess."
+    },
+    {
+      "a": 14.168,
+      "voice": 14.268,
+      "end": 17.214,
+      "b": 17.314,
+      "say": "Tell it: don't change faces, add nothing, list your guesses.",
+      "show": "Don't change faces. Add nothing. List guesses."
+    },
+    {
+      "a": 17.314,
+      "voice": 17.414,
+      "end": 19.481,
+      "b": 19.581,
+      "say": "Now it's closer, and it names every guess.",
+      "show": "Closer, and every guess listed."
+    },
+    {
+      "a": 19.581,
+      "voice": 19.681,
+      "end": 22.661,
+      "b": 22.761,
+      "say": "The catch: faces can drift, and free plans cap edits.",
+      "show": "Catch: faces drift. Free plans cap edits."
+    },
+    {
+      "a": 22.761,
+      "voice": 22.861,
+      "end": 24.618,
+      "b": 24.718,
+      "say": "Keep the original. Say it's restored.",
+      "show": "Keep the original. Say it's restored."
+    },
+    {
+      "a": 24.718,
+      "voice": 24.818,
+      "end": 29.609,
+      "b": 31.01,
+      "say": "Send this to the cousin restoring old photos for the family group. Type PHOTO below.",
+      "show": "Send this. Comment PHOTO for the prompt."
+    }
+  ]
+}

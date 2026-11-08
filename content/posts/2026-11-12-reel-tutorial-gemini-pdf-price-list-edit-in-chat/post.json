@@ -1,0 +1,134 @@
+{
+  "id": "2026-11-12-reel-tutorial-gemini-pdf-price-list-edit-in-chat",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "LETTER",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|three|2|two|Gemini|PDF|chai|15|WhatsApp|pencil|line|Check|Send|LETTER)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1F6F4A"
+  },
+  "lines": [
+    {
+      "say": "Your shop rate list in Gemini, step by step. The middle step most people miss.",
+      "show": "Shop rate list in Gemini. 3 steps.",
+      "card": "3 STEPS. #2 IS THE ONE",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "You're still making price lists by hand?",
+      "show": "Still writing prices by hand?",
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Step one: you ask Gemini for a price list PDF.",
+      "show": "Step 1: ask Gemini for a price list PDF.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next, you fix it right there in the chat. Just tell it the new tea price.",
+      "show": "Step 2: say 'make chai ₹15'.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Last step: share it from your phone, or put it on paper. That's it.",
+      "show": "Step 3: WhatsApp it or print it.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "It's like a pencil register. You rub out one line, and it's the same page.",
+      "show": "Pencil register: one line rubbed out.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: on your phone it's PDFs only. And you've got to check every price.",
+      "show": "Catch: PDFs only on phone. Check prices.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the uncle who's still got his rate list on a cardboard box.",
+      "show": "Send this to the cardboard-box uncle.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Type LETTER below, and I'll send you the exact words to use.",
+      "show": "Comment LETTER for the prompt.",
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.2",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "bloop"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "SHOP RATE LIST",
+      "IN GEMINI, 3 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

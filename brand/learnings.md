@@ -2,6 +2,39 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-09
+
+- **The pull moved, still has no timestamp, and the plan was missed in three of the last five slots.**
+  - BOLO went from 162 to 194 reach and pair 2 B from 58 to 64. Hostel held at 1,221 views, so it has stopped.
+  - Six rows appeared. The newest is 8 Nov 07:32 UTC.
+  - 6 Nov 14:00 UTC did post: the owed hostel tutorial (#20, GIG).
+  - Plan misses:
+    - 7 Nov 13:00 went out as a #2 tutorial; the plan was a tool or compare, not #2.
+    - Pair 3 A is logged #2; the plan was #21.
+    - 8 Nov 13:00 went out as a #20 tool reel instead of the carousel.
+  - Pair 1 B still has no row.
+- **Explainers: 0 sends and 2 saves on 977 reach across 12 reels. Low to moderate confidence; only 3 are 72 hours old.**
+  - Money-era reels outside hostel got 6.2 sends and 6.2 saves per 1k reach.
+  - 4 of those 16 reels had a send. 0 of 12 explainers do.
+  - The 4 Nov hostel tutorial is past 72 hours at 46 reach, 0 sends and 0 saves. Logged as weak evidence that the list shape matters more than the named viewer.
+- **Sends still sit on one shape (hunch to moderate, n=3, not hand-checked).**
+  - 22 of 26 page sends are on the three 'N ways' lists that named a person and place: 17.7 per 1k reach.
+  - The other 47 posts: 1.0 per 1k.
+  - Six named-viewer explainers without that list shape: 0 sends on 464 reach.
+- **Reach without action again.**
+  - BOLO: 2.08x, 6.5s, 0 sends, saves or comments.
+  - Pair 3 A: 1.39x at hours old.
+  - 4 of the top 5 by outlier have 0 sends.
+  - Explainer watch time fell to a 3.35s median (n=12). The 7 to 8 Nov explainers sit at 2.0 to 3.8s.
+  - #2 in the new niche: n=10, median 0.94x, 0 sends.
+  - #20 appeared unplanned twice (0.53x and 0.62x).
+- **Baselines and logging.**
+  - Page median: 105.5 views on 50 rows; use 106.
+  - Money era: unchanged at 106.5 views and 90.5 reach (n=16).
+  - Explainer era starts 9 Nov 03:30 UTC. On today's numbers it is 57 views and 51 reach. Don't use that figure yet.
+  - Still missing on every row: kind, the editorial-host style, arm and pair columns, pull timestamp, follower count, hold@3s, follows and non-follower %.
+  - Hook problem vs profile problem is still unknown.
+
 ## Week of 2026-11-07
 
 - **The pull moved a little and still has no timestamp. The plan was missed in two places.**

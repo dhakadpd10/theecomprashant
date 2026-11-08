@@ -1,0 +1,234 @@
+<style>
+  /* Tool reel, ranked list card (3, 2, 1). Colour = meaning: plum = the new feature, amber = caution, ink line = your doodle.
+     Honesty: the speed figure is labelled as OpenAI's own claim, the painted greeting is labelled EXAMPLE, and the GIF
+     step says "if you have it" because free-plan GIFs are unconfirmed in the tool's own notes. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, #FBF8F2 0%, var(--bg) 55%, #E7E0D4 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(107,45,92,0.08) 0%, rgba(107,45,92,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(90,60,30,0.13), 0 2px 0 rgba(90,60,30,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: #6E655C; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .plum { background: var(--accent); } .amber { background: #9E5E08; }
+  .dood { position: absolute; display: block; }
+
+  /* 0: hook */
+  #s0-step { top: 50px; }
+  #s0-title { top: 90px; font-size: 120px; transform-origin: left top; }
+  #s0-badge { position: absolute; left: 770px; top: 30px; width: 190px; height: 190px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 24px 50px rgba(90,60,30,0.16); display: block; }
+  #s0-badge .dood { left: 20px; top: 20px; width: 150px; height: 150px; }
+  #s0-ring { position: absolute; left: 760px; top: 20px; width: 210px; height: 210px; border-radius: 50%; border: 5px solid var(--accent); box-sizing: border-box; display: block; }
+  #s0-name { left: 800px; top: 176px; width: 130px; padding: 0; height: 52px; }
+  #s0-squig { position: absolute; left: 496px; top: 352px; width: 310px; height: 36px; }
+
+  /* 1: at home, good-morning images */
+  #s1-card { top: 470px; height: 560px; }
+  #s1-head { position: absolute; left: 30px; right: 30px; top: 30px; height: 90px; }
+  #s1-av { position: absolute; left: 0; top: 10px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #C98BB9 0%, #6B2D5C 100%); }
+  #s1-fam { position: absolute; left: 92px; top: 0; height: 90px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); }
+  #s1-grp { right: 0; top: 30px; }
+  #s1-line { position: absolute; left: 30px; right: 30px; top: 132px; height: 3px; background: #EFE7DC; }
+  #s1-who { left: 34px; top: 152px; }
+  #s1-img { position: absolute; left: 30px; top: 196px; width: 390px; height: 226px; border-radius: 24px; overflow: hidden; background: linear-gradient(180deg, #F9D9A6 0%, #F4B183 55%, #E59AA5 100%); transform-origin: left top; }
+  #s1-sun { position: absolute; left: 150px; top: 50px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #FFF6CF 0%, #F7C548 70%); box-shadow: 0 0 40px rgba(255,220,140,0.9); }
+  #s1-hill { position: absolute; left: -40px; right: -40px; bottom: -70px; height: 150px; border-radius: 50%; background: #8DA36A; }
+  .fl { position: absolute; bottom: 22px; width: 28px; height: 28px; border-radius: 50%; }
+  #fl1 { left: 60px; background: #F27FA6; } #fl2 { left: 120px; bottom: 34px; background: #FFFFFF; } #fl3 { left: 280px; background: #F27FA6; } #fl4 { left: 330px; bottom: 30px; background: #FFE07A; }
+  #s1-txt { position: absolute; left: 30px; top: 446px; height: 80px; padding: 0 30px; border-radius: 26px; background: #F6F0E8; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; transform-origin: left center; }
+  #s1-three { position: absolute; left: 455px; top: 200px; width: 170px; height: 170px; border-radius: 50%; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1; }
+  #s1-up { left: 440px; top: 392px; width: 200px; text-align: center; color: var(--accent); }
+
+  /* 2: the ranked list card */
+  #s2-card { top: 470px; height: 600px; }
+  .slot { position: absolute; left: 30px; right: 30px; height: 150px; border-radius: 26px; border: 4px dashed rgba(30,26,22,0.2); box-sizing: border-box; }
+  .row { position: absolute; left: 30px; right: 30px; height: 150px; border-radius: 26px; background: #F6F0E8; }
+  .n { position: absolute; left: 22px; top: 33px; width: 80px; height: 80px; border-radius: 40px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; }
+  .slot .n { background: rgba(30,26,22,0.07); color: #6E655C; }
+  .row .n { background: var(--accent); color: #FFFFFF; }
+  .rt { position: absolute; left: 128px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; transform-origin: left center; }
+  .slot .rt { color: #6E655C; }
+  .rs { position: absolute; left: 128px; top: 86px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: #6E655C; white-space: nowrap; }
+  .row .chip { right: 24px; top: 45px; }
+  #sl1 { top: 30px; } #sl2 { top: 200px; } #sl3 { top: 370px; }
+  #r2 { top: 200px; } #r3 { top: 370px; }
+  #r2-loop { position: absolute; left: 398px; top: 45px; width: 60px; height: 60px; display: block; }
+  #s2-note { left: 34px; top: 548px; }
+
+  /* 4: number one, full width */
+  #s4-card { top: 470px; height: 590px; }
+  #s4-av { position: absolute; left: 40px; top: 40px; width: 260px; height: 260px; border-radius: 50%; background: #FBF3E6; border: 4px solid #EFE2CF; box-sizing: border-box; }
+  #s4-av .dood { left: 26px; top: 26px; width: 200px; height: 200px; }
+  #s4-stamp { position: absolute; left: 60px; top: 236px; width: 220px; height: 80px; border: 7px solid var(--accent); border-radius: 16px; box-sizing: border-box; background: rgba(255,255,255,0.92); color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s4-name { position: absolute; left: 340px; top: 40px; font-family: 'Playfair Italic', serif; font-weight: 700; font-size: 104px; line-height: 1.2; color: var(--accent); white-space: nowrap; }
+  #s4-sub { left: 344px; top: 196px; }
+  #s4-prompt { position: absolute; left: 40px; right: 40px; top: 350px; height: 130px; border-radius: 26px; background: #F6F0E8; }
+  #s4-plbl { left: 28px; top: 14px; }
+  #s4-typed { position: absolute; left: 28px; top: 56px; width: 560px; height: 56px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 56px; color: var(--ink); white-space: nowrap; }
+  #s4-call { padding: 0 6px; border-radius: 8px; }
+  #s4-go { right: 24px; top: 32px; width: 150px; height: 66px; padding: 0; }
+  #s4-note { left: 44px; top: 512px; }
+
+  /* 5: the result */
+  #s5-card { top: 470px; height: 590px; }
+  #s5-art { position: absolute; left: 30px; right: 30px; top: 30px; height: 470px; border-radius: 26px; overflow: hidden; background: #FFFFFF; border: 2px solid #EFE7DC; box-sizing: border-box; }
+  #s5-before { position: absolute; inset: 0; }
+  #s5-before .dood { left: 178px; top: 58px; width: 240px; height: 240px; }
+  #s5-paint { position: absolute; inset: 0; background: #FDF4EA; }
+  .wash { position: absolute; border-radius: 50%; }
+  #w1 { left: -80px; top: -60px; width: 420px; height: 380px; background: radial-gradient(circle, rgba(246,190,160,0.75) 0%, rgba(246,190,160,0) 70%); }
+  #w2 { left: 300px; top: 120px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(222,170,205,0.7) 0%, rgba(222,170,205,0) 70%); }
+  #w3 { left: 120px; top: 40px; width: 360px; height: 320px; background: radial-gradient(circle, rgba(250,228,150,0.8) 0%, rgba(250,228,150,0) 70%); }
+  #s5-rays { position: absolute; left: 148px; top: 28px; width: 300px; height: 300px; display: block; }
+  #s5-sun { position: absolute; left: 198px; top: 78px; width: 200px; height: 200px; display: block; }
+  #s5-greet { position: absolute; left: 0; right: 0; top: 352px; text-align: center; font-family: 'Playfair Italic', serif; font-weight: 700; font-size: 56px; line-height: 1.3; color: var(--accent); }
+  #s5-thumb { position: absolute; left: 50px; top: 50px; width: 140px; height: 172px; border-radius: 20px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(90,60,30,0.18); }
+  #s5-thumb .dood { left: 20px; top: 10px; width: 100px; height: 100px; }
+  #s5-thumb .lbl { left: 0; right: 0; top: 120px; text-align: center; letter-spacing: 0.06em; }
+  #s5-gif { right: 50px; top: 50px; }
+  #s5-ex { left: 34px; top: 528px; }
+  #s5-if { right: 34px; top: 528px; color: var(--accent); }
+
+  /* 6: the catch */
+  #s6-card { top: 330px; height: 630px; }
+  .ck { position: absolute; left: 30px; right: 30px; height: 120px; border-radius: 26px; background: #F6F0E8; }
+  .ck .t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .ck .chip { right: 24px; top: 30px; }
+  #k1 { top: 30px; } #k2 { top: 180px; } #k3 { top: 330px; } #k4 { top: 480px; }
+
+  /* 8: send + keyword */
+  #s8-send { position: absolute; left: 90px; top: 110px; width: 640px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  #s8-who { position: absolute; left: 90px; top: 262px; width: 600px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: #4A423B; }
+  #s8-badge { position: absolute; left: 780px; top: 100px; width: 180px; height: 180px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 24px 50px rgba(90,60,30,0.16); display: block; }
+  #s8-badge .dood { left: 20px; top: 20px; width: 140px; height: 140px; }
+  #kw { position: absolute; left: 60px; right: 360px; top: 480px; height: 330px; border-radius: 36px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); overflow: hidden; }
+  #kw-lbl { left: 0; right: 0; top: 40px; text-align: center; color: #E9DCCB; letter-spacing: 0.2em; }
+  #kw-word { position: absolute; left: 0; right: 0; top: 96px; height: 130px; display: flex; justify-content: center; align-items: center; gap: 4px; }
+  #kw-word i { display: block; font-style: normal; font-family: 'Archivo Black', sans-serif; font-size: 100px; line-height: 1; color: #F2C6E4; }
+  #kw-foot { left: 0; right: 0; top: 252px; text-align: center; color: #E9DCCB; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">CHATGPT IMAGES</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Save once.</span></span><span class="mask"><span class="l">Call by <span class="it">name.</span></span></span></div>
+  <div id="s0-ring" data-layout-allow-overlap></div>
+  <div id="s0-badge" data-layout-allow-overlap>
+    <svg class="dood" viewBox="0 0 200 200"><g stroke="#1E1A16" stroke-width="6" stroke-linecap="round" fill="none"><path d="M100 40 L100 18"></path><path d="M142 58 L158 42"></path><path d="M160 100 L182 100"></path><path d="M142 142 L158 158"></path><path d="M100 160 L100 182"></path><path d="M58 142 L42 158"></path><path d="M40 100 L18 100"></path><path d="M58 58 L42 42"></path><path d="M100 52 C 128 50 150 72 149 101 C 148 130 126 150 99 149 C 70 148 51 127 52 99 C 53 72 74 53 100 52 Z"></path><path d="M80 112 Q 100 132 121 111"></path></g><circle cx="84" cy="92" r="6" fill="#1E1A16"></circle><circle cx="116" cy="92" r="6" fill="#1E1A16"></circle></svg>
+  </div>
+  <div class="chip plum" id="s0-name" data-layout-allow-overlap>Sunny</div>
+  <svg id="s0-squig" viewBox="0 0 310 36" data-layout-allow-overlap><path id="s0-squig-p" d="M6 22 Q 44 4 82 22 T 158 22 T 234 22 T 304 20" fill="none" stroke="#6B2D5C" stroke-width="8" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">AT HOME</div>
+  <div class="title"><span class="mask"><span class="l">Good morning,</span></span><span class="mask"><span class="l it">upgraded.</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-head"><div id="s1-av"></div><div id="s1-fam">Family</div><div class="lbl" id="s1-grp">GROUP CHAT</div></div>
+    <div id="s1-line"></div>
+    <div class="lbl" id="s1-who">MUMMY</div>
+    <div id="s1-img"><div id="s1-sun"></div><div id="s1-hill"></div><div class="fl" id="fl1"></div><div class="fl" id="fl2"></div><div class="fl" id="fl3"></div><div class="fl" id="fl4"></div></div>
+    <div id="s1-txt">Good morning ji</div>
+    <div id="s1-three">3</div>
+    <div class="lbl" id="s1-up">UPGRADES</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line4">
+  <div class="step">RANKED</div>
+  <div class="title"><span class="mask"><span class="l">3 upgrades,</span></span><span class="mask"><span class="l it">ranked.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="slot" id="sl1"><div class="n">1</div><div class="rt" id="r1-q">?</div><div class="rs">BEST ONE, NEXT</div></div>
+    <div class="slot" id="sl2" data-layout-allow-occlusion><div class="n" data-layout-allow-occlusion>2</div></div>
+    <div class="slot" id="sl3" data-layout-allow-occlusion><div class="n" data-layout-allow-occlusion>3</div></div>
+    <div class="row" id="r2" data-layout-allow-overlap><div class="n">2</div><div class="rt">Looping GIFs</div><div class="rs">FROM A SKETCH</div>
+      <svg id="r2-loop" viewBox="0 0 60 60"><path d="M46 22 A 18 18 0 1 0 48 36" fill="none" stroke="#6B2D5C" stroke-width="6" stroke-linecap="round"></path><path d="M38 20 L48 22 L50 11" fill="none" stroke="#6B2D5C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <div class="chip plum" id="r2-c">NEW</div></div>
+    <div class="row" id="r3" data-layout-allow-overlap><div class="n">3</div><div class="rt">Faster</div><div class="rs">SAYS OPENAI</div><div class="chip plum" id="r3-x">~1.5x</div></div>
+    <div class="lbl" id="s2-note">OPENAI'S OWN CLAIMS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">NO. 1</div>
+  <div class="title"><span class="mask"><span class="l">Save it</span></span><span class="mask"><span class="l it">like a contact.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div id="s4-av">
+      <svg class="dood" viewBox="0 0 200 200"><g stroke="#1E1A16" stroke-width="6" stroke-linecap="round" fill="none"><path d="M100 40 L100 18"></path><path d="M142 58 L158 42"></path><path d="M160 100 L182 100"></path><path d="M142 142 L158 158"></path><path d="M100 160 L100 182"></path><path d="M58 142 L42 158"></path><path d="M40 100 L18 100"></path><path d="M58 58 L42 42"></path><path d="M100 52 C 128 50 150 72 149 101 C 148 130 126 150 99 149 C 70 148 51 127 52 99 C 53 72 74 53 100 52 Z"></path><path d="M80 112 Q 100 132 121 111"></path></g><circle cx="84" cy="92" r="6" fill="#1E1A16"></circle><circle cx="116" cy="92" r="6" fill="#1E1A16"></circle></svg>
+    </div>
+    <div id="s4-stamp" data-layout-allow-overlap>SAVED</div>
+    <div id="s4-name">Sunny</div>
+    <div class="lbl" id="s4-sub">SAVED ONCE, LIKE A CONTACT</div>
+    <div id="s4-prompt">
+      <div class="lbl" id="s4-plbl">PROMPT</div>
+      <div id="s4-typed"><span id="s4-call">Sunny,</span> saying good morning</div>
+      <div class="chip plum" id="s4-go">Make</div>
+    </div>
+    <div class="lbl" id="s4-note">CALL IT BY NAME IN ANY NEW PICTURE</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Sunny,</span></span><span class="mask"><span class="l it">painted.</span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-art">
+      <div id="s5-before">
+        <svg class="dood" viewBox="0 0 200 200"><g stroke="#1E1A16" stroke-width="6" stroke-linecap="round" fill="none"><path d="M100 40 L100 18"></path><path d="M142 58 L158 42"></path><path d="M160 100 L182 100"></path><path d="M142 142 L158 158"></path><path d="M100 160 L100 182"></path><path d="M58 142 L42 158"></path><path d="M40 100 L18 100"></path><path d="M58 58 L42 42"></path><path d="M100 52 C 128 50 150 72 149 101 C 148 130 126 150 99 149 C 70 148 51 127 52 99 C 53 72 74 53 100 52 Z"></path><path d="M80 112 Q 100 132 121 111"></path></g><circle cx="84" cy="92" r="6" fill="#1E1A16"></circle><circle cx="116" cy="92" r="6" fill="#1E1A16"></circle></svg>
+      </div>
+      <div id="s5-paint">
+        <div class="wash" id="w1"></div><div class="wash" id="w2"></div><div class="wash" id="w3"></div>
+        <svg id="s5-rays" viewBox="0 0 300 300"><g><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F6A84A" opacity="0.8"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F3C15A" opacity="0.8" transform="rotate(45 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F6A84A" opacity="0.8" transform="rotate(90 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F3C15A" opacity="0.8" transform="rotate(135 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F6A84A" opacity="0.8" transform="rotate(180 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F3C15A" opacity="0.8" transform="rotate(225 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F6A84A" opacity="0.8" transform="rotate(270 150 150)"></ellipse><ellipse cx="150" cy="62" rx="14" ry="26" fill="#F3C15A" opacity="0.8" transform="rotate(315 150 150)"></ellipse></g></svg>
+        <svg id="s5-sun" viewBox="0 0 200 200"><path d="M100 46 C 132 44 156 70 155 102 C 154 134 129 156 99 155 C 66 154 45 130 46 99 C 47 69 71 47 100 46 Z" fill="#F2A440" stroke="#D9853A" stroke-width="4"></path><circle cx="98" cy="98" r="44" fill="#F7B946" opacity="0.9"></circle><ellipse cx="86" cy="80" rx="26" ry="20" fill="#FFE9A3" opacity="0.7"></ellipse><circle cx="72" cy="114" r="11" fill="#F08A8A" opacity="0.55"></circle><circle cx="128" cy="114" r="11" fill="#F08A8A" opacity="0.55"></circle><circle cx="84" cy="94" r="6" fill="#5A3A2A"></circle><circle cx="116" cy="94" r="6" fill="#5A3A2A"></circle><path d="M82 114 Q 100 132 119 113" fill="none" stroke="#5A3A2A" stroke-width="5" stroke-linecap="round"></path></svg>
+        <div id="s5-greet">Good morning</div>
+      </div>
+    </div>
+    <div id="s5-thumb" data-layout-allow-overlap>
+      <svg class="dood" viewBox="0 0 200 200"><g stroke="#1E1A16" stroke-width="8" stroke-linecap="round" fill="none"><path d="M100 40 L100 18"></path><path d="M142 58 L158 42"></path><path d="M160 100 L182 100"></path><path d="M142 142 L158 158"></path><path d="M100 160 L100 182"></path><path d="M58 142 L42 158"></path><path d="M40 100 L18 100"></path><path d="M58 58 L42 42"></path><path d="M100 52 C 128 50 150 72 149 101 C 148 130 126 150 99 149 C 70 148 51 127 52 99 C 53 72 74 53 100 52 Z"></path><path d="M80 112 Q 100 132 121 111"></path></g><circle cx="84" cy="92" r="7" fill="#1E1A16"></circle><circle cx="116" cy="92" r="7" fill="#1E1A16"></circle></svg>
+      <div class="lbl">BEFORE</div>
+    </div>
+    <div class="chip plum" id="s5-gif" data-layout-allow-overlap>GIF LOOP</div>
+    <div class="lbl" id="s5-ex">EXAMPLE</div>
+    <div class="lbl" id="s5-if">GIF: IF YOU HAVE IT</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step">BEFORE YOU TRY</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="ck" id="k1"><div class="t">GIF rollout</div><div class="chip amber" id="c1">SLOW</div></div>
+    <div class="ck" id="k2"><div class="t">GIF limits</div><div class="chip amber" id="c2">UNPUBLISHED</div></div>
+    <div class="ck" id="k3"><div class="t">Free plan</div><div class="chip amber" id="c3">LIMITS</div></div>
+    <div class="ck" id="k4"><div class="t">Real people</div><div class="chip plum" id="c4">ASK FIRST</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="s8-send"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s8-who">to the one who makes every greeting in your family group</div>
+  <div id="s8-badge">
+    <svg class="dood" viewBox="0 0 200 200"><g stroke="#1E1A16" stroke-width="6" stroke-linecap="round" fill="none"><path d="M100 40 L100 18"></path><path d="M142 58 L158 42"></path><path d="M160 100 L182 100"></path><path d="M142 142 L158 158"></path><path d="M100 160 L100 182"></path><path d="M58 142 L42 158"></path><path d="M40 100 L18 100"></path><path d="M58 58 L42 42"></path><path d="M100 52 C 128 50 150 72 149 101 C 148 130 126 150 99 149 C 70 148 51 127 52 99 C 53 72 74 53 100 52 Z"></path><path d="M80 112 Q 100 132 121 111"></path></g><circle cx="84" cy="92" r="6" fill="#1E1A16"></circle><circle cx="116" cy="92" r="6" fill="#1E1A16"></circle></svg>
+  </div>
+  <div id="kw">
+    <div class="lbl" id="kw-lbl">COMMENT</div>
+    <div id="kw-word"><i>S</i><i>T</i><i>I</i><i>C</i><i>K</i><i>E</i><i>R</i></div>
+    <div class="lbl" id="kw-foot">FOR THE FREE PROMPT</div>
+  </div>
+</section>

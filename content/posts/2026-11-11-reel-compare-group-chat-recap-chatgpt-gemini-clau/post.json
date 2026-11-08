@@ -1,0 +1,145 @@
+{
+  "id": "2026-11-11-reel-compare-group-chat-recap-chatgpt-gemini-clau",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "compare",
+  "hook_id": 17,
+  "keyword": "RECAP",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "_pending": "BLOCKS RENDER. Fill lines 5 and 6 from the real run before recording the voice. Run: paste the same EXAMPLE society chat (names and numbers removed) into each free plan with the one RECAP prompt: 'a 5-line recap plus anything I must do'. Judge two things: did it catch 'maintenance due by the 15th' (green), and did it invent anything (red). Line 5 states the result in 12 words or fewer and keeps 'In our test'. If no plan caught the due date, or every plan invented something, rewrite line 5 to say that. Line 6 says who should pick which in 10 words or fewer and starts with 'Pick'. No spoken line may start with 'Claude'. The ranked card names each free plan exactly as its own site names it, copied from the site on the day of the run. Screenshot all three outputs and keep them as proof. Delete this key once the lines are filled.",
+  "hot": "^(ChatGPT|Gemini|Claude|300|due|date|invented|chai|matters|EXAMPLE|numbers|Send|RECAP)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F5BD3"
+  },
+  "lines": [
+    {
+      "say": "So many society group messages, one hidden due date. Three free AI apps. Who finds it?",
+      "show": "300 messages. 1 hidden due date.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Home from office, and the group is full of unread messages.",
+      "show": "Home from office. 300 unread.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "You want the chai stall friend who tells you only what matters.",
+      "show": "The chai stall friend: only what matters.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Same example chat, one prompt, three free plans.",
+      "show": "Same EXAMPLE chat. 1 prompt. 3 free plans.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Did it catch the due date? Did it invent anything?",
+      "show": "Caught the due date? Invented anything?",
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "In our test, {{WINNER}} caught the due date and invented nothing.",
+      "show": "{{WINNER}} caught it. Nothing invented.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Go with {{WHO_PICKS_WHICH}}.",
+      "show": "{{WHO_PICKS_WHICH_SHORT}}",
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "The catch: strip other people's numbers first, and free plans cap long pastes.",
+      "show": "Catch: delete numbers first. Pastes are capped.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who muted the group and missed the meeting.",
+      "show": "Send this to the friend who muted the group.",
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment RECAP for the short recap prompt.",
+      "show": "Comment RECAP for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+1.4",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "ding"
+    },
+    {
+      "at": "@line9.voice+0.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "CHATGPT VS GEMINI VS CLAUDE",
+      "WHO CATCHES THE DUE DATE?"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

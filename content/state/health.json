@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-08T23:45:46.821Z",
+  "at": "2026-11-09T06:39:00.421Z",
   "problems": [
     {
       "kind": "human",
@@ -7,7 +7,5 @@
       "text": "The GH_PAT secret is missing, so the Instagram token can't renew itself and will stop working about 60 days after it was made. Add GH_PAT (docs/SETUP.md, step \"Token\")."
     }
   ],
-  "fixed": [
-    "auto-approved PR #39 \"Approve 2026-W46-2\" (first post within 30 hours)"
-  ]
+  "fixed": []
 }

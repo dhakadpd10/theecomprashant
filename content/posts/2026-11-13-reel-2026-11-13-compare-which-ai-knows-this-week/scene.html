@@ -1,0 +1,255 @@
+<style>
+  /* compare, hook #17 Head To Head, keyword TRUTH, list card yes.
+     One idea: AI learned from old text, so on this week's news it either searches (and can show a dated source) or guesses.
+     Analogy: three toppers asked about today's notice; only one walked past the board (the board = a live search).
+     Colour = meaning: blue = the AI, green = source dated this week, amber = older source, red = no source / a guess.
+     HONESTY: every double-brace token is filled from the real run in post.json "test" (screenshots, run time in UTC).
+     Plan names are copied from each tool's own pricing page. Never pre-fill a winner.
+     NPR card: confirm the figure against this week's research link, or cut line 4 and section s4. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(39,71,201,0.08) 0%, rgba(39,71,201,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 134px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 40px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 96px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); white-space: nowrap; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: rgba(30,26,22,0.66); white-space: nowrap; }
+  .chip { position: absolute; height: 52px; padding: 0 20px; border-radius: 26px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; background: #6B645C; white-space: nowrap; }
+  .green { background: #157A44; } .red { background: #C23B3B; } .amber { background: #E8A317; color: #1E1A16; } .blue { background: var(--accent); }
+  .row { position: absolute; left: 36px; right: 36px; border-radius: 26px; background: #F6F3EE; }
+  .row .t { position: absolute; left: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .ic { position: absolute; left: 26px; top: 27px; width: 56px; height: 56px; }
+
+  /* 0: hook, head to head */
+  #s0-step { top: 36px; font-size: 32px; }
+  #s0-title { top: 88px; font-size: 116px; }
+  #squig { position: absolute; left: 88px; top: 350px; width: 540px; height: 28px; }
+  #s0-vsrow { position: absolute; left: 90px; top: 382px; height: 56px; display: flex; align-items: center; gap: 14px; }
+  .tool { display: block; height: 56px; padding: 0 22px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; line-height: 56px; white-space: nowrap; }
+  .vs { display: block; font-family: 'Playfair Italic', serif; font-size: 32px; color: var(--ink); }
+
+  /* 1-2: it read old text, then it searches or guesses */
+  #s1-card { top: 380px; height: 560px; }
+  #s1-head { left: 36px; top: 30px; }
+  #tl { position: absolute; left: 36px; right: 36px; top: 80px; height: 70px; border-radius: 35px; background: #F1ECE4; }
+  #tl-fill { position: absolute; left: 0; top: 0; width: 306px; height: 70px; border-radius: 35px; background: var(--accent); transform-origin: left center; display: block; }
+  #tl-old { position: absolute; left: 28px; top: 0; height: 70px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.1em; color: #FFFFFF; white-space: nowrap; }
+  #tl-tick { position: absolute; left: 300px; top: -6px; width: 6px; height: 82px; border-radius: 3px; background: var(--ink); display: block; transform-origin: center bottom; }
+  #tl-gap { position: absolute; left: 328px; top: 33px; width: 170px; height: 0; border-top: 4px dashed rgba(30,26,22,0.4); display: block; }
+  #tl-pin { position: absolute; left: 516px; top: 10px; width: 50px; height: 50px; border-radius: 25px; background: #C23B3B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; }
+  #tl-cut { left: 276px; top: 168px; }
+  #tl-now { right: 36px; top: 168px; color: #C23B3B; }
+  #s1-fork { left: 36px; top: 240px; }
+  #f1 { top: 290px; height: 110px; } #f2 { top: 420px; height: 110px; }
+  #s1 .row .chip { right: 24px; top: 29px; }
+  .qm { border-radius: 28px; background: #C23B3B; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; }
+
+  /* 3: three toppers, one board */
+  #s3-card { top: 380px; height: 650px; }
+  #board { position: absolute; left: 36px; right: 36px; top: 30px; height: 190px; border-radius: 20px; background: #D2B288; box-shadow: inset 0 0 0 8px #A9875E; }
+  #notice { position: absolute; left: 144px; right: 144px; top: 28px; height: 134px; border-radius: 10px; background: #FFFFFF; box-shadow: 0 8px 18px rgba(60,40,20,0.18); }
+  .nt { position: absolute; left: 0; right: 0; top: 22px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.02em; color: var(--ink); white-space: nowrap; }
+  .nl { position: absolute; left: 34px; right: 34px; height: 12px; border-radius: 6px; background: #E3DED6; display: block; }
+  #nl1 { top: 74px; } #nl2 { top: 100px; right: 90px; }
+  #pin { position: absolute; left: 316px; top: 46px; width: 28px; height: 28px; border-radius: 14px; background: #C23B3B; box-shadow: 0 3px 6px rgba(60,40,20,0.3); }
+  #board-glow { position: absolute; left: 28px; right: 28px; top: 22px; height: 206px; border-radius: 26px; border: 8px solid #157A44; box-sizing: border-box; }
+  .trow { height: 96px; }
+  #t1 { top: 250px; } #t2 { top: 360px; } #t3 { top: 470px; }
+  .trow .chip { right: 24px; top: 22px; }
+  .av { position: absolute; left: 24px; top: 20px; width: 56px; height: 56px; border-radius: 28px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; }
+  #s3-map { left: 36px; top: 592px; }
+
+  /* 4: the proof */
+  #s4 .it { color: #C23B3B; }
+  #s4-card { top: 380px; height: 520px; }
+  #s4-src { left: 36px; top: 32px; }
+  #s4-num { position: absolute; left: 36px; top: 66px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.1; color: #C23B3B; white-space: nowrap; transform-origin: left center; }
+  #s4-txt { position: absolute; left: 36px; right: 36px; top: 200px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: var(--ink); }
+  #s4-dots { position: absolute; left: 36px; top: 370px; display: flex; gap: 20px; }
+  .dot { display: block; width: 64px; height: 64px; border-radius: 32px; background: #DCD5CA; }
+  #s4-one { left: 36px; top: 462px; }
+
+  /* 5: same question, three free plans (host hidden, full width) */
+  #s5-card { top: 250px; height: 790px; }
+  #s5-qlbl { left: 36px; top: 30px; }
+  #s5-qbox { position: absolute; left: 36px; right: 36px; top: 74px; height: 190px; border-radius: 26px; background: #F6F3EE; overflow: hidden; }
+  #s5-q { position: absolute; left: 30px; right: 30px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.35; color: var(--ink); }
+  .ar { position: absolute; top: 276px; width: 40px; height: 44px; }
+  #ar1 { left: 146px; } #ar2 { left: 430px; } #ar3 { left: 714px; }
+  .tile { position: absolute; top: 330px; width: 260px; height: 380px; border-radius: 26px; background: #F6F3EE; }
+  #tile1 { left: 36px; } #tile2 { left: 320px; } #tile3 { left: 604px; }
+  .tdot { position: absolute; left: 30px; top: 30px; width: 44px; height: 44px; border-radius: 22px; background: var(--accent); display: block; }
+  .tn { position: absolute; left: 30px; right: 16px; top: 96px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .tp { position: absolute; left: 30px; right: 20px; top: 156px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.3; color: rgba(30,26,22,0.66); }
+  .tile .chip { left: 30px; top: 298px; }
+  #s5-foot { left: 36px; top: 734px; }
+
+  /* 6: the ranked card (list card, from the real run only) */
+  #s6-card { top: 230px; height: 740px; }
+  #s6-head { left: 36px; top: 30px; }
+  .rk { position: absolute; left: 36px; right: 36px; height: 180px; border-radius: 26px; background: #F6F3EE; }
+  #r1 { top: 76px; background: #EEF1FF; } #r2 { top: 276px; } #r3 { top: 476px; }
+  .num { position: absolute; left: 24px; top: 24px; width: 64px; height: 64px; border-radius: 32px; background: var(--ink); color: #F3EEE5; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; }
+  #n1 { background: var(--accent); color: #FFFFFF; }
+  .rt { position: absolute; left: 108px; right: 150px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .rp { position: absolute; left: 108px; right: 24px; top: 82px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: rgba(30,26,22,0.66); white-space: nowrap; overflow: hidden; }
+  .chips { position: absolute; left: 108px; top: 116px; height: 52px; display: flex; gap: 14px; }
+  .chips .chip { position: relative; }
+  #pick { right: 24px; top: 26px; }
+  #s6-foot { left: 36px; top: 684px; }
+
+  /* 7: the catch */
+  #s7-card { top: 380px; height: 520px; }
+  #s7-ex { left: 36px; top: 30px; }
+  #s7-link { position: absolute; left: 36px; right: 36px; top: 74px; height: 170px; border-radius: 26px; background: #F6F3EE; }
+  #s7-link .ic { top: 26px; }
+  #s7-lt { position: absolute; left: 100px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s7-pub { left: 100px; top: 106px; }
+  #s7-date { right: 24px; top: 94px; }
+  #s7-cur { position: absolute; left: 478px; top: 196px; width: 60px; height: 60px; transform-origin: 8px 4px; }
+  #s7-r1 { top: 270px; height: 100px; } #s7-r2 { top: 390px; height: 100px; }
+  #s7 .row .t { left: 32px; }
+  #s7 .row .chip { right: 24px; top: 24px; }
+
+  /* 8: send + keyword */
+  #s8-title { top: 70px; right: auto; width: 620px; }
+  #s8-plane { position: absolute; left: 790px; top: 70px; width: 170px; height: 145px; }
+  #s8-who { position: absolute; left: 90px; width: 640px; top: 220px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: rgba(30,26,22,0.72); }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 350px; height: 240px; border-radius: 48px; background: var(--ink); box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #s8-cm { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.2em; color: #D8D1C6; }
+  #s8-kw { position: absolute; left: 0; right: 0; top: 78px; height: 130px; display: flex; justify-content: center; align-items: center; gap: 6px; }
+  .k { display: block; font-family: var(--display); font-size: 100px; line-height: 1; color: #9FB3FF; }
+  #s8-free { left: 90px; top: 628px; }
+  #s8 .row { left: 60px; right: 360px; height: 96px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(60,40,20,0.10); }
+  #s8 .row .ic { top: 20px; }
+  #s8-r1 { top: 676px; } #s8-r2 { top: 786px; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">HEAD TO HEAD · ONE QUESTION</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Which AI knows</span></span><span class="mask"><span class="l it">this week?</span></span></div>
+  <svg id="squig" viewBox="0 0 540 28" data-layout-allow-overlap><path id="squig-p" d="M4 16 Q 38 2 72 16 T 140 16 T 208 16 T 276 16 T 344 16 T 412 16 T 480 16 T 536 14" fill="none" stroke="#2747C9" stroke-width="8" stroke-linecap="round" stroke-dasharray="640" stroke-dashoffset="640"></path></svg>
+  <div id="s0-vsrow">
+    <div class="tool" id="s0-t1">ChatGPT</div><div class="vs">vs</div><div class="tool" id="s0-t2">Gemini</div><div class="vs">vs</div><div class="tool" id="s0-t3">Perplexity</div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line3">
+  <div class="step">WHAT IT READ</div>
+  <div class="title"><span class="mask"><span class="l">It learned</span></span><span class="mask"><span class="l"><span class="it">old</span> text.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">WHAT THE AI READ</div>
+    <div id="tl">
+      <i id="tl-fill"></i>
+      <div id="tl-old">OLD TEXT</div>
+      <i id="tl-tick" data-layout-allow-overlap></i>
+      <i id="tl-gap"></i>
+      <div id="tl-pin">?</div>
+    </div>
+    <div class="lbl" id="tl-cut">CUTOFF</div>
+    <div class="lbl" id="tl-now">THIS WEEK</div>
+    <div class="lbl" id="s1-fork">FRESH NEWS?</div>
+    <div class="row" id="f1"><svg class="ic" viewBox="0 0 56 56"><circle cx="24" cy="24" r="15" fill="none" stroke="#157A44" stroke-width="6"></circle><path d="M35 35 L50 50" stroke="#157A44" stroke-width="7" stroke-linecap="round"></path></svg><div class="t">Searches</div><div class="chip green" id="f1c">SOURCE</div></div>
+    <div class="row" id="f2"><div class="ic qm">?</div><div class="t">Guesses</div><div class="chip red" id="f2c">NO SOURCE</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE ANALOGY</div>
+  <div class="title"><span class="mask"><span class="l">Who saw the</span></span><span class="mask"><span class="l it">board?</span></span></div>
+  <div class="card" id="s3-card">
+    <div id="board"><div id="notice"><div class="nt">TODAY'S NOTICE</div><i class="nl" id="nl1"></i><i class="nl" id="nl2"></i></div></div>
+    <div id="board-glow" data-layout-allow-overlap></div>
+    <div id="pin" data-layout-allow-overlap></div>
+    <div class="row trow" id="t1"><div class="av">1</div><div class="t">Topper 1</div><div class="chip red" id="t1c">GUESS</div></div>
+    <div class="row trow" id="t2"><div class="av">2</div><div class="t">Topper 2</div><div class="chip green" id="t2c">SAW IT</div></div>
+    <div class="row trow" id="t3"><div class="av">3</div><div class="t">Topper 3</div><div class="chip red" id="t3c">GUESS</div></div>
+    <div class="lbl" id="s3-map">THE BOARD = A LIVE SEARCH</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE PROOF</div>
+  <div class="title"><span class="mask"><span class="l">Old or</span></span><span class="mask"><span class="l it">wrong.</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-src">NPR · 2 NOV 2026</div>
+    <div id="s4-num">0.0%</div>
+    <div id="s4-txt">of chatbot answers to US voting questions were outdated or wrong.</div>
+    <div id="s4-dots"><i class="dot" id="d1"></i><i class="dot" id="d2"></i><i class="dot" id="d3"></i><i class="dot" id="d4"></i><i class="dot" id="d5"></i><i class="dot" id="d6"></i><i class="dot red" id="d7"></i></div>
+    <div class="lbl" id="s4-one">ABOUT 1 IN 7</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE TEST</div>
+  <div class="title"><span class="mask"><span class="l">Same <span class="it">question.</span></span></span></div>
+  <div class="card wide" id="s5-card">
+    <div class="lbl" id="s5-qlbl">THE QUESTION</div>
+    <div id="s5-qbox"><div id="s5-q">{{QUESTION}}</div></div>
+    <svg class="ar" id="ar1" viewBox="0 0 40 44"><path class="arp" d="M20 2 L20 38 M8 28 L20 40 L32 28" fill="none" stroke="#2747C9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80"></path></svg>
+    <svg class="ar" id="ar2" viewBox="0 0 40 44"><path class="arp" d="M20 2 L20 38 M8 28 L20 40 L32 28" fill="none" stroke="#2747C9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80"></path></svg>
+    <svg class="ar" id="ar3" viewBox="0 0 40 44"><path class="arp" d="M20 2 L20 38 M8 28 L20 40 L32 28" fill="none" stroke="#2747C9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="80" stroke-dashoffset="80"></path></svg>
+    <div class="tile" id="tile1"><i class="tdot"></i><div class="tn">ChatGPT</div><div class="tp">{{PLAN_CHATGPT}}</div><div class="chip blue" id="a1">ASKED</div></div>
+    <div class="tile" id="tile2"><i class="tdot"></i><div class="tn">Gemini</div><div class="tp">{{PLAN_GEMINI}}</div><div class="chip blue" id="a2">ASKED</div></div>
+    <div class="tile" id="tile3"><i class="tdot"></i><div class="tn">Perplexity</div><div class="tp">{{PLAN_PERPLEXITY}}</div><div class="chip blue" id="a3">ASKED</div></div>
+    <div class="lbl" id="s5-foot">SAME DAY · LOGGED OUT OF PAID PLANS</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Our <span class="it">test.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-head">RANKED: DATED SOURCE FIRST</div>
+    <div class="rk" id="r1"><div class="num" id="n1">1</div><div class="rt">{{R1_TOOL}}</div><div class="rp">{{R1_PLAN}}</div><div class="chips"><div class="chip {{R1_SRC_C}}" id="r1s">{{R1_SRC}}</div><div class="chip {{R1_DATE_C}}" id="r1d">{{R1_DATE}}</div></div><div class="chip blue" id="pick">PICK</div></div>
+    <div class="rk" id="r2"><div class="num" id="n2">2</div><div class="rt">{{R2_TOOL}}</div><div class="rp">{{R2_PLAN}}</div><div class="chips"><div class="chip {{R2_SRC_C}}" id="r2s">{{R2_SRC}}</div><div class="chip {{R2_DATE_C}}" id="r2d">{{R2_DATE}}</div></div></div>
+    <div class="rk" id="r3"><div class="num" id="n3">3</div><div class="rt">{{R3_TOOL}}</div><div class="rp">{{R3_PLAN}}</div><div class="chips"><div class="chip {{R3_SRC_C}}" id="r3s">{{R3_SRC}}</div><div class="chip {{R3_DATE_C}}" id="r3d">{{R3_DATE}}</div></div></div>
+    <div class="lbl" id="s6-foot">OUR RUN · {{RUN_DATE}}</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check the</span></span><span class="mask"><span class="l it">date.</span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-ex">EXAMPLE SOURCE LINK</div>
+    <div id="s7-link">
+      <svg class="ic" viewBox="0 0 56 56"><rect x="4" y="18" width="30" height="20" rx="10" fill="none" stroke="#2747C9" stroke-width="6"></rect><rect x="22" y="18" width="30" height="20" rx="10" fill="none" stroke="#2747C9" stroke-width="6"></rect></svg>
+      <div id="s7-lt">News article</div>
+      <div class="lbl" id="s7-pub">PUBLISHED</div>
+      <div class="chip amber" id="s7-date">3 MAR 2024</div>
+    </div>
+    <svg id="s7-cur" viewBox="0 0 60 60" data-layout-allow-overlap><path d="M8 4 L8 48 L20 37 L29 56 L37 52 L28 33 L44 33 Z" fill="#1E1A16" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"></path></svg>
+    <div class="row" id="s7-r1"><div class="t">Dated this week</div><div class="chip green" id="s7-r1c">OK</div></div>
+    <div class="row" id="s7-r2"><div class="t">Older date</div><div class="chip amber" id="s7-r2c">RECHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="s8-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2747C9"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1B2F8A"></path></svg>
+  <div id="s8-who">to the friend who trusts AI for current affairs</div>
+  <div id="s8-pill">
+    <div id="s8-cm">COMMENT</div>
+    <div id="s8-kw"><span class="k" id="kw1">T</span><span class="k" id="kw2">R</span><span class="k" id="kw3">U</span><span class="k" id="kw4">T</span><span class="k" id="kw5">H</span></div>
+  </div>
+  <div class="lbl" id="s8-free">FREE: THE NO-GUESSING PROMPT</div>
+  <div class="row" id="s8-r1"><svg class="ic" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#157A44"></circle><path d="M16 29 L25 38 L41 20" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">Says when unsure</div></div>
+  <div class="row" id="s8-r2"><svg class="ic" viewBox="0 0 56 56"><circle cx="28" cy="28" r="28" fill="#157A44"></circle><path d="M16 29 L25 38 L41 20" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">Shows its sources</div></div>
+</section>

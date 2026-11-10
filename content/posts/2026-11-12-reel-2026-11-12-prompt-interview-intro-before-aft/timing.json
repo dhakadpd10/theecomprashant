@@ -1,0 +1,73 @@
+{
+  "dur": 27.8,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.158,
+      "b": 3.258,
+      "say": "If your interview is tomorrow, this fixes your opening answer.",
+      "show": "Interview tomorrow? Fix your first 45 seconds."
+    },
+    {
+      "a": 3.258,
+      "voice": 3.358,
+      "end": 6.714,
+      "b": 6.814,
+      "say": "Ask it plainly? AI says hardworking, passionate, team player.",
+      "show": "Plain ask: hardworking, passionate, team player."
+    },
+    {
+      "a": 6.814,
+      "voice": 6.914,
+      "end": 9.55,
+      "b": 9.65,
+      "say": "AI is a tailor. No measurements? You get a loose shirt.",
+      "show": "AI is a tailor. No measurements, free size."
+    },
+    {
+      "a": 9.65,
+      "voice": 9.75,
+      "end": 12.037,
+      "b": 12.137,
+      "say": "Give it measurements: your role, your goal, the format.",
+      "show": "Give it measurements: role, goal, format."
+    },
+    {
+      "a": 12.137,
+      "voice": 12.237,
+      "end": 15.497,
+      "b": 15.597,
+      "say": "Then three true facts. Example: billing, Tally, many vendors.",
+      "show": "Then 3 true facts. Example: billing, Tally, 40 vendors."
+    },
+    {
+      "a": 15.597,
+      "voice": 15.697,
+      "end": 17.851,
+      "b": 17.951,
+      "say": "Now your whole opening answer sounds like you.",
+      "show": "Now: 45 seconds that sound like you."
+    },
+    {
+      "a": 17.951,
+      "voice": 18.051,
+      "end": 22.598,
+      "b": 22.698,
+      "say": "The catch: true facts only, no made-up experience. Say it out loud first.",
+      "show": "The catch: true facts only. Practise aloud."
+    },
+    {
+      "a": 22.698,
+      "voice": 22.798,
+      "end": 26.402,
+      "b": 27.8,
+      "say": "Send this to the friend whose interview is on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO."
+    }
+  ]
+}

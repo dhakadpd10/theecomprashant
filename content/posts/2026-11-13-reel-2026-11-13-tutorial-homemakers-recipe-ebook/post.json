@@ -1,0 +1,169 @@
+{
+  "id": "2026-11-13-reel-2026-11-13-tutorial-homemakers-recipe-ebook",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "format": "reel",
+  "keyword": "PRODUCT",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "13 Nov 2026 19:30 IST",
+    "slot_utc": "13 Nov 2026 14:00 UTC",
+    "kind": "tutorial",
+    "hook_id": "11",
+    "hook_name": "Numbered With A Favourite",
+    "keyword": "PRODUCT",
+    "free_tool": "Weekend Digital Product",
+    "list_card": true,
+    "list_card_items": [
+      "1. Pick 15 dishes the family asks for",
+      "2. FAVOURITE: speak each recipe as a voice note; ChatGPT or Gemini (free) turns it into a neat page with quantities",
+      "3. Lay out 20 pages in Canva (free)",
+      "4. List it on Topmate (INR) or Gumroad (pays in dollars), fee as each site's pricing page states at render"
+    ],
+    "money_angle": true,
+    "money_rules": "docs/MONEY.md in full: ₹199 labelled EXAMPLE PRICE on screen, no sales numbers under Prashant's name, catch said out loud, Results vary. in caption",
+    "named_viewer": "homemakers at home (kicker on the line-0 card: FOR HOMEMAKERS)",
+    "arm": "none",
+    "pair": "none",
+    "log_style_as": "editorial-host",
+    "notes": [
+      "Fees are not spoken. The step-4 card shows each fee only as copied from the Topmate and Gumroad pricing pages at render. If a fee can't be confirmed there, the card says 'fee: see pricing page'.",
+      "Before render, confirm Topmate and Gumroad are listed in docs/MONEY.md or in this week's research. If either is missing, drop it from the card and the voice line.",
+      "Confirm the PRODUCT keyword has its Weekend Digital Product tool on the tools page (housekeeping step 4).",
+      "Spoken length is about 96 words, roughly 28 to 29 s at speed 1.05. That fits the 20 to 30 s window but runs over the 60 to 80 word guide. To trim, cut 'pick' from line 2 or 'whole' from line 8."
+    ]
+  },
+  "hot": "^(₹199|4|1|2|3|talk|talking|diary|15|speak|20|Topmate|Gumroad|yours|weeks|zero|Send|PRODUCT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2846C4"
+  },
+  "lines": [
+    {
+      "say": "Four steps to sell your recipes for about two hundred rupees, and step two is talking.",
+      "show": "4 steps to a ₹199 recipe e-book. Example price.",
+      "card": "4 STEPS. STEP 2: JUST TALK",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Like your mother's recipe diary, typed and bound.",
+      "show": "Your mother's recipe diary, typed and bound.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One: pick the top dishes your family always asks for.",
+      "show": "Step 1: 15 dishes your family loves.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, the best part: speak each recipe. Free Gemini types it for you.",
+      "show": "Step 2: speak it. ChatGPT or Gemini types it.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Three: put all the pages together in free Canva.",
+      "show": "Step 3: 20 pages in free Canva.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Four: sell it on a site that pays in rupees, or one that pays in dollars.",
+      "show": "Step 4: Topmate in ₹, or Gumroad in $.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "AI did the typing. Only you know the recipes.",
+      "show": "AI typed it. The recipes are yours.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it takes weeks, buyers start in your WhatsApp groups, some sell zero.",
+      "show": "Catch: weeks, WhatsApp buyers first, some sell zero.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the one friend everyone asks for recipes. Comment PRODUCT.",
+      "show": "Send this. Comment PRODUCT for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line3.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line7.voice+0.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line8.voice+2.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.2",
+    "title": [
+      "4 STEPS TO SELL",
+      "YOUR RECIPE BOOK"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

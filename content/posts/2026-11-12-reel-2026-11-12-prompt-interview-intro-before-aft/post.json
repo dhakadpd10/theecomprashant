@@ -1,0 +1,129 @@
+{
+  "id": "2026-11-12-reel-2026-11-12-prompt-interview-intro-before-aft",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "INTRO",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(tomorrow|45|tailor|kurta|role|goal|format|true|facts|catch|INTRO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E5BDA"
+  },
+  "lines": [
+    {
+      "say": "If your interview is tomorrow, this fixes your opening answer.",
+      "show": "Interview tomorrow? Fix your first 45 seconds.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Ask it plainly? AI says hardworking, passionate, team player.",
+      "show": "Plain ask: hardworking, passionate, team player.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "AI is a tailor. No measurements? You get a loose shirt.",
+      "show": "AI is a tailor. No measurements, free size.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Give it measurements: your role, your goal, the format.",
+      "show": "Give it measurements: role, goal, format.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Then three true facts. Example: billing, Tally, many vendors.",
+      "show": "Then 3 true facts. Example: billing, Tally, 40 vendors.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Now your whole opening answer sounds like you.",
+      "show": "Now: 45 seconds that sound like you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: true facts only, no made-up experience. Say it out loud first.",
+      "show": "The catch: true facts only. Practise aloud.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend whose interview is on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.5",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "INTERVIEW TOMORROW?",
+      "FIX YOUR FIRST 45 SECONDS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

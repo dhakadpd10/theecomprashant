@@ -2,6 +2,37 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-10
+
+- **The pull moved, still has no timestamp, and the plan was missed in 4 of the last 6 slots.**
+  - Six new rows; the newest is 10 Nov 08:19 UTC. BOLO went from 194 to 196 reach, and hostel is at 1,222 views and 1,048 reach.
+  - Plan misses:
+    - 8 Nov 19:30 IST went out as a #18 tutorial instead of a #17 compare.
+    - 9 Nov 13:00 IST used #2 instead of #24.
+    - 9 Nov 19:30 IST used #2 instead of #11 and posted at 21:34 IST.
+    - 10 Nov 13:00 IST went out as a compare instead of a tutorial, at 13:49 IST.
+  - #2 went out three slots in a row while on rest.
+  - Pair 1 B is finally live (10 Nov 03:30 UTC). It is logged #11, while A used #3.
+- **Sends still sit on the money list card (hunch to moderate, n=4, not hand-checked).**
+  - 24 of 28 page sends are on hostel, homemakers, hostel Part 2 and pair 1 B: 18.0 per 1k on 1,335 reach.
+  - The other 52 posts have 4 sends on 4,439 reach (0.9 per 1k).
+  - Pair 1 B used a general opener and still got 2 sends and 3 saves on 94 reach at hours old. That is weak evidence that the list shape matters, not the named viewer.
+- **Explainers: 0 sends and 5 saves on 1,393 reach across 17 reels (low to moderate confidence, 9 of 17 past 72 hours).**
+  - Money-era reels that were not lists also sit near zero: 1 send on 945 reach. So the gap is list against non-list, not explainer against money.
+  - No list-card explainer has been tested. The list-card slots were missed, and list card isn't logged.
+  - The flag's reach and sends conditions are met.
+- **Reach is not action, and #2 is weak.**
+  - BOLO at 72 hours: 2.11x, 6.5s, 0 sends, 0 saves. That rules out a Part 2.
+  - The 6 Nov hostel tutorial at 72 hours: 53 reach, 0 sends, 1 save.
+  - #2 in the new niche: n=13, median 0.92x, 0 sends on 1,010 reach.
+  - The explainer watch-time median is 3.4s (n=17). STYLE sits at 1.6s.
+  - Pair 2 is a tie. Pair 3 is a tie so far.
+- **Baselines.**
+  - Page median: 105.5 on 56 rows; use 106.
+  - Money era: 106.5 views and 90.5 reach (n=16).
+  - The first explainer-era median is 74 views and 64 reach (n=9).
+  - Still missing on every row: kind, list card, the editorial-host style, arm and pair, pull timestamp, follower count, hold@3s, follows and non-follower %.
+
 ## Week of 2026-11-09
 
 - **The pull moved, still has no timestamp, and the plan was missed in three of the last five slots.**

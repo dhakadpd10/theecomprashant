@@ -1,0 +1,81 @@
+{
+  "dur": 34.63,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 5.713,
+      "b": 5.813,
+      "say": "Chat G P T vs Gemini vs Perplexity: one question about this week's news.",
+      "show": "ChatGPT vs Gemini vs Perplexity on this week's news."
+    },
+    {
+      "a": 5.813,
+      "voice": 5.913,
+      "end": 9.486,
+      "b": 9.586,
+      "say": "Revising G K in the library? AI learned from old text.",
+      "show": "GK test in the library? AI learned old text."
+    },
+    {
+      "a": 9.586,
+      "voice": 9.686,
+      "end": 11.478,
+      "b": 11.578,
+      "say": "Fresh news? It searches or guesses.",
+      "show": "Fresh news? It searches or guesses."
+    },
+    {
+      "a": 11.578,
+      "voice": 11.678,
+      "end": 15.586,
+      "b": 15.686,
+      "say": "Ask three toppers about today's notice. Only one walked past the board.",
+      "show": "3 toppers, today's notice. 1 saw the board."
+    },
+    {
+      "a": 15.686,
+      "voice": 15.786,
+      "end": 20.519,
+      "b": 20.619,
+      "say": "NPR found about one in seven chatbot answers on voting were old or wrong.",
+      "show": "NPR: 13.9% of chatbot voting answers outdated or wrong."
+    },
+    {
+      "a": 20.619,
+      "voice": 20.719,
+      "end": 22.401,
+      "b": 22.501,
+      "say": "Same question, three free plans.",
+      "show": "Same question. 3 free plans."
+    },
+    {
+      "a": 22.501,
+      "voice": 22.601,
+      "end": 25.226,
+      "b": 25.326,
+      "say": "In our test, {{WINNER}} walked past the board. Dated source.",
+      "show": "In our test: {{WINNER}}. Dated source."
+    },
+    {
+      "a": 25.326,
+      "voice": 25.426,
+      "end": 29.027,
+      "b": 29.127,
+      "say": "The catch: even the top pick can link old pages, so check its date.",
+      "show": "The catch: winners cite stale pages too."
+    },
+    {
+      "a": 29.127,
+      "voice": 29.227,
+      "end": 33.228,
+      "b": 34.63,
+      "say": "Send this to the friend who trusts AI for current affairs. Comment TRUTH.",
+      "show": "Send this. Comment TRUTH."
+    }
+  ]
+}

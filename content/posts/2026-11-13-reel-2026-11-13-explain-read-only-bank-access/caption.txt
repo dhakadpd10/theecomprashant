@@ -1,0 +1,27 @@
+Comment "PRIVATE" and I'll DM you the free What Not to Type into AI Card: keep your PIN safe. Follow so the DM lands 📩
+
+👇 READ BELOW for how read-only bank access works:
+
+1. Scared to link your bank to an AI app? That's normal. The safe version follows one rule: look, don't touch.
+
+2. Think of your CA. They get your passbook to read. They never get your ATM card and PIN.
+
+3. Read-only access works the same way. The app can look at your transactions, but it can never move money.
+
+4. Your password goes on your bank's own login page, never typed into the chat.
+
+5. Real example: per its release notes, Claude Personal Finance links bank accounts this way, through a service called Plaid.
+
+What you get: a simple card of what never to type into any AI chat, like your UPI PIN, Aadhaar or PAN, so you can check before you paste.
+
+Why it works: seeing your money and moving your money are two different permissions. Read-only gives the app the passbook and keeps the PIN with you.
+
+The catch: that tool is US-only and paid, so it isn't available in India. And any AI chat that asks for your UPI PIN, Aadhaar or PAN is a scam. Close it.
+
+It's completely free. Save it on your phone and check it before you paste anything into a chatbot.
+
+Comment "PRIVATE" for the card.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+#aiforbeginners #onlinesafety #moneysafety

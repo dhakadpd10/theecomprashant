@@ -1,0 +1,89 @@
+{
+  "dur": 36.16,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.423,
+      "b": 2.523,
+      "say": "Scared to link your bank to AI? Not your fault.",
+      "show": "Scared to link your bank to AI?"
+    },
+    {
+      "a": 2.523,
+      "voice": 2.623,
+      "end": 6.2,
+      "b": 6.3,
+      "say": "After office, you search: can I connect my bank account to AI?",
+      "show": "can i connect my bank account to ai"
+    },
+    {
+      "a": 6.3,
+      "voice": 6.4,
+      "end": 10.239,
+      "b": 10.339,
+      "say": "Your CA gets the passbook, never your ATM card and PIN.",
+      "show": "CA gets the passbook. Not your PIN."
+    },
+    {
+      "a": 10.339,
+      "voice": 10.439,
+      "end": 13.222,
+      "b": 13.322,
+      "say": "Read-only means the app can look, but never move money.",
+      "show": "Read-only: look, never move money."
+    },
+    {
+      "a": 13.322,
+      "voice": 13.422,
+      "end": 16.259,
+      "b": 16.359,
+      "say": "Your password goes on the bank's own page, never in the chat.",
+      "show": "Password on the bank's page. Not the chat."
+    },
+    {
+      "a": 16.359,
+      "voice": 16.459,
+      "end": 20.215,
+      "b": 20.315,
+      "say": "Real example: one AI money tool works like this, using Plaid.",
+      "show": "Per release notes: Claude Personal Finance, via Plaid."
+    },
+    {
+      "a": 20.315,
+      "voice": 20.415,
+      "end": 21.862,
+      "b": 21.962,
+      "say": "That's the rule. Look, don't touch.",
+      "show": "Look, don't touch. That's the rule."
+    },
+    {
+      "a": 21.962,
+      "voice": 22.062,
+      "end": 24.626,
+      "b": 24.726,
+      "say": "The catch: it's US-only and paid, so not in India.",
+      "show": "The catch: US-only and paid. Not India."
+    },
+    {
+      "a": 24.726,
+      "voice": 24.826,
+      "end": 30.498,
+      "b": 30.598,
+      "say": "And any AI chat asking for your UPI PIN, ID number or PAN is a scam.",
+      "show": "Asks for UPI PIN, Aadhaar or PAN? Scam."
+    },
+    {
+      "a": 30.598,
+      "voice": 30.698,
+      "end": 34.762,
+      "b": 36.16,
+      "say": "Send this to your father who types everything into chatbots. Comment PRIVATE.",
+      "show": "Send this. Comment PRIVATE for the card."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "week": "2026-W46-3",
+  "start": "2026-11-12",
+  "research": "I found 9 usable items from 27 Oct to 10 Nov. Only items 1, 2 and 7 have a company source. For the rest I used reporting or beta leaks, so check those before quoting a date or price on screen.\n\n**New features and offers**\n\n1. **ChatGPT Images 2.6 (4 Nov, free plan included).** Images come out faster, and you can save a photo of yourself or your pet and reuse it in later chats without uploading it again. Turning photos into GIFs is still rolling out and may not show up yet. **Why a beginner cares:** it's free and works on the phone. Source: [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes?update=20261020), [TechRadar](https://www.techradar.com/ai-platforms-assistants/chatgpt/chatgpt-images-2-6-is-here-and-it-can-turn-your-photos-into-animated-gifs-so-i-tried-it-on-my-cat), [Notebookcheck](https://www.notebookcheck.net/ChatGPT-can-now-make-GIFs-and-save-your-photos-for-later-chats.1445192.0.html).\n\n2. **ChatGPT locked chats (rolling out since 20 Oct, all plans including Free).** You can hide chosen chats from your history and search, and open them with a 4-digit PIN or your phone's fingerprint or face unlock. **Why a beginner cares:** it helps on a shared family phone. This is a few days older than your 14-day window but still rolling out. Source: [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes?update=20261020).\n\n3. **Free ChatGPT Go years are ending (from early November).** Each free year ends 12 months after the person claimed it. After that it renews at ₹399 a month unless they cancel. **Why a beginner cares:** many people will get charged without expecting it, and they'll want to know how to check their date. Source: [Business Today](https://www.businesstoday.in/technology/photo/your-free-chatgpt-go-year-may-end-soon-check-your-date-before-rs399-is-charged-565432-2026-11-03). I couldn't find OpenAI's own page on this.\n\n4. **Jio's free Gemini Pro offer closed on 29 Oct.** Reports disagree on whether existing free plans renew and charge automatically. **Why a beginner cares:** people are asking \"will I be charged?\" and \"can I still get it?\" Sources: [Jio offer page](https://www.jio.com/google-gemini-offer/) (may be an old cached version), [AIproducts.in](https://aiproducts.in/blog/jio-chatgpt-offer-explained/). Don't claim a renewal rule until it's checked against Jio's help page.\n\n5. **Separate Meta AI chats inside WhatsApp (Android beta, 4 Nov).** You can start several named chats with Meta AI, and they sit under an AI filter in the Chats tab. **Why a beginner cares:** Meta AI is the AI most Indians already have on their phone. It's beta-only so far. Source: [WABetaInfo](https://wabetainfo.com/whatsapp-is-rolling-out-chats-powered-by-meta-ai-on-android/).\n\n**Confusion and privacy**\n\n6. **\"What does AI remember about me?\"** On 9 Nov Gemini added a Memory summary that shows what it remembers and lets you fix or delete it. It's only for paid users in the US, in English, so it isn't in India yet. Guides say Gemini forgets something once you delete the chats where you said it. **Why a beginner cares:** it's a good \"how AI memory works\" explainer. Sources: [9to5Google](https://9to5google.com/2026/11/09/google-gemini-memory-summary/), [AI Toolbox guide](https://www.ai-toolbox.co/gemini-management-and-productivity/gemini-memory-saved-info-2026). I found no Google page.\n\n7. **Claude Personal Finance (5 Nov beta) is US-only and paid.** It links bank accounts with read-only access, and you type bank passwords on Plaid's own page, so Claude never sees them. **Why a beginner cares:** Indian viewers will ask \"can I connect my bank?\" The honest answer is not in India. It's a clean way to explain read-only access. Source: [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes).\n\n8. **AI gives confident wrong answers, and here's a fresh number.** NPR found 13.9% of chatbot answers to US voting questions were outdated or wrong. **Why a beginner cares:** it backs up \"always check dates and facts.\" Source: [NPR, 2 Nov](https://www.npr.org/2026/11/02/nx-s1-6025407/chatbots-midterms-voting-advice).\n\n**Scams**\n\n9. **AI scams to warn people about:**\n   * **Cloned voices.** Scammers copy a relative's voice to ask for money. McAfee says 47% of Indian adults have faced an AI voice scam or know someone who has. That's an older survey, so treat it as a rough figure.\n   * **Fake AI apps.** Lookalike ChatGPT, Gemini or Claude apps install malware instead.\n   * **Fake support chatbots.** Lookalike websites run \"customer care\" bots that steal personal details.\n   * **Advice to borrow:** a New York state consumer alert (9 Nov, US) says never type ID numbers, passwords or medical records into a chatbot. For India, read that as Aadhaar, PAN and UPI PIN.\n   * **Not a consumer story:** I4C and CERT-In issued AI-attack warnings on 3–4 Nov, but they were aimed at banks and fintechs.\n\n   Sources: [Webroot](https://www.webroot.com/blog/2026-ai-scams-what-you-need-to-watch-for-and-how-to-fight-back/), [WPCU](https://www.wpcu.coop/articles/ai-powered-scams), [FingerLakes1](https://www.fingerlakes1.com/2026/11/09/new-york-ai-chatbots-private-information-warning/), [VARIndia](https://www.varindia.com/news/three-seconds-to-steal-a-voice), [The Federal](https://thefederal.com/category/business/ai-cyberattacks-target-banks-nbfcs-i4c-warning-262227).\n\n**What I skipped:**\n* **Canva, CapCut and Meta AI:** no confirmed launches in the last 14 days.\n* **NotebookLM:** blogs say it was renamed \"Gemini Notebook\" and added free textbooks as sources on 29 Oct, but I found nothing from Google.\n* **Samsung:** the paid Galaxy AI tier is only a leak.\n* **Claude model news:** came from a single aggregator.\n\n**Fit with this week's slots:** items 1 and 2 suit the tool slots with a ranked list card. Items 3, 4 and 9 work as list-shaped tutorials. SAFE is resting this week, so the scam item needs a different keyword.",
+  "slots": [
+    {
+      "day": "2026-11-12",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-12-reel-2026-11-12-prompt-interview-intro-before-aft",
+      "style": "motion",
+      "hook": {
+        "id": 10,
+        "name": "If This, Then Watch",
+        "score": 60.8
+      },
+      "keyword": "INTRO",
+      "pillar": "Better prompts",
+      "topic": "The prompt that turns 'tell me about yourself' from a boring list into a 45-second answer built on your 3 real facts, before and after",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-13",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-13-reel-2026-11-13-explain-read-only-bank-access",
+      "style": "motion",
+      "hook": {
+        "id": 7,
+        "name": "Wrong Way, Right Way",
+        "score": 62.2
+      },
+      "keyword": "PRIVATE",
+      "pillar": "How AI works",
+      "topic": "What 'read-only access' means when an AI app links your bank, and the one thing no AI chat should ever ask you for",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-13",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-13-reel-2026-11-13-compare-which-ai-knows-this-week",
+      "style": "motion",
+      "hook": {
+        "id": 17,
+        "name": "Head To Head",
+        "score": 61.2
+      },
+      "keyword": "TRUTH",
+      "pillar": "Which one wins",
+      "topic": "ChatGPT vs Gemini vs Perplexity (free plans): which one gets a question about this week right, judged on one real question",
+      "status": "made"
+    }
+  ]
+}

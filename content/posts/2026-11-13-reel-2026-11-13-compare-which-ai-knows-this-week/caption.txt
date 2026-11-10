@@ -1,0 +1,27 @@
+Comment "TRUTH" and I'll DM you the free No-Guessing Prompt. It gets you dated sources, not confident guesses 📩
+
+👇 Here's how the test works:
+
+1. AI learned from old text. Ask it about this week's news and it'll either search the web or guess from what it already knows. It won't always tell you which one it did.
+
+2. We typed the same question about this week's news into 3 apps: ChatGPT, Gemini and Perplexity. Free plan on each, same day.
+
+3. Each answer got one row on the card. Green means a source from this week. Amber means an older source. Red means no source at all.
+
+4. The ranking is simple. A correct answer with a dated source comes first, then the freshest date, then a correct answer with no source. Wrong or outdated answers sit at the bottom. The reel shows which one came out on top in our test.
+
+5. Then the fix. The No-Guessing Prompt goes in before your question, in any of the 3 apps. It tells the AI to search, name its source and the date, and say "not sure" when it can't find one.
+
+What you get: a 10-second way to tell if a current affairs answer is from this week or from old text, before it lands in your GK notes.
+
+Why it works: AI sounds just as sure when it's guessing. Once you ask for a source with a date, a confident guess becomes something you can check.
+
+The catch: even the top pick can link an old page, so you'll still want to open the source and check the date yourself. Free plans change often too. A different day can give you a different result.
+
+It's completely free, and it works on all 3 apps.
+
+Comment "TRUTH" for the No-Guessing Prompt.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+#chatgpt #aitools #currentaffairs

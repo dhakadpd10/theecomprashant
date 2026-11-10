@@ -1,0 +1,150 @@
+{
+  "id": "2026-11-13-reel-2026-11-13-explain-read-only-bank-access",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "explain",
+  "keyword": "PRIVATE",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(look|Look|touch|passbook|PIN|password|Read-only|read-only|Readonly|Plaid|scam|Scam|Send|PRIVATE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2347C5"
+  },
+  "lines": [
+    {
+      "say": "Scared to link your bank to AI? Not your fault.",
+      "show": "Scared to link your bank to AI?",
+      "card": "LOOK DON'T TOUCH",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "After office, you search: can I connect my bank account to AI?",
+      "show": "can i connect my bank account to ai",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Your CA gets the passbook, never your ATM card and PIN.",
+      "show": "CA gets the passbook. Not your PIN.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Read-only means the app can look, but never move money.",
+      "show": "Read-only: look, never move money.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Your password goes on the bank's own page, never in the chat.",
+      "show": "Password on the bank's page. Not the chat.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Real example: one AI money tool works like this, using Plaid.",
+      "show": "Per release notes: Claude Personal Finance, via Plaid.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "That's the rule. Look, don't touch.",
+      "show": "Look, don't touch. That's the rule.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it's US-only and paid, so not in India.",
+      "show": "The catch: US-only and paid. Not India.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And any AI chat asking for your UPI PIN, ID number or PAN is a scam.",
+      "show": "Asks for UPI PIN, Aadhaar or PAN? Scam.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to your father who types everything into chatbots. Comment PRIVATE.",
+      "show": "Send this. Comment PRIVATE for the card.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+0.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.6",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+1.5",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "READ-ONLY BANK ACCESS",
+      "LOOK, DON'T TOUCH"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

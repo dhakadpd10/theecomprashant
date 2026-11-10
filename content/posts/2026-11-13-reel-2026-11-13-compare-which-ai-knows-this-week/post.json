@@ -1,0 +1,175 @@
+{
+  "id": "2026-11-13-reel-2026-11-13-compare-which-ai-knows-this-week",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "compare",
+  "keyword": "TRUTH",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(ChatGPT|Gemini|Perplexity|one|fresh|guesses|toppers|board|dated|source|date|Send|TRUTH)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2747C9"
+  },
+  "lines": [
+    {
+      "say": "Chat G P T vs Gemini vs Perplexity: one question about this week's news.",
+      "show": "ChatGPT vs Gemini vs Perplexity on this week's news.",
+      "card": "CHATGPT vs GEMINI vs PERPLEXITY",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Revising G K in the library? AI learned from old text.",
+      "show": "GK test in the library? AI learned old text.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Fresh news? It searches or guesses.",
+      "show": "Fresh news? It searches or guesses.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Ask three toppers about today's notice. Only one walked past the board.",
+      "show": "3 toppers, today's notice. 1 saw the board.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "NPR found about one in seven chatbot answers on voting were old or wrong.",
+      "show": "NPR: 13.9% of chatbot voting answers outdated or wrong.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Same question, three free plans.",
+      "show": "Same question. 3 free plans.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "In our test, {{WINNER}} walked past the board. Dated source.",
+      "show": "In our test: {{WINNER}}. Dated source.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: even the top pick can link old pages, so check its date.",
+      "show": "The catch: winners cite stale pages too.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who trusts AI for current affairs. Comment TRUTH.",
+      "show": "Send this. Comment TRUTH.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.end-0.2",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line5.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line7.voice+1.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.2",
+    "title": [
+      "WHICH AI KNOWS",
+      "THIS WEEK'S NEWS?"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "test": {
+    "question": "{{QUESTION}}: one real question about an event from this week's research, with a single checkable answer, posted after 6 Nov 2026. Keep the research link with the row.",
+    "run": "Type the identical question into each free plan, logged out of any paid plan, same day as render. Screenshot all three answers and log the run time in UTC.",
+    "plan_label": "Copy each tool's free plan name exactly as its own pricing page states it. Do not write 'free plan' from memory."
+  },
+  "list_card": {
+    "shape": "one ranked card, three rows in matching columns, same chips on every row",
+    "columns": [
+      "rank",
+      "tool",
+      "plan (as the site states it)",
+      "showed a source? (green tick / red cross)",
+      "source date (green = this week, amber = older, red = none)"
+    ],
+    "favourite": "the rank 1 row is marked as the pick, from the real run only",
+    "ranking_rule": "1) correct answer with a dated source, 2) the freshest source date, 3) correct answer without a source, 4) wrong or outdated"
+  },
+  "verdict": {
+    "fill": "Replace {{WINNER}} in lines 6 say and show with the rank 1 tool from the real run before the voice is recorded. Never pre-write it.",
+    "if_tie": "say: 'In our test, {{A}} and {{B}} walked past the board. Dated sources.'",
+    "if_none": "say: 'In our test, none walked past the board. No dated source.' show: 'In our test: no dated source.' The card marks no favourite."
+  },
+  "proof_card": {
+    "text": "NPR (2 Nov 2026): 13.9% of chatbot answers to US voting questions were outdated or wrong.",
+    "rule": "Card must say 'US voting questions' and the date. Confirm the figure against the NPR link in this week's research before render. If the link is not there, cut line 4."
+  },
+  "log": {
+    "slot": "13 Nov 2026 13:00 IST / 07:30 UTC",
+    "hook_id": "#17",
+    "kind": "compare",
+    "style_logged": "editorial-host",
+    "keyword": "TRUTH",
+    "free_tool": "No-Guessing Prompt",
+    "format": "reel",
+    "money_angle": "no",
+    "list_card": "yes",
+    "named_viewer": "students in a library before a GK test",
+    "arm_pair": "none"
+  }
+}

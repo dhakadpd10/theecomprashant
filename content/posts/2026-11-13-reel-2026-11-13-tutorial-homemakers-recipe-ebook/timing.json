@@ -1,0 +1,81 @@
+{
+  "dur": 34.17,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.809,
+      "b": 4.909,
+      "say": "Four steps to sell your recipes for about two hundred rupees, and step two is talking.",
+      "show": "4 steps to a ₹199 recipe e-book. Example price."
+    },
+    {
+      "a": 4.909,
+      "voice": 5.009,
+      "end": 7.519,
+      "b": 7.619,
+      "say": "Like your mother's recipe diary, typed and bound.",
+      "show": "Your mother's recipe diary, typed and bound."
+    },
+    {
+      "a": 7.619,
+      "voice": 7.719,
+      "end": 10.435,
+      "b": 10.535,
+      "say": "One: pick the top dishes your family always asks for.",
+      "show": "Step 1: 15 dishes your family loves."
+    },
+    {
+      "a": 10.535,
+      "voice": 10.635,
+      "end": 14.598,
+      "b": 14.698,
+      "say": "Two, the best part: speak each recipe. Free Gemini types it for you.",
+      "show": "Step 2: speak it. ChatGPT or Gemini types it."
+    },
+    {
+      "a": 14.698,
+      "voice": 14.798,
+      "end": 17.25,
+      "b": 17.35,
+      "say": "Three: put all the pages together in free Canva.",
+      "show": "Step 3: 20 pages in free Canva."
+    },
+    {
+      "a": 17.35,
+      "voice": 17.45,
+      "end": 21.396,
+      "b": 21.496,
+      "say": "Four: sell it on a site that pays in rupees, or one that pays in dollars.",
+      "show": "Step 4: Topmate in ₹, or Gumroad in $."
+    },
+    {
+      "a": 21.496,
+      "voice": 21.596,
+      "end": 24.207,
+      "b": 24.307,
+      "say": "AI did the typing. Only you know the recipes.",
+      "show": "AI typed it. The recipes are yours."
+    },
+    {
+      "a": 24.307,
+      "voice": 24.407,
+      "end": 28.394,
+      "b": 28.494,
+      "say": "The catch: it takes weeks, buyers start in your WhatsApp groups, some sell zero.",
+      "show": "Catch: weeks, WhatsApp buyers first, some sell zero."
+    },
+    {
+      "a": 28.494,
+      "voice": 28.594,
+      "end": 32.773,
+      "b": 34.17,
+      "say": "Send this to the one friend everyone asks for recipes. Comment PRODUCT.",
+      "show": "Send this. Comment PRODUCT for the prompt."
+    }
+  ]
+}

@@ -2,6 +2,34 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-11
+
+- **This pull is the 10 Nov pull again, row for row, so it is a fault, not a reading.**
+  - 56 rows. The newest is still FORWARD (10 Nov 08:19 UTC) at 49 views. Hostel is at 1,222 views and 1,048 reach, BOLO at 196 reach and pair 3 A at 132.
+  - There is no timestamp. This is the third repeated snapshot in two weeks, after two on 4 to 5 Nov.
+  - There is no row for 10 Nov 19:30 IST, the first list-card tutorial. It is unknown whether it posted.
+  - Nothing is judged on this pull.
+- **The standing read is unchanged (hunch to moderate, n=4, not hand-checked).**
+  - 24 of 28 page sends are on four money list reels: 18.0 per 1k on 1,335 reach.
+  - Explainers: 0 sends and 5 saves on 1,393 reach across 17 reels.
+  - Non-list money reels: 1 send on 945 reach.
+  - The list-card explainer test still has no data.
+- **Pair 1: A leads B by one send (3 on 102 reach, 29.4 per 1k, against 2 on 94, 21.3 per 1k).**
+  - Both arms are under 105 reach, so the lead is inside noise until the hand-check shows how many accounts sent each.
+  - It is still void if B's hook is really #11 against A's #3.
+  - Pair 3 is heading for a tie: 0 sends each, and the 1-save gap sits under 100 reach.
+- **Provisional explainer-era median: 78 views and 67 reach (n=13).**
+  - This adds CV compare, pair 3 A, CRAFT and FRIDGE once they pass 72 hours, on these stale numbers.
+  - Recompute on the first pull that moves.
+- **Still missing on every row:**
+  - pull timestamp
+  - kind
+  - list card
+  - the editorial-host style
+  - arm and pair
+  - follower count
+  - hold@3s, follows and non-follower %
+
 ## Week of 2026-11-10
 
 - **The pull moved, still has no timestamp, and the plan was missed in 4 of the last 6 slots.**

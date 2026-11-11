@@ -1,0 +1,81 @@
+{
+  "dur": 31.56,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.163,
+      "b": 4.263,
+      "say": "After office, you pay the electricity bill without reading it. Not your fault.",
+      "show": "You pay it unread. Not your fault."
+    },
+    {
+      "a": 4.263,
+      "voice": 4.363,
+      "end": 8.012,
+      "b": 8.112,
+      "say": "Base charge, duty, arrears. It reads like a doctor's prescription.",
+      "show": "It reads like a prescription."
+    },
+    {
+      "a": 8.112,
+      "voice": 8.212,
+      "end": 10.774,
+      "b": 10.874,
+      "say": "One: crop out your consumer number, then snap the bill.",
+      "show": "1. Crop the number, snap the bill."
+    },
+    {
+      "a": 10.874,
+      "voice": 10.974,
+      "end": 14.17,
+      "b": 14.27,
+      "say": "Two: paste the Explain My Bill prompt. Hindi or English.",
+      "show": "2. Paste the prompt. Hindi or English."
+    },
+    {
+      "a": 14.27,
+      "voice": 14.37,
+      "end": 16.043,
+      "b": 16.143,
+      "say": "Three: ask it why this month is higher.",
+      "show": "3. Ask why this month is higher."
+    },
+    {
+      "a": 16.143,
+      "voice": 16.243,
+      "end": 19.753,
+      "b": 19.853,
+      "say": "Now it's a chemist reading it out. One line each, amber means check.",
+      "show": "Like a chemist reading it out."
+    },
+    {
+      "a": 19.853,
+      "voice": 19.953,
+      "end": 23.118,
+      "b": 23.218,
+      "say": "The catch: it can misread a blurry number, so check the paper bill.",
+      "show": "The catch: check the paper bill."
+    },
+    {
+      "a": 23.218,
+      "voice": 23.318,
+      "end": 25.687,
+      "b": 25.787,
+      "say": "Disputes go to your electricity board, not the chat.",
+      "show": "Disputes go to your board."
+    },
+    {
+      "a": 25.787,
+      "voice": 25.887,
+      "end": 30.163,
+      "b": 31.56,
+      "say": "Send this to the flatmate who pays the bill and never reads it. Type BILL below.",
+      "show": "Send it to that flatmate. Comment BILL."
+    }
+  ]
+}

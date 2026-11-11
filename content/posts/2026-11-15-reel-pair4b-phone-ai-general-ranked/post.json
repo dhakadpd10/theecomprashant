@@ -1,0 +1,171 @@
+{
+  "id": "2026-11-15-reel-pair4b-phone-ai-general-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "PHONE",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "meta": {
+    "slot_ist": "15 Nov 2026 09:00 IST",
+    "slot_utc": "15 Nov 2026 03:30 UTC",
+    "kind": "tool",
+    "hook_id": 11,
+    "hook_name": "Numbered With A Favourite",
+    "keyword": "PHONE",
+    "free_tool": "Hidden Phone AI Starter Card",
+    "list_card": "yes",
+    "named_viewer": "none (general opener)",
+    "arm": "B",
+    "pair": 4,
+    "money_angle": "no",
+    "log_style": "editorial-host",
+    "judge": "18 Nov 2026 03:30 UTC, on a moved pull only",
+    "arm_match_rule": "Only line 0 (say, show, card) differs from arm A. Lines 1 to 7, the ranked card, the favourite, the catch, the send line, sfx and cover must match arm A word for word. If arm A's published lines differ from lines 1 to 7 here, copy arm A's and change only line 0.",
+    "core_idea": "Three free AI tools are already on most phones, and the best one translates the words on a photo into your language.",
+    "analogy": "A clever friend in your pocket who reads things out for you.",
+    "list_card_items": [
+      {
+        "rank": 3,
+        "name": "Gemini app",
+        "does": "Ask anything, by typing or talking",
+        "limit": "Free version has usage limits; a paid plan exists"
+      },
+      {
+        "rank": 2,
+        "name": "Circle to Search",
+        "does": "Circle anything on screen, get answers",
+        "limit": "Only on some Android phones"
+      },
+      {
+        "rank": 1,
+        "name": "Google Lens translate",
+        "does": "Point the camera, words translate on the photo",
+        "limit": "Free in the Google app; translations can be wrong",
+        "favourite": true
+      }
+    ],
+    "honesty_notes": "No prices are shown because all three are free to use. Do not state the Gemini paid plan's price on screen unless it is copied from Google's own site this week. Say 'some Android phones' for Circle to Search; never list models."
+  },
+  "hot": "^(3|2|1|three|two|one|free|Gemini|Circle|Lens|translates|catch|PHONE|favourite)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F5BD3"
+  },
+  "lines": [
+    {
+      "say": "Your phone has AI tools built in, and the last one wins.",
+      "show": "3 AI tools already on your phone.",
+      "card": "3 FREE AI TOOLS #1 WINS",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Free, like a clever friend in your pocket you never call.",
+      "show": "Free. A clever friend you never call.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "First up: Gemini. Ask it anything, typing or talking.",
+      "show": "#3 Gemini: ask anything.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Next: Circle to Search. Circle anything, get answers.",
+      "show": "#2 Circle to Search.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "The winner: Google Lens. Aim it at any sign.",
+      "show": "#1 Google Lens translate.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Like that friend, it translates the words right on the photo.",
+      "show": "It translates right on the photo.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: Circle to Search isn't on every phone, and translations slip.",
+      "show": "The catch: not every phone. Check translations.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend who googles everything. Comment PHONE.",
+      "show": "Send this. Comment PHONE for the free card.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.1",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.2",
+    "title": [
+      "3 FREE AI TOOLS",
+      "ALREADY ON YOUR PHONE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

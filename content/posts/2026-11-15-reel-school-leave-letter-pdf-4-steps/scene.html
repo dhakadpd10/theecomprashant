@@ -1,0 +1,261 @@
+<style>
+  /* tutorial, 4 steps, list card (#11): step 3 is the favourite.
+     colour = meaning: blue = you and the AI, green = done, amber = check this, red = the PDF */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7DFD2 100%); }
+  .ruled { position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(31,95,168,0.045) 0px, rgba(31,95,168,0.045) 2px, transparent 2px, transparent 64px); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(31,95,168,0.08) 0%, rgba(31,95,168,0) 70%); }
+  #orb2 { left: 520px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.07) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 140px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); white-space: nowrap; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; font-style: normal; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.13), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .blue { background: var(--accent); } .green { background: #17804A; } .red { background: #C2362F; } .amber { background: #F2B53A; color: var(--ink); } .inkc { background: var(--ink); }
+
+  /* 0: hook */
+  #s0-kick { position: absolute; left: 90px; top: 40px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  #s0-title { top: 80px; font-size: 120px; line-height: 1; }
+  #s0-title .num { color: var(--accent); }
+  #s0-row { position: absolute; left: 90px; right: 90px; top: 380px; height: 64px; display: flex; gap: 12px; }
+  .sc { flex: none; height: 64px; padding: 0 16px 0 10px; border-radius: 32px; background: #FFFFFF; box-shadow: 0 10px 26px rgba(70,50,30,0.12); display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  .sc .n { display: flex; width: 46px; height: 46px; border-radius: 23px; background: var(--ink); color: #FFFFFF; align-items: center; justify-content: center; font-style: normal; font-size: 30px; }
+  .sc.fav { background: var(--accent); color: #FFFFFF; }
+  .sc.fav .n { background: #FFFFFF; color: var(--accent); }
+  .sc.pdf { background: #C2362F; color: #FFFFFF; }
+  .sc.pdf .n { background: #FFFFFF; color: #C2362F; }
+  #s0-star { display: block; width: 30px; height: 30px; }
+
+  /* 1: tap the mic, just talk */
+  #s1-card { top: 350px; height: 600px; }
+  #s1-hi { left: 36px; top: 36px; }
+  #s1-en { left: 195px; top: 36px; }
+  #s1-bub { position: absolute; left: 36px; right: 36px; top: 126px; height: 210px; border-radius: 28px; background: #EAF1FA; }
+  #s1-txt { position: absolute; left: 30px; right: 30px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: var(--ink); }
+  #s1-wave { position: absolute; left: 36px; top: 380px; width: 400px; height: 120px; display: flex; align-items: center; gap: 10px; }
+  #s1-wave i { display: block; width: 14px; height: 100px; border-radius: 7px; background: var(--accent); }
+  #s1-mic { position: absolute; right: 36px; top: 370px; width: 140px; height: 140px; border-radius: 70px; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+  #s1-mic svg { display: block; width: 70px; height: 70px; }
+  #s1-ring { position: absolute; right: 36px; top: 370px; width: 128px; height: 128px; border-radius: 70px; border: 6px solid var(--accent); }
+  #s1-note { left: 36px; top: 540px; }
+
+  /* 2: paste the prompt (host hidden, full width) */
+  #s2-card { top: 320px; height: 580px; }
+  #s2-paste { left: 36px; top: 36px; gap: 10px; }
+  #s2-paste svg { display: block; width: 26px; height: 26px; }
+  #s2-user { position: absolute; left: 220px; right: 36px; top: 36px; height: 260px; border-radius: 30px; background: var(--accent); }
+  #s2-ulbl { position: absolute; left: 30px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.12em; color: #DCE8F6; white-space: nowrap; }
+  #s2-ulines { position: absolute; left: 30px; right: 30px; top: 74px; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.4; color: #FFFFFF; white-space: nowrap; overflow: hidden; }
+  #s2-dots { position: absolute; left: 36px; top: 330px; width: 150px; height: 84px; border-radius: 42px; background: #F1ECE3; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s2-dots i { display: block; width: 18px; height: 18px; border-radius: 9px; background: rgba(30,26,22,0.45); }
+  #s2-ai { position: absolute; left: 36px; top: 330px; width: 640px; height: 150px; border-radius: 30px; background: #F1ECE3; }
+  #s2-ai .t { position: absolute; left: 30px; right: 30px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.35; color: var(--ink); }
+  #s2-note { left: 36px; top: 510px; }
+
+  /* 3: more polite, shorter (the favourite) */
+  #s3-fav { position: absolute; left: 250px; top: 46px; height: 50px; padding: 0 20px 0 14px; border-radius: 25px; background: var(--accent); display: flex; align-items: center; gap: 10px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; color: #FFFFFF; white-space: nowrap; }
+  #s3-star { display: block; width: 30px; height: 30px; }
+  #s3-card { top: 350px; height: 640px; }
+  #s3-l1 { left: 36px; top: 30px; }
+  .box { position: absolute; left: 36px; right: 36px; height: 140px; border-radius: 24px; }
+  .box .t { position: absolute; left: 28px; right: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.35; color: var(--ink); }
+  #s3-draft { top: 70px; background: #F4F0E9; }
+  #s3-typed { position: absolute; right: 36px; top: 236px; width: 470px; height: 84px; border-radius: 42px; background: var(--accent); }
+  #s3-tt { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #FFFFFF; white-space: nowrap; }
+  #s3-l2 { left: 36px; top: 346px; color: var(--accent); }
+  #s3-new { top: 386px; background: #EAF1FA; border: 3px solid var(--accent); }
+  #s3-c1 { left: 36px; top: 550px; }
+  #s3-c2 { left: 212px; top: 550px; }
+
+  /* 4: save as PDF, share */
+  #s4-card { top: 350px; height: 640px; }
+  .srow { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F4F0E9; }
+  .srow .t { position: absolute; left: 112px; right: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .srow .ok { position: absolute; right: 27px; top: 27px; width: 56px; height: 56px; border-radius: 28px; background: #17804A; display: flex; align-items: center; justify-content: center; }
+  .srow .ok svg { display: block; width: 34px; height: 34px; }
+  #s4-r1 { top: 36px; } #s4-r2 { top: 166px; }
+  #s4-doc { position: absolute; left: 34px; top: 25px; width: 46px; height: 60px; }
+  #s4-pdf { left: 24px; top: 27px; height: 56px; width: 70px; padding: 0; border-radius: 12px; }
+  #s4-chat { position: absolute; left: 36px; right: 36px; top: 306px; height: 300px; border-radius: 26px; background: #E9E1D3; }
+  #s4-lbl { left: 24px; top: 20px; color: rgba(30,26,22,0.72); }
+  #s4-file { position: absolute; right: 24px; top: 70px; width: 440px; height: 150px; border-radius: 24px; background: #D8F1C8; box-shadow: 0 6px 16px rgba(70,50,30,0.1); }
+  #s4-ic { position: absolute; left: 20px; top: 22px; width: 80px; height: 106px; border-radius: 12px; background: #C2362F; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 14px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; color: #FFFFFF; }
+  #s4-name { position: absolute; left: 124px; top: 28px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s4-meta { position: absolute; left: 124px; top: 82px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: rgba(30,26,22,0.72); white-space: nowrap; }
+  #s4-tick { position: absolute; right: 20px; top: 108px; width: 44px; height: 24px; }
+  #s4-tick svg { display: block; width: 44px; height: 24px; }
+  #s4-note { left: 24px; top: 244px; color: rgba(30,26,22,0.72); }
+
+  /* 5: the finished letter */
+  #s5-card { top: 260px; height: 700px; }
+  #s5-from { left: 44px; top: 36px; }
+  #s5-pdf { right: 36px; top: 26px; height: 56px; width: 90px; padding: 0; border-radius: 12px; }
+  .lt { position: absolute; left: 44px; right: 64px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.35; color: var(--ink); }
+  #lt1 { top: 100px; } #lt2 { top: 150px; font-weight: 900; color: var(--accent); } #lt3 { top: 216px; }
+  #lt4 { top: 266px; } #lt5 { top: 432px; }
+  #lt6 { top: 476px; font-family: 'Permanent Marker', cursive; font-weight: 400; color: var(--accent); }
+  #s5-ex { left: 44px; top: 640px; }
+  #s5-stamp { position: absolute; left: 340px; top: 556px; width: 244px; height: 80px; border: 8px solid #17804A; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.1em; color: #17804A; }
+
+  /* 6: the catch */
+  #s6-title .it { color: #A86A0C; }
+  #s6-card { top: 350px; height: 580px; }
+  #s6-guess { position: absolute; left: 36px; right: 36px; top: 36px; height: 150px; border-radius: 24px; background: #FFF4DC; border: 3px dashed #D99A1C; box-sizing: border-box; }
+  #s6-glbl { left: 26px; top: 18px; color: #8A5A00; }
+  #s6-gt { position: absolute; left: 26px; top: 64px; height: 60px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s6-hl { display: block; padding: 4px 14px; border-radius: 12px; background: #F2B53A; color: var(--ink); }
+  .chk { position: absolute; left: 36px; right: 36px; height: 100px; border-radius: 24px; background: #F4F0E9; }
+  .chk .t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .chk .chip { right: 28px; top: 20px; }
+  #k1 { top: 210px; } #k2 { top: 330px; } #k3 { top: 450px; }
+
+  /* 7: send + keyword */
+  #s7-send { position: absolute; left: 90px; right: 90px; top: 90px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1; color: var(--ink); }
+  #s7-who { position: absolute; left: 90px; right: 90px; top: 280px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; line-height: 1.3; color: rgba(30,26,22,0.7); }
+  #s7-plane { position: absolute; left: 470px; top: 430px; width: 160px; height: 136px; }
+  #s7-pill { position: absolute; left: 360px; right: 90px; top: 640px; height: 170px; border-radius: 85px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; }
+  #s7-c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; white-space: nowrap; }
+  #kw { display: flex; gap: 4px; }
+  #kw .k { display: block; font-family: var(--display); font-size: 70px; line-height: 1; color: #9CC3F2; }
+  #s7-stkw { position: absolute; left: 470px; top: 850px; width: 380px; height: 80px; rotate: -4deg; }
+  #s7-stk { position: absolute; left: 0; right: 0; top: 0; bottom: 0; border-radius: 40px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: #FFFFFF; white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<div class="ruled"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-kick">HOMEMAKERS, AT HOME</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="num">4</span> steps to a</span></span><span class="mask"><span class="l">proper <span class="it">letter.</span></span></span></div>
+  <div id="s0-row">
+    <div class="sc" id="sc1"><i class="n">1</i><span>Talk</span></div>
+    <div class="sc" id="sc2"><i class="n">2</i><span>Prompt</span></div>
+    <div class="sc fav" id="sc3"><i class="n">3</i><span>Polite</span><svg id="s0-star" viewBox="0 0 30 30"><polygon points="15,2 18.8,10.6 28,11.5 21,17.8 23.1,27 15,22.2 6.9,27 9,17.8 2,11.5 11.2,10.6" fill="#F2B53A"></polygon></svg></div>
+    <div class="sc pdf" id="sc4"><i class="n">4</i><span>PDF</span></div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Just <span class="it">talk.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div class="chip blue" id="s1-hi">HINDI</div>
+    <div class="chip blue" id="s1-en">ENGLISH</div>
+    <div id="s1-bub"><div id="s1-txt">Beti ko bukhaar hai, 3 din school nahi jayegi.</div></div>
+    <div id="s1-wave"><i id="w1"></i><i id="w2"></i><i id="w3"></i><i id="w4"></i><i id="w5"></i><i id="w6"></i><i id="w7"></i><i id="w8"></i><i id="w9"></i><i id="w10"></i><i id="w11"></i><i id="w12"></i><i id="w13"></i><i id="w14"></i><i id="w15"></i><i id="w16"></i></div>
+    <div id="s1-ring" data-layout-allow-overlap></div>
+    <div id="s1-mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="#FFFFFF"></rect><path d="M5.5 11a6.5 6.5 0 0 0 13 0" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path><path d="M12 17.5V21M8.5 21h7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path></svg></div>
+    <div class="lbl" id="s1-note">EXAMPLE VOICE NOTE</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Add the <span class="it">prompt.</span></span></span></div>
+  <div class="card wide" id="s2-card">
+    <div class="chip inkc" id="s2-paste"><svg viewBox="0 0 26 26"><rect x="4" y="5" width="18" height="19" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2.5"></rect><rect x="9" y="2" width="8" height="6" rx="2" fill="#FFFFFF"></rect></svg><span>PASTE</span></div>
+    <div id="s2-user">
+      <div id="s2-ulbl">PHONE LETTER PROMPT</div>
+      <div id="s2-ulines"><span class="pl" id="s2-p1">Ask me a few questions.</span><span class="pl" id="s2-p2">Write one clean letter.</span><span class="pl" id="s2-p3">Ready to save as PDF.</span></div>
+    </div>
+    <div id="s2-dots" data-layout-allow-overlap><i id="d1"></i><i id="d2"></i><i id="d3"></i></div>
+    <div id="s2-ai" data-layout-allow-overlap><div class="t">Sure. Who is it for, and which dates?</div></div>
+    <div class="lbl" id="s2-note">IT ASKS. YOU ANSWER.</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 3</div>
+  <div id="s3-fav"><svg id="s3-star" viewBox="0 0 30 30"><polygon points="15,2 18.8,10.6 28,11.5 21,17.8 23.1,27 15,22.2 6.9,27 9,17.8 2,11.5 11.2,10.6" fill="#F2B53A"></polygon></svg><span>FAVOURITE</span></div>
+  <div class="title"><span class="mask"><span class="l">Make it <span class="it">polite.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-l1">FIRST DRAFT</div>
+    <div class="box" id="s3-draft"><div class="t">She will not come school for 3 days. Fever.</div></div>
+    <div id="s3-typed"><div id="s3-tt">more polite, shorter</div></div>
+    <div class="lbl" id="s3-l2">NEW</div>
+    <div class="box" id="s3-new"><div class="t">Kindly grant her leave for 3 days. Thank you.</div></div>
+    <div class="chip green" id="s3-c1">POLITE</div>
+    <div class="chip green" id="s3-c2">SHORTER</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 4</div>
+  <div class="title"><span class="mask"><span class="l">Save as <span class="it">PDF.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div class="srow" id="s4-r1">
+      <svg id="s4-doc" viewBox="0 0 46 60"><rect x="0" y="0" width="46" height="60" rx="7" fill="#1F5FA8"></rect><rect x="9" y="14" width="28" height="4" rx="2" fill="#FFFFFF"></rect><rect x="9" y="24" width="28" height="4" rx="2" fill="#FFFFFF"></rect><rect x="9" y="34" width="20" height="4" rx="2" fill="#FFFFFF"></rect></svg>
+      <div class="t">Paste into Docs</div>
+      <div class="ok" id="s4-ok1"><svg viewBox="0 0 34 34"><path d="M7 18 L14 25 L27 10" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+    <div class="srow" id="s4-r2">
+      <div class="chip red" id="s4-pdf">PDF</div>
+      <div class="t">Save as PDF</div>
+      <div class="ok" id="s4-ok2"><svg viewBox="0 0 34 34"><path d="M7 18 L14 25 L27 10" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+    <div id="s4-chat">
+      <div class="lbl" id="s4-lbl">WHATSAPP</div>
+      <div id="s4-file">
+        <div id="s4-ic">PDF</div>
+        <div id="s4-name">Leave letter</div>
+        <div id="s4-meta">1 page · PDF</div>
+        <div id="s4-tick"><svg viewBox="0 0 44 24"><path d="M2 13 L9 20 L22 5" fill="none" stroke="#2F7FD0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 17 L19 20 L32 5" fill="none" stroke="#2F7FD0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+      </div>
+      <div class="lbl" id="s4-note">EXAMPLE FILE</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">DONE</div>
+  <div class="title"><span class="mask"><span class="l">In your <span class="it">words.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-from">FROM YOUR VOICE NOTE</div>
+    <div class="chip red" id="s5-pdf">PDF</div>
+    <div class="lt" id="lt1">To, The Class Teacher,</div>
+    <div class="lt" id="lt2">Subject: Leave for 3 days</div>
+    <div class="lt" id="lt3">Respected Ma'am,</div>
+    <div class="lt" id="lt4">My daughter Riya has fever. Kindly grant her leave from 16 to 18 Nov.</div>
+    <div class="lt" id="lt5">Thank you,</div>
+    <div class="lt" id="lt6">Sunita Sharma</div>
+    <div class="lbl" id="s5-ex">EXAMPLE LETTER</div>
+    <div id="s5-stamp" data-layout-allow-overlap>READY</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title" id="s6-title"><span class="mask"><span class="l">Check the <span class="it">gaps.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div id="s6-guess">
+      <div class="lbl" id="s6-glbl">AI FILLED A GAP</div>
+      <div id="s6-gt"><span>Leave from</span><span id="s6-hl">16 to 18 Nov</span></div>
+    </div>
+    <div class="chk" id="k1"><div class="t">Names</div><div class="chip amber" id="h1">CHECK</div></div>
+    <div class="chk" id="k2"><div class="t">Dates</div><div class="chip amber" id="h2">CHECK</div></div>
+    <div class="chk" id="k3"><div class="t">Account details</div><div class="chip amber" id="h3">CHECK</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-send"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s7-who">to the mummy who writes every leave letter by hand</div>
+  <svg id="s7-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#1F5FA8"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#174A84"></path></svg>
+  <div id="s7-pill"><div id="s7-c">Comment</div><div id="kw"><span class="k">L</span><span class="k">E</span><span class="k">T</span><span class="k">T</span><span class="k">E</span><span class="k">R</span></div></div>
+  <div id="s7-stkw"><div id="s7-stk">FREE PROMPT</div></div>
+</section>

@@ -1,0 +1,214 @@
+<style>
+  /* compare, #17 Head To Head, ranked card. One idea: pay for the pack you actually use.
+     Analogy: phone recharge packs. Colour = meaning: blue = our pick / used, green = free / stay,
+     red = wasted, amber = check before you pay. No invented prices: only Free is shown as ₹0. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(43,74,203,0.08) 0%, rgba(43,74,203,0) 70%); }
+  #orb2 { left: 540px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,45,20,0.13), 0 2px 0 rgba(70,45,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6B645C; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #1A7F4B; } .red { background: #C0392B; } .blue { background: var(--accent); } .dark { background: #1E1A16; }
+  .amber { background: #F0B429; color: #1E1A16; }
+
+  /* 0: hook (host at centre, everything above stage y 440) */
+  #s0-step { top: 92px; }
+  #s0-hl { position: absolute; left: 90px; top: 136px; width: 300px; height: 6px; border-radius: 3px; background: var(--accent); transform-origin: left center; }
+  #s0-title { top: 150px; right: auto; width: 760px; font-size: 120px; transform-origin: left top; }
+  #s0-plus { position: relative; display: inline-block; }
+  #s0-ul { position: absolute; left: 0; top: 0.9em; width: 290px; height: 24px; overflow: visible; }
+
+  /* 1: the analogy, a recharge pack you never finish */
+  #s1-card { top: 470px; height: 600px; }
+  #s1-lbl { left: 32px; top: 32px; }
+  #s1-pack { position: absolute; left: 32px; right: 32px; top: 72px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s1-meter { position: absolute; left: 32px; right: 32px; top: 146px; height: 96px; border-radius: 26px; background: #F1ECE4; overflow: hidden; }
+  #s1-used { position: absolute; display: block; left: 0; top: 0; bottom: 0; width: 30%; background: var(--accent); transform-origin: left center; }
+  #s1-unused { position: absolute; display: block; left: 30%; right: 0; top: 0; bottom: 0; background: repeating-linear-gradient(135deg, rgba(192,57,43,0.85) 0 18px, rgba(192,57,43,0.55) 18px 36px); }
+  #s1 .row { position: absolute; left: 32px; right: 32px; height: 116px; border-radius: 26px; background: #F6F3EE; }
+  #s1 .row .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s1 .row .chip { right: 22px; top: 28px; }
+  #s1-r1 { top: 270px; } #s1-r2 { top: 404px; background: #FBEDEA; }
+  #s1-note { left: 32px; top: 546px; }
+
+  /* 2: the three packs, one row per line, filling dashed slots */
+  #s2-card { top: 470px; height: 610px; }
+  #s2 .slot { position: absolute; left: 28px; right: 28px; height: 150px; border-radius: 26px; border: 3px dashed rgba(30,26,22,0.18); box-sizing: border-box; }
+  #s2 .prow { position: absolute; left: 28px; right: 28px; height: 150px; border-radius: 26px; background: #F6F3EE; }
+  #s2 .nm { position: absolute; left: 28px; top: 20px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; color: var(--ink); white-space: nowrap; }
+  #s2 .sub { position: absolute; left: 28px; top: 86px; width: 330px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #4A443D; white-space: nowrap; }
+  #s2 .prow .chip { right: 24px; top: 22px; width: 200px; padding: 0; }
+  #s2 .meter { position: absolute; right: 24px; top: 98px; width: 200px; height: 28px; border-radius: 14px; background: #E7E1D7; overflow: hidden; }
+  #s2 .meter i { position: absolute; display: block; left: 0; top: 0; bottom: 0; border-radius: 14px; background: var(--accent); transform-origin: left center; }
+  #s2-sf, #s2-f { top: 36px; } #s2-sg, #s2-g { top: 206px; } #s2-sp, #s2-p { top: 376px; }
+  #s2-f .meter i { width: 33%; } #s2-g .meter i { width: 66%; } #s2-p .meter i { width: 100%; }
+  #s2-note { left: 32px; top: 552px; }
+
+  /* 3: the pick, full width (host hidden) */
+  #s3-card { top: 470px; height: 600px; }
+  #s3 .rrow { position: absolute; left: 28px; right: 28px; border-radius: 26px; background: #F6F3EE; box-sizing: border-box; }
+  #s3-r1 { top: 32px; height: 170px; background: #EEF1FC; border: 4px solid var(--accent); }
+  #s3-r2 { top: 222px; height: 130px; } #s3-r3 { top: 372px; height: 130px; }
+  #s3 .rk { position: absolute; left: 24px; width: 70px; height: 70px; border-radius: 35px; background: #1E1A16; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  #s3-r1 .rk { top: 46px; background: var(--accent); } #s3-r2 .rk, #s3-r3 .rk { top: 30px; }
+  #s3 .nm { position: absolute; left: 120px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; color: var(--ink); white-space: nowrap; }
+  #s3 .sub { position: absolute; left: 120px; width: 420px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: #4A443D; white-space: nowrap; }
+  #s3-r1 .nm { top: 24px; } #s3-r1 .sub { top: 90px; }
+  #s3-r2 .nm, #s3-r3 .nm { top: 14px; } #s3-r2 .sub, #s3-r3 .sub { top: 72px; }
+  #s3 .rrow .chip { right: 24px; width: 210px; padding: 0; }
+  #s3-r1 .price { top: 22px; } #s3-badge { top: 92px; }
+  #s3-r2 .chip, #s3-r3 .chip { top: 35px; }
+  #s3-note { left: 32px; top: 538px; }
+
+  /* 4: the rule, as an example 4-week check */
+  #s4-card { top: 470px; height: 600px; }
+  #s4-lbl { left: 32px; top: 32px; }
+  #s4 .wk { position: absolute; top: 78px; width: 138px; height: 140px; border-radius: 24px; background: #F6F3EE; }
+  #s4 .wk .w { position: absolute; left: 0; right: 0; top: 18px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); }
+  #s4 .wk .chip { left: 17px; right: 17px; bottom: 18px; height: 48px; padding: 0; font-size: 24px; border-radius: 24px; }
+  #s4-w1 { left: 32px; } #s4-w2 { left: 184px; } #s4-w3 { left: 336px; } #s4-w4 { left: 488px; }
+  #s4 .drow { position: absolute; left: 28px; right: 28px; height: 120px; border-radius: 26px; background: #F6F3EE; }
+  #s4 .drow .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s4 .drow .chip { right: 22px; top: 30px; width: 210px; padding: 0; }
+  #s4-d1 { top: 250px; } #s4-d2 { top: 390px; }
+  #s4-note { left: 32px; top: 540px; }
+
+  /* 5: the catch, check the plan page before paying */
+  #s5-card { top: 470px; height: 540px; }
+  #s5 .dot { position: absolute; top: 40px; width: 20px; height: 20px; border-radius: 10px; }
+  #s5-d1 { left: 30px; background: #E06C5A; } #s5-d2 { left: 62px; background: #F0B429; } #s5-d3 { left: 94px; background: #3FA36B; }
+  #s5-url { position: absolute; left: 132px; right: 96px; top: 21px; height: 58px; border-radius: 29px; background: #F1ECE4; padding-left: 24px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: #4A443D; white-space: nowrap; }
+  #s5-ref { position: absolute; right: 28px; top: 25px; width: 50px; height: 50px; }
+  #s5-line { position: absolute; left: 0; right: 0; top: 100px; height: 2px; background: #EEE8DF; }
+  #s5 .crow { position: absolute; left: 28px; right: 28px; height: 116px; border-radius: 26px; background: #F6F3EE; }
+  #s5 .crow .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s5 .crow .chip { right: 22px; top: 28px; width: 170px; padding: 0; }
+  #s5-k1 { top: 126px; } #s5-k2 { top: 262px; } #s5-k3 { top: 398px; }
+  #s5-stamp { position: absolute; left: 180px; top: 960px; width: 480px; height: 104px; border: 8px solid #C0392B; border-radius: 18px; box-sizing: border-box; background: rgba(255,255,255,0.94); color: #C0392B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 6: send + keyword + the free card */
+  #s6-send { position: absolute; left: 90px; top: 60px; width: 680px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 140px; line-height: 1.05; color: var(--ink); white-space: nowrap; }
+  #s6-plane { position: absolute; left: 790px; top: 70px; width: 150px; height: 128px; }
+  #s6-who { position: absolute; left: 90px; top: 240px; width: 860px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: #5E574F; }
+  #s6-pill { position: absolute; left: 60px; right: 360px; top: 330px; height: 250px; border-radius: 44px; background: var(--ink); }
+  #s6-cmt { position: absolute; left: 0; right: 0; top: 30px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.2em; color: #D8D1C5; }
+  #s6-word { position: absolute; left: 0; right: 0; top: 82px; height: 140px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  #s6-word .k { display: block; font-family: var(--display); font-size: 128px; line-height: 1; color: #A9B8FF; }
+  #s6-card { top: 620px; height: 440px; }
+  #s6-lbl { left: 32px; top: 30px; }
+  #s6-q { position: absolute; left: 32px; width: 596px; top: 72px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; line-height: 1.2; color: var(--ink); }
+  #s6 .tag { position: absolute; width: 280px; height: 72px; border-radius: 36px; background: #EEF1FC; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #s6-t1 { left: 32px; top: 200px; } #s6-t2 { left: 340px; top: 200px; }
+  #s6-t3 { left: 32px; top: 290px; } #s6-t4 { left: 340px; top: 290px; }
+  #s6-note { left: 32px; top: 388px; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">FOR A COLLEGE STUDENT</div>
+  <div id="s0-hl"></div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Free, Go</span></span><span class="mask"><span class="l">or <span class="it" id="s0-plus">Plus?<svg id="s0-ul" viewBox="0 0 290 24" data-layout-allow-overlap><path id="s0-ul-p" d="M4 14 Q 72 2 145 12 T 286 10" fill="none" stroke="#2B4ACB" stroke-width="8" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg></span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE ANALOGY</div>
+  <div class="title"><span class="mask"><span class="l">Like data</span></span><span class="mask"><span class="l it">packs.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-lbl">EXAMPLE RECHARGE</div>
+    <div id="s1-pack">Big pack: 3 GB a day</div>
+    <div id="s1-meter"><i id="s1-used"></i><i id="s1-unused"></i></div>
+    <div class="row" id="s1-r1"><div class="t">Used: 0.9 GB</div><div class="chip blue" id="s1-c1">USED</div></div>
+    <div class="row" id="s1-r2"><div class="t">Unused: 2.1 GB</div><div class="chip red" id="s1-c2">WASTED</div></div>
+    <div class="lbl" id="s1-note">SAME IDEA WITH AI PLANS</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line5">
+  <div class="step">HEAD TO HEAD</div>
+  <div class="title"><span class="mask"><span class="l">Three</span></span><span class="mask"><span class="l it">packs.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="slot" id="s2-sf"></div><div class="slot" id="s2-sg"></div><div class="slot" id="s2-sp"></div>
+    <div class="prow" id="s2-f" data-layout-allow-overlap><div class="nm">Free</div><div class="sub">Tighter limits</div><div class="chip green">₹0</div><div class="meter"><i></i></div></div>
+    <div class="prow" id="s2-g" data-layout-allow-overlap><div class="nm">Go</div><div class="sub">Higher limits</div><div class="chip dark">PAID</div><div class="meter"><i></i></div></div>
+    <div class="prow" id="s2-p" data-layout-allow-overlap><div class="nm">Plus</div><div class="sub">Highest limits</div><div class="chip dark">TOP PRICE</div><div class="meter"><i></i></div></div>
+    <div class="lbl" id="s2-note">PRICES: SEE OPENAI'S PAGE</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line5" data-to="@line6">
+  <div class="step">RANKED FOR BEGINNERS</div>
+  <div class="title"><span class="mask"><span class="l">Our pick:</span></span><span class="mask"><span class="l it">Free.</span></span></div>
+  <div class="card wide" id="s3-card">
+    <div class="rrow" id="s3-r1"><div class="rk">1</div><div class="nm">Free</div><div class="sub">Start here</div><div class="chip green price">₹0</div><div class="chip blue" id="s3-badge">OUR PICK</div></div>
+    <div class="rrow" id="s3-r2"><div class="rk">2</div><div class="nm">Go</div><div class="sub">If Free runs out</div><div class="chip dark">PAID</div></div>
+    <div class="rrow" id="s3-r3"><div class="rk">3</div><div class="nm">Plus</div><div class="sub">Heavy daily use</div><div class="chip dark">TOP PRICE</div></div>
+    <div class="lbl" id="s3-note">FOR MOST BEGINNERS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line6" data-to="@line7">
+  <div class="step">THE RULE</div>
+  <div class="title"><span class="mask"><span class="l">Every</span></span><span class="mask"><span class="l it">week?</span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-lbl">EXAMPLE: YOUR LAST 4 WEEKS</div>
+    <div class="wk" id="s4-w1"><div class="w">W1</div><div class="chip red" id="s4-h1">HIT</div></div>
+    <div class="wk" id="s4-w2"><div class="w">W2</div><div class="chip green" id="s4-h2">OK</div></div>
+    <div class="wk" id="s4-w3"><div class="w">W3</div><div class="chip red" id="s4-h3">HIT</div></div>
+    <div class="wk" id="s4-w4"><div class="w">W4</div><div class="chip green" id="s4-h4">OK</div></div>
+    <div class="drow" id="s4-d1"><div class="t">Every week</div><div class="chip blue" id="s4-c1">THEN PAY</div></div>
+    <div class="drow" id="s4-d2"><div class="t">Now and then</div><div class="chip green" id="s4-c2">STAY FREE</div></div>
+    <div class="lbl" id="s4-note">COUNT YOUR LIMIT WEEKS</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line7" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Plans</span></span><span class="mask"><span class="l it">change.</span></span></div>
+  <div class="card" id="s5-card">
+    <i class="dot" id="s5-d1"></i><i class="dot" id="s5-d2"></i><i class="dot" id="s5-d3"></i>
+    <div id="s5-url">OpenAI pricing page</div>
+    <svg id="s5-ref" viewBox="0 0 50 50"><path d="M40 25 A15 15 0 1 1 33 12" fill="none" stroke="#2B4ACB" stroke-width="5" stroke-linecap="round"></path><path d="M30 4 L38 12 L28 17 Z" fill="#2B4ACB"></path></svg>
+    <i id="s5-line"></i>
+    <div class="crow" id="s5-k1"><div class="t">Price in ₹</div><div class="chip amber" id="s5-h1">CHECK</div></div>
+    <div class="crow" id="s5-k2"><div class="t">Usage limits</div><div class="chip amber" id="s5-h2">CHECK</div></div>
+    <div class="crow" id="s5-k3"><div class="t">What you get</div><div class="chip amber" id="s5-h3">CHECK</div></div>
+  </div>
+  <div id="s5-stamp" data-layout-allow-overlap>BEFORE YOU PAY</div>
+</section>
+
+<section class="scene" id="s6" data-from="@line8" data-to="end">
+  <div id="s6-send">Send this.</div>
+  <svg id="s6-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#2B4ACB"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#1C3290"></path></svg>
+  <div id="s6-who">to the roommate about to pay for Plus</div>
+  <div id="s6-pill">
+    <div id="s6-cmt">COMMENT</div>
+    <div id="s6-word"><span class="k">R</span><span class="k">E</span><span class="k">N</span><span class="k">E</span><span class="k">W</span></div>
+  </div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-lbl">FREE · AI PLAN CHECK CARD</div>
+    <div id="s6-q">Is your AI plan worth it?</div>
+    <div class="tag" id="s6-t1">ChatGPT</div>
+    <div class="tag" id="s6-t2">Gemini</div>
+    <div class="tag" id="s6-t3">Claude</div>
+    <div class="tag" id="s6-t4">Canva</div>
+    <div class="lbl" id="s6-note">WORKS ON CLAUDE'S FREE PLAN</div>
+  </div>
+</section>

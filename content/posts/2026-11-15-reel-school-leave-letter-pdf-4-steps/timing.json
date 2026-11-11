@@ -1,0 +1,73 @@
+{
+  "dur": 25.57,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.618,
+      "b": 3.718,
+      "say": "Homemakers, four steps to a proper letter. Step three is the best.",
+      "show": "4 steps to a proper letter."
+    },
+    {
+      "a": 3.718,
+      "voice": 3.818,
+      "end": 6.436,
+      "b": 6.536,
+      "say": "Step one: tap the mic and talk, Hindi or English.",
+      "show": "Step 1: tap the mic, just talk."
+    },
+    {
+      "a": 6.536,
+      "voice": 6.636,
+      "end": 8.51,
+      "b": 8.61,
+      "say": "Step two: paste the Phone Letter prompt.",
+      "show": "Step 2: paste the Phone Letter prompt."
+    },
+    {
+      "a": 8.61,
+      "voice": 8.71,
+      "end": 11.261,
+      "b": 11.361,
+      "say": "Step three, the best one: type more polite, shorter.",
+      "show": "Step 3: 'more polite, shorter'."
+    },
+    {
+      "a": 11.361,
+      "voice": 11.461,
+      "end": 14.194,
+      "b": 14.294,
+      "say": "Step four: save it as a PDF, share on WhatsApp.",
+      "show": "Step 4: save as PDF, share it."
+    },
+    {
+      "a": 14.294,
+      "voice": 14.394,
+      "end": 15.956,
+      "b": 16.056,
+      "say": "Done. A proper letter, in your words.",
+      "show": "Done. A proper letter, your words."
+    },
+    {
+      "a": 16.056,
+      "voice": 16.156,
+      "end": 20.012,
+      "b": 20.112,
+      "say": "The catch: AI guesses gaps. Check names, dates and account details.",
+      "show": "The catch: check names, dates, details."
+    },
+    {
+      "a": 20.112,
+      "voice": 20.212,
+      "end": 24.17,
+      "b": 25.57,
+      "say": "Send this to the mummy who writes every leave letter by hand. Comment LETTER.",
+      "show": "Send this. Comment LETTER for the prompt."
+    }
+  ]
+}

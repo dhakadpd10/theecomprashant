@@ -1,0 +1,27 @@
+Comment "BILL" and I'll DM you the free Explain-My-Bill Prompt: each charge in plain words. Follow so the DM lands 📩
+
+👇 READ BELOW for how it works:
+
+1. You open the electricity bill after office. Fixed charge, energy charge, electricity duty, arrears. It reads like a doctor's prescription, so you just pay it.
+
+2. Cover or crop out your consumer number, then take one clear photo of the bill.
+
+3. Paste the Explain-My-Bill Prompt into your AI chat app with the photo. Pick Hindi or English.
+
+4. Ask one question: "Why is this month higher?"
+
+5. Now it's the chemist reading your prescription out loud. You get one plain line per charge, and the lines worth checking are marked.
+
+What you get: every charge in one line. Example: "Fixed charge ₹110 (example): paid every month for your connection, even when you use very little." Or "Arrears ₹340 (example): unpaid from your last bill, check it." It also gives the reason the bill went up, like 212 units this month against 158 last month (example numbers).
+
+Why it works: the bill is written in the board's language. The prompt makes the AI explain each line on its own and point out what changed from last month. A short summary would skip the parts that matter.
+
+The catch: AI can misread a blurry number. Check every figure against the paper bill before you trust it. If a charge still looks wrong, take it to your electricity board. The chat can't change your bill.
+
+It's completely free. Try it on this month's bill.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+Comment "BILL" for the prompt.
+
+#electricitybill #aiexplained #aitips

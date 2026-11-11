@@ -1,0 +1,277 @@
+<style>
+  /* Tool reel, pair 4 A: 3 phone AI tools for shop owners, ranked #3 to #1.
+     Colour = meaning: blue = Gemini and the favourite mark, green = Circle to Search, terracotta = Google Lens, red = the catch.
+     The limit lines use the exact Google wording from the post.json honesty note. Check them against Google's pages before publishing.
+     The Lens line is labelled as our tip. Every bill, reply and product on screen is labelled EXAMPLE. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(42,75,215,0.08) 0%, rgba(42,75,215,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(181,86,30,0.08) 0%, rgba(181,86,30,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.14), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6B655E; white-space: nowrap; }
+  .lim { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.3; color: #6B655E; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .rank { position: absolute; left: 32px; top: 30px; width: 88px; height: 64px; border-radius: 32px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .tname { position: absolute; left: 140px; top: 30px; height: 64px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 42px; color: var(--ink); white-space: nowrap; }
+  .bg-blue { background: var(--accent); } .bg-green { background: #17744A; } .bg-terra { background: #B5561E; } .bg-red { background: #C0392B; } .bg-ink { background: var(--ink); }
+
+  /* 0: hook */
+  #s0-step { top: 60px; }
+  #s0-title { top: 110px; font-size: 120px; transform-origin: 0 0; }
+  #s0-title .num { color: var(--accent); font-weight: 700; }
+  #s0-ring { position: absolute; left: 62px; top: 112px; width: 140px; height: 150px; }
+  .tile { position: absolute; width: 130px; height: 180px; }
+  .tile .box { position: absolute; left: 0; top: 0; width: 130px; height: 130px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 22px 50px rgba(70,50,30,0.14); }
+  .tile svg { position: absolute; left: 30px; top: 30px; width: 70px; height: 70px; }
+  .tile .tl { position: absolute; left: -20px; right: -20px; top: 142px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; color: var(--ink); }
+  #t1 { left: 100px; top: 540px; } #t2 { left: 830px; top: 540px; } #t3 { left: 100px; top: 770px; }
+  #s0-free { position: absolute; left: 820px; top: 790px; width: 150px; height: 150px; border-radius: 75px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px rgba(42,75,215,0.3); }
+
+  /* 1: three free helpers */
+  #s1-card { top: 470px; height: 620px; }
+  #s1-head { left: 36px; top: 34px; } #s1-sal { right: 36px; top: 34px; }
+  .staff { position: absolute; left: 28px; right: 28px; height: 140px; border-radius: 26px; background: #F6F3EE; }
+  .staff .ico { position: absolute; left: 22px; top: 34px; width: 72px; height: 72px; border-radius: 36px; }
+  .staff .ico svg { position: absolute; left: 16px; top: 16px; width: 40px; height: 40px; }
+  .staff .t { position: absolute; left: 118px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .staff .chip { right: 22px; top: 40px; }
+  #s1-r1 { top: 86px; } #s1-r2 { top: 246px; } #s1-r3 { top: 406px; }
+  #s1-note { left: 36px; top: 570px; }
+
+  /* 2: #3 Gemini */
+  #s2-card { top: 450px; height: 670px; }
+  #s2-spark { position: absolute; left: 330px; top: 34px; width: 56px; height: 56px; }
+  #s2-ex { right: 36px; top: 50px; }
+  #s2-voice { position: absolute; right: 36px; top: 130px; width: 480px; height: 190px; border-radius: 30px 30px 8px 30px; background: #E9EDFC; }
+  #s2-mic { position: absolute; left: 26px; top: 22px; width: 40px; height: 52px; }
+  #s2-wave { position: absolute; left: 84px; top: 28px; width: 320px; height: 44px; display: flex; align-items: center; gap: 9px; }
+  #s2-wave i { display: block; width: 10px; border-radius: 5px; background: var(--accent); transform-origin: center center; }
+  #s2-wave i:nth-child(odd) { height: 40px; } #s2-wave i:nth-child(even) { height: 22px; } #s2-wave i:nth-child(3n) { height: 30px; }
+  #s2-said { position: absolute; left: 26px; right: 26px; top: 86px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.25; color: var(--ink); }
+  #s2-dots { position: absolute; left: 36px; top: 350px; width: 130px; height: 76px; border-radius: 30px; background: #F1EDE6; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s2-dots i { display: block; width: 14px; height: 14px; border-radius: 7px; background: #8A847C; }
+  #s2-reply { position: absolute; left: 36px; top: 350px; width: 540px; height: 160px; box-sizing: border-box; border-radius: 8px 30px 30px 30px; background: #F6F3EE; border: 3px solid #DCE3FB; }
+  #s2-reply .t { position: absolute; left: 26px; right: 26px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.25; color: var(--ink); }
+  #s2-lim { left: 36px; right: 36px; top: 560px; }
+
+  /* 3: #2 Circle to Search */
+  #s3-card { top: 450px; height: 670px; }
+  #s3-photo { position: absolute; left: 36px; right: 36px; top: 115px; height: 240px; border-radius: 24px; background: linear-gradient(180deg, #4A4038 0%, #2F2924 100%); overflow: hidden; }
+  #s3-shelf { position: absolute; left: 0; right: 0; top: 196px; height: 14px; background: #6E5C4C; }
+  .box { position: absolute; border-radius: 8px; }
+  #s3-bx1 { left: 50px; top: 84px; width: 110px; height: 112px; background: #8F6F5A; }
+  #s3-bx2 { left: 440px; top: 100px; width: 100px; height: 96px; background: #6F8394; }
+  #s3-bottle { position: absolute; left: 249px; top: 34px; width: 90px; height: 162px; }
+  #s3-bottle .cap { position: absolute; left: 26px; top: 0; width: 38px; height: 30px; border-radius: 6px; background: #2F6E4A; }
+  #s3-bottle .body { position: absolute; left: 0; top: 24px; width: 90px; height: 138px; border-radius: 22px; background: linear-gradient(90deg, #D99A2B, #F2C25A, #D99A2B); }
+  #s3-bottle .band { position: absolute; left: 0; top: 70px; width: 90px; height: 44px; background: #FFF4DA; }
+  #s3-ring { position: absolute; left: 194px; top: 8px; width: 200px; height: 224px; }
+  #s3-pl { left: 22px; top: 16px; color: #F3EEE5; } #s3-ex { right: 22px; top: 16px; color: #F3EEE5; }
+  .res { position: absolute; left: 36px; right: 36px; height: 96px; border-radius: 22px; background: #F6F3EE; }
+  .res svg { position: absolute; left: 24px; top: 28px; width: 40px; height: 40px; }
+  .res .t { position: absolute; left: 84px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s3-r1 { top: 375px; } #s3-r2 { top: 486px; }
+  #s3-match { right: 18px; top: 18px; }
+  #s3-arrow { left: auto; right: 28px; }
+  #s3-lim { left: 36px; right: 36px; top: 606px; }
+
+  /* 4: #1 Google Lens, the English bill (host hidden, full width) */
+  #s4-card { top: 430px; height: 700px; }
+  #s4-fav { right: 36px; top: 32px; gap: 10px; }
+  #s4-fav svg { display: block; width: 28px; height: 28px; }
+  #s4-bill { position: absolute; left: 40px; right: 40px; top: 124px; height: 440px; box-sizing: border-box; border-radius: 18px; background: #FBF7EE; border: 3px dashed #D9CEBD; }
+  #s4-bh { left: 34px; top: 24px; } #s4-bx { right: 34px; top: 24px; }
+  .bl { position: absolute; left: 34px; right: 34px; height: 60px; display: flex; align-items: center; justify-content: space-between; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s4-l1 { top: 84px; } #s4-l2 { top: 160px; } #s4-l3 { top: 236px; } #s4-l4 { top: 336px; font-weight: 900; }
+  #s4-div { position: absolute; left: 34px; right: 34px; top: 316px; height: 3px; background: #D9CEBD; }
+  #s4-vf { position: absolute; left: 22px; top: 106px; width: 856px; height: 476px; }
+  #s4-scan { position: absolute; left: 50px; right: 50px; top: 140px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(42,75,215,0), #2A4BD7, rgba(42,75,215,0)); box-shadow: 0 0 24px rgba(42,75,215,0.5); }
+  #s4-lang { position: absolute; left: 40px; top: 598px; height: 76px; padding: 0 30px; border-radius: 38px; background: #F1EDE6; display: flex; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s4-lang svg { display: block; width: 40px; height: 24px; }
+  #s4-lang b { color: var(--accent); font-weight: 900; }
+  #s4-tip { right: 40px; top: 624px; }
+
+  /* 5: the result, now in Hindi */
+  #s5-card { top: 450px; height: 670px; }
+  #s5-hi { right: 32px; top: 32px; }
+  .tr { position: absolute; left: 36px; right: 36px; height: 92px; box-sizing: border-box; padding: 0 24px; border-radius: 20px; background: #FBEEE3; display: flex; align-items: center; justify-content: space-between; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s5-r1 { top: 118px; } #s5-r2 { top: 222px; } #s5-r3 { top: 326px; }
+  #s5-r4 { top: 430px; background: var(--ink); color: #F3EEE5; font-weight: 900; }
+  #s5-note { left: 36px; right: 36px; top: 548px; }
+
+  /* 6: the catch, on the ranked card */
+  #s6 .title { top: 150px; }
+  #s6-card { top: 320px; height: 720px; }
+  #s6-head { left: 36px; top: 30px; }
+  .rk { position: absolute; left: 28px; right: 28px; height: 190px; border-radius: 26px; background: #F6F3EE; }
+  .rk .n { position: absolute; left: 22px; top: 24px; width: 72px; height: 72px; border-radius: 36px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .rk .nm { position: absolute; left: 112px; top: 24px; height: 72px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .rk .lim { left: 112px; right: 24px; top: 104px; font-size: 28px; }
+  .rk .lim b { color: var(--ink); font-weight: 900; }
+  #s6-r1 { top: 76px; } #s6-r2 { top: 284px; } #s6-r3 { top: 492px; }
+  #s6-best { left: 392px; top: 30px; height: 60px; }
+  .ring { position: absolute; left: 28px; right: 28px; height: 190px; box-sizing: border-box; border-radius: 26px; }
+  #s6-ring1 { top: 76px; border: 5px solid #B5561E; }
+  #s6-ring2 { top: 284px; border: 5px solid #C0392B; }
+  #s6-stamp { position: absolute; right: 50px; top: 168px; width: 340px; height: 86px; box-sizing: border-box; border: 7px solid #C0392B; border-radius: 16px; background: rgba(255,255,255,0.9); color: #C0392B; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+
+  /* 8: send, then the keyword */
+  #s8-send { position: absolute; left: 360px; right: 60px; top: 70px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--ink); }
+  #s8-who { position: absolute; left: 380px; right: 80px; top: 440px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: #6B655E; }
+  #s8-card { top: 580px; height: 320px; }
+  #s8-head { left: 32px; top: 26px; }
+  .fr { position: absolute; left: 28px; right: 28px; height: 64px; }
+  .fr .tk { position: absolute; left: 0; top: 10px; width: 44px; height: 44px; border-radius: 22px; background: var(--accent); }
+  .fr .tk svg { position: absolute; left: 10px; top: 12px; width: 24px; height: 20px; }
+  .fr .t { position: absolute; left: 62px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s8-f1 { top: 76px; } #s8-f2 { top: 148px; } #s8-f3 { top: 220px; }
+  #s8-pill { position: absolute; left: 360px; right: 60px; top: 940px; height: 170px; border-radius: 85px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; }
+  #s8-pill .c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #s8-kw { display: flex; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 88px; letter-spacing: 0.02em; color: #A8B8FF; }
+  #s8-kw b { display: block; font-weight: 900; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">SHOP OWNERS · AT THE COUNTER</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><b class="num">3</b> AI tools</span></span><span class="mask"><span class="l">on your <i class="it">phone.</i></span></span></div>
+  <svg id="s0-ring" viewBox="0 0 140 150" data-layout-allow-overlap><path id="s0-ring-p" d="M78 10 C118 12 134 52 130 82 C126 118 98 142 66 140 C30 138 8 110 10 76 C12 42 36 14 84 14" fill="none" stroke="#2A4BD7" stroke-width="7" stroke-linecap="round" stroke-dasharray="520" stroke-dashoffset="520"></path></svg>
+  <div class="tile" id="t1"><div class="box"></div><svg viewBox="0 0 70 70"><path d="M35 4 C38 24 46 32 66 35 C46 38 38 46 35 66 C32 46 24 38 4 35 C24 32 32 24 35 4 Z" fill="#2A4BD7"></path></svg><div class="tl">Gemini</div></div>
+  <div class="tile" id="t2"><div class="box"></div><svg viewBox="0 0 70 70"><path d="M38 8 C58 8 64 26 62 38 C60 54 46 63 32 62 C16 60 7 47 8 33 C9 19 20 9 40 10" fill="none" stroke="#17744A" stroke-width="6" stroke-linecap="round"></path><circle cx="35" cy="35" r="7" fill="#17744A"></circle></svg><div class="tl">Circle</div></div>
+  <div class="tile" id="t3"><div class="box"></div><svg viewBox="0 0 70 70"><path d="M8 24 V14 Q8 8 14 8 H24 M46 8 H56 Q62 8 62 14 V24 M62 46 V56 Q62 62 56 62 H46 M24 62 H14 Q8 62 8 56 V46" fill="none" stroke="#B5561E" stroke-width="6" stroke-linecap="round"></path><circle cx="35" cy="35" r="12" fill="#B5561E"></circle></svg><div class="tl">Lens</div></div>
+  <div id="s0-free">FREE</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">3 free</span></span><span class="mask"><span class="l it">helpers.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">YOUR COUNTER STAFF</div>
+    <div class="lbl" id="s1-sal">SALARY</div>
+    <div class="staff" id="s1-r1"><div class="ico bg-blue"><svg viewBox="0 0 70 70"><path d="M35 4 C38 24 46 32 66 35 C46 38 38 46 35 66 C32 46 24 38 4 35 C24 32 32 24 35 4 Z" fill="#FFFFFF"></path></svg></div><div class="t">Writes replies</div><div class="chip bg-ink" id="s1-c1">FREE</div></div>
+    <div class="staff" id="s1-r2"><div class="ico bg-green"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="#FFFFFF" stroke-width="5"></circle><path d="M25 25 L36 36" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path></svg></div><div class="t">Finds products</div><div class="chip bg-ink" id="s1-c2">FREE</div></div>
+    <div class="staff" id="s1-r3"><div class="ico bg-terra"><svg viewBox="0 0 70 70"><path d="M8 24 V14 Q8 8 14 8 H24 M46 8 H56 Q62 8 62 14 V24 M62 46 V56 Q62 62 56 62 H46 M24 62 H14 Q8 62 8 56 V46" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"></path><circle cx="35" cy="35" r="12" fill="#FFFFFF"></circle></svg></div><div class="t">Reads bills</div><div class="chip bg-ink" id="s1-c3">FREE</div></div>
+    <div class="lbl" id="s1-note">ALL THREE ARE GOOGLE TOOLS</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">NUMBER 3</div>
+  <div class="title"><span class="mask"><span class="l">Talk, it</span></span><span class="mask"><span class="l it">writes.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="rank bg-blue" id="s2-rank">#3</div>
+    <div class="tname">Gemini</div>
+    <svg id="s2-spark" viewBox="0 0 70 70"><path d="M35 4 C38 24 46 32 66 35 C46 38 38 46 35 66 C32 46 24 38 4 35 C24 32 32 24 35 4 Z" fill="#2A4BD7"></path></svg>
+    <div class="lbl" id="s2-ex">EXAMPLE</div>
+    <div id="s2-voice">
+      <svg id="s2-mic" viewBox="0 0 40 52"><rect x="11" y="2" width="18" height="30" rx="9" fill="#2A4BD7"></rect><path d="M4 24 Q4 40 20 40 Q36 40 36 24 M20 40 V50" fill="none" stroke="#2A4BD7" stroke-width="4" stroke-linecap="round"></path></svg>
+      <div id="s2-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div id="s2-said">"Tell her the atta is back"</div>
+    </div>
+    <div id="s2-dots"><i></i><i></i><i></i></div>
+    <div id="s2-reply" data-layout-allow-overlap><div class="t">Namaste ji! Your atta is back in stock today.</div></div>
+    <div class="lim" id="s2-lim">"Gemini can make mistakes, so double-check it"</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">NUMBER 2</div>
+  <div class="title"><span class="mask"><span class="l">Circle it,</span></span><span class="mask"><span class="l it">find it.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="rank bg-green" id="s3-rank">#2</div>
+    <div class="tname">Circle to Search</div>
+    <div id="s3-photo">
+      <div id="s3-shelf"></div>
+      <div class="box" id="s3-bx1"></div>
+      <div class="box" id="s3-bx2"></div>
+      <div id="s3-bottle"><div class="cap"></div><div class="body"></div><div class="band"></div></div>
+      <svg id="s3-ring" viewBox="0 0 200 224" data-layout-allow-overlap><path id="s3-ring-p" d="M100 10 C160 8 192 60 190 116 C188 176 150 216 98 214 C42 212 8 170 10 112 C12 58 46 14 108 12" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-dasharray="640" stroke-dashoffset="640"></path></svg>
+      <div class="lbl" id="s3-pl">CUSTOMER'S PHOTO</div>
+      <div class="lbl" id="s3-ex">EXAMPLE</div>
+    </div>
+    <div class="res" id="s3-r1"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="#17744A" stroke-width="5"></circle><path d="M25 25 L36 36" stroke="#17744A" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Hair oil, 200 ml</div><div class="chip bg-green" id="s3-match">MATCH</div></div>
+    <div class="res" id="s3-r2"><svg viewBox="0 0 40 40"><path d="M4 18 L18 4 H36 V22 L22 36 Z" fill="none" stroke="#17744A" stroke-width="4" stroke-linejoin="round"></path><circle cx="28" cy="12" r="3" fill="#17744A"></circle></svg><div class="t">Shops and prices</div><svg id="s3-arrow" viewBox="0 0 40 40"><path d="M6 20 H32 M22 10 L32 20 L22 30" fill="none" stroke="#1E1A16" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="lim" id="s3-lim">"Available on select Android devices"</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">NUMBER 1 · FAVOURITE</div>
+  <div class="title"><span class="mask"><span class="l">It reads</span></span><span class="mask"><span class="l">the <i class="it">bill.</i></span></span></div>
+  <div class="card wide" id="s4-card">
+    <div class="rank bg-terra">#1</div>
+    <div class="tname">Google Lens</div>
+    <div class="chip bg-blue" id="s4-fav"><svg viewBox="0 0 28 28"><path d="M14 2 L17.5 10 L26 10.6 L19.5 16 L21.6 24.5 L14 20 L6.4 24.5 L8.5 16 L2 10.6 L10.5 10 Z" fill="#FFFFFF"></path></svg>FAVOURITE</div>
+    <div id="s4-bill">
+      <div class="lbl" id="s4-bh">SUPPLIER BILL</div>
+      <div class="lbl" id="s4-bx">EXAMPLE</div>
+      <div class="bl" id="s4-l1"><span>Wheat flour 10 kg</span><span>₹420</span></div>
+      <div class="bl" id="s4-l2"><span>Sugar 5 kg</span><span>₹230</span></div>
+      <div class="bl" id="s4-l3"><span>Mustard oil 2 L</span><span>₹330</span></div>
+      <div id="s4-div"></div>
+      <div class="bl" id="s4-l4"><span>Total</span><span>₹980</span></div>
+    </div>
+    <svg id="s4-vf" viewBox="0 0 856 476" data-layout-allow-overlap><path d="M6 60 V20 Q6 6 20 6 H60 M796 6 H836 Q850 6 850 20 V60 M850 416 V456 Q850 470 836 470 H796 M60 470 H20 Q6 470 6 456 V416" fill="none" stroke="#2A4BD7" stroke-width="8" stroke-linecap="round"></path></svg>
+    <div id="s4-scan" data-layout-allow-overlap></div>
+    <div id="s4-lang">English<svg viewBox="0 0 40 24"><path d="M2 12 H34 M24 3 L35 12 L24 21" fill="none" stroke="#1E1A16" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg><b>Hindi</b></div>
+    <div class="lbl" id="s4-tip">TAP TRANSLATE</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Now in</span></span><span class="mask"><span class="l it">Hindi.</span></span></div>
+  <div class="card" id="s5-card">
+    <div class="rank bg-terra">#1</div>
+    <div class="tname">Google Lens</div>
+    <div class="chip bg-terra" id="s5-hi">HINDI</div>
+    <div class="tr" id="s5-r1"><span>Gehun aata 10 kg</span><span>₹420</span></div>
+    <div class="tr" id="s5-r2"><span>Cheeni 5 kg</span><span>₹230</span></div>
+    <div class="tr" id="s5-r3"><span>Sarson tel 2 L</span><span>₹330</span></div>
+    <div class="tr" id="s5-r4"><span>Kul jod</span><span>₹980</span></div>
+    <div class="lim" id="s5-note">Example bill. Hindi shown here in Roman letters.</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step">BEFORE YOU START</div>
+  <div class="title"><span class="mask"><span class="l">The <i class="it">catch.</i></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-head">SCREENSHOT THIS · YOUR 3 HELPERS</div>
+    <div class="rk" id="s6-r1"><div class="n bg-terra">1</div><div class="nm">Google Lens</div><div class="chip bg-blue" id="s6-best">BEST</div><div class="lim" id="s6-l1"><b>Our tip:</b> check totals yourself</div></div>
+    <div class="rk" id="s6-r2"><div class="n bg-green">2</div><div class="nm">Circle to Search</div><div class="lim">"Available on select Android devices"</div></div>
+    <div class="rk" id="s6-r3"><div class="n bg-blue">3</div><div class="nm">Gemini</div><div class="lim">"Gemini can make mistakes, so double-check it"</div></div>
+    <div class="ring" id="s6-ring2" data-layout-allow-overlap></div>
+    <div class="ring" id="s6-ring1" data-layout-allow-overlap></div>
+    <div id="s6-stamp" data-layout-allow-overlap>CHECK TOTALS</div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="s8-send"><span class="mask"><span class="l">Send</span></span><span class="mask"><span class="l it">this.</span></span></div>
+  <div id="s8-who">to the uncle at the grocery shop</div>
+  <div class="card" id="s8-card">
+    <div class="lbl" id="s8-head">FREE · ONE PAGE TO KEEP</div>
+    <div class="fr" id="s8-f1"><div class="tk"><svg viewBox="0 0 24 20"><path d="M2 10 L9 17 L22 3" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Your phone model</div></div>
+    <div class="fr" id="s8-f2"><div class="tk"><svg viewBox="0 0 24 20"><path d="M2 10 L9 17 L22 3" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Your language</div></div>
+    <div class="fr" id="s8-f3"><div class="tk"><svg viewBox="0 0 24 20"><path d="M2 10 L9 17 L22 3" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t">Where each tool hides</div></div>
+  </div>
+  <div id="s8-pill"><span class="c">Comment</span><div id="s8-kw"><b>P</b><b>H</b><b>O</b><b>N</b><b>E</b></div></div>
+</section>

@@ -1,0 +1,81 @@
+{
+  "dur": 26.48,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.531,
+      "b": 3.631,
+      "say": "Shop owners, three AI tools already on the phone at your counter.",
+      "show": "Shop owners: 3 AI tools already on your phone."
+    },
+    {
+      "a": 3.631,
+      "voice": 3.731,
+      "end": 5.536,
+      "b": 5.636,
+      "say": "Like three free helpers, already hired.",
+      "show": "Like 3 free helpers, already hired."
+    },
+    {
+      "a": 5.636,
+      "voice": 5.736,
+      "end": 7.891,
+      "b": 7.991,
+      "say": "Three: Gemini drafts replies from your voice.",
+      "show": "#3 Gemini: replies from your voice."
+    },
+    {
+      "a": 7.991,
+      "voice": 8.091,
+      "end": 10.753,
+      "b": 10.853,
+      "say": "Two: Circle to Search finds a product from a photo.",
+      "show": "#2 Circle to Search: find it from a photo."
+    },
+    {
+      "a": 10.853,
+      "voice": 10.953,
+      "end": 14.743,
+      "b": 14.843,
+      "say": "One, the best one: Google Lens translates a supplier's English bill.",
+      "show": "#1 Google Lens translates the English bill."
+    },
+    {
+      "a": 14.843,
+      "voice": 14.943,
+      "end": 16.46,
+      "b": 16.56,
+      "say": "Now it's in Hindi, line by line.",
+      "show": "Now it's in Hindi, line by line."
+    },
+    {
+      "a": 16.56,
+      "voice": 16.66,
+      "end": 19.321,
+      "b": 19.421,
+      "say": "The catch: Circle to Search isn't on every Android.",
+      "show": "Catch: Circle to Search isn't on every Android."
+    },
+    {
+      "a": 19.421,
+      "voice": 19.521,
+      "end": 21.819,
+      "b": 21.919,
+      "say": "And handwriting can slip, so check the totals.",
+      "show": "Handwriting slips. Check the totals."
+    },
+    {
+      "a": 21.919,
+      "voice": 22.019,
+      "end": 25.078,
+      "b": 26.48,
+      "say": "Send this to the uncle at the grocery shop. Comment PHONE.",
+      "show": "Send this. Comment PHONE for the card."
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "2026-11-14-reel-chatgpt-free-vs-go-vs-plus-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "compare",
+  "keyword": "RENEW",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Free|Go|Plus|recharge|limit|week|pick|catch|check|Send|RENEW)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4ACB"
+  },
+  "lines": [
+    {
+      "say": "Free, Go or Plus: which chat AI plan should a college student pick?",
+      "show": "Free vs Go vs Plus: head to head.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Think phone data packs: a big pack you never finish is wasted.",
+      "show": "Like recharge packs: unused data is wasted.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Free: the basic pack, tighter limits.",
+      "show": "Free: basic pack, tighter limits.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Go: the middle pack, higher limits.",
+      "show": "Go: middle pack, higher limits.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Plus: the biggest pack, the top price.",
+      "show": "Plus: biggest pack, top price.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Our pick for most beginners: Free.",
+      "show": "Our pick for most beginners: Free.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Pay only when you hit the limit every week.",
+      "show": "Pay only when you hit the limit every week.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: plans change often, so check OpenAI's page before paying.",
+      "show": "The catch: check OpenAI's page before paying.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the roommate about to pay for Plus. Comment RENEW.",
+      "show": "Send this. Comment RENEW for the card.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line8.voice+1.6",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "FREE VS GO VS PLUS",
+      "WHICH ONE TO PAY FOR"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

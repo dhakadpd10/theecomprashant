@@ -1,0 +1,73 @@
+{
+  "dur": 30.07,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.617,
+      "b": 4.717,
+      "say": "Homemakers, four steps to sell your tiffin recipes. Step two is the best one.",
+      "show": "4 steps. Step 2 is my favourite."
+    },
+    {
+      "a": 4.717,
+      "voice": 4.817,
+      "end": 6.528,
+      "b": 6.628,
+      "say": "Step one: pick what you already cook.",
+      "show": "Step 1: pick what you already cook."
+    },
+    {
+      "a": 6.628,
+      "voice": 6.728,
+      "end": 10.025,
+      "b": 10.125,
+      "say": "Step two: speak recipes into the Claude app, get a clean guide.",
+      "show": "Step 2: speak it, get a clean guide."
+    },
+    {
+      "a": 10.125,
+      "voice": 10.225,
+      "end": 13.045,
+      "b": 13.145,
+      "say": "Step three: Canva AI lays it out as a PDF.",
+      "show": "Step 3: Canva AI makes the PDF."
+    },
+    {
+      "a": 13.145,
+      "voice": 13.245,
+      "end": 16.947,
+      "b": 17.047,
+      "say": "Step four: put it on a sales page, post the link in your family chats.",
+      "show": "Step 4: Topmate, then your WhatsApp groups."
+    },
+    {
+      "a": 17.047,
+      "voice": 17.147,
+      "end": 20.545,
+      "b": 20.645,
+      "say": "Done. Your own recipe book, with a small price, as an example.",
+      "show": "Your recipes, as a ₹99 guide. EXAMPLE."
+    },
+    {
+      "a": 20.645,
+      "voice": 20.745,
+      "end": 24.286,
+      "b": 24.386,
+      "say": "The catch: first buyers know you, it takes weeks, nothing's guaranteed.",
+      "show": "The catch: weeks, not days. No guarantee."
+    },
+    {
+      "a": 24.386,
+      "voice": 24.486,
+      "end": 28.675,
+      "b": 30.07,
+      "say": "Send this to the sister whose recipes everyone asks for. Comment PRODUCT.",
+      "show": "Send this. Comment PRODUCT for the plan."
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+<style>
+  /* tutorial: one idea (a photo of your bill plus one prompt explains every charge), one analogy (the bill is a doctor's prescription, the AI is the chemist who reads it out),
+     colour = meaning: blue = the AI and its replies, green = explained and fine, amber = check this against the paper bill. Red is not used. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E7E0D3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(43,80,200,0.08) 0%, rgba(43,80,200,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 146px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 105px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; line-height: 1; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,30,0.14), 0 2px 0 rgba(70,50,30,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.1em; color: rgba(30,26,22,0.62); white-space: nowrap; }
+  .bl { position: absolute; left: 28px; right: 28px; height: 22px; }
+  .bl .a { position: absolute; left: 0; top: 0; width: 190px; height: 22px; border-radius: 11px; background: #DDD5C7; }
+  .bl .b { position: absolute; right: 0; top: 0; width: 90px; height: 22px; border-radius: 11px; background: #CFC6B6; }
+  .vf { position: absolute; width: 56px; height: 56px; border-color: #FFFFFF; border-style: solid; border-width: 0; }
+  .vf.c1 { left: 16px; top: 16px; border-top-width: 6px; border-left-width: 6px; border-top-left-radius: 14px; }
+  .vf.c2 { right: 16px; top: 16px; border-top-width: 6px; border-right-width: 6px; border-top-right-radius: 14px; }
+  .vf.c3 { left: 16px; bottom: 16px; border-bottom-width: 6px; border-left-width: 6px; border-bottom-left-radius: 14px; }
+  .vf.c4 { right: 16px; bottom: 16px; border-bottom-width: 6px; border-right-width: 6px; border-bottom-right-radius: 14px; }
+  .bub { position: absolute; height: 92px; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; white-space: nowrap; }
+  .ai { background: var(--accent); color: #FFFFFF; border-bottom-left-radius: 10px; transform-origin: left center; }
+  .me { background: var(--ink); color: #F3EEE5; border-bottom-right-radius: 10px; transform-origin: right center; }
+
+  /* 0: hook, cold-open demo (host right, demo left and centre) */
+  #s0-title { top: 100px; font-size: 128px; }
+  #s0-und { position: absolute; left: 84px; top: 392px; width: 430px; height: 34px; }
+  #s0-phone { position: absolute; left: 90px; top: 450px; width: 520px; height: 660px; border-radius: 44px; background: #1E1A16; box-shadow: 0 30px 70px rgba(60,40,20,0.22); overflow: hidden; }
+  #s0-bill { position: absolute; left: 50px; top: 56px; width: 420px; height: 460px; border-radius: 14px; background: #FBF7EE; rotate: -2deg; }
+  .bh { position: absolute; left: 28px; top: 26px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; color: var(--ink); white-space: nowrap; }
+  #s0-l1 { top: 100px; } #s0-l2 { top: 150px; } #s0-l3 { top: 200px; } #s0-l4 { top: 250px; } #s0-l5 { top: 300px; }
+  #s0-due { left: 28px; top: 372px; color: rgba(30,26,22,0.7); }
+  #s0-duebar { position: absolute; right: 28px; top: 368px; width: 120px; height: 40px; border-radius: 10px; background: #1E1A16; }
+  #s0-shut { position: absolute; left: 226px; top: 566px; width: 68px; height: 68px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 0 0 6px #1E1A16, 0 0 0 12px #FFFFFF; }
+  #s0-flash { position: absolute; left: 0; top: 0; width: 520px; height: 660px; background: #FFFFFF; opacity: 0; }
+  #s0-bub { position: absolute; left: 250px; top: 1000px; width: 470px; height: 100px; border-radius: 34px 34px 34px 10px; background: var(--accent); box-shadow: 0 20px 50px rgba(43,80,200,0.3); display: flex; align-items: center; padding-left: 30px; box-sizing: border-box; transform-origin: left center; }
+  #s0-type { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #FFFFFF; white-space: nowrap; }
+
+  /* 1: the prescription (host hidden, full width) */
+  #s1-card { left: 90px; right: 90px; top: 420px; height: 680px; }
+  #s1-head { left: 40px; top: 38px; }
+  #s1-scr { position: absolute; right: 120px; top: 22px; width: 260px; height: 50px; }
+  #s1-rx { position: absolute; right: 40px; top: 12px; width: 70px; height: 64px; font-family: 'Permanent Marker', cursive; font-size: 40px; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  #s1 .brow { position: absolute; left: 36px; right: 36px; height: 116px; border-radius: 24px; background: #F6F2EA; }
+  #s1-r1 { top: 110px; } #s1-r2 { top: 246px; } #s1-r3 { top: 382px; } #s1-r4 { top: 518px; }
+  #s1 .brow .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s1 .brow svg { position: absolute; left: 470px; top: 28px; width: 200px; height: 60px; }
+  #s1 .q { position: absolute; right: 24px; top: 22px; width: 72px; height: 72px; border-radius: 50%; background: #E6E0D6; color: #5C534A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+
+  /* 2: step 1, crop and snap */
+  #s2-card { top: 420px; height: 680px; }
+  #s2-vf { position: absolute; left: 30px; top: 30px; width: 600px; height: 420px; border-radius: 24px; background: #1E1A16; overflow: hidden; }
+  #s2-bill { position: absolute; left: 40px; top: 40px; width: 520px; height: 340px; border-radius: 12px; background: #FBF7EE; }
+  #s2-cn { left: 26px; top: 66px; color: rgba(30,26,22,0.7); }
+  #s2-n { position: absolute; left: 26px; top: 112px; display: flex; gap: 8px; }
+  #s2-n i { display: block; width: 40px; height: 48px; border-radius: 8px; background: #D8CFBF; }
+  #s2-cover { position: absolute; left: 14px; top: 102px; width: 400px; height: 68px; border-radius: 14px; background: #3A332C; display: flex; align-items: center; justify-content: center; }
+  #s2-crop { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.16em; color: #FFFFFF; }
+  #s2-b1 { top: 212px; } #s2-b2 { top: 254px; } #s2-b3 { top: 296px; }
+  #s2-flash { position: absolute; left: 0; top: 0; width: 600px; height: 420px; background: #FFFFFF; opacity: 0; }
+  #s2-note { left: 32px; top: 474px; }
+  #s2-shut { position: absolute; left: 40px; top: 548px; width: 84px; height: 84px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px #FFFFFF, 0 0 0 12px var(--ink); }
+  #s2-tip { position: absolute; left: 170px; top: 560px; width: 440px; height: 60px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+
+  /* 3: step 2, paste the prompt */
+  #s3-card { top: 420px; height: 660px; }
+  #s3-head { left: 36px; top: 34px; }
+  #s3-box { position: absolute; left: 30px; right: 30px; top: 88px; height: 240px; border-radius: 24px; background: #F6F5F2; padding: 24px 30px; box-sizing: border-box; }
+  .pl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.55; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .pl.hi { color: var(--accent); }
+  #s3-att { position: absolute; left: 30px; top: 354px; width: 400px; height: 76px; border-radius: 38px; background: #EEF1FF; display: flex; align-items: center; gap: 16px; padding-left: 24px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: #2B50C8; white-space: nowrap; }
+  #s3-att svg { display: block; width: 40px; height: 32px; }
+  #s3-tog { position: absolute; left: 30px; top: 460px; width: 340px; height: 90px; border-radius: 45px; background: #EFEAE1; }
+  #s3-knob { position: absolute; left: 6px; top: 6px; width: 164px; height: 78px; border-radius: 39px; background: #DCE3FB; box-shadow: inset 0 0 0 3px var(--accent); }
+  .tg { position: absolute; top: 6px; width: 164px; height: 78px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); }
+  #s3-hi { left: 6px; } #s3-en { left: 170px; }
+  #s3-go { position: absolute; right: 30px; top: 460px; width: 180px; height: 90px; border-radius: 45px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  #s3-note { left: 36px; top: 590px; }
+
+  /* 4: step 3, ask why */
+  #s4-card { top: 420px; height: 680px; }
+  #s4-photo { position: absolute; right: 30px; top: 30px; width: 240px; height: 170px; border-radius: 24px 24px 10px 24px; background: #1E1A16; }
+  #s4-mini { position: absolute; left: 34px; top: 22px; width: 172px; height: 126px; border-radius: 8px; background: #FBF7EE; padding: 14px 16px; box-sizing: border-box; }
+  #s4-mini i { display: block; height: 12px; border-radius: 6px; background: #D8CFBF; margin-bottom: 10px; }
+  #s4-ai { left: 30px; top: 228px; width: 400px; }
+  #s4-q { right: 30px; top: 346px; width: 560px; }
+  #s4-dots { position: absolute; left: 30px; top: 464px; width: 170px; height: 84px; border-radius: 30px 30px 30px 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; gap: 14px; transform-origin: left center; }
+  #s4-dots .dot { display: block; width: 18px; height: 18px; border-radius: 50%; background: #FFFFFF; }
+  #s4-note { left: 36px; top: 604px; }
+
+  /* 5: payoff, the chemist reads it out */
+  #s5-card { top: 290px; height: 812px; }
+  #s5-tag { position: absolute; left: 24px; top: 24px; height: 56px; padding: 0 22px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; display: flex; align-items: center; white-space: nowrap; transform-origin: left center; }
+  #s5-ex { right: 28px; top: 36px; }
+  #s5 .pr { position: absolute; left: 24px; right: 24px; height: 128px; border-radius: 22px; overflow: hidden; }
+  #s5 .pr.g { background: #F1F7F2; } #s5 .pr.y { background: #FDF3DC; }
+  #s5 .pr .bar2 { position: absolute; left: 0; top: 0; bottom: 0; width: 12px; }
+  #s5 .pr.g .bar2 { background: #1E9E5A; } #s5 .pr.y .bar2 { background: #E8A317; }
+  #s5 .pr .n { position: absolute; left: 36px; top: 16px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5 .pr .v { position: absolute; right: 24px; top: 16px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5 .pr .m { position: absolute; left: 36px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 34px; color: #5C534A; white-space: nowrap; }
+  #s5-r1 { top: 100px; } #s5-r2 { top: 240px; } #s5-r3 { top: 380px; } #s5-r4 { top: 520px; } #s5-r5 { top: 660px; }
+
+  /* 6: the catch, check the paper */
+  #s6-card { top: 420px; height: 680px; }
+  #s6-l1 { left: 36px; top: 30px; }
+  #s6-l2 { left: 36px; top: 236px; }
+  .cmp { position: absolute; left: 30px; right: 30px; height: 120px; border-radius: 24px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px 0 30px; box-sizing: border-box; font-family: 'Inter', sans-serif; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .cmp .n { display: block; font-weight: 700; }
+  .cmp .v { display: block; font-weight: 900; }
+  #s6-ai { top: 76px; background: #EEF1FF; }
+  #s6-val { color: var(--accent); }
+  #s6-paper { top: 282px; background: #FBF5E6; border: 3px dashed #CDBF9F; }
+  #s6-mag { position: absolute; left: 492px; top: 76px; width: 150px; height: 150px; }
+  #s6-tick { position: absolute; left: 30px; top: 450px; width: 80px; height: 80px; }
+  #s6-okt { position: absolute; left: 130px; top: 460px; width: 480px; height: 60px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s6-tip { left: 36px; top: 586px; }
+
+  /* 7: disputes go to the board */
+  #s7-chat { top: 290px; height: 330px; }
+  #s7-l1 { left: 36px; top: 28px; }
+  #s7-ai { left: 30px; top: 78px; width: 430px; height: 96px; font-size: 40px; }
+  #s7-bub { position: absolute; left: 470px; top: 500px; width: 490px; height: 96px; border-radius: 30px 30px 10px 30px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; white-space: nowrap; box-shadow: 0 18px 40px rgba(30,26,22,0.25); }
+  #s7-arrow { position: absolute; left: 860px; top: 600px; width: 120px; height: 150px; }
+  #s7-board { top: 730px; height: 380px; }
+  #s7-icon { position: absolute; left: 30px; top: 28px; width: 100px; height: 100px; }
+  #s7-bt { position: absolute; left: 150px; top: 30px; width: 470px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; line-height: 1.15; color: var(--ink); }
+  #s7-bl { left: 30px; top: 150px; }
+  #s7-tick { position: absolute; left: 30px; top: 232px; width: 70px; height: 70px; }
+
+  /* 8: save + keyword */
+  #s8-save { top: 40px; font-size: 130px; }
+  #s8-mark { position: absolute; left: 480px; top: 60px; width: 90px; height: 130px; }
+  #s8-stk-w { position: absolute; left: 640px; top: 100px; width: 300px; height: 76px; rotate: 6deg; }
+  #s8-stk { width: 300px; height: 76px; border-radius: 16px; background: #FFFFFF; box-shadow: inset 0 0 0 4px var(--ink), 0 12px 30px rgba(70,50,30,0.15); display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.12em; color: var(--ink); }
+  #s8-card { top: 250px; height: 450px; }
+  #s8-head { left: 36px; top: 30px; }
+  #s8 .sr { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 22px; background: #F6F5F2; }
+  #s8-r1 { top: 84px; } #s8-r2 { top: 202px; } #s8-r3 { top: 320px; }
+  #s8 .no { position: absolute; left: 20px; top: 20px; width: 60px; height: 60px; border-radius: 50%; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; display: flex; align-items: center; justify-content: center; }
+  #s8 .sr .t { position: absolute; left: 100px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s8-pill { position: absolute; left: 360px; right: 60px; top: 760px; height: 200px; border-radius: 100px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 26px; box-shadow: 0 24px 60px rgba(30,26,22,0.25); }
+  #s8-cm { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #F3EEE5; }
+  #s8-kw { display: flex; }
+  #s8-kw .k { display: block; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1; color: #A9B8FF; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">AFTER OFFICE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">You pay it</span></span><span class="mask"><span class="l it">unread.</span></span></div>
+  <svg id="s0-und" viewBox="0 0 430 34" data-layout-allow-overlap><path id="s0-up" d="M6 22 Q 60 4 114 20 T 222 20 T 330 20 T 424 18" fill="none" stroke="#2B50C8" stroke-width="8" stroke-linecap="round" stroke-dasharray="480" stroke-dashoffset="480"></path></svg>
+  <div id="s0-phone">
+    <div id="s0-bill">
+      <div class="bh">ELECTRICITY BILL</div>
+      <div class="bl" id="s0-l1"><i class="a"></i><i class="b"></i></div>
+      <div class="bl" id="s0-l2"><i class="a"></i><i class="b"></i></div>
+      <div class="bl" id="s0-l3"><i class="a"></i><i class="b"></i></div>
+      <div class="bl" id="s0-l4"><i class="a"></i><i class="b"></i></div>
+      <div class="bl" id="s0-l5"><i class="a"></i><i class="b"></i></div>
+      <div class="lbl" id="s0-due">AMOUNT DUE</div>
+      <div id="s0-duebar"></div>
+    </div>
+    <div class="vf c1"></div><div class="vf c2"></div><div class="vf c3"></div><div class="vf c4"></div>
+    <div id="s0-shut"></div>
+    <div id="s0-flash" data-layout-allow-overlap></div>
+  </div>
+  <div id="s0-bub" data-layout-allow-overlap><span id="s0-type">Fixed charge means…</span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE PROBLEM</div>
+  <div class="title"><span class="mask"><span class="l">Like a</span></span><span class="mask"><span class="l it">prescription.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">ELECTRICITY BILL</div>
+    <svg id="s1-scr" viewBox="0 0 260 50"><path id="s1-sp" d="M4 34 C 20 6, 34 44, 52 20 S 80 8, 92 32 S 122 44, 140 14 S 170 10, 184 34 S 220 40, 256 16" fill="none" stroke="#1E1A16" stroke-width="5" stroke-linecap="round" stroke-dasharray="520" stroke-dashoffset="520"></path></svg>
+    <div id="s1-rx">Rx</div>
+    <div class="brow" id="s1-r1"><div class="t">Fixed charge</div><svg viewBox="0 0 200 60"><path id="s1-w1" d="M4 40 C 20 10, 30 50, 46 26 S 70 10, 84 36 S 110 50, 126 22 S 160 14, 196 38" fill="none" stroke="#B5AB9A" stroke-width="5" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg><div class="q" id="s1-q1">?</div></div>
+    <div class="brow" id="s1-r2"><div class="t">Energy charge</div><svg viewBox="0 0 200 60"><path id="s1-w2" d="M4 30 C 16 50, 34 8, 50 34 S 78 52, 96 20 S 128 12, 140 40 S 176 46, 196 22" fill="none" stroke="#B5AB9A" stroke-width="5" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg><div class="q" id="s1-q2">?</div></div>
+    <div class="brow" id="s1-r3"><div class="t">Electricity duty</div><svg viewBox="0 0 200 60"><path id="s1-w3" d="M4 36 C 24 8, 40 48, 60 24 S 92 14, 104 38 S 140 46, 156 18 S 186 22, 196 40" fill="none" stroke="#B5AB9A" stroke-width="5" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg><div class="q" id="s1-q3">?</div></div>
+    <div class="brow" id="s1-r4"><div class="t">Arrears</div><svg viewBox="0 0 200 60"><path id="s1-w4" d="M4 26 C 18 48, 36 10, 54 36 S 84 50, 98 22 S 132 8, 148 36 S 180 44, 196 24" fill="none" stroke="#B5AB9A" stroke-width="5" stroke-linecap="round" stroke-dasharray="420" stroke-dashoffset="420"></path></svg><div class="q" id="s1-q4">?</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Crop, then</span></span><span class="mask"><span class="l it">snap.</span></span></div>
+  <div class="card" id="s2-card">
+    <div id="s2-vf">
+      <div id="s2-bill">
+        <div class="bh">ELECTRICITY BILL</div>
+        <div class="lbl" id="s2-cn">CONSUMER NO.</div>
+        <div id="s2-n"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div id="s2-cover" data-layout-allow-overlap><span id="s2-crop">CROPPED</span></div>
+        <div class="bl" id="s2-b1"><i class="a"></i><i class="b"></i></div>
+        <div class="bl" id="s2-b2"><i class="a"></i><i class="b"></i></div>
+        <div class="bl" id="s2-b3"><i class="a"></i><i class="b"></i></div>
+      </div>
+      <div class="vf c1"></div><div class="vf c2"></div><div class="vf c3"></div><div class="vf c4"></div>
+      <div id="s2-flash" data-layout-allow-overlap></div>
+    </div>
+    <div class="lbl" id="s2-note">ALSO HIDE ADDRESS, PHONE, QR</div>
+    <div id="s2-shut"></div>
+    <div id="s2-tip">Flat, bright, sharp</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Paste the</span></span><span class="mask"><span class="l it">prompt.</span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-head">EXPLAIN-MY-BILL PROMPT</div>
+    <div id="s3-box"><span class="pl" id="s3-l1">Explain every line</span><span class="pl" id="s3-l2">of this bill in plain</span><span class="pl hi" id="s3-l3">Hindi or English…</span></div>
+    <div id="s3-att"><svg viewBox="0 0 40 32"><rect x="2" y="2" width="36" height="28" rx="5" fill="none" stroke="#2B50C8" stroke-width="4"></rect><path d="M6 26 L16 14 L24 22 L29 17 L35 26 Z" fill="#2B50C8"></path></svg>Bill photo attached</div>
+    <div id="s3-tog"><div id="s3-knob" data-layout-allow-overlap></div><div class="tg" id="s3-hi">Hindi</div><div class="tg" id="s3-en">English</div></div>
+    <div id="s3-go">Send</div>
+    <div class="lbl" id="s3-note">ALSO PHONE, GAS, NET BILLS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3</div>
+  <div class="title"><span class="mask"><span class="l">Ask <span class="it">why.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div id="s4-photo"><div id="s4-mini"><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="bub ai" id="s4-ai">Got it. Ask away.</div>
+    <div class="bub me" id="s4-q">Why is this month higher?</div>
+    <div id="s4-dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+    <div class="lbl" id="s4-note">SAME CHAT, SAME PHOTO</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">chemist.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div id="s5-tag">READ OUT FOR YOU</div>
+    <div class="lbl" id="s5-ex">EXAMPLE</div>
+    <div class="pr g" id="s5-r1"><i class="bar2"></i><div class="n">Fixed charge</div><div class="v">₹110</div><div class="m">Monthly, for the connection</div></div>
+    <div class="pr g" id="s5-r2"><i class="bar2"></i><div class="n">Energy charge</div><div class="v">₹1,240</div><div class="m">Units used × rate</div></div>
+    <div class="pr g" id="s5-r3"><i class="bar2"></i><div class="n">Electricity duty</div><div class="v">₹90</div><div class="m">State tax</div></div>
+    <div class="pr y" id="s5-r4"><i class="bar2"></i><div class="n">Units used</div><div class="v">212</div><div class="m">158 last month. Check meter</div></div>
+    <div class="pr y" id="s5-r5"><i class="bar2"></i><div class="n">Arrears</div><div class="v">₹340</div><div class="m">Unpaid last bill. Check it</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check the</span></span><span class="mask"><span class="l it">paper.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="lbl" id="s6-l1">AI READ IT AS</div>
+    <div class="cmp" id="s6-ai"><span class="n">Units used</span><span class="v" id="s6-val">212</span></div>
+    <div class="lbl" id="s6-l2">YOUR PAPER BILL</div>
+    <div class="cmp" id="s6-paper"><span class="n">Units used</span><span class="v">212</span></div>
+    <svg id="s6-mag" viewBox="0 0 150 150" data-layout-allow-overlap><circle cx="60" cy="60" r="44" fill="rgba(232,163,23,0.12)" stroke="#E8A317" stroke-width="10"></circle><path d="M92 92 L138 138" stroke="#E8A317" stroke-width="14" stroke-linecap="round"></path></svg>
+    <svg id="s6-tick" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="#1E9E5A"></circle><path d="M22 41 L35 54 L59 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div id="s6-okt">Same number? Good.</div>
+    <div class="lbl" id="s6-tip">BLURRY? SNAP IT AGAIN</div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">DISPUTES</div>
+  <div class="title"><span class="mask"><span class="l">Not the <span class="it">chat.</span></span></span></div>
+  <div class="card" id="s7-chat">
+    <div class="lbl" id="s7-l1">AI CHAT</div>
+    <div class="bub ai" id="s7-ai">I can explain it.</div>
+  </div>
+  <div class="card" id="s7-board">
+    <svg id="s7-icon" viewBox="0 0 100 100"><path d="M8 36 L50 8 L92 36 Z" fill="#1E1A16"></path><rect x="16" y="42" width="12" height="40" rx="3" fill="#1E1A16"></rect><rect x="44" y="42" width="12" height="40" rx="3" fill="#1E1A16"></rect><rect x="72" y="42" width="12" height="40" rx="3" fill="#1E1A16"></rect><rect x="6" y="86" width="88" height="10" rx="4" fill="#1E1A16"></rect></svg>
+    <div id="s7-bt">Your electricity board</div>
+    <div class="lbl" id="s7-bl">ONLY THEY CAN CORRECT IT</div>
+    <svg id="s7-tick" viewBox="0 0 80 80"><circle cx="40" cy="40" r="38" fill="#1E9E5A"></circle><path d="M22 41 L35 54 L59 28" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </div>
+  <svg id="s7-arrow" viewBox="0 0 120 150" data-layout-allow-overlap><path id="s7-ap" d="M30 8 C 110 30, 110 90, 46 132" fill="none" stroke="#1E1A16" stroke-width="7" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></path><path id="s7-ah" d="M62 140 L40 136 L50 114" fill="none" stroke="#1E1A16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div id="s7-bub" data-layout-allow-overlap>Dispute this charge</div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="title" id="s8-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s8-mark" viewBox="0 0 90 130"><path d="M10 6 H80 V124 L45 96 L10 124 Z" fill="#2B50C8"></path></svg>
+  <div id="s8-stk-w"><div id="s8-stk">FREE PROMPT</div></div>
+  <div class="card" id="s8-card">
+    <div class="lbl" id="s8-head">EXPLAIN-MY-BILL · 3 STEPS</div>
+    <div class="sr" id="s8-r1"><div class="no" id="s8-n1">1</div><div class="t">Crop number, snap bill</div></div>
+    <div class="sr" id="s8-r2"><div class="no" id="s8-n2">2</div><div class="t">Paste the prompt</div></div>
+    <div class="sr" id="s8-r3"><div class="no" id="s8-n3">3</div><div class="t">Ask: why is it higher?</div></div>
+  </div>
+  <div id="s8-pill"><div id="s8-cm">Comment</div><div id="s8-kw"><div class="k">B</div><div class="k">I</div><div class="k">L</div><div class="k">L</div></div></div>
+</section>

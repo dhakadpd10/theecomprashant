@@ -1,0 +1,135 @@
+{
+  "id": "2026-11-15-reel-fresh-chat-handover-prompt-reveal",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "keyword": "CARRY",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(40|forty|Forty|CONFUSE|confuse|blur|handover|note|fresh|Fresh|clean|straight|catch|Catch|Send|CARRY)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F4BD8"
+  },
+  "lines": [
+    {
+      "say": "Your long job chat with AI mixes it up. Not your fault.",
+      "show": "40 MESSAGES CONFUSE IT",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Many messages in, it mixes up two companies.",
+      "show": "It mixes up two companies.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Long chats blur early details.",
+      "show": "Long chats blur early details.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Fix it like a last-day handover note.",
+      "show": "Fix it like a handover note.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Type: turn this chat into a short handover note.",
+      "show": "Summarise this chat as a handover note.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Paste that note into a fresh chat.",
+      "show": "Paste it into a fresh chat.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Now it starts clean, and nothing gets mixed up.",
+      "show": "Starts clean. Names stay straight.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: the note's only as good as what's in it. Read it first.",
+      "show": "The catch: read the note first.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the friend whose AI chat is three weeks long, and comment CARRY.",
+      "show": "Send this. Comment CARRY for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+0.9",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.3",
+      "fx": "click"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.4",
+    "title": [
+      "LONG CHAT CONFUSING AI?",
+      "PASTE A HANDOVER NOTE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

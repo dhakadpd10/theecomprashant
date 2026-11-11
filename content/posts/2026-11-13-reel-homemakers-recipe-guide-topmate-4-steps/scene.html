@@ -1,0 +1,316 @@
+<style>
+  /* One idea: your recipes become a small product in 4 steps. Step 2 is the favourite.
+     Colour = meaning: green = done or yours, blue = the AI, amber = the catch, red outline = example only. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD2 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,107,74,0.09) 0%, rgba(47,107,74,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(201,138,18,0.08) 0%, rgba(201,138,18,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 120px; top: 140px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.18em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 120px; top: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .acc { color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,45,20,0.13), 0 2px 0 rgba(70,45,20,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.64); white-space: nowrap; }
+  .chip { position: absolute; height: 56px; padding: 0 22px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: var(--accent); }
+  .amber { background: #8A5208; }
+  .ex { position: absolute; height: 42px; padding: 0 14px; border-radius: 10px; border: 3px solid #B24A2A; color: #B24A2A; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; white-space: nowrap; }
+  .tick { position: absolute; width: 60px; height: 60px; border-radius: 30px; background: var(--accent); display: flex; align-items: center; justify-content: center; }
+
+  /* 0: hook (host at centre: title above y 560, phone and list to his sides) */
+  #s0-step { top: 46px; }
+  #s0-title { top: 96px; right: 90px; font-size: 114px; }
+  #s0-phone { position: absolute; left: 90px; top: 500px; width: 230px; height: 470px; border-radius: 40px; background: #1E1A16; box-shadow: 0 30px 60px rgba(70,45,20,0.22); }
+  #s0-screen { position: absolute; left: 10px; right: 10px; top: 10px; bottom: 10px; border-radius: 32px; background: #FFFFFF; overflow: hidden; }
+  #s0-img { position: absolute; left: 0; right: 0; top: 0; height: 170px; background: linear-gradient(135deg, #2F6B4A 0%, #6FA57F 100%); }
+  #s0-plate { position: absolute; left: 50px; top: 30px; width: 110px; height: 110px; border-radius: 55px; background: radial-gradient(circle, #F6C66B 0%, #E9A63A 38%, #FFF7E8 40%, #FFF7E8 62%, #FFFFFF 64%); }
+  #s0-ptitle { position: absolute; left: 18px; right: 18px; top: 186px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 36px; line-height: 1.05; color: var(--ink); }
+  #s0-pages { left: 18px; top: 276px; }
+  #s0-ex { left: 18px; top: 318px; }
+  .ln { position: absolute; left: 18px; height: 10px; border-radius: 5px; background: #EDE8DF; }
+  #s0-ln1 { top: 384px; right: 18px; } #s0-ln2 { top: 408px; right: 60px; }
+  #s0-list { left: 740px; right: auto; width: 220px; top: 500px; height: 470px; border-radius: 32px; }
+  #s0-lh { left: 22px; top: 26px; }
+  .slot { position: absolute; left: 18px; right: 18px; height: 80px; border-radius: 20px; border: 3px dashed rgba(30,26,22,0.28); background: rgba(255,255,255,0); }
+  .slot .n { position: absolute; left: 18px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); }
+  #s0-r1 { top: 76px; } #s0-r2 { top: 170px; } #s0-r3 { top: 264px; } #s0-r4 { top: 358px; }
+  #s0-star { position: absolute; right: 14px; top: 14px; width: 48px; height: 48px; }
+
+  /* 1: pick what you already cook */
+  #s1-card { top: 470px; height: 600px; }
+  #s1-margin { position: absolute; left: 24px; top: 0; bottom: 0; width: 3px; background: rgba(178,74,42,0.35); }
+  #s1-head { left: 52px; top: 42px; }
+  #s1-chip { right: 30px; top: 26px; }
+  .rec { position: absolute; left: 44px; right: 36px; height: 120px; border-radius: 24px; background: #F7F3EC; }
+  .rec .t { position: absolute; left: 32px; right: 110px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .rec .tick { right: 26px; top: 30px; }
+  #s1-r1 { top: 110px; } #s1-r2 { top: 250px; } #s1-r3 { top: 390px; }
+  #s1-note { left: 52px; top: 538px; }
+
+  /* 2: speak it, get a clean guide (host hidden, full width) */
+  #s2-fav { left: 410px; top: 56px; height: 52px; gap: 10px; background: #8A5208; font-size: 24px; }
+  #s2-fav svg { display: block; width: 28px; height: 28px; }
+  #s2-voice { left: 90px; right: auto; width: 370px; top: 440px; height: 170px; }
+  #s2-vl { left: 28px; top: 22px; }
+  #s2-wave { position: absolute; left: 28px; right: 28px; top: 68px; height: 80px; display: flex; align-items: center; gap: 8px; }
+  #s2-wave i { display: block; flex: 1; height: 80px; border-radius: 6px; background: var(--ink); transform-origin: 50% 50%; }
+  #s2-ar1 { position: absolute; left: 474px; top: 500px; width: 74px; height: 50px; }
+  #s2-ai { left: 562px; right: 90px; top: 440px; height: 170px; background: #2F5BD8; }
+  #s2-spark { position: absolute; left: 28px; top: 30px; width: 56px; height: 56px; }
+  #s2-ait { position: absolute; left: 100px; top: 32px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: #FFFFFF; white-space: nowrap; }
+  #s2-ail { left: 30px; top: 116px; color: rgba(255,255,255,0.9); }
+  #s2-ar2 { position: absolute; left: 515px; top: 622px; width: 50px; height: 56px; }
+  #s2-guide { left: 90px; right: 90px; top: 690px; height: 470px; }
+  #s2-gt { position: absolute; left: 40px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s2-ex { right: 36px; top: 36px; }
+  .gs { position: absolute; left: 40px; right: 40px; height: 76px; border-radius: 20px; background: #F7F3EC; }
+  .gs .tick { left: 14px; top: 14px; width: 48px; height: 48px; border-radius: 24px; }
+  .gs .t { position: absolute; left: 84px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s2-g1 { top: 110px; } #s2-g2 { top: 196px; } #s2-g3 { top: 282px; } #s2-g4 { top: 368px; }
+
+  /* 3: Canva AI lays it out (before / after) */
+  #s3-card { top: 470px; height: 620px; }
+  #s3-lb { left: 30px; top: 24px; }
+  #s3-la { left: 352px; top: 24px; }
+  #s3-before { position: absolute; left: 24px; top: 70px; width: 290px; height: 470px; border-radius: 22px; background: #F4F0E8; }
+  .pt { position: absolute; left: 24px; right: 16px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s3-t1 { top: 26px; } #s3-t2 { top: 76px; } #s3-t3 { top: 126px; } #s3-t4 { top: 196px; } #s3-t5 { top: 246px; } #s3-t6 { top: 296px; }
+  #s3-div { position: absolute; left: 318px; top: 70px; width: 6px; height: 470px; border-radius: 3px; background: var(--accent); }
+  #s3-after { position: absolute; left: 334px; top: 70px; width: 290px; height: 470px; border-radius: 22px; background: #FFFFFF; border: 2px solid #E6DFD2; overflow: hidden; }
+  #s3-band { position: absolute; left: 0; right: 0; top: 0; height: 150px; background: linear-gradient(135deg, #2F6B4A 0%, #5E9A70 100%); }
+  #s3-bt { position: absolute; left: 22px; right: 22px; top: 26px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; line-height: 1.05; color: #FFFFFF; }
+  #s3-cl { left: 22px; top: 170px; }
+  .cr { position: absolute; left: 22px; right: 22px; height: 46px; display: flex; align-items: center; gap: 16px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .cr b { color: var(--accent); font-weight: 900; }
+  #s3-c1 { top: 212px; } #s3-c2 { top: 264px; } #s3-c3 { top: 316px; }
+  #s3-tiles { position: absolute; left: 22px; right: 22px; top: 384px; height: 64px; display: flex; gap: 12px; }
+  #s3-tiles i { display: block; flex: 1; height: 64px; border-radius: 14px; background: linear-gradient(135deg, #F1D9A8 0%, #E9A63A 100%); }
+  #s3-tiles i + i { background: linear-gradient(135deg, #CFE3D4 0%, #6FA57F 100%); }
+  #s3-chip { left: 24px; top: 554px; height: 48px; font-size: 24px; }
+
+  /* 4: sales page, then your groups */
+  #s4-list { top: 470px; height: 340px; }
+  #s4-thumb { position: absolute; left: 30px; top: 30px; width: 170px; height: 280px; border-radius: 18px; background: linear-gradient(160deg, #2F6B4A 0%, #6FA57F 100%); }
+  #s4-pdf { position: absolute; left: 18px; bottom: 16px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: #FFFFFF; }
+  #s4-name { position: absolute; left: 228px; top: 34px; width: 360px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s4-sub { position: absolute; left: 228px; top: 94px; width: 360px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: rgba(30,26,22,0.64); white-space: nowrap; }
+  #s4-price { left: 228px; top: 158px; height: 72px; padding: 0 26px; border-radius: 36px; font-size: 44px; }
+  #s4-ex { left: 384px; top: 173px; }
+  #s4-buy { position: absolute; left: 228px; right: 30px; top: 254px; height: 58px; border-radius: 29px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #s4-chat { top: 840px; height: 260px; background: #EFE7DA; }
+  #s4-head { position: absolute; left: 0; right: 0; top: 0; height: 80px; background: #22513D; }
+  #s4-av { position: absolute; left: 24px; top: 16px; width: 48px; height: 48px; border-radius: 24px; background: #8FC9A8; }
+  #s4-gn { position: absolute; left: 90px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: #FFFFFF; white-space: nowrap; }
+  #s4-bub { position: absolute; left: 116px; top: 100px; width: 500px; height: 140px; border-radius: 24px; background: #DCF3D0; }
+  #s4-bt { position: absolute; left: 24px; top: 16px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s4-link { position: absolute; left: 24px; right: 80px; top: 74px; height: 48px; border-radius: 14px; background: rgba(30,26,22,0.07); display: flex; align-items: center; gap: 10px; padding-left: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: #1F5C9E; white-space: nowrap; }
+  #s4-link svg { display: block; width: 28px; height: 28px; }
+  #s4-ticks { position: absolute; right: 20px; bottom: 18px; width: 44px; height: 24px; color: #9A948C; }
+
+  /* 5: payoff, the finished guide */
+  #s5-pages { position: absolute; left: 380px; top: 470px; width: 360px; height: 350px; }
+  .pg { position: absolute; left: 70px; top: 20px; width: 220px; height: 300px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 20px 44px rgba(70,45,20,0.16); overflow: hidden; }
+  .pg .hb { position: absolute; left: 20px; top: 26px; width: 120px; height: 22px; border-radius: 11px; background: var(--accent); }
+  .pg .img { position: absolute; left: 20px; right: 20px; top: 64px; height: 100px; border-radius: 14px; background: linear-gradient(135deg, #F1D9A8 0%, #E9A63A 100%); }
+  .pg .ln { left: 20px; }
+  .pg .l1 { top: 186px; right: 20px; } .pg .l2 { top: 212px; right: 50px; } .pg .l3 { top: 238px; right: 30px; } .pg .l4 { top: 264px; right: 70px; }
+  #s5-p1 { background: linear-gradient(160deg, #2F6B4A 0%, #5E9A70 100%); }
+  #s5-cplate { position: absolute; left: 60px; top: 26px; width: 100px; height: 100px; border-radius: 50px; background: radial-gradient(circle, #F6C66B 0%, #E9A63A 38%, #FFF7E8 40%, #FFF7E8 62%, rgba(255,255,255,0) 64%); }
+  #s5-ct { position: absolute; left: 20px; right: 20px; top: 146px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 38px; line-height: 1.05; color: #FFFFFF; }
+  #s5-cpg { left: 20px; top: 244px; color: rgba(255,255,255,0.92); }
+  #s5-tag { position: absolute; left: 780px; top: 500px; width: 180px; height: 220px; border-radius: 24px; background: var(--accent); box-shadow: 0 20px 44px rgba(47,107,74,0.28); }
+  #s5-hole { position: absolute; left: 77px; top: 18px; width: 26px; height: 26px; border-radius: 13px; background: var(--bg); }
+  #s5-price { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 64px; color: #FFFFFF; }
+  #s5-pl { left: 0; right: 0; top: 160px; text-align: center; color: rgba(255,255,255,0.92); }
+  #s5-stamp { position: absolute; left: 770px; top: 676px; width: 190px; height: 70px; border: 6px solid #B24A2A; border-radius: 14px; background: rgba(255,255,255,0.94); color: #B24A2A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s5-fee { left: 362px; top: 836px; letter-spacing: 0.08em; }
+  #s5-done { top: 880px; height: 284px; }
+  .dn { position: absolute; left: 20px; right: 30px; height: 56px; border-radius: 16px; background: #F7F3EC; }
+  .dn .n { position: absolute; left: 8px; top: 6px; width: 44px; height: 44px; border-radius: 22px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  .dn .t { position: absolute; left: 70px; right: 70px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s5-d1 { top: 18px; } #s5-d2 { top: 82px; background: #F7EBD2; } #s5-d3 { top: 146px; } #s5-d4 { top: 210px; }
+  #s5-star { position: absolute; right: 14px; top: 8px; width: 40px; height: 40px; }
+
+  /* 6: the catch */
+  #s6 .step { color: #8A5208; }
+  #s6 .it { color: #8A5208; }
+  #s6-card { top: 470px; height: 500px; background: #FBF1DC; border: 3px solid #E8C989; }
+  .ck { position: absolute; left: 30px; right: 30px; height: 120px; border-radius: 24px; background: #FFFFFF; }
+  .ck .ci { position: absolute; left: 24px; top: 30px; width: 60px; height: 60px; border-radius: 30px; background: #8A5208; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  .ck .t { position: absolute; left: 106px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s6-k1 { top: 40px; } #s6-k2 { top: 190px; } #s6-k3 { top: 340px; }
+
+  /* 7: send, save, keyword */
+  #s7-save { position: absolute; left: 360px; right: 90px; top: 110px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; line-height: 1; color: var(--ink); }
+  #s7-mark { position: absolute; left: 605px; top: 360px; width: 140px; height: 180px; }
+  #s7-who { position: absolute; left: 380px; right: 100px; top: 570px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; color: rgba(30,26,22,0.7); }
+  #s7-who b { color: var(--accent); font-weight: 900; }
+  #s7-pill { position: absolute; left: 360px; right: 90px; top: 770px; height: 210px; border-radius: 105px; background: var(--ink); box-shadow: 0 30px 60px rgba(30,26,22,0.25); }
+  #s7-cm { left: 0; right: 0; top: 34px; text-align: center; font-size: 34px; letter-spacing: 0.08em; color: #F3EEE5; }
+  #s7-kw { position: absolute; left: 0; right: 0; top: 84px; height: 96px; display: flex; justify-content: center; align-items: center; gap: 4px; }
+  #s7-kw .k { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 72px; color: #9AD8AF; }
+  #s7-stick { right: 120px; top: 728px; height: 56px; font-size: 26px; background: #8A5208; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">HOMEMAKERS, AT HOME</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="acc">4</span> steps.</span></span><span class="mask"><span class="l"><span class="it">#2</span> is the one.</span></span></div>
+  <div id="s0-phone">
+    <div id="s0-screen">
+      <div id="s0-img"><i id="s0-plate"></i></div>
+      <div id="s0-ptitle">Tiffin Recipes</div>
+      <div class="lbl" id="s0-pages">12 PAGES</div>
+      <div class="ex" id="s0-ex">EXAMPLE</div>
+      <i class="ln" id="s0-ln1"></i><i class="ln" id="s0-ln2"></i>
+    </div>
+  </div>
+  <div class="card" id="s0-list">
+    <div class="lbl" id="s0-lh">4 STEPS</div>
+    <div class="slot" id="s0-r1"><div class="n">1</div></div>
+    <div class="slot" id="s0-r2"><div class="n">2</div><svg id="s0-star" viewBox="0 0 24 24"><path d="M12 2 L15 9 L22 9.5 L16.5 14 L18.5 21 L12 17 L5.5 21 L7.5 14 L2 9.5 L9 9 Z" fill="#D99A1E"></path></svg></div>
+    <div class="slot" id="s0-r3"><div class="n">3</div></div>
+    <div class="slot" id="s0-r4"><div class="n">4</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">STEP 1 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Pick what you</span></span><span class="mask"><span class="l">already <span class="it">cook.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <i id="s1-margin"></i>
+    <div class="lbl" id="s1-head">MY RECIPES</div>
+    <div class="chip green" id="s1-chip">KIDS' TIFFIN</div>
+    <div class="rec" id="s1-r1"><div class="t">Poha</div><div class="tick" id="s1-t1"><svg viewBox="0 0 60 60" width="60" height="60"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+    <div class="rec" id="s1-r2"><div class="t">Veg paratha roll</div><div class="tick" id="s1-t2"><svg viewBox="0 0 60 60" width="60" height="60"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+    <div class="rec" id="s1-r3"><div class="t">Sprout chaat</div><div class="tick" id="s1-t3"><svg viewBox="0 0 60 60" width="60" height="60"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+    <div class="lbl" id="s1-note">WHAT YOU COOK ANYWAY</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 2 OF 4</div>
+  <div class="chip" id="s2-fav"><svg viewBox="0 0 24 24"><path d="M12 2 L15 9 L22 9.5 L16.5 14 L18.5 21 L12 17 L5.5 21 L7.5 14 L2 9.5 L9 9 Z" fill="#FFFFFF"></path></svg>FAVOURITE</div>
+  <div class="title"><span class="mask"><span class="l">Speak it.</span></span><span class="mask"><span class="l">Get a <span class="it">guide.</span></span></span></div>
+  <div class="card" id="s2-voice">
+    <div class="lbl" id="s2-vl">YOUR VOICE</div>
+    <div id="s2-wave"><i id="s2-w1"></i><i id="s2-w2"></i><i id="s2-w3"></i><i id="s2-w4"></i><i id="s2-w5"></i><i id="s2-w6"></i><i id="s2-w7"></i><i id="s2-w8"></i><i id="s2-w9"></i><i id="s2-w10"></i><i id="s2-w11"></i><i id="s2-w12"></i><i id="s2-w13"></i><i id="s2-w14"></i></div>
+  </div>
+  <svg id="s2-ar1" viewBox="0 0 74 50"><path d="M6 25 H60 M44 10 L62 25 L44 40" fill="none" stroke="#1E1A16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div class="card" id="s2-ai">
+    <svg id="s2-spark" viewBox="0 0 56 56"><path d="M28 2 C30 20 36 26 54 28 C36 30 30 36 28 54 C26 36 20 30 2 28 C20 26 26 20 28 2 Z" fill="#FFFFFF"></path></svg>
+    <div id="s2-ait">Claude app</div>
+    <div class="lbl" id="s2-ail">TURNS IT INTO A GUIDE</div>
+  </div>
+  <svg id="s2-ar2" viewBox="0 0 50 56"><path d="M25 6 V48 M10 33 L25 50 L40 33" fill="none" stroke="#1E1A16" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div class="card" id="s2-guide">
+    <div id="s2-gt">Veg paratha roll</div>
+    <div class="ex" id="s2-ex">EXAMPLE</div>
+    <div class="gs" id="s2-g1"><div class="tick" id="s2-g1-k"><svg viewBox="0 0 60 60" width="48" height="48"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t" id="s2-g1-t">Ingredients list</div></div>
+    <div class="gs" id="s2-g2"><div class="tick" id="s2-g2-k"><svg viewBox="0 0 60 60" width="48" height="48"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t" id="s2-g2-t">Steps 1 to 4</div></div>
+    <div class="gs" id="s2-g3"><div class="tick" id="s2-g3-k"><svg viewBox="0 0 60 60" width="48" height="48"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t" id="s2-g3-t">Time: 15 min</div></div>
+    <div class="gs" id="s2-g4"><div class="tick" id="s2-g4-k"><svg viewBox="0 0 60 60" width="48" height="48"><path d="M17 31 L26 40 L44 21" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="t" id="s2-g4-t">Tip for school mornings</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 3 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Canva makes</span></span><span class="mask"><span class="l">the <span class="it">PDF.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="lbl" id="s3-lb">BEFORE</div>
+    <div class="lbl" id="s3-la">AFTER</div>
+    <div id="s3-before">
+      <div class="pt" id="s3-t1">Poha</div>
+      <div class="pt" id="s3-t2">flakes, onion,</div>
+      <div class="pt" id="s3-t3">peanuts, lime.</div>
+      <div class="pt" id="s3-t4">Veg roll</div>
+      <div class="pt" id="s3-t5">atta, aloo,</div>
+      <div class="pt" id="s3-t6">ghee.</div>
+    </div>
+    <i id="s3-div"></i>
+    <div id="s3-after">
+      <div id="s3-band"><div id="s3-bt">Tiffin Recipes</div></div>
+      <div class="lbl" id="s3-cl">CONTENTS</div>
+      <div class="cr" id="s3-c1"><b>1</b>Poha</div>
+      <div class="cr" id="s3-c2"><b>2</b>Veg roll</div>
+      <div class="cr" id="s3-c3"><b>3</b>Chaat</div>
+      <div id="s3-tiles"><i id="s3-tl1"></i><i id="s3-tl2"></i></div>
+    </div>
+    <div class="chip amber" id="s3-chip">FREE PLAN HAS LIMITS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 4 OF 4</div>
+  <div class="title"><span class="mask"><span class="l">Sell it on</span></span><span class="mask"><span class="l it">Topmate.</span></span></div>
+  <div class="card" id="s4-list">
+    <div id="s4-thumb"><div id="s4-pdf">PDF</div></div>
+    <div id="s4-name">Tiffin Recipes</div>
+    <div id="s4-sub">12 pages, PDF</div>
+    <div class="chip green" id="s4-price">₹99</div>
+    <div class="ex" id="s4-ex">EXAMPLE</div>
+    <div id="s4-buy">Buy now</div>
+  </div>
+  <div class="card" id="s4-chat">
+    <div id="s4-head"><i id="s4-av"></i><div id="s4-gn">Family group</div></div>
+    <div id="s4-bub">
+      <div id="s4-bt">My recipe guide is out!</div>
+      <div id="s4-link"><svg viewBox="0 0 28 28"><path d="M12 16 L16 12 M10 13 L7 16 A4 4 0 0 0 12 21 L15 18 M18 15 L21 12 A4 4 0 0 0 16 7 L13 10" fill="none" stroke="#1F5C9E" stroke-width="3" stroke-linecap="round"></path></svg>Your Topmate link</div>
+      <svg id="s4-ticks" viewBox="0 0 44 24"><path d="M2 13 L8 19 L20 5 M16 17 L18 19 L30 5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">DONE</div>
+  <div class="title"><span class="mask"><span class="l">Your own</span></span><span class="mask"><span class="l it">recipe book.</span></span></div>
+  <div id="s5-pages">
+    <div class="pg" id="s5-p3" data-layout-allow-overlap><i class="hb"></i><i class="img"></i><i class="ln l1"></i><i class="ln l2"></i><i class="ln l3"></i><i class="ln l4"></i></div>
+    <div class="pg" id="s5-p2" data-layout-allow-overlap><i class="hb"></i><i class="img"></i><i class="ln l1"></i><i class="ln l2"></i><i class="ln l3"></i><i class="ln l4"></i></div>
+    <div class="pg" id="s5-p1" data-layout-allow-overlap><i id="s5-cplate"></i><div id="s5-ct">Tiffin Recipes</div><div class="lbl" id="s5-cpg">12 PAGES</div></div>
+  </div>
+  <div id="s5-tag" data-layout-allow-overlap><i id="s5-hole"></i><div id="s5-price">₹99</div><div class="lbl" id="s5-pl">PRICE</div></div>
+  <div id="s5-stamp" data-layout-allow-overlap>EXAMPLE</div>
+  <!-- VERIFY before render: if Topmate's fee is to be shown, copy it word for word from Topmate's own pricing page into this line. Never guess it. -->
+  <div class="lbl" id="s5-fee">FEES: SEE TOPMATE'S PRICING PAGE</div>
+  <div class="card" id="s5-done">
+    <div class="dn" id="s5-d1"><div class="n">1</div><div class="t">Pick recipes</div></div>
+    <div class="dn" id="s5-d2"><div class="n">2</div><div class="t">Speak to Claude</div><svg id="s5-star" viewBox="0 0 24 24"><path d="M12 2 L15 9 L22 9.5 L16.5 14 L18.5 21 L12 17 L5.5 21 L7.5 14 L2 9.5 L9 9 Z" fill="#D99A1E"></path></svg></div>
+    <div class="dn" id="s5-d3"><div class="n">3</div><div class="t">Canva PDF</div></div>
+    <div class="dn" id="s5-d4"><div class="n">4</div><div class="t">Topmate + WhatsApp</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">The honest</span></span><span class="mask"><span class="l it">catch.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="ck" id="s6-k1"><div class="ci" id="s6-i1">1</div><div class="t">First buyers know you</div></div>
+    <div class="ck" id="s6-k2"><div class="ci" id="s6-i2">2</div><div class="t">Takes weeks, not days</div></div>
+    <div class="ck" id="s6-k3"><div class="ci" id="s6-i3">3</div><div class="t">Nothing is guaranteed</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="s7-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s7-mark" viewBox="0 0 140 180"><path d="M20 10 H120 A10 10 0 0 1 130 20 V170 L70 128 L10 170 V20 A10 10 0 0 1 20 10 Z" fill="#2F6B4A"></path></svg>
+  <div id="s7-who">Send to the <b>didi</b> whose recipes everyone asks for</div>
+  <div id="s7-pill">
+    <div class="lbl" id="s7-cm">COMMENT</div>
+    <div id="s7-kw"><span class="k">P</span><span class="k">R</span><span class="k">O</span><span class="k">D</span><span class="k">U</span><span class="k">C</span><span class="k">T</span></div>
+  </div>
+  <div class="chip" id="s7-stick" data-layout-allow-overlap>FREE WEEKEND PLAN</div>
+</section>

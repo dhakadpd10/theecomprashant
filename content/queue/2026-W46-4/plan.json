@@ -1,0 +1,103 @@
+{
+  "week": "2026-W46-4",
+  "start": "2026-11-13",
+  "research": "I found 9 items worth knowing about. Only some of them have an official company page. Where I couldn't get one, I say so and link the best news coverage instead. Two items are a little older than 14 days, and I've marked them.\n\n**New tools and features**\n\n1. **ChatGPT Images 2.6 makes GIFs (4 Nov).** You can make an animated GIF from a text prompt or a photo, edit the frames and change the speed. Reports say it's for all ChatGPT users and images come out 50% faster. *Why a beginner cares:* free-looking WhatsApp stickers and greetings from one prompt. *Catch:* the GIF part is rolling out slowly, so some people won't see it yet. Several reports said OpenAI announced it, but I couldn't find OpenAI's own post. Source: [TechRepublic](https://www.techrepublic.com/article/news-chatgpt-images-2-6-gif-creation/), [Digit](https://www.digit.in/news/general/openai-launches-chatgpt-images-26-with-gif-creation-and-faster-image-generation-features-availability-and-more-details.html)\n\n2. **Gemini can do tasks across apps on Android, now expanding to India (10 Nov).** Google says Gemini can order food, book rides and make reservations inside other apps. You still confirm the last step yourself. *Why a beginner cares:* \"tell your phone to book the cab\" is easy to picture. *Catch:* Google hasn't given an India date or a list of apps for India, and it only works on certain phones (Pixel 10, Galaxy S26). Source: [Google blog](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/), [Google help page](https://support.google.com/gemini/answer/16940971?hl=en)\n\n3. **NotebookLM can add free textbooks as sources (reported 29 Oct).** Reports say this covers OpenStax, Open Textbook Library and **S Chand**, plus recording audio straight into the mobile app. *Why a beginner cares:* students can ask questions of their own textbook for free. *Catch:* every source here is a third-party blog. Some also say NotebookLM was renamed \"Gemini Notebook\", which I couldn't confirm with Google. Check in the app before using this. Source: [Glasp guide](https://glasp.co/articles/notebooklm-2026), [XDA](https://www.xda-developers.com/notebooklms-new-study-features-outperform-apps-people-pay-for/)\n\n4. **WhatsApp is testing separate Meta AI chats (spotted 4 Nov, beta).** You'd be able to open a different Meta AI chat for each topic, plus an \"AI\" filter in the chat list. *Why a beginner cares:* most Indian users meet AI inside WhatsApp first. *Catch:* only some Android beta testers have it, and Meta hasn't given a date for everyone. Source: [Sammy Fans](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n\n5. **CapCut's new AI editing tools (about 2 weeks old).** You can edit footage directly in the preview window, and the web editor now generates AI images, video and audio. CapCut is also testing a tool that checks whether a file was made with its AI tools. *Why a beginner cares:* CapCut is the default reel editor for many people. Source: [CapCut newsroom](https://www.capcut.com/newsroom/capcut-world-la)\n\n**Things people get wrong**\n\n6. **ChatGPT locked chats are hidden, not encrypted (launched 20 Oct, so slightly older than 14 days).** Free users can lock a chat behind a 4-digit PIN or Face ID. OpenAI's help page says locking only hides the chat. It isn't end-to-end encrypted and isn't stored any differently. If you reset a forgotten PIN, the locked chats are deleted for good. *Why a beginner cares:* most people will assume \"locked\" means \"private\". That makes this a good honest correction. Source: [OpenAI release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) (the help article on locked chats confirms the details above)\n\n7. **\"Does AI learn from my chats?\" (still a common question).** A Stanford study found that the six big US AI companies (including OpenAI, Google, Meta and Anthropic) use your chats to train their AI by default. You can switch this off, or use temporary chats. *Why a beginner cares:* people paste Aadhaar numbers, salary slips and medical reports. *Catch:* the study is from Oct 2025. I found nothing newer from the last 14 days. Source: [Stanford](https://news.stanford.edu/stories/2025/10/ai-chatbot-privacy-concerns-risks-research)\n\n**Scams**\n\n8. **Government campaign on fake investment ads (10 Nov).** I4C, the government's cybercrime centre, is running a \"Vikram-Betal\" awareness campaign. It warns about Facebook, Instagram and Google ads, sometimes using deepfake videos of famous people, that pull victims into WhatsApp or Telegram \"investment\" groups. PIB Fact Check has already flagged a fake AI video of Nirmala Sitharaman promoting a scheme (July). If you've been scammed, call **1930** or report it at **cybercrime.gov.in**. Source: [ETV Bharat](https://www.etvbharat.com/en/bharat/fake-investment-ads-i4c-uses-vikram-betal-to-warn-social-media-users-against-online-fraud-enn26111003620), [Outlook Money on the PIB check](https://www.outlookmoney.com/news/pib-fact-check-flags-fake-ai-video-of-nirmala-sitharaman-promoting-investment-scheme). I couldn't find I4C's own post.\n\n9. **AI voice-clone \"family emergency\" calls asking for money on UPI.** Tamil Nadu Police and PIB have warned about these. The advice is to hang up and call back on a number you already know, and to agree a family code word. *Catch:* the big numbers going around (for example \"450% more cases in Haryana\") come from blogs, so I wouldn't put them on screen. Source: [IndiaAI (government portal)](https://indiaai.gov.in/article/has-ai-really-become-a-powerful-tool-for-scamming), [Convergence Now](https://www.convergence-now.com/artificial-intelligence/ai-voice-cloning-scams-in-india-how-to-spot-a-deepfake-call/)\n\n**Things I left out or that aren't useful in India yet**\n- Claude announced Meetings, Sheets, Whiteboards and Data on 10 Nov, but all are for paid or business plans. Claude Personal Finance (5 Nov) is US only.\n- Canva's first image model, Craft (22 Oct, too old), runs in Dream Lab for all users. I found no Canva AI news from November.\n- Gemini's \"Memory summary\" (see and delete what Gemini remembers) is reported as US only on paid plans.\n- Samsung's paid \"Galaxy AI Premium\" is only a report. Hindi for Apple Intelligence isn't confirmed.\n\n**How these fit this week's plan:** items 6 and 7 are \"explain\" topics, and the plan has no explain slots this week, so hold them. Items 1 and 5 suit tutorial or tool slots. Item 2 could be a tool slot, but only once Google confirms India and which apps work. The scam items need a list card made of the real steps (callback, code word, 1930). SAFE is resting this week, so they also wait.\n\nSources:\n- [Google blog: Gemini Intelligence November features](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/)\n- [Google Gemini help: multi-step tasks](https://support.google.com/gemini/answer/16940971?hl=en)\n- [OpenAI ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [TechRepublic: Images 2.6](https://www.techrepublic.com/article/news-chatgpt-images-2-6-gif-creation/)\n- [Digit: Images 2.6](https://www.digit.in/news/general/openai-launches-chatgpt-images-26-with-gif-creation-and-faster-image-generation-features-availability-and-more-details.html)\n- [Glasp: NotebookLM 2026](https://glasp.co/articles/notebooklm-2026)\n- [XDA: NotebookLM study features](https://www.xda-developers.com/notebooklms-new-study-features-outperform-apps-people-pay-for/)\n- [Sammy Fans: WhatsApp Meta AI chats](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/)\n- [CapCut newsroom](https://www.capcut.com/newsroom/capcut-world-la)\n- [Stanford: chatbot privacy study](https://news.stanford.edu/stories/2025/10/ai-chatbot-privacy-concerns-risks-research)\n- [ETV Bharat: I4C campaign](https://www.etvbharat.com/en/bharat/fake-investment-ads-i4c-uses-vikram-betal-to-warn-social-media-users-against-online-fraud-enn26111003620)\n- [Outlook Money: PIB deepfake check](https://www.outlookmoney.com/news/pib-fact-check-flags-fake-ai-video-of-nirmala-sitharaman-promoting-investment-scheme)\n- [IndiaAI: AI scams](https://indiaai.gov.in/article/has-ai-really-become-a-powerful-tool-for-scamming)\n- [Convergence Now: voice-clone scams in India](https://www.convergence-now.com/artificial-intelligence/ai-voice-cloning-scams-in-india-how-to-spot-a-deepfake-call/)\n- [TechCrunch: Claude Meetings](https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/)\n- [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes)\n- [TechCrunch: Canva Craft](https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/)\n- [BusinessToday: Galaxy AI Premium](https://www.businesstoday.in/technology/news/story/samsung-galaxy-ai-premium-may-bring-paid-ai-tools-these-existing-features-will-stay-free-566708-2026-11-10)\n- [Zee Business: Gemini Memory summary](https://www.zeebiz.com/technology/news-google-gemini-introduces-memory-summary-new-feature-lets-users-check-and-delete-details-405382)",
+  "slots": [
+    {
+      "day": "2026-11-13",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-13-reel-homemakers-recipe-guide-topmate-4-steps",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 57
+      },
+      "keyword": "PRODUCT",
+      "pillar": "Do it with AI",
+      "topic": "Homemakers: turn the recipes you already cook into a small PDF guide and sell it on Topmate, in 4 steps with free AI",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-14",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-14-reel-pair4a-phone-ai-shop-counter-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 80
+      },
+      "keyword": "PHONE",
+      "pillar": "Tools worth knowing",
+      "topic": "3 free AI features already on your phone, ranked, for the shop counter: Google Lens translate, Circle to Search, Gemini app",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-14",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-14-reel-electricity-bill-explained-3-steps",
+      "style": "motion",
+      "hook": {
+        "id": 7,
+        "name": "Wrong Way, Right Way",
+        "score": 63
+      },
+      "keyword": "BILL",
+      "pillar": "Do it with AI",
+      "topic": "Photo your electricity bill and get every confusing line explained in plain Hindi or English, in 3 steps",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-14",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-14-reel-chatgpt-free-vs-go-vs-plus-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 100
+      },
+      "keyword": "RENEW",
+      "pillar": "Which one wins",
+      "topic": "ChatGPT Free vs Go vs Plus: what you actually get for the money, on one ranked card",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-15",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-15-reel-pair4b-phone-ai-general-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 83
+      },
+      "keyword": "PHONE",
+      "pillar": "Tools worth knowing",
+      "topic": "3 free AI features already on your phone, ranked: Google Lens translate, Circle to Search, Gemini app",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-15",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-15-reel-fresh-chat-handover-prompt-reveal",
+      "style": "motion",
+      "hook": {
+        "id": 7,
+        "name": "Wrong Way, Right Way",
+        "score": 80.8
+      },
+      "keyword": "CARRY",
+      "pillar": "Better prompts",
+      "topic": "The prompt that rescues a long chat when AI starts mixing things up: a handover note you paste into a fresh chat",
+      "status": "made"
+    }
+  ]
+}

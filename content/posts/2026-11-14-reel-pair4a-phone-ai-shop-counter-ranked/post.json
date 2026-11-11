@@ -1,0 +1,159 @@
+{
+  "id": "2026-11-14-reel-pair4a-phone-ai-shop-counter-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "PHONE",
+  "world": "arcade",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "14 Nov 2026 09:00 IST",
+    "slot_utc": "14 Nov 2026 03:30 UTC",
+    "kind": "tool",
+    "hook_id": "#11 Numbered With A Favourite",
+    "keyword": "PHONE",
+    "free_tool": "Hidden Phone AI Starter Card",
+    "list_card": true,
+    "named_viewer": "small shop owners at the counter",
+    "arm": "A",
+    "pair": 4,
+    "log_style": "editorial-host",
+    "format": "reel",
+    "money_angle": false,
+    "arm_b_differs_only_in": [
+      "line 0 say and show",
+      "line 0 card"
+    ],
+    "honesty": "Ranked card limits must be copied word for word from Google's own pages before scene.html is written: Circle to Search, 'available on select Android devices'; Gemini app, the in-app 'Gemini can make mistakes, so double-check it'; Lens translate, the limit on Google's Lens or Translate help page. If Google states no limit for Lens, the card shows 'check totals yourself' labelled as our tip. No Gemini cross-app tasks. The translated bill on the payoff card is labelled EXAMPLE."
+  },
+  "hot": "^(3|2|1|free|helpers|Gemini|Circle|Lens|Hindi|catch|check|totals|kirana|PHONE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2A4BD7"
+  },
+  "lines": [
+    {
+      "say": "Shop owners, three AI tools already on the phone at your counter.",
+      "show": "Shop owners: 3 AI tools already on your phone.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Like three free helpers, already hired.",
+      "show": "Like 3 free helpers, already hired.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Three: Gemini drafts replies from your voice.",
+      "show": "#3 Gemini: replies from your voice.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: Circle to Search finds a product from a photo.",
+      "show": "#2 Circle to Search: find it from a photo.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One, the best one: Google Lens translates a supplier's English bill.",
+      "show": "#1 Google Lens translates the English bill.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Now it's in Hindi, line by line.",
+      "show": "Now it's in Hindi, line by line.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: Circle to Search isn't on every Android.",
+      "show": "Catch: Circle to Search isn't on every Android.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And handwriting can slip, so check the totals.",
+      "show": "Handwriting slips. Check the totals.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the uncle at the grocery shop. Comment PHONE.",
+      "show": "Send this. Comment PHONE for the card.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line7.voice+0.4",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line0+1.6",
+    "title": [
+      "3 FREE TOOLS",
+      "#1 READS BILLS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

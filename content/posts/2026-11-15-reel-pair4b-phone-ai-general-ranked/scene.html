@@ -1,0 +1,248 @@
+<style>
+  /* tool reel, ranked list. One idea: three free AI tools are already on your phone, and #1 translates the words on a photo.
+     Analogy: a clever friend in your pocket. Colour = meaning: blue = the AI tool, green = free, amber = the catch, gold star = favourite */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #FBF8F2 0%, var(--bg) 55%, #E6DFD3 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(47,91,211,0.08) 0%, rgba(47,91,211,0) 70%); }
+  #orb2 { left: 540px; top: 920px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(232,163,23,0.08) 0%, rgba(232,163,23,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.13), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.64); white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .green { background: #17804A; } .blue { background: var(--accent); } .amber { background: #E8A317; color: var(--ink); }
+
+  /* 0: hook, host at centre, everything above y 560 */
+  #s0-step { top: 70px; }
+  #s0-title { top: 116px; font-size: 128px; line-height: 1; transform-origin: left top; }
+  #s0-ul { position: absolute; left: 185px; top: 238px; width: 260px; height: 34px; }
+  #s0-tag { position: absolute; left: 540px; top: 150px; width: 340px; height: 120px; border-radius: 28px; background: var(--accent); color: #FFFFFF; font-family: var(--display); font-size: 54px; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px rgba(47,91,211,0.3); }
+
+  /* 1: the clever friend in your pocket */
+  #s1-card { top: 470px; height: 600px; }
+  #s1-av { position: absolute; left: 36px; top: 36px; width: 120px; height: 120px; border-radius: 60px; background: linear-gradient(135deg, #2F5BD3 0%, #7B97F2 100%); }
+  #s1-av svg { position: absolute; left: 0; top: 0; width: 120px; height: 120px; }
+  #s1-name { position: absolute; left: 180px; top: 46px; width: 440px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s1-sub { left: 180px; top: 106px; }
+  .frow { position: absolute; left: 36px; right: 36px; height: 100px; border-radius: 26px; background: #F6F3EE; }
+  .frow .t { position: absolute; left: 32px; right: 150px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .frow .chip { right: 20px; top: 20px; }
+  #f1 { top: 190px; } #f2 { top: 310px; } #f3 { top: 430px; }
+  #s1-note { left: 36px; top: 556px; }
+
+  /* 2: #3 Gemini */
+  #s2-card { top: 470px; height: 590px; }
+  #s2-head { left: 36px; top: 30px; }
+  .bub { position: absolute; height: 120px; width: 420px; box-sizing: border-box; padding: 0 28px; border-radius: 30px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.25; }
+  #s2-q { right: 36px; top: 80px; background: var(--accent); color: #FFFFFF; border-bottom-right-radius: 10px; }
+  #s2-a { left: 36px; top: 230px; background: #F2EFEA; color: var(--ink); border-bottom-left-radius: 10px; }
+  #s2-in { position: absolute; left: 36px; right: 36px; top: 400px; height: 110px; border-radius: 55px; background: #F2EFEA; }
+  #s2-in .t { position: absolute; left: 40px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: rgba(30,26,22,0.64); white-space: nowrap; }
+  .wv { position: absolute; left: 270px; top: 30px; width: 130px; height: 50px; display: flex; gap: 12px; align-items: center; }
+  .wv i { display: block; width: 14px; border-radius: 7px; background: var(--accent); transform-origin: center center; }
+  #w1 { height: 20px; } #w2 { height: 42px; } #w3 { height: 30px; } #w4 { height: 48px; } #w5 { height: 24px; }
+  #s2-mic { position: absolute; right: 12px; top: 12px; width: 86px; height: 86px; border-radius: 43px; background: var(--accent); }
+  #s2-mic svg { position: absolute; left: 0; top: 0; width: 86px; height: 86px; }
+  #s2-note { left: 36px; top: 545px; }
+
+  /* 3: #2 Circle to Search */
+  #s3-card { top: 470px; height: 590px; }
+  #s3-screen { position: absolute; left: 36px; right: 36px; top: 36px; height: 340px; border-radius: 26px; background: linear-gradient(180deg, #EEF2FB 0%, #DCE5F6 100%); overflow: hidden; }
+  #s3-plant { position: absolute; left: 0; top: 0; width: 588px; height: 340px; }
+  #s3-ring { position: absolute; left: 0; top: 0; width: 588px; height: 340px; }
+  #s3-res { position: absolute; left: 36px; right: 36px; top: 400px; height: 120px; border-radius: 26px; background: #EEF2FD; }
+  #s3-res .chip { left: 22px; top: 30px; width: 150px; padding: 0; }
+  #s3-res .t { position: absolute; left: 196px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s3-note { left: 36px; top: 545px; }
+
+  /* 4: the ranked card, host hidden, full width */
+  #s4-title { font-size: 120px; }
+  #s4-card { left: 90px; right: 90px; top: 400px; height: 680px; }
+  #s4-head { left: 40px; top: 34px; }
+  .rk { position: absolute; left: 36px; right: 36px; height: 170px; border-radius: 28px; background: #F6F3EE; }
+  #rk1 { top: 90px; background: #EEF2FD; box-shadow: inset 0 0 0 4px var(--accent); }
+  #rk2 { top: 280px; } #rk3 { top: 470px; }
+  .rk .num { position: absolute; left: 28px; top: 35px; width: 100px; height: 100px; border-radius: 50px; background: rgba(30,26,22,0.12); color: var(--ink); font-family: var(--display); font-size: 52px; display: flex; align-items: center; justify-content: center; }
+  #rk1 .num { background: var(--accent); color: #FFFFFF; }
+  .rk .nm { position: absolute; left: 160px; top: 34px; width: 540px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 42px; color: var(--ink); white-space: nowrap; }
+  .rk .lm { position: absolute; left: 160px; top: 96px; width: 600px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: rgba(30,26,22,0.66); white-space: nowrap; }
+  #rk1-star { position: absolute; right: 30px; top: 45px; width: 80px; height: 80px; }
+  #s4-fav { position: absolute; left: 660px; top: 368px; width: 290px; height: 70px; border-radius: 35px; background: var(--ink); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+
+  /* 5: the result, the sign translated on the photo */
+  #s5-card { top: 470px; height: 600px; }
+  #s5-head { left: 36px; top: 26px; }
+  #s5-ex { right: 36px; top: 26px; }
+  #s5-photo { position: absolute; left: 36px; right: 36px; top: 70px; height: 410px; border-radius: 26px; background: linear-gradient(180deg, #C9D9EC 0%, #E7E0D2 70%, #CFC4B1 100%); overflow: hidden; }
+  #s5-pole { position: absolute; left: 284px; top: 280px; width: 20px; height: 140px; background: #8C877F; }
+  #s5-board { position: absolute; left: 60px; top: 50px; width: 468px; height: 230px; border-radius: 18px; background: #1F7A4C; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.85); }
+  #s5-glyph { position: absolute; left: 0; top: 0; width: 468px; height: 230px; }
+  #s5-tr { position: absolute; left: 0; top: 0; width: 468px; height: 230px; border-radius: 18px; background: #1F7A4C; box-shadow: inset 0 0 0 6px rgba(255,255,255,0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  #s5-tr .tt { display: block; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 42px; color: #FFFFFF; white-space: nowrap; }
+  .cn { position: absolute; width: 46px; height: 46px; border-color: #FFFFFF; border-style: solid; border-width: 0; }
+  #cn1 { left: 18px; top: 18px; border-left-width: 6px; border-top-width: 6px; border-top-left-radius: 14px; }
+  #cn2 { right: 18px; top: 18px; border-right-width: 6px; border-top-width: 6px; border-top-right-radius: 14px; }
+  #cn3 { left: 18px; bottom: 18px; border-left-width: 6px; border-bottom-width: 6px; border-bottom-left-radius: 14px; }
+  #cn4 { right: 18px; bottom: 18px; border-right-width: 6px; border-bottom-width: 6px; border-bottom-right-radius: 14px; }
+  #s5-scan { position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--accent); box-shadow: 0 0 24px 6px rgba(47,91,211,0.45); }
+  #s5-chip { left: 194px; top: 318px; width: 200px; padding: 0; height: 56px; }
+  .tab { position: absolute; top: 500px; width: 180px; height: 76px; border-radius: 38px; background: #F2EFEA; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: var(--ink); display: flex; align-items: center; justify-content: center; }
+  #tab1 { left: 36px; } #tab2 { left: 240px; background: var(--accent); color: #FFFFFF; } #tab3 { left: 444px; }
+
+  /* 6: the catch */
+  #s6-card { top: 470px; height: 470px; }
+  .chk { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F3EE; }
+  .chk .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .chk .chip { right: 24px; top: 30px; }
+  #k1 { top: 40px; } #k2 { top: 180px; } #k3 { top: 320px; }
+
+  /* 7: send, the free card, the keyword */
+  #send { position: absolute; left: 90px; right: 60px; top: 150px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1.05; color: var(--ink); }
+  #who { position: absolute; left: 90px; right: 60px; top: 330px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.3; color: rgba(30,26,22,0.66); }
+  #s7-card { top: 470px; height: 340px; }
+  #s7-head { left: 36px; top: 30px; color: var(--accent); }
+  .fld { position: absolute; left: 36px; right: 36px; height: 90px; border-radius: 24px; background: #F6F3EE; }
+  .fld .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .fld .blank { position: absolute; left: 330px; right: 28px; top: 58px; height: 0; border-bottom: 4px dashed rgba(47,91,211,0.6); transform-origin: left center; }
+  #fl1 { top: 80px; } #fl2 { top: 186px; }
+  #s7-foot { left: 36px; top: 294px; }
+  #pill { position: absolute; left: 360px; right: 60px; top: 860px; height: 150px; border-radius: 75px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 22px; }
+  #pill .c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: #F3EEE5; }
+  #kw { display: block; font-family: var(--display); font-size: 84px; color: #9DB4FF; letter-spacing: 0.02em; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">ALREADY ON YOUR PHONE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">3 <span class="it">free</span></span></span><span class="mask"><span class="l">AI tools.</span></span></div>
+  <svg id="s0-ul" viewBox="0 0 260 34" data-layout-allow-overlap><path id="s0-ul-p" d="M6 22 Q 70 6 130 18 T 254 14" fill="none" stroke="#2F5BD3" stroke-width="9" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path></svg>
+  <div id="s0-tag" data-layout-allow-overlap>#1 WINS</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">A friend in</span></span><span class="mask"><span class="l">your <span class="it">pocket.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-av"><svg viewBox="0 0 120 120"><path d="M60 22 C64 48 72 56 98 60 C72 64 64 72 60 98 C56 72 48 64 22 60 C48 56 56 48 60 22 Z" fill="#FFFFFF"></path></svg></div>
+    <div id="s1-name">Your AI friend</div>
+    <div class="lbl" id="s1-sub">ALREADY ON YOUR PHONE</div>
+    <div class="frow" id="f1"><div class="t">Gemini app</div><div class="chip green" id="fc1">FREE</div></div>
+    <div class="frow" id="f2"><div class="t">Circle to Search</div><div class="chip green" id="fc2">FREE</div></div>
+    <div class="frow" id="f3"><div class="t">Google Lens</div><div class="chip green" id="fc3">FREE</div></div>
+    <div class="lbl" id="s1-note">LAST CALLED: NEVER</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">NUMBER 3</div>
+  <div class="title"><span class="mask"><span class="l">#3 <span class="it">Gemini.</span></span></span><span class="mask"><span class="l">Ask anything.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lbl" id="s2-head">GEMINI APP · EXAMPLE CHAT</div>
+    <div class="bub" id="s2-q">What can I cook with dal?</div>
+    <div class="bub" id="s2-a">Try dal khichdi. Here is how.</div>
+    <div id="s2-in">
+      <div class="t">Ask Gemini</div>
+      <div class="wv"><i id="w1"></i><i id="w2"></i><i id="w3"></i><i id="w4"></i><i id="w5"></i></div>
+      <div id="s2-mic"><svg viewBox="0 0 86 86"><rect x="34" y="18" width="18" height="32" rx="9" fill="#FFFFFF"></rect><path d="M26 42 C26 54 34 60 43 60 C52 60 60 54 60 42" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path><path d="M43 60 L43 70" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"></path></svg></div>
+    </div>
+    <div class="lbl" id="s2-note">FREE · USAGE LIMITS APPLY</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">NUMBER 2</div>
+  <div class="title"><span class="mask"><span class="l">#2 <span class="it">Circle</span></span></span><span class="mask"><span class="l">to Search.</span></span></div>
+  <div class="card" id="s3-card">
+    <div id="s3-screen">
+      <svg id="s3-plant" viewBox="0 0 588 340">
+        <path d="M294 236 C294 200 280 172 258 146" fill="none" stroke="#2E7D4F" stroke-width="6" stroke-linecap="round"></path>
+        <path d="M294 236 C296 192 314 162 336 136" fill="none" stroke="#2E7D4F" stroke-width="6" stroke-linecap="round"></path>
+        <path d="M294 236 L294 112" fill="none" stroke="#2E7D4F" stroke-width="6" stroke-linecap="round"></path>
+        <ellipse cx="248" cy="132" rx="42" ry="24" fill="#3A9A62" transform="rotate(-35 248 132)"></ellipse>
+        <ellipse cx="342" cy="122" rx="42" ry="24" fill="#3A9A62" transform="rotate(35 342 122)"></ellipse>
+        <ellipse cx="294" cy="96" rx="26" ry="40" fill="#2E8B57"></ellipse>
+        <ellipse cx="266" cy="188" rx="34" ry="18" fill="#2E8B57" transform="rotate(-20 266 188)"></ellipse>
+        <ellipse cx="322" cy="180" rx="34" ry="18" fill="#2E8B57" transform="rotate(20 322 180)"></ellipse>
+        <rect x="236" y="236" width="116" height="22" rx="6" fill="#A94522"></rect>
+        <path d="M244 256 L344 256 L334 318 L254 318 Z" fill="#C8552B"></path>
+      </svg>
+      <svg id="s3-ring" viewBox="0 0 588 340" data-layout-allow-overlap><path id="s3-ring-p" d="M300 52 C410 50 468 120 464 190 C460 270 390 326 294 324 C196 322 126 268 126 188 C126 112 190 58 290 56" fill="none" stroke="#2F5BD3" stroke-width="9" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"></path></svg>
+    </div>
+    <div id="s3-res"><div class="chip blue" id="s3-chip">ANSWER</div><div class="t">Money plant tips</div></div>
+    <div class="lbl" id="s3-note">SOME ANDROID PHONES · EXAMPLE</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">NUMBER 1</div>
+  <div class="title" id="s4-title"><span class="mask"><span class="l">The <span class="it">winner.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-head">RANKED · ALL FREE TO USE</div>
+    <div class="rk" id="rk1"><div class="num" id="rk1-n">1</div><div class="nm">Google Lens translate</div><div class="lm">Free · can be wrong</div>
+      <svg id="rk1-star" viewBox="0 0 80 80"><path d="M40 6 L50 29 L75 30 L55 46 L62 71 L40 57 L18 71 L25 46 L5 30 L30 29 Z" fill="#E8A317"></path></svg></div>
+    <div class="rk" id="rk2"><div class="num">2</div><div class="nm">Circle to Search</div><div class="lm">Free · some Android phones</div></div>
+    <div class="rk" id="rk3"><div class="num">3</div><div class="nm">Gemini app</div><div class="lm">Free · usage limits</div></div>
+  </div>
+  <div id="s4-fav" data-layout-allow-overlap>MY FAVOURITE</div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Right on</span></span><span class="mask"><span class="l">the <span class="it">photo.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="lbl" id="s5-head">GOOGLE LENS</div>
+    <div class="lbl" id="s5-ex">EXAMPLE SIGN</div>
+    <div id="s5-photo">
+      <div id="s5-pole"></div>
+      <div id="s5-board">
+        <svg id="s5-glyph" viewBox="0 0 468 230">
+          <path d="M70 70 H400 M100 70 C100 110 140 110 140 85 M175 70 V120 M175 95 C200 95 210 120 230 115 M260 70 C255 105 300 110 290 80 M330 70 V120 C330 100 370 100 375 120" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M110 150 H360 M135 150 C130 190 175 195 170 165 M210 150 V198 M240 150 C245 190 290 190 285 160 M320 150 V198 C320 180 345 178 350 196" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <div id="s5-tr" data-layout-allow-overlap><span class="tt">Bus stand</span><span class="tt">Turn left</span></div>
+      </div>
+      <i class="cn" id="cn1" data-layout-allow-overlap></i><i class="cn" id="cn2" data-layout-allow-overlap></i><i class="cn" id="cn3" data-layout-allow-overlap></i><i class="cn" id="cn4" data-layout-allow-overlap></i>
+      <i id="s5-scan" data-layout-allow-overlap></i>
+      <div class="chip blue" id="s5-chip" data-layout-allow-overlap>TRANSLATED</div>
+    </div>
+    <div class="tab" id="tab1">Search</div>
+    <div class="tab" id="tab2">Translate</div>
+    <div class="tab" id="tab3">Homework</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="chk" id="k1"><div class="t">Circle to Search</div><div class="chip amber" id="h1">NOT ALL</div></div>
+    <div class="chk" id="k2"><div class="t">Translations</div><div class="chip amber" id="h2">CAN SLIP</div></div>
+    <div class="chk" id="k3"><div class="t">Gemini free</div><div class="chip amber" id="h3">LIMITS</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div id="send">Send this.</div>
+  <div id="who">to the friend who googles everything</div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-head">FREE STARTER CARD</div>
+    <div class="fld" id="fl1"><div class="t">Your phone:</div><i class="blank" id="bl1"></i></div>
+    <div class="fld" id="fl2"><div class="t">Your language:</div><i class="blank" id="bl2"></i></div>
+    <div class="lbl" id="s7-foot">PASTE INTO CLAUDE · SCREENSHOT IT</div>
+  </div>
+  <div id="pill"><span class="c">Comment</span><span id="kw">PHONE</span></div>
+</section>

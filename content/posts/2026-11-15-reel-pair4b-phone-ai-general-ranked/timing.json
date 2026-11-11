@@ -1,0 +1,73 @@
+{
+  "dur": 26.88,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.337,
+      "b": 3.437,
+      "say": "Your phone has AI tools built in, and the last one wins.",
+      "show": "3 AI tools already on your phone."
+    },
+    {
+      "a": 3.437,
+      "voice": 3.537,
+      "end": 6.233,
+      "b": 6.333,
+      "say": "Free, like a clever friend in your pocket you never call.",
+      "show": "Free. A clever friend you never call."
+    },
+    {
+      "a": 6.333,
+      "voice": 6.433,
+      "end": 9.46,
+      "b": 9.56,
+      "say": "First up: Gemini. Ask it anything, typing or talking.",
+      "show": "#3 Gemini: ask anything."
+    },
+    {
+      "a": 9.56,
+      "voice": 9.66,
+      "end": 12.469,
+      "b": 12.569,
+      "say": "Next: Circle to Search. Circle anything, get answers.",
+      "show": "#2 Circle to Search."
+    },
+    {
+      "a": 12.569,
+      "voice": 12.669,
+      "end": 14.795,
+      "b": 14.895,
+      "say": "The winner: Google Lens. Aim it at any sign.",
+      "show": "#1 Google Lens translate."
+    },
+    {
+      "a": 14.895,
+      "voice": 14.995,
+      "end": 18.002,
+      "b": 18.102,
+      "say": "Like that friend, it translates the words right on the photo.",
+      "show": "It translates right on the photo."
+    },
+    {
+      "a": 18.102,
+      "voice": 18.202,
+      "end": 22.159,
+      "b": 22.259,
+      "say": "The catch: Circle to Search isn't on every phone, and translations slip.",
+      "show": "The catch: not every phone. Check translations."
+    },
+    {
+      "a": 22.259,
+      "voice": 22.359,
+      "end": 25.479,
+      "b": 26.88,
+      "say": "Send this to the friend who googles everything. Comment PHONE.",
+      "show": "Send this. Comment PHONE for the free card."
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "2026-11-13-reel-homemakers-recipe-guide-topmate-4-steps",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "PRODUCT",
+  "tool": "Weekend Digital Product",
+  "world": "bazaar",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "brief": {
+    "slot_ist": "2026-11-13 19:30 IST",
+    "slot_utc": "2026-11-13 14:00 UTC",
+    "kind": "tutorial",
+    "hook_id": "#11 Numbered With A Favourite",
+    "keyword": "PRODUCT",
+    "list_card": "yes",
+    "named_viewer": "homemakers at home",
+    "arm_pair": "none",
+    "money_angle": "yes",
+    "log_style_as": "editorial-host"
+  },
+  "hot": "^(Homemakers|4|four|2|two|favourite|Claude|Canva|Topmate|WhatsApp|99|₹99|EXAMPLE|catch|weeks|guaranteed|didi|PRODUCT)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F6B4A"
+  },
+  "lines": [
+    {
+      "say": "Homemakers, four steps to sell your tiffin recipes. Step two is the best one.",
+      "show": "4 steps. Step 2 is my favourite.",
+      "card": "Frame 0: the finished 12-page tiffin-recipe PDF open on a phone, tagged EXAMPLE. Title 120px or more: 4 STEPS. #2 IS THE ONE (the '#2' in the accent italic). Ranked list card peeks in below with 4 empty dashed rows, row 2 carrying a favourite star.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Step one: pick what you already cook.",
+      "show": "Step 1: pick what you already cook.",
+      "card": "STEP 1 of 4. Input card: a recipe notebook with 3 rows ticking in: Poha, Veg paratha roll, Sprout chaat. Chip: KIDS' TIFFIN.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Step two: speak recipes into the Claude app, get a clean guide.",
+      "show": "Step 2: speak it, get a clean guide.",
+      "card": "STEP 2 of 4, FAVOURITE star. Full-width flow that builds piece by piece: a voice-note waveform (your words, ink) arrow to an AI box (blue = the AI) arrow to a clean recipe card that types in: Ingredients, Steps 1 to 4, Time: 15 min, Tip for school mornings. Green ticks on each section.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Step three: Canva AI lays it out as a PDF.",
+      "show": "Step 3: Canva AI makes the PDF.",
+      "card": "STEP 3 of 4. Before/after split: the plain text guide on the left, a laid-out PDF page on the right (cover, recipe page, contents) with a divider wiping across. Small amber chip: FREE PLAN HAS LIMITS.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step four: put it on a sales page, post the link in your family chats.",
+      "show": "Step 4: Topmate, then your WhatsApp groups.",
+      "card": "STEP 4 of 4. A product listing card (title: Tiffin Recipes, 12 pages, price chip ₹99 EXAMPLE) and below it a WhatsApp-style group message row sharing the link in your own family and society groups.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Done. Your own recipe book, with a small price, as an example.",
+      "show": "Your recipes, as a ₹99 guide. EXAMPLE.",
+      "card": "PAYOFF, full card: the finished 12-page tiffin guide (cover plus two inner pages fanned out), price tag ₹99 stamped EXAMPLE, and one line: Topmate's fee: [VERIFY: copy word for word from Topmate's own pricing page before render]. The completed 4-step ranked list sits beside it with step 2 starred.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: first buyers know you, it takes weeks, nothing's guaranteed.",
+      "show": "The catch: weeks, not days. No guarantee.",
+      "card": "Amber catch card, 3 rows: First buyers = people who know you. Takes weeks. Nothing is guaranteed.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the sister whose recipes everyone asks for. Comment PRODUCT.",
+      "show": "Send this. Comment PRODUCT for the plan.",
+      "card": "End card: 'Save.' in the serif with a bookmark shape, a quiet line 'Send to the didi whose recipes everyone asks for', and a dark pill: Comment PRODUCT. Sticker: FREE WEEKEND PLAN.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+1.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line1.voice+1.0",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+1.4",
+      "fx": "bloop"
+    },
+    {
+      "at": "@line5.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "SELL YOUR TIFFIN",
+      "RECIPES IN 4 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

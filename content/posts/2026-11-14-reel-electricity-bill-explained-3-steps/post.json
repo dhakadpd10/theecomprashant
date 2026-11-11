@@ -1,0 +1,180 @@
+{
+  "id": "2026-11-14-reel-electricity-bill-explained-3-steps",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "BILL",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "brief": {
+    "header": {
+      "slot_ist": "14 Nov 2026 13:00 IST",
+      "slot_utc": "14 Nov 2026 07:30 UTC",
+      "kind": "tutorial",
+      "hook_id": "#18 Cold Open Demo",
+      "keyword": "BILL",
+      "free_tool": "Explain-My-Bill Prompt",
+      "list_card": "yes",
+      "named_viewer": "9-to-5ers after office",
+      "arm_pair": "none (arm day: 09:00 is pair 4 A, tool #11; this slot differs in kind and hook)",
+      "log_style": "editorial-host",
+      "format": "reel",
+      "money_angle": "no"
+    },
+    "notes": "The opener uses the requested line, which is worded like #7 Wrong Way, Right Way. This slot's fixed line is #18, and #7 is not in this week's caps, so the reel is logged #18. The frame-0 cold-open demo carries the #18 hook. If the publisher reads the slot as #7, skip and log it. Do not swap it.",
+    "core_idea": "A photo of your bill plus one prompt turns every confusing charge into one plain line, with the parts to check marked amber.",
+    "analogy": "The bill reads like a doctor's prescription. The AI is the chemist who reads it out to you, line by line. Keep this analogy through the whole reel.",
+    "colour_meaning": {
+      "blue_accent": "the AI and its replies",
+      "green": "explained, fine",
+      "amber": "check this against the paper bill",
+      "red": "not used"
+    },
+    "frame_0": "Right away, a phone camera frame snaps the bill (shutter flash, click). A blue chat bubble is already typing 'Fixed charge means…'. Title 'YOU PAY IT UNREAD' at 120 px or more, with 'UNREAD' in the accent. The host stands right, so the demo has the left and centre.",
+    "list_card": [
+      "1. Crop out the consumer number, snap the bill",
+      "2. Paste the Explain-My-Bill prompt (Hindi or English)",
+      "3. Ask: 'Why is this month higher?'"
+    ],
+    "beats": {
+      "line1": "Full-width bill mock-up, host hidden. The rows Fixed charge, Energy charge, Electricity duty and Arrears draw in one by one, each with a small grey question mark. A 'prescription' squiggle label sits on top.",
+      "line2": "STEP 1 card: the camera frame over the bill, and a blur bar slides over the consumer number field (label 'CROPPED'). The progress bar fills segment 1.",
+      "line3": "STEP 2 card: a prompt box types 'Explain every line of this bill in plain Hindi or English…'. A Hindi / English toggle chip pops. Segment 2.",
+      "line4": "STEP 3 card: a chat shows the user bubble 'Why is this month higher?', then a three-dot typing indicator. Segment 3.",
+      "line5": "PAYOFF full card, all labelled EXAMPLE in the corner. Each charge on one plain line: Fixed charge ₹110 (EXAMPLE): paid every month for your connection, even at low use (green). Energy charge ₹1,240 (EXAMPLE): units used × rate (green). Electricity duty ₹90 (EXAMPLE): state tax (green). Units 212 vs 158 last month (EXAMPLE): check the meter reading (amber). Arrears ₹340 (EXAMPLE): unpaid from last bill, check it (amber). A small 'chemist' tag reads 'read out for you'. The cooker whistles.",
+      "line6": "Catch: one figure on the card blurs. An amber magnifier compares it with the paper bill row, and a tick appears once they match.",
+      "line7": "A chat bubble saying 'dispute' slides toward the chat and gets redirected by an arrow to a card reading 'Your electricity board'. No board names or numbers are invented.",
+      "line8": "Quiet end card: 'Save.' in the serif, a bookmark shape and a dark pill 'Comment BILL'. Small sticker: 'FREE PROMPT'."
+    }
+  },
+  "hot": "^(unread|prescription|1|2|3|higher|chemist|amber|paper|board|flatmate|BILL)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B50C8"
+  },
+  "lines": [
+    {
+      "say": "After office, you pay the electricity bill without reading it. Not your fault.",
+      "show": "You pay it unread. Not your fault.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Base charge, duty, arrears. It reads like a doctor's prescription.",
+      "show": "It reads like a prescription.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "One: crop out your consumer number, then snap the bill.",
+      "show": "1. Crop the number, snap the bill.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: paste the Explain My Bill prompt. Hindi or English.",
+      "show": "2. Paste the prompt. Hindi or English.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three: ask it why this month is higher.",
+      "show": "3. Ask why this month is higher.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Now it's a chemist reading it out. One line each, amber means check.",
+      "show": "Like a chemist reading it out.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it can misread a blurry number, so check the paper bill.",
+      "show": "The catch: check the paper bill.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Disputes go to your electricity board, not the chat.",
+      "show": "Disputes go to your board.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Send this to the flatmate who pays the bill and never reads it. Type BILL below.",
+      "show": "Send it to that flatmate. Comment BILL.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0+0.15",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+0.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.end",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+1.4",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+0.7",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.8",
+    "title": [
+      "YOUR ELECTRICITY BILL",
+      "EXPLAINED IN 3 STEPS"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

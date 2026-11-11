@@ -1,0 +1,81 @@
+{
+  "dur": 26.05,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.386,
+      "b": 3.486,
+      "say": "Your long job chat with AI mixes it up. Not your fault.",
+      "show": "40 MESSAGES CONFUSE IT"
+    },
+    {
+      "a": 3.486,
+      "voice": 3.586,
+      "end": 6.156,
+      "b": 6.256,
+      "say": "Many messages in, it mixes up two companies.",
+      "show": "It mixes up two companies."
+    },
+    {
+      "a": 6.256,
+      "voice": 6.356,
+      "end": 8.027,
+      "b": 8.127,
+      "say": "Long chats blur early details.",
+      "show": "Long chats blur early details."
+    },
+    {
+      "a": 8.127,
+      "voice": 8.227,
+      "end": 10.085,
+      "b": 10.185,
+      "say": "Fix it like a last-day handover note.",
+      "show": "Fix it like a handover note."
+    },
+    {
+      "a": 10.185,
+      "voice": 10.285,
+      "end": 12.578,
+      "b": 12.678,
+      "say": "Type: turn this chat into a short handover note.",
+      "show": "Summarise this chat as a handover note."
+    },
+    {
+      "a": 12.678,
+      "voice": 12.778,
+      "end": 14.294,
+      "b": 14.394,
+      "say": "Paste that note into a fresh chat.",
+      "show": "Paste it into a fresh chat."
+    },
+    {
+      "a": 14.394,
+      "voice": 14.494,
+      "end": 16.888,
+      "b": 16.988,
+      "say": "Now it starts clean, and nothing gets mixed up.",
+      "show": "Starts clean. Names stay straight."
+    },
+    {
+      "a": 16.988,
+      "voice": 17.088,
+      "end": 20.403,
+      "b": 20.503,
+      "say": "The catch: the note's only as good as what's in it. Read it first.",
+      "show": "The catch: read the note first."
+    },
+    {
+      "a": 20.503,
+      "voice": 20.603,
+      "end": 24.655,
+      "b": 26.05,
+      "say": "Send this to the friend whose AI chat is three weeks long, and comment CARRY.",
+      "show": "Send this. Comment CARRY for the prompt."
+    }
+  ]
+}

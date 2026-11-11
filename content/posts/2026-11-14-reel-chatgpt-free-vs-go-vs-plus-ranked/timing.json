@@ -1,0 +1,81 @@
+{
+  "dur": 26.35,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.889,
+      "b": 3.989,
+      "say": "Free, Go or Plus: which chat AI plan should a college student pick?",
+      "show": "Free vs Go vs Plus: head to head."
+    },
+    {
+      "a": 3.989,
+      "voice": 4.089,
+      "end": 7.433,
+      "b": 7.533,
+      "say": "Think phone data packs: a big pack you never finish is wasted.",
+      "show": "Like recharge packs: unused data is wasted."
+    },
+    {
+      "a": 7.533,
+      "voice": 7.633,
+      "end": 9.275,
+      "b": 9.375,
+      "say": "Free: the basic pack, tighter limits.",
+      "show": "Free: basic pack, tighter limits."
+    },
+    {
+      "a": 9.375,
+      "voice": 9.475,
+      "end": 11.002,
+      "b": 11.102,
+      "say": "Go: the middle pack, higher limits.",
+      "show": "Go: middle pack, higher limits."
+    },
+    {
+      "a": 11.102,
+      "voice": 11.202,
+      "end": 13.004,
+      "b": 13.104,
+      "say": "Plus: the biggest pack, the top price.",
+      "show": "Plus: biggest pack, top price."
+    },
+    {
+      "a": 13.104,
+      "voice": 13.204,
+      "end": 14.839,
+      "b": 14.939,
+      "say": "Our pick for most beginners: Free.",
+      "show": "Our pick for most beginners: Free."
+    },
+    {
+      "a": 14.939,
+      "voice": 15.039,
+      "end": 17.112,
+      "b": 17.212,
+      "say": "Pay only when you hit the limit every week.",
+      "show": "Pay only when you hit the limit every week."
+    },
+    {
+      "a": 17.212,
+      "voice": 17.312,
+      "end": 21.423,
+      "b": 21.523,
+      "say": "The catch: plans change often, so check OpenAI's page before paying.",
+      "show": "The catch: check OpenAI's page before paying."
+    },
+    {
+      "a": 21.523,
+      "voice": 21.623,
+      "end": 24.947,
+      "b": 26.35,
+      "say": "Send this to the roommate about to pay for Plus. Comment RENEW.",
+      "show": "Send this. Comment RENEW for the card."
+    }
+  ]
+}

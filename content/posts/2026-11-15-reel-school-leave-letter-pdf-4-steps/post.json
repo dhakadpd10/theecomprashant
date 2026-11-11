@@ -1,0 +1,142 @@
+{
+  "id": "2026-11-15-reel-school-leave-letter-pdf-4-steps",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "LETTER",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "log": {
+    "slot_ist": "15 Nov 2026 19:30 IST",
+    "slot_utc": "15 Nov 2026 14:00 UTC",
+    "hook_id": "#11",
+    "list_card": true,
+    "named_viewer": "homemakers at home",
+    "arm": null,
+    "pair": null,
+    "money_angle": false,
+    "log_style_as": "editorial-host",
+    "free_tool": "Phone Letter and PDF Prompt",
+    "note": "This reel uses hook #11, not #18. The slot line (15 Nov 19:30 IST: tutorial, #11, list card) and the brief header both say #11. #18 is capped at 2 uses this week, and 10 Nov 19:30 and 14 Nov 13:00 already take both, so a third would break the cap. The #18 'result first' idea is kept as a visual only: frame 0 shows a mini finished letter under the #11 title. Only change this if Prashant overrides the cap. Before posting, confirm LETTER has its matching tool on the tools page."
+  },
+  "hot": "^(4|1|2|3|favourite|mic|Hindi|English|prompt|polite|shorter|PDF|WhatsApp|letter|check|LETTER)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1F5FA8"
+  },
+  "lines": [
+    {
+      "say": "Homemakers, four steps to a proper letter. Step three is the best.",
+      "show": "4 steps to a proper letter.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Step one: tap the mic and talk, Hindi or English.",
+      "show": "Step 1: tap the mic, just talk.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Step two: paste the Phone Letter prompt.",
+      "show": "Step 2: paste the Phone Letter prompt.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Step three, the best one: type more polite, shorter.",
+      "show": "Step 3: 'more polite, shorter'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Step four: save it as a PDF, share on WhatsApp.",
+      "show": "Step 4: save as PDF, share it.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Done. A proper letter, in your words.",
+      "show": "Done. A proper letter, your words.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: AI guesses gaps. Check names, dates and account details.",
+      "show": "The catch: check names, dates, details.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the mummy who writes every leave letter by hand. Comment LETTER.",
+      "show": "Send this. Comment LETTER for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.9",
+      "fx": "ding"
+    },
+    {
+      "at": "@line4.voice+1.2",
+      "fx": "bloop"
+    },
+    {
+      "at": "@line6.voice+0.8",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "TALK IN HINDI,",
+      "GET A PDF LETTER"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

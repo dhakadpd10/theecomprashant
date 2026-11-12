@@ -1,0 +1,89 @@
+{
+  "dur": 32.37,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.247,
+      "b": 3.347,
+      "say": "After office? That leave mail, in your own voice, in three steps.",
+      "show": "Your leave mail, in your voice. 3 steps."
+    },
+    {
+      "a": 3.347,
+      "voice": 3.447,
+      "end": 5.566,
+      "b": 5.666,
+      "say": "Like a tailor copying the fit of your old shirt.",
+      "show": "A tailor copies your old shirt's fit."
+    },
+    {
+      "a": 5.666,
+      "voice": 5.766,
+      "end": 9.545,
+      "b": 9.645,
+      "say": "One: put two emails you sent into a free AI app, like Gemini.",
+      "show": "1: paste 2 emails you sent."
+    },
+    {
+      "a": 9.645,
+      "voice": 9.745,
+      "end": 13.36,
+      "b": 13.46,
+      "say": "Two: tap the mic and say it the way you talk, Hindi and English mixed.",
+      "show": "2: voice-type it in Hinglish."
+    },
+    {
+      "a": 13.46,
+      "voice": 13.56,
+      "end": 16.832,
+      "b": 16.932,
+      "say": "Three, the best part: ask for one polite version and one firm.",
+      "show": "3, my favourite: polite and firm."
+    },
+    {
+      "a": 16.932,
+      "voice": 17.032,
+      "end": 18.481,
+      "b": 18.581,
+      "say": "Done. It reads like you wrote it.",
+      "show": "Done. It sounds like you."
+    },
+    {
+      "a": 18.581,
+      "voice": 18.681,
+      "end": 21.908,
+      "b": 22.008,
+      "say": "The catch: it can invent a date or a promise. Read every line.",
+      "show": "The catch: read every line."
+    },
+    {
+      "a": 22.008,
+      "voice": 22.108,
+      "end": 24.397,
+      "b": 24.497,
+      "say": "And never share salary slips or office data.",
+      "show": "No salary slips. No office data."
+    },
+    {
+      "a": 24.497,
+      "voice": 24.597,
+      "end": 28.48,
+      "b": 28.58,
+      "say": "Send this to the colleague who's been drafting the same leave mail since Monday.",
+      "show": "Send this to that colleague."
+    },
+    {
+      "a": 28.58,
+      "voice": 28.68,
+      "end": 30.974,
+      "b": 32.37,
+      "say": "Type STYLE below, and I'll send you the free tool.",
+      "show": "Comment STYLE for the prompt."
+    }
+  ]
+}

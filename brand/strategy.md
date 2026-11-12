@@ -1,24 +1,29 @@
-# Strategy for the week of 2026-11-11
+# Strategy for the week of 2026-11-13
 
-# Strategy for the week of 2026-11-11 (10 Nov 19:30 IST to 16 Nov)
+# Strategy for the week of 2026-11-13 (12 Nov 19:30 IST to 19 Nov)
 
-**This pull repeats the 10 Nov pull row for row, so it is a fault, not a reading.**
-- 56 rows. The newest is still FORWARD (10 Nov 08:19 UTC) at 49 views.
-- Hostel 1,222 views and 1,048 reach, BOLO 196 reach, pair 3 A 132, pair 1 B 94 reach with 2 sends and 3 saves.
-- No timestamp.
-- There is no row for 10 Nov 19:30 IST. The data can't say whether the pull is older than that slot or the slot is missing.
-- **The 10 Nov plan carries over unchanged.** Nothing below is based on new evidence.
+**The pull moved, so this is a reading. But the last plan was not run, so most of it carries over.**
+- 62 rows. Six are new:
+  - TODO tutorial (10 Nov 17:01 UTC)
+  - STUDY tool (11 Nov 03:31)
+  - STICKER tool (11 Nov 07:31)
+  - RECAP compare (11 Nov 14:00)
+  - LETTER tutorial (12 Nov 03:30)
+  - PHOTO explain (12 Nov 09:43)
+- Pair 1 B went from 94 to 122 reach. There is still no timestamp.
+- **6 of 6 slots since 10 Nov 19:30 IST missed their fixed line.** That is 10 of the last 12.
+  - The carousel did not post.
+  - The list-card test has no clean data.
 
 Three things change:
-- **Re-pull before any judging.**
-  - No pair is judged, and no baseline recomputed, on a pull identical to the last one.
-  - If the pull hasn't moved by a judge date, that judge date slides to the first pull that moves.
-- **The flag to Prashant still goes out this week, on the 10 Nov numbers.**
-  - That pull moved against the one before, so the 10 Nov reading stands.
-  - Add one line to the flag: the 11 Nov pull repeated, so there are no newer numbers.
-- **Pair 1 clarification, set before its judge date:**
-  - 'Count accounts too' means sends are counted as hand-checked sending accounts per 1k reach, excluding Prashant and the team.
-  - The other reading rules are unchanged.
+- **The publisher gate is hard.**
+  - A reel whose header does not match its slot line is not posted. The slot is skipped and logged.
+  - No swaps, no reordering, no posts between slots.
+  - Fixing who writes the briefs is housekeeping step 0.
+- **The flag goes to Prashant now, with this pull's numbers.** The evidence behind it got stronger, and only he can change the format.
+- **Pair 4 runs only if pair 1 is decided.**
+  - Pairs 2 and 3 are ties, so pair 4 can settle the named-viewer question only if pair 1 has a winner.
+  - If pair 1 is void or a tie, the question closes as unanswerable at this reach. The two 09:00 tool reels then run with no arms.
 
 ## Prashant's standing decisions (these outrank everything below)
 
@@ -35,8 +40,11 @@ Three things change:
 - The money angle is fine when the idea really saves time or earns money. Then docs/MONEY.md's honesty rules apply in full.
 - Sample: content/story-samples/e04-explain-lies.
 - Where this document and docs/EXPLAINER.md disagree on structure, EXPLAINER.md wins.
-- The pair 1 B money-list exception has been used (10 Nov). The 12 Nov carousel is the hostel list card already planned. No other money lists unless Prashant answers the flag.
-- Nothing in this plan changes the format. That is Prashant's call (see 'Flag to Prashant').
+- **Money lists:**
+  - The pair 1 B exception has been used.
+  - The hostel carousel (moved to 13 Nov 13:00 IST) and the 13 Nov homemakers money tutorial are the only money-angle posts.
+  - No other money lists unless Prashant answers the flag.
+- Nothing in this plan changes the format. That is Prashant's call.
 
 ### 28 Oct 2026: make money with AI (now applies only to money-angle explainers)
 - **Honesty:**
@@ -63,104 +71,114 @@ Three things change:
 - A new picture every 1 to 1.5 seconds.
 - 'Part 2' when a topic has more to give.
 
-## What the data says (56 rows, 17 explainers; unchanged since 10 Nov because the pull repeated)
+## What the data says (62 rows, 23 explainers, a moved pull with no timestamp)
 
-- **Sends follow the money list card, with or without a named viewer.**
+- **Sends follow the money list card, and nothing else does.**
   - Confidence: hunch to moderate, n=4, no send hand-checked.
-  - 24 of 28 page sends sit on hostel 16, homemakers 3, hostel Part 2 3 and pair 1 B 2. That is 18.0 per 1k on 1,335 reach.
-  - The other 52 posts have 4 sends on 4,439 reach (0.9 per 1k). Three of the 4 are on the retired RTO reel.
-  - The four lists used four hooks (#11, #3, #19, #11). The shape matters more than the hook.
-- **Explainers: 17 reels, 1,393 reach, 0 sends, 5 saves (3.6 per 1k).**
-  - Confidence: low to moderate; 9 of 17 are past 72 hours.
-  - Non-list money-era reels: 1 send on 945 reach. So the honest comparison is list against non-list.
-  - No list-card explainer has been measured yet.
-- **A named viewer without a list doesn't send (hunch).**
-  - The 4 Nov and 6 Nov hostel tutorials, PRIVATE, STYLE and FRIDGE all named a viewer and all have 0 sends.
-- **Reach is not action.**
-  - 4 of the top 5 by outlier have 0 sends.
-  - BOLO: 2.11x, 6.5s watch time, 0 sends, 0 saves.
-- **Watch time doesn't predict sends.**
-  - Senders: 3.7 to 10.9s.
-  - Explainer median: 3.4s.
-- **#2 in the new niche:** n=13, median 0.92x, 0 sends on 1,010 reach. Tangled with non-list topics.
-- **#11:** n=2, both lists, both sending. Tangled with the list card.
-- **#17:** n=3 (1.01x, 0.74x, 0.46x), 0 sends.
-- **Hook problem or profile problem: unknown.** Hold@3s, follows and non-follower % are on 0 of 56 posts.
+  - 24 of 28 page sends sit on hostel 16, homemakers 3, hostel Part 2 3 and pair 1 B 2. That is 17.6 per 1k on 1,364 reach.
+  - The other 58 posts have 4 sends: RTO (retired) 3 and the Rs 10k prompt 1.
+  - The four lists used four different hooks (#11, #3, #19, #11).
+- **Explainers: 23 reels, 1,817 reach, 0 sends, 7 saves (3.9 per 1k). 15 are past 72 hours.**
+  - Money-era reels that were not lists: 1 send on about 950 reach.
+  - So the honest comparison is money list against everything else.
+- **The first probable list-card explainers have 0 sends (weak, all under 72 hours, list card not logged).**
+  - TODO, STUDY (11 Nov), STICKER, RECAP and LETTER: 303 reach, 0 sends, 2 saves.
+  - At the money list rate, about 5 sends were expected.
+  - This points to the money content, not the list shape alone, as what gets sent. It needs the 17 Nov read.
+- **Kinds (hunch, every kind on 0 sends). Saves per 1k:**
+  - tool 5.6 (3 on 539 reach, n=5)
+  - tutorial 5.1 (2 on 394, n=6)
+  - prompt 4.9 (1 on 206, n=3)
+  - explain 1.9 (1 on 518, n=6)
+  - compare 0 (0 on 160, n=3)
+  - Compare also has the lowest watch times (2.4 to 3.0s) and outliers of 0.75x, 0.47x and 0.47x.
+- **Hooks in the new niche (all hunches, hold@3s on 0 of 62):**
+  - #11: n=4, median 1.22x. Sends only on its two money lists; the two #11 explainers (STUDY, LETTER) have 0.
+  - #17: n=4, median 0.61x, 0 sends, 0 saves.
+  - #18: n=3, median 0.50x, 0 sends.
+  - #10: n=3; 1.29x and 1.09x on skits, 0.57x on its one tutorial.
+  - #24: n=1, BOLO 2.12x, 0 sends.
+  - #9: n=1, PHOTO 1.13x and 7.0s at hours old.
+  - #2: n=13, median 0.92x, 0 sends on about 1,010 reach. It stayed rested this week, the first rest that held.
+- **Reach is not action:**
+  - BOLO: 2.12x, 0 sends.
+  - Only 2 of 23 explainers have broken 130 reach.
+- **Watch time does not predict sends.** Senders watched 3.7 to 10.9s; the explainer median is 3.4s.
+- **Hook problem or profile problem: unknown.** Hold@3s, follows and non-follower % are on 0 of 62 posts.
 
-## Flag to Prashant (send this week, after housekeeping step 1)
+## Flag to Prashant (send today, after housekeeping step 2)
 
 - **Send him:**
-  - Explainers: 17 reels, 1,393 reach, 0 sends, 5 saves. 9 are past 72 hours.
-  - The split that matters:
-    - the four money list reels: 18.0 sends per 1k (1,335 reach)
-    - money-era reels that were not lists: 1 send on 945 reach
-    - explainers: 0 on 1,393
-  - Pair 1 B (a general-opener list) sent within hours.
-  - The list-card explainer test starts 10 Nov 19:30 IST. Say whether that reel actually went out.
-  - Whether the sends survived the hand-check, and how many accounts sent.
-  - The 10 Nov pull had no timestamp but moved. The 11 Nov pull repeated it exactly.
+  - Explainers: 23 reels, 1,817 reach, 0 sends, 7 saves (3.9 per 1k). 15 are past 72 hours.
+  - Money list reels: 24 sends on 1,364 reach (17.6 per 1k). Non-list money-era reels: 1 send on about 950 reach.
+  - The five tool, compare and tutorial reels since 10 Nov, meant to carry list cards: 0 sends and 2 saves on 303 reach. All are under 72 hours.
+  - 6 of 6 slots since 10 Nov 19:30 IST missed their line, and the carousel did not post. The list-card test is weaker than planned.
+  - The 11 Nov pull repeated. This one moved.
+  - The hand-check result: how many accounts sent each list reel, and whether any were Prashant's or the team's.
 - **The question for him:** keep explainers with list cards for one more week, or allow one money list reel a day inside the explainer format.
 - **If the hand-check shows the list sends were mostly the team's,** say so. The comparison then doesn't hold.
-- Until he answers, run this plan.
+- Log his answer. Until he answers, run this plan.
 
 ## Housekeeping before the next slot, in this order
 
-0. **Re-pull with a timestamp.**
-   - Check that FORWARD has moved off 49 views and that rows exist for every slot posted since 10 Nov 08:19 UTC.
-   - Log the timestamp.
-   - If it is identical again, log a pipeline fault and fix the pull job before anything else.
-1. **Hand-check every send:**
+0. **Fix the brief writer and the publisher gate.**
+   - For each of these slots, find who wrote the brief and which line it followed: 10 Nov 14:00 UTC, 11 Nov 03:30, 07:30 and 14:00 UTC, 12 Nov 03:30 and 07:30 UTC.
+   - Check whether the queue is pre-built from an older plan.
+   - The publisher checks every header against 'Fixed slots' below and posts nothing that doesn't match.
+   - Still open from earlier: the 8 to 10 Nov misses, pair 2 B in pair 1 B's fallback slot, the third SAFE reel.
+1. **Timestamp every pull.**
+   - A pull identical to the last one is a fault, not a reading.
+   - Judge dates slide to the first pull that moves.
+2. **Hand-check every send before 13 Nov 03:30 UTC:**
    - hostel 16
    - homemakers 3
    - hostel Part 2 3
    - pair 1 B 2
    - RTO 3
    - the Rs 10k prompt 1
-   - For each, record how many accounts sent it and whether any are Prashant's or the team's. Then send the flag.
-2. **Check the 10 Nov 19:30 IST slot in the app.**
-   - Was it a tutorial, #18, with a list card of 3 to 4 steps?
-   - Was it on time?
-   - If it was skipped or swapped, log it, and count it in 'Why the plan missed'.
-3. **Confirm opening hooks in the app.**
-   - **Pair 1 B (logged #11; A used #3):**
-     - If B really used #3, fix the row.
-     - If B used #11, pair 1 is void. Log it as void and keep it as a list data point.
-   - **Pair 3 A and B:** confirm both used #2, or fix the rows.
-4. **Why the plan missed.** For each slot, find who wrote the brief and whether it had the slot's line:
-   - 8 Nov 14:01 UTC
-   - 9 Nov 07:31 UTC
-   - 9 Nov 16:04 UTC
-   - 10 Nov 08:19 UTC
-   - still open from earlier: pair 2 B in pair 1 B's fallback slot, the third SAFE reel (5 Nov 15:24 UTC), the 7 Nov and 8 Nov misses
+   - For each, record the sending accounts and whether any are Prashant's or the team's. Then send the flag.
+3. **Confirm pair 1's hooks in the app before judging it.**
+   - If B used #3, fix the row.
+   - If B used #11, pair 1 is void. Keep it as a list data point.
+   - Confirm pair 3 A and B both used #2.
+4. **Log list card (yes/no) by checking each reel in the app:**
+   - every tool, compare and tutorial reel since 4 Nov
+   - starting with TODO, STUDY (11 Nov), STICKER, RECAP and LETTER
 5. **Keywords.**
-   - Confirm a matching free tool exists on the tools page and in docs/EXPLAINER.md for: FRIDGE, STYLE, PRIVATE, FORWARD, BOLO, BRIEF, SAFE, GIG, TRUTH, STUDY, RESUME and CRAFT.
-   - If one is missing, add it today or answer the DMs by hand.
+   - Confirm a matching free tool exists on the tools page and in docs/EXPLAINER.md for: TODO, STICKER, RECAP, LETTER, PHOTO, FRIDGE, STYLE, PRIVATE, FORWARD, BOLO, BRIEF, SAFE, GIG, TRUTH, RESUME and CRAFT.
+   - STUDY is on two different reels (the notebook quiz and immersive explorations). Check that one tool serves both.
+   - Check that LETTER matches a price-list tutorial.
+   - If a tool is missing, add it today or answer the DMs by hand.
 6. **Columns.**
-   - Add `list card` (yes/no), `kind`, `arm` and `pair` as real columns.
+   - Add `list card`, `kind`, `arm` and `pair` as real columns.
+   - Kind is blank on 62 of 62.
    - Style is `editorial-host` on every new-niche row, never `motion`.
-   - Every pull logs its timestamp.
    - Log the follower count daily.
 7. **Fix the rows:**
-   - **FRIDGE:** kind `tutorial`, hook #18, money angle no.
-   - **Pair 3 B:** kind `explain`, arm B, pair 3, hook per step 3, keyword TRUTH.
-   - **STYLE:** kind `prompt`, hook #2.
-   - **PRIVATE:** kind `tool`, hook #2, real slot 21:34 IST.
-   - **Pair 1 B:** kind `money-list (carry-over)`, arm B, pair 1, hook per step 3, keyword SITES, money angle yes, list card yes.
-   - **FORWARD:** kind `compare`, hook #17, real slot 13:49 IST.
-   - Earlier row fixes still stand if they haven't landed.
+   - TODO: kind `tutorial`, hook #10, real slot 22:31 IST (late).
+   - STUDY (11 Nov): kind `tool`, hook #11.
+   - STICKER: kind `tool`, hook #18.
+   - RECAP: kind `compare`, hook #17.
+   - LETTER: kind `tutorial`, hook #11.
+   - PHOTO: kind `explain`, hook #9, real slot 15:13 IST (between slots).
+   - Last week's fixes (FRIDGE, pair 3 B, STYLE, PRIVATE, pair 1 B, FORWARD) stand if they haven't landed.
 8. **Copy in-app insights** (hold@3s, average watch time, follows, non-follower % of reach and the sends breakdown):
-   - overdue now: hostel, homemakers, hostel Part 2, voice clone, the 4 Nov tutorial, deepfake, fake payment email, pair 2 B, BOLO, the 6 Nov tutorial, pair 2 A, study, CV compare
-   - pair 3 A: 11 Nov 03:32 UTC
-   - CRAFT: 11 Nov 07:32 UTC
-   - FRIDGE: 11 Nov 14:01 UTC
-   - pair 3 B: 12 Nov 03:31 UTC
-   - STYLE: 12 Nov 07:31 UTC
-   - PRIVATE: 12 Nov 16:04 UTC
-   - pair 1 B: 13 Nov 03:30 UTC
-   - FORWARD: 13 Nov 08:19 UTC
-   - every reel after that: at 72 hours
-9. **Missing slots.**
-   - Check whether each was posted and not logged, or skipped: 2 Nov 07:30 and 14:00 UTC, all three 3 Nov slots, and 5 Nov 03:30 UTC.
+   - Overdue now: hostel, homemakers, hostel Part 2, voice clone, both hostel tutorials, deepfake, fake payment email, pairs 2 A and B, BOLO, the study tutorial, CV compare, pair 3 A and B, CRAFT, FRIDGE, STYLE.
+   - Then at 72 hours:
+     - PRIVATE 12 Nov 16:04 UTC
+     - pair 1 B 13 Nov 03:30
+     - FORWARD 13 Nov 08:19
+     - TODO 13 Nov 17:01
+     - STUDY 14 Nov 03:31
+     - STICKER 14 Nov 07:31
+     - RECAP 14 Nov 14:00
+     - LETTER 15 Nov 03:30
+     - PHOTO 15 Nov 09:43
+     - every reel after that
+9. **Missing and off-slot posts:**
+   - Log the 12 Nov 13:00 IST carousel as missed.
+   - Log PHOTO as off-slot.
+   - Still unanswered: 2 Nov 07:30 and 14:00 UTC, all three 3 Nov slots, 5 Nov 03:30 UTC. Were they posted and not logged, or skipped?
    - Don't backfill skipped slots.
 10. **exp2b.** Is it live, public, unflagged and fully uploaded? Log the answer. Keep it out of every median.
 11. **Profile.**
@@ -171,88 +189,98 @@ Three things change:
     - 09:00 IST = 03:30 UTC
     - 13:00 IST = 07:30 UTC
     - 19:30 IST = 14:00 UTC
-    - Nothing goes out between slots. A reel more than 15 minutes late is logged late.
+    - A reel more than 15 minutes late is logged late.
 
 ## Baselines (recompute only on a pull that moves)
 
-- **Page median:** 105.5 views on 56 rows. Use 106 for the outlier column.
+- **Page median:** 103.5 views on 62 rows. This audit's outlier column used 106. From the next audit, use 104.
 - **Money era** (from 28 Oct, at least 72 hours old, excluding exp2b, the retired RTO reel and explainers):
-  - 106.5 views and 90.5 reach (n=16).
-  - Pair 1 B enters 13 Nov 03:30 UTC.
+  - 106.5 views and 91 reach (n=16).
+  - From 13 Nov 03:30 UTC, pair 1 B enters: 107 views and 91 reach (n=17).
 - **Explainer era** (explainers at least 72 hours old):
-  - 74 views and 64 reach (n=9).
-  - Once CV compare, pair 3 A, CRAFT and FRIDGE pass 72 hours (by 11 Nov 14:01 UTC), it is 78 views and 67 reach (n=13) on current numbers. This is provisional.
-  - Recompute on a moved pull before judging pair 3.
+  - 80 views and 68 reach (n=15).
+  - PRIVATE enters at 12 Nov 16:04 UTC, FORWARD at 13 Nov 08:19 and TODO at 13 Nov 17:01. On current numbers that ends near 78 views and 67.5 reach (n=18).
+  - Pair 4 uses this median, recomputed on its judge date.
 
-## Kinds and mix (10 Nov 19:30 IST to 16 Nov)
+## Kinds and mix (12 Nov 19:30 IST to 16 Nov)
 
-- **Explainer era so far (17):**
-  - explain 5
-  - tutorial 4
+- **Explainer era so far (23):**
+  - explain 6
+  - tutorial 6
+  - tool 5
   - prompt 3
-  - tool 3
-  - compare 2
-- **Target:** every kind on at least 5 posts that are 72 hours old by 16 Nov 14:00 UTC. That means posts up to and including 13 Nov 19:30 IST.
-- **Planned through 13 Nov:**
-  - compare +3
-  - tool +2
-  - prompt +2
-  - tutorial +2 (including 10 Nov 19:30 IST if it posted)
+  - compare 3
+- **Planned through 16 Nov:**
+  - prompt +4
+  - tool +3
+  - tutorial +3 (one with a money angle)
+  - compare +2
   - explain +0
   - plus the carousel
-- **Provisional kind read** (sends, then saves): every kind has 0 sends. Saves: tutorial 2, explain 1, prompt 1, tool 1, compare 0. Final read on 16 Nov.
+- **Kind read moves to 17 Nov 14:00 UTC.** It covers posts up to 14 Nov 19:30 IST that are 72 hours old, by which point every kind has at least 5.
   - A kind wins if it takes at least 2 of sends, saves and hand-counted keyword comments.
   - If every kind has 0 sends and none has a saves gap of 2 or more, call it a tie. Don't reallocate slots on reach.
-- **No explain reels this week.**
+  - Provisional (hunch): tool leads on saves and comments; compare trails.
+- **Explain stays on hold** until the kind read. PHOTO went out against the plan; read it, but don't add more.
 - **Never the same kind twice in a row.**
-- **SAFE: none this week.**
-- **Money angle:** only on the carousel and the 13 Nov money tutorial. docs/MONEY.md's rules apply in full.
+- **SAFE: none.**
+- **Money angle:** only on the carousel and the 13 Nov 19:30 IST tutorial. docs/MONEY.md's rules apply in full.
 
 ## Fixed slots
 
 **Every brief opens with this header:** slot (IST and UTC), kind, hook id, keyword, list card yes/no, named viewer, arm/pair.
-- The publisher checks the header against this list before posting.
+- The publisher checks it against this list.
 - A slot that can't follow its line is skipped and logged, never swapped.
-- Every tool, compare and tutorial slot carries the list card.
+- Every tool, compare and tutorial slot carries the list card:
+  - 3 to 4 real options or steps
+  - real names and prices or limits as each site states them
+  - one marked favourite
+- Keywords come from docs/EXPLAINER.md and must have a tool on the tools page before posting.
 
-- **10 Nov 19:30 IST:** tutorial, #18, list card of 3 to 4 steps.
-- **11 Nov 09:00 IST:** compare, #11, ranked list card of 3 real tools with prices exactly as each site states them.
-- **11 Nov 13:00 IST:** prompt, #24 The Reveal.
-- **11 Nov 19:30 IST:** tool, #11, ranked list card.
-  - Option: the phone-first Indian-language use from BOLO, as a ranked list of tools that really do it, with a named viewer.
-- **12 Nov 09:00 IST:** compare, #17, on one ranked card.
-- **12 Nov 13:00 IST:** the carousel. Hostel's list card, keyword SITES, format `carousel`, kind `money-list (carry-over)`, hook #11.
-- **12 Nov 19:30 IST:** prompt, #10.
-- **13 Nov 09:00 IST:** tool, #11, ranked list card.
-- **13 Nov 13:00 IST:** compare, #17, ranked card.
-- **13 Nov 19:30 IST:** tutorial, #11, list-shaped and with a money angle.
-  - One real way from docs/MONEY.md, step by step, aimed at homemakers at home.
+- **12 Nov 19:30 IST (14:00 UTC):** prompt, #24, list card no (one screenshot card), 9-to-5ers after office.
+- **13 Nov 09:00 IST (03:30 UTC):** compare, #11, ranked list card of 3 real tools with prices exactly as each site states them, students in a hostel or library.
+- **13 Nov 13:00 IST (07:30 UTC):** the carousel, moved from the missed 12 Nov slot.
+  - Hostel's list card, keyword SITES.
+  - Format `carousel`, kind `money-list (carry-over)`, hook #11.
+- **13 Nov 19:30 IST (14:00 UTC):** tutorial with a money angle, #18, list card of 3 to 4 steps, homemakers at home.
+  - One real way from docs/MONEY.md.
   - Keyword GIG, SKILL, CLIENT or PRODUCT, not SITES.
-- **14 Nov 09:00 IST:** pair 4 A (tool, #11, ranked list card, small shop owners at the counter).
-- **14 Nov 13:00 IST:** tutorial, #18, list card.
-- **14 Nov 19:30 IST:** compare, #17, ranked card.
-- **15 Nov 09:00 IST:** pair 4 B (tool, #11, ranked list card, general opener).
-- **15 Nov 13:00 IST:** prompt, #24.
-- **15 Nov 19:30 IST:** tutorial, #11, list card.
-- **16 Nov:** list-shaped tool, compare or tutorial, rotating kinds, #11 at most once. The next audit can replace these.
-- **On arm days:** the 13:00 reel is a different kind and a different hook id from the 09:00 arm.
+- **14 Nov 09:00 IST:** tool, #11, ranked list card, small shop owners at the counter.
+  - This is pair 4 A if pair 1 was decided. Otherwise, arm none.
+- **14 Nov 13:00 IST:** prompt, #9, people between jobs.
+- **14 Nov 19:30 IST:** compare, #17, ranked card, 9-to-5ers after office.
+- **15 Nov 09:00 IST:** tool, #11, ranked list card.
+  - This is pair 4 B (general opener; only the opening line and first card differ from A) if pair 1 was decided.
+  - Otherwise, arm none, students in a hostel or library.
+- **15 Nov 13:00 IST:** tutorial, #9, list card, homemakers at home, money angle no.
+- **15 Nov 19:30 IST:** prompt, #24, small shop owners at the counter.
+- **16 Nov 09:00 IST:** tool, #11, ranked list card, people between jobs.
+- **16 Nov 13:00 IST:** tutorial, #11, list card, 9-to-5ers after office.
+- **16 Nov 19:30 IST:** prompt, #10, students in a hostel or library.
+- **17 to 19 Nov:** rotate tool, tutorial and prompt.
+  - At most one compare.
+  - #11 at most once a day.
+  - No explain unless the 17 Nov kind read says otherwise.
+  - The next audit can replace these.
+- **On arm days:** the 13:00 reel is a different kind and hook from the 09:00 arm. The slots above already follow this.
 
-## Hook formulas (caps for 10 to 16 Nov; every verdict is a hunch, since hold@3s is on 0 of 56)
+## Hook formulas (caps for 12 Nov 19:30 IST to 19 Nov; every verdict is a hunch, since hold@3s is on 0 of 62)
 
-- **Favour:**
-  - **#11 Numbered With A Favourite: up to 9 uses.**
-    - Tool, compare, list-shaped tutorial and the carousel only. Never on prompt.
-    - n=2 in the new niche, both lists, both sending. #11 alone isn't proven.
+- **Favour: #11 Numbered With A Favourite.**
+  - Up to 6 uses through 16 Nov, then at most one a day.
+  - Tool, compare, list-shaped tutorial and the carousel only. Never on prompt.
+  - Its sends are only on money lists, so #11 alone is not proven.
 - **Allowed within caps:**
-  - **#17 Head To Head:** up to 3, compare only, always on a ranked card. n=3, 0 sends.
-  - **#24 The Reveal:** up to 2, prompt or tool. n=1 (BOLO 2.11x, 0 sends). Keep it out of the arms.
-  - **#18 Cold Open Demo:** up to 2, tutorial only. n=2 (0.49x and 1.04x), 0 sends.
-  - **#10 If This, Then Watch:** up to 1, prompt only.
-  - **#19 The Deadline:** at most 1, only with a real date stated on the platform's own site.
+  - **#24 The Reveal:** up to 2, prompt or tool. Keep it out of arms.
+  - **#9 The Steal:** up to 2, prompt or tutorial. n=1, PHOTO 1.13x and 7.0s at hours old.
+  - **#17 Head To Head:** up to 1, compare only, on a ranked card. n=4, median 0.61x, 0 sends, 0 saves.
+  - **#18 Cold Open Demo:** up to 1, tutorial only. Used on a tool (STICKER) against the rule. n=3, median 0.50x.
+  - **#10 If This, Then Watch:** up to 1, prompt only. Its one tutorial use was 0.57x.
+  - **#19 The Deadline:** only with a real date stated on the platform's own site.
   - **#1 Cost Confession:** only with a real, checkable cost from Prashant's own experience.
-- **Rest this week (no slot may use them):**
-  - **#2 Negative Command.** n=13, median 0.92x, 0 sends on 1,010 reach. This is a rest, not a ban. Reopen only on a list card, after the list-card read.
-  - **#3 Nobody Tells You.** n=5, median 0.59x, 4 sends.
+- **Rest (no slot may use them):**
+  - **#2 Negative Command.** n=13, median 0.92x, 0 sends. This is a rest, not a ban. Reopen only on a list card after the list-card read.
+  - **#3 Nobody Tells You.**
   - **#20 Permission.**
   - **#21 Mid-Sentence Start.**
   - **#22 Contrarian Flip.**
@@ -263,30 +291,31 @@ Three things change:
 ## Styles and worlds
 
 - **One style: the editorial host reel, run as an explainer.** Log it as `editorial-host`, never `motion`.
-- **The list card is required on every tool, compare and tutorial reel (hunch, n=4):**
-  - a short ranked list of 3 to 4 real options or steps on one screenshot card
-  - each item with a real name and a real price or limit as its site states it
-  - one marked favourite
-  - the catch said out loud
-  - a send line aimed at one named friend, roommate or family member
+- **The list card on every tool, compare and tutorial reel (hunch):**
+  - It must be the money list shape: ranked, real names, real prices or limits, one favourite.
+  - The catch said out loud.
+  - A send line aimed at one named friend, roommate or family member.
   - Log `list card: yes`. A reel without one is logged `no` and counts against the plan.
-- **Named viewer in the first line:** use it except on B arms. It is not the lever on its own (hunch).
+- **The first carousel goes out 13 Nov 13:00 IST.** Read it on saves per 1k against hostel's 24.8.
+- **Named viewer in the first line:** use it except on B arms. It is not the lever on its own (pairs 2 and 3 tied).
 - **Explain and prompt reels** keep EXPLAINER.md's shape and still carry one screenshot card.
 - **One scene per reel.**
-- **Carousel:** the page's first, 12 Nov 13:00 IST.
 
 ## Pillars and keywords
 
 - **Push:**
-  - Which one wins (compare)
-  - Tools worth knowing (tool, plus pair 4)
-  - Do it with AI (tutorial)
-  - Better prompts (prompt)
-- **Hold:** How AI works (explain). No slots this week.
+  - Tools worth knowing (tool): leads on saves.
+  - Do it with AI (tutorial).
+  - Better prompts (prompt): needs n=5.
+- **Hold back:**
+  - Which one wins (compare): 2 slots, only to reach n=5 for the read.
+- **Hold:**
+  - How AI works (explain): no slots.
 - **Keywords:**
   - Each explainer uses its tool's keyword from docs/EXPLAINER.md.
   - Money-angle explainers use SITES, SKILL, GIG, CLIENT, MONEY or PRODUCT.
   - Never use a keyword without a matching tool on the tools page.
+  - Don't reuse one keyword for two different tools.
 - **SITES:** the carousel only.
 - **Rest:**
   - SAFE (0 for 3).
@@ -295,70 +324,64 @@ Three things change:
 
 ## Topics to repeat with a new angle
 
-- **Hostel list:** the carousel on 12 Nov. No third hostel reel.
+- **Hostel list:** the carousel only. No third hostel reel.
 - **Part 2 rule:** a reel earns a Part 2 at 3 or more hand-checked sends, or 10 or more saves.
   - Homemakers and hostel Part 2 qualify only if their sends survive the hand-check.
-  - Homemakers also waits for pair 1's judgement.
-  - Any Part 2 that is a money list needs Prashant's answer to the flag.
-- **BOLO: no Part 2** (2.11x, 0 sends, 0 saves at 72 hours).
-  - The 11 Nov 19:30 IST tool slot may test the same phone-first Indian-language use as a #11 ranked list card with a named viewer.
-  - Use only tools that really do it. Compare its sends and saves to BOLO's.
+  - Any Part 2 that is a money list needs Prashant's answer.
+- **STUDY (Gemini immersive explorations):** 2 saves and 2 comments on 103 reach, the best explainer action yet.
+  - Hand-count the comments.
+  - If 2 or more are the keyword from viewers, a #11 ranked tool reel on another study use for students is a fair repeat in a rotation slot.
+- **PHOTO:** read it at 72 hours. No explain repeat this week.
+- **BOLO:** no Part 2.
+- **AI training sites:** only as one item inside a list.
 - **Named viewers for openers:**
   - homemakers at home
   - 9-to-5ers after office
   - people between jobs
   - students in a hostel or library
   - small shop owners at the counter
-- **AI training sites:** only as one item inside a list (0 for 3 as a whole-reel topic).
 
-## The experiment: named viewer against a general opener (finishing with pair 4)
+## The experiment: does the list card earn sends without the money?
 
-- **Question:** does opening on who the reel is for and where they are earn more sends than the same reel with a general opening?
-- **Where it stands (stale pull):**
-  - **Pair 2 (prompt, BRIEF, #2): tie.**
-  - **Pair 3 (explain, TRUTH, #2): judge 12 Nov 03:30 UTC on a moved pull.**
-    - A: 132 reach, 0 sends, 0 saves. B: 84 reach, 0 sends, 1 save.
-    - On these numbers it is a tie.
-  - **Pair 1 (money list, SITES): judge 13 Nov 03:30 UTC on a moved pull.**
-    - A: 3 sends, 2 saves on 102 reach (29.4 per 1k). B: 2 sends, 3 saves on 94 reach (21.3 per 1k).
-    - Counted as hand-checked sending accounts per 1k reach.
-    - Void if B's hook really is #11 against A's #3.
-- **Pair 4 runs either way.**
-  - Kind: tool, hook #11, ranked list card on both arms. Topic from docs/EXPLAINER.md.
-  - A on 14 Nov 09:00 IST (small shop owners at the counter), B on 15 Nov 09:00 IST (general opener).
-  - Only the opening line and first card differ.
-  - Judge 18 Nov 03:30 UTC.
-- **Judge only on a pull that has moved, in this order:**
-  1. Sends per 1k reach, as hand-checked sending accounts, excluding Prashant and the team.
+- **Question:** the only shape with sends is the money list (17.6 per 1k). Does the same ranked list card on a non-money explainer earn sends too, or is the money content the lever?
+- **Arms:** every tool, compare and tutorial reel with `list card: yes` and money angle no, posted 10 Nov 19:30 IST to 14 Nov 19:30 IST. That is about 11 reels if the slots hold.
+- **Compared against:**
+  - the four money list reels (17.6 sends per 1k)
+  - the 23 explainers so far (0 sends, 3.9 saves per 1k)
+- **Judge on 17 Nov 14:00 UTC, on a pull that moved, in this order:**
+  1. Hand-checked sending accounts per 1k reach, excluding Prashant and the team.
   2. Saves per 1k reach.
-  3. Outlier multiple against the money-era median (pair 1) or the explainer-era median (pairs 2 to 4).
-  - Copy hold@3s and average watch time as diagnostics only.
-- **Reading the result (unchanged):**
-  - Sends decide each pair. If both arms have 0 sends, saves decide.
-  - A 1-save gap is a tie, and one save under 100 reach is noise.
-  - An arm wins the question if it wins at least 2 of pairs 1, 3 and 4 and the other arm wins none.
-  - If pair 1 is void, an arm must win both pairs 3 and 4.
-  - A pair is void if a publishing fault is confirmed (under 20 reach at 24 hours) or the arms can't be matched.
-  - Anything else closes the question as unanswerable at this reach. Never fall back to views.
-- **Next test, queued for 16 Nov:** the same tool topic with a ranked list card against without one, same named viewer.
-- This is directional only. A win earns one repeat test before it is called a rule.
+  3. Hand-counted keyword comments.
+- **Reading it:**
+  - **List card works:** 3 or more hand-checked sends, or 10 or more saves, across the list-card reels.
+  - **List card alone doesn't carry sends (hunch to moderate):** fewer than 3 sends on 500 or more reach. Send that to Prashant as the answer to his format question.
+  - **Not enough to read:** fewer than 5 list-card reels at 72 hours, or under 500 reach. Say so; don't extend.
+  - Reels logged list card `no` or posted off-line are excluded, and counted as plan misses.
+- **Closing the named-viewer question (pair 4):**
+  - Judge pair 1 on 13 Nov 03:30 UTC on a moved pull: sends as hand-checked accounts per 1k, then saves.
+  - If pair 1 is void (B on #11) or a tie, the question closes as unanswerable at this reach and pair 4 is cancelled.
+  - If pair 1 has a winner, pair 4 runs on 14 and 15 Nov 09:00 IST and is judged 18 Nov 03:30 UTC under the unchanged rules:
+    - sends decide
+    - if both arms have 0 sends, saves decide
+    - a 1-save gap is a tie
+    - never fall back to views
+  - Any win is directional and earns one repeat before it is a rule.
 
 ## What to judge this week
 
 - **Pipeline:**
   - Every pull is timestamped and moves.
-  - Every slot has a row and matches its fixed line.
+  - Every slot has a row and matches its line.
   - Nothing goes out between slots.
   - No cap is broken.
-- **List card against no list card:** sends and saves per 1k on the list-shaped tool, compare and tutorial reels, against the 17 explainers so far (0 sends and 3.6 saves per 1k).
-  - The target is any list-card explainer with 3 or more hand-checked sends, or 10 or more saves.
-  - Fewer than 5 list-card explainers at 72 hours is still a hunch.
-- **The flag to Prashant:** sent, and his answer logged.
-- **Experiment:** pair 3 (12 Nov), pair 1 (13 Nov), pair 4 (18 Nov). All judged on moved pulls.
-- **Reach floor:** how many explainers break 130 reach (2 of 17 so far).
+  - Target: 13 of 13 slots on-line through 16 Nov.
+- **The flag:** sent, and Prashant's answer logged.
+- **Pair 1 on 13 Nov.** Pair 4 on 18 Nov, if it runs.
+- **The list-card read and the kind read on 17 Nov.**
+- **The carousel's saves per 1k.**
+- **Reach floor:** explainers past 130 reach (2 of 23 so far).
 - **Profile:** hostel's follows and non-follower %.
 - **Follower count trend.**
-- **Kinds on 16 Nov.**
 
 ## Logging (no reel counts in the audit without these)
 

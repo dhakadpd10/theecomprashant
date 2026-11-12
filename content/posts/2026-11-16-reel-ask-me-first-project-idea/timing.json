@@ -1,0 +1,65 @@
+{
+  "dur": 28.61,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.564,
+      "b": 4.664,
+      "say": "If AI gives you the same old project ideas as everyone else, watch this.",
+      "show": "Same 10 project ideas as everyone? Watch this."
+    },
+    {
+      "a": 4.664,
+      "voice": 4.764,
+      "end": 9.021,
+      "b": 9.121,
+      "say": "In the library: give me a mini project idea. A pile of generic answers.",
+      "show": "Give me a mini project idea. 10 generic answers."
+    },
+    {
+      "a": 9.121,
+      "voice": 9.221,
+      "end": 12.026,
+      "b": 12.126,
+      "say": "Give it nothing, it guesses. A good doctor asks first.",
+      "show": "Give it nothing, it guesses. A doctor asks first."
+    },
+    {
+      "a": 12.126,
+      "voice": 12.226,
+      "end": 16.329,
+      "b": 16.429,
+      "say": "So make AI ask you three things: branch, deadline, phone or laptop.",
+      "show": "AI asks 3 things: branch, deadline, phone or laptop."
+    },
+    {
+      "a": 16.429,
+      "voice": 16.529,
+      "end": 18.991,
+      "b": 19.091,
+      "say": "Now: one idea that fits, with a seven-day plan.",
+      "show": "1 idea that fits, with a 7-day plan."
+    },
+    {
+      "a": 19.091,
+      "voice": 19.191,
+      "end": 22.808,
+      "b": 22.908,
+      "say": "The catch: it doesn't know your college rules. Ask your guide, use your words.",
+      "show": "The catch: check with your guide. Use your own words."
+    },
+    {
+      "a": 22.908,
+      "voice": 23.008,
+      "end": 27.211,
+      "b": 28.61,
+      "say": "Send this to the roommate whose project is due Friday. Comment ASK.",
+      "show": "Send this to the roommate due Friday. Comment ASK."
+    }
+  ]
+}

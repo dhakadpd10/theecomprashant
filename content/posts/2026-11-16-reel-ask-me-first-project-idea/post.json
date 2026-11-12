@@ -1,0 +1,124 @@
+{
+  "id": "2026-11-16-reel-ask-me-first-project-idea",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "prompt",
+  "hook": "#10",
+  "keyword": "ASK",
+  "world": "stage",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(same|10|generic|guesses|doctor|first|3|branch|deadline|laptop|1|fits|7-day|catch|guide|Send|Friday|ASK)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E5BBA"
+  },
+  "lines": [
+    {
+      "say": "If AI gives you the same old project ideas as everyone else, watch this.",
+      "show": "Same 10 project ideas as everyone? Watch this.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "In the library: give me a mini project idea. A pile of generic answers.",
+      "show": "Give me a mini project idea. 10 generic answers.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Give it nothing, it guesses. A good doctor asks first.",
+      "show": "Give it nothing, it guesses. A doctor asks first.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "So make AI ask you three things: branch, deadline, phone or laptop.",
+      "show": "AI asks 3 things: branch, deadline, phone or laptop.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Now: one idea that fits, with a seven-day plan.",
+      "show": "1 idea that fits, with a 7-day plan.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it doesn't know your college rules. Ask your guide, use your words.",
+      "show": "The catch: check with your guide. Use your own words.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the roommate whose project is due Friday. Comment ASK.",
+      "show": "Send this to the roommate due Friday. Comment ASK.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line1.voice+1.8",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+2.0",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+2.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "ding"
+    }
+  ],
+  "cover": {
+    "at": "@line3+2.8",
+    "title": [
+      "AI ASKS YOU",
+      "3 QUESTIONS FIRST"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

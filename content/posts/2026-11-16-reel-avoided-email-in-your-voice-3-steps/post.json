@@ -1,0 +1,163 @@
+{
+  "id": "2026-11-16-reel-avoided-email-in-your-voice-3-steps",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "STYLE",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "16 Nov 13:00 IST",
+    "slot_utc": "16 Nov 07:30 UTC",
+    "kind": "tutorial",
+    "hook_id": "#11",
+    "keyword": "STYLE",
+    "free_tool": "Write-Like-Me Prompt",
+    "list_card": "yes (3 steps, step 3 marked favourite)",
+    "named_viewer": "9-to-5ers after office",
+    "arm": "none",
+    "pair": "none",
+    "money_angle": "no",
+    "log_style": "editorial-host"
+  },
+  "hot": "^(voice|3|favourite|polite|firm|you|catch|line|Send|STYLE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2F5BD3"
+  },
+  "lines": [
+    {
+      "say": "After office? That leave mail, in your own voice, in three steps.",
+      "show": "Your leave mail, in your voice. 3 steps.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Like a tailor copying the fit of your old shirt.",
+      "show": "A tailor copies your old shirt's fit.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "One: put two emails you sent into a free AI app, like Gemini.",
+      "show": "1: paste 2 emails you sent.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: tap the mic and say it the way you talk, Hindi and English mixed.",
+      "show": "2: voice-type it in Hinglish.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Three, the best part: ask for one polite version and one firm.",
+      "show": "3, my favourite: polite and firm.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Done. It reads like you wrote it.",
+      "show": "Done. It sounds like you.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it can invent a date or a promise. Read every line.",
+      "show": "The catch: read every line.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And never share salary slips or office data.",
+      "show": "No salary slips. No office data.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the colleague who's been drafting the same leave mail since Monday.",
+      "show": "Send this to that colleague.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Type STYLE below, and I'll send you the free tool.",
+      "show": "Comment STYLE for the prompt.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+1.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+1.0",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+1.1",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line9.voice+0.3",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "YOUR LEAVE MAIL",
+      "IN YOUR VOICE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

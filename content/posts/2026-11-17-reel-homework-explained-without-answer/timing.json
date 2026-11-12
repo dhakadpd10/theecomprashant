@@ -1,0 +1,81 @@
+{
+  "dur": 35.98,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.605,
+      "b": 4.705,
+      "say": "Steal this one line. It stops ChatGPT giving away your homework answers.",
+      "show": "Steal this 1 line for homework."
+    },
+    {
+      "a": 4.705,
+      "voice": 4.805,
+      "end": 8.774,
+      "b": 8.874,
+      "say": "Homework doubt at nine pm? Don't panic. Make AI your tuition sir.",
+      "show": "Homework doubt at 9 pm? Tuition sir mode."
+    },
+    {
+      "a": 8.874,
+      "voice": 8.974,
+      "end": 12.739,
+      "b": 12.839,
+      "say": "One: snap the question and drop it into Gemini or ChatGPT.",
+      "show": "Step 1: photo the question."
+    },
+    {
+      "a": 12.839,
+      "voice": 12.939,
+      "end": 17.385,
+      "b": 17.485,
+      "say": "Two, my favourite: tell it to explain one step at a time. No final answer.",
+      "show": "Step 2: one step at a time."
+    },
+    {
+      "a": 17.485,
+      "voice": 17.585,
+      "end": 20.341,
+      "b": 20.441,
+      "say": "Three: ask it for three practice questions just like it.",
+      "show": "Step 3: 3 practice questions."
+    },
+    {
+      "a": 20.441,
+      "voice": 20.541,
+      "end": 23.894,
+      "b": 23.994,
+      "say": "Now it's your tuition sir. It stops and asks you, what comes next?",
+      "show": "It stops at: what comes next?"
+    },
+    {
+      "a": 23.994,
+      "voice": 24.094,
+      "end": 27.708,
+      "b": 27.808,
+      "say": "Here's the catch: AI can get maths wrong. So check the book's answers.",
+      "show": "The catch: check the book or teacher."
+    },
+    {
+      "a": 27.808,
+      "voice": 27.908,
+      "end": 32.305,
+      "b": 32.405,
+      "say": "Send this to the parent in your society group who's doing Class six maths every night.",
+      "show": "Send this to the Class 6 parent."
+    },
+    {
+      "a": 32.405,
+      "voice": 32.505,
+      "end": 34.583,
+      "b": 35.98,
+      "say": "Comment STUDY and I'll send you the free tool.",
+      "show": "Comment STUDY for the free tool."
+    }
+  ]
+}

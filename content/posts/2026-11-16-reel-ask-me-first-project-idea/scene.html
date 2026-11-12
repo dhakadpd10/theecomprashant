@@ -1,0 +1,203 @@
+<style>
+  /* prompt reel: one idea (make AI ask you first), one analogy (a good doctor asks before prescribing).
+     colour = meaning: blue = AI asking, red = guess / generic, green = fits. Host centre, corner, hidden, corner. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E5DDCF 100%); }
+  .ruled { position: absolute; left: 0; right: 0; top: -80px; height: 2080px; background-image: repeating-linear-gradient(180deg, rgba(46,91,186,0) 0px, rgba(46,91,186,0) 68px, rgba(46,91,186,0.055) 68px, rgba(46,91,186,0.055) 70px); }
+  #margin { position: absolute; left: 60px; top: 0; width: 3px; height: 1920px; background: rgba(184,58,42,0.09); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(46,91,186,0.08) 0%, rgba(46,91,186,0) 70%); }
+  #orb2 { left: 520px; top: 860px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(226,160,40,0.08) 0%, rgba(226,160,40,0) 70%); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 80px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.18em; color: var(--accent); }
+  .title { position: absolute; left: 90px; right: 90px; top: 140px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(70,50,20,0.13), 0 2px 0 rgba(70,50,20,0.05); overflow: hidden; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.1em; color: rgba(30,26,22,0.68); white-space: nowrap; }
+  .chip { position: absolute; height: 56px; padding: 0 22px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .red { background: #B83A2A; } .green { background: #237A4B; } .amber { background: #F2B233; color: #1E1A16; } .blue { background: var(--accent); }
+
+  /* 0: hook (host centre, everything above frame y 560) */
+  #s0-step { top: 50px; }
+  #s0-title { top: 96px; font-size: 136px; line-height: 1; }
+  .stack { position: absolute; left: 500px; width: 440px; height: 100px; box-sizing: border-box; border-radius: 24px; background: #FFFFFF; box-shadow: 0 20px 44px rgba(70,50,20,0.16); display: flex; align-items: center; padding-left: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .stack i { display: block; width: 30px; height: 30px; margin-right: 20px; border: 4px solid rgba(30,26,22,0.35); border-radius: 8px; box-sizing: border-box; }
+  #s0-k1 { top: 90px; } #s0-k2 { top: 114px; } #s0-k3 { top: 138px; }
+  #s0-stamp { position: absolute; left: 660px; top: 146px; width: 250px; height: 92px; box-sizing: border-box; border: 7px solid #B83A2A; border-radius: 16px; background: rgba(255,251,246,0.94); color: #B83A2A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.16em; display: flex; align-items: center; justify-content: center; }
+
+  /* 1: the vague ask in the library */
+  #s1-card { top: 470px; height: 620px; }
+  #s1-ask { position: absolute; right: 30px; top: 30px; height: 84px; padding: 0 30px; border-radius: 42px 42px 12px 42px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; white-space: nowrap; }
+  #s1-dots { position: absolute; left: 30px; top: 146px; width: 130px; height: 64px; border-radius: 32px; background: #F1ECE3; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s1-dots i { display: block; width: 16px; height: 16px; border-radius: 50%; background: rgba(30,26,22,0.4); }
+  .idea { position: absolute; left: 30px; right: 30px; height: 76px; border-radius: 20px; background: #F6F2EB; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .idea b { display: flex; width: 48px; height: 48px; margin: 0 20px 0 16px; border-radius: 50%; background: rgba(30,26,22,0.12); align-items: center; justify-content: center; font-size: 28px; font-weight: 900; }
+  #s1-i1 { top: 140px; } #s1-i2 { top: 228px; } #s1-i3 { top: 316px; } #s1-i4 { top: 404px; }
+  #s1-more { left: 30px; top: 516px; }
+  #s1-stamp { position: absolute; left: 130px; top: 250px; width: 400px; height: 112px; box-sizing: border-box; border: 8px solid #B83A2A; border-radius: 18px; background: rgba(255,255,255,0.92); color: #B83A2A; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.16em; display: flex; align-items: center; justify-content: center; }
+
+  /* 2: the doctor */
+  #s2-card { top: 470px; height: 600px; }
+  #s2-in { left: 30px; top: 30px; }
+  #s2-field { position: absolute; left: 30px; right: 30px; top: 74px; height: 96px; box-sizing: border-box; border-radius: 22px; background: #F6F2EB; border: 3px dashed rgba(30,26,22,0.28); }
+  #s2-caret { position: absolute; left: 24px; top: 23px; width: 4px; height: 44px; background: var(--accent); }
+  #s2-field .t { position: absolute; left: 44px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: rgba(30,26,22,0.66); }
+  #s2-guess { right: 18px; top: 17px; }
+  #s2-doc { left: 30px; top: 204px; display: flex; align-items: center; gap: 14px; }
+  #s2-doc svg { display: block; width: 36px; height: 36px; }
+  .q { position: absolute; left: 30px; right: 30px; height: 92px; border-radius: 22px; background: #EEF2FB; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .q b { display: flex; width: 56px; height: 56px; margin: 0 20px 0 18px; border-radius: 50%; background: var(--accent); color: #FFFFFF; align-items: center; justify-content: center; font-family: var(--display); font-size: 28px; }
+  #s2-q1 { top: 256px; } #s2-q2 { top: 360px; } #s2-q3 { top: 464px; }
+
+  /* 3: the fix, AI asks 3 things (host hidden, full width) */
+  #s3-card { left: 90px; right: 90px; top: 440px; height: 720px; }
+  #s3-head { position: absolute; left: 36px; top: 30px; height: 64px; display: flex; align-items: center; gap: 18px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s3-head i { display: block; width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #6F93E0 0%, var(--accent) 70%); }
+  .ask { position: absolute; left: 36px; right: 36px; height: 110px; border-radius: 26px; background: #F6F2EB; }
+  .ask b { position: absolute; left: 24px; top: 23px; width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 36px; }
+  .ask .t { position: absolute; left: 112px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .ask svg { position: absolute; display: block; right: 28px; top: 25px; height: 60px; }
+  #s3-a1 { top: 116px; } #s3-a2 { top: 246px; } #s3-a3 { top: 376px; }
+  #s3-reply { position: absolute; right: 36px; top: 520px; height: 90px; padding: 0 34px; border-radius: 45px 45px 12px 45px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; white-space: nowrap; }
+  #s3-note { right: 36px; top: 640px; }
+
+  /* 4: the result */
+  #s4-card { top: 450px; height: 640px; }
+  #s4-k { left: 30px; top: 30px; color: #237A4B; }
+  #s4-ex { right: 30px; top: 30px; }
+  #s4-name { position: absolute; left: 30px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s4-fits { right: 30px; top: 72px; }
+  #s4-sub { left: 30px; top: 136px; }
+  #s4-tags { position: absolute; left: 30px; top: 186px; display: flex; gap: 14px; }
+  .tag { display: flex; height: 52px; padding: 0 20px; border-radius: 26px; background: #E6ECF8; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; align-items: center; justify-content: center; white-space: nowrap; }
+  #s4-plan { left: 30px; top: 262px; }
+  #s4-dots { position: absolute; left: 280px; top: 266px; display: flex; gap: 12px; }
+  #s4-dots i { display: block; width: 22px; height: 22px; border-radius: 50%; background: #E6ECF8; }
+  .pr { position: absolute; left: 30px; right: 30px; height: 66px; border-radius: 18px; background: #F6F2EB; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .pr b { display: flex; width: 160px; height: 46px; margin: 0 20px 0 10px; border-radius: 23px; background: var(--accent); color: #FFFFFF; font-size: 28px; font-weight: 900; letter-spacing: 0.02em; align-items: center; justify-content: center; }
+  #s4-d1 { top: 306px; } #s4-d2 { top: 382px; } #s4-d3 { top: 458px; } #s4-d4 { top: 534px; }
+
+  /* 5: the catch */
+  #s5-card { top: 470px; height: 480px; }
+  .ck { position: absolute; left: 30px; right: 30px; height: 110px; border-radius: 24px; background: #F6F2EB; }
+  .ck .t { position: absolute; left: 30px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .ck .chip { right: 24px; top: 27px; }
+  #s5-c1 { top: 30px; } #s5-c2 { top: 156px; } #s5-c3 { top: 282px; }
+  #s5-note { left: 30px; top: 420px; }
+
+  /* 6: send + keyword */
+  #send { position: absolute; left: 360px; right: 60px; top: 30px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.1; color: var(--ink); }
+  #who { position: absolute; left: 380px; right: 80px; top: 190px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: rgba(30,26,22,0.72); }
+  #who .h { color: var(--accent); }
+  #cal { position: absolute; left: 580px; top: 320px; width: 220px; height: 230px; border-radius: 28px; background: #FFFFFF; box-shadow: 0 24px 50px rgba(70,50,20,0.15); overflow: hidden; }
+  #cal .top { height: 64px; background: #B83A2A; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.2em; display: flex; align-items: center; justify-content: center; }
+  #cal .day { height: 166px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 120px; line-height: 1; color: var(--ink); }
+  #pill { position: absolute; left: 360px; right: 60px; top: 620px; height: 210px; border-radius: 105px; background: var(--ink); display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #pill .c { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: #F1EEE8; margin-right: 14px; }
+  #pill .k { display: block; font-family: var(--display); font-size: 120px; line-height: 1; color: #A9C0FF; }
+  #free { position: absolute; left: 490px; top: 870px; width: 400px; height: 72px; box-sizing: border-box; border: 4px solid var(--accent); border-radius: 36px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.1em; color: var(--accent); white-space: nowrap; }
+  #free svg { display: block; width: 26px; height: 34px; }
+</style>
+
+<div class="paper"></div>
+<div class="ruled" id="ruled"></div>
+<div id="margin"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">AI PROJECT IDEAS</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Same</span></span><span class="mask"><span class="l it" id="s0-l2">10 ideas?</span></span></div>
+  <div class="stack" id="s0-k1" data-layout-allow-overlap><i></i>To-do list app</div>
+  <div class="stack" id="s0-k2" data-layout-allow-overlap><i></i>To-do list app</div>
+  <div class="stack" id="s0-k3" data-layout-allow-overlap><i></i>To-do list app</div>
+  <div id="s0-stamp" data-layout-allow-overlap>SAME</div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">IN THE LIBRARY</div>
+  <div class="title"><span class="mask"><span class="l">Vague ask,</span></span><span class="mask"><span class="l"><span class="it">generic</span> ideas.</span></span></div>
+  <div class="card" id="s1-card">
+    <div id="s1-ask">Give me a project idea</div>
+    <div id="s1-dots" data-layout-allow-overlap><i id="s1-dot1"></i><i id="s1-dot2"></i><i id="s1-dot3"></i></div>
+    <div class="idea" id="s1-i1"><b>1</b>To-do list app</div>
+    <div class="idea" id="s1-i2"><b>2</b>Weather app</div>
+    <div class="idea" id="s1-i3"><b>3</b>Library system</div>
+    <div class="idea" id="s1-i4"><b>4</b>Calculator</div>
+    <div class="lbl" id="s1-more">+6 MORE · EXAMPLE</div>
+    <div id="s1-stamp" data-layout-allow-overlap>GENERIC</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE TRICK</div>
+  <div class="title"><span class="mask"><span class="l">A doctor</span></span><span class="mask"><span class="l">asks <span class="it">first.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lbl" id="s2-in">YOU GIVE IT</div>
+    <div id="s2-field"><i id="s2-caret"></i><div class="t">Nothing</div><div class="chip red" id="s2-guess">GUESSES</div></div>
+    <div class="lbl" id="s2-doc"><svg viewBox="0 0 36 36"><rect x="12" y="2" width="12" height="32" rx="3" fill="#B83A2A"></rect><rect x="2" y="12" width="32" height="12" rx="3" fill="#B83A2A"></rect></svg>A DOCTOR ASKS FIRST</div>
+    <div class="q" id="s2-q1"><b id="s2-qb1">?</b>Where does it hurt?</div>
+    <div class="q" id="s2-q2"><b id="s2-qb2">?</b>Since when?</div>
+    <div class="q" id="s2-q3"><b id="s2-qb3">?</b>Any medicines?</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE FIX</div>
+  <div class="title"><span class="mask"><span class="l">It asks</span></span><span class="mask"><span class="l"><span class="it">3</span> questions.</span></span></div>
+  <div class="card" id="s3-card">
+    <div id="s3-head"><i></i>Before I answer:</div>
+    <div class="ask" id="s3-a1"><b id="s3-n1">1</b><div class="t">What's your branch?</div>
+      <svg id="s3-ic1" viewBox="0 0 80 60" width="80" height="60"><path d="M40 6 L76 22 L40 38 L4 22 Z" fill="#2E5BBA"></path><path d="M18 30 L18 44 Q40 56 62 44 L62 30 L40 40 Z" fill="#1F3F86"></path></svg></div>
+    <div class="ask" id="s3-a2"><b id="s3-n2">2</b><div class="t">When is it due?</div>
+      <svg id="s3-ic2" viewBox="0 0 60 60" width="60" height="60"><rect x="4" y="8" width="52" height="48" rx="8" fill="#FFFFFF" stroke="#1E1A16" stroke-width="4"></rect><rect x="4" y="8" width="52" height="14" rx="6" fill="#B83A2A"></rect><rect x="16" y="2" width="6" height="12" rx="3" fill="#1E1A16"></rect><rect x="38" y="2" width="6" height="12" rx="3" fill="#1E1A16"></rect><rect x="16" y="32" width="10" height="10" rx="2" fill="#2E5BBA"></rect></svg></div>
+    <div class="ask" id="s3-a3"><b id="s3-n3">3</b><div class="t">Phone or laptop?</div>
+      <svg id="s3-ic3" viewBox="0 0 120 60" width="120" height="60"><rect x="4" y="4" width="30" height="52" rx="6" fill="#1E1A16"></rect><rect x="9" y="11" width="20" height="36" rx="2" fill="#9FB6E6"></rect><rect x="50" y="10" width="58" height="36" rx="4" fill="#1E1A16"></rect><rect x="55" y="15" width="48" height="26" rx="2" fill="#9FB6E6"></rect><rect x="42" y="46" width="74" height="8" rx="3" fill="#1E1A16"></rect></svg></div>
+    <div id="s3-reply">CSE · 7 days · phone</div>
+    <div class="lbl" id="s3-note">EXAMPLE ANSWERS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">1 idea</span></span><span class="mask"><span class="l">that <span class="it">fits.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div class="lbl" id="s4-k">1 IDEA THAT FITS</div>
+    <div class="lbl" id="s4-ex">EXAMPLE</div>
+    <div id="s4-name">Laundry slot booker</div>
+    <div class="chip green" id="s4-fits">FITS</div>
+    <div class="lbl" id="s4-sub">BUILT ON GOOGLE FORMS</div>
+    <div id="s4-tags"><div class="tag" id="s4-t1">CSE</div><div class="tag" id="s4-t2">7 DAYS</div><div class="tag" id="s4-t3">PHONE</div></div>
+    <div class="lbl" id="s4-plan">7-DAY PLAN</div>
+    <div id="s4-dots"><i id="s4-o1"></i><i id="s4-o2"></i><i id="s4-o3"></i><i id="s4-o4"></i><i id="s4-o5"></i><i id="s4-o6"></i><i id="s4-o7"></i></div>
+    <div class="pr" id="s4-d1"><b>DAY 1</b>Pick the slots</div>
+    <div class="pr" id="s4-d2"><b>DAY 2-3</b>Build the form</div>
+    <div class="pr" id="s4-d3"><b>DAY 4-5</b>Test with friends</div>
+    <div class="pr" id="s4-d4"><b>DAY 6-7</b>Report + demo</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check with</span></span><span class="mask"><span class="l">your <span class="it">guide.</span></span></span></div>
+  <div class="card" id="s5-card">
+    <div class="ck" id="s5-c1"><div class="t">Knows college rules</div><div class="chip red" id="s5-x1">NO</div></div>
+    <div class="ck" id="s5-c2"><div class="t">Guide says OK</div><div class="chip amber" id="s5-x2">ASK</div></div>
+    <div class="ck" id="s5-c3"><div class="t">In your own words</div><div class="chip green" id="s5-x3">YOU</div></div>
+    <div class="lbl" id="s5-note">AI CAN'T SEE YOUR RULES</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="end">
+  <div id="send">Send this.</div>
+  <div id="who">to the roommate whose project is due <span class="h">Friday</span></div>
+  <div id="cal"><div class="top">DUE</div><div class="day">FRI</div></div>
+  <div id="pill"><div class="c">Comment</div><div class="k" id="ka">A</div><div class="k" id="ks">S</div><div class="k" id="kk">K</div></div>
+  <div id="free"><svg viewBox="0 0 26 34"><path d="M2 2 H24 V32 L13 24 L2 32 Z" fill="#2E5BBA"></path></svg>FREE · SAVE IT</div>
+</section>

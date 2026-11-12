@@ -1,0 +1,138 @@
+{
+  "id": "2026-11-17-reel-homework-explained-without-answer",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tutorial",
+  "keyword": "STUDY",
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(Steal|1|line|homework|9|tuition|sir|Step|2|3|favourite|step|practice|next|catch|book's|Send|Class|6|STUDY|free)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2E6B4F"
+  },
+  "lines": [
+    {
+      "say": "Steal this one line. It stops ChatGPT giving away your homework answers.",
+      "show": "Steal this 1 line for homework.",
+      "card": "STEAL THIS HOMEWORK LINE",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Homework doubt at nine pm? Don't panic. Make AI your tuition sir.",
+      "show": "Homework doubt at 9 pm? Tuition sir mode.",
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "One: snap the question and drop it into Gemini or ChatGPT.",
+      "show": "Step 1: photo the question.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, my favourite: tell it to explain one step at a time. No final answer.",
+      "show": "Step 2: one step at a time.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Three: ask it for three practice questions just like it.",
+      "show": "Step 3: 3 practice questions.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Now it's your tuition sir. It stops and asks you, what comes next?",
+      "show": "It stops at: what comes next?",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "Here's the catch: AI can get maths wrong. So check the book's answers.",
+      "show": "The catch: check the book or teacher.",
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the parent in your society group who's doing Class six maths every night.",
+      "show": "Send this to the Class 6 parent.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment STUDY and I'll send you the free tool.",
+      "show": "Comment STUDY for the free tool.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.6",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+1.2",
+      "fx": "ding"
+    },
+    {
+      "at": "@line4.voice+0.8",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.7",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line3+1.4",
+    "title": [
+      "STEAL THIS",
+      "HOMEWORK LINE"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

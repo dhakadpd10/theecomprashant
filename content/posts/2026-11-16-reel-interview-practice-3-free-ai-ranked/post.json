@@ -1,0 +1,195 @@
+{
+  "id": "2026-11-16-reel-interview-practice-3-free-ai-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "INTRO",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "16 Nov 2026 09:00 IST",
+    "slot_utc": "16 Nov 2026 03:30 UTC",
+    "kind": "tool",
+    "hook_id": "#11",
+    "keyword": "INTRO",
+    "free_tool": "Tell-Me-About-Yourself Prompt",
+    "list_card": "yes",
+    "named_viewer": "people between jobs, at home before an interview",
+    "arm": "none",
+    "pair": "none",
+    "money_angle": "no",
+    "format": "reel",
+    "log_style": "editorial-host"
+  },
+  "core_idea": "AI can play the interviewer, so your first nervous answer isn't the one HR hears.",
+  "analogy": "Nets practice before the match.",
+  "list_card": {
+    "ranked": [
+      {
+        "rank": 3,
+        "name": "ChatGPT voice mode",
+        "note": "Talk out loud, it asks the next question",
+        "limit": "COPY FREE-PLAN VOICE LIMIT EXACTLY AS OPENAI STATES IT ON FILMING DAY"
+      },
+      {
+        "rank": 2,
+        "name": "Google Interview Warmup",
+        "note": "Free, by Google, English questions",
+        "limit": "COPY LANGUAGE AND ACCESS EXACTLY AS GOOGLE'S PAGE STATES IT ON FILMING DAY"
+      },
+      {
+        "rank": 1,
+        "favourite": true,
+        "name": "Gemini Live",
+        "note": "Talks back in Hindi or English, can play a strict HR",
+        "limit": "COPY FREE-PLAN LIMIT EXACTLY AS GOOGLE STATES IT ON FILMING DAY"
+      }
+    ]
+  },
+  "payoff_card": {
+    "label": "EXAMPLE",
+    "question": "Tell me about yourself.",
+    "weak_line": "I'm a hard worker.",
+    "fix_green": "In my last job I cut the weekly report from 3 hours to 1.",
+    "note": "Example answer, not a real candidate. The fix is the only green element."
+  },
+  "hot": "^(3|three|free|1|one|favourite|Nets|HR|Gemini|Hindi|stronger|catch|Send|INTRO)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#2B4ACB"
+  },
+  "lines": [
+    {
+      "say": "Between jobs? Three free AI interviewers, and number one plays strict HR.",
+      "show": "Between jobs? 3 free AI interviewers. One favourite.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Nets before the match: fumble here, not with HR.",
+      "show": "Nets before the match. Fumble here, not with HR.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Three: Chat G P T voice mode, out loud.",
+      "show": "3. ChatGPT voice mode, out loud.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: Google Interview Warm Up. Free, English questions.",
+      "show": "2. Google Interview Warmup. Free, English.",
+      "cut": false,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "One: Gemini Live. Hindi or English, strict HR.",
+      "show": "1. Gemini Live. Hindi or English. Strict HR.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Ask for feedback: your weak line comes back stronger.",
+      "show": "Ask for feedback. Your line gets stronger.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it can't see your nerves or know this company.",
+      "show": "The catch: it can't see your nerves.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "And free voice time can run out.",
+      "show": "Free voice time can run out.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Send this to the friend with an interview on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO for the prompt.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line2.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+1.6",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.2",
+    "title": [
+      "3 FREE AI INTERVIEWERS",
+      "#1 PLAYS STRICT HR"
+    ]
+  },
+  "prefilm_checks": [
+    "Open Google Interview Warmup on filming day. If it no longer opens or is no longer free, skip and log the slot. Do not swap in another tool.",
+    "Confirm Interview Warmup's question language on its own page. If it lists more than English, change line 3 and the card to match.",
+    "Copy each free-plan limit word for word from ChatGPT's and Gemini's own pages onto the card. Leave a limit off rather than guess it.",
+    "Confirm Gemini Live speaks Hindi on the free plan in India on filming day.",
+    "Confirm the INTRO keyword and the Tell-Me-About-Yourself Prompt are on the tools page and in docs/EXPLAINER.md before posting. INTRO is not on the housekeeping step 5 list. INTRO must not already serve a different tool.",
+    "Header matches the 16 Nov 09:00 IST fixed slot: tool, #11, ranked list card, people between jobs. This is #11 use 5 of the 6 allowed through 16 Nov.",
+    "Spoken words: 81 across 9 lines. All lines are 12 words or fewer, with no em dashes and no line starting with 'Claude'."
+  ],
+  "host": {
+    "name": "prashant"
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "id": "2026-11-14-reel-list-honest-planted-mistake",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "list",
+  "proven": "P11",
+  "keyword": "HONEST",
+  "free_tool": "Honest Second-Opinion Prompt",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "14 Nov 19:30 IST",
+    "slot_utc": "14 Nov 14:00 UTC",
+    "kind_audit_log": "compare",
+    "hook_id": "11",
+    "keyword": "HONEST",
+    "list_card": "yes",
+    "named_viewer": "9-to-5ers after office",
+    "money_angle": "no",
+    "on_line": "yes",
+    "style_audit_log": "editorial-host",
+    "note": "Last compare before the 17 Nov kind read (fifth compare). Opener uses the #6 Receipt shape; confirm hook id before publish. The TOOL_ and VERDICT_ placeholders must be filled word for word from the real on-camera run before render."
+  },
+  "core_idea": "Chat AIs lean towards agreeing with you, so a polite answer is not a checked answer.",
+  "analogy": "The colleague who says 'looks good, bro' without opening the file.",
+  "planted_plan": {
+    "label": "EXAMPLE",
+    "title": "Weekly budget (EXAMPLE)",
+    "rows": [
+      {
+        "item": "Rent share",
+        "amount": "₹1,500"
+      },
+      {
+        "item": "Food",
+        "amount": "₹1,800"
+      },
+      {
+        "item": "Travel",
+        "amount": "₹900"
+      },
+      {
+        "item": "Phone",
+        "amount": "₹500"
+      }
+    ],
+    "written_total": "₹4,200",
+    "real_total": "₹4,700",
+    "planted_error": "Written total ₹4,200; the rows add up to ₹4,700.",
+    "same_text_in": [
+      "ChatGPT (free)",
+      "Gemini (free)",
+      "Claude (free)"
+    ]
+  },
+  "ranking_source": "Filled only from the real on-camera run, filmed before scripting. Nothing decided in advance.",
+  "hot": "^(1|3|wrong|total|favourite|catch|flatter|HONEST)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "colour_meaning": {
+    "green": "#8DB28A caught the error",
+    "amber": "#F2C14E hinted at it",
+    "red": "red said 'looks great'"
+  },
+  "lines": [
+    {
+      "say": "I hid one wrong total. Here's what three AIs replied.",
+      "show": "I hid 1 wrong total. 3 AIs replied.",
+      "card": "1 WRONG TOTAL. 3 REPLIES (hook, 120 px+). Below: clay plan card '3 AIs. 1 mistake.' with the EXAMPLE budget rows and the total ₹4,200 hiding a small red mark.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Office people, same budget, three free AIs.",
+      "show": "9-to-5ers: same budget, 3 free AIs.",
+      "card": "The EXAMPLE plan card slides into three chat bubbles side by side, labelled ChatGPT, Gemini, Claude (FREE PLAN chip on each), typing dots in each.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "AIs lean to yes, like a colleague saying 'looks good, bro'.",
+      "show": "AIs lean to yes. 'Looks good, bro.'",
+      "card": "Clay colleague chip with a closed file icon and a 'LOOKS GOOD, BRO' speech pill; the file stays shut (padlock stamp).",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Number three, {{TOOL_THREE}}: {{VERDICT_THREE}}.",
+      "show": "3. {{TOOL_THREE}}: {{VERDICT_THREE_SHORT}}",
+      "card": "Full clay card: badge 3, {{TOOL_THREE}} name and domain, its real reply quoted from the run, colour stamp {{COLOUR_THREE}} (red = 'looks great', amber = hinted, green = caught).",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number two, {{TOOL_TWO}}: {{VERDICT_TWO}}.",
+      "show": "2. {{TOOL_TWO}}: {{VERDICT_TWO_SHORT}}",
+      "card": "Full clay card: badge 2, {{TOOL_TWO}} name and domain, its real reply quoted from the run, colour stamp {{COLOUR_TWO}}.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Number one, my top pick, {{TOOL_ONE}}: it circled the wrong number.",
+      "show": "1. {{TOOL_ONE}}: circled the wrong total.",
+      "card": "Payoff, full width: badge 1 + FAVOURITE clay stamp, {{TOOL_ONE}} name and domain, its real reply with a terracotta clay ring drawn around ₹4,200 and the green note 'rows add up to ₹4,700'. Only if the run shows this; otherwise rewrite from the run.",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: one test, one day. All three can still flatter you.",
+      "show": "The catch: 1 test, 1 day. Any can flatter you.",
+      "card": "Amber CHECK card: '1 test · 1 day · free plans' and 'any of the 3 can still say looks good'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the colleague who runs everything through AI before sending it to the manager.",
+      "show": "Send this to that colleague.",
+      "card": "Send card: the 'looks good, bro' colleague chip with a paper-plane clay icon.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment HONEST for the one-line prompt that helps on all three.",
+      "show": "Comment HONEST for the prompt.",
+      "card": "Quiet end card: big clay letters HONEST, dark pill 'Comment HONEST', chip 'FREE · 1 LINE · WORKS ON ALL 3'.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.6",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.8",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+0.4",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.6",
+    "title": [
+      "3 AIs. 1 MISTAKE.",
+      "WHO SAID IT'S WRONG?"
+    ]
+  },
+  "caption": {
+    "line1": "Comment HONEST for the one-line prompt that makes any AI check your work.",
+    "body": [
+      "I pasted the same EXAMPLE weekly budget into ChatGPT, Gemini and Claude, all on free plans. The total was wrong on purpose (₹4,200 written, rows add up to ₹4,700).",
+      "3. {{TOOL_THREE}}: {{VERDICT_THREE_SHORT}}",
+      "2. {{TOOL_TWO}}: {{VERDICT_TWO_SHORT}}",
+      "1. {{TOOL_ONE}} (my favourite): {{VERDICT_ONE_SHORT}}",
+      "What you need: any of the three free apps and your own plan, budget or schedule.",
+      "The catch: this is one test on one day. Any of the three can still flatter you. Chat AIs lean towards agreeing, so a polite answer is not a checked answer.",
+      "Send this to the colleague who pastes everything into ChatGPT before sending it to the manager.",
+      "Comment HONEST and I'll DM you the prompt.",
+      "Results vary."
+    ],
+    "hashtags": [
+      "#ChatGPT",
+      "#AITips",
+      "#WorkSmart"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

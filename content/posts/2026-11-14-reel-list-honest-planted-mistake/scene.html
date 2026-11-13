@@ -1,0 +1,257 @@
+<!-- Clay take on the editorial look: warm sand paper, ink, deep terracotta for accent text (contrast), receipt opener, ranked verdict cards with colour = meaning.
+     {{TOOL_*}}, {{VERDICT_*_SHORT}} and {{COLOUR_*}} are filled word for word from the real on-camera run before render. COLOUR must be red, amber or green. -->
+<style>
+  :root { --deep: #9A3D14; }
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 28%, #F6EBD8 0%, var(--bg) 58%, #DDC6A3 100%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(43,36,32,0.04) 1px, transparent 1px); background-size: 6px 6px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(90px); opacity: 0.45; }
+  #b1 { left: -160px; top: 200px; width: 620px; height: 620px; background: #F0B98C; }
+  #b2 { left: 560px; top: 760px; width: 640px; height: 640px; background: #CFE0C6; }
+  #b3 { left: 260px; top: -100px; width: 520px; height: 420px; background: #F6D58A; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(43,36,32,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 60px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: 0.16em; color: var(--deep); white-space: nowrap; transform-origin: left center; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 96px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; white-space: nowrap; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--deep); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 36px; background: #FBF4E8; box-shadow: 0 28px 60px rgba(90,50,20,0.18), inset 0 -8px 0 rgba(90,50,20,0.06), inset 0 6px 0 rgba(255,255,255,0.7); overflow: hidden; }
+  .fp { position: absolute; height: 44px; padding: 0 18px; border-radius: 22px; background: #EBDCC4; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; white-space: nowrap; }
+
+  /* 0: hook, the receipt with one wrong total */
+  #s0-title { right: auto; width: 520px; top: 120px; font-size: 120px; }
+  #s0-rc { position: absolute; left: 630px; right: 90px; top: 70px; height: 370px; border-radius: 30px; background: #FBF4E8; box-shadow: 0 26px 56px rgba(90,50,20,0.2), inset 0 -8px 0 rgba(90,50,20,0.06); }
+  #s0-rc .hd { position: absolute; left: 28px; right: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: var(--deep); white-space: nowrap; }
+  #s0-rc .rr { position: absolute; left: 28px; right: 28px; height: 50px; border-bottom: 2px dashed rgba(43,36,32,0.14); }
+  #s0-rc .k { position: absolute; left: 0; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: rgba(43,36,32,0.72); }
+  #s0-rc .v { position: absolute; right: 0; top: 6px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  #s0-r1 { top: 66px; } #s0-r2 { top: 118px; } #s0-r3 { top: 170px; } #s0-r4 { top: 222px; }
+  #s0-tot { position: absolute; left: 16px; right: 16px; top: 288px; height: 64px; border-radius: 18px; background: #F7DCD2; }
+  #s0-tot .k { left: 14px; top: 16px; font-size: 26px; color: #7A2416; letter-spacing: 0.1em; }
+  #s0-tot .v { right: 14px; top: 12px; font-size: 34px; color: #7A2416; }
+  #s0-mark { position: absolute; left: 318px; top: 274px; width: 30px; height: 30px; border-radius: 50%; background: #C23B2E; box-shadow: 0 4px 10px rgba(194,59,46,0.4); }
+
+  /* 1: same budget, three free AIs */
+  #s1-you { position: absolute; left: 460px; right: 60px; top: 360px; height: 96px; border-radius: 48px 48px 12px 48px; background: var(--ink); color: #FBF4E8; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  .ai { position: absolute; left: 360px; right: 60px; height: 140px; border-radius: 32px; background: #FBF4E8; box-shadow: 0 20px 44px rgba(90,50,20,0.15), inset 0 -6px 0 rgba(90,50,20,0.06); }
+  #s1-a1 { top: 490px; } #s1-a2 { top: 650px; } #s1-a3 { top: 810px; }
+  .av { position: absolute; left: 28px; top: 28px; width: 84px; height: 84px; border-radius: 50%; box-shadow: inset 0 -8px 0 rgba(0,0,0,0.12), inset 0 6px 0 rgba(255,255,255,0.35); }
+  .av1 { background: #6E9C86; } .av2 { background: #6F8FCB; } .av3 { background: #D2602A; }
+  .ai .an { position: absolute; left: 136px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  .ai .fp { left: 136px; top: 76px; }
+  .typing { position: absolute; right: 28px; top: 40px; width: 150px; height: 60px; border-radius: 30px; background: #EFE2CC; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .dt { display: block; width: 16px; height: 16px; border-radius: 50%; background: rgba(43,36,32,0.5); }
+
+  /* 2: the colleague who never opened the file */
+  #s2-card { top: 360px; height: 600px; }
+  #s2-head { position: absolute; left: 36px; top: 36px; width: 110px; height: 110px; border-radius: 50%; background: #E7B98F; box-shadow: inset 0 -10px 0 rgba(90,50,20,0.14), inset 0 8px 0 rgba(255,255,255,0.4); }
+  .eye { position: absolute; top: 40px; width: 14px; height: 14px; border-radius: 50%; background: var(--ink); }
+  .e1 { left: 34px; } .e2 { left: 62px; }
+  .smile { position: absolute; left: 34px; top: 58px; width: 42px; height: 22px; border-bottom: 5px solid var(--ink); border-radius: 0 0 22px 22px; }
+  #s2-who { position: absolute; left: 170px; top: 44px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s2-sub { position: absolute; left: 170px; top: 98px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: rgba(43,36,32,0.72); white-space: nowrap; }
+  #s2-pill { position: absolute; left: 36px; right: 36px; top: 180px; height: 120px; border-radius: 60px; background: #EFE2CC; font-family: 'Playfair Italic', serif; font-size: 52px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s2-file { position: absolute; display: block; left: 60px; top: 340px; width: 190px; height: 230px; }
+  #s2-stamp { position: absolute; left: 290px; top: 380px; width: 320px; height: 120px; border: 9px solid #C23B2E; border-radius: 20px; color: #A82E22; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; rotate: -9deg; }
+  #s2-flab { position: absolute; left: 290px; top: 524px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.08em; color: rgba(43,36,32,0.72); white-space: nowrap; }
+
+  /* 3-4: ranked verdict cards, colour = meaning */
+  .rkt { font-size: 110px; }
+  .rk { top: 360px; height: 600px; }
+  .num { position: absolute; left: 36px; top: 36px; width: 96px; height: 96px; border-radius: 50%; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 52px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -8px 0 rgba(0,0,0,0.18), inset 0 6px 0 rgba(255,255,255,0.25); }
+  .rk .name { position: absolute; left: 156px; right: 36px; top: 26px; height: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 76px; line-height: 1.2; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .rk .fp { left: 156px; top: 128px; }
+  .rk .lab { position: absolute; left: 36px; top: 200px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: rgba(43,36,32,0.7); }
+  .rk .quote { position: absolute; left: 36px; right: 36px; top: 240px; height: 200px; padding: 22px 26px; box-sizing: border-box; border-radius: 24px; background: #F1E4CF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.2; color: var(--ink); overflow: hidden; }
+  .stamp { position: absolute; left: 36px; right: 36px; top: 470px; height: 96px; border-radius: 48px; background: #D9C7AA; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -8px 0 rgba(0,0,0,0.12), inset 0 6px 0 rgba(255,255,255,0.3); }
+  .stamp b { display: none; white-space: nowrap; }
+  .stamp-red { background: #C23B2E; color: #FFFFFF; } .stamp-red .t-red { display: block; }
+  .stamp-amber { background: #F2C14E; } .stamp-amber .t-amber { display: block; }
+  .stamp-green { background: #8DB28A; } .stamp-green .t-green { display: block; }
+  #sL-leg { position: absolute; left: 360px; right: 60px; top: 1000px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .lg { display: flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.08em; color: var(--ink); white-space: nowrap; }
+  .ld { display: block; width: 26px; height: 26px; border-radius: 50%; }
+  .ld.g { background: #8DB28A; } .ld.a { background: #F2C14E; } .ld.r { background: #C23B2E; }
+
+  /* 5: payoff, full width, the ring around the wrong total */
+  #s5-num { left: 90px; top: 112px; width: 110px; height: 110px; font-size: 60px; }
+  #s5-name { position: absolute; left: 225px; top: 100px; width: 440px; height: 130px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.2; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  #s5-fav { position: absolute; left: 690px; top: 122px; width: 260px; height: 90px; border-radius: 45px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; rotate: -7deg; box-shadow: 0 14px 30px rgba(154,61,20,0.3), inset 0 -6px 0 rgba(0,0,0,0.18); }
+  #s5-bud { left: 90px; right: 90px; top: 260px; height: 600px; }
+  #s5-bud .hd { position: absolute; left: 40px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: rgba(43,36,32,0.7); }
+  #s5-ex { position: absolute; right: 40px; top: 20px; height: 44px; padding: 0 18px; border-radius: 22px; background: var(--ink); color: #FBF4E8; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; }
+  .br { position: absolute; left: 40px; right: 40px; height: 64px; border-bottom: 2px dashed rgba(43,36,32,0.14); }
+  .br .k { position: absolute; left: 0; top: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); }
+  .br .v { position: absolute; right: 0; top: 10px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s5-r1 { top: 84px; } #s5-r2 { top: 154px; } #s5-r3 { top: 224px; } #s5-r4 { top: 294px; }
+  #s5-trow { position: absolute; left: 40px; right: 40px; top: 380px; height: 110px; }
+  #s5-trow .k { position: absolute; left: 0; top: 18px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 56px; color: var(--ink); }
+  #s5-total { position: absolute; right: 30px; top: 20px; width: 240px; height: 76px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 60px; color: #7A2416; text-align: right; white-space: nowrap; }
+  #s5-ring { position: absolute; display: block; left: 560px; top: 368px; width: 320px; height: 134px; }
+  #s5-ring ellipse { fill: none; stroke: var(--accent); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+  #s5-note { position: absolute; left: 40px; right: 40px; top: 512px; height: 70px; border-radius: 35px; background: #8DB28A; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; box-shadow: inset 0 -6px 0 rgba(0,0,0,0.1); }
+  #s5-reply { position: absolute; left: 90px; right: 90px; top: 890px; height: 230px; border-radius: 32px; background: #FBF4E8; box-shadow: 0 22px 48px rgba(90,50,20,0.16); overflow: hidden; }
+  #s5-reply .lab { position: absolute; left: 36px; top: 24px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.14em; color: rgba(43,36,32,0.7); }
+  #s5-reply .q { position: absolute; left: 36px; right: 36px; top: 66px; height: 140px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.2; color: var(--ink); overflow: hidden; }
+
+  /* 6: the catch */
+  #s6-card { top: 360px; height: 590px; border: 5px solid #F2C14E; box-sizing: border-box; }
+  #s6-tag { position: absolute; left: 760px; top: 318px; width: 200px; height: 72px; border-radius: 36px; background: #F2C14E; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px rgba(150,100,20,0.25), inset 0 -6px 0 rgba(0,0,0,0.1); }
+  .crow { position: absolute; left: 32px; right: 32px; height: 100px; border-radius: 24px; background: #F3E8D6; }
+  .crow .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .crow .chip { position: absolute; right: 18px; top: 22px; width: 150px; height: 56px; border-radius: 28px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s6-k1 { top: 40px; } #s6-k2 { top: 156px; } #s6-k3 { top: 272px; }
+  #s6-warn { position: absolute; left: 32px; right: 32px; top: 396px; height: 150px; border-radius: 28px; background: #F2C14E; padding: 0 28px; box-sizing: border-box; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; line-height: 1.2; color: var(--ink); box-shadow: inset 0 -6px 0 rgba(0,0,0,0.1); }
+
+  /* 7: send */
+  #s7-send { position: absolute; left: 90px; width: 820px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 136px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  #s7-plane { position: absolute; display: block; left: 720px; top: 300px; width: 220px; height: 180px; }
+  #s7-card { top: 520px; height: 340px; }
+  #s7-av { position: absolute; left: 36px; top: 40px; width: 100px; height: 100px; border-radius: 50%; background: #E7B98F; box-shadow: inset 0 -8px 0 rgba(90,50,20,0.14), inset 0 6px 0 rgba(255,255,255,0.4); }
+  #s7-who { position: absolute; left: 160px; right: 36px; top: 40px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.22; color: var(--ink); }
+  #s7-pill { position: absolute; left: 36px; right: 36px; top: 200px; height: 100px; border-radius: 50px; background: #EFE2CC; font-family: 'Playfair Italic', serif; font-size: 48px; color: var(--ink); display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s7-sent { position: absolute; left: 360px; top: 900px; width: 260px; height: 84px; border-radius: 42px; background: #8DB28A; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; gap: 14px; box-shadow: inset 0 -6px 0 rgba(0,0,0,0.1); }
+  #s7-sent svg { display: block; width: 36px; height: 36px; }
+
+  /* 8: keyword */
+  #s8-word { position: absolute; left: 90px; right: 90px; top: 130px; height: 200px; display: flex; gap: 12px; }
+  .ltr { display: flex; flex: 1; height: 200px; border-radius: 30px; background: var(--deep); color: #FFFFFF; font-family: 'Archivo Black', sans-serif; font-size: 130px; align-items: center; justify-content: center; box-shadow: 0 20px 40px rgba(154,61,20,0.28), inset 0 -12px 0 rgba(0,0,0,0.2), inset 0 8px 0 rgba(255,255,255,0.22); }
+  #s8-pill { position: absolute; left: 360px; right: 60px; top: 400px; height: 130px; border-radius: 65px; background: var(--ink); color: #FBF4E8; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 44px; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  #s8-pill b { color: #F2A57F; margin-left: 14px; font-weight: 900; }
+  #s8-chip { position: absolute; left: 400px; right: 100px; top: 560px; height: 64px; border-radius: 32px; background: #FBF4E8; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; white-space: nowrap; box-shadow: 0 12px 26px rgba(90,50,20,0.14); }
+  #s8-mark { position: absolute; display: block; left: 420px; top: 690px; width: 80px; height: 110px; }
+  #s8-save { position: absolute; left: 530px; top: 670px; width: 400px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 110px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+</style>
+
+<div class="paper"></div>
+<i class="blob" id="b1"></i><i class="blob" id="b2"></i><i class="blob" id="b3"></i>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">3 AIs · 1 MISTAKE</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">1 <span class="it">wrong</span></span></span><span class="mask"><span class="l">total.</span></span></div>
+  <div id="s0-rc" class="clay-s">
+    <div class="hd">EXAMPLE BUDGET</div>
+    <div class="rr" id="s0-r1"><div class="k">Rent</div><div class="v">₹1,500</div></div>
+    <div class="rr" id="s0-r2"><div class="k">Food</div><div class="v">₹1,800</div></div>
+    <div class="rr" id="s0-r3"><div class="k">Travel</div><div class="v">₹900</div></div>
+    <div class="rr" id="s0-r4"><div class="k">Phone</div><div class="v">₹500</div></div>
+    <div id="s0-tot"><div class="k">TOTAL</div><div class="v">₹4,200</div></div>
+    <i id="s0-mark" data-layout-allow-overlap></i>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE TEST</div>
+  <div class="title"><span class="mask"><span class="l">Same budget.</span></span><span class="mask"><span class="l">3 <span class="it">free</span> AIs.</span></span></div>
+  <div id="s1-you">Is my budget right?</div>
+  <div class="ai" id="s1-a1"><i class="av av1"></i><div class="an">ChatGPT</div><div class="fp">FREE PLAN</div><div class="typing"><i class="dt"></i><i class="dt"></i><i class="dt"></i></div></div>
+  <div class="ai" id="s1-a2"><i class="av av2"></i><div class="an">Gemini</div><div class="fp">FREE PLAN</div><div class="typing"><i class="dt"></i><i class="dt"></i><i class="dt"></i></div></div>
+  <div class="ai" id="s1-a3"><i class="av av3"></i><div class="an">Claude</div><div class="fp">FREE PLAN</div><div class="typing"><i class="dt"></i><i class="dt"></i><i class="dt"></i></div></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WHY IT HAPPENS</div>
+  <div class="title"><span class="mask"><span class="l">AIs lean</span></span><span class="mask"><span class="l">to <span class="it">yes.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div id="s2-head"><i class="eye e1"></i><i class="eye e2"></i><i class="smile"></i></div>
+    <div id="s2-who">Your colleague</div>
+    <div id="s2-sub">never opened the file</div>
+    <div id="s2-pill">Looks good, bro.</div>
+    <svg id="s2-file" viewBox="0 0 190 230"><path d="M14 10 H128 L176 58 V220 H14 Z" fill="#FFFFFF" stroke="#2B2420" stroke-width="6" stroke-linejoin="round"></path><path d="M128 10 V58 H176" fill="#EFE2CC" stroke="#2B2420" stroke-width="6" stroke-linejoin="round"></path><rect x="40" y="90" width="110" height="10" rx="5" fill="#D9C7AA"></rect><rect x="40" y="114" width="80" height="10" rx="5" fill="#D9C7AA"></rect><rect x="58" y="150" width="74" height="56" rx="10" fill="#9A3D14"></rect><path d="M72 150 V136 a23 23 0 0 1 46 0 V150" fill="none" stroke="#9A3D14" stroke-width="9"></path><circle cx="95" cy="176" r="7" fill="#FBF4E8"></circle></svg>
+    <div id="s2-stamp" data-layout-allow-overlap>UNOPENED</div>
+    <div id="s2-flab">BUDGET (EXAMPLE)</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE RANKING</div>
+  <div class="title rkt"><span class="mask"><span class="l">Number <span class="it">3.</span></span></span></div>
+  <div class="card rk" id="s3-card">
+    <div class="num clay-s">3</div>
+    <div class="name">{{TOOL_THREE}}</div>
+    <div class="fp">FREE PLAN</div>
+    <div class="lab">VERDICT</div>
+    <div class="quote">{{VERDICT_THREE_SHORT}}</div>
+    <div class="stamp stamp-{{COLOUR_THREE}}"><b class="t-red">SAID LOOKS GREAT</b><b class="t-amber">HINTED AT IT</b><b class="t-green">CAUGHT IT</b></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE RANKING</div>
+  <div class="title rkt"><span class="mask"><span class="l">Number <span class="it">2.</span></span></span></div>
+  <div class="card rk" id="s4-card">
+    <div class="num clay-s">2</div>
+    <div class="name">{{TOOL_TWO}}</div>
+    <div class="fp">FREE PLAN</div>
+    <div class="lab">VERDICT</div>
+    <div class="quote">{{VERDICT_TWO_SHORT}}</div>
+    <div class="stamp stamp-{{COLOUR_TWO}}"><b class="t-red">SAID LOOKS GREAT</b><b class="t-amber">HINTED AT IT</b><b class="t-green">CAUGHT IT</b></div>
+  </div>
+</section>
+
+<section class="scene" id="sL" data-from="@line3" data-to="@line5">
+  <div id="sL-leg">
+    <div class="lg"><i class="ld g"></i>CAUGHT</div>
+    <div class="lg"><i class="ld a"></i>HINTED</div>
+    <div class="lg"><i class="ld r"></i>LOOKS GREAT</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">MY TOP PICK</div>
+  <div class="num clay-s" id="s5-num">1</div>
+  <div id="s5-name">{{TOOL_ONE}}</div>
+  <div id="s5-fav" class="clay-s" data-layout-allow-overlap>FAVOURITE</div>
+  <div class="card" id="s5-bud">
+    <div class="hd">WEEKLY BUDGET</div>
+    <div id="s5-ex">EXAMPLE</div>
+    <div class="br" id="s5-r1"><div class="k">Rent share</div><div class="v">₹1,500</div></div>
+    <div class="br" id="s5-r2"><div class="k">Food</div><div class="v">₹1,800</div></div>
+    <div class="br" id="s5-r3"><div class="k">Travel</div><div class="v">₹900</div></div>
+    <div class="br" id="s5-r4"><div class="k">Phone</div><div class="v">₹500</div></div>
+    <div id="s5-trow"><div class="k">Total</div><div id="s5-total">₹4,200</div></div>
+    <svg id="s5-ring" viewBox="0 0 320 134" data-layout-allow-overlap><ellipse cx="160" cy="67" rx="150" ry="56" pathLength="1"></ellipse></svg>
+    <div id="s5-note">Rows add up to ₹4,700</div>
+  </div>
+  <div id="s5-reply">
+    <div class="lab">VERDICT</div>
+    <div class="q">{{VERDICT_ONE_SHORT}}</div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">BE FAIR</div>
+  <div class="title rkt"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s6-card">
+    <div class="crow" id="s6-k1"><div class="t">1 test</div><div class="chip">ONLY</div></div>
+    <div class="crow" id="s6-k2"><div class="t">1 day</div><div class="chip">ONLY</div></div>
+    <div class="crow" id="s6-k3"><div class="t">Free plans</div><div class="chip">ALL 3</div></div>
+    <div id="s6-warn">Any of the 3 can still say "looks good".</div>
+  </div>
+  <div id="s6-tag" data-layout-allow-overlap>CHECK</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div id="s7-send">Send <span class="it">this.</span></div>
+  <svg id="s7-plane" viewBox="0 0 220 180"><path d="M10 88 L210 10 L164 170 L108 120 Z" fill="#D2602A"></path><path d="M108 120 L210 10 L90 104 L92 160 Z" fill="#9A3D14"></path></svg>
+  <div class="card" id="s7-card">
+    <i id="s7-av"></i>
+    <div id="s7-who">The colleague who pastes it all into AI</div>
+    <div id="s7-pill">Looks good, bro.</div>
+  </div>
+  <div id="s7-sent"><svg viewBox="0 0 36 36"><path d="M6 19 L14 27 L30 9" fill="none" stroke="#2B2420" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg>SENT</div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="step">COMMENT THE WORD</div>
+  <div id="s8-word"><div class="ltr">H</div><div class="ltr">O</div><div class="ltr">N</div><div class="ltr">E</div><div class="ltr">S</div><div class="ltr">T</div></div>
+  <div id="s8-pill" class="clay-s">Comment<b>HONEST</b></div>
+  <div id="s8-chip">FREE PROMPT · IN YOUR DMS</div>
+  <svg id="s8-mark" viewBox="0 0 80 110"><path d="M8 6 H72 V104 L40 78 L8 104 Z" fill="#9A3D14"></path></svg>
+  <div id="s8-save">Save.</div>
+</section>

@@ -1,0 +1,81 @@
+{
+  "dur": 29.51,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.233,
+      "b": 3.333,
+      "say": "I hid one wrong total. Here's what three AIs replied.",
+      "show": "I hid 1 wrong total. 3 AIs replied."
+    },
+    {
+      "a": 3.333,
+      "voice": 3.433,
+      "end": 5.905,
+      "b": 6.005,
+      "say": "Office people, same budget, three free AIs.",
+      "show": "9-to-5ers: same budget, 3 free AIs."
+    },
+    {
+      "a": 6.005,
+      "voice": 6.105,
+      "end": 9.159,
+      "b": 9.259,
+      "say": "AIs lean to yes, like a colleague saying 'looks good, bro'.",
+      "show": "AIs lean to yes. 'Looks good, bro.'"
+    },
+    {
+      "a": 9.259,
+      "voice": 9.359,
+      "end": 11.201,
+      "b": 11.301,
+      "say": "Number three, {{TOOL_THREE}}: {{VERDICT_THREE}}.",
+      "show": "3. {{TOOL_THREE}}: {{VERDICT_THREE_SHORT}}"
+    },
+    {
+      "a": 11.301,
+      "voice": 11.401,
+      "end": 13.083,
+      "b": 13.183,
+      "say": "Number two, {{TOOL_TWO}}: {{VERDICT_TWO}}.",
+      "show": "2. {{TOOL_TWO}}: {{VERDICT_TWO_SHORT}}"
+    },
+    {
+      "a": 13.183,
+      "voice": 13.283,
+      "end": 16.493,
+      "b": 16.593,
+      "say": "Number one, my top pick, {{TOOL_ONE}}: it circled the wrong number.",
+      "show": "1. {{TOOL_ONE}}: circled the wrong total."
+    },
+    {
+      "a": 16.593,
+      "voice": 16.693,
+      "end": 19.737,
+      "b": 19.837,
+      "say": "The catch: one test, one day. All three can still flatter you.",
+      "show": "The catch: 1 test, 1 day. Any can flatter you."
+    },
+    {
+      "a": 19.837,
+      "voice": 19.937,
+      "end": 24.825,
+      "b": 24.925,
+      "say": "Send this to the colleague who runs everything through AI before sending it to the manager.",
+      "show": "Send this to that colleague."
+    },
+    {
+      "a": 24.925,
+      "voice": 25.025,
+      "end": 28.107,
+      "b": 29.51,
+      "say": "Comment HONEST for the one-line prompt that helps on all three.",
+      "show": "Comment HONEST for the prompt."
+    }
+  ]
+}

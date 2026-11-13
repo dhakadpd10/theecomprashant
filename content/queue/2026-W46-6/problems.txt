@@ -1,0 +1,7 @@
+2026-11-14 19:30 reel: Claude Code: You've hit your 5-hour limit · resets 7pm (UTC)
+2026-11-15 19:30 carousel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)
+2026-11-16 19:30 reel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)
+2026-11-17 19:30 carousel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)
+2026-11-18 19:30 reel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)
+2026-11-19 19:30 carousel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)
+2026-11-20 19:30 reel: not made (Claude usage limit reached; merge this, then run Weekly again to fill the rest)

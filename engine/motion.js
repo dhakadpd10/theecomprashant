@@ -14,6 +14,7 @@ const L = require('./lib');
 const buildAudio = require('./audio');
 const voice = require('./voice');
 const host = require('../character/prashant');
+const clay = require('./clay');
 
 // ---- the host: Prashant as a 2D character on top of the scene (post.json "host"; docs/MOTION.md "The host") ----
 // Each line may set host: { at: "center"|"corner"|"right"|"hidden", pose, mood, whistle: true }.
@@ -57,7 +58,8 @@ const hostWhistles = (post, T) => (post.host ? hostStates(post).map((s, i) => (s
 
 const ROOT = path.resolve(__dirname, '..');
 const NM = path.join(ROOT, 'node_modules');
-const FPS = 30, BEAT = 0.6; // the music bed is 100 BPM from t=0
+const FPS = 30, BEAT = 0.6; // the music bed is 100 BPM from t=0; clay reels are drawn at clay.FPS and delivered at FPS
+const drawFps = (post) => (post.theme === 'clay' ? clay.FPS : FPS);
 
 // HyperFrames needs FFmpeg + FFprobe; use the bundled ones so a PC and the GitHub runner behave the same
 const HF_ENV = {
@@ -119,6 +121,7 @@ function buildProject(dir, post, T) {
   fs.mkdirSync(path.join(proj, 'fonts'));
   const faces = FONTS.map(([fam, file, wt]) => { const base = path.basename(file); fs.copyFileSync(path.join(NM, file), path.join(proj, 'fonts', base)); return `@font-face{font-family:'${fam}';src:url(fonts/${base}) format('woff2');font-weight:${wt};font-display:block}`; }).join('\n');
   fs.copyFileSync(path.join(NM, 'gsap/dist/gsap.min.js'), path.join(proj, 'gsap.min.js'));
+  if (post.theme === 'clay') clay.copyPngs(proj);
   const sceneHTML = timeClips(fs.readFileSync(path.join(dir, 'scene.html'), 'utf8'), T);
   const sceneJS = fs.readFileSync(path.join(dir, 'scene.js'), 'utf8');
   const pal = { bg: '#0F1218', ink: '#F6F1E7', accent: '#FFC857', ...(post.palette || {}) };
@@ -140,14 +143,16 @@ html,body{margin:0;background:var(--bg)}
 .cap .w{display:inline-block;opacity:0}
 .cap .hot{color:var(--accent)}
 #endfade{position:absolute;inset:0;background:#0F1218;opacity:0;pointer-events:none}
+${post.theme === 'clay' ? clay.css() : ''}
 ${post.theme === 'editorial' ? '/* editorial theme (docs/MOTION.md): light paper, ink captions without the heavy shadow */\n.cap{color:var(--ink);text-shadow:none;font-weight:700;font-size:56px}\n#endfade{background:var(--bg)}' : ''}
 </style>
 </head>
 <body>
 <div id="root" data-composition-id="reel" data-start="0" data-width="1080" data-height="1920" data-duration="${T.dur}">
+${post.theme === 'clay' ? clay.defs() : ''}
 <div id="stage">
 ${sceneHTML}
-${post.host ? hostMarkup(post) : ''}
+${post.host ? (post.theme === 'clay' ? clay.hostMarkup() : hostMarkup(post)) : ''}
 </div>
 <div id="caps" aria-hidden="true">
 ${captionsHTML(post, T)}
@@ -165,7 +170,8 @@ const tl = gsap.timeline({ paused: true });
 (function (tl, T) {
 ${sceneJS}
 })(tl, T);
-${post.host ? `// ---- the host (character/prashant.js) ----\n${hostScript(post, T)}` : ''}
+${post.host ? `// ---- the host (character/prashant.js, or the clay layers) ----\n${post.theme === 'clay' ? clay.hostScript(hostStates(post), T, HOST_AT) : hostScript(post, T)}` : ''}
+${post.theme === 'clay' ? clay.boilScript(T) : ''}
 // ---- house captions: each line's words pop in as they are spoken ----
 T.lines.forEach((l, i) => {
   const cap = document.getElementById('cap' + i), words = cap.querySelectorAll('.w');
@@ -236,7 +242,7 @@ async function cover(post, T, proj, dir) {
 function timingFor(dir, post) {
   const { lens, starts, cut, DUR } = voice.timing(dir);
   return {
-    dur: DUR, fps: FPS, beat: BEAT, w: L.W, h: L.H,
+    dur: DUR, fps: drawFps(post), beat: BEAT, w: L.W, h: L.H,
     lines: post.lines.map((l, i) => ({ a: +cut[i].toFixed(3), voice: +starts[i].toFixed(3), end: +(starts[i] + lens[i]).toFixed(3), b: +(i + 1 < cut.length ? cut[i + 1] : DUR).toFixed(3), say: l.say, show: l.show || l.say })),
   };
 }
@@ -272,7 +278,7 @@ async function main() {
 
     const silent = path.join(proj, 'video.mp4');
     const workers = process.env.MOTION_WORKERS || 'auto';
-    const r = hf(['render', proj, '--output', silent, '--quality', 'delivery', '--fps', String(FPS), '--workers', workers, '--frames-cache-dir', path.join(proj, '.frames'), '--quiet']);
+    const r = hf(['render', proj, '--output', silent, '--quality', 'delivery', '--fps', String(drawFps(post)), '--workers', workers, '--frames-cache-dir', path.join(proj, '.frames'), '--quiet']);
     if (r.code || !fs.existsSync(silent)) throw new Error(`render failed:\n${r.out.slice(-1500)}`);
     const out = path.join(dir, 'reel.mp4');
     const mux = spawnSync(ffmpeg, ['-v', 'error', '-y', '-i', silent, '-i', path.join(dir, 'audio.wav'), '-map', '0:v', '-map', '1:a',

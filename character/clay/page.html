@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html, body { margin: 0; background: transparent; width: 520px; height: 760px; overflow: hidden; } #gl { position: absolute; inset: 0; }</style>
+<script type="importmap">{ "imports": { "three": "/node_modules/three/build/three.module.js", "three/addons/": "/node_modules/three/examples/jsm/" } }</script>
+</head>
+<body><div id="gl"></div>
+<script type="module">
+// The clay host: the 3D Prashant from story/people.js dressed in plasticine, drawn on a transparent background as
+// separate layers (body per pose, head per mood and mouth) that the motion engine stacks and swaps.
+import * as THREE from 'three';
+import { makePerson } from '/story/people.js';
+
+const W = 520, H = 760;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(2); renderer.setSize(W, H); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05; renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.getElementById('gl').appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(22, W / H, 0.05, 40);
+
+function canvasTex(w, h, draw) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; }
+
+// thumbprints and tool marks: soft noise plus faint concentric swirls, used as a bump map on every clay surface
+let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+const prints = canvasTex(512, 512, (x, w, h) => {
+  x.fillStyle = '#808080'; x.fillRect(0, 0, w, h);
+  for (let i = 0; i < 2600; i++) { const g = 100 + rnd() * 60; x.fillStyle = `rgba(${g},${g},${g},0.18)`; x.beginPath(); x.arc(rnd() * w, rnd() * h, 2 + rnd() * 9, 0, 7); x.fill(); }
+  for (let p = 0; p < 9; p++) { const cx = rnd() * w, cy = rnd() * h, r0 = 10 + rnd() * 18; x.lineWidth = 1.6;
+    for (let r = r0; r < r0 + 46; r += 4.5) { const g = rnd() < 0.5 ? 150 : 105; x.strokeStyle = `rgba(${g},${g},${g},0.22)`; x.beginPath(); x.ellipse(cx, cy, r, r * 0.8, rnd(), 0, 5.2); x.stroke(); } }
+});
+prints.wrapS = prints.wrapT = THREE.RepeatWrapping; prints.colorSpace = THREE.NoColorSpace; prints.repeat.set(2, 2);
+
+// every surface becomes matte plasticine; eyes stay glossy beads; flat helpers (shine dots, blush) keep their look
+function clay(root) {
+  root.traverse((o) => {
+    if (!o.isMesh || !o.material || o.material.isMeshBasicMaterial || o.material.map) return;
+    const m = o.material, c = m.color ? m.color.clone() : new THREE.Color('#CCCCCC');
+    const dark = c.r + c.g + c.b < 0.12, glossy = dark && (m.clearcoat >= 0.99); // only the eyes are glossy beads
+    o.material = new THREE.MeshStandardMaterial({ color: c, roughness: glossy ? 0.22 : 0.82, metalness: 0, bumpMap: glossy ? null : prints, bumpScale: 3.2, emissive: m.emissive || new THREE.Color(0), emissiveIntensity: (m.emissiveIntensity || 0) * 0.6 });
+  });
+}
+
+const p = makePerson('prashant', canvasTex); scene.add(p.root); clay(p.root);
+
+scene.add(new THREE.HemisphereLight('#FFF4E4', '#8A6A52', 1.05));
+const key = new THREE.DirectionalLight('#FFE2C0', 2.3); key.position.set(-2.2, 3.4, 3.6); scene.add(key);
+const fill = new THREE.DirectionalLight('#C9DAFF', 0.7); fill.position.set(2.8, 2.0, 2.6); scene.add(fill);
+const rim = new THREE.DirectionalLight('#FFFFFF', 1.4); rim.position.set(1.5, 2.6, -3.2); scene.add(rim);
+
+// framing: head and torso, the same for every layer so the layers line up
+camera.position.set(0, 1.88, 6.2); camera.lookAt(0, 1.74, 0);
+
+const ACT = { idle: 'idle', point: 'point', explain: 'explain', thumbs: 'celebrate', shrug: 'shrug', think: 'think', phone: 'phone', wave: 'point', cooker: 'sign' };
+const MOOD = { normal: 'normal', happy: 'happy', smug: 'smug', shock: 'normal', worried: 'worried', think: 'normal' };
+// a layer shows only its own meshes: 'head' = the head and everything on it, 'body' = everything else (torso, arms, hands)
+const inHead = (o) => { for (let q = o; q; q = q.parent) if (q === p.headG) return true; return false; };
+const parts = (show) => p.root.traverse((o) => { if (o.isMesh) o.visible = show === 'full' || (show === 'head') === inHead(o); });
+
+// draw one layer: part 'full' | 'body' | 'head'; pose (2D host pose name); mood; mouth 0..1; blink 0..1
+window.draw = ({ part = 'full', pose = 'idle', mood = 'normal', mouth = 0, blink = 0 }) => {
+  const t = 1.3;
+  parts(part);
+  p.pose({ hands: p.handsFor(ACT[pose] || 'idle', t, 0), mood: MOOD[mood] || 'normal', talk: mouth, blink, shock: mood === 'shock' ? 1 : 0, yaw: 0, pitch: mood === 'think' ? -0.08 : 0, lean: 0 }, t);
+  renderer.render(scene, camera);
+  return true;
+};
+window.ready = true;
+</script>
+</body></html>

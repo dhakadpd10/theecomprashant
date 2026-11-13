@@ -3,8 +3,8 @@
   "handle": "@theprashant.ai",
   "timezone_offset": "+05:30",
   "paused": {
-    "on": true,
-    "note": "13 Nov 2026: paused while the clay format is built; unpause when docs/CLAY.md and the first clay sample are approved."
+    "on": false,
+    "note": "13 Nov 2026: clay format live from 14 Nov. Set on to true to stop planning."
   },
   "slots": [
     {

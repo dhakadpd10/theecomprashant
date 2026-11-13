@@ -35,9 +35,11 @@
       "keyword": "PRIVATE",
       "pillar": "How AI works",
       "topic": "What 'read-only access' means when an AI app links your bank, and the one thing no AI chat should ever ask you for",
-      "status": "made",
+      "status": "published",
       "attempts": 1,
-      "error": "container 17953934862093651: ERROR ERROR"
+      "error": "container 17953934862093651: ERROR ERROR",
+      "media_id": "18089571053310702",
+      "published_at": "2026-11-13T03:32:45.568Z"
     },
     {
       "day": "2026-11-13",

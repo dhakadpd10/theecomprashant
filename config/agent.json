@@ -3,21 +3,16 @@
   "handle": "@prashant.ai",
   "timezone_offset": "+05:30",
   "paused": {
-    "on": false,
-    "note": "20 Oct 2026: Prashant approved the 3D story style and unpaused. Set on to true to stop planning and the doctor's planner (old unposted cartoon reels stay skipped)."
+    "on": true,
+    "note": "13 Nov 2026: paused while the clay format is built; unpause when docs/CLAY.md and the first clay sample are approved."
   },
   "slots": [
     {
-      "time": "09:00",
-      "format": "reel"
-    },
-    {
-      "time": "13:00",
-      "format": "reel"
-    },
-    {
       "time": "19:30",
-      "format": "reel"
+      "format": [
+        "reel",
+        "carousel"
+      ]
     }
   ],
   "bio_line": "If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.",
@@ -144,6 +139,7 @@
     "max_posts_per_day": 4,
     "max_auto_replies_per_run": 40
   },
-  "slots_note": "28 Oct 2026: 10K-in-10-days push, three reels a day (all motion reels hosted by the 2D Prashant character)",
-  "keywords_note": "28 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again."
+  "slots_note": "13 Nov 2026 (Prashant): quality over volume. One post a day at 19:30 IST, alternating reel and carousel from 14 Nov, every post a proven idea remade in the clay style (docs/CLAY.md, brand/proven.md).",
+  "keywords_note": "28 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again.",
+  "alternate_from": "2026-11-14"
 }

@@ -1,0 +1,130 @@
+{
+  "id": "e06-clay-websites",
+  "style": "clay",
+  "proven": "P02",
+  "keyword": "WEBSITES",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "kicker": "FREE AND REAL",
+      "title": [
+        "5 websites that",
+        "feel *illegal*",
+        "to know"
+      ],
+      "sub": "No sign-up tricks. No paid trial. Just open them."
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "name": "Photo*pea*",
+      "domain": "photopea.com",
+      "line": "A Photoshop-style editor that runs free in your browser.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Posters, thumbnails, quick photo fixes"
+        },
+        {
+          "k": "HOW TO START",
+          "v": "Open photopea.com, then File, then Open"
+        }
+      ],
+      "catch": "Free with ads."
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "name": "Tiny*Wow*",
+      "domain": "tinywow.com",
+      "line": "Free tools to merge, compress and convert PDFs, images and videos.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Assignments, forms, resumes"
+        },
+        {
+          "k": "HOW TO START",
+          "v": "Pick a tool, drop your file in"
+        }
+      ],
+      "catch": "Free use has daily limits."
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "name": "remove*.bg*",
+      "domain": "remove.bg",
+      "line": "Cuts the background out of any photo in about 5 seconds.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Product photos, profile pictures"
+        },
+        {
+          "k": "HOW TO START",
+          "v": "Upload a photo, download the cut-out"
+        }
+      ],
+      "catch": "Free downloads are low resolution."
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "name": "Perplex*ity*",
+      "domain": "perplexity.ai",
+      "line": "Answers your question and shows the sources it used.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Research you can actually check"
+        },
+        {
+          "k": "HOW TO START",
+          "v": "Ask a question, tap the numbered sources"
+        }
+      ],
+      "catch": "Still open the sources before you trust it."
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "name": "Notebook*LM*",
+      "domain": "notebooklm.google.com",
+      "line": "Upload your notes or PDFs. It makes a study guide, a quiz and a podcast of them.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Exams, long reports, learning fast"
+        },
+        {
+          "k": "HOW TO START",
+          "v": "New notebook, add your PDF or notes"
+        }
+      ],
+      "catch": "Needs a Google account."
+    },
+    {
+      "kind": "recap",
+      "title": "Save this *list.*",
+      "items": [
+        "Photopea: free photo editor",
+        "TinyWow: PDF and file tools",
+        "remove.bg: cut out backgrounds",
+        "Perplexity: answers with sources",
+        "NotebookLM: notes into a podcast"
+      ]
+    },
+    {
+      "kind": "cta",
+      "title": "Send this to *a friend.*",
+      "who": "The one who still pays for every app.",
+      "text": "and I'll DM you all 5 links + how to use each"
+    }
+  ]
+}

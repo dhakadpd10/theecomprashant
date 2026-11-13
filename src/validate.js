@@ -114,7 +114,32 @@ function validateScene(html, js) {
   return [...new Set(e)];
 }
 
+const PROVEN = () => { try { return [...require('fs').readFileSync(require('path').join(__dirname, '..', 'brand', 'proven.md'), 'utf8').matchAll(/^\| (P\d\d) \|/gm)].map((m) => m[1]); } catch { return []; } };
+// clay carousels (docs/CLAY.md): cover, 3 to 7 real items with the catch, a recap, the cta
+function validateClayCarousel(c, { keywords } = {}) {
+  const e = [], s = c.slides || [], items = s.filter((x) => x.kind === 'item'), bank = PROVEN();
+  if (!c.id || !/^[a-z0-9-]+$/.test(c.id)) e.push('id must be lowercase-with-dashes');
+  if (keywords && !keywords.includes(c.keyword)) e.push(`keyword ${c.keyword} has no free tool`);
+  if (bank.length && !['P01', 'P02', 'P03', 'P04', 'P05', 'P06'].includes(c.proven)) e.push('proven must be the carousel entry it remakes (P01 to P06 in brand/proven.md)');
+  if (s.length < 7 || s.length > 10) e.push('a clay carousel has 7 to 10 slides');
+  if (s[0]?.kind !== 'cover') e.push('slide 1 must be kind "cover"');
+  if (s.at(-1)?.kind !== 'cta') e.push('the last slide must be kind "cta"');
+  if (s.at(-2)?.kind !== 'recap') e.push('the slide before the cta must be kind "recap"');
+  if (items.length < 3 || items.length > 7) e.push('3 to 7 item slides');
+  if (!Array.isArray(s[0]?.title) || s[0].title.length > 3 || s[0].title.some((t) => words(t) > 4)) e.push('cover title: 1 to 3 lines of 4 words max');
+  items.forEach((x, i) => {
+    if (!x.name || !x.line || words(x.line) > 18) e.push(`item ${i + 1} needs a name and a line of 18 words max`);
+    if (!x.catch || words(x.catch) > 10) e.push(`item ${i + 1} needs the catch, 10 words max`);
+    if (!((x.rows || []).length >= 2 || x.box)) e.push(`item ${i + 1} needs at least 2 rows or a box`);
+    (x.rows || []).forEach((r) => { if (!r.k || !r.v || words(r.v) > 10) e.push(`item ${i + 1} rows need k and v (10 words max)`); });
+    if (x.box && words(x.box) > 45) e.push(`item ${i + 1} box is over 45 words`);
+  });
+  const r = s.find((x) => x.kind === 'recap'); if (r && (!Array.isArray(r.items) || r.items.length < 3 || r.items.length > 7)) e.push('the recap needs 3 to 7 items');
+  return e;
+}
+
 function validateCarousel(c, { keywords } = {}) {
+  if (c.style === 'clay') return validateClayCarousel(c, { keywords });
   const e = [];
   if (!c.id || !/^[a-z0-9-]+$/.test(c.id)) e.push('id must be lowercase-with-dashes');
   if (keywords && !keywords.includes(c.keyword)) e.push(`keyword ${c.keyword} has no free tool`);

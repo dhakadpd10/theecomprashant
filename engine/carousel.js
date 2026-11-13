@@ -7,6 +7,7 @@ const L = require('./lib');
 
 const dir = path.resolve(process.argv[2]);
 const spec = JSON.parse(fs.readFileSync(path.join(dir, 'carousel.json'), 'utf8'));
+if (spec.style === 'clay') { require('./claycarousel').render(dir).then(() => process.exit(0), (e) => { console.error(e); process.exit(1); }); return; }
 const cfg = JSON.parse(fs.readFileSync(path.join(__dirname, '../config/agent.json'), 'utf8'));
 const W = 1080, H = 1350, M = 120; // keep text inside the 120px safe margin
 const { C, AR, XB, B, SB, rrect, textFit, character, chip, productPage, pin } = L;

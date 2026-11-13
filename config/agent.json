@@ -1,6 +1,6 @@
 {
   "name": "Prashant | AI, Explained Simply",
-  "handle": "@prashant.ai",
+  "handle": "@theprashant.ai",
   "timezone_offset": "+05:30",
   "paused": {
     "on": true,
@@ -37,15 +37,14 @@
   "motion": {
     "share": 1,
     "host": true,
-    "theme": "editorial",
+    "theme": "clay",
     "mix": {
-      "explain": 0.3,
-      "tutorial": 0.25,
-      "prompt": 0.2,
-      "tool": 0.15,
-      "compare": 0.1
+      "list": 0.4,
+      "prompt": 0.3,
+      "tool": 0.2,
+      "explain": 0.1
     },
-    "note": "30 Oct 2026: every reel is a value-first AI explainer (docs/EXPLAINER.md), editorial theme, hosted by the 2D Prashant character; mix = explain / tutorial / prompt / tool / compare"
+    "note": "13 Nov 2026: every reel remakes a proven idea (brand/proven.md P07 to P12) in the clay theme (docs/CLAY.md) with the 3D clay host; mix = list / prompt / tool / explain"
   },
   "models": {
     "writer": "claude-opus-5-5",
@@ -141,5 +140,9 @@
   },
   "slots_note": "13 Nov 2026 (Prashant): quality over volume. One post a day at 19:30 IST, alternating reel and carousel from 14 Nov, every post a proven idea remade in the clay style (docs/CLAY.md, brand/proven.md).",
   "keywords_note": "28 Oct 2026: the page moved to make money with AI (docs/MONEY.md). Retired seller tools still answer DMs on old reels but are never planned again.",
-  "alternate_from": "2026-11-14"
+  "alternate_from": "2026-11-14",
+  "carousel": {
+    "style": "clay",
+    "note": "13 Nov 2026: clay carousels (engine/claycarousel.js) remaking proven ideas P01 to P06"
+  }
 }

@@ -132,6 +132,7 @@ async function planWeek(need, researchNotes) {
       if (p.day !== n.day || p.time !== n.time || p.format !== n.format) e.push(`posts[${i}] must be day ${n.day}, time ${n.time}, format ${n.format}`);
       if (!p.keyword || !(kws.includes(p.keyword) || fresh[p.keyword])) e.push(`posts[${i}].keyword must be one of ${kws.join(', ')} or a key of new_tools`);
       if (!p.topic || !p.slug || !/^[a-z0-9-]+$/.test(p.slug)) e.push(`posts[${i}] needs topic and a lowercase-dash slug`);
+      if (cfg.carousel?.style === 'clay') { const ok = p.format === 'carousel' ? ['P01', 'P02', 'P03', 'P04', 'P05', 'P06'] : ['P07', 'P08', 'P09', 'P10', 'P11', 'P12']; if (!ok.includes(p.proven)) e.push(`posts[${i}].proven must be the proven idea it remakes (${ok.join(', ')} for a ${p.format})`); }
       if (p.format === 'reel' && !['story', 'motion', 'world'].includes(p.style)) e.push(`posts[${i}].style must be "story", "motion" or "world"`);
       if (p.format === 'reel' && p.style !== 'story' && !WORLDS.includes(p.world)) e.push(`posts[${i}].world must be one of ${WORLDS.join(', ')}`);
       if (p.format === 'reel' && !hookIds.includes(p.hook_formula)) e.push(`posts[${i}].hook_formula must be a hook id number from the list`);
@@ -173,7 +174,7 @@ ${researchNotes || 'none'}
 Reel styles: ${storyCount} of the ${reels} reels are "story": a 3D cartoon episode where Bunty (a loud, lovable Jaipur kurta-brand founder) hits a real D2C problem and Prashant fixes it with AI on his phone, then a twist and the free tool. Plan each one as a story: Bunty's specific pain (a number or a moment), the mistake behind it, the fix the free tool delivers, and a funny twist. Vary the problems week to week (COD returns, product pages, ads, WhatsApp, pricing, reviews, festive sales, repeat orders, support), never the same mistake twice in a row.${motionCount ? ` ${motionCount} reels are "motion" (motion graphics for numbers, steps and news).` : ''}${worldReels - motionCount > 0 ? ` The rest are "world" (character panels judging the viewer's thing).` : ''}
 ${worldReels ? `Every non-story reel gets a visual world that fits its topic. Reels that follow each other never share a world, and no world is used more than ${maxWorld} time(s) (worlds: ${WORLDS.map((w) => `${w} = ${WORLD_NOTES[w]}`).join('; ')}).` : 'Story reels need no world.'}
 
-${cfg.motion?.host ? `Every reel is a "motion" reel in the editorial theme, hosted by Prashant as a 2D character with his pressure cooker (it whistles on the "now I get it" moment). Every reel is a value-first AI explainer. Give each reel a "kind" from docs/EXPLAINER.md, in about this mix: ${Object.entries(cfg.motion.mix || {}).map(([k, v]) => `${Math.round(v * 100)}% "${k}"`).join(', ')}. Never the same kind twice in a row. Audience: students, 9-to-5ers, freelancers, homemakers and small business owners in India who use AI on their phone, so every topic must teach one useful thing a viewer would send to a friend. The free tools are prompts: pick the keyword whose tool fits the reel.
+${cfg.motion?.host ? `Every reel is a "motion" reel in the ${cfg.motion.theme === 'clay' ? 'clay theme (docs/CLAY.md), hosted by the 3D clay Prashant' : 'editorial theme, hosted by Prashant as a 2D character with his pressure cooker'} (the payoff gets his whistle moment). Every reel is a value-first AI explainer. Give each reel a "kind" from docs/EXPLAINER.md, in about this mix: ${Object.entries(cfg.motion.mix || {}).map(([k, v]) => `${Math.round(v * 100)}% "${k}"`).join(', ')}. Never the same kind twice in a row. Audience: students, 9-to-5ers, freelancers, homemakers and small business owners in India who use AI on their phone, so every topic must teach one useful thing a viewer would send to a friend. The free tools are prompts: pick the keyword whose tool fits the reel.
 
 ` : ''}Two kinds of story reel (Adley Kinsman's "entertain the masses, educate the interested, sell to the committed"):
 - ${skitCount} are kind "skit": pure comedy about D2C founder life for reach, no lesson and no fix. One premise you get in a second (a contrast like "Bunty when they pay online vs cash on delivery", a choice game, an escalation, a feeling every founder knows), ending on a punchline. The keyword is the free tool closest to the skit's theme; only the caption asks for it.
@@ -190,7 +191,7 @@ When a reel touches money, these honesty rules and platforms also apply (docs/MO
 ${readText(P('docs/MONEY.md')).split('## The six reel kinds')[0].split('## Honesty')[1] || ''}
 ${(readText(P('docs/MONEY.md')).split('## Platforms we can name')[1] || '').split('## Topic bank')[0]}
 
-Pick topics the way the million-view accounts do:
+${cfg.carousel?.style === 'clay' ? `Quality over volume (Prashant, 13 Nov 2026): every post REMAKES one proven idea from this bank and names it in "proven" (carousels P01 to P06, reels P07 to P12). Prefer the entries with the biggest numbers, never the same entry twice in 7 days, and make each remake clearly more useful than the original. Every site, tool and prompt must be real and checked.\n\nProven ideas bank:\n${readText(P('brand/proven.md'))}\n\n` : ''}Pick topics the way the million-view accounts do:
 ${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}
 
 What makes people stop, watch and comment (Corey Haines' marketing-psychology skill; use it to pick angles, not as jargon):
@@ -203,7 +204,7 @@ Hook formulas (id name: best for). Pick the one that fits each reel's angle, fol
 ${hooks.map((h) => `${h.id} ${h.name}: ${h.best_for}`).join('\n')}
 
 Rules: reels are one idea told as a story with stakes; carousels are list- or step-shaped and screenshot-worthy. Follow the pillar mix. Reply with JSON only:
-{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","keyword":"${cfg.motion?.host ? 'TRUTH' : 'STORE'}","pillar":"${cfg.motion?.host ? 'How AI works' : 'Sell more'}","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"${cfg.motion?.host ? 'motion' : 'story'}","kind":"${cfg.motion?.host ? 'explain' : 'teach'}"${cfg.motion?.host ? ',"world":"desk"' : ''},"hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
+{"posts":[{"day":"${need[0]?.day}","time":"${need[0]?.time}","format":"${need[0]?.format}","proven":"P07","keyword":"${cfg.motion?.host ? 'TRUTH' : 'STORE'}","pillar":"${cfg.motion?.host ? 'How AI works' : 'Sell more'}","post_type":"Teach","slug":"...","topic":"...","angle":"Bunty's pain, the mistake, the fix, the twist (or for a skit: the premise and the punchline)","style":"${cfg.motion?.host ? 'motion' : 'story'}","kind":"${cfg.motion?.host ? 'explain' : 'teach'}"${cfg.motion?.host ? ',"world":"desk"' : ''},"hook_formula":5}],"new_tools":{"NEWWORD":{"title":"...","what":"..."}}}
 (style, kind and hook_formula only for reels, plus "world" for non-story reels; new_tools may be {}).`,
   });
 }
@@ -331,7 +332,7 @@ const USAGE_LIMIT = /usage limit|session limit|hit your .*limit/i;
 const MOTION_DOC = () => readText(P('docs/MOTION.md'));
 const MOTION_EXAMPLE = 'm01-five-questions';
 // with the 2D host on (config motion.host), the model reel is the hosted editorial sample
-const mex = (file) => (config().motion?.host ? readText(P('content/story-samples/e04-explain-lies', file)) : example(MOTION_EXAMPLE, file));
+const mex = (file) => (config().motion?.theme === 'clay' ? readText(P('content/story-samples/e05-clay-sites', file)) : config().motion?.host ? readText(P('content/story-samples/e04-explain-lies', file)) : example(MOTION_EXAMPLE, file));
 function motion(dir, ...args) {
   const r = spawnSync('node', [P('engine/motion.js'), dir, ...args], { cwd: P(), encoding: 'utf8', maxBuffer: 1 << 26 });
   return { ok: r.status === 0, out: (r.stdout || '') + (r.stderr || '') };
@@ -368,6 +369,7 @@ async function writeScene(dir, spec, tool) {
 
 // the three kinds of hosted reel (config motion.mix) and what each one is for
 const HOST_KIND = {
+  list: 'This reel is kind "list" (proven P07 or P11): a numbered list of 3 to 5 real things (websites, tools, ways to earn or save time) for a named viewer, one item per beat with its name and domain on a full clay card, the best one last, then the catch and the send line.',
   explain: 'This reel is kind "explain": how or why one thing in AI works, with ONE analogy from daily life kept through the whole reel. Hook = the surprising truth; then the mechanism as 2 or 3 diagrams that build piece by piece; then the payoff (what to do about it) and the catch. Model: the example below.',
   tutorial: 'This reel is kind "tutorial": one useful thing done with AI in 3 steps, each step its own diagram card (the input, what to type, what comes back), and the FINISHED result shown as a full card on the payoff beat. Hook = the result first.',
   prompt: 'This reel is kind "prompt": one prompt that makes AI much better at something. Show the plain answer (weak, red or grey), the prompt typing in, then the better answer (green) side by side or one after the other. The keyword DMs the full prompt.',
@@ -376,7 +378,7 @@ const HOST_KIND = {
 };
 function hostBrief(cfg, d) {
   if (!cfg.motion?.host) return '';
-  return `\n\n${HOST_KIND[d.kind] || HOST_KIND.explain}\nSet "theme": "${cfg.motion.theme || 'editorial'}" and "host": { "name": "prashant" }, and give every line a "host" object (see "The host" in the guide). The cooker whistles once, on the "now I get it" moment.\n\nThe explainer playbook (follow all of it: one idea, one analogy, diagrams that build, colour = meaning, the motion rules, the send line, the keyword card and honesty):\n${readText(P('docs/EXPLAINER.md')).split('## Topic bank')[0]}\n\nWhat the million-view reels do:\n${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}\n\nAdley Kinsman's hook rules:\n${readText(P('docs/ADLEY.md')).split('## Her rules, the way we apply them')[1] || ''}`;
+  return `\n\n${HOST_KIND[d.kind] || HOST_KIND.explain}\nSet "theme": "${cfg.motion.theme || 'editorial'}" and "host": { "name": "prashant" }, and give every line a "host" object (see "The host" in the guide). The cooker whistles once, on the "now I get it" moment.\n\n${cfg.motion.theme === 'clay' ? `This reel remakes proven idea ${d.proven} (brand/proven.md): keep the shape that made it work, make it more useful, every site, tool and prompt real and checked.\n\nThe clay guide (the look and the classes to use):\n${readText(P('docs/CLAY.md')).split('## Carousels')[0]}\n\nProven ideas bank:\n${readText(P('brand/proven.md'))}\n\n` : ''}The explainer playbook (follow all of it: one idea, one analogy, diagrams that build, colour = meaning, the motion rules, the send line, the keyword card and honesty):\n${readText(P('docs/EXPLAINER.md')).split('## Topic bank')[0]}\n\nWhat the million-view reels do:\n${readText(P('docs/VIRAL.md')).split('## Edit signature')[0]}\n\nAdley Kinsman's hook rules:\n${readText(P('docs/ADLEY.md')).split('## Her rules, the way we apply them')[1] || ''}`;
 }
 async function makeMotionReel(d, id, dir) {
   const cfg = config(), tool = cfg.keywords[d.keyword].title, kws = Object.keys(cfg.keywords);
@@ -471,7 +473,7 @@ async function makeCarousel(day, d) {
   const cfg = config(); const id = `${day}-carousel-${d.slug}`.slice(0, 60).replace(/-+$/, ''); const dir = P('content/posts', id);
   const spec = await askJSON({
     system: SYSTEM(), effort: 'high', validate: (v) => validateCarousel(v, { keywords: Object.keys(cfg.keywords) }),
-    prompt: `Write the carousel spec (carousel.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}". 8 to 10 slides.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example:\n${example('c01-leaky-page', 'carousel.json')}\n\nReturn carousel.json only.`,
+    prompt: cfg.carousel?.style === 'clay' ? `Write the clay carousel spec (carousel.json) for: ${d.topic}. Angle: ${d.angle}. It remakes proven idea ${d.proven} from the bank below: keep its proven shape, make it more useful, and every item must be real and checked. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}", proven "${d.proven}".\n\nThe clay guide:\n${readText(P('docs/CLAY.md'))}\n\nProven ideas bank:\n${readText(P('brand/proven.md'))}\n\nA finished example:\n${readText(P('content/story-samples/e06-clay-websites/carousel.json'))}\n\nReturn carousel.json only.` : `Write the carousel spec (carousel.json) for: ${d.topic}. Angle: ${d.angle}. Keyword ${d.keyword} (free tool: ${cfg.keywords[d.keyword].title}). id must be "${id}". 8 to 10 slides.\n\nHow specs work:\n${SCENES_DOC()}\n\nA finished example:\n${example('c01-leaky-page', 'carousel.json')}\n\nReturn carousel.json only.`,
   });
   fs.mkdirSync(dir, { recursive: true }); writeJSON(path.join(dir, 'carousel.json'), spec);
   render('carousel', dir);

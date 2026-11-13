@@ -1,0 +1,81 @@
+{
+  "dur": 28.36,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 4.473,
+      "b": 4.573,
+      "say": "Between jobs? Three free AI interviewers, and number one plays strict HR.",
+      "show": "Between jobs? 3 free AI interviewers. One favourite."
+    },
+    {
+      "a": 4.573,
+      "voice": 4.673,
+      "end": 7.221,
+      "b": 7.321,
+      "say": "Nets before the match: fumble here, not with HR.",
+      "show": "Nets before the match. Fumble here, not with HR."
+    },
+    {
+      "a": 7.321,
+      "voice": 7.421,
+      "end": 9.711,
+      "b": 9.811,
+      "say": "Three: Chat G P T voice mode, out loud.",
+      "show": "3. ChatGPT voice mode, out loud."
+    },
+    {
+      "a": 9.811,
+      "voice": 9.911,
+      "end": 12.799,
+      "b": 12.899,
+      "say": "Two: Google Interview Warm Up. Free, English questions.",
+      "show": "2. Google Interview Warmup. Free, English."
+    },
+    {
+      "a": 12.899,
+      "voice": 12.999,
+      "end": 15.95,
+      "b": 16.05,
+      "say": "One: Gemini Live. Hindi or English, strict HR.",
+      "show": "1. Gemini Live. Hindi or English. Strict HR."
+    },
+    {
+      "a": 16.05,
+      "voice": 16.15,
+      "end": 18.806,
+      "b": 18.906,
+      "say": "Ask for feedback: your weak line comes back stronger.",
+      "show": "Ask for feedback. Your line gets stronger."
+    },
+    {
+      "a": 18.906,
+      "voice": 19.006,
+      "end": 21.603,
+      "b": 21.703,
+      "say": "The catch: it can't see your nerves or know this company.",
+      "show": "The catch: it can't see your nerves."
+    },
+    {
+      "a": 21.703,
+      "voice": 21.803,
+      "end": 23.334,
+      "b": 23.434,
+      "say": "And free voice time can run out.",
+      "show": "Free voice time can run out."
+    },
+    {
+      "a": 23.434,
+      "voice": 23.534,
+      "end": 26.958,
+      "b": 28.36,
+      "say": "Send this to the friend with an interview on Monday. Comment INTRO.",
+      "show": "Send this. Comment INTRO for the prompt."
+    }
+  ]
+}

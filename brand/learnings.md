@@ -2,6 +2,39 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-13
+
+- **The pull moved, still with no timestamp, and the plan was missed in 6 of 6 slots since 10 Nov 19:30 IST.**
+  - Six new rows; the newest is 12 Nov 09:43 UTC. Pair 1 B went from 94 to 122 reach, BOLO to 197, FORWARD to 50.
+  - Plan misses:
+    - 10 Nov 19:30 IST went out on #10, not #18, at 22:31 IST.
+    - 11 Nov 09:00 IST was due as a compare; a tool went out.
+    - 11 Nov 13:00 IST was due as a #24 prompt; a #18 tool went out.
+    - 11 Nov 19:30 IST was due as a #11 tool; a #17 compare went out.
+    - 12 Nov 09:00 IST was due as a #17 compare; a #11 tutorial went out.
+    - The 12 Nov 13:00 IST carousel did not post. An explain reel on #9 went out at 15:13 IST, while explain was on hold.
+  - That is 10 of the last 12 slots off-plan. The list-card test and the first carousel did not run as designed.
+- **Sends still sit only on the money list card (hunch to moderate, n=4, not hand-checked).**
+  - 24 of 28 page sends are on four money list reels: 17.6 per 1k on 1,364 reach.
+  - Explainers: 23 reels, 1,817 reach, 0 sends, 7 saves (3.9 per 1k).
+  - The five tool, compare and tutorial reels since 10 Nov were meant to carry list cards. They have 0 sends and 2 saves on 303 reach, all under 72 hours, with list card not logged.
+  - About 5 sends were expected at the money list rate. That is weak evidence that the list shape alone does not earn sends.
+- **Kinds (hunch): compare is weakest and tool leads on saves.**
+  - Compare: 3 reels on #17, 0.75x, 0.47x and 0.47x, 0 saves, 2.4 to 3.0s.
+  - #17 in the new niche: n=4, median 0.61x, 0 sends.
+  - Saves per 1k: tool 5.6 (3 on 539), tutorial 5.1, prompt 4.9, explain 1.9, compare 0.
+  - Every kind has 0 sends. PHOTO (#9, explain) has 7.0s at hours old, n=1.
+- **Pair 3 is judged a tie.**
+  - Both arms have 0 sends. The 1-save gap is under 100 reach.
+  - With pair 2 also tied, pair 4 only matters if pair 1 (judged 13 Nov 03:30 UTC) has a winner.
+  - Pair 1 is void if B's #11 against A's #3 is confirmed.
+  - Pair 1 now: A 3 sends on 103 reach (29.1 per 1k), B 2 sends on 122 reach (16.4 per 1k).
+- **Baselines and logging.**
+  - Page median: 103.5 on 62 rows.
+  - Money era: 106.5 views and 91 reach (n=16).
+  - Explainer era (72 hours old): 80 views and 68 reach (n=15).
+  - Still missing on every row: pull timestamp, kind, list card, the editorial-host style, arm and pair, follower count, hold@3s, follows and non-follower %.
+
 ## Week of 2026-11-11
 
 - **This pull is the 10 Nov pull again, row for row, so it is a fault, not a reading.**

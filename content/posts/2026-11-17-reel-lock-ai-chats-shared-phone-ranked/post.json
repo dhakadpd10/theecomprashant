@@ -1,0 +1,155 @@
+{
+  "id": "2026-11-17-reel-lock-ai-chats-shared-phone-ranked",
+  "style": "motion",
+  "theme": "editorial",
+  "kind": "tool",
+  "keyword": "PRIVATE",
+  "world": "studio",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "17 Nov 2026 09:00 IST",
+    "slot_utc": "17 Nov 2026 03:30 UTC",
+    "kind": "tool",
+    "hook": "#24",
+    "keyword": "PRIVATE",
+    "free_tool": "What Not to Type into AI Card",
+    "list_card": "yes",
+    "named_viewer": "homemakers on the shared family phone",
+    "arm": "none",
+    "pair": "none",
+    "money_angle": "no",
+    "format": "reel",
+    "log_style": "editorial-host"
+  },
+  "hot": "^(hidden|PIN|locked|drawer|Favourite|1|catch|OpenAI|Send|PRIVATE)$",
+  "palette": {
+    "bg": "#F3EEE5",
+    "ink": "#1E1A16",
+    "accent": "#1F5FA8"
+  },
+  "lines": [
+    {
+      "say": "This is the new hidden chat folder. Only your PIN opens it.",
+      "show": "ChatGPT's hidden folder. Only your PIN opens it.",
+      "card": "CHATGPT'S HIDDEN FOLDER",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Shared phone, shared cupboard. Your chats need a locked drawer.",
+      "show": "Shared phone? Your chats need a locked drawer.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Three: turn off and delete your Gemini activity.",
+      "show": "3. Turn off Gemini Apps Activity.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two: Temporary Chat, never saved to your history.",
+      "show": "2. Temporary Chat: not saved to history.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One, the best one: locked chats, behind a PIN.",
+      "show": "1. Favourite: ChatGPT locked chats, behind a PIN.",
+      "cut": true,
+      "host": {
+        "at": "hidden"
+      }
+    },
+    {
+      "say": "Gone from history and search. Borrowers only see a PIN screen.",
+      "show": "Hidden from history and search.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "cooker",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it hides chats from people, not the company. Not encryption.",
+      "show": "The catch: hidden from people, not OpenAI.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Read the help page on a lost PIN before setting one.",
+      "show": "Read the forgotten-PIN page first.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Send this to the friend whose kids play games on her phone. Comment PRIVATE.",
+      "show": "Send this. Comment PRIVATE for the free card.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0.voice+1.9",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line3.voice+0.2",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.7",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+1.0",
+      "fx": "buzz"
+    }
+  ],
+  "cover": {
+    "at": "@line4+1.4",
+    "title": [
+      "CHATGPT'S HIDDEN FOLDER",
+      "3 WAYS, RANKED"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

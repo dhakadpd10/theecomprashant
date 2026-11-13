@@ -1,0 +1,85 @@
+{
+  "week": "2026-W46-5",
+  "start": "2026-11-15",
+  "research": "I found 9 items. Few of them come straight from a company page, and several are on Pixel phones only, beta only or US only. I've marked that on each one.\n\n**Tools and features**\n\n1. **ChatGPT locked chats (free plan included).** You can hide chats behind a PIN in the Free, Go and Plus plans. Locked chats sit under Projects > Locked chats and don't show in your history or search. It started rolling out on 20 Oct, a bit outside the 14 days, and is still reaching accounts. *Why a beginner cares:* a shared family phone, or sharing your screen in class. *The catch:* it isn't encryption and OpenAI keeps the chat as usual. One source says resetting a forgotten PIN deletes the locked chats; another says only forgetting it doesn't. Source (OpenAI): [Using locked chats in ChatGPT](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n\n2. **ChatGPT Images 2.6 makes GIFs (4 Nov).** Type a prompt or upload a photo and get an animated GIF. You can change the speed and edit single frames, and images are reported to make 50% faster. *Why:* WhatsApp stickers and shop promos made from one photo. *The catch:* it's rolling out slowly, and no source I found says free users get it. I couldn't open OpenAI's own post, so this is from [Digit](https://www.digit.in/news/general/openai-launches-chatgpt-images-26-with-gif-creation-and-faster-image-generation-features-availability-and-more-details.html). Check OpenAI's [release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) first.\n\n3. **Gemini can order food and book cabs in India (beta, 10 Nov Pixel Drop).** Google calls it screen automation: Gemini works through your other apps to do the task. *Why:* it's the first \"AI does the task for you\" feature many Indians will hear about. *The catch:* English only, 18+, recent Pixel and some Samsung phones only, and Google hasn't named which Indian apps work. Reports also conflict: older coverage said US and Korea only, and I couldn't confirm the India line on Google's own page. Sources: [Google blog](https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/), [Beebom](https://gadgets.beebom.com/news/google-rolls-out-november-2026-pixel-drop), [transclew](https://transclew.com/tech/gemini-task-automation-india-apps/)\n\n4. **AI notification summaries reach India (Pixel).** Your phone sums up long chat threads in one line. *Why:* for anyone buried in WhatsApp group notifications. *The catch:* Pixel only. One report says a Hindi version is coming, but I couldn't confirm Hindi for this feature. Sources: [Google blog](https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/), [Android Authority](https://androidauthority.com/google-pixel-drop-november-2026-all-new-features-3733178)\n\n5. **NotebookLM (now called Gemini Notebook) adds free textbooks.** Since 29 Oct you can add free textbooks from the \"Add sources\" menu, alongside the new quiz types (short answer, fill-in-the-blank). *Why:* exam prep for students at no cost. This would fit the STUDY keyword. *The catch:* these details come only from blogs and I found no Google post for them, so test it in the app before scripting it. Sources: [Glasp guide](https://glasp.co/articles/notebooklm-2026), [XDA](https://www.xda-developers.com/notebooklms-new-study-features-outperform-apps-people-pay-for/)\n\n6. **WhatsApp is testing separate Meta AI chats and AI photo expand (beta, 4 to 5 Nov).** Meta AI gets its own threads in your chat list, and it can stretch a photo to a 9:16 Status size. *Why:* WhatsApp is the AI most Indians already have. *The catch:* beta testers only, with no public date and nothing from Meta itself. Too early for a tutorial. Source: [SamMobile-style report via Sammyfans](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/?noamp=mobile)\n\n**Confusion and privacy**\n\n7. **\"AI is always right\" and \"my chats are private.\"** A Kaspersky survey reported 12 Nov found about 1 in 10 people have already caught AI giving wrong information, and 41% use AI for advice on personal matters. A US survey found 53% didn't know whether their chats are used to train the bot. *Why:* this sets up a useful \"what never to paste into AI\" list (Aadhaar, OTPs, bank details). *The catch:* the numbers are mostly from the US, not India. Sources: [Pew via FingerLakes1](https://www.fingerlakes1.com/2026/10/10/pew-finds-privacy-and-accuracy-concerns-keep-many-adults-off-ai-chatbots/), [Itz Big](https://itzbig.com/chatbot-privacy-misconceptions-survey.html), [KTTC](https://www.kttc.com/2026/11/11/what-keep-out-ai-chatbots-protect-your-personal-information/)\n\n8. **ChatGPT Finances came to the Mac app (11 Nov), US only.** It tracks spending and savings, can only read your data and can't move money. *Why:* Indians will see it online and ask how to get it. The honest answer is they can't yet. Use it as a \"don't fall for fake India versions\" point, not as a tool reel. Source: [9to5Mac](https://9to5mac.com/2026/11/11/openais-personal-finance-features-for-chatgpt-expands-to-mac-app/)\n\n**Scams**\n\n9. **Deepfake bank fraud: cloned voices, edited videos, fake IDs that rush you into a transfer.** A secondary report says Indian cyber agencies issued a fresh advisory on 6 Nov and points to the 1930 fraud helpline. A Fortune piece from 24 Oct recommends a family \"safe word\" against fake kidnapping calls. *Why:* parents and grandparents are the targets, which makes this very easy to share. *The catch:* I couldn't find the 6 Nov advisory on cybercrime.gov.in, so confirm it before quoting it. Sources: [Careerindia](https://www.careerindia.com/features/ai-deepfake-bank-fraud-safety-guide-for-indian-students-2026-011-68211.html), [Fortune](https://fortune.com/2026/10/24/ai-voice-cloning-scam-fake-kidnapping-safe-word/)\n\n**What I left out**\n- **CERT-In's CRAFTY FALCON advisory (4 Nov).** It's aimed at banks and fintechs, not ordinary users.\n- **\"ChatGPT Standard Voice retiring 11 Dec.\"** I couldn't find any OpenAI source for it.\n- **Claude.** Nothing new for free users came up that I could check. The November additions are mostly on paid plans, and the sources are third-party.\n\n**How these fit this week's plan**\n- **Best for tool or tutorial reels with a ranked card:** 1, 2 and 5.\n- **Works as a prompt reel:** 7.\n- **Scam items (9):** SAFE is resting and explain reels are on hold, so use these only as one item inside a list, or keep them until the 17 Nov kind read.\n- **Gemini automation (3):** it only works on a few phones, so most viewers can't use it today. If you cover it, say that out loud as the catch.\n\nSources:\n- [OpenAI: Using locked chats](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt)\n- [OpenAI: ChatGPT release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n- [Digit: Images 2.6](https://www.digit.in/news/general/openai-launches-chatgpt-images-26-with-gif-creation-and-faster-image-generation-features-availability-and-more-details.html)\n- [Google: November 2026 Pixel Drop](https://blog.google/products-and-platforms/devices/pixel/november-2026-pixel-drop/)\n- [Beebom](https://gadgets.beebom.com/news/google-rolls-out-november-2026-pixel-drop)\n- [transclew](https://transclew.com/tech/gemini-task-automation-india-apps/)\n- [Android Authority](https://androidauthority.com/google-pixel-drop-november-2026-all-new-features-3733178)\n- [Glasp: Gemini Notebook guide](https://glasp.co/articles/notebooklm-2026)\n- [XDA: NotebookLM study features](https://www.xda-developers.com/notebooklms-new-study-features-outperform-apps-people-pay-for/)\n- [Sammyfans: WhatsApp Meta AI chats](https://www.sammyfans.com/2026/11/04/whatsapp-users-can-now-create-separate-chats-with-meta-ai/?noamp=mobile)\n- [FingerLakes1: Pew](https://www.fingerlakes1.com/2026/10/10/pew-finds-privacy-and-accuracy-concerns-keep-many-adults-off-ai-chatbots/)\n- [Itz Big: privacy survey](https://itzbig.com/chatbot-privacy-misconceptions-survey.html)\n- [KTTC: what to keep out of chatbots](https://www.kttc.com/2026/11/11/what-keep-out-ai-chatbots-protect-your-personal-information/)\n- [9to5Mac: ChatGPT Finances](https://9to5mac.com/2026/11/11/openais-personal-finance-features-for-chatgpt-expands-to-mac-app/)\n- [Careerindia: deepfake bank fraud](https://www.careerindia.com/features/ai-deepfake-bank-fraud-safety-guide-for-indian-students-2026-011-68211.html)\n- [Fortune: voice-clone safe word](https://fortune.com/2026/10/24/ai-voice-cloning-scam-fake-kidnapping-safe-word/)",
+  "slots": [
+    {
+      "day": "2026-11-15",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-01-reel-hostel-room-4-ways-earn-ai",
+      "style": "motion",
+      "repost": true,
+      "repost_of": "18193971742400874",
+      "caption_file": "caption-repost-1.txt",
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "re-post (11.53x views): Students: 4 ways to earn with AI from your hostel room",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-16",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-16-reel-interview-practice-3-free-ai-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 61.2
+      },
+      "keyword": "INTRO",
+      "pillar": "Tools worth knowing",
+      "topic": "3 free ways to practise a job interview out loud with AI, ranked",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-16",
+      "time": "13:00",
+      "format": "reel",
+      "post": "2026-11-16-reel-avoided-email-in-your-voice-3-steps",
+      "style": "motion",
+      "hook": {
+        "id": 9,
+        "name": "The Steal",
+        "score": 55.4
+      },
+      "keyword": "STYLE",
+      "pillar": "Do it with AI",
+      "topic": "Write the office email you keep putting off (leave, follow-up) in your own voice, in 3 steps",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-16",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-16-reel-ask-me-first-project-idea",
+      "style": "motion",
+      "hook": {
+        "id": 9,
+        "name": "The Steal",
+        "score": 77.8
+      },
+      "keyword": "ASK",
+      "pillar": "Better prompts",
+      "topic": "The Ask-Me-First prompt: AI asks you 3 questions before it gives a project idea, before and after",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-17",
+      "time": "09:00",
+      "format": "reel",
+      "post": "2026-11-17-reel-lock-ai-chats-shared-phone-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 24,
+        "name": "The Reveal",
+        "score": 65.8
+      },
+      "keyword": "PRIVATE",
+      "pillar": "Tools worth knowing",
+      "topic": "3 ways to keep your AI chats private on a shared family phone, ranked, with ChatGPT locked chats as the favourite",
+      "status": "made"
+    }
+  ]
+}

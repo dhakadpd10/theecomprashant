@@ -1,0 +1,294 @@
+<style>
+  /* tutorial: your leave mail in your own voice, 3 steps. One idea (AI copies how you write from your sent emails).
+     One analogy (a tailor copying the fit of your old shirt). Colour = meaning:
+     blue = what the AI does, ink = what you wrote, brown = Hindi words, red = check this, green = done. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D4 100%); }
+  .blob { position: absolute; border-radius: 50%; }
+  #blob1 { left: -260px; top: 260px; width: 760px; height: 760px; background: radial-gradient(circle, rgba(47,91,211,0.08) 0%, rgba(47,91,211,0) 70%); }
+  #blob2 { left: 520px; top: 820px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  #rules { position: absolute; left: 0; right: 0; top: -80px; bottom: -80px; background-image: repeating-linear-gradient(0deg, rgba(30,26,22,0.035) 0px, rgba(30,26,22,0.035) 1px, transparent 1px, transparent 64px); }
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 70px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; transform-origin: left center; }
+  .title { position: absolute; left: 90px; right: 90px; top: 120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .red-t { color: #C23B3B; }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.12), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .card.wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: rgba(30,26,22,0.66); white-space: nowrap; }
+  .chip { position: absolute; height: 52px; padding: 0 20px; border-radius: 26px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; color: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+  .green { background: #1E7F4C; } .red { background: #C23B3B; } .amber { background: #9A5B00; }
+
+  /* 0: hook */
+  #s0-title { top: 130px; font-size: 120px; transform-origin: left top; }
+  #envw { position: absolute; left: 770px; top: 140px; width: 170px; height: 130px; }
+  #env { position: absolute; left: 0; top: 0; width: 170px; height: 130px; }
+  #s0-seal { position: absolute; left: 61px; top: 54px; width: 48px; height: 48px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(47,91,211,0.18); }
+
+  /* 1: the tailor */
+  #s1-card { top: 350px; height: 530px; }
+  .shirt { position: absolute; top: 30px; width: 220px; height: 220px; }
+  #shirt-old { left: 40px; } #shirt-new { left: 400px; }
+  #copy-arrow { position: absolute; left: 268px; top: 120px; width: 124px; height: 50px; }
+  #s1-l1 { left: 20px; top: 262px; width: 260px; text-align: center; }
+  #s1-l2 { left: 380px; top: 262px; width: 260px; text-align: center; color: var(--accent); }
+  .map { position: absolute; left: 30px; right: 30px; height: 80px; border-radius: 22px; background: #F6F3EE; display: flex; align-items: center; gap: 16px; padding: 0 26px; font-family: 'Inter', sans-serif; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .map b { font-weight: 900; } .map i { font-style: normal; font-weight: 900; color: var(--accent); } .map span { font-weight: 700; }
+  #m1 { top: 320px; } #m2 { top: 420px; }
+
+  /* 2: step 1, paste 2 emails */
+  #s2-card { top: 350px; height: 640px; }
+  #app-head { position: absolute; left: 32px; right: 32px; top: 26px; height: 60px; display: flex; align-items: center; gap: 14px; }
+  #spark { display: block; width: 44px; height: 44px; }
+  #app-head .name { font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); }
+  #app-head .tag { margin-left: auto; height: 44px; padding: 0 16px; border-radius: 22px; background: #EEF2FC; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; }
+  .mail { position: absolute; left: 70px; right: 30px; height: 160px; box-sizing: border-box; padding: 18px 24px; border-radius: 28px 28px 8px 28px; background: #EAF0FD; }
+  .mail .lbl2 { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; color: var(--accent); white-space: nowrap; }
+  .mail .bl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 44px; color: var(--ink); white-space: nowrap; }
+  #e1 { top: 112px; } #e2 { top: 292px; }
+  #ask1 { position: absolute; left: 30px; right: 30px; top: 476px; height: 90px; border-radius: 45px; background: #F6F3EE; }
+  #ask1-t { position: absolute; display: block; left: 32px; top: 0; height: 90px; line-height: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #ask1-go { position: absolute; right: 10px; top: 10px; width: 110px; height: 70px; border-radius: 35px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: center; }
+  #s2-note { left: 36px; top: 590px; }
+
+  /* 3: step 2, voice-type it (host hidden, full width) */
+  #s3-card { top: 350px; height: 640px; }
+  #mic { position: absolute; left: 365px; top: 40px; width: 170px; height: 170px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px rgba(47,91,211,0.3); }
+  #mic svg { display: block; width: 60px; height: 90px; }
+  .ring { position: absolute; left: 365px; top: 40px; width: 170px; height: 170px; border-radius: 50%; border: 5px solid var(--accent); box-sizing: border-box; }
+  #wave { position: absolute; left: 150px; right: 150px; top: 236px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+  #wave i { display: block; width: 18px; height: 80px; border-radius: 9px; background: var(--accent); }
+  #said { position: absolute; left: 36px; right: 36px; top: 350px; height: 262px; border-radius: 26px; background: #F6F3EE; }
+  #said-l { left: 30px; top: 22px; }
+  #legend { position: absolute; right: 30px; top: 18px; display: flex; align-items: center; gap: 22px; }
+  .lg { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.1em; color: var(--ink); }
+  .lg .dot { display: block; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); }
+  .lg.hd { color: #8A5300; } .lg.hd .dot { background: #8A5300; }
+  #tx { position: absolute; left: 30px; right: 30px; top: 72px; }
+  .sl { display: block; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 56px; color: var(--ink); white-space: nowrap; }
+  .hn { color: #8A5300; }
+
+  /* 4: step 3, polite and firm (the list card) */
+  #s4-card { top: 350px; height: 640px; }
+  .srow { position: absolute; left: 30px; right: 30px; height: 80px; border-radius: 22px; background: #F6F3EE; }
+  .srow .num { position: absolute; left: 16px; top: 14px; width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; display: flex; align-items: center; justify-content: center; }
+  .srow .t { position: absolute; left: 90px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .srow .tick { position: absolute; right: 18px; top: 14px; width: 52px; height: 52px; }
+  .srow.fav { background: #EAF0FD; } .srow.fav .num { background: var(--accent); color: #FFFFFF; }
+  #r1 { top: 28px; } #r2 { top: 120px; } #r3 { top: 212px; }
+  #fav { position: absolute; right: 14px; top: 14px; height: 52px; padding: 0 16px; border-radius: 26px; background: var(--accent); color: #FFFFFF; display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; white-space: nowrap; }
+  #fav-star { display: block; width: 26px; height: 26px; }
+  #ask2 { position: absolute; left: 30px; right: 30px; top: 316px; height: 190px; border-radius: 26px; background: #F6F3EE; }
+  #ask2-l { left: 30px; top: 20px; }
+  .al { position: absolute; display: block; left: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 46px; color: var(--ink); white-space: nowrap; }
+  #a1 { top: 60px; } #a2 { top: 110px; color: var(--accent); }
+  .vchip { position: absolute; top: 530px; width: 260px; height: 76px; box-sizing: border-box; border-radius: 38px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.12em; }
+  #vp { left: 36px; background: #EAF0FD; color: var(--accent); border: 3px solid var(--accent); }
+  #vf { left: 316px; background: var(--ink); color: #F3EEE5; }
+
+  /* 5: the result, two finished mails */
+  .mailc { height: 268px; }
+  #mA { top: 350px; } #mB { top: 640px; }
+  .vtag { position: absolute; left: 36px; top: 26px; height: 48px; padding: 0 18px; border-radius: 24px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; }
+  .vtag.pol { background: #EAF0FD; color: var(--accent); }
+  .vtag.frm { background: var(--ink); color: #F3EEE5; }
+  .mailc .to { right: 36px; top: 38px; }
+  .mbody { position: absolute; left: 36px; right: 36px; top: 92px; }
+  .ml { display: block; width: fit-content; padding: 0 8px; margin-left: -8px; border-radius: 10px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 48px; color: var(--ink); white-space: nowrap; }
+  #s5-note { left: 90px; top: 930px; }
+
+  /* 6: the catch, flags over the same mails */
+  #scan { position: absolute; left: 60px; width: 660px; top: 350px; height: 6px; border-radius: 3px; background: var(--accent); box-shadow: 0 0 18px rgba(47,91,211,0.5); }
+  .flag { position: absolute; height: 46px; padding: 0 16px; border-radius: 23px; background: #C23B3B; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; white-space: nowrap; }
+  #f1 { left: 540px; top: 539px; } #f2 { left: 494px; top: 829px; }
+
+  /* 7: never paste */
+  #s7-card { top: 350px; height: 440px; }
+  #s7-l { left: 36px; top: 30px; color: #C23B3B; }
+  .prow { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 22px; background: #F6F3EE; }
+  .prow .doc { position: absolute; left: 22px; top: 22px; width: 44px; height: 56px; }
+  .prow .t { position: absolute; left: 88px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .prow .chip { right: 20px; top: 24px; }
+  .strk { position: absolute; display: block; left: 82px; top: 48px; height: 5px; border-radius: 3px; background: #C23B3B; transform-origin: left center; }
+  #sk1 { width: 205px; } #sk2 { width: 200px; }
+  #q1 { top: 80px; } #q2 { top: 196px; } #q3 { top: 312px; }
+
+  /* 8: send this */
+  #s8-title { top: 70px; font-size: 150px; }
+  #s8-card { top: 330px; height: 548px; }
+  #ava { position: absolute; left: 32px; top: 32px; width: 90px; height: 90px; border-radius: 50%; background: var(--accent); }
+  #ava svg { display: block; width: 90px; height: 90px; }
+  #cname { position: absolute; left: 140px; top: 38px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #csub { left: 140px; top: 88px; }
+  #prev { position: absolute; left: 32px; right: 32px; top: 160px; height: 230px; border-radius: 24px; background: var(--bg); border: 2px solid rgba(30,26,22,0.08); box-sizing: border-box; }
+  #prev .pt { position: absolute; left: 30px; top: 30px; width: 380px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 34px; line-height: 1.25; color: var(--ink); }
+  #prev .pk { left: 30px; bottom: 26px; color: var(--accent); }
+  #play { position: absolute; right: 30px; top: 63px; width: 100px; height: 100px; }
+  #sendb { position: absolute; left: 32px; right: 32px; top: 420px; height: 96px; border-radius: 48px; background: var(--accent); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #sentb { position: absolute; left: 32px; right: 32px; top: 420px; height: 96px; border-radius: 48px; background: #1E7F4C; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #sentb svg { display: block; width: 36px; height: 36px; }
+
+  /* 9: save + keyword */
+  #save { position: absolute; left: 90px; top: 70px; width: 420px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 130px; line-height: 1.02; color: var(--ink); }
+  #bm { position: absolute; left: 500px; top: 86px; width: 80px; height: 110px; }
+  #s9-card { top: 300px; height: 320px; }
+  #cav { position: absolute; left: 32px; top: 28px; width: 70px; height: 70px; border-radius: 50%; background: #EAF0FD; }
+  #cav svg { display: block; width: 70px; height: 70px; }
+  #s9-l { left: 122px; top: 50px; }
+  #kw { position: absolute; left: 36px; right: 36px; top: 120px; height: 170px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  #kw b { display: block; font-family: var(--display); font-weight: 400; font-size: 130px; line-height: 1; color: var(--accent); }
+  #sticker { position: absolute; left: 500px; top: 268px; height: 64px; padding: 0 22px; border-radius: 14px; background: #F7D488; color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; white-space: nowrap; box-shadow: 0 12px 26px rgba(60,40,20,0.16); }
+  #pill { position: absolute; left: 60px; right: 360px; top: 660px; height: 120px; border-radius: 60px; background: var(--ink); color: #F3EEE5; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+  #pill b { color: #A9BEF7; margin-left: 12px; font-weight: 900; }
+  #s9-sub { left: 60px; width: 660px; top: 806px; text-align: center; }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div id="rules"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">AFTER OFFICE · 3 STEPS</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Leave mail</span></span><span class="mask"><span class="l">in your <span class="it">voice.</span></span></span></div>
+  <div id="envw" data-layout-allow-overlap>
+    <svg id="env" viewBox="0 0 170 130"><rect x="5" y="15" width="160" height="105" rx="14" fill="#FFFFFF" stroke="#1E1A16" stroke-width="5"></rect><path d="M10 22 L85 78 L160 22" fill="none" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+    <div id="s0-seal" data-layout-allow-overlap></div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE IDEA</div>
+  <div class="title"><span class="mask"><span class="l">Like a <span class="it">tailor.</span></span></span></div>
+  <div class="card" id="s1-card">
+    <svg id="shirt-old" class="shirt" viewBox="0 0 240 240"><path d="M70 22 L100 12 Q120 34 140 12 L170 22 L228 62 L204 104 L180 90 L180 228 L60 228 L60 90 L36 104 L12 62 Z" fill="#D9C7AE" stroke="#1E1A16" stroke-width="5" stroke-linejoin="round"></path><path d="M60 70 L180 70" stroke="#2F5BD3" stroke-width="5" stroke-dasharray="10 8" stroke-linecap="round"></path><rect x="132" y="112" width="30" height="34" rx="5" fill="none" stroke="#1E1A16" stroke-width="4"></rect></svg>
+    <svg id="copy-arrow" viewBox="0 0 124 50"><path d="M6 25 L108 25" stroke="#2F5BD3" stroke-width="6" stroke-linecap="round"></path><path d="M92 10 L112 25 L92 40" fill="none" stroke="#2F5BD3" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"></path></svg>
+    <svg id="shirt-new" class="shirt" viewBox="0 0 240 240"><path id="sn-fill" d="M70 22 L100 12 Q120 34 140 12 L170 22 L228 62 L204 104 L180 90 L180 228 L60 228 L60 90 L36 104 L12 62 Z" fill="#DCE5FA" opacity="0"></path><path id="sn-line" d="M70 22 L100 12 Q120 34 140 12 L170 22 L228 62 L204 104 L180 90 L180 228 L60 228 L60 90 L36 104 L12 62 Z" fill="none" stroke="#2F5BD3" stroke-width="6" stroke-linejoin="round" stroke-dasharray="840" stroke-dashoffset="840"></path></svg>
+    <div class="lbl" id="s1-l1">YOUR OLD SHIRT</div>
+    <div class="lbl" id="s1-l2">SAME FIT, NEW</div>
+    <div class="map" id="m1"><b>Old shirt</b><i>=</i><span>your 2 emails</span></div>
+    <div class="map" id="m2"><b>New shirt</b><i>=</i><span>your new mail</span></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">STEP 1</div>
+  <div class="title"><span class="mask"><span class="l">Paste <span class="it">2 emails.</span></span></span></div>
+  <div class="card" id="s2-card">
+    <div id="app-head"><svg id="spark" viewBox="0 0 40 40"><path d="M20 2 C22 14 26 18 38 20 C26 22 22 26 20 38 C18 26 14 22 2 20 C14 18 18 14 20 2 Z" fill="#2F5BD3"></path></svg><div class="name">Gemini</div><div class="tag">FREE APP</div></div>
+    <div class="mail" id="e1"><span class="lbl2">EMAIL 1 · YOU SENT</span><span class="bl">Hi sir, need Monday off.</span><span class="bl">On phone if urgent.</span></div>
+    <div class="mail" id="e2"><span class="lbl2">EMAIL 2 · YOU SENT</span><span class="bl">Hi team, running late.</span><span class="bl">Please start without me.</span></div>
+    <div id="ask1"><span id="ask1-t">Learn how I write.</span><div id="ask1-go">GO</div></div>
+    <div class="lbl" id="s2-note">EXAMPLE EMAILS</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">STEP 2</div>
+  <div class="title"><span class="mask"><span class="l">Just <span class="it">say it.</span></span></span></div>
+  <div class="card wide" id="s3-card">
+    <div class="ring" id="ring1" data-layout-allow-overlap></div>
+    <div class="ring" id="ring2" data-layout-allow-overlap></div>
+    <div id="mic"><svg viewBox="0 0 60 90"><rect x="18" y="4" width="24" height="48" rx="12" fill="#FFFFFF"></rect><path d="M8 40 Q8 66 30 66 Q52 66 52 40" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path><path d="M30 66 L30 82 M18 84 L42 84" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"></path></svg></div>
+    <div id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div id="said">
+      <div class="lbl" id="said-l">YOU SAID</div>
+      <div id="legend"><div class="lg hd"><i class="dot"></i>HINDI</div><div class="lg"><i class="dot"></i>ENGLISH</div></div>
+      <div id="tx">
+        <span class="sl" id="t1"><span class="hn">Kal chutti chahiye,</span></span>
+        <span class="sl" id="t2"><span class="hn">ghar pe</span> function <span class="hn">hai.</span></span>
+        <span class="sl" id="t3">Monday <span class="hn">ko</span> back.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">STEP 3 · MY FAVOURITE</div>
+  <div class="title"><span class="mask"><span class="l">Polite <span class="it">and firm.</span></span></span></div>
+  <div class="card" id="s4-card">
+    <div class="srow" id="r1"><div class="num">1</div><div class="t">Paste 2 emails</div><svg class="tick" id="tk1" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1E7F4C"></circle><path d="M15 27 L23 35 L38 18" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="srow" id="r2"><div class="num">2</div><div class="t">Voice-type it</div><svg class="tick" id="tk2" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1E7F4C"></circle><path d="M15 27 L23 35 L38 18" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    <div class="srow fav" id="r3"><div class="num">3</div><div class="t">Polite + firm</div><div id="fav"><svg id="fav-star" viewBox="0 0 24 24"><path d="M12 2 L14.9 8.6 L22 9.3 L16.6 14 L18.2 21 L12 17.3 L5.8 21 L7.4 14 L2 9.3 L9.1 8.6 Z" fill="#FFFFFF"></path></svg>FAVOURITE</div></div>
+    <div id="ask2">
+      <div class="lbl" id="ask2-l">THEN ASK</div>
+      <span class="al" id="a1">Write it like my emails.</span>
+      <span class="al" id="a2">One polite, one firm.</span>
+    </div>
+    <div class="vchip" id="vp">POLITE</div>
+    <div class="vchip" id="vf">FIRM</div>
+  </div>
+</section>
+
+<section class="scene" id="s5h" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Sounds like <span class="it">you.</span></span></span></div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line7">
+  <div class="card mailc" id="mA">
+    <div class="vtag pol" id="vtA">POLITE</div>
+    <div class="lbl to">TO: MANAGER</div>
+    <div class="mbody"><span class="ml">Hi sir, could I take leave</span><span class="ml">tomorrow? Family function.</span><span class="ml" id="mA3">Report done by tonight.</span></div>
+  </div>
+  <div class="card mailc" id="mB">
+    <div class="vtag frm" id="vtB">FIRM</div>
+    <div class="lbl to">TO: MANAGER</div>
+    <div class="mbody"><span class="ml">Hi sir, I'm on leave</span><span class="ml">tomorrow. Family function.</span><span class="ml" id="mB3">Back Monday, 18 Nov.</span></div>
+  </div>
+  <div class="lbl" id="s5-note">EXAMPLE · WRITTEN BY AI</div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step red-t">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Read <span class="it red-t">every line.</span></span></span></div>
+  <div id="scan" data-layout-allow-overlap></div>
+  <div class="flag" id="f1" data-layout-allow-overlap>ADDED</div>
+  <div class="flag" id="f2" data-layout-allow-overlap>WRONG DATE</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step red-t">AND NEVER</div>
+  <div class="title"><span class="mask"><span class="l">Keep it <span class="it">private.</span></span></span></div>
+  <div class="card" id="s7-card">
+    <div class="lbl" id="s7-l">NEVER PASTE INTO AI</div>
+    <div class="prow" id="q1"><svg class="doc" viewBox="0 0 44 56"><rect x="2" y="2" width="40" height="52" rx="6" fill="#FFFFFF" stroke="#1E1A16" stroke-width="3"></rect><path d="M10 16 H34 M10 26 H34 M10 36 H26" stroke="#1E1A16" stroke-width="3" stroke-linecap="round"></path></svg><div class="t">Salary slips</div><i class="strk" id="sk1"></i><div class="chip red" id="n1">NO</div></div>
+    <div class="prow" id="q2"><svg class="doc" viewBox="0 0 44 56"><rect x="2" y="2" width="40" height="52" rx="6" fill="#FFFFFF" stroke="#1E1A16" stroke-width="3"></rect><path d="M10 16 H34 M10 26 H34 M10 36 H26" stroke="#1E1A16" stroke-width="3" stroke-linecap="round"></path></svg><div class="t">Office data</div><i class="strk" id="sk2"></i><div class="chip red" id="n2">NO</div></div>
+    <div class="prow" id="q3"><svg class="doc" viewBox="0 0 44 56"><rect x="2" y="2" width="40" height="52" rx="6" fill="#FFFFFF" stroke="#1E1A16" stroke-width="3"></rect><path d="M10 16 H34 M10 26 H34 M10 36 H26" stroke="#1E1A16" stroke-width="3" stroke-linecap="round"></path></svg><div class="t">Names, numbers</div><div class="chip amber" id="y3">REMOVE</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="title" id="s8-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div class="card" id="s8-card">
+    <div id="ava"><svg viewBox="0 0 90 90"><circle cx="45" cy="34" r="16" fill="#FFFFFF"></circle><path d="M16 80 Q45 46 74 80 Z" fill="#FFFFFF"></path></svg></div>
+    <div id="cname">That colleague</div>
+    <div class="lbl" id="csub">DRAFTING SINCE MONDAY</div>
+    <div id="prev">
+      <div class="pt">Leave mail in your voice.</div>
+      <div class="lbl pk">REEL · 3 STEPS</div>
+      <svg id="play" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="#2F5BD3"></circle><path d="M40 32 L70 50 L40 68 Z" fill="#FFFFFF"></path></svg>
+    </div>
+    <div id="sendb">Send</div>
+    <div id="sentb" data-layout-allow-overlap><svg viewBox="0 0 36 36"><path d="M7 19 L15 27 L30 10" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>Sent</div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="end">
+  <div id="save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="bm" viewBox="0 0 80 110"><path d="M6 6 H74 V104 L40 78 L6 104 Z" fill="#2F5BD3"></path></svg>
+  <div class="card" id="s9-card">
+    <div id="cav"><svg viewBox="0 0 70 70"><circle cx="35" cy="27" r="12" fill="#2F5BD3"></circle><path d="M13 62 Q35 36 57 62 Z" fill="#2F5BD3"></path></svg></div>
+    <div class="lbl" id="s9-l">ADD A COMMENT</div>
+    <div id="kw"><b>S</b><b>T</b><b>Y</b><b>L</b><b>E</b></div>
+  </div>
+  <div id="sticker" data-layout-allow-overlap>FREE PROMPT</div>
+  <div id="pill">Comment <b>STYLE</b></div>
+  <div class="lbl" id="s9-sub">GET THE WRITE-LIKE-ME PROMPT</div>
+</section>

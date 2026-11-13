@@ -1,0 +1,81 @@
+{
+  "dur": 31.47,
+  "fps": 30,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.739,
+      "b": 3.839,
+      "say": "This is the new hidden chat folder. Only your PIN opens it.",
+      "show": "ChatGPT's hidden folder. Only your PIN opens it."
+    },
+    {
+      "a": 3.839,
+      "voice": 3.939,
+      "end": 6.976,
+      "b": 7.076,
+      "say": "Shared phone, shared cupboard. Your chats need a locked drawer.",
+      "show": "Shared phone? Your chats need a locked drawer."
+    },
+    {
+      "a": 7.076,
+      "voice": 7.176,
+      "end": 9.508,
+      "b": 9.608,
+      "say": "Three: turn off and delete your Gemini activity.",
+      "show": "3. Turn off Gemini Apps Activity."
+    },
+    {
+      "a": 9.608,
+      "voice": 9.708,
+      "end": 12.12,
+      "b": 12.22,
+      "say": "Two: Temporary Chat, never saved to your history.",
+      "show": "2. Temporary Chat: not saved to history."
+    },
+    {
+      "a": 12.22,
+      "voice": 12.32,
+      "end": 14.891,
+      "b": 14.991,
+      "say": "One, the best one: locked chats, behind a PIN.",
+      "show": "1. Favourite: ChatGPT locked chats, behind a PIN."
+    },
+    {
+      "a": 14.991,
+      "voice": 15.091,
+      "end": 18.854,
+      "b": 18.954,
+      "say": "Gone from history and search. Borrowers only see a PIN screen.",
+      "show": "Hidden from history and search."
+    },
+    {
+      "a": 18.954,
+      "voice": 19.054,
+      "end": 22.724,
+      "b": 22.824,
+      "say": "The catch: it hides chats from people, not the company. Not encryption.",
+      "show": "The catch: hidden from people, not OpenAI."
+    },
+    {
+      "a": 22.824,
+      "voice": 22.924,
+      "end": 25.934,
+      "b": 26.034,
+      "say": "Read the help page on a lost PIN before setting one.",
+      "show": "Read the forgotten-PIN page first."
+    },
+    {
+      "a": 26.034,
+      "voice": 26.134,
+      "end": 30.074,
+      "b": 31.47,
+      "say": "Send this to the friend whose kids play games on her phone. Comment PRIVATE.",
+      "show": "Send this. Comment PRIVATE for the free card."
+    }
+  ]
+}

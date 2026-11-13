@@ -1,0 +1,228 @@
+<style>
+  /* tool reel, ranked list card: 3 ways to keep AI chats private on a shared phone.
+     analogy: a shared cupboard needs one locked drawer. colour = meaning: blue = locked/private, green = hidden, red = not protected, amber = do this first.
+     VERIFY before publish: ChatGPT locked chats + PIN, Temporary Chat 30-day copy, Gemini 72-hour copy, on each company's own help page. */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #FBF8F2 0%, var(--bg) 55%, #E7E0D4 100%); }
+  .orb { position: absolute; border-radius: 50%; }
+  #orb1 { left: -220px; top: 260px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(31,95,168,0.08) 0%, rgba(31,95,168,0) 70%); }
+  #orb2 { left: 540px; top: 880px; width: 780px; height: 780px; background: radial-gradient(circle, rgba(200,85,43,0.06) 0%, rgba(200,85,43,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(30,26,22,0.035) 1px, transparent 1px); background-size: 6px 6px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 128px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(30,26,22,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: 0.16em; color: var(--accent); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 110px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--accent); }
+  .card { position: absolute; left: 60px; right: 360px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 30px 70px rgba(60,40,20,0.12), 0 2px 0 rgba(60,40,20,0.05); overflow: hidden; }
+  .wide { left: 90px; right: 90px; }
+  .lbl { position: absolute; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.12em; color: #6B645C; white-space: nowrap; }
+  .chip { position: absolute; height: 60px; padding: 0 22px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; color: #FFFFFF; white-space: nowrap; }
+  .blue { background: var(--accent); } .green { background: #1B7A45; } .red { background: #B83A3A; } .amber { background: #E8A317; color: var(--ink); } .dark { background: var(--ink); }
+  .dot { display: block; width: 26px; height: 26px; border-radius: 50%; box-sizing: border-box; border: 4px solid var(--accent); background: rgba(31,95,168,0); }
+
+  /* padlock drawn with blocks */
+  .lk { position: absolute; }
+  .lk .sh { position: absolute; display: block; box-sizing: border-box; border-style: solid; border-color: var(--ink); border-bottom-style: none; }
+  .lk .bd { position: absolute; display: block; left: 0; right: 0; bottom: 0; background: var(--accent); }
+  .lk .kh { position: absolute; display: block; border-radius: 50%; background: #F3EEE5; }
+  .lk .ks { position: absolute; display: block; background: #F3EEE5; }
+
+  /* 0: hook */
+  #s0-step { top: 40px; }
+  #s0-pin { position: absolute; left: 700px; top: 30px; width: 260px; height: 70px; border-radius: 35px; background: #FFFFFF; box-shadow: 0 14px 34px rgba(60,40,20,0.12); }
+  #s0-pin .pt { position: absolute; left: 26px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.1em; color: var(--ink); }
+  #s0-pin .dots { position: absolute; left: 104px; top: 22px; display: flex; gap: 14px; }
+  #s0-title { top: 110px; right: auto; width: 860px; font-size: 124px; transform-origin: left top; }
+  #s0-lock { left: 800px; top: 120px; width: 130px; height: 160px; }
+  #s0-lock .sh { left: 24px; top: 0; width: 82px; height: 96px; border-width: 15px; border-radius: 41px 41px 0 0; }
+  #s0-lock .bd { height: 96px; border-radius: 24px; }
+  #s0-lock .kh { left: 51px; top: 24px; width: 28px; height: 28px; }
+  #s0-lock .ks { left: 59px; top: 44px; width: 12px; height: 30px; border-radius: 6px; }
+
+  /* 1: the cupboard */
+  #s1-card { top: 420px; height: 600px; }
+  #s1-head { left: 40px; top: 28px; }
+  .drawer { position: absolute; left: 36px; right: 36px; height: 140px; border-radius: 24px; background: #F6F1E8; border: 3px solid #E6DDCF; box-sizing: border-box; }
+  .drawer .t { position: absolute; left: 36px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .drawer .hd { position: absolute; right: 40px; top: 58px; width: 96px; height: 18px; border-radius: 9px; background: #C9BCA9; }
+  #d1 { top: 80px; } #d2 { top: 240px; } #d3 { top: 400px; }
+  #s1-lock { right: 26px; top: 37px; }
+
+  /* 2 and 4: the ranked list */
+  #s2-card { top: 420px; height: 640px; }
+  #s2-head { left: 40px; top: 28px; }
+  .slot { position: absolute; left: 36px; right: 36px; height: 150px; border-radius: 26px; border: 4px dashed #CDBFAC; box-sizing: border-box; }
+  .slot .badge { position: absolute; left: 22px; top: 33px; width: 76px; height: 76px; border-radius: 50%; background: #ECE5DA; color: #6B645C; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  .slot .q { position: absolute; left: 124px; top: 0; bottom: 0; width: 60px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 44px; color: #6B645C; }
+  .full { position: absolute; left: -4px; top: -4px; right: -4px; bottom: -4px; border-radius: 26px; background: #F6F1E8; }
+  .full .badge { left: 26px; top: 37px; background: var(--accent); color: #FFFFFF; }
+  .nm { position: absolute; left: 128px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .sb { position: absolute; left: 128px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: #6B645C; white-space: nowrap; }
+  #s2-r1 { top: 84px; } #s2-r2 { top: 264px; } #s2-r3 { top: 444px; }
+
+  #s4-card { top: 420px; height: 680px; }
+  #s4-head { left: 40px; top: 28px; }
+  #s4-r1 { top: 80px; height: 230px; border-color: var(--accent); }
+  #s4-f1 { background: #E8F0FA; border: 4px solid var(--accent); box-sizing: border-box; }
+  #s4-f1 .badge { left: 26px; top: 30px; width: 90px; height: 90px; font-size: 46px; }
+  #s4-f1 .nm { left: 146px; top: 36px; font-size: 44px; }
+  #s4-f1 .sb { left: 146px; top: 100px; }
+  #s4-dots { position: absolute; left: 146px; top: 156px; display: flex; gap: 16px; }
+  #s4-dots .dot { width: 32px; height: 32px; }
+  #s4-stamp { position: absolute; right: 36px; top: 104px; width: 300px; height: 96px; border: 7px solid var(--accent); border-radius: 18px; box-sizing: border-box; color: var(--accent); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s4-r2 { top: 334px; } #s4-r3 { top: 498px; }
+
+  /* 5: the result */
+  #s5-hist { top: 420px; height: 450px; }
+  #s5-head { left: 36px; top: 24px; }
+  #s5-search { position: absolute; left: 36px; right: 36px; top: 64px; height: 84px; border-radius: 42px; background: #F3EEE5; }
+  #s5-mag { position: absolute; left: 24px; top: 17px; width: 50px; height: 50px; }
+  #s5-q { position: absolute; left: 92px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); }
+  #s5-nores { right: 12px; top: 12px; }
+  .hrow { position: absolute; left: 36px; right: 36px; height: 76px; border-radius: 20px; background: #F7F3EC; }
+  .hrow .t { position: absolute; left: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s5-ha { top: 168px; } #s5-hb { top: 258px; background: #E8F0FA; } #s5-hc { top: 348px; }
+  #s5-pin { top: 900px; height: 240px; }
+  #s5-pinhead { left: 36px; top: 24px; }
+  #s5-lk { left: 36px; top: 84px; width: 76px; height: 104px; }
+  #s5-lk .sh { left: 14px; top: 0; width: 48px; height: 62px; border-width: 10px; border-radius: 24px 24px 0 0; }
+  #s5-lk .bd { height: 64px; border-radius: 16px; }
+  #s5-lk .kh { left: 29px; top: 14px; width: 18px; height: 18px; }
+  #s5-lk .ks { left: 34px; top: 28px; width: 8px; height: 20px; border-radius: 4px; }
+  #s5-enter { position: absolute; left: 140px; top: 74px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s5-dots { position: absolute; left: 140px; top: 146px; display: flex; gap: 18px; }
+  #s5-dots .dot { width: 34px; height: 34px; border-color: var(--ink); background: rgba(30,26,22,0); }
+
+  /* 6: the catch */
+  #s6-card { top: 420px; height: 640px; }
+  .crow { position: absolute; left: 36px; right: 36px; height: 120px; border-radius: 26px; background: #F6F1E8; }
+  .crow .t { position: absolute; left: 32px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .crow .chip { right: 24px; top: 30px; }
+  #k1 { top: 40px; } #k2 { top: 182px; } #k3 { top: 324px; } #k4 { top: 466px; background: #FDF3DC; }
+
+  /* 8: the free card + keyword */
+  #s8-card { top: 100px; height: 530px; }
+  #s8-head { left: 36px; top: 30px; }
+  #s8-ex { right: 36px; top: 30px; }
+  .nrow { position: absolute; left: 36px; right: 36px; height: 80px; border-radius: 20px; background: #FBF6EF; }
+  .nrow svg { position: absolute; left: 20px; top: 18px; width: 44px; height: 44px; }
+  .nrow .t { position: absolute; left: 84px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #n1 { top: 80px; } #n2 { top: 176px; } #n3 { top: 272px; } #n4 { top: 368px; }
+  #s8-foot { left: 36px; top: 474px; }
+  #s8-pill { position: absolute; left: 90px; width: 630px; top: 680px; height: 320px; border-radius: 48px; background: var(--ink); overflow: hidden; box-shadow: 0 30px 70px rgba(30,26,22,0.25); }
+  #s8-cm { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: #F3EEE5; }
+  #s8-key { position: absolute; left: 0; right: 0; top: 104px; height: 190px; display: flex; justify-content: center; align-items: flex-end; gap: 6px; }
+  #s8-key .k { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 180px; line-height: 1; color: #8DB7F0; }
+</style>
+
+<div class="paper"></div>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">NEW IN CHATGPT</div>
+  <div id="s0-pin"><div class="pt">PIN</div><div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div></div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">The <span class="it">hidden</span></span></span><span class="mask"><span class="l">chat folder.</span></span></div>
+  <div class="lk" id="s0-lock" data-layout-allow-overlap><i class="sh" id="s0-shackle"></i><i class="bd"><i class="kh"></i><i class="ks"></i></i></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">SHARED PHONE</div>
+  <div class="title"><span class="mask"><span class="l">One locked</span></span><span class="mask"><span class="l it">drawer.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="lbl" id="s1-head">THE FAMILY PHONE</div>
+    <div class="drawer" id="d1"><div class="t">Kids' games</div><i class="hd"></i></div>
+    <div class="drawer" id="d2"><div class="t">Family photos</div><i class="hd"></i></div>
+    <div class="drawer" id="d3"><div class="t">Your AI chats</div><div class="chip blue" id="s1-lock">LOCKED</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line4">
+  <div class="step">HIDE YOUR AI CHATS</div>
+  <div class="title"><span class="mask"><span class="l">3 ways,</span></span><span class="mask"><span class="l it">ranked.</span></span></div>
+  <div class="card" id="s2-card">
+    <div class="lbl" id="s2-head">BEST AT THE TOP</div>
+    <div class="slot" id="s2-r1"><div class="badge">1</div><div class="q" id="s2-q1">?</div></div>
+    <div class="slot" id="s2-r2"><div class="badge">2</div>
+      <div class="full" id="s2-f2" data-layout-allow-overlap><div class="badge">2</div><div class="nm">Temporary Chat</div><div class="sb">ChatGPT · kept up to 30 days</div></div>
+    </div>
+    <div class="slot" id="s2-r3"><div class="badge">3</div>
+      <div class="full" id="s2-f3" data-layout-allow-overlap><div class="badge">3</div><div class="nm">Gemini activity off</div><div class="sb">Google · kept up to 72 hours</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">NUMBER 1</div>
+  <div class="title"><span class="mask"><span class="l">Locked</span></span><span class="mask"><span class="l it">chats.</span></span></div>
+  <div class="card wide" id="s4-card">
+    <div class="lbl" id="s4-head">3 WAYS, RANKED</div>
+    <div class="slot" id="s4-r1"><div class="badge">1</div>
+      <div class="full" id="s4-f1" data-layout-allow-overlap><div class="badge">1</div><div class="nm">Locked chats</div><div class="sb">ChatGPT · behind a PIN</div>
+        <div id="s4-dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <div id="s4-stamp" data-layout-allow-overlap>FAVOURITE</div>
+      </div>
+    </div>
+    <div class="slot" id="s4-r2"><div class="badge">2</div>
+      <div class="full" data-layout-allow-overlap><div class="badge">2</div><div class="nm">Temporary Chat</div><div class="sb">ChatGPT · kept up to 30 days</div></div>
+    </div>
+    <div class="slot" id="s4-r3"><div class="badge">3</div>
+      <div class="full" data-layout-allow-overlap><div class="badge">3</div><div class="nm">Gemini activity off</div><div class="sb">Google · kept up to 72 hours</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Gone from</span></span><span class="mask"><span class="l it">history.</span></span></div>
+  <div class="card" id="s5-hist">
+    <div class="lbl" id="s5-head">HISTORY · EXAMPLE CHATS</div>
+    <div id="s5-search">
+      <svg id="s5-mag" viewBox="0 0 50 50"><circle cx="21" cy="21" r="14" fill="none" stroke="#1E1A16" stroke-width="5"></circle><path d="M31 31 L45 45" stroke="#1E1A16" stroke-width="6" stroke-linecap="round"></path></svg>
+      <div id="s5-q">loan</div>
+      <div class="chip dark" id="s5-nores">NO RESULTS</div>
+    </div>
+    <div class="hrow" id="s5-ha"><div class="t">Diwali menu ideas</div></div>
+    <div class="hrow" id="s5-hb"><div class="t">Loan EMI doubt</div></div>
+    <div class="hrow" id="s5-hc"><div class="t">Kids' science project</div></div>
+  </div>
+  <div class="card" id="s5-pin">
+    <div class="lbl" id="s5-pinhead">WHAT A BORROWER SEES</div>
+    <div class="lk" id="s5-lk"><i class="sh"></i><i class="bd"><i class="kh"></i><i class="ks"></i></i></div>
+    <div id="s5-enter">Enter PIN</div>
+    <div id="s5-dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line8">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Hidden,</span></span><span class="mask"><span class="l it">not secret.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="crow" id="k1"><div class="t">Family on phone</div><div class="chip green" id="c1">HIDDEN</div></div>
+    <div class="crow" id="k2"><div class="t">OpenAI</div><div class="chip red" id="c2">NOT HIDDEN</div></div>
+    <div class="crow" id="k3"><div class="t">Encryption</div><div class="chip red" id="c3">NO</div></div>
+    <div class="crow" id="k4"><div class="t">Lost PIN</div><div class="chip amber" id="c4">READ HELP FIRST</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="card wide" id="s8-card">
+    <div class="lbl" id="s8-head">WHAT NOT TO TYPE INTO AI</div>
+    <div class="lbl" id="s8-ex">EXAMPLE</div>
+    <div class="nrow" id="n1"><svg viewBox="0 0 44 44"><path d="M12 12 L32 32 M32 12 L12 32" stroke="#B83A3A" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Aadhaar or PAN number</div></div>
+    <div class="nrow" id="n2"><svg viewBox="0 0 44 44"><path d="M12 12 L32 32 M32 12 L12 32" stroke="#B83A3A" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Bank OTP or UPI PIN</div></div>
+    <div class="nrow" id="n3"><svg viewBox="0 0 44 44"><path d="M12 12 L32 32 M32 12 L12 32" stroke="#B83A3A" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Passwords</div></div>
+    <div class="nrow" id="n4"><svg viewBox="0 0 44 44"><path d="M12 12 L32 32 M32 12 L12 32" stroke="#B83A3A" stroke-width="6" stroke-linecap="round"></path></svg><div class="t">Your child's school name</div></div>
+    <div class="lbl" id="s8-foot">WORKS IN CHATGPT, CLAUDE, GEMINI, META AI</div>
+  </div>
+  <div id="s8-pill">
+    <div id="s8-cm">Comment for the free card</div>
+    <div id="s8-key"><div class="k">P</div><div class="k">R</div><div class="k">I</div><div class="k">V</div><div class="k">A</div><div class="k">T</div><div class="k">E</div></div>
+  </div>
+</section>

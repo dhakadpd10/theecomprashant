@@ -4,6 +4,33 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-11-13
 
+- **The plan did not reach the publisher: 3 of 3 new slots missed their line, so 9 of 9 since 10 Nov 19:30 IST and 13 of the last 15.**
+  - 12 Nov 19:30 IST went out as a #10 prompt instead of #24 (INTRO).
+  - 13 Nov 09:00 IST went out as an explain on #7, with PRIVATE reused. Explain is on hold and #7 has no cap.
+  - 13 Nov 13:00 IST went out as a #17 compare at 07:49 UTC, with TRUTH reused. The carousel missed its third planned slot.
+  - The three new slugs repeat the date ('2026-11-13-reel-2026-11-13-...'), which no earlier row does. That points to a second brief writer or queue from 12 Nov 14:00 UTC.
+  - The pull moved (3 new rows, PHOTO from about 120 to 124) and still has no timestamp.
+- **Sends still sit only on the money list card (hunch to moderate, n=4, none hand-checked).**
+  - Money lists: 24 of 28 page sends, 17.6 per 1k on 1,364 reach.
+  - Explainers: 26 reels, 1,860 reach, 0 sends, 9 saves (4.8 per 1k).
+  - Non-list money-era reels: 1 send on about 950 reach.
+  - The list-card test has 0 eligible arms. All 6 list-shaped reels since 10 Nov went out off-line and none logged list card. Together they have 0 sends and 2 saves on 308 reach.
+- **Pair 1 is void (B logged #11 against A's #3). Even on #3 it would be a one-send tie.**
+  - Pair 4 is cancelled.
+  - The named-viewer question closes as unanswerable at this reach.
+- **Kinds (hunch):**
+  - Compare: 4 for 4 at 0 sends and 0 saves (165 reach, 2.2 to 3.0s). #17 in the new niche: n=5, median 0.52x.
+  - Explain: longest watch (median 5.6s, n=7) with 1 save on 542 reach.
+  - Tool: leads on reach (median 103) and saves (5.6 per 1k).
+  - Reach is not action: the four explainers past 110 reach have 1 save and 0 sends between them.
+- **Baselines and logging.**
+  - The page median fell to 97 on 65 rows because three hours-old reels joined. The 72-hour median is 106 (n=54).
+  - Explainer era: 84.5 views and 76 reach (n=16), becoming 78 and 67.5 (n=18) once FORWARD and TODO enter.
+  - Kind is blank on 65 of 65. Style is 'motion' on every new-niche row.
+  - Hold@3s, follows, non-follower % and follower count are missing everywhere, so hook against profile is still unknown.
+
+## Week of 2026-11-13
+
 - **The pull moved, still with no timestamp, and the plan was missed in 6 of 6 slots since 10 Nov 19:30 IST.**
   - Six new rows; the newest is 12 Nov 09:43 UTC. Pair 1 B went from 94 to 122 reach, BOLO to 197, FORWARD to 50.
   - Plan misses:

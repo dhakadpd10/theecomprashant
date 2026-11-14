@@ -1,0 +1,310 @@
+{
+  "id": "2026-11-21-carousel-2026-11-21-carousel-48-two-word-ai-comma",
+  "style": "clay",
+  "proven": "P01",
+  "keyword": "SHORTCUT",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "meta": {
+    "date": "2026-11-21",
+    "format": "carousel",
+    "kind": "tool",
+    "hook": "#11",
+    "hook_name": "Numbered With A Favourite",
+    "hook_note": "only #11 use that day",
+    "style_log": "editorial-host (clay)",
+    "keyword": "SHORTCUT",
+    "free_tool": "Two-Word Command Card",
+    "list_card": true,
+    "favourite": "Ask first",
+    "money_angle": false,
+    "named_viewer": "students in a hostel or library",
+    "if_publisher_cannot_post_carousels": "log as a pipeline gap; do not swap or re-post"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "kicker": "STUDENTS, IN YOUR HOSTEL OR LIBRARY",
+      "title": [
+        "*48*",
+        "two-word AI",
+        "commands"
+      ],
+      "sub": "Save these. They work in ChatGPT, Gemini and Claude today."
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "name": "*Understand* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: the chapter made no sense and class is tomorrow.",
+      "rows": [
+        {
+          "k": "Explain simply",
+          "v": "Plain words, like for a Class 8 student"
+        },
+        {
+          "k": "Real example",
+          "v": "One everyday example of the idea"
+        },
+        {
+          "k": "Compare both",
+          "v": "Shows two ideas side by side"
+        },
+        {
+          "k": "Why first",
+          "v": "Tells you why before the how"
+        },
+        {
+          "k": "Big picture",
+          "v": "Where this topic fits in the subject"
+        },
+        {
+          "k": "Key terms",
+          "v": "Lists the words you must know"
+        },
+        {
+          "k": "Use analogy",
+          "v": "Explains it like something from daily life"
+        },
+        {
+          "k": "Go deeper",
+          "v": "Next level, once the basics click"
+        }
+      ],
+      "catch": "It can explain wrongly too. Check your textbook."
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "name": "*Study* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: the week before an exam, right after you finish a chapter.",
+      "rows": [
+        {
+          "k": "Quiz me",
+          "v": "Asks you questions on the topic"
+        },
+        {
+          "k": "Flash cards",
+          "v": "Turns notes into question and answer pairs"
+        },
+        {
+          "k": "Exam-style questions",
+          "v": "Questions shaped like a real exam paper"
+        },
+        {
+          "k": "Mark weak",
+          "v": "After a quiz, lists topics you got wrong"
+        },
+        {
+          "k": "Revision plan",
+          "v": "Splits your syllabus across the days left"
+        },
+        {
+          "k": "Memory tricks",
+          "v": "Short ways to remember lists and formulas"
+        },
+        {
+          "k": "Short notes",
+          "v": "One-page notes from a long chapter"
+        },
+        {
+          "k": "Viva practice",
+          "v": "Plays examiner and asks viva questions"
+        }
+      ],
+      "catch": "Paste your syllabus first, or it guesses what's in it."
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "name": "*Write* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: before you hit send on an email, SOP or assignment.",
+      "rows": [
+        {
+          "k": "Shorter please",
+          "v": "Same message in fewer words"
+        },
+        {
+          "k": "My voice",
+          "v": "Paste your old writing; it copies that style"
+        },
+        {
+          "k": "Make formal",
+          "v": "Turns a casual line into office tone"
+        },
+        {
+          "k": "Hindi please",
+          "v": "Same text, written in Hindi"
+        },
+        {
+          "k": "Fix grammar",
+          "v": "Corrects spelling and grammar mistakes"
+        },
+        {
+          "k": "Simpler words",
+          "v": "Swaps hard words for easy ones"
+        },
+        {
+          "k": "Warmer tone",
+          "v": "Sounds friendlier, less stiff"
+        },
+        {
+          "k": "Keep meaning",
+          "v": "Fixes the language, not your point"
+        }
+      ],
+      "catch": "Check your college's AI rules before you submit."
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "name": "*Organise* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: your notes are a mess, or a project has too many parts.",
+      "rows": [
+        {
+          "k": "Make table",
+          "v": "Puts messy info into rows and columns"
+        },
+        {
+          "k": "Step-by-step",
+          "v": "Breaks a task into numbered steps"
+        },
+        {
+          "k": "Bullet points",
+          "v": "Long paragraph into short points"
+        },
+        {
+          "k": "Make timeline",
+          "v": "Events in date order, history or projects"
+        },
+        {
+          "k": "Mind map",
+          "v": "A branching outline of the topic"
+        },
+        {
+          "k": "Group these",
+          "v": "Sorts a mixed list into categories"
+        },
+        {
+          "k": "Daily plan",
+          "v": "Turns your tasks into a day schedule"
+        },
+        {
+          "k": "Make checklist",
+          "v": "A tick-box list you can follow"
+        }
+      ],
+      "catch": "Check it didn't drop any of your points."
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "name": "*Decide* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: choosing a course, a laptop or an internship offer.",
+      "rows": [
+        {
+          "k": "Give options",
+          "v": "Three or more choices, not just one"
+        },
+        {
+          "k": "Pros cons",
+          "v": "Good and bad side of each choice"
+        },
+        {
+          "k": "Pick one",
+          "v": "Stops listing, makes one clear choice"
+        },
+        {
+          "k": "Be blunt",
+          "v": "Drops the polite padding, says it straight"
+        },
+        {
+          "k": "Rank these",
+          "v": "Orders your choices from best to worst"
+        },
+        {
+          "k": "Worst case",
+          "v": "What happens if it goes wrong"
+        },
+        {
+          "k": "Argue against",
+          "v": "Pushes back on what you already think"
+        },
+        {
+          "k": "Budget first",
+          "v": "Only options that fit your money"
+        }
+      ],
+      "catch": "It doesn't know your life. Add your marks and budget."
+    },
+    {
+      "kind": "item",
+      "n": 6,
+      "name": "*Check* it",
+      "domain": "chatgpt.com · gemini.google.com · claude.ai",
+      "line": "When to use: before you submit, share or believe an answer.",
+      "rows": [
+        {
+          "k": "Find mistakes",
+          "v": "Points out errors in your work"
+        },
+        {
+          "k": "Ask first",
+          "v": "Asks you questions before it answers",
+          "fav": true
+        },
+        {
+          "k": "Say unsure",
+          "v": "Flags the parts it isn't sure about"
+        },
+        {
+          "k": "Fact check",
+          "v": "Rechecks claims; turn on web search"
+        },
+        {
+          "k": "Show working",
+          "v": "Shows each step of a maths answer"
+        },
+        {
+          "k": "Check maths",
+          "v": "Redoes the sums to catch errors"
+        },
+        {
+          "k": "Cite sources",
+          "v": "Names where its facts come from"
+        },
+        {
+          "k": "What's missing",
+          "v": "Spots gaps in your answer or plan"
+        }
+      ],
+      "box": "MY FAVOURITE: Ask first. It stops the AI guessing. Copy this: \"Ask first. Ask me 3 questions before you answer, then wait. My question: [type it here]\"",
+      "catch": "Sources can be made up. Open every link."
+    },
+    {
+      "kind": "recap",
+      "title": "The *catch.*",
+      "items": [
+        "These are instructions, not buttons.",
+        "The AI just reads your words and follows them.",
+        "ChatGPT, Gemini and Claude each word answers differently.",
+        "Fact check still means you open the source yourself.",
+        "Your textbook and teacher still come first."
+      ]
+    },
+    {
+      "kind": "cta",
+      "title": "Save this. Send it to *your roommate.*",
+      "who": "Who types full paragraphs to ChatGPT, still gets bad answers.",
+      "text": "and I'll DM you all 48 as one copy-paste card"
+    }
+  ]
+}

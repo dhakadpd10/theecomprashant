@@ -1,0 +1,182 @@
+{
+  "id": "2026-11-22-reel-2026-11-22-reel-gemini-is-this-ai-check",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "tool",
+  "hook": "#9",
+  "proven": "P10",
+  "keyword": "REAL",
+  "tool": "Is-It-Real Check Card",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(1|2|3|Gemini|Google|watermark|Found|detected|real|REAL|1930|catch|₹49\\.2|₹500)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "list_card": true,
+  "money_angle": false,
+  "named_viewer": "homemakers at home",
+  "sources": [
+    "Research item 7: Google's Gemini support page. Upload an image, or a video under 90 seconds and 100 MB, and ask if it was made with Google AI. Gemini checks for Google's SynthID watermark.",
+    "Research item 9: fake AI video of a minister promising daily returns, reported on 13 Nov to have cost a Kerala woman ₹49.2 lakh."
+  ],
+  "lines": [
+    {
+      "say": "Steal this one question for Gemini before you forward any photo.",
+      "show": "Steal this 1 question before you forward any photo.",
+      "card": "STEAL THIS QUESTION",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "phone",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "The family group asks: is it true?",
+      "show": "The family group asks: is it true?",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Google's AI leaves a watermark, like a five hundred note.",
+      "show": "Google's AI leaves a watermark, like a ₹500 note.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "One, upload the photo to Gemini.",
+      "show": "1. Upload the photo to Gemini.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Two, ask: was this made with Google AI?",
+      "show": "2. Ask: Was this made with Google AI?",
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Three: found means Google AI made it.",
+      "show": "3. Found: Google AI made it.",
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Not detected doesn't mean real.",
+      "show": "Not detected doesn't mean real.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "No minister promises daily returns. A fake reportedly cost a Kerala woman forty-nine lakh.",
+      "show": "No minister promises daily returns. ₹49.2 lakh lost.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Report fraud on nineteen thirty.",
+      "show": "Report fraud: 1930 or cybercrime.gov.in",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The catch: it only sees Google's AI. Other fakes pass.",
+      "show": "The catch: only Google's AI. Other fakes pass.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the family member who forwards everything to the group first. Comment REAL.",
+      "show": "Send to the family's first forwarder. Comment REAL.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.3",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.4",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.5",
+      "fx": "ding"
+    },
+    {
+      "at": "@line6.voice+0.3",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "click"
+    }
+  ],
+  "cover": {
+    "at": "@line6+1.0",
+    "title": [
+      "STEAL THIS QUESTION",
+      "BEFORE YOU FORWARD"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "log": {
+    "kind": "tool",
+    "style": "editorial-host",
+    "hook_id": "#9",
+    "keyword": "REAL",
+    "format": "reel",
+    "length_s": null,
+    "money_angle": "no",
+    "list_card": "yes",
+    "named_viewer": "homemakers at home",
+    "on_line": null,
+    "actual_slot_ist": null
+  }
+}

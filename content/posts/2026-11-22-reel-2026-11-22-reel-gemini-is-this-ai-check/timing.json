@@ -1,0 +1,97 @@
+{
+  "dur": 34.76,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.827,
+      "b": 3.927,
+      "say": "Steal this one question for Gemini before you forward any photo.",
+      "show": "Steal this 1 question before you forward any photo."
+    },
+    {
+      "a": 3.927,
+      "voice": 4.027,
+      "end": 5.714,
+      "b": 5.814,
+      "say": "The family group asks: is it true?",
+      "show": "The family group asks: is it true?"
+    },
+    {
+      "a": 5.814,
+      "voice": 5.914,
+      "end": 9.068,
+      "b": 9.168,
+      "say": "Google's AI leaves a watermark, like a five hundred note.",
+      "show": "Google's AI leaves a watermark, like a ₹500 note."
+    },
+    {
+      "a": 9.168,
+      "voice": 9.268,
+      "end": 11.034,
+      "b": 11.134,
+      "say": "One, upload the photo to Gemini.",
+      "show": "1. Upload the photo to Gemini."
+    },
+    {
+      "a": 11.134,
+      "voice": 11.234,
+      "end": 13.275,
+      "b": 13.375,
+      "say": "Two, ask: was this made with Google AI?",
+      "show": "2. Ask: Was this made with Google AI?"
+    },
+    {
+      "a": 13.375,
+      "voice": 13.475,
+      "end": 15.404,
+      "b": 15.504,
+      "say": "Three: found means Google AI made it.",
+      "show": "3. Found: Google AI made it."
+    },
+    {
+      "a": 15.504,
+      "voice": 15.604,
+      "end": 17.198,
+      "b": 17.298,
+      "say": "Not detected doesn't mean real.",
+      "show": "Not detected doesn't mean real."
+    },
+    {
+      "a": 17.298,
+      "voice": 17.398,
+      "end": 23.275,
+      "b": 23.375,
+      "say": "No minister promises daily returns. A fake reportedly cost a Kerala woman forty-nine lakh.",
+      "show": "No minister promises daily returns. ₹49.2 lakh lost."
+    },
+    {
+      "a": 23.375,
+      "voice": 23.475,
+      "end": 25.068,
+      "b": 25.168,
+      "say": "Report fraud on nineteen thirty.",
+      "show": "Report fraud: 1930 or cybercrime.gov.in"
+    },
+    {
+      "a": 25.168,
+      "voice": 25.268,
+      "end": 28.419,
+      "b": 28.519,
+      "say": "The catch: it only sees Google's AI. Other fakes pass.",
+      "show": "The catch: only Google's AI. Other fakes pass."
+    },
+    {
+      "a": 28.519,
+      "voice": 28.619,
+      "end": 33.363,
+      "b": 34.76,
+      "say": "Send this to the family member who forwards everything to the group first. Comment REAL.",
+      "show": "Send to the family's first forwarder. Comment REAL."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "dur": 33.59,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.893,
+      "b": 3.993,
+      "say": "Three apps, three switches that keep your family chats out of AI training.",
+      "show": "3 apps. 3 switches. Chats out of training."
+    },
+    {
+      "a": 3.993,
+      "voice": 4.093,
+      "end": 8.046,
+      "b": 8.146,
+      "say": "Kids' school notes you typed in? Like your family photo in a studio window.",
+      "show": "Kids' notes? Your photo in a studio window."
+    },
+    {
+      "a": 8.146,
+      "voice": 8.246,
+      "end": 11.752,
+      "b": 11.852,
+      "say": "Number three, Gemini. Keep Activity off, but your history goes too.",
+      "show": "3. Gemini: Keep Activity off. History goes too."
+    },
+    {
+      "a": 11.852,
+      "voice": 11.952,
+      "end": 14.936,
+      "b": 15.036,
+      "say": "Number two, the next app. Privacy, then Help improve, off.",
+      "show": "2. Claude: Help improve Claude, off."
+    },
+    {
+      "a": 15.036,
+      "voice": 15.136,
+      "end": 19.928,
+      "b": 20.028,
+      "say": "Number one, the best known app. Data controls, Improve the model for everyone, off.",
+      "show": "1. ChatGPT: Improve the model for everyone, off."
+    },
+    {
+      "a": 20.028,
+      "voice": 20.128,
+      "end": 22.679,
+      "b": 22.779,
+      "say": "Under a minute, and your photo stays out of the window.",
+      "show": "Under a minute. Photo out of the window."
+    },
+    {
+      "a": 22.779,
+      "voice": 22.879,
+      "end": 25.877,
+      "b": 25.977,
+      "say": "The catch: it works from now on, not on chats already used.",
+      "show": "Catch: from now on, not chats already used."
+    },
+    {
+      "a": 25.977,
+      "voice": 26.077,
+      "end": 29.798,
+      "b": 29.898,
+      "say": "Send this to the family member who types everything into an AI app.",
+      "show": "Send to the one who types everything in."
+    },
+    {
+      "a": 29.898,
+      "voice": 29.998,
+      "end": 32.188,
+      "b": 33.59,
+      "say": "Comment OPTOUT for the free switch-off card.",
+      "show": "Comment OPTOUT for the free card."
+    }
+  ]
+}

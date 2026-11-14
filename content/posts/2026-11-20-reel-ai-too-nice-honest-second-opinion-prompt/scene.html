@@ -1,0 +1,259 @@
+<style>
+  /* clay palette on warm paper: tan background, dark ink, burnt-orange accent. --deep is a darker accent for text, so it passes 4.5:1 on paper and cards */
+  :root { --deep: #9A3B14; --card: #FFF8EE; --muted: #6F6560; --soft: #F4E8D8; --green: #2E6B3F; }
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #F6EBDA 0%, var(--bg) 55%, #DCC4A0 100%); }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(43,36,32,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(43,36,32,0.045) 1px, transparent 1px); background-size: 60px 60px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(80px); }
+  #blob1 { left: -140px; top: 220px; width: 620px; height: 620px; background: rgba(210,96,42,0.16); }
+  #blob2 { left: 560px; top: 880px; width: 560px; height: 560px; background: rgba(255,248,238,0.55); }
+
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(43,36,32,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 88px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--deep); }
+  .title { position: absolute; left: 90px; right: 90px; top: 150px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); transform-origin: left top; }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: var(--deep); }
+  .acc { color: var(--deep); }
+
+  .card { position: absolute; border-radius: 36px; background: var(--card); box-shadow: 0 30px 70px rgba(90,55,25,0.16), 0 2px 0 rgba(90,55,25,0.06); overflow: hidden; }
+  .L { left: 60px; right: 360px; }
+  .W { left: 90px; right: 90px; }
+  .hd { position: absolute; left: 30px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.14em; color: var(--muted); white-space: nowrap; }
+  .tag { position: absolute; right: 30px; top: 22px; height: 46px; padding: 0 20px; border-radius: 23px; background: #F6DCCB; color: var(--deep); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.08em; display: flex; align-items: center; }
+
+  /* 0: hook */
+  #s0-mum { position: absolute; left: 90px; top: 70px; width: 210px; height: 74px; border-radius: 37px; background: var(--card); border: 3px solid rgba(43,36,32,0.18); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+  #s0-strike { position: absolute; display: block; left: 26px; right: 26px; top: 32px; height: 6px; border-radius: 3px; background: #B03A2E; transform-origin: left center; }
+  #s0-arrow { position: absolute; left: 318px; top: 78px; width: 70px; height: 58px; }
+  #s0-aunty { position: absolute; left: 404px; top: 70px; width: 420px; height: 74px; border-radius: 37px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s0-title { top: 160px; font-size: 124px; line-height: 0.98; }
+
+  /* 1: the applications */
+  #s1-card { top: 330px; height: 770px; }
+  .arow { position: absolute; left: 30px; right: 30px; height: 88px; border-radius: 22px; background: var(--soft); }
+  .arow .t { position: absolute; left: 26px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .nr { position: absolute; right: 14px; top: 16px; width: 196px; height: 56px; border-radius: 28px; background: #6B625C; color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s1-r1 { top: 96px; } #s1-r2 { top: 198px; } #s1-r3 { top: 300px; } #s1-r4 { top: 402px; } #s1-r5 { top: 504px; }
+  #s1-ai { position: absolute; left: 30px; right: 30px; top: 620px; height: 116px; border-radius: 32px; background: #F6DCCB; transform-origin: left bottom; }
+  .av { position: absolute; left: 22px; top: 26px; width: 64px; height: 64px; border-radius: 50%; background: var(--ink); color: #FFF8EE; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; display: flex; align-items: center; justify-content: center; }
+  #s1-ai .bt { position: absolute; left: 106px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s1-heart { position: absolute; right: 26px; top: 34px; width: 50px; height: 48px; }
+
+  /* 2: it agrees, then the switch */
+  #s2-card { top: 330px; height: 680px; }
+  .bub { position: absolute; height: 92px; border-radius: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; display: flex; align-items: center; padding: 0 28px; box-sizing: border-box; white-space: nowrap; }
+  #s2-u { right: 30px; top: 36px; width: 330px; background: var(--ink); color: #FFF8EE; justify-content: center; transform-origin: right bottom; }
+  #s2-a1 { left: 30px; top: 150px; width: 380px; background: var(--soft); color: var(--ink); transform-origin: left bottom; }
+  #s2-a2 { left: 30px; top: 258px; width: 440px; background: var(--soft); color: var(--ink); transform-origin: left bottom; }
+  #s2-seg { position: absolute; left: 30px; right: 30px; top: 400px; height: 110px; border-radius: 55px; background: #F1E4D2; }
+  #s2-hi { position: absolute; left: 6px; top: 6px; width: 288px; height: 98px; border-radius: 49px; background: var(--deep); }
+  .seg { position: absolute; top: 0; width: 300px; height: 110px; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.06em; }
+  #s2-lm { left: 0; color: #FFFFFF; } #s2-la { left: 300px; color: var(--ink); }
+  #s2-s { left: 30px; top: 552px; width: 470px; background: var(--deep); color: #FFFFFF; transform-origin: left bottom; }
+
+  /* 3: the prompt (one screenshot card) */
+  #s3-card { top: 330px; height: 670px; }
+  .chrome { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: #F1E4D2; }
+  .dot { position: absolute; top: 32px; width: 20px; height: 20px; border-radius: 50%; background: rgba(43,36,32,0.2); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .url { position: absolute; left: 132px; right: 30px; top: 18px; height: 48px; border-radius: 24px; background: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); display: flex; align-items: center; padding-left: 24px; }
+  #s3-card .hd { top: 110px; }
+  #s3-box { position: absolute; left: 30px; right: 30px; top: 156px; height: 350px; border-radius: 26px; background: #FFFFFF; border: 3px solid rgba(43,36,32,0.14); box-sizing: border-box; }
+  .pl { position: absolute; left: 26px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  #s3-l1 { top: 26px; } #s3-l2 { top: 88px; } #s3-l3 { top: 150px; } #s3-l4 { top: 212px; }
+  #s3-l5 { top: 282px; font-size: 30px; color: var(--muted); }
+  #s3-note { position: absolute; left: 30px; top: 568px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); white-space: nowrap; }
+  #s3-go { position: absolute; right: 30px; top: 540px; width: 220px; height: 96px; border-radius: 48px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; gap: 14px; }
+  #s3-go svg { display: block; width: 34px; height: 34px; }
+
+  /* 4: three weakest lines struck, each with a fix (host hidden, full width) */
+  #s4-card { top: 310px; height: 726px; }
+  .crow { position: absolute; left: 30px; right: 30px; height: 104px; border-radius: 24px; background: var(--soft); }
+  .crow .tx { position: absolute; left: 26px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .crow .w { position: relative; display: inline-block; }
+  .strike { position: absolute; display: block; left: -6px; right: -6px; top: 50%; height: 6px; margin-top: -3px; border-radius: 3px; background: #B03A2E; transform-origin: left center; }
+  .fx { position: absolute; right: 16px; top: 22px; width: 270px; height: 60px; border-radius: 30px; background: var(--green); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  #s4-r1 { top: 90px; } #s4-r2 { top: 212px; } #s4-r3 { top: 334px; } #s4-r4 { top: 456px; } #s4-r5 { top: 578px; }
+
+  /* 5: the rewrite */
+  #s5-card { top: 330px; height: 650px; }
+  #s5-before { position: absolute; left: 30px; right: 30px; top: 72px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; color: var(--muted); text-decoration: line-through; text-decoration-color: #B03A2E; text-decoration-thickness: 4px; }
+  #s5-arrow { position: absolute; left: 30px; top: 186px; width: 56px; height: 56px; }
+  #s5-hd2 { left: 104px; top: 198px; color: var(--green); }
+  #s5-after { position: absolute; left: 30px; right: 30px; top: 262px; height: 230px; border-radius: 28px; background: #DDEBD9; }
+  #s5-after p { position: absolute; left: 28px; right: 28px; top: 26px; margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.3; color: var(--ink); }
+  #s5-chips { position: absolute; left: 30px; right: 30px; top: 530px; height: 64px; display: flex; gap: 16px; }
+  .c { display: flex; align-items: center; justify-content: center; height: 64px; padding: 0 24px; border-radius: 32px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; white-space: nowrap; }
+
+  /* 6: the catch */
+  #s6-card { top: 330px; height: 640px; }
+  .krow { position: absolute; left: 30px; right: 30px; height: 156px; border-radius: 26px; background: var(--soft); }
+  .krow .m { position: absolute; left: 26px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .krow .sub { position: absolute; left: 26px; top: 90px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); white-space: nowrap; }
+  .kc { position: absolute; right: 18px; top: 46px; width: 170px; height: 64px; border-radius: 32px; background: var(--deep); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s6-r1 { top: 86px; } #s6-r2 { top: 262px; } #s6-r3 { top: 438px; }
+
+  /* 7: send it */
+  #s7-card { top: 330px; height: 590px; }
+  #s7-who { position: absolute; left: 30px; right: 30px; top: 80px; height: 150px; border-radius: 26px; background: var(--soft); }
+  #s7-avatar { position: absolute; left: 22px; top: 27px; width: 96px; height: 96px; border-radius: 50%; background: #E3C49A; overflow: hidden; }
+  #s7-avatar svg { display: block; width: 96px; height: 96px; }
+  #s7-name { position: absolute; left: 140px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s7-sub { position: absolute; left: 140px; top: 86px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); white-space: nowrap; }
+  #s7-check { position: absolute; right: 22px; top: 40px; width: 70px; height: 70px; border-radius: 50%; border: 4px solid var(--green); box-sizing: border-box; background: var(--card); }
+  #s7-check svg { display: block; width: 62px; height: 62px; }
+  #s7-tick { stroke-dasharray: 60; stroke-dashoffset: 60; }
+  #s7-msg { position: absolute; left: 30px; right: 30px; top: 262px; height: 150px; border-radius: 30px; background: var(--ink); color: #FFF8EE; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; padding: 26px 30px; box-sizing: border-box; transform-origin: left bottom; }
+  #s7-send { position: absolute; left: 30px; right: 30px; top: 446px; height: 110px; border-radius: 55px; background: var(--deep); overflow: hidden; }
+  #s7-send .lab { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.08em; color: #FFFFFF; }
+  #s7-plane { position: absolute; left: 390px; top: 26px; width: 70px; height: 60px; }
+
+  /* 8: the keyword */
+  #s8-bub { top: 150px; height: 280px; }
+  #s8-av { left: 26px; top: 26px; }
+  #s8-bub .hd { left: 110px; top: 44px; }
+  #s8-key { position: absolute; left: 26px; right: 26px; top: 112px; height: 140px; display: flex; justify-content: space-between; overflow: hidden; }
+  .k { display: block; width: 92px; height: 140px; font-family: var(--display); font-size: 104px; line-height: 140px; text-align: center; color: var(--deep); }
+  #s8-stick { position: absolute; left: 500px; top: 108px; width: 240px; height: 70px; border-radius: 35px; background: var(--green); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em; display: flex; align-items: center; justify-content: center; }
+  #s8-save { position: absolute; left: 90px; top: 500px; width: 300px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
+  #s8-bm { position: absolute; left: 400px; top: 516px; width: 80px; height: 110px; }
+  #s8-pill { position: absolute; left: 60px; right: 360px; top: 690px; height: 120px; border-radius: 60px; background: var(--ink); color: #FFF8EE; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+  #s8-pill b { color: #F2A57F; margin-left: 14px; font-weight: 900; }
+  #s8-sub { position: absolute; left: 60px; right: 360px; top: 840px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grid"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div id="s0-mum">MUMMY<i id="s0-strike" data-layout-allow-overlap></i></div>
+  <svg id="s0-arrow" viewBox="0 0 70 58"><path d="M4 29 H54 M38 10 L58 29 L38 48" fill="none" stroke="#2B2420" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  <div id="s0-aunty">STRICT HR AUNTY</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l"><span class="acc">1</span> prompt:</span></span><span class="mask"><span class="l">Strict <span class="it">aunty.</span></span></span></div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">EXAMPLE JOB HUNT</div>
+  <div class="title"><span class="mask"><span class="l"><span class="acc">20</span> <span class="it">sent.</span></span></span></div>
+  <div class="card L" id="s1-card">
+    <div class="hd">MY APPLICATIONS</div><div class="tag">EXAMPLE</div>
+    <div class="arow" id="s1-r1"><div class="t">Sales executive</div><div class="nr">NO REPLY</div></div>
+    <div class="arow" id="s1-r2"><div class="t">Customer support</div><div class="nr">NO REPLY</div></div>
+    <div class="arow" id="s1-r3"><div class="t">Ops trainee</div><div class="nr">NO REPLY</div></div>
+    <div class="arow" id="s1-r4"><div class="t">Data entry</div><div class="nr">NO REPLY</div></div>
+    <div class="arow" id="s1-r5"><div class="t">Front desk</div><div class="nr">NO REPLY</div></div>
+    <div id="s1-ai"><div class="av">AI</div><div class="bt">Your CV looks great!</div>
+      <svg id="s1-heart" viewBox="0 0 50 48"><path d="M25 44 C10 32 3 24 3 15 C3 8 8 3 15 3 C19 3 23 5 25 9 C27 5 31 3 35 3 C42 3 47 8 47 15 C47 24 40 32 25 44 Z" fill="#D2602A"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">WHY</div>
+  <div class="title"><span class="mask"><span class="l">It <span class="it">agrees.</span></span></span></div>
+  <div class="card L" id="s2-card">
+    <div class="bub" id="s2-u">Is my CV good?</div>
+    <div class="bub" id="s2-a1">Yes! It's great.</div>
+    <div class="bub" id="s2-a2">Send it everywhere!</div>
+    <div id="s2-seg">
+      <div id="s2-hi" data-layout-allow-overlap></div>
+      <div class="seg" id="s2-lm" data-layout-allow-overlap>MUMMY</div>
+      <div class="seg" id="s2-la" data-layout-allow-overlap>STRICT AUNTY</div>
+    </div>
+    <div class="bub" id="s2-s">Honestly: 3 weak lines.</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">COPY THIS</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">prompt.</span></span></span></div>
+  <div class="card L" id="s3-card">
+    <div class="chrome"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="url">New chat</div></div>
+    <div class="hd">YOUR PROMPT</div>
+    <div id="s3-box">
+      <div class="pl" id="s3-l1">Judge my CV like the</div>
+      <div class="pl" id="s3-l2">hiring manager who</div>
+      <div class="pl" id="s3-l3"><span class="acc">rejects most.</span> Name</div>
+      <div class="pl" id="s3-l4">my 3 weakest lines.</div>
+      <div class="pl" id="s3-l5">+ paste your CV below</div>
+    </div>
+    <div id="s3-note">Paste into Claude</div>
+    <div id="s3-go">SEND<svg viewBox="0 0 34 34"><path d="M4 17 H28 M18 7 L28 17 L18 27" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">EXAMPLE CV</div>
+  <div class="title"><span class="mask"><span class="l"><span class="acc">3</span> <span class="it">weakest.</span></span></span></div>
+  <div class="card W" id="s4-card">
+    <div class="hd">EXAMPLE CV</div><div class="tag" id="s4-tag">3 TO FIX</div>
+    <div class="crow" id="s4-r1"><div class="tx" id="s4-t1"><span class="w">Riya S. · B.Com, 2024</span></div></div>
+    <div class="crow" id="s4-r2"><div class="tx" id="s4-t2"><span class="w">Hardworking team player<i class="strike" id="s4-k2" data-layout-allow-overlap></i></span></div><div class="fx" id="s4-f2">Add 1 result</div></div>
+    <div class="crow" id="s4-r3"><div class="tx" id="s4-t3"><span class="w">Handled many tasks<i class="strike" id="s4-k3" data-layout-allow-overlap></i></span></div><div class="fx" id="s4-f3">Name the task</div></div>
+    <div class="crow" id="s4-r4"><div class="tx" id="s4-t4"><span class="w">Excel, Tally, Hindi</span></div></div>
+    <div class="crow" id="s4-r5"><div class="tx" id="s4-t5"><span class="w">Seeking a good job<i class="strike" id="s4-k5" data-layout-allow-overlap></i></span></div><div class="fx" id="s4-f5">Say their job</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">WHAT YOU GET</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">rewrite.</span></span></span></div>
+  <div class="card L" id="s5-card">
+    <div class="hd">BEFORE</div>
+    <div id="s5-before">Hardworking team player seeking a good job.</div>
+    <svg id="s5-arrow" viewBox="0 0 56 56"><path d="M28 6 V46 M12 32 L28 48 L44 32" fill="none" stroke="#2E6B3F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="hd" id="s5-hd2">AFTER · EXAMPLE</div>
+    <div id="s5-after"><p>Handled 40 customer calls a day. I can do the same for your support team.</p></div>
+    <div id="s5-chips"><div class="c" id="s5-c1">SHORTER</div><div class="c" id="s5-c2">CLEARER</div><div class="c" id="s5-c3">THEIR JOB</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">BE HONEST TOO</div>
+  <div class="title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card L" id="s6-card">
+    <div class="hd">BEFORE YOU TRUST IT</div>
+    <div class="krow" id="s6-r1"><div class="m">Just 1 opinion</div><div class="sub">Not the final word</div><div class="kc" id="s6-c1">1 VIEW</div></div>
+    <div class="krow" id="s6-r2"><div class="m">Flags fine lines</div><div class="sub">Keep what's true</div><div class="kc" id="s6-c2">CHECK</div></div>
+    <div class="krow" id="s6-r3"><div class="m">Ask a senior too</div><div class="sub">Your field knows best</div><div class="kc" id="s6-c3">BEATS IT</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">FOR ONE FRIEND</div>
+  <div class="title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div class="card L" id="s7-card">
+    <div class="hd">SHARE TO</div>
+    <div id="s7-who">
+      <div id="s7-avatar"><svg viewBox="0 0 96 96"><circle cx="48" cy="38" r="17" fill="#2B2420"></circle><path d="M16 96 C16 70 30 60 48 60 C66 60 80 70 80 96 Z" fill="#2B2420"></path></svg></div>
+      <div id="s7-name">That friend</div>
+      <div id="s7-sub">Hears back from: nobody</div>
+      <div id="s7-check"><svg viewBox="0 0 62 62"><path id="s7-tick" d="M16 32 L27 43 L47 21" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+    </div>
+    <div id="s7-msg">Read this before your next application.</div>
+    <div id="s7-send"><div class="lab">SEND</div>
+      <svg id="s7-plane" viewBox="0 0 70 60" data-layout-allow-overlap><path d="M3 30 L67 3 L52 57 L34 40 Z" fill="#FFFFFF"></path><path d="M34 40 L67 3 L28 35 L29 54 Z" fill="#F2C3A8"></path></svg>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div class="step">YOUR TURN</div>
+  <div class="card L" id="s8-bub">
+    <div class="av" id="s8-av">PS</div>
+    <div class="hd">COMMENT</div>
+    <div id="s8-key"><span class="k">H</span><span class="k">O</span><span class="k">N</span><span class="k">E</span><span class="k">S</span><span class="k">T</span></div>
+  </div>
+  <div id="s8-stick" data-layout-allow-overlap>FREE PROMPT</div>
+  <div id="s8-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s8-bm" viewBox="0 0 80 110"><path d="M8 6 H72 V104 L40 78 L8 104 Z" fill="#D2602A"></path><path d="M8 6 H72 V20 H8 Z" fill="#9A3B14"></path></svg>
+  <div id="s8-pill">Comment <b>HONEST</b></div>
+  <div id="s8-sub">for the full prompt</div>
+</section>

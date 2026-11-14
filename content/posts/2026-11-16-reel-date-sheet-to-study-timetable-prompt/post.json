@@ -1,0 +1,166 @@
+{
+  "id": "2026-11-16-reel-date-sheet-to-study-timetable-prompt",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "prompt",
+  "proven": "P09",
+  "keyword": "EXAM",
+  "free_tool": {
+    "name": "Date-Sheet to Study Timetable Prompt",
+    "prompt": "I'm a student. I've attached a photo of my exam date sheet. First, read every paper's date, day and subject and list them back to me so I can check them against the official sheet. My weak subjects are: [list them]. On college days I can really study [X] hours, between [time] and [time]. On holidays I can study [Y] hours. Make a day-by-day timetable from today to my last paper in three parts: 1) the days before the first paper, 2) the gap days between papers, with each gap going mostly to the next paper, 3) revision days, with the day before each paper kept for revising only that paper. Give my weak subjects more hours. Never plan more hours than I gave you. Keep one free evening a week. Show it as a table: date, subject, topic, hours."
+  },
+  "world": "notebook",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "hot": "^(3|EXAM|plain|senior|catch|official|Send|timetable)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "header": {
+    "slot_ist": "16 Nov 2026 19:30",
+    "slot_utc": "16 Nov 2026 14:00",
+    "kind": "prompt",
+    "hook_id": "24",
+    "keyword": "EXAM",
+    "list_card": "no",
+    "screenshot_card": "yes (the EXAM prompt in the chat, line 3)",
+    "named_viewer": "students in a hostel or library",
+    "money_angle": "no",
+    "on_line": "yes"
+  },
+  "log": {
+    "style": "editorial-host",
+    "theme": "clay",
+    "format": "reel",
+    "proven": "P09"
+  },
+  "flags": [
+    "Hook id: the brief asks for formula #13 (Before And After, On Screen), but this slot's line is #24 (The Reveal), and a slot is never swapped. Frame 0 is built as a Reveal: the crumpled date sheet flips into the timetable under the PLAIN ASK / EXAM PROMPT title. The spoken line works for either formula. Log it as #24. If the publisher logs #13, mark the slot off-line.",
+    "The EXAM tool (the prompt above) must be on the tools page and in docs/EXPLAINER.md before this posts. EXAM is new to the page. Never reuse it.",
+    "Every date, subject and hour on screen is an EXAMPLE and is labelled EXAMPLE.",
+    "Clay host has no pressure cooker. whistle: true on line 5 gives the jump and the clay steam puff.",
+    "Spoken length is 86 words, about 26 s at speed 1.05. That is over the brief's 60 to 80 words but inside 20 to 30 s and the playbook's 70 to 95. Cut line 1 to 'Your plan still says start tomorrow.' if the render runs past 28 s."
+  ],
+  "lines": [
+    {
+      "say": "My AI app said 'study two hours daily' until I gave it three things.",
+      "show": "'Study 2 hours daily.' Until I gave it 3 things.",
+      "cut": true,
+      "card": "PLAIN ASK  /  EXAM PROMPT",
+      "stage": "Frame 0: the title PLAIN ASK / EXAM PROMPT at 120 px or more, above y 560, with EXAM PROMPT in the accent. Below it, a crumpled sand-clay printed date sheet (tag EXAMPLE) flips over and becomes a colour-coded timetable slab with sage day blocks and amber revision blocks. The flip lands by 1.2 s.",
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Exams are weeks away. Your plan says start tomorrow.",
+      "show": "Exams in weeks. Your plan: start tomorrow.",
+      "cut": true,
+      "stage": "A clay calendar slab tagged 'PAPER 1: MON 8 DEC · EXAMPLE'. A thought-bubble blob pops 'Start tomorrow' three times, each one stamped over the last.",
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "A simple ask is like telling the topper's senior, 'help me study'.",
+      "show": "Plain ask = 'help me study' to a senior.",
+      "cut": true,
+      "stage": "A chat card at left 60, right 360. The user bubble types 'Help me study for my exams'. After the three-dot typing indicator, the reply lands in red clay: 'Study 2 hours daily. Take breaks. Stay positive.' A red clay-s stamp reads GENERIC. A small chip below reads 'No dates. No subjects.'",
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "The EXAM prompt hands over your date sheet, hard subjects and real free hours.",
+      "show": "EXAM prompt: date sheet, weak subjects, free hours.",
+      "cut": true,
+      "stage": "The screenshot card: the same chat, now with the EXAM prompt typing in. Three attachment chips pop in on the stressed words: 'date_sheet.jpg', 'Weak: Maths, Accounts · EXAMPLE', 'Free: 3 hrs a day · EXAMPLE'. The send button presses.",
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Now it plans before the first paper, the gaps, and revision days.",
+      "show": "Before paper 1, the gaps, revision days.",
+      "cut": false,
+      "stage": "Host hidden, so the cards run full width (left 90, right 90). Three cards build top to bottom. Card 1, sage: 'BEFORE PAPER 1 · 1 to 7 Dec · EXAMPLE', rows Maths 2h, Accounts 1h. Card 2, sky: 'GAPS BETWEEN PAPERS · 9 to 10 Dec · EXAMPLE', rows English 2h, Economics 1h. Card 3, amber: 'REVISION DAYS · 7 Dec, 11 Dec · EXAMPLE', rows 'Day before each paper: that paper only'.",
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Same app, now planning like that senior.",
+      "show": "Same app, now planning like that senior.",
+      "cut": true,
+      "stage": "Payoff: the full timetable as one green-edged card, with every day row filled with date, subject and hours, revision rows in amber and a clay-s tag 'EXAMPLE PLAN'. Beside it, the small red GENERIC card from line 2 shrinks, so the before and after sit together.",
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: plan only real hours, and check dates against the official sheet.",
+      "show": "Catch: real hours only. Check the official sheet.",
+      "cut": true,
+      "stage": "An amber checklist card with two rows that tick on the beat: 'Cut it to hours you'll really study' and 'Recheck every date on the official date sheet'. An amber clay-s stamp reads CHECK and slams in, and the card shakes.",
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Share it with your room partner stuck on a study plan. Type EXAM.",
+      "show": "Send to your roommate. Comment EXAM.",
+      "cut": true,
+      "stage": "A quiet end card: 'Send this to the roommate still making the timetable.' Below it, a big dark pill reads 'Comment EXAM', with the letters dropping in on the beat. A small sticker reads 'FREE PROMPT'.",
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line2.voice+1.0",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line3.voice+0.4",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "DATE SHEET TO",
+      "DAY-BY-DAY STUDY PLAN"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

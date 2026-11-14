@@ -1,0 +1,157 @@
+{
+  "id": "2026-11-15-carousel-shop-counter-prompts-to-save",
+  "style": "clay",
+  "proven": "P04",
+  "keyword": "COUNTER",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "kicker": "SAVE THIS",
+      "title": [
+        "Shop owners:",
+        "6 prompts to *save*",
+        "at the counter"
+      ],
+      "sub": "Copy, paste, fill the brackets. Free ChatGPT or Gemini, on your phone."
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "name": "The price *reply*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Turns a one-word 'price?' message into a polite reply that can close the sale.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "A 'price?' message with no hello"
+        },
+        {
+          "k": "YOU FILL IN",
+          "v": "The product and your real price"
+        }
+      ],
+      "box": "A customer sent 'price?' on WhatsApp for [product]. Write a short, polite Hinglish reply: the price is ₹[your price], one line on what's included, and ask if I should keep one aside. Under 40 words.",
+      "catch": "Type your real price in. Never let it guess."
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "name": "The offer *board*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Writes your offer in Hindi and English, short enough for a board or WhatsApp status.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "Festival offer, new stock, weekend sale"
+        },
+        {
+          "k": "THEN",
+          "v": "Copy the best option onto your board"
+        }
+      ],
+      "box": "Write 3 options for a shop offer board. Each: one Hindi line in Devanagari, then the same in English, under 8 words each. Offer: [your offer]. Valid till [date]. Keep it clear, no exaggeration.",
+      "catch": "Ask a Hindi reader to check the spellings."
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "name": "The reorder *list*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Turns your scribbled sales notes into a clean list of what to reorder.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "Closing time, before you call the supplier"
+        },
+        {
+          "k": "YOU FILL IN",
+          "v": "Type your notes, or attach a clear photo"
+        }
+      ],
+      "box": "These are today's sales notes from my shop: [type or paste notes]. Make a table: item, how many sold, reorder yes or check. Say yes only where I wrote 'khatam' or 'low'. Don't add items I didn't write.",
+      "catch": "It can't see your shelf. Count before ordering."
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "name": "The udhaar *reminder*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Asks for pending money politely, so the customer pays and still comes back.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "Udhaar pending for more than a week"
+        },
+        {
+          "k": "TIP",
+          "v": "Send the soft version first"
+        }
+      ],
+      "box": "Write a polite WhatsApp reminder in Hinglish to [name], a regular customer. ₹[amount] is pending since [date]. Friendly, never rude. Say UPI to [your UPI ID] works. Under 50 words. Give a soft and a firmer version.",
+      "catch": "Check the amount against your khata first."
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "name": "The review *reply*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Writes a calm owner's reply to any Google Maps review, good or bad.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "Any new review, especially a complaint"
+        },
+        {
+          "k": "WHERE TO POST",
+          "v": "Your Business Profile, Reviews, then Reply"
+        }
+      ],
+      "box": "I own [shop name]. Write my reply to this Google Maps review: [paste review]. Thank them by name, answer their main point honestly, and if it's a complaint, say sorry once and invite them back. Under 60 words. Promise nothing I didn't say.",
+      "catch": "Replying needs a verified Google Business Profile."
+    },
+    {
+      "kind": "item",
+      "n": 6,
+      "name": "The *translator*",
+      "domain": "chatgpt.com · gemini.google.com",
+      "line": "Tells you what a customer wrote in a language you can't read, then translates your reply.",
+      "rows": [
+        {
+          "k": "WHEN TO USE",
+          "v": "A message in a language you don't read"
+        },
+        {
+          "k": "GREAT FOR",
+          "v": "New customers, tourists, delivery partners"
+        }
+      ],
+      "box": "A customer sent me this: [paste message]. Tell me in simple Hindi what they want, in one line. Then translate my reply into their language, simple and polite: [type your reply in Hindi].",
+      "catch": "Double-check names, numbers and addresses it translates."
+    },
+    {
+      "kind": "recap",
+      "title": "Save these *6.*",
+      "items": [
+        "'Price?' reply that can close the sale",
+        "Hindi + English offer board",
+        "Sales notes into a reorder list",
+        "Polite udhaar reminder",
+        "Google Maps review reply",
+        "Translate a customer's message",
+        "The catch: check every price and number before you send"
+      ]
+    },
+    {
+      "kind": "cta",
+      "title": "Send this to *the uncle*",
+      "who": "who types every reply with one finger.",
+      "text": "and I'll DM you all 6 prompts, ready to copy",
+      "catch": "AI doesn't know your stock or prices. Check every number."
+    }
+  ]
+}

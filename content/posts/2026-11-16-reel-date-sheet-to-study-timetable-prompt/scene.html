@@ -1,0 +1,255 @@
+<style>
+  /* clay theme: sand paper, warm ink, one terracotta accent (fills) with a deep terracotta for text so it passes contrast */
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 25%, #F4E7D2 0%, var(--bg) 55%, #DCC4A0 100%); }
+  .blob { position: absolute; border-radius: 50%; }
+  #blob1 { left: -220px; top: 180px; width: 780px; height: 780px; background: radial-gradient(closest-side, rgba(210,96,42,0.16), rgba(210,96,42,0)); }
+  #blob2 { left: 480px; top: 860px; width: 840px; height: 840px; background: radial-gradient(closest-side, rgba(111,154,92,0.18), rgba(111,154,92,0)); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(43,36,32,0.05) 1px, transparent 1px); background-size: 7px 7px; }
+  #bar { position: absolute; left: 90px; right: 120px; top: 132px; height: 8px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(43,36,32,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 40px; font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.18em; color: #9A3C14; }
+  .title { position: absolute; left: 90px; right: 90px; top: 86px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; color: #9A3C14; }
+  .card { position: absolute; background: #FFF9F0; border-radius: 36px; box-shadow: 0 28px 60px rgba(90,55,25,0.18), 0 3px 0 rgba(90,55,25,0.06); overflow: hidden; }
+  .L { left: 60px; right: 360px; }
+  .app { position: absolute; left: 0; right: 0; top: 0; height: 88px; background: #F3E8D6; }
+  .av { position: absolute; left: 28px; top: 22px; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); }
+  .app-n { position: absolute; left: 90px; top: 0; height: 88px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 28px; color: var(--ink); }
+  .app-x { position: absolute; right: 24px; top: 19px; height: 50px; padding: 0 18px; border-radius: 25px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 24px; letter-spacing: 0.06em; }
+  .stamp { position: absolute; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; letter-spacing: 0.06em; border-radius: 18px; background: rgba(255,249,240,0.6); }
+
+  /* 0: hook */
+  #s0-title { top: 24px; font-size: 118px; transform-origin: left top; }
+  #s0-l2 { transform-origin: left center; }
+  #s0-strike { position: absolute; left: 84px; top: 90px; width: 500px; height: 12px; border-radius: 6px; background: var(--accent); transform-origin: left center; }
+  #s0-sheet { position: absolute; left: 90px; top: 316px; width: 870px; height: 120px; }
+  .crum { position: absolute; inset: 0; border-radius: 18px; rotate: -1.5deg; background: linear-gradient(105deg, #F6EBD6 0%, #E5D1AE 20%, #F6EBD6 37%, #E0CBA6 60%, #F4E7CF 79%, #E3CEAA 100%); box-shadow: 0 18px 40px rgba(90,55,25,0.18); }
+  .sh-k { position: absolute; left: 28px; top: 16px; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.12em; color: var(--ink); }
+  .sh-tag { position: absolute; right: 28px; top: 16px; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.08em; color: #6B5F57; }
+  .sh-rows { position: absolute; left: 28px; right: 28px; top: 62px; }
+  .sh-rows i { display: block; height: 8px; margin-bottom: 9px; border-radius: 4px; background: repeating-linear-gradient(90deg, rgba(43,36,32,0.38) 0 130px, rgba(43,36,32,0) 130px 160px); }
+  #s0-tt { position: absolute; left: 90px; top: 316px; width: 870px; height: 120px; box-sizing: border-box; padding: 12px; display: flex; gap: 10px; background: #FFF9F0; border-radius: 22px; box-shadow: 0 18px 40px rgba(90,55,25,0.18); }
+  .tt-c { flex: 1; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--ink); }
+  .tt-c b { display: block; font-family: var(--body); font-weight: 700; font-size: 26px; line-height: 1.15; }
+  .tt-me { background: var(--ink); color: #FFF6EA; }
+  .sage { background: #C9D8B6; } .sky { background: #BFD6E3; } .amber { background: #F2CF8E; }
+  .tt-p { background: #9A3C14; color: #FFF6EA; }
+
+  /* 1: the calendar and 'start tomorrow' */
+  #s1-cal { top: 260px; height: 440px; }
+  .cal-h { position: absolute; left: 0; right: 0; top: 0; height: 76px; padding-left: 30px; display: flex; align-items: center; background: #9A3C14; color: #FFF6EA; font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.12em; }
+  .cal-w { position: absolute; left: 30px; right: 30px; top: 96px; height: 40px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .cal-w i { display: block; text-align: center; font-family: var(--body); font-style: normal; font-weight: 700; font-size: 26px; color: #6B5F57; }
+  .cal-g { position: absolute; left: 30px; right: 30px; top: 146px; display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 78px; gap: 8px; }
+  .cal-g i { display: flex; align-items: center; justify-content: center; border-radius: 14px; background: #F3E8D6; font-family: var(--body); font-style: normal; font-weight: 700; font-size: 34px; color: var(--ink); }
+  .cal-g i.x { background: transparent; }
+  .cal-g i.p { background: #9A3C14; color: #FFF6EA; }
+  #s1-tag { position: absolute; left: 30px; top: 342px; height: 64px; padding: 0 24px; border-radius: 32px; background: #F2CF8E; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 28px; color: var(--ink); transform-origin: left center; }
+  #s1-bub { position: absolute; left: 60px; top: 740px; width: 580px; height: 290px; border-radius: 145px / 120px; background: #FFF9F0; box-shadow: 0 24px 50px rgba(90,55,25,0.16); }
+  .st { position: absolute; font-family: 'Permanent Marker', cursive; font-size: 48px; line-height: 1.3; color: #9A3C14; white-space: nowrap; }
+  #s1-b1 { left: 70px; top: 26px; } #s1-b2 { left: 120px; top: 106px; } #s1-b3 { left: 84px; top: 186px; }
+  .dotb { position: absolute; border-radius: 50%; background: #FFF9F0; box-shadow: 0 10px 24px rgba(90,55,25,0.16); }
+  #s1-d1 { left: 650px; top: 1000px; width: 42px; height: 42px; }
+  #s1-d2 { left: 706px; top: 1056px; width: 24px; height: 24px; }
+
+  /* 2: the plain ask */
+  #s2-chat { top: 260px; height: 620px; }
+  #s2-x { background: #E6D3B5; color: var(--ink); }
+  #s2-me { position: absolute; right: 30px; top: 118px; width: 440px; box-sizing: border-box; padding: 22px 28px; border-radius: 30px 30px 8px 30px; background: var(--ink); color: #FFF6EA; font-family: var(--body); font-weight: 700; font-size: 36px; line-height: 1.25; transform-origin: right bottom; }
+  #s2-dots { position: absolute; left: 30px; top: 284px; width: 130px; height: 64px; border-radius: 32px; background: #F3E8D6; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  #s2-dots i { display: block; width: 16px; height: 16px; border-radius: 50%; background: #6B5F57; }
+  #s2-ai { position: absolute; left: 30px; top: 284px; width: 470px; box-sizing: border-box; padding: 22px 28px; border-radius: 30px 30px 30px 8px; background: #F8DCCF; color: #7A2412; font-family: var(--body); font-weight: 700; font-size: 36px; line-height: 1.25; transform-origin: left bottom; }
+  #s2-chip { position: absolute; left: 30px; top: 506px; height: 70px; padding: 0 28px; border-radius: 35px; background: #F3E8D6; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 28px; color: var(--ink); transform-origin: left center; }
+  #s2-stamp { left: 330px; top: 600px; width: 340px; height: 116px; border: 8px solid #B8321F; color: #B8321F; font-size: 56px; }
+
+  /* 3: the EXAM prompt (screenshot card) */
+  #s3-card { top: 250px; height: 810px; }
+  #s3-tag { background: #9A3C14; color: #FFF6EA; }
+  #s3-box { position: absolute; left: 30px; right: 30px; top: 112px; height: 290px; border-radius: 26px; background: #F3E8D6; }
+  .pl { position: absolute; left: 26px; font-family: var(--body); font-weight: 700; font-size: 34px; line-height: 1.2; color: var(--ink); white-space: nowrap; }
+  #s3-l0 { top: 22px; } #s3-l1 { top: 72px; } #s3-l2 { top: 122px; } #s3-l3 { top: 172px; } #s3-l4 { top: 222px; }
+  .att { position: absolute; left: 30px; height: 62px; padding: 0 24px; border-radius: 31px; background: #FFFFFF; border: 3px solid #E6D3B5; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 28px; color: var(--ink); white-space: nowrap; transform-origin: left center; }
+  .doc { display: block; width: 22px; height: 28px; margin-right: 14px; border-radius: 4px; background: #9A3C14; }
+  #s3-a1 { top: 430px; } #s3-a2 { top: 506px; } #s3-a3 { top: 582px; }
+  #s3-row { position: absolute; left: 30px; right: 30px; top: 680px; height: 96px; border-radius: 48px; background: #F3E8D6; }
+  #s3-rt { position: absolute; left: 30px; top: 0; height: 96px; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 28px; color: #6B5F57; }
+  #s3-send { position: absolute; right: 10px; top: 10px; width: 76px; height: 76px; border-radius: 50%; background: #9A3C14; display: flex; align-items: center; justify-content: center; }
+  #s3-send svg { display: block; width: 40px; height: 40px; }
+
+  /* 4: the three parts, full width */
+  .part { position: absolute; left: 90px; right: 90px; height: 250px; border-radius: 34px; box-shadow: 0 24px 50px rgba(90,55,25,0.16); }
+  #s4-c1 { top: 250px; background: #E1EAD5; border-left: 18px solid #7FA06C; }
+  #s4-c2 { top: 525px; background: #DCE8EF; border-left: 18px solid #6F98B3; }
+  #s4-c3 { top: 800px; background: #F7E3BC; border-left: 18px solid #D49A38; }
+  .pn { position: absolute; left: 28px; top: 22px; width: 70px; height: 70px; border-radius: 50%; background: var(--ink); color: #FFF6EA; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 36px; }
+  .ph { position: absolute; left: 120px; top: 22px; font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.06em; color: var(--ink); white-space: nowrap; }
+  .pd { position: absolute; left: 120px; top: 62px; font-family: var(--body); font-weight: 700; font-size: 26px; color: #6B5F57; white-space: nowrap; }
+  .prs { position: absolute; left: 28px; top: 140px; display: flex; gap: 20px; }
+  .pr { display: flex; align-items: center; height: 80px; padding: 0 30px; border-radius: 40px; background: #FFF9F0; font-family: var(--body); font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  .pr b { color: #9A3C14; margin-left: 12px; font-weight: 900; }
+
+  /* 5: the finished timetable */
+  #s5-tt { top: 236px; height: 790px; border: 6px solid #6F9A5C; box-sizing: border-box; }
+  .tt-h { position: absolute; left: 30px; top: 26px; font-family: var(--body); font-weight: 900; font-size: 30px; letter-spacing: 0.08em; color: var(--ink); }
+  #s5-tag { position: absolute; right: 24px; top: 20px; height: 50px; padding: 0 18px; border-radius: 25px; background: #9A3C14; color: #FFF6EA; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 24px; letter-spacing: 0.06em; }
+  .cols { position: absolute; left: 40px; right: 40px; top: 90px; height: 36px; font-family: var(--body); font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: #6B5F57; }
+  .cols div { position: absolute; top: 0; }
+  .tr { position: absolute; left: 24px; right: 24px; height: 70px; border-radius: 18px; background: #F3EEE4; color: var(--ink); }
+  .tr div { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; white-space: nowrap; }
+  .tr .d { left: 16px; } .tr .s { left: 150px; } .tr .h { right: 18px; font-weight: 900; color: #9A3C14; }
+  .tr.rev { background: #F2CF8E; } .tr.rev .h { color: var(--ink); }
+  .tr.pap { background: #9A3C14; color: #FFF6EA; } .tr.pap .h { color: #FFF6EA; font-size: 26px; letter-spacing: 0.08em; }
+  #s5-r1 { top: 136px; } #s5-r2 { top: 214px; } #s5-r3 { top: 292px; } #s5-r4 { top: 370px; } #s5-r5 { top: 448px; } #s5-r6 { top: 526px; } #s5-r7 { top: 604px; } #s5-r8 { top: 682px; }
+  #s5-gen { position: absolute; left: 750px; top: 300px; width: 205px; height: 300px; box-sizing: border-box; border-radius: 26px; background: #F8DCCF; border: 4px solid #B8321F; transform-origin: right top; }
+  .gk { position: absolute; left: 16px; top: 16px; font-family: var(--body); font-weight: 900; font-size: 24px; letter-spacing: 0.08em; color: #7A2412; }
+  .gt { position: absolute; left: 16px; right: 12px; top: 56px; font-family: var(--body); font-weight: 700; font-size: 28px; line-height: 1.25; color: #7A2412; }
+  .gs { position: absolute; left: 16px; bottom: 16px; height: 44px; padding: 0 12px; border: 3px solid #B8321F; border-radius: 10px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 24px; color: #B8321F; }
+
+  /* 6: the catch */
+  #s6-card { top: 270px; height: 490px; background: #F8E6C2; }
+  .ck-h { position: absolute; left: 34px; top: 30px; font-family: var(--body); font-weight: 900; font-size: 28px; letter-spacing: 0.1em; color: var(--ink); }
+  .ck { position: absolute; left: 30px; right: 30px; height: 170px; border-radius: 26px; background: #FFF9F0; }
+  #s6-k1 { top: 90px; } #s6-k2 { top: 284px; }
+  .box { position: absolute; left: 26px; top: 46px; width: 78px; height: 78px; box-sizing: border-box; border: 5px solid #9A3C14; border-radius: 20px; background: #FFFFFF; }
+  .tick { position: absolute; left: 8px; top: 8px; display: block; width: 52px; height: 52px; }
+  .ct { position: absolute; left: 130px; right: 24px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 36px; line-height: 1.2; color: var(--ink); }
+  #s6-stamp { left: 440px; top: 230px; width: 270px; height: 110px; border: 8px solid #8E5300; color: #8E5300; font-size: 64px; }
+
+  /* 7: send + keyword */
+  #s7-title { top: 70px; font-size: 140px; }
+  #s7-who { position: absolute; left: 90px; width: 620px; top: 272px; font-family: var(--body); font-weight: 700; font-size: 40px; line-height: 1.25; color: var(--ink); }
+  #s7-pill { position: absolute; left: 60px; width: 660px; top: 420px; height: 220px; border-radius: 110px; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .pc { font-family: var(--body); font-weight: 700; font-size: 36px; color: #F3E4CE; }
+  .kw { display: flex; gap: 10px; }
+  .kw b { display: block; font-family: var(--display); font-weight: 400; font-size: 118px; line-height: 1; color: #F2A57F; }
+  #s7-stk { position: absolute; left: 90px; top: 690px; height: 70px; padding: 0 30px; box-sizing: border-box; border-radius: 35px; background: #F2CF8E; border: 3px solid #8E5300; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 32px; letter-spacing: 0.06em; color: var(--ink); }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Plain ask</span></span><span class="mask"><span class="l" id="s0-l2"><span class="it">EXAM prompt.</span></span></span></div>
+  <div id="s0-strike" data-layout-allow-overlap></div>
+  <div id="s0-sheet" data-layout-allow-overlap><div class="crum"><div class="sh-k">DATE SHEET</div><div class="sh-tag">EXAMPLE</div><div class="sh-rows"><i></i><i></i><i></i></div></div></div>
+  <div id="s0-tt" data-layout-allow-overlap>
+    <div class="tt-c tt-me"><b>MY PLAN</b><b>EXAMPLE</b></div>
+    <div class="tt-c sage"><b>5 DEC</b><b>MATHS</b></div>
+    <div class="tt-c amber"><b>7 DEC</b><b>REVISE</b></div>
+    <div class="tt-c tt-p"><b>8 DEC</b><b>PAPER 1</b></div>
+    <div class="tt-c sky"><b>9 DEC</b><b>ENGLISH</b></div>
+    <div class="tt-c amber"><b>11 DEC</b><b>REVISE</b></div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">THE PROBLEM</div>
+  <div class="title"><span class="mask"><span class="l">Weeks <span class="it">away.</span></span></span></div>
+  <div class="card L" id="s1-cal">
+    <div class="cal-h">DECEMBER · EXAMPLE</div>
+    <div class="cal-w"><i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i>S</i><i>S</i></div>
+    <div class="cal-g"><i class="x"></i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i class="p" id="s1-c8">8</i><i>9</i><i>10</i><i>11</i><i>12</i><i>13</i></div>
+    <div id="s1-tag">PAPER 1 · 8 DEC · EXAMPLE</div>
+  </div>
+  <div id="s1-bub">
+    <div class="st" id="s1-b1" data-layout-allow-overlap>Start tomorrow.</div>
+    <div class="st" id="s1-b2" data-layout-allow-overlap>Start tomorrow.</div>
+    <div class="st" id="s1-b3" data-layout-allow-overlap>Start tomorrow.</div>
+  </div>
+  <div class="dotb" id="s1-d1"></div>
+  <div class="dotb" id="s1-d2"></div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="step">THE PLAIN ASK</div>
+  <div class="title"><span class="mask"><span class="l">Too <span class="it">vague.</span></span></span></div>
+  <div class="card L" id="s2-chat">
+    <div class="app"><i class="av"></i><div class="app-n">AI chat</div><div class="app-x" id="s2-x">EXAMPLE</div></div>
+    <div id="s2-me">Help me study for my exams</div>
+    <div id="s2-dots" data-layout-allow-overlap><i></i><i></i><i></i></div>
+    <div id="s2-ai" data-layout-allow-overlap>Study 2 hours daily. Take breaks. Stay positive.</div>
+    <div id="s2-chip">No dates. No subjects.</div>
+  </div>
+  <div class="stamp clay-s" id="s2-stamp" data-layout-allow-overlap>GENERIC</div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="step">THE EXAM PROMPT</div>
+  <div class="title"><span class="mask"><span class="l">Give it <span class="it">3 things.</span></span></span></div>
+  <div class="card L" id="s3-card">
+    <div class="app"><i class="av"></i><div class="app-n">AI chat</div><div class="app-x clay-s" id="s3-tag">EXAM PROMPT</div></div>
+    <div id="s3-box">
+      <div class="pl" id="s3-l0">Read my date sheet back</div>
+      <div class="pl" id="s3-l1">to me. Weak subjects:</div>
+      <div class="pl" id="s3-l2">[list]. Free hours: [X].</div>
+      <div class="pl" id="s3-l3">Make a day-by-day</div>
+      <div class="pl" id="s3-l4">timetable to my last paper.</div>
+    </div>
+    <div class="att" id="s3-a1"><i class="doc"></i>date_sheet.jpg</div>
+    <div class="att" id="s3-a2"><i class="doc"></i>Weak: Maths, Accounts · EXAMPLE</div>
+    <div class="att" id="s3-a3"><i class="doc"></i>Free: 3 hrs a day · EXAMPLE</div>
+    <div id="s3-row"><div id="s3-rt">Ready to send</div><div id="s3-send" class="clay-s"><svg viewBox="0 0 40 40"><path d="M20 32 L20 9 M10 18 L20 8 L30 18" fill="none" stroke="#FFF6EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="step">THE PLAN</div>
+  <div class="title"><span class="mask"><span class="l">In <span class="it">3 parts.</span></span></span></div>
+  <div class="part" id="s4-c1">
+    <div class="pn clay-s" id="s4-n1">1</div><div class="ph">BEFORE PAPER 1</div><div class="pd">1 to 6 Dec · EXAMPLE</div>
+    <div class="prs"><div class="pr">Maths<b>2h</b></div><div class="pr">Accounts<b>1h</b></div></div>
+  </div>
+  <div class="part" id="s4-c2">
+    <div class="pn clay-s" id="s4-n2">2</div><div class="ph">GAPS BETWEEN PAPERS</div><div class="pd">9 to 10 Dec · EXAMPLE</div>
+    <div class="prs"><div class="pr">English<b>2h</b></div><div class="pr">Economics<b>1h</b></div></div>
+  </div>
+  <div class="part" id="s4-c3">
+    <div class="pn clay-s" id="s4-n3">3</div><div class="ph">REVISION DAYS</div><div class="pd">7 Dec and 11 Dec · EXAMPLE</div>
+    <div class="prs"><div class="pr">Day before each paper: only that paper</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="step">THE RESULT</div>
+  <div class="title"><span class="mask"><span class="l">Like the <span class="it">senior.</span></span></span></div>
+  <div class="card L" id="s5-tt">
+    <div class="tt-h">MY TIMETABLE</div>
+    <div id="s5-tag" class="clay-s">EXAMPLE PLAN</div>
+    <div class="cols"><div style="left:0">DATE</div><div style="left:134px">SUBJECT</div><div style="right:0">HRS</div></div>
+    <div class="tr" id="s5-r1"><div class="d">5 Dec</div><div class="s">Maths + Accounts</div><div class="h">3h</div></div>
+    <div class="tr" id="s5-r2"><div class="d">6 Dec</div><div class="s">Maths + Accounts</div><div class="h">3h</div></div>
+    <div class="tr rev" id="s5-r3"><div class="d">7 Dec</div><div class="s">Revise Maths</div><div class="h">3h</div></div>
+    <div class="tr pap" id="s5-r4"><div class="d">8 Dec</div><div class="s">Paper 1: Maths</div><div class="h">EXAM</div></div>
+    <div class="tr" id="s5-r5"><div class="d">9 Dec</div><div class="s">English + Eco</div><div class="h">3h</div></div>
+    <div class="tr" id="s5-r6"><div class="d">10 Dec</div><div class="s">English + Eco</div><div class="h">3h</div></div>
+    <div class="tr rev" id="s5-r7"><div class="d">11 Dec</div><div class="s">Revise English</div><div class="h">3h</div></div>
+    <div class="tr pap" id="s5-r8"><div class="d">12 Dec</div><div class="s">Paper 2: English</div><div class="h">EXAM</div></div>
+  </div>
+  <div id="s5-gen" class="clay-s"><div class="gk">BEFORE</div><div class="gt">Study 2 hours daily.</div><div class="gs">GENERIC</div></div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE CATCH</div>
+  <div class="title"><span class="mask"><span class="l">Check <span class="it">twice.</span></span></span></div>
+  <div class="card L" id="s6-card">
+    <div class="ck-h">BEFORE YOU START</div>
+    <div class="ck" id="s6-k1"><div class="box" id="s6-b1"><svg class="tick" id="s6-t1" viewBox="0 0 60 60"><path d="M14 31 L26 43 L47 18" fill="none" stroke="#FFF6EA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="ct">Cut it to hours you'll really study</div></div>
+    <div class="ck" id="s6-k2"><div class="box" id="s6-b2"><svg class="tick" id="s6-t2" viewBox="0 0 60 60"><path d="M14 31 L26 43 L47 18" fill="none" stroke="#FFF6EA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><div class="ct">Recheck every date on the official date sheet</div></div>
+  </div>
+  <div class="stamp clay-s" id="s6-stamp" data-layout-allow-overlap>CHECK</div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="end">
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <div id="s7-who">to the roommate still making the timetable.</div>
+  <div id="s7-pill" class="clay-s"><div class="pc">Comment</div><div class="kw"><b id="s7-k1">E</b><b id="s7-k2">X</b><b id="s7-k3">A</b><b id="s7-k4">M</b></div></div>
+  <div id="s7-stk" class="clay-s">FREE PROMPT</div>
+</section>

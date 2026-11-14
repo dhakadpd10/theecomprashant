@@ -1,0 +1,181 @@
+{
+  "id": "2026-11-18-reel-switch-off-ai-training-3-apps-ranked",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "list",
+  "proven": "P10",
+  "keyword": "OPTOUT",
+  "tool": "AI Training Switch-Off Card",
+  "world": "desk",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "18 Nov 2026 19:30 IST",
+    "slot_utc": "18 Nov 2026 14:00 UTC",
+    "kind": "list",
+    "hook_id": 11,
+    "keyword": "OPTOUT",
+    "list_card": true,
+    "viewer": "homemakers at home",
+    "money_angle": false,
+    "note": "18 Nov's only #11. The 09:00 and 13:00 IST slots must not use it."
+  },
+  "core_idea": "Most AI apps have one switch that keeps your chats out of training, and it takes under a minute.",
+  "analogy": "Telling the photo studio not to put your family photo in their shop window.",
+  "hot": "^(1|2|3|Gemini|Claude|ChatGPT|off|minute|Catch|OPTOUT)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "lines": [
+    {
+      "say": "Three apps, three switches that keep your family chats out of AI training.",
+      "show": "3 apps. 3 switches. Chats out of training.",
+      "cut": true,
+      "card": "Frame 0: title '3 APPS. #1 KEEPS HISTORY' at 120 px or more, with '3 APPS' in terracotta. Below it, a clay toggle flips from on to off (green) with the small label 'This one switch'.",
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Kids' school notes you typed in? Like your family photo in a studio window.",
+      "show": "Kids' notes? Your photo in a studio window.",
+      "cut": true,
+      "card": "Analogy diagram, built in pieces: a chat bubble 'Class 5 science notes' and 'Family report', then an arrow drawing to a clay shop window with a family photo in it. An amber chip reads 'CAN BE USED TO IMPROVE THE MODEL'.",
+      "host": {
+        "at": "corner",
+        "pose": "think",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Number three, Gemini. Keep Activity off, but your history goes too.",
+      "show": "3. Gemini: Keep Activity off. History goes too.",
+      "cut": true,
+      "card": "Clay list card with badge 3, 'Gemini' and 'gemini.google.com'. The path draws in as tappable boxes: 'Settings & help' to 'Activity' to 'Keep Activity', ending on the toggle turning off (green). Amber chip: 'History not saved'.",
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number two, the next app. Privacy, then Help improve, off.",
+      "show": "2. Claude: Help improve Claude, off.",
+      "cut": true,
+      "card": "Clay list card with badge 2, 'Claude' and 'claude.ai'. The path draws in: 'Settings' to 'Privacy' to 'Help improve Claude', ending on the toggle off (green). Green chip: 'History stays'.",
+      "host": {
+        "at": "right",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number one, the best known app. Data controls, Improve the model for everyone, off.",
+      "show": "1. ChatGPT: Improve the model for everyone, off.",
+      "cut": true,
+      "card": "Full-width clay card with badge 1, a mustard 'FAVOURITE' stamp, 'ChatGPT' and 'chatgpt.com'. The path draws in: 'Settings' to 'Data controls' to 'Improve the model for everyone', ending on the toggle off (green). Green chips: 'History stays' and 'Easiest to find'.",
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Under a minute, and your photo stays out of the window.",
+      "show": "Under a minute. Photo out of the window.",
+      "cut": true,
+      "card": "Payoff: one clay card with 3 rows (Gemini, Claude, ChatGPT), each toggle popping off in green on the beat. Beside it, the shop window is empty and the family photo is back in a home album.",
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it works from now on, not on chats already used.",
+      "show": "Catch: from now on, not chats already used.",
+      "cut": true,
+      "card": "A timeline bar. The left part is grey with an amber chip: 'Already used: not undone'. The right part is green: 'From now on'. Under the Gemini row, an amber note: 'Gemini: history off too'.",
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to the family member who types everything into an AI app.",
+      "show": "Send to the one who types everything in.",
+      "cut": false,
+      "card": "A send arrow to a clay contact chip: 'Family member who types everything into ChatGPT'.",
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment OPTOUT for the free switch-off card.",
+      "show": "Comment OPTOUT for the free card.",
+      "cut": false,
+      "card": "End card: the clay letters OPTOUT drop in, big, on the beat. A small sticker reads 'FREE · AI Training Switch-Off Card · all 3 paths'.",
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line0+0.4",
+      "fx": "click"
+    },
+    {
+      "at": "@line2.voice+2.2",
+      "fx": "click"
+    },
+    {
+      "at": "@line3.voice+2.0",
+      "fx": "click"
+    },
+    {
+      "at": "@line4.voice+2.4",
+      "fx": "click"
+    },
+    {
+      "at": "@line6.voice+0.6",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.4",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.0",
+    "title": [
+      "3 SWITCHES THAT KEEP",
+      "YOUR CHATS OUT OF AI"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "verify_before_render": [
+    "I wrote the setting names and paths from my own knowledge, not from today's help pages, because I couldn't open them. Before anything renders, check each one against the company's own help page today and copy it word for word. Drop any app whose path can't be confirmed there.",
+    "ChatGPT: Settings > Data controls > 'Improve the model for everyone' (OpenAI Help Center, data controls article). Confirm that chat history stays when it is off.",
+    "Claude: Settings > Privacy > 'Help improve Claude' (Anthropic Privacy Center). Confirm that history stays.",
+    "Gemini: Settings & help > Activity > 'Keep Activity' (Google's Gemini Apps privacy help). The old name was 'Gemini Apps Activity'. Confirm the current name, the path in the phone app, and that turning it off also stops saving history.",
+    "ChatGPT and Claude both keep history when the switch is off. ChatGPT is #1 because it is the easiest to find, so the hook '#1 KEEPS HISTORY' is true but not unique. The Claude card shows 'History stays' so the reel doesn't suggest otherwise.",
+    "Nothing here states any app's default. The unverified 'Daybreak' report is left out.",
+    "The voice line says 'OPTOUT'. Check that am_puck reads it as 'opt out'. If it spells the letters, keep the word in 'say' and fix the pronunciation in the engine, not in the script.",
+    "OPTOUT doesn't appear in any keyword in the logs I was given (SITES, SAFE, POSTER, BOLO, BRIEF, GIG, INTRO, TODO, STICKER, RECAP, LETTER, PHOTO, FRIDGE, STYLE, FORWARD, RESUME, CRAFT, PRIVATE, TRUTH, STUDY, or the seller keywords). Confirm this in the full post log, and put the AI Training Switch-Off Card on the tools page before posting.",
+    "Near-topic check: PRIVATE ran twice and covered hiding chats. This reel is only about the training switch.",
+    "Plan conflict to log, not resolve: the strategy's 17 to 20 Nov rotation names tool, tutorial and prompt, and 'list' is not one of the five kinds. The strategy also asks for style 'editorial-host', while this brief sets 'motion' with theme 'clay'. Log the kind the audit should count (probably 'tool') and confirm the slot is on its line before publishing."
+  ]
+}

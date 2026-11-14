@@ -1,0 +1,73 @@
+{
+  "dur": 29.7,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.817,
+      "b": 3.917,
+      "say": "My AI app said 'study two hours daily' until I gave it three things.",
+      "show": "'Study 2 hours daily.' Until I gave it 3 things."
+    },
+    {
+      "a": 3.917,
+      "voice": 4.017,
+      "end": 6.8,
+      "b": 6.9,
+      "say": "Exams are weeks away. Your plan says start tomorrow.",
+      "show": "Exams in weeks. Your plan: start tomorrow."
+    },
+    {
+      "a": 6.9,
+      "voice": 7,
+      "end": 10.345,
+      "b": 10.445,
+      "say": "A simple ask is like telling the topper's senior, 'help me study'.",
+      "show": "Plain ask = 'help me study' to a senior."
+    },
+    {
+      "a": 10.445,
+      "voice": 10.545,
+      "end": 14.887,
+      "b": 14.987,
+      "say": "The EXAM prompt hands over your date sheet, hard subjects and real free hours.",
+      "show": "EXAM prompt: date sheet, weak subjects, free hours."
+    },
+    {
+      "a": 14.987,
+      "voice": 15.087,
+      "end": 18.495,
+      "b": 18.595,
+      "say": "Now it plans before the first paper, the gaps, and revision days.",
+      "show": "Before paper 1, the gaps, revision days."
+    },
+    {
+      "a": 18.595,
+      "voice": 18.695,
+      "end": 20.474,
+      "b": 20.574,
+      "say": "Same app, now planning like that senior.",
+      "show": "Same app, now planning like that senior."
+    },
+    {
+      "a": 20.574,
+      "voice": 20.674,
+      "end": 24.617,
+      "b": 24.717,
+      "say": "The catch: plan only real hours, and check dates against the official sheet.",
+      "show": "Catch: real hours only. Check the official sheet."
+    },
+    {
+      "a": 24.717,
+      "voice": 24.817,
+      "end": 28.298,
+      "b": 29.7,
+      "say": "Share it with your room partner stuck on a study plan. Type EXAM.",
+      "show": "Send to your roommate. Comment EXAM."
+    }
+  ]
+}

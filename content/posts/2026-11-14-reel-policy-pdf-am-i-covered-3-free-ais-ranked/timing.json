@@ -1,0 +1,97 @@
+{
+  "dur": 37.31,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 2.088,
+      "b": 2.188,
+      "say": "Am I covered? Three free AIs, ranked.",
+      "show": "Am I covered? 3 free AIs, ranked."
+    },
+    {
+      "a": 2.188,
+      "voice": 2.288,
+      "end": 6.13,
+      "b": 6.23,
+      "say": "Pages and pages after office? HR says, check the policy.",
+      "show": "40 pages. HR says: check the policy."
+    },
+    {
+      "a": 6.23,
+      "voice": 6.33,
+      "end": 8.664,
+      "b": 8.764,
+      "say": "Three friends, one fine print, same question.",
+      "show": "3 friends. Same PDF. Same question."
+    },
+    {
+      "a": 8.764,
+      "voice": 8.864,
+      "end": 12.615,
+      "b": 12.715,
+      "say": "Number three, Chat G P T. Clear, but free uploads are limited.",
+      "show": "3. ChatGPT: clear, limited free uploads."
+    },
+    {
+      "a": 12.715,
+      "voice": 12.815,
+      "end": 16.091,
+      "b": 16.191,
+      "say": "Number two, the Gemini app. Free, reads the whole PDF.",
+      "show": "2. Gemini app: free, reads it all."
+    },
+    {
+      "a": 16.191,
+      "voice": 16.291,
+      "end": 19.396,
+      "b": 19.496,
+      "say": "Number one, my top pick, Notebook L M. Only your file.",
+      "show": "1. NotebookLM: answers from your file only."
+    },
+    {
+      "a": 19.496,
+      "voice": 19.596,
+      "end": 21.549,
+      "b": 21.649,
+      "say": "And it puts a finger on the clause it read.",
+      "show": "It points to the exact clause."
+    },
+    {
+      "a": 21.649,
+      "voice": 21.749,
+      "end": 25.176,
+      "b": 25.276,
+      "say": "The catch: it can misread, so confirm with HR or your insurer.",
+      "show": "Catch: confirm with HR or your insurer."
+    },
+    {
+      "a": 25.276,
+      "voice": 25.376,
+      "end": 28.608,
+      "b": 28.708,
+      "say": "Cover your ID number and policy number before you upload.",
+      "show": "Cover Aadhaar and policy number first."
+    },
+    {
+      "a": 28.708,
+      "voice": 28.808,
+      "end": 32.62,
+      "b": 32.72,
+      "say": "Send this to the colleague who joined the company policy and never opened it.",
+      "show": "Send to the colleague who never opened it."
+    },
+    {
+      "a": 32.72,
+      "voice": 32.82,
+      "end": 35.915,
+      "b": 37.31,
+      "say": "Comment SIMPLE for the one line to paste with your PDF.",
+      "show": "Comment SIMPLE for the line to paste."
+    }
+  ]
+}

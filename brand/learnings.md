@@ -2,6 +2,30 @@
 
 Each week: what the numbers said, what to do more of, what to stop. Newest on top. Only write conclusions the data supports; with fewer than ~5 posts a week, call it a hunch.
 
+## Week of 2026-11-14
+
+- **This pull is the 13 Nov pull again, row for row, with no timestamp, so it is a fault, not a reading.**
+  - It has 65 rows. The newest is still the TRUTH compare (13 Nov 07:49 UTC, 19 views, 5 reach). Explainers are still at 1,860 reach and 9 saves, and money lists at 1,364 reach and 24 sends.
+  - By the log's own count this is the fourth repeated snapshot.
+  - There is no row for 13 Nov 14:00 UTC (the money arm). Whether it posted, and whether it was on its line, is unknown.
+  - Nothing is judged.
+- **The standing read is unchanged (hunch to moderate, n=4, no send hand-checked).**
+  - Money list cards: 24 of 28 page sends, 17.6 per 1k on 1,364 reach.
+  - 26 explainers: 0 sends and 4.8 saves per 1k on 1,860 reach.
+  - Non-list money-era reels: 1 send on about 950 reach.
+- **Reach ranks this page wrong.**
+  - 4 of the top 5 by outlier multiple have 0 sends and 0 saves: the FAQ and AFTER seller stories, BOLO and pair 3 A.
+  - Every send-earner except hostel sits at 0.52x to 1.47x.
+- **None of the 13 Nov housekeeping visibly landed.**
+  - No pull timestamp.
+  - Kind is blank on 65 of 65 rows.
+  - Style is 'motion' on every new-niche row.
+  - No list card, on-line or arm column.
+  - Hold@3s, follows and non-follower % are on 0 of 65.
+  - No follower count.
+  - No hand-check.
+  - The pipeline, not the content, is the bottleneck, so the fixed slots are kept unchanged rather than rewritten.
+
 ## Week of 2026-11-13
 
 - **The plan did not reach the publisher: 3 of 3 new slots missed their line, so 9 of 9 since 10 Nov 19:30 IST and 13 of the last 15.**

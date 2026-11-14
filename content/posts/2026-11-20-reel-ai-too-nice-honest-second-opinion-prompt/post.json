@@ -1,0 +1,154 @@
+{
+  "id": "2026-11-20-reel-ai-too-nice-honest-second-opinion-prompt",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "prompt",
+  "proven": "P08",
+  "keyword": "HONEST",
+  "world": "gameshow",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": {
+    "slot_ist": "2026-11-20 19:30",
+    "slot_utc": "2026-11-20 14:00",
+    "kind": "prompt",
+    "hook": "#4",
+    "keyword": "HONEST",
+    "free_tool": "Honest Second-Opinion Prompt",
+    "list_card": "no (one screenshot card)",
+    "viewer": "people between jobs",
+    "money_angle": "no"
+  },
+  "hot": "^(1|aunty|agree|3|weakest|struck|fix|rewrite|catch|nobody|HONEST)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "lines": [
+    {
+      "say": "This one free prompt is the strict HR boss you never had.",
+      "show": "This 1 free prompt replaces the strict HR aunty.",
+      "card": "MUMMY -> STRICT HR AUNTY",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "You've sent so many. No replies. And AI just says it's great, like mummy.",
+      "show": "20 sent. No replies. AI says great, like mummy.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "phone",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "It tends to agree with you. So don't ask mummy, ask the strict boss.",
+      "show": "It tends to agree. Ask the strict aunty.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "think",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Tell it: judge me like the hiring manager who rejects most. Name my three weakest lines.",
+      "show": "Judge as the hiring manager who says no.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Each one's struck out, with a fix.",
+      "show": "3 weakest lines struck, each with a fix.",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Then it writes it again. Shorter, clearer, about their job.",
+      "show": "The rewrite: shorter, clearer, about their job.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it's one opinion, flags fine lines too, and someone in your field beats it.",
+      "show": "Catch: 1 opinion. Someone in your field beats it.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Send this to that friend who's applying everywhere and hearing back from nobody.",
+      "show": "Send to the friend who hears back from nobody.",
+      "cut": true,
+      "host": {
+        "at": "right",
+        "pose": "wave",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "Comment HONEST and I'll send you the full prompt.",
+      "show": "Comment HONEST for the free prompt.",
+      "cut": false,
+      "host": {
+        "at": "right",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line1.voice+1.6",
+      "fx": "buzz"
+    },
+    {
+      "at": "@line4.voice+0.1",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.5",
+      "fx": "thud"
+    },
+    {
+      "at": "@line4.voice+0.9",
+      "fx": "thud"
+    },
+    {
+      "at": "@line8.voice+0.3",
+      "fx": "pop"
+    }
+  ],
+  "cover": {
+    "at": "@line5+1.2",
+    "title": [
+      "AI SAYS GREAT?",
+      "ASK THE STRICT AUNTY"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  }
+}

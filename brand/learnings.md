@@ -4,6 +4,27 @@ Each week: what the numbers said, what to do more of, what to stop. Newest on to
 
 ## Week of 2026-11-14
 
+- **Second audit today on the same pull: the 13 Nov pull again, row for row, with no timestamp. That makes it the fifth repeated snapshot.**
+  - 65 rows. The newest is still the TRUTH compare (13 Nov 07:49 UTC, 19 views, 5 reach). PHOTO is still 124 and hostel still 1,222 views and 1,048 reach.
+  - There is no row for 13 Nov 14:00 UTC (money arm) or 14 Nov 03:30 UTC (first list-arm slot). Whether either posted on its line is unknown.
+  - Nothing is judged. The fixed slots stay as written. The escalation goes to Prashant today with the flag, because no slot since 10 Nov 19:30 IST is confirmed on its line and the last two pulls didn't move.
+- **The standing read is unchanged (hunch to moderate, n=4, no send hand-checked).**
+  - Money list cards hold 24 of 28 page sends: 17.6 sends and 23.5 saves per 1k on 1,364 reach.
+  - 26 explainers: 0 sends and 4.8 saves per 1k on 1,860 reach.
+  - The four senders used four different hook ids, so the list shape is the common thread, not #11.
+- **New hunch from re-reading the rows, n=1: the only other multi-send reel is a copy-ready message.**
+  - RTO (retired seller topic) has 3 sends on 122 reach and the page's longest watch (10.9s).
+  - Both shapes that earn sends hand the viewer something to forward: a ranked list or a message to copy.
+  - It is unchecked and on a retired topic. It changes no slot. It goes on the hand-check list.
+- **Three of the audit method's checks can't run at all, on top of the known gaps.**
+  - Reel length is not logged on any row, so the 18 to 28 second rule has never been checked.
+  - First-hour comment replies are not logged.
+  - Format can't be compared because 0 carousels have posted.
+  - Hostel's hook cell is blank, although every plan counts it as #11, so #11's n=4 rests partly on an unlogged cell.
+  - Hold@3s, follows and non-follower % are still on 0 of 65 rows.
+
+## Week of 2026-11-14
+
 - **This pull is the 13 Nov pull again, row for row, with no timestamp, so it is a fault, not a reading.**
   - It has 65 rows. The newest is still the TRUTH compare (13 Nov 07:49 UTC, 19 views, 5 reach). Explainers are still at 1,860 reach and 9 saves, and money lists at 1,364 reach and 24 sends.
   - By the log's own count this is the fourth repeated snapshot.

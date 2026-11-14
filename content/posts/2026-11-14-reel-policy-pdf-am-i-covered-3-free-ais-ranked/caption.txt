@@ -1,0 +1,27 @@
+Comment "SIMPLE" and I'll DM you the free Explain-Like-I'm-New Prompt: fine print, made simple. Follow so the DM lands 📩
+
+👇 READ BELOW for how to check your policy after office:
+
+1. HR sends a policy PDF that runs pages and pages and says "check the policy." You only want one answer: am I covered?
+
+2. Before you upload anything, cover your Aadhaar number and your policy number.
+
+3. Pick your free AI. Third: ChatGPT. Clear answers, but file uploads are limited on the free plan. Second: the Gemini app. Free, and it reads the whole PDF. First, my pick: NotebookLM. Free, and it answers only from your file.
+
+4. Upload the PDF to NotebookLM, paste the one line, and ask your question in plain words: "Am I covered for X?"
+
+5. Tap the source number in the answer. It shows you the exact clause it read.
+
+What you get: a plain-words answer, plus the clause behind it, before you have to call HR.
+
+Why it works: NotebookLM answers from your file only, so it isn't guessing from the internet. The line tells it to explain like you're new, so you get no jargon back.
+
+The catch: AI can misread a clause. Confirm with HR or your insurer before you rely on the answer.
+
+It's completely free. Paste it in with your next policy PDF.
+
+If you're new here, I'm Prashant. I explain one useful AI thing a day, simply, and every reel comes with a free prompt.
+
+Comment "SIMPLE" for the prompt.
+
+#aitools #notebooklm #learnai

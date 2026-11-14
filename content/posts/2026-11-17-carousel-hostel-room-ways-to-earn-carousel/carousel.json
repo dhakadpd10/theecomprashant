@@ -1,0 +1,149 @@
+{
+  "id": "2026-11-17-carousel-hostel-room-ways-to-earn-carousel",
+  "style": "clay",
+  "proven": "P06",
+  "keyword": "SITES",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "kicker": "OUR MOST-SENT REEL, AS A CARD",
+      "title": [
+        "Students, from your",
+        "*hostel* room: 4 ways",
+        "to earn with AI"
+      ],
+      "sub": "Real sites, rechecked. Our favourite is number 4."
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "name": "Out*lier*",
+      "domain": "outlier.ai",
+      "line": "Rate and correct AI answers in a subject you know, from your laptop.",
+      "rows": [
+        {
+          "k": "WHO IT'S FOR",
+          "v": "Students strong in one subject or language"
+        },
+        {
+          "k": "INDIA",
+          "v": "Some projects only. Check each listing first."
+        },
+        {
+          "k": "PAY",
+          "v": "Hourly rate per project, paid in US dollars"
+        },
+        {
+          "k": "FIRST STEP",
+          "v": "Sign up, pass one project's skills test"
+        }
+      ],
+      "catch": "Work comes and goes. Projects can pause anytime."
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "name": "Fiv*err*",
+      "domain": "fiverr.com",
+      "line": "Sell one small service, like AI-made captions or resume formatting, to buyers anywhere.",
+      "rows": [
+        {
+          "k": "WHO IT'S FOR",
+          "v": "Anyone with one skill and a laptop"
+        },
+        {
+          "k": "INDIA",
+          "v": "Yes, sellers from India are accepted"
+        },
+        {
+          "k": "PAY",
+          "v": "You set the price. Fiverr keeps 20%."
+        },
+        {
+          "k": "FIRST STEP",
+          "v": "Make one free gig for one service"
+        }
+      ],
+      "catch": "First order can take weeks. Reviews come slowly."
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "name": "Up*work*",
+      "domain": "upwork.com",
+      "line": "Apply to client jobs like AI content writing, data cleanup or chatbot setup.",
+      "rows": [
+        {
+          "k": "WHO IT'S FOR",
+          "v": "Final-year students with 2 or 3 samples"
+        },
+        {
+          "k": "INDIA",
+          "v": "Yes, freelancers from India are accepted"
+        },
+        {
+          "k": "PAY",
+          "v": "Clients pay in US dollars. Upwork takes a fee."
+        },
+        {
+          "k": "FIRST STEP",
+          "v": "Build a free profile, add your samples"
+        }
+      ],
+      "catch": "Competition is high. The first contract takes weeks."
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "name": "Intern*shala*",
+      "domain": "internshala.com",
+      "line": "Apply for work-from-home internships in content, research or AI tools, made for Indian students.",
+      "rows": [
+        {
+          "k": "OUR FAVOURITE",
+          "v": "Built for students. Stipend in rupees."
+        },
+        {
+          "k": "WHO IT'S FOR",
+          "v": "College students in India, any year"
+        },
+        {
+          "k": "INDIA",
+          "v": "Yes, it is an Indian site"
+        },
+        {
+          "k": "PAY",
+          "v": "Stipend in ₹, stated on each listing"
+        },
+        {
+          "k": "FIRST STEP",
+          "v": "Filter by work from home, search 'AI'"
+        }
+      ],
+      "catch": "Unpaid listings exist. Never pay to apply."
+    },
+    {
+      "kind": "recap",
+      "title": "Save this *list.*",
+      "items": [
+        "Outlier: rate AI answers, paid in US dollars",
+        "Fiverr: sell one small AI service",
+        "Upwork: apply to AI client jobs",
+        "Internshala: remote internships, stipend in ₹ (favourite)",
+        "The catch: it takes weeks, not days",
+        "Pay varies. Some sites don't accept every country."
+      ]
+    },
+    {
+      "kind": "cta",
+      "title": "Send this to *the friend*",
+      "who": "who keeps asking for UPI till salary day.",
+      "text": "Comment SITES: I'll DM all 4 links. Results vary."
+    }
+  ]
+}

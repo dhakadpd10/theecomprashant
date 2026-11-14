@@ -1,0 +1,81 @@
+{
+  "dur": 33.96,
+  "fps": 12,
+  "beat": 0.6,
+  "w": 1080,
+  "h": 1920,
+  "lines": [
+    {
+      "a": 0,
+      "voice": 0.08,
+      "end": 3.482,
+      "b": 3.582,
+      "say": "This one free prompt is the strict HR boss you never had.",
+      "show": "This 1 free prompt replaces the strict HR aunty."
+    },
+    {
+      "a": 3.582,
+      "voice": 3.682,
+      "end": 7.835,
+      "b": 7.935,
+      "say": "You've sent so many. No replies. And AI just says it's great, like mummy.",
+      "show": "20 sent. No replies. AI says great, like mummy."
+    },
+    {
+      "a": 7.935,
+      "voice": 8.035,
+      "end": 11.417,
+      "b": 11.517,
+      "say": "It tends to agree with you. So don't ask mummy, ask the strict boss.",
+      "show": "It tends to agree. Ask the strict aunty."
+    },
+    {
+      "a": 11.517,
+      "voice": 11.617,
+      "end": 16.717,
+      "b": 16.817,
+      "say": "Tell it: judge me like the hiring manager who rejects most. Name my three weakest lines.",
+      "show": "Judge as the hiring manager who says no."
+    },
+    {
+      "a": 16.817,
+      "voice": 16.917,
+      "end": 18.407,
+      "b": 18.507,
+      "say": "Each one's struck out, with a fix.",
+      "show": "3 weakest lines struck, each with a fix."
+    },
+    {
+      "a": 18.507,
+      "voice": 18.607,
+      "end": 21.293,
+      "b": 21.393,
+      "say": "Then it writes it again. Shorter, clearer, about their job.",
+      "show": "The rewrite: shorter, clearer, about their job."
+    },
+    {
+      "a": 21.393,
+      "voice": 21.493,
+      "end": 25.841,
+      "b": 25.941,
+      "say": "The catch: it's one opinion, flags fine lines too, and someone in your field beats it.",
+      "show": "Catch: 1 opinion. Someone in your field beats it."
+    },
+    {
+      "a": 25.941,
+      "voice": 26.041,
+      "end": 30.172,
+      "b": 30.272,
+      "say": "Send this to that friend who's applying everywhere and hearing back from nobody.",
+      "show": "Send to the friend who hears back from nobody."
+    },
+    {
+      "a": 30.272,
+      "voice": 30.372,
+      "end": 32.563,
+      "b": 33.96,
+      "say": "Comment HONEST and I'll send you the full prompt.",
+      "show": "Comment HONEST for the free prompt."
+    }
+  ]
+}

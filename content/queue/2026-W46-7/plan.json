@@ -1,0 +1,101 @@
+{
+  "week": "2026-W46-7",
+  "start": "2026-11-14",
+  "research": "I found 9 things from 30 Oct to 13 Nov. Most are rollouts that only reach some people, so the \"who gets it\" part matters as much as the feature. Where a source isn't from the company itself, I say so.\n\n**New free tools and features**\n\n1. **ChatGPT can make GIFs and remember your photos (Images 2.6, 4 Nov).** You can ask for a looping GIF, or upload a sketch and have it animated. You can also save a photo once and call it back in any chat by typing @ and its name. *Why care:* it's a free-feeling WhatsApp sticker or status trick, and the saved photo saves re-uploading. *Catch:* it's still rolling out, and OpenAI's pages I found don't say whether free users get it. Check on a free account before saying \"free.\" [OpenAI announcement](https://community.openai.com/t/images-upgraded-introducing-chatgpt-images-2-6/1412901) · [Images help page](https://help.openai.com/en/articles/11084440-images-in-chatgpt)\n\n2. **ChatGPT locked chats (announced 20 Oct, still reaching people).** You can hide a chat behind a 4-digit PIN or your fingerprint. *Why care:* shared family phones and nosy siblings. It's officially for Free, Go, Plus and Pro. *Catch:* this is slightly older than 14 days. One forum post (not OpenAI) says resetting a forgotten PIN deletes the locked chats, so don't repeat that as fact. [OpenAI help: locked chats](https://help.openai.com/en/articles/20001411-using-locked-chats-in-chatgpt) · [Release notes](https://help.openai.com/en/articles/6825453-chatgpt-release-notes)\n\n3. **Gemini can order food and book cabs in India for you (10 Nov, beta).** It opens your other apps and does the steps. *Why care:* it's the clearest \"AI does the task, not just the chat\" example yet in India. *Catch:* only Pixel 10 and newer (not 10a), English only, 18+, and it's arriving in stages over weeks. Google hasn't said which Indian apps work. A leak (SamMobile, not Samsung) says 2026 Galaxy phones get it later. [Google India blog](https://blog.google/intl/en-in/products/hardware/pixel-10-with-gemini-intelligence-custom-widgets-and-more-in-our-november-pixel-drop/) · [Google Android blog](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/)\n\n4. **Rambler voice typing in Gboard, with Hindi (November Pixel Drop).** You speak messily and it writes clean text with the filler words removed. You can switch between Hindi and English mid-sentence. Long chat summaries now also work in Hindi. *Why care:* it's the most useful item here for people who'd rather speak than type. *Catch:* it's mainly on Pixel 10 for now, in \"select countries and languages.\" [Google Pixel help: Rambler](https://support.google.com/pixelphone/answer/17468539?hl=en)\n\n**Things people get wrong (privacy and limits)**\n\n5. **\"Is AI training on my chats?\" is the question coming up this month.** On most apps the answer is yes by default, and you can turn it off. New guides came out in November. *Why care:* it's a simple explainer that applies to almost everyone. *Catch:* the guides disagree on some defaults, including Claude's, and they're all third-party sites. Check each company's own settings page before naming any defaults. There is also a report that OpenAI will train on \"Daybreak\" sessions even if you've opted out, from 29 Nov. I couldn't confirm it with OpenAI, so leave it out for now. [Engadget opt-out guide](https://www.engadget.com/2268598/how-to-stop-ai-companies-training-your-data/) · [Digital Information World, Nov 2026](https://www.digitalinformationworld.com/2026/11/big-tech-ai-training-controls-where-users-can-turn-them-off.html) · [Daybreak report (unverified)](https://explainx.ai/blog/openai-daybreak-blue-personal-sessions-model-training-opt-out-november-29-2026)\n\n6. **The free ChatGPT tier shows ads, and there's a no-ads option with less.** People wonder why answers end in ads. Free users can switch to an ad-free mode, but they get fewer messages and no image making or Deep Research. *Catch:* this started 9 Feb, so it's an old change people are still confused about. The source is a blog, so confirm it in OpenAI's pricing page. [GeoToolbox pricing](https://geotoolbox.ai/blog/chatgpt-pricing)\n\n**Scams that use AI**\n\n7. **Cloned-voice \"family emergency\" calls.** A 9 Nov article cites a McAfee survey: 47% of Indian adults have faced an AI voice scam or know someone who has, and 83% of those victims lost money. A few seconds of audio is enough to copy a voice. *Why care:* this is the one most worth sending to parents. The advice: hang up, call back on the saved number, agree on a family code word, never share an OTP or UPI PIN, and report on 1930 or cybercrime.gov.in. *Catch:* the figures come through a blog. I couldn't find a 6 Nov government advisory that one article mentions, so don't cite it. [VARINDIA](https://www.varindia.com/news/three-seconds-to-steal-a-voice) · [CareerIndia](https://www.careerindia.com/features/ai-deepfake-bank-fraud-safety-guide-for-indian-students-2026-011-68211.html)\n\n8. **I4C and CERT-In warned about AI-assisted attacks on banks and fintechs (3 Nov).** The attackers reportedly test with ₹1 payments before moving real money. *Why care:* it backs up \"check every unknown ₹1 credit or collect request.\" *Catch:* the warning was written for banks, not the public, and I only saw press reports, not the advisory itself. [Free Press Journal](https://www.freepressjournal.in/tech/i4c-cert-in-warn-banks-and-fintech-firms-of-ai-driven-cyberattacks-flag-risk-of-multi-crore-financial-fraud) · [The Federal](https://thefederal.com/category/business/i4c-warns-banks-nbfcs-and-fintech-firms-of-ai-assisted-attacks-payment-apis-261866)\n\n**Worth knowing, not worth a reel yet**\n\n9. **New Claude tools (10 to 12 Nov) and Meta AI chats in WhatsApp (4 Nov).**\n   - Claude Whiteboards and Sheets are on paid plans, including Pro. Claude Meetings is only for Team and Enterprise plans. Claude Personal Finance is US only.\n   - WhatsApp is testing separate, named Meta AI chats with some Android beta users. Text actions (turning a message into a calendar event or a saved contact) are rolling out to everyone.\n   - *Why care:* people will ask \"can I use this?\" For now, mostly no.\n\n   [Claude release notes](https://support.claude.com/en/articles/12138966-release-notes) · [TechCrunch](https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/) · [WABetaInfo](https://wabetainfo.com/whatsapp-is-rolling-out-chats-powered-by-meta-ai-on-android/) · [BetaNews](https://betanews.com/article/meta-rolls-out-text-actions-to-whatsapp/)\n\n**What came up empty:**\n- **NotebookLM (now Gemini Notebook):** no confirmed November change. The newest items I found are from October, including free textbooks added as sources on 29 Oct. They come from blogs.\n- **Canva, CapCut, Apple:** nothing confirmed in the last 14 days.\n\n**Where these could fit the fixed slots:**\n- Items 1, 3 and 4 suit tool or tutorial slots with a ranked list card.\n- Item 5 suits a prompt or tutorial slot (\"turn off AI training in 3 apps\") once the defaults are checked on each company's site.\n- Item 7 would be a safety explainer. Explain is on hold and SAFE is resting, so it needs Prashant's go-ahead or a later slot.\n- Each would need a new keyword with its tool on the tools page first.",
+  "slots": [
+    {
+      "day": "2026-11-14",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-14-reel-policy-pdf-am-i-covered-3-free-ais-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 9,
+        "name": "The Steal",
+        "score": 84.4
+      },
+      "keyword": "SIMPLE",
+      "pillar": "Which one wins",
+      "topic": "9-to-5ers, after office: your health insurance or HR policy PDF is 40 pages and you need one answer. 3 free AIs get the same question ('Am I covered for X?') and are ranked on one card.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-15",
+      "time": "19:30",
+      "format": "carousel",
+      "post": "2026-11-15-carousel-shop-counter-prompts-to-save",
+      "keyword": "COUNTER",
+      "pillar": "Better prompts",
+      "topic": "Small shop owners, at the counter: 6 copy-paste prompts to save, one per slide, each with when to use it.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-16",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-16-reel-date-sheet-to-study-timetable-prompt",
+      "style": "motion",
+      "hook": {
+        "id": 13,
+        "name": "Before And After, On Screen",
+        "score": 80.8
+      },
+      "keyword": "EXAM",
+      "pillar": "Better prompts",
+      "topic": "Students in a hostel or library: I asked ChatGPT to turn my exam date sheet into a day-by-day study plan. The plain ask vs the EXAM prompt.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-17",
+      "time": "19:30",
+      "format": "carousel",
+      "post": "2026-11-17-carousel-hostel-room-ways-to-earn-carousel",
+      "keyword": "SITES",
+      "pillar": "Get paid",
+      "topic": "Students, from your hostel room: the 4 ways to earn with AI from our hostel reel, as a card to save, each rechecked, one marked favourite.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-18",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-18-reel-switch-off-ai-training-3-apps-ranked",
+      "style": "motion",
+      "hook": {
+        "id": 11,
+        "name": "Numbered With A Favourite",
+        "score": 55.6
+      },
+      "keyword": "OPTOUT",
+      "pillar": "Do it with AI",
+      "topic": "Homemakers at home: the setting in ChatGPT, Gemini and Claude that stops your chats being used to train AI, ranked from easiest to find.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-19",
+      "time": "19:30",
+      "format": "carousel",
+      "post": "2026-11-19-carousel-free-websites-that-feel-illegal",
+      "keyword": "WEBSITES",
+      "pillar": "Tools worth knowing",
+      "topic": "9-to-5ers, after office: 5 free websites that feel illegal to know, one per slide, best one last.",
+      "status": "made"
+    },
+    {
+      "day": "2026-11-20",
+      "time": "19:30",
+      "format": "reel",
+      "post": "2026-11-20-reel-ai-too-nice-honest-second-opinion-prompt",
+      "style": "motion",
+      "hook": {
+        "id": 4,
+        "name": "The Replacement",
+        "score": 85.6
+      },
+      "keyword": "HONEST",
+      "pillar": "Better prompts",
+      "topic": "People between jobs: AI calls your job application message 'great' because it tends to agree with you. One prompt makes it name the 3 weakest lines, shown before and after.",
+      "status": "made"
+    }
+  ]
+}

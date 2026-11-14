@@ -1,0 +1,267 @@
+<style>
+  /* clay theme: warm sand paper, soft clay cards, terracotta for the rank, green means "switched off, safe". Setting names match post.json; confirm each against the app's own help page before render (verify_before_render). */
+  :root { --deep: #9E3C17; --ok: #2E7D46; --card: #FFF7EC; --well: #F3E3CB; --mute: #6B5D52; }
+  .paper { position: absolute; inset: 0; background: radial-gradient(120% 85% at 50% 25%, #F6EAD6 0%, var(--bg) 58%, #DDC5A2 100%); }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(40px); }
+  #blob1 { left: -160px; top: 220px; width: 640px; height: 640px; background: radial-gradient(circle, rgba(210,96,42,0.22), rgba(210,96,42,0) 70%); }
+  #blob2 { left: 560px; top: 880px; width: 720px; height: 720px; background: radial-gradient(circle, rgba(46,125,70,0.16), rgba(46,125,70,0) 70%); }
+  .grain { position: absolute; inset: 0; background-image: radial-gradient(rgba(43,36,32,0.05) 1px, transparent 1px); background-size: 7px 7px; }
+  #bar { position: absolute; left: 90px; right: 90px; top: 140px; height: 10px; display: flex; gap: 10px; }
+  #bar i { display: block; flex: 1; height: 10px; border-radius: 5px; background: rgba(43,36,32,0.12); }
+  #bar i b { display: block; width: 100%; height: 10px; border-radius: 5px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .stp { position: absolute; left: 90px; font-family: var(--body); font-weight: 900; font-size: 30px; letter-spacing: 0.16em; color: var(--deep); }
+  .title { position: absolute; left: 90px; right: 90px; font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.0; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', serif; font-style: italic; color: var(--deep); }
+  .card { position: absolute; background: var(--card); border-radius: 40px; box-shadow: 0 30px 60px rgba(110,66,30,0.22), 0 4px 0 rgba(150,96,52,0.10), inset 0 -10px 0 rgba(170,110,60,0.10), inset 0 6px 0 rgba(255,255,255,0.85); }
+  .cl { left: 360px; right: 60px; }
+  .chip { position: absolute; height: 62px; border-radius: 31px; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.04em; white-space: nowrap; }
+  .amber { background: #F7D88C; color: #5A3A0A; box-shadow: inset 0 -4px 0 rgba(120,80,10,0.15); }
+  .green { background: #DDEFD9; color: #1F5C30; box-shadow: inset 0 -4px 0 rgba(30,90,50,0.12); }
+
+  /* clay toggle: knob sits at "off" in CSS; scene.js starts it at "on" */
+  .tg { position: absolute; display: block; width: 132px; height: 72px; border-radius: 36px; background: #B44C20; box-shadow: inset 0 -5px 0 rgba(0,0,0,0.15), inset 0 4px 0 rgba(255,255,255,0.25); }
+  .tg .kn { position: absolute; display: block; left: 6px; top: 6px; width: 60px; height: 60px; border-radius: 50%; background: #FFFDF8; box-shadow: 0 4px 8px rgba(0,0,0,0.25), inset 0 -4px 0 rgba(0,0,0,0.08); }
+  .tg .on, .tg .off { position: absolute; top: 0; height: 72px; display: flex; align-items: center; font-family: var(--body); font-weight: 900; font-size: 24px; letter-spacing: 0.06em; color: #FFFFFF; }
+  .tg .on { left: 16px; }
+  .tg .off { right: 12px; }
+
+  /* 0: hook */
+  #s0-title { top: 50px; font-size: 124px; }
+  #s0-row { position: absolute; left: 90px; top: 356px; width: 700px; height: 80px; display: flex; align-items: center; gap: 28px; }
+  #s0-tg { position: relative; flex: 0 0 132px; }
+  #s0-ring { position: absolute; display: block; left: -12px; top: -4px; width: 148px; height: 80px; border-radius: 44px; border: 4px solid var(--ok); }
+  #s0-lab { font-family: var(--body); font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+
+  /* 1: the studio window */
+  #s1-title { top: 60px; font-size: 104px; }
+  #s1-card { top: 340px; height: 650px; }
+  .bub { position: absolute; right: 36px; height: 76px; border-radius: 38px 38px 10px 38px; background: var(--deep); color: #FFFFFF; font-family: var(--body); font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; white-space: nowrap; transform-origin: 100% 100%; }
+  #s1-b1 { top: 36px; width: 460px; }
+  #s1-b2 { top: 128px; width: 310px; }
+  #s1-arrow { position: absolute; display: block; left: 290px; top: 222px; width: 80px; height: 88px; }
+  .win { position: absolute; display: block; }
+  .awn { position: absolute; left: 0; right: 0; top: 0; height: 56px; border-radius: 22px 22px 8px 8px; background: repeating-linear-gradient(90deg, #D2602A 0 48px, #FFF7EC 48px 96px); box-shadow: inset 0 -6px 0 rgba(0,0,0,0.12); }
+  .glass { position: absolute; left: 16px; right: 16px; top: 56px; bottom: 0; border: 10px solid #6B4A33; border-top-width: 8px; border-radius: 0 0 18px 18px; background: linear-gradient(135deg, #DCEBE6 0%, #C9DDD8 60%, #E6F1EE 100%); }
+  #s1-win { left: 90px; top: 320px; width: 480px; height: 220px; }
+  #s1-photo { position: absolute; display: block; left: 165px; top: 74px; width: 150px; height: 116px; }
+  #s1-chip { left: 36px; right: 36px; top: 564px; }
+
+  /* 2-4: one app per card */
+  .app { left: 90px; width: 630px; top: 150px; height: 720px; }
+  .badge { position: absolute; left: 36px; top: 40px; width: 104px; height: 104px; border-radius: 50%; background: var(--deep); color: #FFFFFF; font-family: var(--body); font-weight: 900; font-size: 58px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 -6px 0 rgba(0,0,0,0.2), inset 0 4px 0 rgba(255,255,255,0.2); }
+  .nm { position: absolute; left: 164px; right: 30px; top: 28px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 80px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .url { position: absolute; display: block; left: 166px; top: 130px; width: 420px; font-family: var(--body); font-weight: 700; font-size: 28px; color: var(--mute); white-space: nowrap; }
+  .path { position: absolute; display: block; left: 36px; right: 36px; height: 96px; border-radius: 26px; background: var(--well); box-shadow: inset 0 -6px 0 rgba(150,96,52,0.14), inset 0 4px 0 rgba(255,255,255,0.7); }
+  .path .t { position: absolute; left: 28px; right: 28px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; overflow: hidden; }
+  .path.last .t { right: 166px; }
+  .path .tg { right: 18px; top: 12px; }
+  .p1 { top: 210px; } .p2 { top: 350px; } .p3 { top: 490px; }
+  .arw { position: absolute; display: block; left: 70px; width: 40px; height: 40px; }
+  .a1 { top: 308px; } .a2 { top: 448px; }
+  .app .chip { left: 36px; top: 618px; }
+  #s2-chip { width: 380px; }
+  #s3-chip { width: 300px; }
+  #s2-step, #s3-step { top: 84px; }
+
+  #s4-step { top: 70px; }
+  #s4-card { left: 90px; right: 90px; top: 130px; height: 750px; }
+  #s4-card .badge { width: 116px; height: 116px; font-size: 64px; }
+  #s4-card .nm { left: 186px; right: 340px; top: 34px; font-size: 84px; }
+  #s4-card .url { left: 188px; top: 140px; width: 400px; }
+  #s4-card .path { height: 100px; }
+  #s4-card .path .t { font-size: 36px; }
+  #s4-card .path .tg { top: 14px; }
+  #s4-card .p1 { top: 220px; } #s4-card .p2 { top: 360px; } #s4-card .p3 { top: 500px; }
+  #s4-card .a1 { top: 322px; height: 36px; } #s4-card .a2 { top: 462px; height: 36px; }
+  #s4-stamp { position: absolute; display: flex; right: 36px; top: 52px; width: 280px; height: 92px; border-radius: 20px; background: #F2C14E; border: 6px solid #B8860B; color: var(--ink); font-family: var(--body); font-weight: 900; font-size: 34px; letter-spacing: 0.08em; align-items: center; justify-content: center; }
+  #s4-c1 { left: 36px; top: 654px; width: 300px; }
+  #s4-c2 { left: 356px; top: 654px; width: 340px; }
+
+  /* 5: payoff */
+  #s5-title { top: 50px; font-size: 110px; }
+  #s5-card { top: 330px; height: 380px; }
+  .srow { position: absolute; left: 30px; right: 30px; height: 100px; border-radius: 26px; background: var(--well); box-shadow: inset 0 -6px 0 rgba(150,96,52,0.14); }
+  .srow .n { position: absolute; left: 28px; right: 180px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 36px; color: var(--ink); }
+  .srow .tg { right: 18px; top: 14px; }
+  #s5-r1 { top: 30px; } #s5-r2 { top: 140px; } #s5-r3 { top: 250px; }
+  #s5-win { left: 380px; top: 740px; width: 280px; height: 230px; }
+  #s5-win .awn { height: 50px; background: repeating-linear-gradient(90deg, #D2602A 0 40px, #FFF7EC 40px 80px); }
+  #s5-win .glass { top: 50px; }
+  #s5-album { position: absolute; display: block; left: 700px; top: 756px; width: 250px; height: 214px; border-radius: 22px; background: #7A4A2A; box-shadow: 0 24px 44px rgba(110,66,30,0.25), inset 0 -8px 0 rgba(0,0,0,0.18), inset 0 5px 0 rgba(255,255,255,0.15); }
+  #s5-album .page { position: absolute; left: 14px; right: 14px; top: 14px; height: 138px; border-radius: 12px; background: var(--card); }
+  #s5-album .alab { position: absolute; left: 0; right: 0; top: 158px; height: 48px; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.08em; color: #FFF7EC; }
+  #s5-photo { position: absolute; display: block; left: 445px; top: 810px; width: 150px; height: 116px; }
+
+  /* 6: the catch */
+  #s6-title { top: 50px; font-size: 110px; }
+  #s6-card { top: 330px; height: 556px; }
+  #s6-today { position: absolute; left: 235px; top: 18px; width: 120px; height: 36px; display: flex; align-items: center; justify-content: center; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.08em; color: var(--ink); }
+  #s6-old { position: absolute; display: block; left: 36px; top: 70px; width: 259px; height: 70px; border-radius: 35px 0 0 35px; background: #BDB2A6; }
+  #s6-new { position: absolute; display: block; left: 295px; right: 36px; top: 70px; height: 70px; border-radius: 0 35px 35px 0; background: var(--ok); }
+  #s6-pin { position: absolute; display: block; left: 289px; top: 58px; width: 12px; height: 94px; border-radius: 6px; background: var(--ink); transform-origin: 50% 0%; }
+  .krow { position: absolute; display: block; left: 36px; right: 36px; height: 96px; border-radius: 24px; background: var(--well); }
+  .krow .sw { position: absolute; left: 26px; top: 30px; width: 36px; height: 36px; border-radius: 10px; }
+  .krow .t { position: absolute; left: 84px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .krow .chip { right: 18px; top: 17px; }
+  #s6-k1 { top: 180px; } #s6-k2 { top: 296px; }
+  #s6-k1 .sw { background: #BDB2A6; } #s6-k2 .sw { background: var(--ok); }
+  #s6-c1 { width: 210px; } #s6-c2 { width: 170px; }
+  #s6-note { position: absolute; display: block; left: 36px; right: 36px; top: 420px; height: 100px; border-radius: 26px; background: #F7D88C; }
+  #s6-note svg { position: absolute; left: 22px; top: 24px; width: 52px; height: 52px; }
+  #s6-note .t { position: absolute; left: 92px; right: 20px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: #5A3A0A; white-space: nowrap; }
+
+  /* 7: send */
+  #s7-title { top: 70px; font-size: 130px; }
+  #s7-trail { position: absolute; display: block; left: 380px; top: 290px; width: 420px; height: 120px; }
+  #s7-plane { position: absolute; display: block; left: 790px; top: 250px; width: 150px; height: 128px; }
+  #s7-contact { top: 430px; height: 200px; }
+  #s7-av { position: absolute; display: block; left: 32px; top: 40px; width: 120px; height: 120px; }
+  #s7-name { position: absolute; left: 180px; right: 30px; top: 46px; font-family: var(--body); font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s7-sub { position: absolute; left: 180px; right: 30px; top: 106px; font-family: var(--body); font-weight: 700; font-size: 30px; color: var(--mute); white-space: nowrap; }
+  #s7-pill { position: absolute; display: flex; left: 360px; right: 60px; top: 680px; height: 110px; border-radius: 55px; background: var(--ink); color: #FFF7EC; font-family: var(--body); font-weight: 700; font-size: 40px; align-items: center; justify-content: center; gap: 20px; }
+  #s7-pill svg { width: 48px; height: 42px; }
+
+  /* 8: keyword */
+  #s8-lab { position: absolute; left: 90px; right: 90px; top: 50px; text-align: center; font-family: var(--body); font-weight: 900; font-size: 34px; letter-spacing: 0.2em; color: var(--deep); }
+  #s8-word { position: absolute; left: 90px; right: 90px; top: 110px; height: 180px; display: flex; justify-content: center; gap: 12px; }
+  .lt { display: block; flex: 0 0 128px; height: 180px; border-radius: 30px; background: var(--deep); color: #FFF7EC; font-family: var(--display); font-size: 112px; line-height: 180px; text-align: center; box-shadow: 0 20px 36px rgba(110,66,30,0.25), inset 0 -8px 0 rgba(0,0,0,0.2), inset 0 5px 0 rgba(255,255,255,0.2); }
+  #s8-card { top: 400px; height: 420px; }
+  #s8-card .k { position: absolute; left: 36px; top: 30px; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.12em; color: var(--deep); }
+  #s8-card .h { position: absolute; left: 36px; right: 36px; top: 66px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; color: var(--ink); white-space: nowrap; }
+  .orow { position: absolute; display: block; left: 36px; right: 36px; height: 72px; border-radius: 22px; background: var(--well); }
+  .orow svg { position: absolute; left: 16px; top: 14px; width: 44px; height: 44px; }
+  .orow .t { position: absolute; left: 76px; right: 16px; top: 0; bottom: 0; display: flex; align-items: center; font-family: var(--body); font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s8-o1 { top: 140px; } #s8-o2 { top: 226px; } #s8-o3 { top: 312px; }
+  #s8-stk { position: absolute; display: flex; left: 360px; top: 850px; width: 440px; height: 72px; border-radius: 36px; background: #F7D88C; color: #5A3A0A; font-family: var(--body); font-weight: 900; font-size: 26px; letter-spacing: 0.06em; align-items: center; justify-content: center; box-shadow: 0 14px 28px rgba(110,66,30,0.2), inset 0 -4px 0 rgba(120,80,10,0.15); }
+</style>
+
+<div class="paper"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="grain"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i><i><b id="p7"></b></i><i><b id="p8"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="title" id="s0-title"><span class="mask"><span class="l it">3 apps.</span></span><span class="mask"><span class="l">3 switches.</span></span></div>
+  <div id="s0-row">
+    <div id="s0-ring" data-layout-allow-overlap></div>
+    <div class="tg" id="s0-tg"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div>
+    <div id="s0-lab">This one switch</div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="title" id="s1-title"><span class="mask"><span class="l">Like a studio</span></span><span class="mask"><span class="l it">window.</span></span></div>
+  <div class="card cl" id="s1-card">
+    <div class="bub" id="s1-b1">Class 5 science notes</div>
+    <div class="bub" id="s1-b2">Family report</div>
+    <svg id="s1-arrow" viewBox="0 0 80 88"><path d="M40 4 V64" stroke="#9E3C17" stroke-width="8" stroke-linecap="round" stroke-dasharray="4 14" fill="none"></path><path d="M18 56 L40 82 L62 56" stroke="#9E3C17" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+    <div class="win" id="s1-win">
+      <div class="awn"></div>
+      <div class="glass"></div>
+      <svg id="s1-photo" viewBox="0 0 150 116" data-layout-allow-overlap><rect x="0" y="0" width="150" height="116" rx="8" fill="#FFFDF8"></rect><rect x="10" y="10" width="130" height="96" rx="4" fill="#F2C78F"></rect><circle cx="48" cy="44" r="13" fill="#7A4A2A"></circle><rect x="32" y="60" width="32" height="40" rx="14" fill="#2E7D46"></rect><circle cx="102" cy="42" r="14" fill="#7A4A2A"></circle><rect x="85" y="59" width="34" height="41" rx="14" fill="#9E3C17"></rect><circle cx="75" cy="62" r="10" fill="#7A4A2A"></circle><rect x="63" y="74" width="24" height="26" rx="10" fill="#2B6FA8"></rect></svg>
+    </div>
+    <div class="chip amber" id="s1-chip">CAN BE USED TO TRAIN AI</div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="stp" id="s2-step">NUMBER 3</div>
+  <div class="card app" id="s2-card">
+    <div class="badge" id="s2-badge">3</div>
+    <div class="nm">Gemini</div>
+    <div class="url" id="s2-url">gemini.google.com</div>
+    <div class="path p1" id="s2-p1"><div class="t">Settings &amp; help</div></div>
+    <svg class="arw a1" id="s2-a1" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p2" id="s2-p2"><div class="t">Activity</div></div>
+    <svg class="arw a2" id="s2-a2" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p3 last" id="s2-p3"><div class="t">Keep Activity</div><div class="tg" id="s2-tg"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+    <div class="chip amber" id="s2-chip">HISTORY NOT SAVED</div>
+  </div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line4">
+  <div class="stp" id="s3-step">NUMBER 2</div>
+  <div class="card app" id="s3-card">
+    <div class="badge" id="s3-badge">2</div>
+    <div class="nm">Claude</div>
+    <div class="url" id="s3-url">claude.ai</div>
+    <div class="path p1" id="s3-p1"><div class="t">Settings</div></div>
+    <svg class="arw a1" id="s3-a1" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p2" id="s3-p2"><div class="t">Privacy</div></div>
+    <svg class="arw a2" id="s3-a2" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p3 last" id="s3-p3"><div class="t">Help improve Claude</div><div class="tg" id="s3-tg"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+    <div class="chip green" id="s3-chip">HISTORY STAYS</div>
+  </div>
+</section>
+
+<section class="scene" id="s4" data-from="@line4" data-to="@line5">
+  <div class="stp" id="s4-step">NUMBER 1</div>
+  <div class="card" id="s4-card">
+    <div class="badge" id="s4-badge">1</div>
+    <div class="nm">ChatGPT</div>
+    <div class="url" id="s4-url">chatgpt.com</div>
+    <div id="s4-stamp" data-layout-allow-overlap>FAVOURITE</div>
+    <div class="path p1" id="s4-p1"><div class="t">Settings</div></div>
+    <svg class="arw a1" id="s4-a1" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p2" id="s4-p2"><div class="t">Data controls</div></div>
+    <svg class="arw a2" id="s4-a2" viewBox="0 0 40 44"><path d="M20 2 V34 M8 24 L20 38 L32 24" stroke="#9E3C17" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <div class="path p3 last" id="s4-p3"><div class="t">Improve the model for everyone</div><div class="tg" id="s4-tg"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+    <div class="chip green" id="s4-c1">HISTORY STAYS</div>
+    <div class="chip green" id="s4-c2">EASIEST TO FIND</div>
+  </div>
+</section>
+
+<section class="scene" id="s5" data-from="@line5" data-to="@line6">
+  <div class="title" id="s5-title"><span class="mask"><span class="l">Under a</span></span><span class="mask"><span class="l it">minute.</span></span></div>
+  <div class="card cl" id="s5-card">
+    <div class="srow" id="s5-r1"><div class="n">Gemini</div><div class="tg" id="s5-t1"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+    <div class="srow" id="s5-r2"><div class="n">Claude</div><div class="tg" id="s5-t2"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+    <div class="srow" id="s5-r3"><div class="n">ChatGPT</div><div class="tg" id="s5-t3"><div class="on" data-layout-allow-overlap>ON</div><div class="off" data-layout-allow-overlap>OFF</div><div class="kn" data-layout-allow-overlap></div></div></div>
+  </div>
+  <div class="win" id="s5-win"><div class="awn"></div><div class="glass"></div></div>
+  <div id="s5-album"><div class="page"></div><div class="alab">HOME ALBUM</div></div>
+  <svg id="s5-photo" viewBox="0 0 150 116" data-layout-allow-overlap><rect x="0" y="0" width="150" height="116" rx="8" fill="#FFFDF8"></rect><rect x="10" y="10" width="130" height="96" rx="4" fill="#F2C78F"></rect><circle cx="48" cy="44" r="13" fill="#7A4A2A"></circle><rect x="32" y="60" width="32" height="40" rx="14" fill="#2E7D46"></rect><circle cx="102" cy="42" r="14" fill="#7A4A2A"></circle><rect x="85" y="59" width="34" height="41" rx="14" fill="#9E3C17"></rect><circle cx="75" cy="62" r="10" fill="#7A4A2A"></circle><rect x="63" y="74" width="24" height="26" rx="10" fill="#2B6FA8"></rect></svg>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="title" id="s6-title"><span class="mask"><span class="l">From now</span></span><span class="mask"><span class="l it">on.</span></span></div>
+  <div class="card cl" id="s6-card">
+    <div id="s6-today">TODAY</div>
+    <div id="s6-old"></div>
+    <div id="s6-new"></div>
+    <div id="s6-pin" data-layout-allow-overlap></div>
+    <div class="krow" id="s6-k1"><div class="sw"></div><div class="t">Already used</div><div class="chip amber" id="s6-c1">NOT UNDONE</div></div>
+    <div class="krow" id="s6-k2"><div class="sw"></div><div class="t">From now on</div><div class="chip green" id="s6-c2">KEPT OUT</div></div>
+    <div id="s6-note"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#9E3C17"></circle><rect x="22" y="11" width="8" height="20" rx="4" fill="#FFF7EC"></rect><circle cx="26" cy="39" r="4.5" fill="#FFF7EC"></circle></svg><div class="t">Gemini: history off too</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="title" id="s7-title"><span class="mask"><span class="l">Send <span class="it">this.</span></span></span></div>
+  <svg id="s7-trail" viewBox="0 0 420 120"><path d="M6 110 C120 110 220 20 410 20" stroke="#9E3C17" stroke-width="6" stroke-linecap="round" stroke-dasharray="6 16" fill="none"></path></svg>
+  <svg id="s7-plane" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#D2602A"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#9E3C17"></path></svg>
+  <div class="card cl" id="s7-contact">
+    <svg id="s7-av" viewBox="0 0 120 120"><circle cx="60" cy="60" r="60" fill="#F2C78F"></circle><circle cx="60" cy="48" r="22" fill="#7A4A2A"></circle><path d="M22 104 C28 78 92 78 98 104 Z" fill="#9E3C17"></path></svg>
+    <div id="s7-name">Family member</div>
+    <div id="s7-sub">Types everything into AI</div>
+  </div>
+  <div id="s7-pill">Send to family<svg viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#F2A57F"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#D2602A"></path></svg></div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="end">
+  <div id="s8-lab">COMMENT</div>
+  <div id="s8-word"><div class="lt" id="s8-L1">O</div><div class="lt" id="s8-L2">P</div><div class="lt" id="s8-L3">T</div><div class="lt" id="s8-L4">O</div><div class="lt" id="s8-L5">U</div><div class="lt" id="s8-L6">T</div></div>
+  <div class="card cl" id="s8-card">
+    <div class="k">PASTE INTO CLAUDE</div>
+    <div class="h">Switch-Off Card</div>
+    <div class="orow" id="s8-o1"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2E7D46"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">Your exact taps</div></div>
+    <div class="orow" id="s8-o2"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2E7D46"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">For your phone and plan</div></div>
+    <div class="orow" id="s8-o3"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#2E7D46"></circle><path d="M12 23 L19 30 L32 15" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><div class="t">What never goes in</div></div>
+  </div>
+  <div id="s8-stk">FREE · ALL 3 PATHS</div>
+</section>

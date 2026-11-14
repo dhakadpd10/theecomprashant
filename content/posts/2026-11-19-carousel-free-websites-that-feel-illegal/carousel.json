@@ -1,0 +1,149 @@
+{
+  "id": "2026-11-19-carousel-free-websites-that-feel-illegal",
+  "style": "clay",
+  "proven": "P02",
+  "keyword": "WEBSITES",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "slides": [
+    {
+      "kind": "cover",
+      "kicker": "FREE AND REAL",
+      "title": [
+        "9-to-5ers, after office:",
+        "5 free websites that",
+        "feel *illegal* to know"
+      ],
+      "sub": "One per slide. Free, real, checked. Best one saved for last."
+    },
+    {
+      "kind": "item",
+      "n": 1,
+      "name": "remove*.bg*",
+      "domain": "remove.bg",
+      "line": "Cuts the background out of any photo in a few seconds.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Profile photos, slides, office ID pictures"
+        },
+        {
+          "k": "FREE OR PAID",
+          "v": "Free at preview size. HD uses paid credits."
+        },
+        {
+          "k": "BEST FIRST USE",
+          "v": "A clean LinkedIn photo on a plain colour"
+        }
+      ],
+      "catch": "Free file is small. Fine on screen, not print."
+    },
+    {
+      "kind": "item",
+      "n": 2,
+      "name": "Tiny*Wow*",
+      "domain": "tinywow.com",
+      "line": "Merge, compress and convert PDFs, images and videos in your browser.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Forms, ID proofs, reimbursement bills"
+        },
+        {
+          "k": "FREE OR PAID",
+          "v": "Free with ads. Free use has limits."
+        },
+        {
+          "k": "BEST FIRST USE",
+          "v": "Merge this month's bills into one PDF"
+        }
+      ],
+      "catch": "Keep salary slips and office files off upload sites."
+    },
+    {
+      "kind": "item",
+      "n": 3,
+      "name": "Photo*pea*",
+      "domain": "photopea.com",
+      "line": "A Photoshop-style editor that runs free in your browser and opens PSD files.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Posters, thumbnails, office event banners"
+        },
+        {
+          "k": "FREE OR PAID",
+          "v": "Free with ads. Premium removes them."
+        },
+        {
+          "k": "BEST FIRST USE",
+          "v": "Open the designer's PSD, fix one line yourself"
+        }
+      ],
+      "catch": "Free version shows ads beside your canvas."
+    },
+    {
+      "kind": "item",
+      "n": 4,
+      "name": "Perplex*ity*",
+      "domain": "perplexity.ai",
+      "line": "Answers your question and shows the sources it used as numbered links.",
+      "rows": [
+        {
+          "k": "GREAT FOR",
+          "v": "Quick research before a meeting"
+        },
+        {
+          "k": "FREE OR PAID",
+          "v": "Free plan. Pro searches are limited on it."
+        }
+      ],
+      "box": "Compare the top 3 project management tools for a 10-person team in India. Give the price in rupees where the site lists one, and link the source for every price.",
+      "catch": "Open the sources before a number goes in your deck."
+    },
+    {
+      "kind": "item",
+      "n": 5,
+      "name": "Notebook*LM*",
+      "domain": "notebooklm.google.com",
+      "line": "Add your PDFs, docs or notes. It answers from them and cites where.",
+      "rows": [
+        {
+          "k": "MY FAVOURITE",
+          "v": "It quotes your file, so you can check"
+        },
+        {
+          "k": "GREAT FOR",
+          "v": "Long reports, policy docs, training material"
+        },
+        {
+          "k": "FREE OR PAID",
+          "v": "Free with a Google account. Limits apply."
+        }
+      ],
+      "box": "Summarise this report in 5 bullet points for my manager. Then list 3 questions they are likely to ask, with the answer and where in the file each one comes from.",
+      "catch": "Check your company's rules before uploading work files."
+    },
+    {
+      "kind": "recap",
+      "title": "Save this *list.*",
+      "items": [
+        "remove.bg: clean photo backgrounds",
+        "TinyWow: PDF and file tools",
+        "Photopea: free photo editor",
+        "Perplexity: answers with sources",
+        "NotebookLM (my favourite): answers from your files",
+        "The catch: free tiers change. Check the limit before work depends on it."
+      ]
+    },
+    {
+      "kind": "cta",
+      "title": "Send this to the *colleague*",
+      "who": "who still pays for something one of these does free",
+      "text": "Comment WEBSITES for all 5 links and how to start"
+    }
+  ]
+}

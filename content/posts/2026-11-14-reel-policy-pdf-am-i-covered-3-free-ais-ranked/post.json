@@ -1,0 +1,202 @@
+{
+  "id": "2026-11-14-reel-policy-pdf-am-i-covered-3-free-ais-ranked",
+  "style": "motion",
+  "theme": "clay",
+  "kind": "list",
+  "proven": "P11",
+  "keyword": "SIMPLE",
+  "world": "courtroom",
+  "voice": "am_puck",
+  "speed": 1.05,
+  "header": "slot 14 Nov 19:30 IST (14:00 UTC) | kind list (log as compare) | hook #11 | keyword SIMPLE | list card yes | viewer 9-to-5ers after office | money angle no",
+  "hook": "#11",
+  "hot": "^(covered|3|ChatGPT|Gemini|NotebookLM|clause|catch|HR|SIMPLE)$",
+  "palette": {
+    "bg": "#E9D6B8",
+    "ink": "#2B2420",
+    "accent": "#D2602A"
+  },
+  "lines": [
+    {
+      "say": "Am I covered? Three free AIs, ranked.",
+      "show": "Am I covered? 3 free AIs, ranked.",
+      "cut": true,
+      "host": {
+        "at": "center",
+        "pose": "explain",
+        "mood": "shock"
+      }
+    },
+    {
+      "say": "Pages and pages after office? HR says, check the policy.",
+      "show": "40 pages. HR says: check the policy.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Three friends, one fine print, same question.",
+      "show": "3 friends. Same PDF. Same question.",
+      "cut": true,
+      "host": {
+        "at": "hidden",
+        "pose": "idle",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number three, Chat G P T. Clear, but free uploads are limited.",
+      "show": "3. ChatGPT: clear, limited free uploads.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "explain",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number two, the Gemini app. Free, reads the whole PDF.",
+      "show": "2. Gemini app: free, reads it all.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "normal"
+      }
+    },
+    {
+      "say": "Number one, my top pick, Notebook L M. Only your file.",
+      "show": "1. NotebookLM: answers from your file only.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    },
+    {
+      "say": "And it puts a finger on the clause it read.",
+      "show": "It points to the exact clause.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "thumbs",
+        "mood": "happy",
+        "whistle": true
+      }
+    },
+    {
+      "say": "The catch: it can misread, so confirm with HR or your insurer.",
+      "show": "Catch: confirm with HR or your insurer.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "shrug",
+        "mood": "worried"
+      }
+    },
+    {
+      "say": "Cover your ID number and policy number before you upload.",
+      "show": "Cover Aadhaar and policy number first.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "phone",
+        "mood": "think"
+      }
+    },
+    {
+      "say": "Send this to the colleague who joined the company policy and never opened it.",
+      "show": "Send to the colleague who never opened it.",
+      "cut": true,
+      "host": {
+        "at": "corner",
+        "pose": "wave",
+        "mood": "smug"
+      }
+    },
+    {
+      "say": "Comment SIMPLE for the one line to paste with your PDF.",
+      "show": "Comment SIMPLE for the line to paste.",
+      "cut": false,
+      "host": {
+        "at": "corner",
+        "pose": "point",
+        "mood": "happy"
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "at": "@line3.voice+0.15",
+      "fx": "pop"
+    },
+    {
+      "at": "@line4.voice+0.15",
+      "fx": "pop"
+    },
+    {
+      "at": "@line5.voice+0.15",
+      "fx": "pop"
+    },
+    {
+      "at": "@line6.voice+0.7",
+      "fx": "ding"
+    },
+    {
+      "at": "@line7.voice+0.25",
+      "fx": "thud"
+    }
+  ],
+  "cover": {
+    "at": "@line5.end",
+    "title": [
+      "AM I COVERED?",
+      "3 FREE AIS, RANKED"
+    ]
+  },
+  "host": {
+    "name": "prashant"
+  },
+  "list_card": {
+    "order": "3 to 1, favourite last",
+    "items": [
+      {
+        "rank": 3,
+        "name": "ChatGPT",
+        "domain": "chatgpt.com",
+        "line": "Clear answer. Free plan: file uploads limited",
+        "colour": "amber"
+      },
+      {
+        "rank": 2,
+        "name": "Gemini app",
+        "domain": "gemini.google.com",
+        "line": "Free. Reads the whole PDF",
+        "colour": "amber"
+      },
+      {
+        "rank": 1,
+        "name": "NotebookLM",
+        "domain": "notebooklm.google.com",
+        "line": "Free. Answers only from your file, with a source number you tap",
+        "colour": "green",
+        "favourite": true
+      }
+    ],
+    "payoff_card": "Question 'Am I covered for X?' + NotebookLM answer + the quoted clause highlighted green with its source chip. Policy text on screen is labelled EXAMPLE; never a real policy.",
+    "catch_card": "AI can misread a clause: confirm with HR or the insurer (amber). Cover policy number and Aadhaar before upload (red mask over both)."
+  },
+  "notes": [
+    "HOOK CONFLICT, resolved to the line: the brief asked for #9 The Steal ('Steal this 1 line before your 40-page HR policy PDF.'). The slot's line, the header and the 13 Nov plan all say #11. #9's cap of 2 is already used by 14 Nov 13:00 and 15 Nov 13:00 IST. Using #9 here would make this slot the 14th of 16 to go out off its line, so it is written on #11. If #9 is required, skip this slot and log it rather than swap the hook.",
+    "BLOCKER before render: I could not run the side-by-side test here. Lines 3 to 6 and the ranking are provisional. Upload the same EXAMPLE policy PDF and the same question to ChatGPT (free), the Gemini app (free) and NotebookLM. If the results disagree with this order, reorder the lines and the card to match the test. Never rank from memory.",
+    "Free limits: spoken lines use only general claims. Before posting, check each claim against the company's own page on the day: OpenAI's free plan says file uploads are limited, the Gemini app can read uploaded files on the free plan, and NotebookLM is free and shows citations to the source passage. Put the exact wording each page uses on the card. Use no numeric limit unless the page states it.",
+    "SIMPLE does not appear among the keywords logged in the strategy and learnings files I have. Confirm against the full post log that it has never run, and that the Explain-Like-I'm-New Prompt is live on the tools page and in docs/EXPLAINER.md. If either check fails, skip and log.",
+    "P11: confirm no other reel used P11 in the last 7 days. The 13 Nov money tutorial may have.",
+    "Length: about 88 spoken words, about 27 s at speed 1.05. That is inside the playbook's 70 to 95 words but above the brief's 'about 60 to 80', because the send line is fixed at 14 words.",
+    "Log at publish: kind compare (built as list), hook #11, keyword SIMPLE, list card yes, money angle no, named viewer 9-to-5ers after office. Mark on-line yes only if it posts at 14:00 UTC within 15 minutes. This is the last compare until the kind read."
+  ]
+}

@@ -1,0 +1,311 @@
+<style>
+  :root { --acc-t: #9C3C1A; --green: #2E6B3F; --cream: #FFF6EA; --muted: #5E534B; --red: #B3261E; --amber: #F2C14E; }
+
+  /* texture: warm clay paper, faint grid, slow blobs */
+  .paper { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 25%, #F6EBDA 0%, var(--bg) 55%, #DCC4A0 100%); }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(43,36,32,0.045) 2px, transparent 2px), linear-gradient(90deg, rgba(43,36,32,0.045) 2px, transparent 2px); background-size: 90px 90px; }
+  .blob { position: absolute; display: block; border-radius: 50%; filter: blur(70px); }
+  #blob1 { left: -160px; top: 220px; width: 620px; height: 620px; background: rgba(210,96,42,0.20); }
+  #blob2 { left: 560px; top: 820px; width: 560px; height: 520px; background: rgba(46,107,63,0.14); }
+  #blob3 { left: 520px; top: 140px; width: 480px; height: 480px; background: rgba(242,193,78,0.24); }
+
+  /* progress bar: problem, #3, #2, #1, catch, send */
+  #bar { position: absolute; left: 90px; right: 90px; top: 150px; height: 8px; display: flex; gap: 12px; }
+  #bar i { display: block; flex: 1; height: 8px; border-radius: 4px; background: rgba(43,36,32,0.12); }
+  #bar i b { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--accent); transform-origin: left center; }
+
+  .scene { position: absolute; left: 0; right: 0; top: 120px; height: 1180px; }
+  .step { position: absolute; left: 90px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.14em; color: var(--acc-t); white-space: nowrap; }
+  .title { position: absolute; left: 90px; right: 90px; top: 100px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 100px; line-height: 1.02; color: var(--ink); }
+  .mask { display: block; overflow: hidden; padding-bottom: 0.18em; }
+  .mask > span { display: block; }
+  .it { font-family: 'Playfair Italic', 'Playfair Display', serif; font-style: italic; color: var(--acc-t); }
+  .card { position: absolute; left: 360px; right: 60px; border-radius: 38px; background: var(--cream); box-shadow: 0 30px 64px rgba(92,56,24,0.20), 0 3px 0 rgba(92,56,24,0.06), inset 0 -8px 0 rgba(92,56,24,0.05); overflow: hidden; }
+  .bar-top { position: absolute; left: 0; right: 0; top: 0; height: 90px; background: #F2E6D4; }
+  .bar-top .tx { position: absolute; left: 36px; top: 0; height: 90px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: var(--muted); white-space: nowrap; }
+  .dot { position: absolute; top: 35px; width: 20px; height: 20px; border-radius: 50%; background: rgba(43,36,32,0.2); }
+  .d1 { left: 30px; } .d2 { left: 60px; } .d3 { left: 90px; }
+  .ex { position: absolute; right: 36px; top: 22px; height: 46px; padding: 0 18px; border-radius: 23px; background: var(--ink); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.1em; display: flex; align-items: center; }
+
+  /* 0: hook */
+  #s0-title { top: 104px; font-size: 128px; }
+  #s0-doc { position: absolute; left: 90px; top: 470px; width: 200px; height: 260px; border-radius: 22px; background: #FFFDF8; box-shadow: 0 24px 50px rgba(92,56,24,0.22); overflow: hidden; }
+  #s0-doc .fold { position: absolute; right: 0; top: 0; width: 46px; height: 46px; background: linear-gradient(225deg, #E9D6B8 50%, #EADFCB 50%); }
+  #s0-doc .tag { position: absolute; left: 20px; top: 24px; width: 96px; height: 48px; border-radius: 12px; background: var(--red); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  #s0-doc .dl { position: absolute; left: 20px; height: 12px; border-radius: 6px; background: rgba(43,36,32,0.14); }
+  #s0-doc .l1 { top: 96px; right: 20px; } #s0-doc .l2 { top: 124px; right: 44px; } #s0-doc .l3 { top: 152px; right: 26px; } #s0-doc .l4 { top: 180px; right: 70px; }
+  #s0-doc .nm { position: absolute; left: 20px; top: 204px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 28px; color: var(--ink); }
+  #s0-ranks { position: absolute; left: 810px; top: 450px; width: 130px; height: 430px; }
+  .rk { position: absolute; left: 5px; width: 120px; height: 120px; border-radius: 50%; background: var(--acc-t); color: var(--cream); font-family: 'Archivo Black', sans-serif; font-size: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 16px 30px rgba(92,56,24,0.22); }
+  #s0-rk3 { top: 0; } #s0-rk2 { top: 150px; } #s0-rk1 { top: 300px; background: var(--green); }
+
+  /* 1: 40-page policy after office */
+  #s1-card { top: 360px; height: 740px; }
+  #s1-card .fname { position: absolute; left: 130px; top: 0; height: 90px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: var(--muted); white-space: nowrap; }
+  #s1-pages { position: absolute; left: 36px; top: 112px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 36px; color: var(--ink); white-space: nowrap; }
+  #s1-pages b { color: var(--acc-t); font-weight: 900; }
+  .viewer { position: absolute; left: 36px; right: 36px; top: 180px; height: 340px; border-radius: 24px; background: #F6EDDF; overflow: hidden; }
+  .viewer .vh { position: absolute; left: 28px; top: 22px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .vwin { position: absolute; left: 28px; right: 28px; top: 84px; bottom: 20px; overflow: hidden; }
+  #s1-scroll { position: absolute; left: 0; right: 0; top: 0; height: 620px; }
+  .sk { display: block; height: 16px; border-radius: 8px; background: rgba(43,36,32,0.13); margin-bottom: 22px; }
+  .sk:nth-child(3n+1) { width: 96%; } .sk:nth-child(3n+2) { width: 82%; } .sk:nth-child(3n) { width: 64%; }
+  #s1-hr { position: absolute; left: 36px; right: 36px; top: 550px; height: 150px; }
+  #s1-hr .av { position: absolute; left: 0; top: 24px; width: 96px; height: 96px; border-radius: 50%; background: var(--ink); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; display: flex; align-items: center; justify-content: center; }
+  #s1-hr .bub { position: absolute; left: 120px; right: 0; top: 6px; height: 132px; border-radius: 28px 28px 28px 8px; background: #EFE2CC; padding: 0 24px; box-sizing: border-box; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; color: var(--ink); }
+
+  /* 2: three friends, same PDF (host hidden, full width) */
+  #s2-title { top: 90px; font-size: 110px; }
+  #s2-pdf { position: absolute; left: 390px; top: 270px; width: 300px; height: 140px; border-radius: 30px; background: var(--cream); box-shadow: 0 24px 50px rgba(92,56,24,0.2); }
+  #s2-pdf .tag { position: absolute; left: 28px; top: 46px; width: 96px; height: 48px; border-radius: 12px; background: var(--red); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; display: flex; align-items: center; justify-content: center; }
+  #s2-pdf .pn { position: absolute; left: 142px; top: 40px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; color: var(--ink); white-space: nowrap; }
+  #s2-wires { position: absolute; left: 0; top: 0; width: 1080px; height: 1180px; }
+  .friend { position: absolute; top: 560px; width: 270px; height: 430px; border-radius: 36px; background: var(--cream); box-shadow: 0 26px 56px rgba(92,56,24,0.2); }
+  #s2-f1 { left: 90px; } #s2-f2 { left: 405px; } #s2-f3 { left: 720px; }
+  .friend .q { position: absolute; left: 24px; right: 24px; top: 24px; height: 120px; border-radius: 26px 26px 26px 8px; background: var(--ink); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.15; text-align: center; display: flex; align-items: center; justify-content: center; padding: 0 16px; box-sizing: border-box; }
+  .friend .face { position: absolute; left: 60px; top: 170px; width: 150px; height: 150px; border-radius: 50%; color: var(--cream); font-family: 'Archivo Black', sans-serif; font-size: 70px; display: flex; align-items: center; justify-content: center; }
+  #s2-f1 .face { background: #8A5A12; } #s2-f2 .face { background: #2F4F8A; } #s2-f3 .face { background: var(--green); }
+  .friend .fn { position: absolute; left: 0; right: 0; top: 350px; text-align: center; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 32px; color: var(--ink); white-space: nowrap; }
+
+  /* 3-5: the ranked list card */
+  #s3-title { top: 100px; font-size: 96px; }
+  #s3-card { top: 250px; height: 850px; }
+  #s3-card .lq { position: absolute; left: 36px; top: 0; height: 96px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 32px; color: var(--ink); white-space: nowrap; }
+  .slot { position: absolute; left: 30px; right: 30px; height: 220px; border-radius: 28px; border: 4px dashed rgba(43,36,32,0.22); box-sizing: border-box; }
+  #s3-r1 { top: 120px; } #s3-r2 { top: 360px; } #s3-r3 { top: 600px; }
+  .fill { position: absolute; left: -4px; right: -4px; top: -4px; bottom: -4px; border-radius: 28px; background: #FFFBF4; box-shadow: 0 10px 24px rgba(92,56,24,0.12); }
+  .fill .rank { position: absolute; left: 22px; top: 22px; width: 90px; height: 90px; border-radius: 50%; background: var(--acc-t); color: var(--cream); font-family: 'Archivo Black', sans-serif; font-size: 48px; display: flex; align-items: center; justify-content: center; }
+  .fill .nm { position: absolute; left: 132px; top: 18px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 44px; line-height: 1.1; color: var(--ink); white-space: nowrap; }
+  .fill .dom { position: absolute; left: 132px; top: 78px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); white-space: nowrap; }
+  .fill .ln { position: absolute; left: 22px; right: 22px; top: 142px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  .fill .chip { position: absolute; right: 22px; top: 22px; width: 170px; height: 50px; border-radius: 25px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  .amb { background: var(--amber); color: var(--ink); }
+  .grn { background: var(--green); color: var(--cream); }
+  #s3-r1 .fill { background: #EEF6EA; border: 4px solid var(--green); box-sizing: border-box; }
+  #s3-r1 .fill .rank { background: var(--green); }
+  #s3-star { position: absolute; left: 82px; top: 6px; width: 50px; height: 50px; }
+
+  /* 6: payoff, the answer points at the clause */
+  #s6-card { top: 350px; height: 700px; }
+  #s6-q { position: absolute; right: 30px; top: 116px; width: 440px; border-radius: 30px 30px 8px 30px; background: var(--ink); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2; padding: 22px 28px; box-sizing: border-box; }
+  #s6-a { position: absolute; left: 30px; right: 30px; top: 266px; height: 110px; border-radius: 30px 30px 30px 8px; background: #F3E6D2; }
+  #s6-a .at { position: absolute; left: 26px; top: 0; height: 110px; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; color: var(--ink); white-space: nowrap; }
+  #s6-cite { position: absolute; right: 22px; top: 27px; width: 56px; height: 56px; border-radius: 50%; background: var(--green); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; display: flex; align-items: center; justify-content: center; }
+  #s6-ring { position: absolute; left: 548px; top: 289px; width: 64px; height: 64px; border-radius: 50%; border: 4px solid var(--green); box-sizing: border-box; }
+  #s6-cursor { position: absolute; left: 566px; top: 312px; width: 64px; height: 80px; }
+  #s6-src { position: absolute; left: 30px; right: 30px; top: 406px; height: 250px; border-radius: 28px; border: 4px solid var(--green); background: #F3F9EF; box-sizing: border-box; }
+  #s6-src .sh { position: absolute; left: 24px; top: 18px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.1em; color: var(--green); white-space: nowrap; }
+  #s6-hl { position: absolute; left: 14px; right: 14px; top: 64px; height: 156px; border-radius: 16px; background: rgba(46,107,63,0.20); transform-origin: left center; }
+  #s6-src .qt { position: absolute; left: 26px; right: 26px; top: 74px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.3; color: var(--ink); }
+
+  /* 7: the catch */
+  #s7-title { top: 100px; font-size: 110px; }
+  #s7-card { top: 280px; height: 510px; }
+  .crow { position: absolute; left: 30px; right: 30px; height: 130px; border-radius: 26px; background: #F6EDDF; }
+  #s7-k1 { top: 30px; background: #FBEAC2; } #s7-k2 { top: 190px; } #s7-k3 { top: 350px; }
+  .crow .ct { position: absolute; left: 28px; right: 160px; top: 0; bottom: 0; display: flex; align-items: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.15; color: var(--ink); }
+  .crow .cc { position: absolute; right: 20px; top: 37px; width: 120px; height: 56px; border-radius: 28px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 0.06em; display: flex; align-items: center; justify-content: center; }
+  #s7-stamp { position: absolute; left: 400px; top: 860px; width: 520px; height: 150px; border: 10px solid var(--acc-t); border-radius: 22px; box-sizing: border-box; color: var(--acc-t); font-family: 'Archivo Black', sans-serif; font-size: 72px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+
+  /* 8: hide Aadhaar and policy number */
+  #s8-card { top: 360px; height: 710px; }
+  .frow { position: absolute; left: 30px; right: 30px; height: 120px; border-radius: 24px; background: #F6EDDF; }
+  #s8-f1 { top: 116px; } #s8-f2 { top: 256px; } #s8-f3 { top: 396px; }
+  .frow .fk { position: absolute; left: 26px; top: 14px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; }
+  .frow .fv { position: absolute; left: 26px; top: 50px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 38px; color: var(--ink); white-space: nowrap; }
+  .redact { position: absolute; left: 18px; top: 46px; width: 420px; height: 62px; border-radius: 12px; background: var(--red); color: #FFFFFF; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.14em; display: flex; align-items: center; justify-content: center; transform-origin: left center; }
+  #s8-up { position: absolute; left: 30px; right: 30px; top: 556px; height: 110px; border-radius: 55px; background: var(--ink); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+  #s8-up svg { display: block; width: 40px; height: 40px; }
+
+  /* 9: send */
+  #s9-send { position: absolute; left: 90px; right: 90px; top: 50px; text-align: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 150px; line-height: 1.05; color: var(--ink); }
+  #s9-plane { position: absolute; left: 760px; top: 270px; width: 180px; height: 150px; }
+  #s9-card { top: 440px; height: 600px; }
+  #s9-card .sh2 { position: absolute; left: 36px; top: 30px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: var(--muted); white-space: nowrap; }
+  .crd { position: absolute; left: 24px; right: 24px; border-radius: 28px; box-sizing: border-box; }
+  #s9-c1 { top: 90px; height: 170px; background: #EEF6EA; border: 4px solid var(--green); }
+  #s9-c2 { top: 280px; height: 130px; background: #F6EDDF; }
+  .crd .av2 { position: absolute; left: 20px; width: 96px; height: 96px; border-radius: 50%; }
+  #s9-c1 .av2 { top: 33px; background: #2F4F8A; } #s9-c2 .av2 { top: 17px; background: #8A5A12; }
+  .crd .nm2 { position: absolute; left: 136px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 40px; color: var(--ink); white-space: nowrap; }
+  #s9-c1 .nm2 { top: 26px; } #s9-c2 .nm2 { top: 36px; }
+  .crd .sb2 { position: absolute; left: 136px; right: 20px; top: 92px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--muted); white-space: nowrap; }
+  #s9-tick { position: absolute; left: 84px; top: 98px; width: 44px; height: 44px; border-radius: 50%; background: var(--green); }
+  #s9-btn { position: absolute; left: 24px; right: 24px; top: 450px; height: 110px; border-radius: 55px; background: var(--green); color: var(--cream); font-family: 'Inter', sans-serif; font-weight: 900; font-size: 40px; display: flex; align-items: center; justify-content: center; }
+
+  /* 10: keyword */
+  #s10-save { position: absolute; left: 90px; top: 50px; width: 360px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 120px; line-height: 1.02; color: var(--ink); }
+  #s10-mark { position: absolute; left: 450px; top: 72px; width: 90px; height: 120px; }
+  #s10-lbl { position: absolute; left: 90px; top: 250px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.16em; color: var(--acc-t); white-space: nowrap; }
+  #s10-tiles { position: absolute; left: 90px; top: 310px; width: 900px; height: 160px; display: flex; gap: 12px; }
+  .tile { display: block; width: 140px; height: 160px; border-radius: 26px; background: var(--acc-t); color: var(--cream); font-family: 'Archivo Black', sans-serif; font-size: 110px; line-height: 160px; text-align: center; box-shadow: 0 18px 36px rgba(92,56,24,0.25); }
+  #s10-card { top: 540px; height: 440px; }
+  #s10-card .wl { position: absolute; left: 36px; top: 34px; font-family: 'Inter', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.12em; color: var(--acc-t); white-space: nowrap; }
+  #s10-card .wt { position: absolute; left: 36px; right: 36px; top: 84px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 38px; line-height: 1.25; color: var(--ink); }
+  #s10-chips { position: absolute; left: 36px; right: 36px; top: 210px; height: 64px; display: flex; gap: 14px; }
+  .pc { display: block; height: 64px; line-height: 64px; padding: 0 24px; border-radius: 32px; background: #F2E6D4; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; color: var(--ink); white-space: nowrap; }
+  #s10-card .wn { position: absolute; left: 36px; right: 36px; top: 306px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.25; color: var(--muted); }
+</style>
+
+<div class="paper"></div>
+<div class="grid"></div>
+<div class="blob" id="blob1"></div>
+<div class="blob" id="blob2"></div>
+<div class="blob" id="blob3"></div>
+<div id="bar"><i><b id="p1"></b></i><i><b id="p2"></b></i><i><b id="p3"></b></i><i><b id="p4"></b></i><i><b id="p5"></b></i><i><b id="p6"></b></i></div>
+
+<section class="scene" id="s0" data-from="@line0" data-to="@line1">
+  <div class="step" id="s0-step">3 FREE AIs, RANKED</div>
+  <div class="title" id="s0-title"><span class="mask"><span class="l">Am I</span></span><span class="mask"><span class="l it">covered?</span></span></div>
+  <div id="s0-doc" class="clay-s">
+    <div class="fold"></div>
+    <div class="tag">PDF</div>
+    <div class="dl l1"></div><div class="dl l2"></div><div class="dl l3"></div><div class="dl l4"></div>
+    <div class="nm">POLICY</div>
+  </div>
+  <div id="s0-ranks">
+    <div class="rk clay-s" id="s0-rk3">3</div>
+    <div class="rk clay-s" id="s0-rk2">2</div>
+    <div class="rk clay-s" id="s0-rk1">1</div>
+  </div>
+</section>
+
+<section class="scene" id="s1" data-from="@line1" data-to="@line2">
+  <div class="step">AFTER OFFICE</div>
+  <div class="title"><span class="mask"><span class="l">Check the</span></span><span class="mask"><span class="l it">policy.</span></span></div>
+  <div class="card" id="s1-card">
+    <div class="bar-top"><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i></div>
+    <div class="fname">Health_Policy.pdf</div>
+    <div class="ex">EXAMPLE</div>
+    <div id="s1-pages">Page <b id="s1-num">1</b> of 40</div>
+    <div class="viewer">
+      <div class="vh">4. Waiting periods</div>
+      <div class="vwin"><div id="s1-scroll"><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i><i class="sk"></i></div></div>
+    </div>
+    <div id="s1-hr"><div class="av">HR</div><div class="bub">Please check the policy.</div></div>
+  </div>
+</section>
+
+<section class="scene" id="s2" data-from="@line2" data-to="@line3">
+  <div class="title" id="s2-title"><span class="mask"><span class="l">Same <span class="it">question.</span></span></span></div>
+  <svg id="s2-wires" viewBox="0 0 1080 1180" data-layout-allow-overlap>
+    <line class="wire" x1="540" y1="410" x2="225" y2="560" stroke="#2B2420" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round" stroke-dasharray="360"></line>
+    <line class="wire" x1="540" y1="410" x2="540" y2="560" stroke="#2B2420" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round" stroke-dasharray="360"></line>
+    <line class="wire" x1="540" y1="410" x2="855" y2="560" stroke="#2B2420" stroke-opacity="0.35" stroke-width="6" stroke-linecap="round" stroke-dasharray="360"></line>
+  </svg>
+  <div id="s2-pdf" class="clay-s"><div class="tag">PDF</div><div class="pn">Policy</div></div>
+  <div class="friend" id="s2-f1"><div class="q">Am I covered?</div><div class="face">C</div><div class="fn">ChatGPT</div></div>
+  <div class="friend" id="s2-f2"><div class="q">Am I covered?</div><div class="face">G</div><div class="fn">Gemini</div></div>
+  <div class="friend" id="s2-f3"><div class="q">Am I covered?</div><div class="face">N</div><div class="fn">NotebookLM</div></div>
+</section>
+
+<section class="scene" id="s3" data-from="@line3" data-to="@line6">
+  <div class="step">FREE PLANS</div>
+  <div class="title" id="s3-title"><span class="mask"><span class="l">Ranked, <span class="it">3 to 1.</span></span></span></div>
+  <div class="card" id="s3-card">
+    <div class="bar-top"></div>
+    <div class="lq">Question: Am I covered?</div>
+    <div class="slot" id="s3-r1">
+      <div class="fill">
+        <div class="rank">1</div>
+        <svg id="s3-star" class="clay-s" viewBox="0 0 50 50" data-layout-allow-overlap><circle cx="25" cy="25" r="24" fill="#F2C14E"></circle><path d="M25 9 L29.7 19.6 L41 20.6 L32.4 28 L35 39 L25 33.2 L15 39 L17.6 28 L9 20.6 L20.3 19.6 Z" fill="#2B2420"></path></svg>
+        <div class="nm">NotebookLM</div>
+        <div class="dom">notebooklm.google.com</div>
+        <div class="ln">Answers from your file only</div>
+        <div class="chip grn">TOP PICK</div>
+      </div>
+    </div>
+    <div class="slot" id="s3-r2">
+      <div class="fill">
+        <div class="rank">2</div>
+        <div class="nm">Gemini app</div>
+        <div class="dom">gemini.google.com</div>
+        <div class="ln">Free. Reads the whole PDF</div>
+        <div class="chip amb">FREE</div>
+      </div>
+    </div>
+    <div class="slot" id="s3-r3">
+      <div class="fill">
+        <div class="rank">3</div>
+        <div class="nm">ChatGPT</div>
+        <div class="dom">chatgpt.com</div>
+        <div class="ln">Free uploads are limited</div>
+        <div class="chip amb">LIMITED</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s6" data-from="@line6" data-to="@line7">
+  <div class="step">THE PROOF</div>
+  <div class="title"><span class="mask"><span class="l">It shows the</span></span><span class="mask"><span class="l it">clause.</span></span></div>
+  <div class="card" id="s6-card">
+    <div class="bar-top"><div class="tx">Your file: Policy.pdf</div></div>
+    <div class="ex">EXAMPLE</div>
+    <div id="s6-q">Am I covered for my parents?</div>
+    <div id="s6-a"><div class="at">Yes, after 2 years.</div><div id="s6-cite">1</div></div>
+    <div id="s6-ring" data-layout-allow-overlap></div>
+    <div id="s6-src">
+      <div class="sh">SOURCE 1 · POLICY.PDF</div>
+      <div id="s6-hl" data-layout-allow-overlap></div>
+      <div class="qt">4.2 Parents are covered after a waiting period of 24 months.</div>
+    </div>
+    <svg id="s6-cursor" viewBox="0 0 64 80" data-layout-allow-overlap><path d="M8 4 L8 62 L22 50 L34 76 L46 71 L34 45 L54 45 Z" fill="#2B2420" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"></path></svg>
+  </div>
+</section>
+
+<section class="scene" id="s7" data-from="@line7" data-to="@line8">
+  <div class="step">BEFORE YOU TRUST IT</div>
+  <div class="title" id="s7-title"><span class="mask"><span class="l">The <span class="it">catch.</span></span></span></div>
+  <div class="card" id="s7-card">
+    <div class="crow" id="s7-k1"><div class="ct">It can misread a clause</div><div class="cc amb">RISK</div></div>
+    <div class="crow" id="s7-k2"><div class="ct">Confirm with HR</div><div class="cc grn">ASK</div></div>
+    <div class="crow" id="s7-k3"><div class="ct">Or ask your insurer</div><div class="cc grn">ASK</div></div>
+  </div>
+  <div id="s7-stamp" class="clay-s">CHECK IT</div>
+</section>
+
+<section class="scene" id="s8" data-from="@line8" data-to="@line9">
+  <div class="step">BEFORE YOU UPLOAD</div>
+  <div class="title"><span class="mask"><span class="l">Hide <span class="it">these</span></span></span><span class="mask"><span class="l">first.</span></span></div>
+  <div class="card" id="s8-card">
+    <div class="bar-top"><div class="tx">Policy.pdf · page 1</div></div>
+    <div class="ex">EXAMPLE</div>
+    <div class="frow" id="s8-f1"><div class="fk">NAME</div><div class="fv">R. Sharma</div></div>
+    <div class="frow" id="s8-f2"><div class="fk">AADHAAR</div><div class="fv">1234 5678 9012</div><div class="redact" id="s8-m1" data-layout-allow-overlap>HIDDEN</div></div>
+    <div class="frow" id="s8-f3"><div class="fk">POLICY NO.</div><div class="fv">GHP 0045 2177</div><div class="redact" id="s8-m2" data-layout-allow-overlap>HIDDEN</div></div>
+    <div id="s8-up"><svg viewBox="0 0 40 40"><path d="M20 32 L20 8 M9 18 L20 7 L31 18" fill="none" stroke="#FFF6EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Then upload</span></div>
+  </div>
+</section>
+
+<section class="scene" id="s9" data-from="@line9" data-to="@line10">
+  <div id="s9-send"><span class="mask"><span class="l">Send this.</span></span></div>
+  <svg id="s9-plane" class="clay-s" viewBox="0 0 200 170"><path d="M8 82 L192 8 L150 160 L98 112 Z" fill="#D2602A"></path><path d="M98 112 L192 8 L82 98 L84 150 Z" fill="#9C3C1A"></path></svg>
+  <div class="card" id="s9-card">
+    <div class="sh2">Share to</div>
+    <div class="crd" id="s9-c1">
+      <svg class="av2" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#2F4F8A"></circle><circle cx="48" cy="38" r="17" fill="#FFF6EA"></circle><path d="M20 82 Q48 44 76 82 Z" fill="#FFF6EA"></path></svg>
+      <div class="nm2">Colleague</div>
+      <div class="sb2">Never opened the policy</div>
+      <svg id="s9-tick" viewBox="0 0 44 44" data-layout-allow-overlap><circle cx="22" cy="22" r="22" fill="#2E6B3F"></circle><path d="M12 23 L19 30 L32 15" fill="none" stroke="#FFF6EA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </div>
+    <div class="crd" id="s9-c2">
+      <svg class="av2" viewBox="0 0 96 96"><circle cx="48" cy="48" r="48" fill="#8A5A12"></circle><circle cx="34" cy="40" r="12" fill="#FFF6EA"></circle><circle cx="62" cy="40" r="12" fill="#FFF6EA"></circle><path d="M14 80 Q34 52 50 80 Z" fill="#FFF6EA"></path><path d="M46 80 Q62 52 82 80 Z" fill="#FFF6EA"></path></svg>
+      <div class="nm2">Office group</div>
+    </div>
+    <div id="s9-btn">Send</div>
+  </div>
+</section>
+
+<section class="scene" id="s10" data-from="@line10" data-to="end">
+  <div id="s10-save"><span class="mask"><span class="l">Save.</span></span></div>
+  <svg id="s10-mark" class="clay-s" viewBox="0 0 90 120"><path d="M10 6 L80 6 L80 114 L45 88 L10 114 Z" fill="#9C3C1A"></path></svg>
+  <div id="s10-lbl">COMMENT</div>
+  <div id="s10-tiles"><div class="tile clay-s">S</div><div class="tile clay-s">I</div><div class="tile clay-s">M</div><div class="tile clay-s">P</div><div class="tile clay-s">L</div><div class="tile clay-s">E</div></div>
+  <div class="card" id="s10-card">
+    <div class="wl">FREE PROMPT</div>
+    <div class="wt">Explains any policy word in plain words.</div>
+    <div id="s10-chips"><div class="pc">Hindi</div><div class="pc">English</div><div class="pc">Hinglish</div></div>
+    <div class="wn">Paste it into Claude. Free plan works.</div>
+  </div>
+</section>
